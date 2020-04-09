@@ -1,24 +1,20 @@
 ---
 title: doskey
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4874fd43-d5ea-45f3-ae24-388ae925ed76
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d45a2ddfeba7ec136add07eac11c3a8522ef872b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 72a5a362a225f57245a015de43a7538928c0937e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377694"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80845264"
 ---
 # <a name="doskey"></a>doskey
 
@@ -34,7 +30,7 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/insert | /overstrike] [/exename=<ExeName>] [/macrofile=<FileName>] [<MacroName>=[<Text>]]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |       Parametro        |                                                                                                                          Descrizione                                                                                                                           |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -51,7 +47,7 @@ doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/i
 | \<macroname > = [testo\<>]  | Crea una macro che esegue i comandi specificati da *testo*. *Nomemacro* Specifica il nome da assegnare alla macro. *Testo* Specifica i comandi che si desidera registrare. Se *testo* viene lasciato vuoto, *nomemacro* vengono cancellati tutti i comandi assegnati. |
 |           /?           |                                                                                                              Visualizza la guida al prompt dei comandi.                                                                                                              |
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 - Utilizzo Doskey.exe
 
@@ -80,8 +76,8 @@ doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/i
   |      FRECCIA DESTRA       |                                                                                                                                    Sposta l'inserimento carattere successivo.                                                                                                                                     |
   |    CTRL + FRECCIA SINISTRA     |                                                                                                                                        Sposta il cursore sulla precedente parola.                                                                                                                                         |
   |    CTRL + FRECCIA DESTRA    |                                                                                                                                       Sposta il cursore Avanti uno sulla parola.                                                                                                                                       |
-  |          HOME PAGE          |                                                                                                                                 Sposta il punto di inserimento all'inizio della riga.                                                                                                                                 |
-  |          FINE           |                                                                                                                                    Sposta il punto di inserimento alla fine della riga.                                                                                                                                    |
+  |          HOME          |                                                                                                                                 Sposta il punto di inserimento all'inizio della riga.                                                                                                                                 |
+  |          END           |                                                                                                                                    Sposta il punto di inserimento alla fine della riga.                                                                                                                                    |
   |          ESC           |                                                                                                                                          Cancella il comando dalla visualizzazione.                                                                                                                                           |
   |           F1           |                                                                      Copia un carattere di una colonna nel modello per la stessa colonna nella finestra del prompt dei comandi. (Il modello è un buffer di memoria che contiene l'ultimo comando digitato).                                                                       |
   |           F2           |                                                                 Cerca in avanti nel modello per la chiave successiva dopo aver digitato preme F2. Doskey.exe inserisce il testo dal modello, ovvero a, ma non include, il carattere specificate.                                                                  |
@@ -90,10 +86,10 @@ doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/i
   |           F5           |                                                                                                                                   Copia il modello nella riga di comando corrente.                                                                                                                                    |
   |           F6           |                                                                                                                    Posiziona un carattere di fine del file (CTRL + Z) in corrispondenza del punto di inserimento corrente.                                                                                                                    |
   |           F7           | Consente di visualizzare (in una finestra di dialogo) tutti i comandi per il programma che vengono archiviati nella memoria. Utilizzare il tasto FRECCIA SU e FRECCIA GIÙ per selezionare il comando desiderato e premere INVIO per eseguire il comando. È inoltre possibile annotare il numero di sequenza che precede il comando e utilizzare questo numero in combinazione con il tasto F9. |
-  |         ALT + F7         |                                                                                                                          Elimina tutti i comandi presenti in memoria per il buffer corrente.                                                                                                                          |
+  |         ALT+F7         |                                                                                                                          Elimina tutti i comandi presenti in memoria per il buffer corrente.                                                                                                                          |
   |           F8           |                                                                                                           Visualizza tutti i comandi nel buffer che iniziano con i caratteri nel comando corrente.                                                                                                            |
   |           F9           |                                             Richiede un numero di comandi di buffer della cronologia e quindi Visualizza il comando associato al numero specificato. Premere INVIO per eseguire il comando. Per visualizzare tutti i numeri e i relativi comandi, premere F7.                                             |
-  |        ALT + F10         |                                                                                                                                             Elimina tutte le definizioni di macro.                                                                                                                                              |
+  |        ALT+F10         |                                                                                                                                             Elimina tutte le definizioni di macro.                                                                                                                                              |
 
 
 - Utilizzando **doskey** all'interno di un programma
@@ -143,7 +139,7 @@ doskey [/reinstall] [/listsize=<Size>] [/macros:[all | <ExeName>] [/history] [/i
   doskey <MacroName> =
   ```
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Il **/macros** e **/history** Opzioni della riga di comando sono utili per la creazione di programmi di batch per salvare le macro e i comandi. Ad esempio, per archiviare tutti corrente **doskey** macro, digitare:
 ```
@@ -196,6 +192,6 @@ Per eliminare una macro denominata vlist, digitare:
 doskey vlist =
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

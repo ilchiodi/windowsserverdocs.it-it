@@ -1,28 +1,22 @@
 ---
 title: dir
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Windows Commands Topic for dir, che visualizza un elenco dei file e delle sottodirectory di una directory.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: edcbf69b-eaa4-466e-b210-3dd8892f4d93
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8aeb2b3b7d62ae62ba9b8fa70988cf64060673ca
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 44e50707886df87b217f22bc04edcdaf7496b0d1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79320015"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80845564"
 ---
 # <a name="dir"></a>dir
-
-
 
 Visualizza un elenco di file e le sottodirectory della directory. Se utilizzata senza parametri, **dir** Visualizza l'etichetta di volume del disco e numero di serie, seguito da un elenco di directory e file sul disco (inclusi i relativi nomi e i data e ora dell'ultima modifica ogni). Per i file, **dir** consente di visualizzare l'estensione del nome e la dimensione in byte. **Dir** inoltre visualizza il numero totale di file e directory elencate, la quantità di memoria e lo spazio libero sul disco (in byte).
 
@@ -34,7 +28,7 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#examples).
 dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>]][/o[[:]<SortOrder>]] [/t[[:]<TimeField>]] [/s] [/b] [/l] [/n] [/x] [/c] [/4]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
@@ -44,7 +38,7 @@ dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>
 |/q|Visualizza informazioni sulla proprietà di file.|
 |/w|Visualizza l'elenco in formato esteso, con un massimo di cinque nomi di file o i nomi di directory in ogni riga.|
 |/d|Visualizza l'elenco nello stesso formato **/w**, ma i file vengono ordinati per colonna.|
-|/a [[:]\<attributi >]|Visualizza solo i nomi delle directory e file con gli attributi specificati. Se si omette **/a**, **dir** Visualizza i nomi di tutti i file tranne nascosti e i file di sistema. Se si utilizza **/a** senza specificare *attributi*, **dir** Visualizza i nomi di tutti i file, tra cui nascosti e i file di sistema.</br>Nell'elenco seguente sono descritti i valori che è possibile utilizzare per *attributi*. Utilizzo di due punti (:) è facoltativo. Utilizzare una combinazione qualsiasi di questi valori e non separare i valori con spazi.</br>**d** Directory</br>**h** file nascosti</br>**s** i file di sistema</br>**l** Reparse Point</br>**r** i file di sola lettura</br>**un** pronto per l'archiviazione dei file</br>**i** non contenuti i file indicizzati</br>**-** Questo prefisso equivale a "No"|
+|/a [[:]\<attributi >]|Visualizza solo i nomi delle directory e file con gli attributi specificati. Se si omette **/a**, **dir** Visualizza i nomi di tutti i file tranne nascosti e i file di sistema. Se si utilizza **/a** senza specificare *attributi*, **dir** Visualizza i nomi di tutti i file, tra cui nascosti e i file di sistema.</br>Nell'elenco seguente sono descritti i valori che è possibile utilizzare per *attributi*. Utilizzo di due punti (:) è facoltativo. Utilizzare una combinazione qualsiasi di questi valori e non separare i valori con spazi.</br>**d** Directory</br>**h** file nascosti</br>**s** i file di sistema</br>**l** Reparse Point</br>**r** i file di sola lettura</br>**un** pronto per l'archiviazione dei file</br>**i** non contenuti i file indicizzati</br>**-** Il prefisso non significa|
 |/o [[:]\<SortOrder >]|Ordina l'output in base a *SortOrder*, che può essere qualsiasi combinazione dei valori seguenti:</br>**n** in base al nome (in ordine alfabetico)</br>**e** dall'estensione (in ordine alfabetico)</br>**g** prima alla directory di gruppo</br>**s** per dimensioni (il primo più piccolo)</br>**d** da data/ora (più recente)</br>**-** Prefisso per l'ordine inverso</br>Nota: l'uso di due punti è facoltativo. Più valori vengono elaborati nell'ordine in cui sono elencate. Non separare più valori con uno spazio.</br>Se *SortOrder* non è specificato, **/o dir** Elenca le directory in ordine alfabetico, seguito dai file, che devono essere disposti in ordine alfabetico.|
 |/t [[:]\<TimeField >]|Specifica il campo ora per visualizzare o utilizzare per l'ordinamento. Nell'elenco seguente sono descritti i valori è possibile utilizzare per *ora*:</br>**c** creazione</br>**un** ultimo accesso</br>**w** ultima scrittura|
 |/s|Elenca tutte le occorrenze del nome del file specificato in una directory specificata e tutte le sottodirectory.|
@@ -63,8 +57,8 @@ dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>
 
   **Asterisco (\*):** utilizzare l'asterisco come sostituto di qualsiasi stringa di caratteri, ad esempio:  
   - **dir \*. txt** Elenca tutti i file nella directory corrente con le estensioni che iniziano con estensione txt, ad esempio con estensione txt, .txt1, .txt_old.
-  - **dir leggere\*. txt** Elenca tutti i file nella directory corrente che iniziano con "lettura" e con le estensioni che iniziano con estensione txt, ad esempio con estensione txt, .txt1 o .txt_old.
-  - **dir leggere\*.\*** elenca tutti i file nella directory corrente che iniziano con "Read" con qualsiasi estensione.
+  - **dir leggere\*. txt** elenca tutti i file nella directory corrente che iniziano con Read e con le estensioni che iniziano con txt, ad esempio. txt,. txt1 o. txt_old.
+  - **dir leggere\*.\*** elenca tutti i file nella directory corrente che iniziano con Read con qualsiasi estensione.
 
   Il carattere jolly asterisco sempre utilizzato mapping nomi file brevi, si potrebbero ottenere risultati imprevisti. Ad esempio, la directory seguente contiene due file (t.txt2 e t97.txt): 
  
@@ -83,7 +77,7 @@ dir [<Drive>:][<Path>][<FileName>] [...] [/p] [/q] [/w] [/d] [/a[[:]<Attributes>
 
   Ci si potrebbe aspettare che digitando **dir t97\\** * venga restituito il file t97. txt. Tuttavia, digitando **dir t97\\** * vengono restituiti entrambi i file, perché il carattere jolly asterisco corrisponde al file t. txt2 a T97. txt usando la mappa nome breve T97B4 ~ 1. txt. Analogamente, la digitazione **del t97\\** * eliminerà entrambi i file.
 
-  **Punto interrogativo (?):** utilizzare il punto interrogativo come sostituto di un singolo carattere in un nome. Ad esempio, se si digita **dir leggere???. txt** elencati tutti i file nella directory corrente con l'estensione. txt che iniziano con "lettura" e sono seguiti da un massimo di tre caratteri. Sono inclusi Read.txt, Read1.txt, Read12.txt, Read123.txt e Readme1.txt, ma non Readme12.txt.
+  **Punto interrogativo (?):** utilizzare il punto interrogativo come sostituto di un singolo carattere in un nome. Ad esempio, digitare **dir read???. txt** elenca tutti i file nella directory corrente con l'estensione txt che iniziano con Read e sono seguiti da un massimo di tre caratteri. Sono inclusi Read.txt, Read1.txt, Read12.txt, Read123.txt e Readme1.txt, ma non Readme12.txt.
 - Specifica degli attributi di visualizzazione del file
 
   Se si utilizza **/a** con più di un valore negli *attributi*, **dir** Visualizza i nomi dei soli file con tutti gli attributi specificati. Ad esempio, se si utilizza **/a** con **r** e **-h** come attributi (utilizzando **/a: r-h** o **/ar-h verranno**), **dir** verrà visualizzato solo i nomi dei file di sola lettura che non sono nascosti.
@@ -103,7 +97,7 @@ Per visualizzare tutte le directory, uno dopo l'altro, in ordine alfabetico, nel
 dir /s/w/o/p
 ```
 
-**Dir** Elenca la directory radice, le sottodirectory e i file nella directory radice, incluse le estensioni. Quindi, **dir** Elenca i nomi delle sottodirectory e file in ogni sottodirectory nella struttura.
+Il comando **dir** elenca la directory radice, le sottodirectory e i file nella directory radice, incluse le estensioni. Quindi, **dir** Elenca i nomi delle sottodirectory e file in ogni sottodirectory nella struttura.
 
 Per modificare l'esempio precedente in modo che **dir** Visualizza i nomi di file e le estensioni, ma non i nomi delle directory, tipo:
 
@@ -135,8 +129,8 @@ Per visualizzare un elenco di tutti i nomi di file con estensione txt in tutte l
 dir c:\*.txt /w/o/s/p
 ```
 
-**Dir** Visualizza in formato esteso, un elenco in ordine alfabetico dei file corrispondente nomi in ogni directory e si ferma ogni volta che la schermata viene compilato finché non si preme un tasto qualsiasi per continuare.
+Il comando **dir** Visualizza, in formato esteso, un elenco in ordine alfabetico dei nomi file corrispondenti in ogni directory e viene sospeso ogni volta che lo schermo si riempie fino a quando non si preme un tasto qualsiasi per continuare.
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

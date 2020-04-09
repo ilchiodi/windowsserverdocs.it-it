@@ -1,24 +1,20 @@
 ---
 title: echo
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: fb9fcd0f-5e73-4504-aa95-78204e1a79d3
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 343d6327d262401b4be14e472a135062456890f1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5e6e9c3c79cc8006efba0c97a574e3d6d94a6f7e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377627"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80845244"
 ---
 # <a name="echo"></a>echo
 
@@ -35,17 +31,17 @@ echo [<Message>]
 echo [on | off]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
-|[in \| off]|Attiva o disattiva la ripetizione dei comandi. Eco dei comandi è abilitata per impostazione predefinita.|
-|\<Message >|Specifica il testo da visualizzare sullo schermo.|
+|[on \| off]|Attiva o disattiva la ripetizione dei comandi. Eco dei comandi è abilitata per impostazione predefinita.|
+|Messaggio \<>|Specifica il testo da visualizzare sullo schermo.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
 
--   Il comando **echo** *Message* è particolarmente utile quando **echo** è disattivato. Per visualizzare un messaggio di diverse righe senza visualizzare alcun comando, è possibile includere diversi comandi del *messaggio* Echo dopo il comando **echo off** del programma batch.
+-   Il comando **echo** *Message* è particolarmente utile quando **echo** è disattivato. Per visualizzare un messaggio di diverse righe senza visualizzare alcun comando, è possibile includere diversi comandi del **echo** *messaggio* Echo dopo il comando **echo off** del programma batch.
 -   Quando **echo** è disattivato, il prompt dei comandi non viene visualizzato nella finestra del prompt dei comandi. Per visualizzare il prompt dei comandi, digitare **l'aggiornamento.**
 -   Se utilizzato in un file batch, **echo in** e **echo off** non influisce sull'impostazione al prompt dei comandi.
 -   Per evitare la ripetizione di un comando specifico in un file batch, inserire un simbolo di chiocciola (@) prima il comando. Per evitare la ripetizione di tutti i comandi in un file batch, includere il **echo off** comando all'inizio del file.
@@ -117,6 +113,6 @@ File2.txt
 File3.txt
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

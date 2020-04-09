@@ -1,24 +1,20 @@
 ---
 title: 'che Ksetup: dumpstate'
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3ef2f7b8-97af-4f42-9542-cff324840637
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 625d05b2fea9ae58681648c64e309aa8b2a201ed
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 46f827d26d867392db4cbef92cf5be496aee8d74
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71375004"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80841514"
 ---
 # <a name="ksetupdumpstate"></a>che Ksetup: dumpstate
 
@@ -32,9 +28,9 @@ Visualizza lo stato corrente delle impostazioni dell'area di autenticazione per 
 ksetup /dumpstate
 ```
 
-### <a name="parameters"></a>Parametri
+#### <a name="parameters"></a>Parametri
 
-Nessuno
+None
 
 ## <a name="remarks"></a>Note
 
@@ -49,14 +45,14 @@ Questo comando consente di visualizzare la password del computer che viene impos
 
 **Che Ksetup** produce lo stesso output **che ksetup /dumpstate**.
 
-## <a name="BKMK_Examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
 
 Trovare la maggior parte delle configurazioni dell'area di autenticazione Kerberos in un computer:
 ```
 ksetup /dumpstate
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
 -   [Che Ksetup](ksetup.md)
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

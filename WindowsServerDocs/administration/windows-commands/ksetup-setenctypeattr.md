@@ -1,24 +1,20 @@
 ---
 title: 'che Ksetup: setenctypeattr'
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 88fb913e-6b57-48d9-8c16-a035ab2977ac
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bcc268ecb591e3008d7274f6c9f6d6017c86f99d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 78450202b33f76ab7b0a374fe4559f0a25e709b5
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374926"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80841344"
 ---
 # <a name="ksetupsetenctypeattr"></a>che Ksetup: setenctypeattr
 
@@ -32,11 +28,11 @@ Imposta l'attributo del tipo di crittografia per il dominio. Per esempi di come 
 ksetup /setenctypeattr <Domain name> {DES-CBC-CRC | DES-CBC-MD5 | RC4-HMAC-MD5 | AES128-CTS-HMAC-SHA1-96 | AES256-CTS-HMAC-SHA1-96}
 ```
 
-### <a name="parameters"></a>Parametri
+#### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<DomainName >|Nome del dominio a cui si desidera stabilire una connessione. Utilizzare il nome di dominio completo o un modulo semplice del nome, ad esempio corp.contoso.com o contoso.|
+|\<NomeDominio >|Nome del dominio a cui si desidera stabilire una connessione. Utilizzare il nome di dominio completo o un modulo semplice del nome, ad esempio corp.contoso.com o contoso.|
 |Tipo di crittografia|Deve essere uno dei tipi di crittografia supportati seguenti:</br>-DES-CBC-CRC</br>-DES-CBC-MD5</br>-RC4-HMAC-MD5</br>-AES128-CTS-HMAC-SHA1-96</br>-AES256-CTS-HMAC-SHA1-96|
 
 ## <a name="remarks"></a>Note
@@ -47,9 +43,9 @@ Per visualizzare il tipo di crittografia per Kerberos ticket di concessione tick
 
 Se il comando ha esito positivo o negativo, viene visualizzato un messaggio di stato.
 
-Per impostare il dominio a cui si desidera connettersi e usare, eseguire il comando **che Ksetup/domain \<DomainName >** .
+Per impostare il dominio a cui si desidera connettersi e usare, eseguire il comando **che Ksetup/domain \<nomedominio >** .
 
-## <a name="BKMK_Examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
 
 Determinare i tipi di crittografia corrente che sono impostati su questo computer:
 ```
@@ -68,11 +64,11 @@ Verificare che l'attributo del tipo di crittografia sia impostato come previsto 
 ksetup /getenctypeattr corp.contoso.com
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
 -   [Klist](klist.md)
 -   [Ksetup:domain](ksetup-domain.md)
 -   [Ksetup:addenctypeattr](ksetup-addenctypeattr.md)
 -   [Ksetup:getenctypeattr](ksetup-getenctypeattr.md)
 -   [Ksetup:delenctypeattr](ksetup-delenctypeattr.md)
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

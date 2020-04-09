@@ -1,24 +1,20 @@
 ---
 title: extend
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2414e21d-fc0b-40e8-9e33-3e072f8ad76b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bb54a661bf60b55fd95bf3a686d758d13831a6ba
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 11991f9fc338dca5201d8f9c9c598b9d7dcf239b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377315"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80844784"
 ---
 # <a name="extend"></a>extend
 
@@ -35,7 +31,7 @@ extend [size=<n>] [disk=<n>] [noerr]
 extend filesystem [noerr]  
 ```  
   
-## <a name="parameters"></a>Parametri  
+### <a name="parameters"></a>Parametri  
   
 | Parametro  |                                                                                             Descrizione                                                                                              |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -44,7 +40,7 @@ extend filesystem [noerr]
 | file System |                                   estende la file system del volume con lo stato attivo. Per utilizzare solo sui dischi in cui il file system non è stata estesa con il volume.                                    |
 |   NOERR    | solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore. |
   
-## <a name="remarks"></a>Osservazioni  
+## <a name="remarks"></a>Note  
   
 -   Nei dischi di base, lo spazio deve essere sullo stesso disco del volume o una partizione con lo stato attivo. Deve attenersi anche immediatamente il volume o una partizione con lo stato attivo \(ovvero deve iniziare in corrispondenza dell'offset del settore successivo\).  
   
@@ -58,7 +54,7 @@ extend filesystem [noerr]
   
 -   La partizione deve disporre di un volume associato prima può essere esteso.  
   
-## <a name="BKMK_examples"></a>Esempi  
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi  
 Per estendere il volume o una partizione con lo stato attivo da 500 MB, sul disco 3, digitare:  
   
 ```  
@@ -71,8 +67,8 @@ Per estendere il file system di un volume dopo che è stato esteso, digitare:
 extend filesystem  
 ```  
   
-#### <a name="additional-references"></a>riferimenti aggiuntivi  
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
+## <a name="additional-references"></a>Altre informazioni di riferimento  
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
   
 
   

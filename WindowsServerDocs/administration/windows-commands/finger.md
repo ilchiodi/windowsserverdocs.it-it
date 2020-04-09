@@ -1,35 +1,31 @@
 ---
 title: finger
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 907ea637-5c6c-4752-84c2-46bbf2a68a33
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8e16120eb19ff2f194fe2c8bdeb3af80ca459ebe
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 78313fc4980b32e3aeb6d1611ef80d7eb6831fc1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377158"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80844604"
 ---
 # <a name="finger"></a>finger
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Visualizza le informazioni su un utente o su un computer remoto specificato (in genere un computer che esegue UNIX) che esegue il servizio Finger o daemon. Il computer remoto specifica il formato e l'output della visualizzazione di informazioni dell'utente. Se utilizzato senza parametri, **dito** Visualizza la Guida. 
 ## <a name="syntax"></a>Sintassi
 ```
 finger [-l] [<User>] [@<Host>] [...]
 ```
-### <a name="parameters"></a>Parametri
+#### <a name="parameters"></a>Parametri
 
 | Parametro |                                                                            Descrizione                                                                            |
 |-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -43,7 +39,7 @@ finger [-l] [<User>] [@<Host>] [...]
 È necessario anteporre **dito** parametri con un trattino (-) anziché una barra (/).
 Questo comando è disponibile solo se è installato il protocollo Internet Protocol (TCP/IP) come componente nelle proprietà di una scheda di rete in connessioni di rete.
 Windows Server 2003 non fornisce un servizio con un dito.
-## <a name="BKMK_Examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
 Per visualizzare informazioni per user1 nel computer utenti.microsoft.com, digitare:
 ```
 finger user1@users.microsoft.com
@@ -52,5 +48,5 @@ Per visualizzare informazioni per tutti gli utenti del computer utenti.microsoft
 ```
 finger @users.microsoft.com
 ```
-## <a name="additional-references"></a>Riferimenti aggiuntivi
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+## <a name="additional-references"></a>Altre informazioni di riferimento
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

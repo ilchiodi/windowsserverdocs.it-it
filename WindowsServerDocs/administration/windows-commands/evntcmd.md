@@ -1,24 +1,20 @@
 ---
 title: Evntcmd
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c1aabb74-76e7-4304-95a6-50ad87e92fd9
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b4496df6df1a40b383505627d58389c098493f59
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 86e4290543ffcc0da1c768a661fd88a7638b1146
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377444"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80845014"
 ---
 # <a name="evntcmd"></a>Evntcmd
 
@@ -29,7 +25,7 @@ Configura la traduzione di eventi da trap, le destinazioni trap o entrambi, in b
 ```  
 evntcmd [/s <computerName>] [/v <verbosityLevel>] [/n] <FileName>  
 ```  
-### <a name="parameters"></a>Parametri  
+#### <a name="parameters"></a>Parametri  
 
 |      Parametro      |                                                                                                                                                            Descrizione                                                                                                                                                             |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -39,7 +35,7 @@ evntcmd [/s <computerName>] [/v <verbosityLevel>] [/n] <FileName>
 |     <FileName>      |                                                                                     Specifica il nome, il file di configurazione che contiene informazioni sulla conversione di eventi da trap e le destinazioni trap che si desidera configurare.                                                                                     |
 |         /?          |                                                                                                                                                Visualizza la guida al prompt dei comandi.                                                                                                                                                |
 
-## <a name="remarks"></a>Osservazioni  
+## <a name="remarks"></a>Note  
 - Se si desidera configurare trap ma non le destinazioni trap, è possibile creare un file di configurazione valido utilizzando Event to Trap Translator, un'utilità grafica. Se è installato il servizio SNMP, è possibile avviare l'evento a trap digitando **evntwin** un prompt dei comandi. Dopo aver definito i trap desiderati, fare clic su Esporta per creare un file può essere utilizzato con **evntcmd**. Evento a trap consente di creare facilmente un file di configurazione e quindi utilizzare il file di configurazione con **evntcmd** al prompt dei comandi per configurare rapidamente i trap in più computer.  
 - La sintassi per la configurazione di trap è come segue:  
   **#pragma aggiungi**<em><EventLogFile> <EventSource> <EventID> [<Count> [<Period>]]</em>  
@@ -65,19 +61,19 @@ evntcmd [/s <computerName>] [/v <verbosityLevel>] [/n] <FileName>
   - Il parametro *delete_TRAP_DEST* specifica che non si desidera che i messaggi trap vengano inviati a un host specificato all'interno di una community.  
   - Il parametro *NomeComunità* Specifica il nome, la community in cui trap vengono inviati messaggi.  
   - Il parametro *HostID* Specifica il nome o l'indirizzo IP dell'host a cui non si desidera inviare i messaggi trap.  
-    ## <a name="BKMK_Examples"></a>Esempi  
+    ## <a name="examples"></a><a name=BKMK_Examples></a>Esempi  
     Gli esempi seguenti illustrano le voci nel file di configurazione per il **evntcmd** comando. Non sono progettate per essere digitate al prompt dei comandi.  
     Per inviare un messaggio trap se viene riavviato il servizio Registro eventi, digitare:  
     ```  
-    #pragma add System "Eventlog" 2147489653  
+    #pragma add System Eventlog 2147489653  
     ```  
     Per inviare un messaggio trap se il servizio Registro eventi viene riavviato due volte in tre minuti, digitare:  
     ```  
-    #pragma add System "Eventlog" 2147489653 2 180  
+    #pragma add System Eventlog 2147489653 2 180  
     ```  
     Per arrestare l'invio di un messaggio trap ogni volta che viene riavviato il servizio Registro eventi, digitare:  
     ```  
-    #pragma delete System "Eventlog" 2147489653  
+    #pragma delete System Eventlog 2147489653  
     ```  
     Per inviare messaggi trap all'interno della community denominata Public all'host con l'indirizzo IP 192.168.100.100, digitare:  
     ```  
@@ -91,5 +87,5 @@ evntcmd [/s <computerName>] [/v <verbosityLevel>] [/n] <FileName>
     ```  
     #pragma delete_TRAP_DEST private localhost  
     ```  
-    ## <a name="additional-references"></a>riferimenti aggiuntivi  
-- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
+    ## <a name="additional-references"></a>Altre informazioni di riferimento  
+- - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

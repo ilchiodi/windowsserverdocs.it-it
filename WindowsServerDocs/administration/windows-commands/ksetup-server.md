@@ -1,24 +1,20 @@
 ---
 title: 'che Ksetup: Server'
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e3407111-ac92-457f-aa1f-a04fe9109d59
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dd05fd294640c63e633b7b866307197ae6770476
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7889e1a03d3c0eec1958bf1d6356c67e9371a80f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71374965"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80841444"
 ---
 # <a name="ksetupserver"></a>che Ksetup: Server
 
@@ -32,7 +28,7 @@ Consente di specificare un nome per un computer che esegue il sistema operativo 
 ksetup /server <ServerName>
 ```
 
-### <a name="parameters"></a>Parametri
+#### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
@@ -44,14 +40,14 @@ Non è possibile rimuovere il nome del server di destinazione; è possibile modi
 
 Il nome del server di destinazione è archiviato nel Registro di sistema **HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\LSA\Kerberos**. Non verrà segnalato tramite **che ksetup**.
 
-## <a name="BKMK_Examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
 
 Rendere il **che ksetup** configurazioni effettiva nei computer IPops897 collegato nel dominio Contoso:
 ```
 ksetup /server IPops897.corp.contoso.com
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
 -   [Che Ksetup](ksetup.md)
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

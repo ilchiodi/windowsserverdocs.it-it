@@ -1,28 +1,22 @@
 ---
 title: del
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per CANC, che consente di eliminare uno o più file.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 346eede2-2085-44f5-9936-6877b5d5a833
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6e569443a56646862c7a2c9fbd2c599cede941a1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7069ee50a810296d31e1a034b24955299918020a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71378698"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80846664"
 ---
 # <a name="del"></a>del
-
-
 
 Elimina uno o più file. Questo comando è analogo a come il **erase** comando.
 
@@ -35,27 +29,28 @@ del [/p] [/f] [/s] [/q] [/a[:]<Attributes>] <Names>
 erase [/p] [/f] [/s] [/q] [/a[:]<Attributes>] <Names>
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<Names >|Specifica un elenco di uno o più file o directory. Per eliminare più file, è possibile utilizzare caratteri jolly. Se viene specificata una directory, verranno eliminati tutti i file all'interno della directory.|
-|/ p|Richiede una conferma prima di eliminare il file specificato.|
+|Nomi \<>|Specifica un elenco di uno o più file o directory. Per eliminare più file, è possibile utilizzare caratteri jolly. Se viene specificata una directory, verranno eliminati tutti i file all'interno della directory.|
+|/p|Richiede una conferma prima di eliminare il file specificato.|
 |/f|Eliminazione di forza dei file di sola lettura.|
 |/s|Elimina i file dalla directory corrente e tutte le sottodirectory specificati. Visualizza i nomi dei file di come vengono eliminati.|
 |/q|Specifica la modalità non interattiva. Non viene chiesto di confermare l'eliminazione.|
-|/a [:] \<Attributes >|Elimina i file in base ai seguenti attributi di file:</br>**r** i file di sola lettura</br>**h** file nascosti</br>**i** non contenuti i file indicizzati</br>**s** i file di sistema</br>**un** pronto per l'archiviazione dei file</br>**l** Reparse Point</br>-Prefisso vale a dire 'not'|
+|/a [:]\<attributi >|Elimina i file in base ai seguenti attributi di file:</br>**r** i file di sola lettura</br>**h** file nascosti</br>**i** non contenuti i file indicizzati</br>**s** i file di sistema</br>**un** pronto per l'archiviazione dei file</br>**l** Reparse Point</br>-Prefisso vale a dire 'not'|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Note
 
 > [!CAUTION]
 > Se si utilizza **CANC** per eliminare un file dal disco, non è possibile recuperarlo.
-> -   Se si usa **/p**, **Canc** Visualizza il nome di un file e invia il messaggio seguente:
+
+-   Se si usa **/p**, **Canc** Visualizza il nome di un file e invia il messaggio seguente:
 
     `FileName, Delete (Y/N)?`
 
-    To confirm the deletion, press Y. To cancel the deletion and display the next file name (that is, if you specified a group of files), press N. To stop the **del** command, press CTRL+C.
+    Per confermare l'eliminazione, premere Y. Per annullare l'eliminazione e visualizzare il nome del file successivo, ovvero se è stato specificato un gruppo di file, premere N. Per arrestare il comando **Canc** , premere CTRL + C.
 - Se si disabilita le estensioni dei comandi, **/s** vengono visualizzati i nomi di tutti i file che non sono stati trovati anziché visualizzare i nomi dei file da eliminare (ovvero, il comportamento viene invertito).
 - Se si specifica una cartella in *nomi*, vengono eliminati tutti i file nella cartella. Ad esempio, il seguente comando Elimina tutti i file nella cartella \Work:  
   ```
@@ -73,9 +68,10 @@ erase [/p] [/f] [/s] [/q] [/a[:]<Attributes>] <Names>
 
 > [!NOTE]
 > Prima di utilizzare caratteri jolly con il **CANC** comando, utilizzare gli stessi caratteri jolly con il **dir** comando per elencare tutti i file che verranno eliminati.
-> -   Il **CANC** comando con parametri diversi, è disponibile dalla Console di ripristino.
 
-## <a name="BKMK_examples"></a>Esempi
+-   Il **CANC** comando con parametri diversi, è disponibile dalla Console di ripristino.
+
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Per eliminare tutti i file in una cartella denominata Test sull'unità C, digitare uno dei seguenti:
 ```
@@ -91,6 +87,6 @@ Per eliminare tutti i file di sola lettura nella directory corrente, digitare:
 del /a:r *.*
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

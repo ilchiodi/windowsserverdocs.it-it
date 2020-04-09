@@ -1,43 +1,37 @@
 ---
 title: Crea mirror del volume
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Windows Commands argomento per create volume mirror, che consente di creare un mirror del volume usando i due dischi dinamici specificati.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 48776917-783a-47ff-8da4-1cab77cea34b
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 72ecc4e0ede163857c47c5b7013aacdd49719ac8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fa5ea72eb0edacb841f32126f31a257b0573dd6d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71378875"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80846974"
 ---
 # <a name="create-volume-mirror"></a>Crea mirror del volume
 
 >Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-consente di creare un mirror del volume utilizzando i due dischi dinamici specificati.  
+Crea un mirror di volume utilizzando due dischi dinamici specificati.  
   
 > [!NOTE]  
-> Questo comando è disponibile solo in Windows 7 e Windows Server 2008 R2.  
-  
-  
-  
+> Questo comando è disponibile solo in Windows 7 e Windows Server 2008 R2.
+
 ## <a name="syntax"></a>Sintassi  
   
 ```  
 create volume mirror [size=<n>] disk=<n>,<n>[,<n>,...] [align=<n>] [noerr] [noerr]  
 ```  
   
-## <a name="parameters"></a>Parametri  
+### <a name="parameters"></a>Parametri  
   
 |         Parametro         |                                                                                                                                     Descrizione                                                                                                                                     |
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -46,19 +40,19 @@ create volume mirror [size=<n>] disk=<n>,<n>[,<n>,...] [align=<n>] [noerr] [noer
 |        Allinea\=<n>         | Consente di allineare tutti gli extent di volume per il limite di allineamento più vicino. Questo parametro viene in genere utilizzato con il numero di unità logica RAID hardware \(LUN\) matrici per migliorare le prestazioni. *n* è il numero di kilobyte \(KB\) dall'inizio del disco per il limite di allineamento più vicino. |
 |           NOERR           |                                        Utilizzato solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un errore.                                         |
   
-## <a name="remarks"></a>Osservazioni  
+## <a name="remarks"></a>Note  
   
 -   Dopo aver creato il volume, lo stato attivo passa automaticamente al nuovo volume.  
   
-## <a name="BKMK_examples"></a>Esempi  
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi  
 Per creare un volume con mirroring di 1000 MB di dimensioni, sui dischi 1 e 2, digitare:  
   
 ```  
 create volume mirror size=1000 disk=1,2  
 ```  
   
-#### <a name="additional-references"></a>riferimenti aggiuntivi  
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
+## <a name="additional-references"></a>Altre informazioni di riferimento  
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
   
 
   

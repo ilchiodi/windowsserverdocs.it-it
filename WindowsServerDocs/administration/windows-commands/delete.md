@@ -1,28 +1,22 @@
 ---
-title: Elimina
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+title: delete
+description: Windows Commands argomento for delete, che elimina una partizione o un volume.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 021799a3-11a2-4e7f-8fdc-fba24ca2ba21
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c2dd1edc8404ef89ae087e49b9e1d4b302d1c8ad
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1c9844a223390e3e825b7255f83a8867dc65297f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71378603"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80846544"
 ---
-# <a name="delete"></a>Elimina
-
-
+# <a name="delete"></a>delete
 
 Elimina una partizione o un volume. Elimina inoltre un disco dinamico dall'elenco dei dischi.
 
@@ -34,7 +28,7 @@ delete partition
 delete volume
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
@@ -42,5 +36,7 @@ delete volume
 |[Elimina partizione](delete-partition.md)|Elimina una partizione.|
 |[Elimina volume](delete-volume.md)|Elimina un volume.|
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
+
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

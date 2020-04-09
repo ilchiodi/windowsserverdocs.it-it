@@ -1,72 +1,52 @@
 ---
 title: Dfsutil
-ms.custom: na
+description: Windows Commands argomento per Dfsutil, che gestisce spazi dei nomi DFS, server e client. i comandi dfsutil utilizzano la terminologia file system distribuito originale, con la terminologia degli spazi dei nomi DFS aggiornata fornita come spiegazione per la maggior parte dei comandi.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ef5093a4-0d24-4b21-9d04-59933ad98e2c
-robots: noindex,nofollow
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1a06806b109bbd324213f935892bbbab415362df
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 30415bc85fd8a4a4804946a3d4a168d6a7d1433a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71377984"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80845584"
 ---
 # <a name="dfsutil"></a>Dfsutil
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Il comando dfsutil gestisce spazi dei nomi DFS, server e client. i comandi dfsutil utilizzano la terminologia file system distribuito originale, con la terminologia degli spazi dei nomi DFS aggiornata fornita come spiegazione per la maggior parte dei comandi.
+Il comando dfsutil gestisce spazi dei nomi DFS, server e client. Nella maggior parte dei casi è possibile usare i cmdlet di PowerShell per gli spazi dei nomi DFS più recenti, anche se sono disponibili alcuni comandi che richiedono ancora Dfsutil.
 
-per esempi di come è possibile usare questo comando, vedere 
+## <a name="parameters-available-in-powershell"></a>Parametri disponibili in PowerShell
 
-## <a name="syntax"></a>Sintassi
+Da PowerShell è possibile usare i parametri seguenti:
 
-```
-command </parameter> </param2>
-```
+| Parametro | Descrizione |
+| --------- | ----------- |
+| radice | Visualizza, crea, rimuove, importa ed Esporta le radici dello spazio dei nomi. |
+| collegamento | Consente di visualizzare, creare, rimuovere o spostare cartelle (collegamenti). |
+| target | Visualizza, crea, Rimuovi la cartella di destinazione o il server dello spazio dei nomi. |
+| proprietà | Visualizza o modifica di un server di destinazione o spazio dei nomi di cartella. |
+| server | Visualizza o modifica di configurazione dello spazio dei nomi. |
+| dominio | Visualizza tutti gli spazi dei nomi basati su dominio in un dominio. |
 
-### <a name="parameters"></a>Parametri
+## <a name="parameters-only-available-in-dfsutil"></a>Parametri disponibili solo in Dfsutil
 
-|Parametro|Descrizione|
-|-------|--------|
-|[Radice Dfsutil](dfsutil-root.md)|Visualizza, crea, Elimina, Importa, Esporta radici dello spazio dei nomi.|
-|[Collegamento Dfsutil](dfsutil-link.md)|Visualizza, crea, rimuove o si sposta le cartelle \(collegamenti\).|
-|[Destinazione Dfsutil](dfsutil-target.md)|Consente di visualizzare, creare, rimuovere il server di destinazione o spazio dei nomi della cartella.|
-|[Proprietà Dfsutil](dfsutil-property.md)|Visualizza o modifica di un server di destinazione o spazio dei nomi di cartella.|
-|[Client Dfsutil](dfsutil-client.md)|Visualizza o modifica le chiavi del Registro di sistema o informazioni client.|
-|[Server Dfsutil](dfsutil-server.md)|Visualizza o modifica di configurazione dello spazio dei nomi.|
-|[Dfsutil diag](dfsutil-diag.md)|Eseguire la diagnostica o visualizzare dfsdirs\/dfspath.|
-|[Dominio Dfsutil](dfsutil-domain.md)|Visualizza tutti dominio\-basato su spazi dei nomi in un dominio.|
-|[Cache Dfsutil](dfsutil-cache.md)|Visualizza o scarica la cache del client.|
-|[oldcli Dfsutil](dfsutil-oldcli.md)|Usare il comando Dfsutil \/oldcli per usare la sintassi Dfsutil originale.|
+È possibile usare i parametri seguenti solo da Dfsutil.
 
-## <a name="remarks-optional-section"></a><optional section> osservazioni
-Se si specifica un oggetto \(come un server dello spazio dei nomi\) alla fine di un comando, la maggior parte dei comandi visualizzerà le informazioni sull'oggetto senza richiedere ulteriori parametri o comandi. Ad esempio, quando si usa il comando radice Dfsutil, è possibile aggiungere una radice dello spazio dei nomi al comando per visualizzare le informazioni sulla radice.
+| Parametro | Descrizione |
+| --------- | ----------- |
+| client | Visualizza o modifica le chiavi del Registro di sistema o informazioni client. |
+| diag | Eseguire la diagnostica o visualizzare dfsdirs/dfspath. |
+| cache | Visualizza o scarica la cache del client. |
 
-## <a name="BKMK_Examples"></a>Esempi
-&lt;qui è possibile inserire una descrizione dettagliata dell'esempio.&gt;
+Per altre informazioni su ognuno di questi comandi, aprire un prompt dei comandi in un server con gli strumenti di gestione degli spazi dei nomi DFS installati, quindi digitare `dfsutil client /?`, `dfsutil diag /?`o `dfsutil cache /?`.
 
-```
-This /is /the /example /of /calling /command /with /parameters
-```
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-&lt;qui è possibile inserire una descrizione dettagliata di un altro esempio.&gt;
-
-```
-This /is /a:different /example
-```
-
-## <a name="additional-references"></a>riferimenti aggiuntivi
-
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
-
-
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
