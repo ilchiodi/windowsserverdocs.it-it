@@ -1,6 +1,5 @@
 ---
 title: Ripristino della foresta di Active Directory-rimuovere il catalogo globale
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 60087a62-11e6-4750-a70e-510f35315688
 ms.technology: identity-adds
-ms.openlocfilehash: 3ba1336828ad6031ce7fb47a659d084494466e4a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9c16d25c3e749062bdcb2531960c17be434cf615
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71409092"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823724"
 ---
 # <a name="ad-forest-recovery---removing-the-global-catalog"></a>Ripristino della foresta di Active Directory-rimozione del catalogo globale  
 
@@ -32,7 +31,7 @@ ms.locfileid: "71409092"
 4. Fare clic con il pulsante destro del mouse su **Impostazioni NTDS**, quindi scegliere **Proprietà**. 
 5. Deselezionare la casella di controllo **catalogo globale** . 
    ![rimuovere GC](media/AD-Forest-Recovery-Remove-GC/removegc1.png)
-6. Fare clic su **Applica**.
+6. Fare clic su **Applica**
   
 ## <a name="to-remove-the-global-catalog-using-repadmin"></a>Per rimuovere il catalogo globale tramite repadmin  
   

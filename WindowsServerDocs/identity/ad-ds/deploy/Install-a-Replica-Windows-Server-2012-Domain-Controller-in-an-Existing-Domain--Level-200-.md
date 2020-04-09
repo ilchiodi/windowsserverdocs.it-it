@@ -1,7 +1,6 @@
 ---
 ms.assetid: e6da5984-d99d-4c34-9c11-4a18cd413f06
 title: Installare un controller di dominio di replica di Windows Server 2012 in un dominio esistente (livello 200)
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 5e72c18d3aa49774cf73d5365748e7bf20764b22
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 12068e5a062358463cf208f777144091e1de8257
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390842"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80825204"
 ---
 # <a name="install-a-replica-windows-server-2012-domain-controller-in-an-existing-domain-level-200"></a>Installare un controller di dominio di replica di Windows Server 2012 in un dominio esistente (livello 200)
 
@@ -28,22 +27,22 @@ In questo argomento vengono illustrati i passaggi necessari per aggiornare una f
   
 -   [Distribuzione](../../ad-ds/deploy/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-.md#BKMK_Dep)  
   
-## <a name="BKMK_Workflow"></a>Flusso di lavoro di aggiornamento e replica  
+## <a name="upgrade-and-replica-workflow"></a><a name="BKMK_Workflow"></a>Flusso di lavoro di aggiornamento e replica  
 Il diagramma seguente illustra il processo di configurazione di Servizi di dominio Active Directory, quando in precedenza è stato installato il ruolo Servizi di dominio Active Directory ed è stata avviata la Configurazione guidata Servizi di dominio Active Directory mediante Server Manager per creare un nuovo controller di dominio in un dominio esistente.  
   
 ![Installare una replica](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/adds_forestupgrade.png)  
   
-## <a name="BKMK_PS"></a>Eseguire l'aggiornamento e la replica di Windows PowerShell  
+## <a name="upgrade-and-replica-windows-powershell"></a><a name="BKMK_PS"></a>Eseguire l'aggiornamento e la replica di Windows PowerShell  
   
 |||  
 |-|-|  
 |**Cmdlet ADDSDeployment**|Argomenti. Gli argomenti in **grassetto** sono obbligatori. Gli argomenti in *corsivo* possono essere specificati usando Windows PowerShell o la Configurazione guidata Servizi di dominio Active Directory.|  
-|Install-AddsDomainController|-SkipPreChecks<br /><br />***-DomainName***<br /><br />*-SafeModeAdministratorPassword*<br /><br />*-SiteName*<br /><br />*-ADPrepCredential*<br /><br />-ApplicationPartitionsToReplicate<br /><br />*-AllowDomainControllerReinstall*<br /><br />-Confirm<br /><br />*-CreateDNSDelegation*<br /><br />***-Credential***<br /><br />-CriticalReplicationOnly<br /><br />*-DatabasePath*<br /><br />*-DNSDelegationCredential*<br /><br />-Force<br /><br />*-InstallationMediaPath*<br /><br />*-InstallDNS*<br /><br />*-LogPath*<br /><br />-MoveInfrastructureOperationMasterRoleIfNecessary<br /><br />-NoDnsOnNetwork<br /><br />*-NoGlobalCatalog*<br /><br />-Norebootoncompletion<br /><br />*-ReplicationSourceDC*<br /><br />-SkipAutoConfigureDNS<br /><br />-SiteName<br /><br />*-SystemKey*<br /><br />*-SYSVOLPath*<br /><br />*-UseExistingAccount*<br /><br />*-WhatIf*|  
+|Install-AddsDomainController|-SkipPreChecks<p>***-DomainName***<p>*-SafeModeAdministratorPassword*<p>*-SiteName*<p>*-ADPrepCredential*<p>-ApplicationPartitionsToReplicate<p>*-AllowDomainControllerReinstall*<p>-Confirm<p>*-CreateDNSDelegation*<p>***-Credential***<p>-CriticalReplicationOnly<p>*-DatabasePath*<p>*-DNSDelegationCredential*<p>-Force<p>*-InstallationMediaPath*<p>*-InstallDNS*<p>*-LogPath*<p>-MoveInfrastructureOperationMasterRoleIfNecessary<p>-NoDnsOnNetwork<p>*-NoGlobalCatalog*<p>-Norebootoncompletion<p>*-ReplicationSourceDC*<p>-SkipAutoConfigureDNS<p>-SiteName<p>*-SystemKey*<p>*-SYSVOLPath*<p>*-UseExistingAccount*<p>*-WhatIf*|  
   
 > [!NOTE]  
 > L'argomento **-credential** è obbligatorio solo se non si è già connessi come membro dei gruppi Enterprise Admins e Schema Admins (se si deve aggiornare la foresta) o del gruppo Domain Admins (se si deve aggiungere un nuovo controller di dominio a un dominio esistente).  
   
-## <a name="BKMK_Dep"></a>Distribuzione  
+## <a name="deployment"></a><a name="BKMK_Dep"></a>Distribuzione  
   
 ### <a name="deployment-configuration"></a>Configurazione distribuzione  
 ![Installare una replica](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_UpgradeDeployConfig.png)  
@@ -122,7 +121,7 @@ Ad esempio, è possibile utilizzare il cmdlet **Read-Host** per richiedere all'u
   
 ```  
   
-Infine, è possibile archiviare la password offuscata in un file e quindi riutilizzarla in seguito, senza visualizzare mai la password non crittografata. Esempio:  
+Infine, è possibile archiviare la password offuscata in un file e quindi riutilizzarla in seguito, senza visualizzare mai la password non crittografata. Ad esempio,  
   
 ```  
 $file = "c:\pw.txt"  
@@ -221,7 +220,7 @@ Nella pagina **Verifica opzioni** è possibile convalidare le impostazioni e acc
   
 La pagina **Verifica opzioni** di Server Manager include inoltre un pulsante opzionale **Visualizza script** , che consente di creare un file di testo Unicode contenente la configurazione ADDSDeployment corrente come singolo script di Windows PowerShell. In questo modo è possibile utilizzare l'interfaccia grafica di Server Manager come strumento di distribuzione di Windows PowerShell. Utilizzare la Configurazione guidata Servizi di dominio Active Directory per configurare le opzioni, esportare la configurazione e annullare la procedura guidata.  Questo processo crea un esempio valido e sintatticamente corretto che può essere utilizzato direttamente o successivamente modificato.  
   
-Esempio:  
+Ad esempio,  
   
 ```  
 #  
@@ -258,7 +257,7 @@ Quando si installa un nuovo controller di dominio, la Configurazione guidata Ser
   
 **Controllo dei prerequisiti** copre anche le informazioni pertinenti, ad esempio le modifiche alla sicurezza, che interessano i sistemi operativi precedenti.  
   
-Per altre informazioni sui controlli dei prerequisiti specifici, vedere [Prerequisite Checking](../../ad-ds/manage/AD-DS-Simplified-Administration.md#BKMK_PrereuisiteChecking).  
+Per altre informazioni sui controlli dei prerequisiti specifici, vedere [Controllo dei prerequisiti](../../ad-ds/manage/AD-DS-Simplified-Administration.md#BKMK_PrereuisiteChecking).  
   
 Non è possibile ignorare il **Controllo prerequisiti** quando si usa Server Manager, ma è possibile saltare il processo quando si usa il cmdlet di distribuzione di Servizi di dominio Active Directory con l'argomento seguente:  
   
@@ -312,12 +311,12 @@ Per configurare un controller di dominio in modalità remota con Windows PowerSh
 invoke-command {install-addsdomaincontroller "domainname <domain> -credential (get-credential)} -computername <dc name>  
 ```  
   
-Esempio:  
+Ad esempio,  
   
 ![Installare una replica](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_PSUpgradeExample.gif)  
   
 > [!NOTE]  
-> Per altre informazioni sul funzionamento sul processo di installazione e Adprep, vedere [Troubleshooting Domain Controller Deployment](../../ad-ds/deploy/Troubleshooting-Domain-Controller-Deployment.md).  
+> Per altre informazioni sul funzionamento sul processo di installazione e Adprep, vedere [Risoluzione dei problemi relativi alla distribuzione di controller di dominio](../../ad-ds/deploy/Troubleshooting-Domain-Controller-Deployment.md).  
   
 ### <a name="results"></a>Risultati  
 ![Installare una replica](media/Install-a-Replica-Windows-Server-2012-Domain-Controller-in-an-Existing-Domain--Level-200-/ADDS_SMI_TR_ForestSignOff.png)  

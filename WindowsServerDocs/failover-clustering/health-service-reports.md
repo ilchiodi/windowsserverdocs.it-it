@@ -5,15 +5,14 @@ manager: eldenc
 ms.author: cosdar
 ms.technology: storage-health-service
 ms.topic: article
-ms.assetid: ''
 author: cosmosdarwin
 ms.date: 10/05/2017
-ms.openlocfilehash: e65db8834bd0b059dc7bbebbcaf9288fb46da225
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3b47e1abf3805b7e6e3dc180d5d937ddb2723fa4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369684"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827544"
 ---
 # <a name="health-service-reports"></a>Report Servizio integrità
 > Si applica a: Windows Server 2019, Windows Server 2016
@@ -76,7 +75,7 @@ Il nome utente specificato deve essere un amministratore locale del computer di 
 
 È consigliabile costruire la password **SecureString** direttamente dall'input dell'utente in tempo reale, quindi la password non viene mai archiviata in memoria in testo non crittografato. Questo consente di attenuare una serie di problemi di sicurezza. In pratica, tuttavia, la creazione di questo approccio è comune a scopo di creazione di prototipi.
 
-### <a name="discover-objects"></a>Oggetti Discover
+### <a name="discover-objects"></a>Individuazione oggetti
 
 Con la **CimSession** stabilita, è possibile eseguire una query Strumentazione gestione Windows (WMI) nel cluster.
 
@@ -215,19 +214,19 @@ Ogni metrica dispone solo di tre proprietà, in base a questa tabella.
 
 | **Proprietà** | **Esempio**       |
 | -------------|-------------------|
-| Nome         | IOLatencyAverage  |
+| Name         | IOLatencyAverage  |
 | Valore        | 0,00021           |
 | Unità        | 3                 |
 
 Unità = {0, 1, 2, 3, 4}, dove 0 = "byte", 1 = "BytesPerSecond", 2 = "CountPerSecond", 3 = "secondi" o 4 = "percentuale".
 
-## <a name="coverage"></a>Ambito del servizio
+## <a name="coverage"></a>Coverage
 
 Di seguito sono riportate le metriche disponibili per ogni ambito di Windows Server 2016.
 
 ### <a name="msft_storagesubsystem"></a>MSFT_StorageSubSystem
 
-| **Name**                        | **Unità** |
+| **Nome**                        | **Unità** |
 |---------------------------------|-----------|
 | CPUUsage                        | 4         |
 | CapacityPhysicalPooledAvailable | 0         |
@@ -251,7 +250,7 @@ Di seguito sono riportate le metriche disponibili per ogni ambito di Windows Ser
 
 ### <a name="msft_storagenode"></a>MSFT_StorageNode
 
-| **Name**            | **Unità** |
+| **Nome**            | **Unità** |
 |---------------------|-----------|
 | CPUUsage            | 4         |
 | IOLatencyAverage    | 3         |
@@ -268,7 +267,7 @@ Di seguito sono riportate le metriche disponibili per ogni ambito di Windows Ser
 
 ### <a name="msft_volume"></a>MSFT_Volume
 
-| **Name**            | **Unità** |
+| **Nome**            | **Unità** |
 |---------------------|-----------|
 | CapacityAvailable   | 0         |
 | CapacityTotal       | 0         |
@@ -282,6 +281,6 @@ Di seguito sono riportate le metriche disponibili per ogni ambito di Windows Ser
 | IOThroughputTotal   | 1         |
 | IOThroughputWrite   | 1         |
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Servizio integrità in Windows Server 2016](health-service-overview.md)

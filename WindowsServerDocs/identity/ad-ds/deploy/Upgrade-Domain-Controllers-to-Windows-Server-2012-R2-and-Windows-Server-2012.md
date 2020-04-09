@@ -1,7 +1,6 @@
 ---
 ms.assetid: e4c31187-f15f-410b-bb79-8d63e2f2b421
-title: Aggiornare i controller di dominio a Windows Server 2012 R2 e Windows Server 2012
-description: ''
+title: Aggiornare controller di dominio a Windows Server 2012 R2 e Windows Server 2012
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,14 +8,14 @@ ms.date: 08/09/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: f8e5164ee1b5729d30536ae61df7cf3579e57fe6
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: e5c0887c39e07491a5ad6cd6ac89d4d6a41772e3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822724"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824934"
 ---
-# <a name="upgrade-domain-controllers-to-windows-server-2012-r2-and-windows-server-2012"></a>Aggiornare i controller di dominio a Windows Server 2012 R2 e Windows Server 2012
+# <a name="upgrade-domain-controllers-to-windows-server-2012-r2-and-windows-server-2012"></a>Aggiornare controller di dominio a Windows Server 2012 R2 e Windows Server 2012
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -26,8 +25,8 @@ In questo argomento vengono fornite informazioni complementari sulle Active Dire
 Il metodo consigliato per aggiornare un dominio è alzare di livello i controller di dominio che eseguono versioni più recenti di Windows Server e abbassare di livello i controller di dominio precedenti in base alle necessità. Questo metodo è preferibile all'aggiornamento del sistema operativo di un controller di dominio esistente. Questo elenco include i passaggi generali da seguire prima di alzare di livello un controller di dominio che esegue una versione più recente di Windows Server:  
   
 1. Verificare che il server di destinazione soddisfi i [requisiti di sistema](https://technet.microsoft.com/library/dn303418.aspx).  
-2. Verificare la [Application compatibility](../../ad-ds/deploy/Upgrade-Domain-Controllers-to-Windows-Server-2012-R2-and-Windows-Server-2012.md#BKMK_AppCompat).  
-3. Verificare le impostazioni di sicurezza Per altre informazioni, vedere [Caratteristiche deprecate e modifiche del comportamento relative a Servizi di dominio Active Directory in Windows Server 2012 e [Secure default settings in Windows Server 2008 e Windows Server 2008 R2](https://technet.microsoft.com/library/upgrade-domain-controllers-to-windows-server-2008-r2(WS.10).aspx#BKMK_SecureDefault).  
+2. Verificare la [compatibilità delle applicazioni](../../ad-ds/deploy/Upgrade-Domain-Controllers-to-Windows-Server-2012-R2-and-Windows-Server-2012.md#BKMK_AppCompat).  
+3. Verificare le impostazioni di sicurezza Per altre informazioni, vedere [Caratteristiche deprecate e modifiche del comportamento relative a Servizi di dominio Active Directory in Windows Server 2012](../../ad-ds/deploy/Upgrade-Domain-Controllers-to-Windows-Server-2012-R2-and-Windows-Server-2012.md#BKMK_DeprecatedFeatures) e [Secure default settings in Windows Server 2008 e Windows Server 2008 R2](https://technet.microsoft.com/library/upgrade-domain-controllers-to-windows-server-2008-r2(WS.10).aspx#BKMK_SecureDefault).  
 4. Controllare la connettività al server di destinazione dal computer in cui si prevede di eseguire l'installazione.  
 5. Controllare la disponibilità dei ruoli master operazione necessari:  
 
@@ -72,7 +71,7 @@ Poiché Windows Update fa parte di Manutenzione automatica in Windows 8 e Window
 
 Nella tabella seguente sono riepilogate le nuove caratteristiche di Servizi di dominio Active Directory in Windows Server 2012 R2, insieme a un collegamento a informazioni più dettagliate, ove disponibili. Per informazioni più dettagliate su alcune caratteristiche e relativi requisiti, vedere [Novità di Active Directory in Windows Server 2012 R2](https://technet.microsoft.com/library/dn268294.aspx).  
 
-|Funzionalità|Descrizione|  
+|Caratteristica|Descrizione|  
 |-----------|---------------|  
 |[Workplace Join](https://technet.microsoft.com/library/dn280945.aspx)|Consente agli Information Worker di aggiungere i dispositivi personali alla società per accedere alle risorse e ai servizi aziendali.|  
 |[Proxy applicazione Web](https://technet.microsoft.com/library/dn280942.aspx)|Consente l'accesso all'applicazione Web con un nuovo servizio ruolo Accesso remoto.|  
@@ -80,7 +79,7 @@ Nella tabella seguente sono riepilogate le nuove caratteristiche di Servizi di d
 |[Unicità di SPN e UPN](https://technet.microsoft.com/library/dn535779.aspx)|I controller di dominio che eseguono Windows Server 2012 R2 bloccano la creazione di nomi dell'entità servizio (SPN) e di nomi dell'entità utente (UPN).|  
 |[Accesso automatico al riavvio Winlogon](https://technet.microsoft.com/library/dn535772.aspx)|Consente alle applicazioni schermata di blocco di essere riavviate e disponibili sui dispositivi Windows 8.1.|  
 |[Attestazione chiave TPM](https://technet.microsoft.com/library/dn581921.aspx)|Consente alle CA di attestare a livello di crittografia in un certificato rilasciato che la chiave privata del richiedente del certificato è effettivamente protetta da un Trusted Platform Module (TPM).|  
-|[Protezione e gestione delle credenziali](https://technet.microsoft.com/library/dn408190.aspx)|Nuovi controlli di protezione delle credenziali e autenticazione dei domini per ridurre il furto di credenziali.|  
+|[Gestione e protezione delle credenziali](https://technet.microsoft.com/library/dn408190.aspx)|Nuovi controlli di protezione delle credenziali e autenticazione dei domini per ridurre il furto di credenziali.|  
 |[Deprecazione del servizio Replica file (FRS)](https://technet.microsoft.com/library/dn535775.aspx)|Anche il livello di funzionalità del dominio Windows Server 2003 è deprecato perché a livello di funzionalità FRS viene usato per replicare SYSVOL. Pertanto, quando si crea un nuovo dominio su un server che esegue Windows Server 2012 R2, il livello di funzionalità del dominio deve essere Windows Server 2008 o versione successiva. È comunque possibile aggiungere un controller di dominio che esegue Windows Server 2012 R2 a un dominio esistente con un livello di funzionalità del dominio di Windows Server 2003. non è possibile creare un nuovo dominio a tale livello.|  
 |[Nuovi livelli di funzionalità di domini e foreste](../active-directory-functional-levels.md)|Esistono nuovi livelli di funzionalità per Windows Server 2012 R2. Nuove caratteristiche sono disponibili nel livello di funzionalità del dominio di Windows Server 2012 R2.|  
 |[Modifiche Query Optimizer LDAP](https://technet.microsoft.com/library/dn535775.aspx)|Miglioramenti delle prestazioni nell'efficienza della ricerca LDAP e nei tempi di ricerca LDAP delle query complesse.|  
@@ -91,7 +90,7 @@ Nella tabella seguente sono riepilogate le nuove caratteristiche di Servizi di d
 
 Nella tabella seguente sono riepilogate le nuove caratteristiche di Servizi di dominio Active Directory in Windows Server 2012, insieme a un collegamento a informazioni più dettagliate, ove disponibili. Per una spiegazione più dettagliata di alcune funzionalità, inclusi i relativi requisiti, vedere Novità di [Active Directory Domain Services (ad DS)](https://technet.microsoft.com/library/hh831477.aspx).  
   
-|Funzionalità|Descrizione|  
+|Caratteristica|Descrizione|  
 |-----------|---------------|  
 |Attivazione basata su Active Directory, vedere [Panoramica dell'attivazione di contratti multilicenza](https://technet.microsoft.com/library/hh831612.aspx)|Semplifica l'attività di configurazione della distribuzione e della gestione dei contratti multilicenza del software.|  
 |[Active Directory Federation Services (AD FS)](https://technet.microsoft.com/library/hh831502.aspx)|Aggiunge installazione dei ruoli attraverso Server Manager, configurazione semplificata dei trust, gestione automatica dei trust, supporto del protocollo SAML e altro ancora.|  
@@ -125,9 +124,9 @@ Nella tabella seguente sono elencati alcuni esempi di configurazione di queste i
 |||  
 |-|-|  
 |**Scenario**|**Configurazioni consigliate**|  
-|**Gestito da WSUS**<br /><br />-Installa gli aggiornamenti una volta alla settimana<br />-Riavvio venerdì alle 23.00|Impostare i computer sull'installazione automatica, impedire il riavvio automatico fino all'ora desiderata<br /><br />**Criterio**: Configura Aggiornamenti automatici (attivato)<br /><br />Configura aggiornamento automatico: 4-download automatico e pianificazione dell'installazione<br /><br />**Criterio**: nessun riavvio automatico con utenti connessi (disabilitato)<br /><br />**Scadenze WSUS**: impostare su venerdì alle 23|  
-|**Gestito da WSUS**<br /><br />-Scagliona le installazioni tra ore/giorni diversi|Impostare i gruppi di destinazione per gruppi diversi di computer da aggiornare insieme<br /><br />Usare i passaggi dello scenario precedente<br /><br />Impostare scadenze diverse per gruppi di destinazione diversi|  
-|**Non gestito da WSUS-nessun supporto per le scadenze**<br /><br />-Scaglionare le installazioni in momenti diversi|**Criterio**: Configura Aggiornamenti automatici (attivato)<br /><br />Configura aggiornamento automatico: 4-download automatico e pianificazione dell'installazione<br /><br />**Chiave del Registro di sistema:** abilitare la chiave del Registro di sistema citata nell'articolo della Microsoft KB [2835627](https://support.microsoft.com/kb/2835627)<br /><br />**Criterio:** Ritardo casuale manutenzione automatica (abilitato)<br /><br />Impostare **Ritardo casuale manutenzione normale** su PT6H per un ritardo casuale di 6 ore per implementare il comportamento seguente:<br /><br />-Gli aggiornamenti vengono installati al momento della manutenzione configurata più un ritardo casuale<br /><br />-Il riavvio per ogni computer verrà eseguita esattamente tre giorni dopo<br /><br />In alternativa, impostare un'ora di manutenzione diversa per ogni gruppo di computer|  
+|**Gestito da WSUS**<p>-Installa gli aggiornamenti una volta alla settimana<br />-Riavvio venerdì alle 23.00|Impostare i computer sull'installazione automatica, impedire il riavvio automatico fino all'ora desiderata<p>**Criterio**: Configura Aggiornamenti automatici (attivato)<p>Configura aggiornamento automatico: 4-download automatico e pianificazione dell'installazione<p>**Criterio**: nessun riavvio automatico con utenti connessi (disabilitato)<p>**Scadenze WSUS**: impostare su venerdì alle 23|  
+|**Gestito da WSUS**<p>-Scagliona le installazioni tra ore/giorni diversi|Impostare i gruppi di destinazione per gruppi diversi di computer da aggiornare insieme<p>Usare i passaggi dello scenario precedente<p>Impostare scadenze diverse per gruppi di destinazione diversi|  
+|**Non gestito da WSUS-nessun supporto per le scadenze**<p>-Scaglionare le installazioni in momenti diversi|**Criterio**: Configura Aggiornamenti automatici (attivato)<p>Configura aggiornamento automatico: 4-download automatico e pianificazione dell'installazione<p>**Chiave del Registro di sistema:** abilitare la chiave del Registro di sistema citata nell'articolo della Microsoft KB [2835627](https://support.microsoft.com/kb/2835627)<p>**Criterio:** Ritardo casuale manutenzione automatica (abilitato)<p>Impostare **Ritardo casuale manutenzione normale** su PT6H per un ritardo casuale di 6 ore per implementare il comportamento seguente:<p>-Gli aggiornamenti vengono installati al momento della manutenzione configurata più un ritardo casuale<p>-Il riavvio per ogni computer verrà eseguita esattamente tre giorni dopo<p>In alternativa, impostare un'ora di manutenzione diversa per ogni gruppo di computer|  
 
 Per altre informazioni sui motivi per cui il team tecnico Windows ha implementato queste modifiche, vedere [Riduzione dei riavvii dopo l'aggiornamento automatico in Windows Update](https://blogs.msdn.com/b/b8/archive/2011/11/14/minimizing-restarts-after-automatic-updating-in-windows-update.aspx).  
 
@@ -158,10 +157,10 @@ A partire da Windows Server 2008, i controller di dominio dispongono anche delle
 |||||  
 |-|-|-|-|  
 |Tipo di crittografia o criteri|Impostazione predefinita in Windows Server 2008|Impostazione predefinita in Windows Server 2012 e Windows Server 2008 R2|Commento|  
-|AllowNT4Crypto|Disabilitata|Disabilitata|È possibile che i client SMB (Server Message Block) di terze parti non siano compatibili con le impostazioni predefinite sicure dei controller di dominio. In tutti i casi, è possibile ridurre queste impostazioni per consentire l'interoperabilità, ma solo a scapito della sicurezza. Per ulteriori informazioni, vedere l' [articolo 942564](https://go.microsoft.com/fwlink/?LinkId=164558) della Microsoft Knowledge Base (https://go.microsoft.com/fwlink/?LinkId=164558).|  
-|DES|Abilitato|Disabilitata|[Articolo 977321](https://go.microsoft.com/fwlink/?LinkId=177717) della Microsoft Knowledge Base (https://go.microsoft.com/fwlink/?LinkId=177717)|  
-|CBT/Protezione estesa per autenticazione integrata|N/D|Abilitato|Vedere l' [avviso di sicurezza Microsoft (937811)](https://go.microsoft.com/fwlink/?LinkId=164559) (https://go.microsoft.com/fwlink/?LinkId=164559) e l' [articolo 976918](https://go.microsoft.com/fwlink/?LinkId=178251) nella microsoft Knowledge base (https://go.microsoft.com/fwlink/?LinkId=178251).<br /><br />Esaminare e installare l'hotfix nell' [articolo 977073](https://go.microsoft.com/fwlink/?LinkId=186394) (https://go.microsoft.com/fwlink/?LinkId=186394) nella Microsoft Knowledge base come richiesto.|  
-|LMv2|Abilitato|Disabilitata|[Articolo 976918](https://go.microsoft.com/fwlink/?LinkId=178251) della Microsoft Knowledge Base (https://go.microsoft.com/fwlink/?LinkId=178251)|  
+|AllowNT4Crypto|Disabled|Disabled|È possibile che i client SMB (Server Message Block) di terze parti non siano compatibili con le impostazioni predefinite sicure dei controller di dominio. In tutti i casi, è possibile ridurre queste impostazioni per consentire l'interoperabilità, ma solo a scapito della sicurezza. Per ulteriori informazioni, vedere l' [articolo 942564](https://go.microsoft.com/fwlink/?LinkId=164558) della Microsoft Knowledge Base (https://go.microsoft.com/fwlink/?LinkId=164558).|  
+|DES|Abilitato|Disabled|[Articolo 977321](https://go.microsoft.com/fwlink/?LinkId=177717) della Microsoft Knowledge Base (https://go.microsoft.com/fwlink/?LinkId=177717)|  
+|CBT/Protezione estesa per autenticazione integrata|N/D|Abilitato|Vedere l' [avviso di sicurezza Microsoft (937811)](https://go.microsoft.com/fwlink/?LinkId=164559) (https://go.microsoft.com/fwlink/?LinkId=164559) e l' [articolo 976918](https://go.microsoft.com/fwlink/?LinkId=178251) nella microsoft Knowledge base (https://go.microsoft.com/fwlink/?LinkId=178251).<p>Esaminare e installare l'hotfix nell' [articolo 977073](https://go.microsoft.com/fwlink/?LinkId=186394) (https://go.microsoft.com/fwlink/?LinkId=186394) nella Microsoft Knowledge base come richiesto.|  
+|LMv2|Abilitato|Disabled|[Articolo 976918](https://go.microsoft.com/fwlink/?LinkId=178251) della Microsoft Knowledge Base (https://go.microsoft.com/fwlink/?LinkId=178251)|  
 
 ## <a name="operating-system-requirements"></a><a name="BKMK_SysReqs"></a>Requisiti del sistema operativo
 
@@ -169,7 +168,7 @@ Nella tabella seguente sono elencati i requisiti minimi di sistema per Windows S
 
 |||  
 |-|-|  
-|Responsabile del trattamento|Processore a 64 bit da 1,4 GHz|  
+|Processore|Processore a 64 bit da 1,4 GHz|  
 |RAM|512 MB|  
 |Requisiti di spazio libero su disco|32 GB|  
 |Risoluzione dello schermo|800 x 600 o superiore|  
@@ -206,12 +205,12 @@ I controller di dominio che eseguono versioni a 64 bit di Windows Server 2008 o 
 
 |Edizioni eseguite:|Edizioni a cui è possibile eseguire l'aggiornamento:|  
 |-------------------------------------|-------------------------------------|  
-|Windows Server 2008 Standard con SP2<br /><br />OPPURE<br /><br />Windows Server 2008 Enterprise con SP2|Windows Server 2012 Standard<br /><br />OPPURE<br /><br />Windows Server 2012 Datacenter|  
-|Windows Server 2008 Datacenter con SP2|Windows Server 2012 Datacenter|  
-|Windows Web Server 2008|Windows Server 2012 Standard|  
-|Windows Server 2008 R2 Standard con SP1<br /><br />OPPURE<br /><br />Windows Server 2008 R2 Enterprise con SP1|Windows Server 2012 Standard<br /><br />OPPURE<br /><br />Windows Server 2012 Datacenter|  
-|Windows Server 2008 R2 Datacenter con SP1|Windows Server 2012 Datacenter|  
-|Windows Web Server 2008 R2|Windows Server 2012 Standard|  
+|Windows Server 2008 Standard con SP2<p>OPPURE<p>Windows Server 2008 Enterprise con SP2|Windows Server 2012 Standard<p>OPPURE<p>Windows Server 2012 Datacenter|  
+|Windows Server 2008 Datacenter con SP2|Windows Server 2012 Datacenter|  
+|Windows Web Server 2008|Windows Server 2012 Standard|  
+|Windows Server 2008 R2 Standard con SP1<p>OPPURE<p>Windows Server 2008 R2 Enterprise con SP1|Windows Server 2012 Standard<p>OPPURE<p>Windows Server 2012 Datacenter|  
+|Windows Server 2008 R2 Datacenter con SP1|Windows Server 2012 Datacenter|  
+|Windows Web Server 2008 R2|Windows Server 2012 Standard|  
   
 Per altre informazioni sui percorsi di aggiornamento supportati, vedere [Versioni di valutazione e opzioni di aggiornamento per Windows Server 2012](https://go.microsoft.com/fwlink/?LinkId=260917). Si noti che non è possibile convertire direttamente alla versione definitiva un controller di dominio che esegue una versione di valutazione di Windows Server 2012. Provvedere invece a installare un controller di dominio aggiuntivo in un server che esegue una versione definitiva e rimuovere Servizi di dominio Active Directory dal controller di dominio in esecuzione nella versione di valutazione.  
   
@@ -231,7 +230,7 @@ Prima di aggiungere alla foresta i controller di dominio di Windows Server 2012 
 
 Il nuovo livello di funzionalità del dominio di Windows Server 2012 Abilita una nuova funzionalità: i criteri dei modelli amministrativi KDC **Supporto KDC per attestazioni, autenticazione composta e blindatura Kerberos** includono due impostazioni (**Fornisci sempre attestazioni** e **Rifiuta richieste di autenticazione non blindate**) che richiedono il livello di funzionalità del dominio di Windows Server 2012.  
   
-Il livello di funzionalità foresta Windows Server 2012 non fornisce tutte le nuove funzionalità, ma garantisce che ogni nuovo dominio creato nella foresta venga automaticamente utilizzato a livello funzionale di dominio di Windows Server 2012. Il livello di funzionalità del dominio Windows Server 2012 non fornisce altre nuove funzionalità oltre al supporto KDC per attestazioni, autenticazione composta e blindatura Kerberos. Ma assicura che qualsiasi controller di dominio nel dominio esegua Windows Server 2012. Per ulteriori informazioni sulle altre funzionalità che sono disponibili in diversi livelli di funzionalità, vedere [livelli di funzionalità di servizi di dominio Active Directory informazioni (AD DS)](../active-directory-functional-levels.md).  
+Il livello di funzionalità foresta Windows Server 2012 non fornisce tutte le nuove funzionalità, ma garantisce che ogni nuovo dominio creato nella foresta venga automaticamente utilizzato a livello funzionale di dominio di Windows Server 2012. Il livello di funzionalità del dominio Windows Server 2012 non fornisce altre nuove funzionalità oltre al supporto KDC per attestazioni, autenticazione composta e blindatura Kerberos. Ma assicura che qualsiasi controller di dominio nel dominio esegua Windows Server 2012. Per altre informazioni sulle altre caratteristiche disponibili a livelli di funzionalità diversi, vedere [Informazioni sui livelli di funzionalità di Servizi di dominio Active Directory](../active-directory-functional-levels.md).  
   
 Dopo aver impostato il livello di funzionalità della foresta su un determinato valore, non è possibile eseguire il rollback né abbassare il livello di funzionalità della foresta, con le eccezioni seguenti: dopo aver aumentato il livello di funzionalità della foresta a Windows Server 2012, è possibile abbassarlo a Windows Server 2008 R2. Se Active Directory Cestino non è stato abilitato, è anche possibile abbassare il livello di funzionalità della foresta da Windows Server 2012 a Windows Server 2008 R2 o Windows Server 2008 o da Windows Server 2008 R2 a Windows Server 2008. Se il livello di funzionalità della foresta è impostato su Windows Server 2008 R2, non è possibile eseguire il rollback, ad esempio, in Windows Server 2003.  
   
@@ -262,7 +261,7 @@ Alcune nuove funzionalità di Windows Server 2012 influiscono sui ruoli di maste
 
 - Per supportare la clonazione di controller di dominio virtuali, l'emulatore PDC deve eseguire Windows Server 2012. Vi sono altri prerequisiti per la clonazione dei controller di dominio. Per altre informazioni, vedere [Virtualizzazione dei Servizi di dominio Active Directory](https://technet.microsoft.com/library/hh831734.aspx).  
 - Quando l'emulatore PDC esegue Windows Server 2012, vengono create nuove entità di sicurezza.  
-- Il nuovo master RID ha una nuova funzionalità per l'emissione e il monitoraggio RID. I miglioramenti includono una migliore registrazione degli eventi, limiti più appropriati e la capacità di aumentare, in caso di emergenza, l'allocazione globale dei pool di RID di un bit. Per altre informazioni, vedere [Managing RID Issuance](../../ad-ds/manage/Managing-RID-Issuance.md).  
+- Il nuovo master RID ha una nuova funzionalità per l'emissione e il monitoraggio RID. I miglioramenti includono una migliore registrazione degli eventi, limiti più appropriati e la capacità di aumentare, in caso di emergenza, l'allocazione globale dei pool di RID di un bit. Per ulteriori informazioni, vedere [Gestione del rilascio di RID](../../ad-ds/manage/Managing-RID-Issuance.md).  
 
 > [!NOTE]  
 > Sebbene non siano ruoli di master operazioni, un'altra modifica nell'installazione di servizi di dominio Active Directory è che il ruolo server DNS e il catalogo globale vengono installati per impostazione predefinita in tutti i controller di dominio che eseguono Windows Server 2012.  
@@ -281,23 +280,23 @@ Nella tabella seguente sono riportate le applicazioni Microsoft integrate in Act
 
 |Prodotto|Note|  
 |-----------|---------|  
-|[Microsoft SharePoint 2010](https://support.microsoft.com/kb/2724471)|Per l'installazione e il funzionamento di SharePoint 2010 sui server di Windows Server 2012 <br />è richiesto SharePoint 2010 Service Pack 2<br /><br />Per l'installazione e il funzionamento di SharePoint 2010 sui server di Windows Server 2012 è richiesto SharePoint 2010 Foundation Service Pack 2<br /><br />Il processo di installazione di SharePoint Server 2010 (senza Service Pack) non riesce in Windows Server 2012<br /><br />Il programma di installazione dei prerequisiti di SharePoint Server 2010 (PrerequisiteInstaller. exe) ha esito negativo con errore "il programma presenta problemi di compatibilità". Se si fa &#124; clic su "Esegui il programma senza visualizzare la guida" viene visualizzato l'errore "verifica dell'installazione di sharepoint server 2010 (senza Service Pack) in Windows Server 2012".|  
-|[Microsoft SharePoint 2013](https://technet.microsoft.com/library/cc262485(v=office.15).aspx)|Requisiti minimi per un server di database in una farm<br /><br />Edizione a 64 bit di Windows Server 2008 R2 Service Pack 1 (SP1) Standard, Enterprise o Datacenter o edizione a 64 bit di Windows Server 2012 Standard o Datacenter<br /><br />Requisiti minimi per un singolo server con database incorporato:<br /><br />Edizione a 64 bit di Windows Server 2008 R2 Service Pack 1 (SP1) Standard, Enterprise o Datacenter o edizione a 64 bit di Windows Server 2012 Standard o Datacenter<br /><br />Requisiti minimi per server Web front-end e server di applicazioni in una farm:<br /><br />Edizione a 64 bit di Windows Server 2008 R2 Service Pack 1 (SP1) Standard, Enterprise o Datacenter o edizione a 64 bit di Windows Server 2012 Standard o Datacenter.|  
-|[Configuration Manager 2012](https://blogs.technet.com/b/configmgrteam/archive/2012/09/10/support-questions-about-windows-8-and-windows-server-2012.aspx)|Configuration Manager 2012 Service Pack 1:<br /><br />Con l'uscita del Service Pack 1, Microsoft aggiungerà alla matrice del supporto client i sistemi operativi seguenti:<br /><br />-Windows 8 Pro<br />-Windows 8 Enterprise<br />-Windows Server 2012 standard<br />-Windows Server 2012 Datacenter<br /><br />È possibile distribuire ai server tutti i ruoli server di siti, inclusi server di siti, provider SMS e punti di gestione, con le seguenti edizioni di sistemi operativi:<br /><br />-Windows Server 2012 standard<br />-Windows Server 2012 Datacenter|  
+|[Microsoft SharePoint 2010](https://support.microsoft.com/kb/2724471)|Per l'installazione e il funzionamento di SharePoint 2010 sui server di Windows Server 2012 <br />è richiesto SharePoint 2010 Service Pack 2<p>Per l'installazione e il funzionamento di SharePoint 2010 sui server di Windows Server 2012 è richiesto SharePoint 2010 Foundation Service Pack 2<p>Il processo di installazione di SharePoint Server 2010 (senza Service Pack) non riesce in Windows Server 2012<p>Il programma di installazione dei prerequisiti di SharePoint Server 2010 (PrerequisiteInstaller. exe) ha esito negativo con errore "il programma presenta problemi di compatibilità". Se si fa &#124; clic su "Esegui il programma senza visualizzare la guida" viene visualizzato l'errore "verifica dell'installazione di sharepoint server 2010 (senza Service Pack) in Windows Server 2012".|  
+|[Microsoft SharePoint 2013](https://technet.microsoft.com/library/cc262485(v=office.15).aspx)|Requisiti minimi per un server di database in una farm<p>Edizione a 64 bit di Windows Server 2008 R2 Service Pack 1 (SP1) Standard, Enterprise o Datacenter o edizione a 64 bit di Windows Server 2012 Standard o Datacenter<p>Requisiti minimi per un singolo server con database incorporato:<p>Edizione a 64 bit di Windows Server 2008 R2 Service Pack 1 (SP1) Standard, Enterprise o Datacenter o edizione a 64 bit di Windows Server 2012 Standard o Datacenter<p>Requisiti minimi per server Web front-end e server di applicazioni in una farm:<p>Edizione a 64 bit di Windows Server 2008 R2 Service Pack 1 (SP1) Standard, Enterprise o Datacenter o edizione a 64 bit di Windows Server 2012 Standard o Datacenter.|  
+|[Configuration Manager 2012](https://blogs.technet.com/b/configmgrteam/archive/2012/09/10/support-questions-about-windows-8-and-windows-server-2012.aspx)|Configuration Manager 2012 Service Pack 1:<p>Con l'uscita del Service Pack 1, Microsoft aggiungerà alla matrice del supporto client i sistemi operativi seguenti:<p>-Windows 8 Pro<br />-Windows 8 Enterprise<br />-Windows Server 2012 standard<br />-Windows Server 2012 Datacenter<p>È possibile distribuire ai server tutti i ruoli server di siti, inclusi server di siti, provider SMS e punti di gestione, con le seguenti edizioni di sistemi operativi:<p>-Windows Server 2012 standard<br />-Windows Server 2012 Datacenter|  
 |[Microsoft endpoint Configuration Manager (Current Branch)](https://docs.microsoft.com/configmgr/core/plan-design/configs/supported-configurations)|[Sistemi operativi supportati per Configuration Manager server del sistema del sito](https://docs.microsoft.com/configmgr/core/plan-design/configs/supported-operating-systems-for-site-system-servers).|  
 |[Microsoft Lync Server 2013](https://technet.microsoft.com/library/gg412883.aspx)|Con Lync Server 2013 è richiesto Windows Server 2008 R2 o Windows Server 2012. Non è possibile eseguire Lync Server 2013 su un'installazione Server Core, mentre è possibile eseguirlo su [server virtuali](https://technet.microsoft.com/library/gg399035.aspx).|  
 |[Lync Server 2010](https://support.microsoft.com/kb/2777359)|È possibile installare Lync Server 2010 in un'installazione pulita (non un aggiornamento) di Windows Server 2012 se sono installati gli [aggiornamenti cumulativi per Lync Server dell'ottobre 2012](https://support.microsoft.com/?kbid=2493736) . L'aggiornamento del sistema operativo a Windows Server 2012 per un'installazione di Lync Server 2010 esistente non è supportato. In Windows Server 2012, inoltre, non è supportato Group Chat Server per Microsoft Lync Server 2010.|  
-|[System Center 2012 Endpoint Protection](https://blogs.technet.com/b/configmgrteam/archive/2012/09/10/support-questions-about-windows-8-and-windows-server-2012.aspx)|System Center 2012 Endpoint Protection Service Pack 1 aggiorna la matrice del supporto client per includere i sistemi operativi seguenti<br /><br />-Windows 8 Pro<br />-Windows 8 Enterprise<br />-Windows Server 2012 standard<br />-Windows Server 2012 Datacenter|  
-|[System Center 2012 Forefront Endpoint Protection](https://blogs.technet.com/b/configmgrteam/archive/2012/09/10/support-questions-about-windows-8-and-windows-server-2012.aspx)|Forefront Endpoint Protection 2010 con Aggiornamento cumulativo 1 aggiorna la matrice del supporto client per includere i sistemi operativi seguenti:<br /><br />-Windows 8 Pro<br />-Windows 8 Enterprise<br />-Windows Server 2012 standard<br />-Windows Server 2012 Datacenter|  
+|[System Center 2012 Endpoint Protection](https://blogs.technet.com/b/configmgrteam/archive/2012/09/10/support-questions-about-windows-8-and-windows-server-2012.aspx)|System Center 2012 Endpoint Protection Service Pack 1 aggiorna la matrice del supporto client per includere i sistemi operativi seguenti<p>-Windows 8 Pro<br />-Windows 8 Enterprise<br />-Windows Server 2012 standard<br />-Windows Server 2012 Datacenter|  
+|[System Center 2012 Forefront Endpoint Protection](https://blogs.technet.com/b/configmgrteam/archive/2012/09/10/support-questions-about-windows-8-and-windows-server-2012.aspx)|Forefront Endpoint Protection 2010 con Aggiornamento cumulativo 1 aggiorna la matrice del supporto client per includere i sistemi operativi seguenti:<p>-Windows 8 Pro<br />-Windows 8 Enterprise<br />-Windows Server 2012 standard<br />-Windows Server 2012 Datacenter|  
 |Forefront Threat Management Gateway|L'esecuzione di Forefront Threat Management Gateway è supportata solo su Windows Server 2008 e Windows Server 2008 R2. Per altre informazioni, vedere [Requisiti di sistema per Forefront TMG](https://technet.microsoft.com/library/dd896981.aspx).|  
 |Windows Server Update Services|Questa versione di WSUS fornisce già il supporto per l'impiego, come client, di computer basati su Windows 8 o Windows Server 2012.|  
 |Windows Server Update Services 3.0|L'aggiornamento dell'articolo della Knowledge base [2734608](https://support.microsoft.com/kb/2734608) consente ai server che eseguono Windows Server Update Services (WSUS) 3,0 SP2 di fornire aggiornamenti ai computer che eseguono Windows 8 o windows Server 2012: **Nota:** i clienti con ambienti WSUS 3,0 SP2 autonomi o gli ambienti Configuration Manager 2007 Service Pack 2 con wsus 3,0 SP2 richiedono [2734608](https://support.microsoft.com/kb/2734608) per gestire correttamente i computer basati su Windows 8 o i computer basati su Windows Server 2012 come client.|  
-|[Exchange 2013](https://technet.microsoft.com/library/bb691354.aspx)|È fornito il supporto per Windows Server 2012 Standard e Datacenter per i ruoli seguenti: master schema, server di catalogo globale, controller di dominio, mailbox e ruolo del server Accesso client<br /><br />Livello di funzionalità della foresta: Windows Server 2003 o versione successiva<br /><br />Origine: Requisiti di sistema di Exchange 2013|  
-|Exchange 2010|[Origine: Exchange 2010 Service Pack 3](https://blogs.technet.com/b/exchange/archive/2012/09/25/announcing-exchange-2010-service-pack-3.aspx)<br /><br />È possibile installare Exchange 2010 con Service Pack 3 sui server membri di Windows Server 2012.<br /><br />In[Requisiti di sistema di Exchange 2010](https://technet.microsoft.com/library/aa996719(EXCHG.141).aspx) sono elencati l'ultimo master schema, catalogo globale e controller di dominio supportati come Windows Server 2008 R2.<br /><br />Livello di funzionalità della foresta: Windows Server 2003 o versione successiva|  
-|SQL Server 2012|Origine: KB [2681562](https://support.microsoft.com/kb/2681562)<br /><br />SQL Server 2012 RTM è supportato in Windows Server 2012.|  
-|SQL Server 2008 R2|Origine: KB [2681562](https://support.microsoft.com/kb/2681562)<br /><br />Per l'installazione su Windows Server 2012 è necessario SQL Server 2008 R2 con Service Pack 1 o successivo.|  
-|SQL Server 2008|Origine: KB [2681562](https://support.microsoft.com/kb/2681562)<br /><br />Per l'installazione su Windows Server 2012 è necessario SQL Server 2008 con Service Pack 3 o successivo.|  
-|SQL Server 2005|Origine: KB [2681562](https://support.microsoft.com/kb/2681562)<br /><br />Non supportato per l'installazione su Windows Server 2012.|  
+|[Exchange 2013](https://technet.microsoft.com/library/bb691354.aspx)|È fornito il supporto per Windows Server 2012 Standard e Datacenter per i ruoli seguenti: master schema, server di catalogo globale, controller di dominio, mailbox e ruolo del server Accesso client<p>Livello di funzionalità della foresta: Windows Server 2003 o versione successiva<p>Origine: Requisiti di sistema di Exchange 2013|  
+|Exchange 2010|[Origine: Exchange 2010 Service Pack 3](https://blogs.technet.com/b/exchange/archive/2012/09/25/announcing-exchange-2010-service-pack-3.aspx)<p>È possibile installare Exchange 2010 con Service Pack 3 sui server membri di Windows Server 2012.<p>In[Requisiti di sistema di Exchange 2010](https://technet.microsoft.com/library/aa996719(EXCHG.141).aspx) sono elencati l'ultimo master schema, catalogo globale e controller di dominio supportati come Windows Server 2008 R2.<p>Livello di funzionalità della foresta: Windows Server 2003 o versione successiva|  
+|SQL Server 2012|Origine: KB [2681562](https://support.microsoft.com/kb/2681562)<p>SQL Server 2012 RTM è supportato in Windows Server 2012.|  
+|SQL Server 2008 R2|Origine: KB [2681562](https://support.microsoft.com/kb/2681562)<p>Per l'installazione su Windows Server 2012 è necessario SQL Server 2008 R2 con Service Pack 1 o successivo.|  
+|SQL Server 2008|Origine: KB [2681562](https://support.microsoft.com/kb/2681562)<p>Per l'installazione su Windows Server 2012 è necessario SQL Server 2008 con Service Pack 3 o successivo.|  
+|SQL Server 2005|Origine: KB [2681562](https://support.microsoft.com/kb/2681562)<p>Non supportato per l'installazione su Windows Server 2012.|  
 
 ## <a name="known-issues"></a><a name="BKMK_KnownIssues"></a>Problemi noti
 

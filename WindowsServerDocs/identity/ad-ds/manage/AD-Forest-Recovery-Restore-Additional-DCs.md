@@ -1,6 +1,5 @@
 ---
 title: Ripristino della foresta di Active Directory-ridistribuzione di controller di dominio
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: fbab907c5624a76540ab6a28c568afbd9192c028
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 17e5ceec74277c888232d17adca5c2bbb305af97
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390255"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823624"
 ---
 # <a name="ad-forest-recovery---redeploy-remaining-dcs"></a>Ripristino della foresta di Active Directory-ridistribuzione di controller di dominio
 
@@ -40,8 +39,8 @@ Considerare i seguenti punti aggiuntivi per ogni controller di dominio di replic
 - Se si clonano i controller di dominio virtualizzati aggiuntivi dal primo controller di dominio virtualizzato da ripristinare, è necessario arrestare il controller di dominio di origine mentre viene copiato il file VHDX. Sarà quindi necessario che sia in esecuzione e disponibile online quando i controller di dominio virtuali clone vengono avviati per la prima volta. Se il tempo di inattività richiesto dall'arresto non è accettabile per il primo controller di dominio recuperato, distribuire un controller di dominio virtualizzato aggiuntivo installando servizi di dominio Active Directory in modo che funga da origine per la clonazione.  
 - Non esiste alcuna restrizione sul nome host del controller di dominio virtualizzato clonato o del server in cui si desidera installare servizi di dominio Active Directory. È possibile utilizzare un nuovo nome host o il nome host in uso in precedenza. Per ulteriori informazioni sulla sintassi del nome host DNS, vedere [creazione di nomi di computer DNS](https://technet.microsoft.com/library/cc785282.aspx) ([https://go.microsoft.com/fwlink/?LinkId=74564](https://go.microsoft.com/fwlink/?LinkId=74564)).  
 - Configurare ogni server con il primo server DNS nella foresta (il primo controller di dominio che è stato ripristinato nel dominio radice) come server DNS preferito nelle proprietà TCP/IP della scheda di rete. Per ulteriori informazioni, vedere la pagina relativa [alla configurazione di TCP/IP per l'utilizzo di DNS](https://technet.microsoft.com/library/cc779282.aspx).  
-- Ridistribuire tutti i RODC nel dominio, tramite la clonazione del controller di dominio virtualizzato se diversi RODC vengono distribuiti in una posizione centrale o mediante il metodo tradizionale per ricompilarli rimuovendo e reinstallando Servizi di dominio Active Directory se vengono distribuiti singolarmente in posizioni isolate situate come le succursali.  
-   - La ricompilazione di RODC garantisce che non contengano oggetti residui e possa impedire che si verifichino conflitti di replica in un secondo momento. Quando si rimuove servizi di dominio Active Directory da un RODC, *scegliere l'opzione per mantenere i metadati del controller di*dominio. L'utilizzo di questa opzione consente di mantenere l'account krbtgt per il controller di dominio di sola lettura e di mantenere le autorizzazioni per l'account amministratore del controller di dominio di sola lettura delegato e il Criteri di replica password (PRP) e impedisce di utilizzare le credenziali di amministratore di dominio per rimuovere e reinstallare Servizi di dominio Active Directory in CONTROLLER di sola lettura. Mantiene inoltre i ruoli del server DNS e del catalogo globale se sono installati originariamente nel controller di dominio di sola lettura.  
+- Ridistribuire tutti i RODC nel dominio, tramite la clonazione del controller di dominio virtualizzato se diversi RODC vengono distribuiti in una posizione centrale o mediante il metodo tradizionale per ricompilarli rimuovendo e reinstallando Servizi di dominio Active Directory se vengono distribuiti singolarmente in posizioni isolate situate, ad esempio le succursali.  
+   - La ricompilazione di RODC garantisce che non contengano oggetti residui e possa impedire che si verifichino conflitti di replica in un secondo momento. Quando si rimuove servizi di dominio Active Directory da un RODC, *scegliere l'opzione per mantenere i metadati del controller di*dominio. L'utilizzo di questa opzione consente di mantenere l'account krbtgt per il controller di dominio di sola lettura e di mantenere le autorizzazioni per l'account amministratore del controller di dominio di sola lettura delegato e il Criteri di replica password (PRP) e impedisce di dover utilizzare le credenziali di amministratore di dominio per rimuovere e reinstallare Servizi di dominio Active Directory in un controller di dominio Mantiene inoltre i ruoli del server DNS e del catalogo globale se sono installati originariamente nel controller di dominio di sola lettura.  
    - Quando si ricompilano i controller di dominio (RODC o i controller di dominio scrivibili), potrebbe verificarsi un aumento del traffico di replica durante la reinstallazione. Per ridurre questo effetto, è possibile scaglionare la pianificazione delle installazioni di RODC ed è possibile usare l'opzione installa da supporto (installazione da supporto). Se si usa l'opzione installazione da supporto, eseguire il comando **Ntdsutil installazione da supporto** in un controller di dominio scrivibile che si considera attendibile per essere privo di dati danneggiati. Ciò consente di evitare il danneggiamento del controller di dominio di sola lettura al termine della reinstallazione di servizi di dominio Active Directory. Per ulteriori informazioni su installazione da supporto, vedere [installazione di servizi di dominio Active Directory da supporti](https://technet.microsoft.com/library/cc770654\(WS.10\).aspx).  
    - Per ulteriori informazioni sulla ricompilazione di RODC, vedere la pagina relativa alla [rimozione e alla reinstallazione di RODC](https://technet.microsoft.com/library/cc835490\(WS.10\).aspx).  
 - Se un controller di dominio eseguiva il servizio server DNS prima del malfunzionamento della foresta, installare e configurare il servizio server DNS durante l'installazione di servizi di dominio Active Directory. In caso contrario, configurare i client DNS precedenti con altri server DNS.  

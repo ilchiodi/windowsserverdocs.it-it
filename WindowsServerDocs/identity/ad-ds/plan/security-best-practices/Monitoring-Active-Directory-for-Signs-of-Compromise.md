@@ -1,7 +1,6 @@
 ---
 ms.assetid: a7ef2fba-b05c-4be2-93b2-b9456244c3ad
 title: Monitoraggio dei segnali di compromissione di Active Directory
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: e51b7ea151db1ca5d53a8cacef3b042e345175de
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 1d00ab702ab6b4ff4307f96f9e266a1cb3420197
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949631"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821144"
 ---
 # <a name="monitoring-active-directory-for-signs-of-compromise"></a>Monitoraggio dei segnali di compromissione di Active Directory
 
@@ -190,7 +189,7 @@ Questa sottocategoria segnala quando si accede a un oggetto servizi di dominio A
 ##### <a name="directory-service-changes"></a>Modifiche al servizio directory  
 Questa sottocategoria segnala le modifiche agli oggetti in servizi di dominio Active Directory. I tipi di modifiche segnalati sono le operazioni di creazione, modifica, spostamento e annullamento dell'eliminazione eseguite su un oggetto. Il controllo delle modifiche del servizio directory, ove appropriato, indica i valori vecchi e nuovi delle proprietà modificate degli oggetti modificati. Solo gli oggetti con SACL comportano la generazione di eventi di controllo e solo quando vengono utilizzati in modo che corrispondano alle relative voci SACL. Alcuni oggetti e proprietà non causano la generazione di eventi di controllo a causa delle impostazioni della classe di oggetti nello schema. Questa sottocategoria si applica solo ai controller di dominio.  
   
-##### <a name="directory-service-replication"></a>Replica servizio directory  
+##### <a name="directory-service-replication"></a>Replica del servizio directory  
 Questa sottocategoria segnala quando la replica tra due controller di dominio inizia e termina.  
   
 ##### <a name="detailed-directory-service-replication"></a>Replica dettagliata del servizio directory  
@@ -248,10 +247,10 @@ Questa sottocategoria segnala altri tipi di modifiche ai criteri di sicurezza, a
 #### <a name="privilege-use"></a>Uso dei privilegi  
   
 ##### <a name="sensitive-privilege-use"></a>Uso dei privilegi sensibili  
-Questa sottocategoria segnala quando un account utente o un servizio utilizza un privilegio sensibile. Un privilegio sensibile include i diritti utente seguenti: agire come parte del sistema operativo, eseguire il backup di file e directory, creare un oggetto token, eseguire il debug di programmi, abilitare account computer e utente come trusted per la delega, generare controlli di sicurezza, rappresenta un client dopo l'autenticazione, il caricamento e lo scaricamento dei driver di dispositivo, la gestione del registro di controllo e di sicurezza, la modifica dei valori di ambiente firmware, la sostituzione di un token a livello di processo, il ripristino di file e directory e la proprietà di file o altri oggetti. Il controllo di questa sottocategoria creerà un volume elevato di eventi.  
+Questa sottocategoria segnala quando un account utente o un servizio utilizza un privilegio sensibile. Un privilegio sensibile include i diritti utente seguenti: agire come parte del sistema operativo, eseguire il backup di file e directory, creare un oggetto token, eseguire il debug di programmi, abilitare account computer e utente come trusted per la delega, generare controlli di sicurezza, rappresentare un client dopo l'autenticazione, caricare e scaricare i driver di dispositivo, gestire il registro di controllo e protezione, modificare i valori dell'ambiente firmware, sostituire un token a livello di processo , ripristinare i file e le directory e assumere la proprietà di file o di altri oggetti. Il controllo di questa sottocategoria creerà un volume elevato di eventi.  
   
 ##### <a name="nonsensitive-privilege-use"></a>Uso dei privilegi non sensibili  
-Questa sottocategoria segnala quando un account utente o un servizio utilizza un privilegio non sensibile. Un privilegio non sensibile include i diritti utente seguenti: accedere a gestione credenziali come un chiamante attendibile, accedere al computer dalla rete, aggiungere workstation al dominio, modificare le quote di memoria per un processo, consentire l'accesso locale, consentire l'accesso tramite remoto Servizi Desktop, ignorare controllo incrociato, modificare l'ora di sistema, creare un file di paging, creare oggetti globali, creare oggetti condivisi permanenti, creare collegamenti simbolici, negare l'accesso al computer dalla rete, negare l'accesso come processo batch, negare l'accesso come servizio, Nega accesso locale, Nega accesso tramite Servizi Desktop remoto, forza arresto da un sistema remoto, aumenta un processo working set, aumenta priorità di pianificazione, blocca le pagine in memoria, accedi come processo batch, accedi come servizio, modifica etichetta oggetto, Esegui volume attività di manutenzione, profilo singolo processo, profilatura delle prestazioni del sistema, rimozione del computer da docking station, arresto del sistema e sincronizzazione dei dati del servizio directory. Il controllo di questa sottocategoria creerà un volume molto elevato di eventi.  
+Questa sottocategoria segnala quando un account utente o un servizio utilizza un privilegio non sensibile. Un privilegio non sensibile include i diritti utente seguenti: accedere a gestione credenziali come chiamante attendibile, accedere al computer dalla rete, aggiungere workstation al dominio, modificare le quote di memoria per un processo, consentire l'accesso locale, consentire l'accesso tramite Servizi Desktop remoto, ignorare il controllo incrociato, modificare l'ora di sistema, creare un file di paging, creare oggetti globali, creare oggetti condivisi permanenti , negare l'accesso al computer dalla rete, negare l'accesso come processo batch, negare l'accesso come servizio, negare l'accesso locale, negare l'accesso tramite Servizi Desktop remoto, forzare l'arresto da un sistema remoto, aumentare un processo working set, aumentare la priorità di pianificazione, bloccare le pagine in memoria, accedere come processo batch, accedere come servizio, modificare un'etichetta oggetto , eseguire attività di manutenzione del volume, profilare un singolo processo, profilare le prestazioni del sistema, rimuovere il computer da docking station, arrestare il sistema e sincronizzare i dati del servizio directory. Il controllo di questa sottocategoria creerà un volume molto elevato di eventi.  
   
 ##### <a name="other-privilege-use-events"></a>Altri eventi di utilizzo dei privilegi  
 Questa impostazione dei criteri di sicurezza non è attualmente in uso.  
@@ -293,7 +292,7 @@ Questa sottocategoria segnala quando le connessioni sono consentite o bloccate d
 ##### <a name="other-object-access-events"></a>Altri eventi di accesso agli oggetti  
 Questa sottocategoria segnala altri eventi correlati all'accesso agli oggetti, ad esempio Utilità di pianificazione processi e gli oggetti COM+.  
   
-#### <a name="system"></a>Sistema  
+#### <a name="system"></a>System  
   
 ##### <a name="security-state-change"></a>Modifica dello stato di sicurezza  
 Questa sottocategoria segnala le modifiche allo stato di sicurezza del sistema, ad esempio quando viene avviato e interrotto il sottosistema di sicurezza.  

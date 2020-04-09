@@ -1,7 +1,6 @@
 ---
 ms.assetid: c911d6c6-98c6-4532-b1db-5724e1ceb96c
 title: 'Appendice: Amministrazione semplificata'
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: ffc2849fa5e18f7984814d6187cf83d68566409b
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 545d0541d1f51da7d2df793b9961657e214c789c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323243"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80825004"
 ---
 # <a name="simplified-administration-appendix"></a>Appendice: Amministrazione semplificata
 
@@ -31,7 +30,7 @@ ms.locfileid: "79323243"
   
 -   [Installazione di Ntdsutil. exe da supporti modifiche](../../ad-ds/deploy/Simplified-Administration-Appendix.md#BKMK_IFM)  
   
-## <a name="BKMK_AddServers"></a>Finestra di dialogo Server Manager Aggiungi server (Active Directory)  
+## <a name="server-manager-add-servers-dialog-active-directory"></a><a name="BKMK_AddServers"></a>Finestra di dialogo Server Manager Aggiungi server (Active Directory)  
 
 La finestra di dialogo **Aggiungi server** consente la ricerca Active Directory per i server, per sistema operativo, per l'utilizzo di caratteri jolly e per percorso. La finestra di dialogo consente inoltre l'utilizzo di query DNS in base al nome di dominio completo o al nome del prefisso. Queste ricerche usano i protocolli DNS e LDAP nativi implementati tramite .NET, non AD Windows PowerShell per il gateway di gestione di Active Directory tramite SOAP, ovvero i controller di dominio contattati da Server Manager possono anche eseguire Windows Server 2003. È anche possibile importare un file con nomi di server a scopo di provisioning.  
   
@@ -57,12 +56,12 @@ La ricerca Active Directory restituisce i seguenti attributi:
   
 ```  
   
-## <a name="BKMK_ServerMgrStatus"></a>Stato del server remoto Server Manager  
+## <a name="server-manager-remote-server-status"></a><a name="BKMK_ServerMgrStatus"></a>Stato del server remoto Server Manager  
 Server Manager verifica l'accessibilità del server remoto usando il protocollo di routing degli indirizzi. Eventuali server che non rispondono alle richieste ARP non sono elencati, anche se sono nel pool.  
   
 Se ARP risponde, le connessioni DCOM e WMI vengono effettuate al server per restituire informazioni sullo stato. Se RPC, DCOM e WMI non sono raggiungibili, Server Manager non è in grado di gestire completamente il server.  
   
-## <a name="BKMK_PSLoadModule"></a>Caricamento del modulo di Windows PowerShell  
+## <a name="windows-powershell-module-loading"></a><a name="BKMK_PSLoadModule"></a>Caricamento del modulo di Windows PowerShell  
 Windows PowerShell 3,0 implementa il caricamento dinamico dei moduli. L'uso del cmdlet **Import-Module** in genere non è più necessario. ma semplicemente richiamando il cmdlet, l'alias o la funzione carica automaticamente il modulo.  
   
 Per visualizzare i moduli caricati, usare il cmdlet **Get-Module** .  
@@ -90,10 +89,10 @@ dir
   
 ```  
   
-## <a name="BKMK_Rid"></a>Hotfix di rilascio dei RID per i sistemi operativi precedenti  
+## <a name="rid-issuance-hotfixes-for-previous-operating-systems"></a><a name="BKMK_Rid"></a>Hotfix di rilascio dei RID per i sistemi operativi precedenti  
 Vedere [un aggiornamento è disponibile per rilevare e impedire un consumo eccessivo del pool di RID globale in un controller di dominio che esegue Windows Server 2008 R2](https://support.microsoft.com/kb/2618669).  
   
-## <a name="BKMK_IFM"></a>Installazione di Ntdsutil. exe da supporti modifiche  
+## <a name="ntdsutilexe-install-from-media-changes"></a><a name="BKMK_IFM"></a>Installazione di Ntdsutil. exe da supporti modifiche  
 Windows Server 2012 aggiunge due opzioni aggiuntive allo strumento da riga di comando Ntdsutil. exe per il menu **installazione da supporto (installazione da supporto Media Creation)** . Questi consentono di creare archivi installazione da supporto senza prima eseguire una deframmentazione non in linea del NTDS esportato. File di database DIT. Quando lo spazio su disco non è Premium, viene risparmiato tempo per la creazione di installazione da supporto.  
   
 Nella tabella seguente vengono descritte le due nuove voci di menu:  

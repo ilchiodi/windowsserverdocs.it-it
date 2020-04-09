@@ -1,7 +1,6 @@
 ---
 ms.assetid: ef63d40c-a262-4a18-938d-b95c10680c0b
-title: Autonomia rispetto a Isolamento
-description: ''
+title: Confronto tra autonomia e isolamento
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,14 +8,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: c3430ae9320ed2d39768d91f768adb3f9ab1c716
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9d836804f1de84ed9d10a978876db9cbecc23123
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402646"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822834"
 ---
-# <a name="autonomy-vs-isolation"></a>Autonomia rispetto a Isolamento
+# <a name="autonomy-vs-isolation"></a>Confronto tra autonomia e isolamento
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -44,7 +43,7 @@ Il numero di foreste che è necessario distribuire è basato sui requisiti di au
 ### <a name="data-isolation"></a>Isolamento dei dati  
 L'isolamento dei dati comporta un controllo esclusivo sui dati da parte del gruppo o dell'organizzazione che possiede i dati. È importante tenere presente che gli amministratori del servizio hanno la possibilità di assumere il controllo di una risorsa da parte degli amministratori dei dati. E gli amministratori di dati non hanno la possibilità di impedire agli amministratori del servizio di accedere alle risorse che controllano. Pertanto, non è possibile ottenere l'isolamento dei dati quando un altro gruppo all'interno dell'organizzazione è responsabile dell'amministrazione del servizio. Se un gruppo richiede l'isolamento dei dati, tale gruppo deve anche assumere la responsabilità dell'amministrazione del servizio.  
   
-Poiché i dati archiviati in servizi di dominio Active Directory e nei computer aggiunti a servizi di dominio Active Directory non possono essere isolati dagli amministratori del servizio, l'unico modo per un gruppo all'interno di un'organizzazione di ottenere un isolamento completo dei dati consiste nel creare una foresta separata per tali dati. Le organizzazioni per le quali le conseguenze di un attacco da parte di software dannoso o da parte di un amministratore del servizio con coercizione possono scegliere di creare una foresta separata per ottenere l'isolamento dei dati. I requisiti legali in genere creano la necessità di questo tipo di isolamento dei dati. Esempio:  
+Poiché i dati archiviati in servizi di dominio Active Directory e nei computer aggiunti a servizi di dominio Active Directory non possono essere isolati dagli amministratori del servizio, l'unico modo per un gruppo all'interno di un'organizzazione di ottenere un isolamento completo dei dati consiste nel creare una foresta separata per tali dati. Le organizzazioni per le quali le conseguenze di un attacco da parte di software dannoso o da parte di un amministratore del servizio con coercizione possono scegliere di creare una foresta separata per ottenere l'isolamento dei dati. I requisiti legali in genere creano la necessità di questo tipo di isolamento dei dati. Ad esempio,  
   
 -   Un istituto finanziario è richiesto dalla legge per limitare l'accesso ai dati appartenenti ai client di una particolare giurisdizione a utenti, computer e amministratori che si trovano in tale giurisdizione. Sebbene l'Istituto consideri attendibili gli amministratori del servizio che operano al di fuori dell'area protetta, se la limitazione di accesso viene violata, l'Istituto non sarà più in grado di svolgere le attività in tale giurisdizione. Pertanto, l'istituto finanziario deve isolare i dati dagli amministratori del servizio al di fuori di tale giurisdizione. Si noti che la crittografia non è sempre un'alternativa a questa soluzione. La crittografia potrebbe non proteggere i dati dagli amministratori del servizio.  
   
@@ -61,7 +60,7 @@ L'autonomia dei dati non impedisce agli amministratori del servizio nella forest
 ### <a name="service-isolation"></a>Isolamento del servizio  
 L'isolamento dei servizi implica il controllo esclusivo dell'infrastruttura Active Directory. I gruppi che richiedono l'isolamento del servizio richiedono che nessun amministratore esterno al gruppo possa interferire con l'operazione del servizio directory.  
   
-I requisiti operativi o legali in genere creano una necessità di isolamento dei servizi. Esempio:  
+I requisiti operativi o legali in genere creano una necessità di isolamento dei servizi. Ad esempio,  
   
 -   Una società di produzione ha un'applicazione critica che controlla le apparecchiature in fabbrica. Le interruzioni del servizio in altre parti della rete dell'organizzazione non possono interferire con il funzionamento del piano della fabbrica.  
   
@@ -70,7 +69,7 @@ I requisiti operativi o legali in genere creano una necessità di isolamento dei
 ### <a name="service-autonomy"></a>Autonomia del servizio  
 L'autonomia del servizio prevede la possibilità di gestire l'infrastruttura senza un requisito per il controllo esclusivo; ad esempio, quando un gruppo vuole apportare modifiche all'infrastruttura, ad esempio l'aggiunta o la rimozione di domini, la modifica dello spazio dei nomi Domain Name System (DNS) o la modifica dello schema) senza l'approvazione del proprietario della foresta.  
   
-L'autonomia del servizio potrebbe essere necessario all'interno di un'organizzazione per un gruppo che desidera essere in grado di controllare il livello di servizio di servizi di dominio Active Directory (aggiungendo e rimuovendo i controller di dominio in base alle esigenze) o per un gruppo che deve essere in grado di installare applicazioni abilitate alla directory che Richiedi estensioni dello schema.  
+L'autonomia del servizio potrebbe essere necessario all'interno di un'organizzazione per un gruppo che desidera essere in grado di controllare il livello di servizio di servizi di dominio Active Directory (aggiungendo e rimuovendo i controller di dominio in base alle esigenze) o per un gruppo che deve essere in grado di installare applicazioni abilitate alla directory che richiedono estensioni dello schema.  
   
 ## <a name="limited-connectivity"></a>Connettività limitata  
 Se un gruppo all'interno dell'organizzazione possiede reti separate da dispositivi che limitano o limitano la connettività tra le reti, ad esempio i firewall e i dispositivi NAT (Network Address Translation), questo può influisca sulla progettazione della foresta. Quando si identificano i requisiti di progettazione della foresta, assicurarsi di prendere nota dei percorsi in cui si dispone di connettività di rete limitata. Queste informazioni sono necessarie per consentire all'utente di prendere decisioni sulla progettazione della foresta.  

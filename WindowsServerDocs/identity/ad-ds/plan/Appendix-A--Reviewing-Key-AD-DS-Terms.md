@@ -1,7 +1,6 @@
 ---
 ms.assetid: 87196b65-a356-409f-9af0-b5950797d668
 title: Appendice A-revisione delle principali condizioni di servizi di dominio Active Directory
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,14 +8,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 81beba874440f7a75c2d7932357fae70f046d996
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ad8c1cf769c0c2a22e2d55f7bd2d111095410afe
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71409017"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822864"
 ---
-# <a name="appendix-a-reviewing-key-ad-ds-terms"></a>Appendice A: Revisione delle condizioni principali di servizi di dominio Active Directory
+# <a name="appendix-a-reviewing-key-ad-ds-terms"></a>Appendice A: Termini importanti di Active Directory Domain Services
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -54,7 +53,7 @@ Un processo di ristrutturazione che comporta l'eliminazione dei domini di serviz
 Processo di aggiornamento del servizio directory di un dominio a una versione successiva del servizio directory. Ciò include l'aggiornamento del sistema operativo in tutti i controller di dominio e la generazione del livello di funzionalità di servizi di dominio Active Directory, ove applicabile.  
   
 ## <a name="in-place-domain-upgrade"></a>Aggiornamento del dominio sul posto  
-Il processo di aggiornamento dei sistemi operativi di tutti i controller di dominio in un dominio specifico, ad esempio l'aggiornamento di Windows Server 2003 a Windows Server 2008 e la generazione del livello di funzionalità del dominio, se applicabile, lasciando gli oggetti di dominio, ad esempio gli utenti gruppi e, sul posto.  
+Il processo di aggiornamento dei sistemi operativi di tutti i controller di dominio in un determinato dominio, ad esempio, l'aggiornamento di Windows Server 2003 a Windows Server 2008 e la generazione del livello di funzionalità del dominio, se applicabile, lasciando gli oggetti di dominio, ad esempio utenti e gruppi, sul posto.  
   
 ## <a name="forest-root-domain"></a>Dominio radice della foresta  
 Primo dominio creato nella foresta Active Directory. Questo dominio viene designato automaticamente come dominio radice della foresta. Fornisce le fondamenta per l'infrastruttura della foresta Active Directory.  

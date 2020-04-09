@@ -1,24 +1,20 @@
 ---
 title: Visualizzare lo stato dell'hardware
 description: Informazioni su come visualizzare le informazioni sull'hardware in MultiPoint Services
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3a5ec549-e1f9-4714-9e6d-9ea959e1da60
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: bfaa9166012dd349124c70a54546c288895d7897
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 961bdf0d1024e8308f78c773bebb470bd03a3f4c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389169"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820494"
 ---
 # <a name="view-hardware-status"></a>Visualizzare lo stato dell'hardware
 Nella console di gestione MultiPoint, utilizzare il **stazioni** scheda per visualizzare *stazione* informazioni, ad esempio:  
@@ -35,6 +31,6 @@ Nella console di gestione MultiPoint, utilizzare il **stazioni** scheda per visu
 > [!NOTE]  
 > La scheda **Stations** (Stazioni) non è disponibile se il sistema è in modalità console.  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Gestire l'hardware delle stazioni](Manage-Station-Hardware.md)  
 [Passare da una modalità all'altra](Switch-Between-Modes.md)

@@ -1,6 +1,5 @@
 ---
 title: Ripristino della foresta di Active Directory-esecuzione del ripristino iniziale
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: a369347fe889c7f6675d0091d05a6dee93cb4434
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7d592198187d44927f643b45e7a8bb4c2eec2a69
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369071"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823904"
 ---
 # <a name="perform-initial-recovery"></a>Eseguire il ripristino iniziale  
 
@@ -53,11 +52,11 @@ Eseguire quindi i passaggi seguenti. Le procedure per l'esecuzione di alcuni pas
 
       **HKLM\System\CurrentControlSet\Services\NTDS\Parameters\Repl eseguire sincronizzazioni iniziali**  
   
-      Creare la voce con il tipo di dati **REG_DWORD** e un valore pari a **0**. Dopo che la foresta è stata ripristinata completamente, è possibile reimpostare il valore di questa voce su **1**, per cui è necessario un controller di dominio che riavvii e contenga i ruoli di master operazioni per la replica in ingresso e in uscita di servizi di dominio Active Directory con la replica nota. partner prima di annunciarsi come controller di dominio e iniziare a fornire servizi ai client. Per ulteriori informazioni sui requisiti di sincronizzazione iniziali, vedere l'articolo della Knowledge [305476](https://support.microsoft.com/kb/305476). 
+      Creare la voce con il tipo di dati **REG_DWORD** e il valore **0**. Dopo che la foresta è stata ripristinata completamente, è possibile reimpostare il valore di questa voce su **1**, per cui è necessario un controller di dominio che riavvii e includa i ruoli di master operazioni per la replica in ingresso e in uscita di servizi di dominio Active Directory con i partner di replica noti prima di annunciarsi come controller di dominio e iniziare a fornire servizi ai client. Per ulteriori informazioni sui requisiti di sincronizzazione iniziali, vedere l'articolo della Knowledge [305476](https://support.microsoft.com/kb/305476). 
   
       Continuare con i passaggi successivi solo dopo il ripristino e la verifica dei dati e prima di aggiungere il computer alla rete di produzione. 
   
-4. Se si ritiene che l'errore a livello di foresta sia correlato ad intrusioni di rete o attacchi dannosi, reimpostare le password dell'account per tutti gli account amministrativi, inclusi i membri di Enterprise Admins, Domain Admins, Schema Admins, Server Operators, account Gruppi di operatori e così via. È necessario completare il ripristino delle password degli account amministrativi prima di installare altri controller di dominio durante la fase successiva del ripristino della foresta. 
+4. Se si ritiene che l'errore a livello di foresta sia correlato ad intrusioni di rete o attacchi dannosi, reimpostare le password dell'account per tutti gli account amministrativi, inclusi i membri degli Enterprise Admins, Domain Admins, Schema Admins, Server Operators, account Operators Groups e così via. È necessario completare il ripristino delle password degli account amministrativi prima di installare altri controller di dominio durante la fase successiva del ripristino della foresta. 
 5. Nel primo controller di dominio ripristinato nel dominio radice della foresta, requisire tutti i ruoli di master operazioni a livello di dominio e di foresta. Le credenziali Enterprise Admins e Schema Admins sono necessarie per requisire i ruoli di master operazioni a livello di foresta. 
   
      In ogni dominio figlio, requisire i ruoli di master operazioni a livello di dominio. Sebbene sia possibile mantenere temporaneamente i ruoli di master operazioni sul controller di dominio ripristinato, l'imposizione di questi ruoli garantisce che il controller di dominio li ospiti in questa fase del processo di ripristino della foresta. Come parte del processo di post-ripristino, è possibile ridistribuire i ruoli di master operazioni in base alle esigenze. Per altre informazioni su come requisire i ruoli di master operazioni, vedere [requisizione di un ruolo di master operazioni](AD-forest-recovery-seizing-operations-master-role.md). Per consigli su come collocare i ruoli di master operazioni, vedere informazioni sui [master operazioni](https://technet.microsoft.com/library/cc779716.aspx). 
@@ -77,7 +76,7 @@ Eseguire quindi i passaggi seguenti. Le procedure per l'esecuzione di alcuni pas
   
      In ogni dominio figlio configurare il controller di dominio ripristinato con l'indirizzo IP del primo server DNS nel dominio radice della foresta come server DNS preferito. Questa impostazione può essere configurata nelle proprietà TCP/IP della scheda LAN. Per ulteriori informazioni, vedere la pagina relativa [alla configurazione di TCP/IP per l'utilizzo di DNS](https://technet.microsoft.com/library/cc779282\(WS.10\).aspx). 
   
-     Nelle zone DNS _msdcs e Domain, eliminare i record NS dei controller di dominio che non esistono più dopo la pulizia dei metadati. Verificare che i record SRV dei controller di dominio puliti siano stati rimossi. Per velocizzare la rimozione del record DNS SRV, eseguire:  
+     Nelle zone DNS _msdcs e dominio eliminare i record NS dei controller di dominio che non esistono più dopo la pulizia dei metadati. Verificare che i record SRV dei controller di dominio puliti siano stati rimossi. Per velocizzare la rimozione del record DNS SRV, eseguire:  
   
     ```  
     nltest.exe /dsderegdns:server.domain.tld  
@@ -111,7 +110,7 @@ Eseguire quindi i passaggi seguenti. Le procedure per l'esecuzione di alcuni pas
   
      Un secondo problema è che un account utente che non esiste più potrebbe ancora essere visualizzato nell'elenco indirizzi globale. Un terzo problema è che un gruppo universale che non esiste più potrebbe ancora essere visualizzato nel token di accesso di un utente. 
   
-     Se è stato eseguito il ripristino di un controller di dominio che era un catalogo globale, inavvertitamente o perché era il backup solitario considerato attendibile, si consiglia di impedire l'occorrenza di oggetti residui disabilitando il catalogo globale subito dopo l'operazione di ripristino. completare. La disabilitazione del flag di catalogo globale comporterà la perdita di tutte le repliche parziali (partizioni) e la recessione a un normale stato del controller di dominio. 
+     Se è stato eseguito il ripristino di un controller di dominio che era un catalogo globale, inavvertitamente o perché era il backup solitario considerato attendibile, si consiglia di impedire l'occorrenza di oggetti residui disabilitando il catalogo globale subito dopo il completamento dell'operazione di ripristino. La disabilitazione del flag di catalogo globale comporterà la perdita di tutte le repliche parziali (partizioni) e la recessione a un normale stato del controller di dominio. 
   
 13. Configurare il servizio ora di Windows. Nel dominio radice della foresta configurare l'emulatore PDC per sincronizzare l'ora da un'origine ora esterna. Per altre informazioni, vedere [configurare il servizio ora di Windows nell'emulatore PDC nel dominio radice della foresta](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731191%28v=ws.10%29). 
   
@@ -126,7 +125,7 @@ Dopo la convalida, aggiungere i controller di dominio alla rete di produzione e 
 
 - Per correggere la risoluzione dei nomi, creare record di delega DNS e configurare l'invio DNS e i parametri radice in base alle esigenze. Eseguire **Repadmin/Replsum.** per controllare la replica tra controller di dominio. 
 - Se i controller di dominio ripristinati non sono partner di replica diretta, il ripristino della replica sarà molto più rapido creando oggetti di connessione temporanei tra di essi. 
-- Per convalidare la pulizia dei metadati, eseguire **repadmin/viewlist \\** * per un elenco di tutti i controller di dominio nella foresta. Eseguire **nltest/DCList:** *< dominio\>*  per un elenco di tutti i controller di dominio nel dominio. 
+- Per convalidare la pulizia dei metadati, eseguire **repadmin/viewlist \\** * per un elenco di tutti i controller di dominio nella foresta. Eseguire **nltest/DCList:** *< dominio\>* per un elenco di tutti i controller di dominio nel dominio. 
 - Per controllare l'integrità del controller di dominio e del DNS, eseguire DCDiag/v per segnalare gli errori in tutti i controller di dominio nella foresta. 
 
 ## <a name="add-the-global-catalog-to-a-domain-controller-in-the-forest-root-domain"></a>Aggiungere il catalogo globale a un controller di dominio nel dominio radice della foresta

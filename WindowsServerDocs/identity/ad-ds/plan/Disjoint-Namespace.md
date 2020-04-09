@@ -1,7 +1,6 @@
 ---
 ms.assetid: d92731f1-e4d8-4223-9b07-ca1f40bb0e1f
 title: Spazio dei nomi indipendente
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 5abe67c89ce4c2f4b5056f6197242b5db8db340e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b21e849bb69068f66b1b80c6b1a3afbdef91459f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408857"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822534"
 ---
 # <a name="disjoint-namespace"></a>Spazio dei nomi indipendente
 
@@ -88,13 +87,13 @@ Prima di modificare uno spazio dei nomi, esaminare le considerazioni seguenti, c
   
 -   I nomi dell'entità servizio (SPN) configurati manualmente potrebbero non corrispondere più ai nomi DNS dopo una modifica dello spazio dei nomi. Ciò può causare errori di autenticazione.  
   
-    Per ulteriori informazioni, vedere Errore degli accessi al servizio a causa dell'impostazione non corretta dei nomi SPN ([https://go.microsoft.com/fwlink/?LinkId=102304](https://go.microsoft.com/fwlink/?LinkId=102304)).  
+    Per ulteriori informazioni, vedere Errore degli accessi al servizio a causa dell'impostazione non corretta di SPN ([https://go.microsoft.com/fwlink/?LinkId=102304](https://go.microsoft.com/fwlink/?LinkId=102304)).  
   
     -   Se si utilizzano computer basati su Windows Server 2003 con delega vincolata, tali computer potrebbero richiedere una configurazione aggiuntiva per modificare i nomi SPN. Per ulteriori informazioni, vedere l'articolo 936628 della Microsoft Knowledge base ([https://go.microsoft.com/fwlink/?LinkId=102306](https://go.microsoft.com/fwlink/?LinkId=102306)).  
   
     -   Se si desidera delegare le autorizzazioni per modificare i nomi SPN agli amministratori subordinati, vedere Delega dell'autorità per modificare i nomi SPN ([https://go.microsoft.com/fwlink/?LinkId=106639](https://go.microsoft.com/fwlink/?LinkId=106639)).  
   
--   Se si usa LDAP (Lightweight Directory Access Protocol) su Secure Sockets Layer (SSL) (noto come LDAPs) con una CA in una distribuzione che dispone di controller di dominio configurati in uno spazio dei nomi non contiguo, è necessario usare il nome di dominio Active Directory appropriato e suffisso DNS primario quando si configurano i certificati LDAPs.  
+-   Se si usa LDAP (Lightweight Directory Access Protocol) su Secure Sockets Layer (SSL) (noto come LDAPs) con una CA in una distribuzione che dispone di controller di dominio configurati in uno spazio dei nomi non contiguo, è necessario usare il nome di dominio Active Directory appropriato e il suffisso DNS primario quando si configurano i certificati LDAPs.  
   
     Per ulteriori informazioni sui requisiti dei certificati del controller di dominio, vedere l'articolo 321051 della Microsoft Knowledge base ([https://go.microsoft.com/fwlink/?LinkId=102307](https://go.microsoft.com/fwlink/?LinkId=102307)).  
   

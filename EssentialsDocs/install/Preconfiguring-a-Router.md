@@ -1,23 +1,19 @@
 ---
 title: Preconfigurazione di un router
 description: Viene descritto come usare Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9153ac90-bb0c-4b8d-93b2-e2121ed13636
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: bdfa3215b7a2426bcde807119971d99ccc229716
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: c39bf3ac260a23b7fc9cc9feec7f34786b1e8aae
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80311569"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80819944"
 ---
 # <a name="preconfiguring-a-router"></a>Preconfigurazione di un router
 
@@ -43,7 +39,7 @@ Di solito, una nuova installazione del sistema operativo richiede un firewall e 
   
 -   Se il router supporta più subnet, occorre distribuire l'indirizzo IP del server come un server DNS attraverso DHCP.  
   
--   Se il router dispone di una funzionalità di controllo di accesso integrato per Active Directory® Domain Services, è possibile automatizzare l'integrazione di Active Directory durante la configurazione iniziale del server. Occorre inoltre esporre questa funzione attraverso il componente aggiuntivo di gestione del router nel dashboard.  
+-   Se il router dispone di una funzionalità di controllo di accesso integrato per Active Directory&reg; Domain Services, è possibile automatizzare l'integrazione di Active Directory durante la configurazione iniziale del server. Occorre inoltre esporre questa funzione attraverso il componente aggiuntivo di gestione del router nel dashboard.  
   
 > [!NOTE]
 >  Per ulteriori informazioni sulla configurazione delle connessioni senza fili, vedere la sezione [Configurazione del supporto per una rete senza fili](Configure-Support-for-a-Wireless-Network.md).  

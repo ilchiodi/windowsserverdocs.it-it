@@ -1,7 +1,6 @@
 ---
 ms.assetid: 13fe87d9-75cf-45bc-a954-ef75d4423839
 title: 'Appendice I: creazione di account di gestione per account e gruppi protetti in Active Directory'
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 834aa2611ff2b965c9184524fa6782fb4477a4cd
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: c2141e4fad564579fd687b2dfc7e4a12e1634acb
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949130"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823484"
 ---
 # <a name="appendix-i-creating-management-accounts-for-protected-accounts-and-groups-in-active-directory"></a>Appendice I: Creazione di account di gestione per gli account protetti e i gruppi in Active Directory
 
@@ -22,14 +21,14 @@ ms.locfileid: "75949130"
 
 Uno dei problemi relativi all'implementazione di un modello di Active Directory che non si basa sull'appartenenza permanente a gruppi con privilegi elevati è che è necessario disporre di un meccanismo per popolare questi gruppi quando è necessaria l'appartenenza temporanea ai gruppi. Per alcune soluzioni Privileged Identity Management è necessario che agli account del servizio del software venga concessa l'appartenenza permanente a gruppi come DA o Administrators in ogni dominio della foresta. Tuttavia, tecnicamente non è necessario per le soluzioni Privileged Identity Management (PIM) per eseguire i propri servizi in contesti con privilegi elevati.  
   
-Questa appendice fornisce informazioni che è possibile usare per le soluzioni PIM implementate in modo nativo o di terze parti per creare account con privilegi limitati e che possono essere controllati in modo rigoroso, ma possono essere usati per popolare i gruppi con privilegi in Active Directory quando l'elevazione temporanea è obbligatoria. Se si implementa PIM come soluzione nativa, questi account possono essere utilizzati dal personale amministrativo per eseguire il popolamento del gruppo temporaneo e, se si sta implementando PIM tramite software di terze parti, è possibile adattare questi account per funzionare come servizio account.  
+Questa appendice fornisce informazioni che è possibile usare per le soluzioni PIM implementate in modo nativo o di terze parti per creare account con privilegi limitati e che possono essere controllati in modo rigoroso, ma possono essere usati per popolare i gruppi con privilegi in Active Directory quando è richiesta l'elevazione temporanea. Se si implementa PIM come soluzione nativa, questi account possono essere utilizzati dal personale amministrativo per eseguire il popolamento temporaneo del gruppo e, se si sta implementando PIM tramite software di terze parti, è possibile adattare questi account per funzionare come account del servizio.  
   
 > [!NOTE]  
 > Le procedure descritte in questa appendice forniscono un approccio alla gestione dei gruppi con privilegi elevati in Active Directory. È possibile adattare queste procedure in base alle esigenze, aggiungere altre restrizioni o omettere alcune delle restrizioni descritte qui.  
   
 ## <a name="creating-management-accounts-for-protected-accounts-and-groups-in-active-directory"></a>Creazione di account di gestione per account e gruppi protetti in Active Directory
 
-La creazione di account che possono essere utilizzati per gestire l'appartenenza di gruppi con privilegi senza richiedere l'autorizzazione di diritti eccessivi per gli account di gestione è costituita da quattro attività generali descritte nelle istruzioni dettagliate che seguire  
+La creazione di account che possono essere utilizzati per gestire l'appartenenza di gruppi con privilegi senza richiedere l'autorizzazione di diritti eccessivi per gli account di gestione è costituita da quattro attività generali descritte nelle istruzioni dettagliate che seguono:  
   
 1.  In primo luogo, è necessario creare un gruppo che gestirà gli account, perché questi account devono essere gestiti da un set limitato di utenti attendibili. Se non si dispone già di una struttura di unità organizzative che supporta la separazione di account e sistemi protetti e con privilegi dal popolamento generale del dominio, è necessario crearne uno. Sebbene in questa appendice non vengano fornite istruzioni specifiche, le schermate mostrano un esempio di tale gerarchia di unità organizzative.  
   
@@ -39,7 +38,7 @@ La creazione di account che possono essere utilizzati per gestire l'appartenenza
   
 4.  Configurare le autorizzazioni per l'oggetto AdminSDHolder in ogni dominio per consentire agli account di gestione di modificare l'appartenenza dei gruppi con privilegi nel dominio.  
   
-È necessario testare accuratamente tutte queste procedure e modificarle in base alle esigenze dell'ambiente prima di implementarle in un ambiente di produzione. È inoltre necessario verificare che tutte le impostazioni funzionino come previsto (alcune procedure di test sono fornite in questa appendice) ed è necessario testare uno scenario di ripristino di emergenza in cui gli account di gestione non sono disponibili per l'uso per popolare gruppi protetti per il ripristino. scopi. Per ulteriori informazioni sul backup e il ripristino di Active Directory, vedere la [Guida dettagliata al backup e al ripristino di servizi di dominio Active Directory](https://technet.microsoft.com/library/cc771290(v=ws.10).aspx).  
+È necessario testare accuratamente tutte queste procedure e modificarle in base alle esigenze dell'ambiente prima di implementarle in un ambiente di produzione. È inoltre necessario verificare che tutte le impostazioni funzionino come previsto (alcune procedure di test sono fornite in questa appendice) ed è necessario testare uno scenario di ripristino di emergenza in cui gli account di gestione non sono disponibili per l'uso per popolare gruppi protetti a scopo di ripristino. Per ulteriori informazioni sul backup e il ripristino di Active Directory, vedere la [Guida dettagliata al backup e al ripristino di servizi di dominio Active Directory](https://technet.microsoft.com/library/cc771290(v=ws.10).aspx).  
   
 > [!NOTE]  
 > Implementando i passaggi descritti in questa appendice, verranno creati account che saranno in grado di gestire l'appartenenza di tutti i gruppi protetti in ogni dominio, non solo i gruppi di Active Directory con privilegi più elevati, ad esempio EAs, DAs e BAs. Per ulteriori informazioni sui gruppi protetti in Active Directory, vedere [Appendice C: account protetti e gruppi in Active Directory](../../../ad-ds/plan/security-best-practices/Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory.md).  
@@ -48,7 +47,7 @@ La creazione di account che possono essere utilizzati per gestire l'appartenenza
   
 #### <a name="creating-a-group-to-enable-and-disable-management-accounts"></a>Creazione di un gruppo per abilitare e disabilitare gli account di gestione
 
-Per gli account di gestione è necessario reimpostare le password a ogni utilizzo e deve essere disabilitato quando le attività che lo richiedono sono state completate. Sebbene sia possibile considerare anche l'implementazione dei requisiti di accesso alle smart card per questi account, si tratta di una configurazione facoltativa. queste istruzioni presuppongono che gli account di gestione vengano configurati con un nome utente e una password estesa e complessa come minimo controlli. In questo passaggio verrà creato un gruppo che dispone delle autorizzazioni per reimpostare la password negli account di gestione e per abilitare e disabilitare gli account.  
+Per gli account di gestione è necessario reimpostare le password a ogni utilizzo e deve essere disabilitato quando le attività che lo richiedono sono state completate. Sebbene sia possibile considerare anche l'implementazione dei requisiti di accesso alle smart card per questi account, si tratta di una configurazione facoltativa. queste istruzioni presuppongono che gli account di gestione vengano configurati con un nome utente e una password complessa e lungo come controlli minimi. In questo passaggio verrà creato un gruppo che dispone delle autorizzazioni per reimpostare la password negli account di gestione e per abilitare e disabilitare gli account.  
   
 Per creare un gruppo per abilitare e disabilitare gli account di gestione, seguire questa procedura:  
   
@@ -81,7 +80,7 @@ Per creare un gruppo per abilitare e disabilitare gli account di gestione, segui
   
 7.  Nella scheda **sicurezza** rimuovere i gruppi a cui non è consentito accedere a questo gruppo. Se, ad esempio, non si vuole che gli utenti autenticati possano leggere il nome e le proprietà generali del gruppo, è possibile rimuovere tale voce ACE. È anche possibile rimuovere le voci ACE, ad esempio per gli operatori account e per l'accesso compatibile con il server precedente a Windows 2000. Tuttavia, è consigliabile lasciare il set minimo di autorizzazioni per gli oggetti. Lasciare intatte le voci ACE seguenti:  
   
-    -   SELF  
+    -   AUTO  
   
     -   SISTEMA  
   
@@ -106,7 +105,7 @@ Per creare un gruppo per abilitare e disabilitare gli account di gestione, segui
   
 #### <a name="creating-the-management-accounts"></a>Creazione degli account di gestione
 
-È necessario creare almeno un account che verrà usato per gestire l'appartenenza dei gruppi con privilegi nell'installazione di Active Directory e preferibilmente un secondo account che funge da backup. Se si sceglie di creare gli account di gestione in un singolo dominio nella foresta e di concedere loro le funzionalità di gestione per tutti i gruppi protetti di domini o se si sceglie di implementare gli account di gestione in ogni dominio della foresta, le procedure sono in realtà lo stesso.  
+È necessario creare almeno un account che verrà usato per gestire l'appartenenza dei gruppi con privilegi nell'installazione di Active Directory e preferibilmente un secondo account che funge da backup. Se si sceglie di creare gli account di gestione in un singolo dominio nella foresta e di concedere loro le funzionalità di gestione per tutti i gruppi protetti di domini o se si sceglie di implementare gli account di gestione in ogni dominio della foresta, le procedure sono in effetti identiche.  
   
 > [!NOTE]  
 > I passaggi descritti in questo documento presuppongono che non siano ancora stati implementati i controlli degli accessi in base al ruolo e Privileged Identity Management per Active Directory. Pertanto, alcune procedure devono essere eseguite da un utente il cui account è membro del gruppo Domain Admins per il dominio in questione.  
@@ -133,7 +132,7 @@ Per creare gli account di gestione, seguire questa procedura:
 
 7. Fare clic con il pulsante destro del mouse sull'oggetto utente appena creato e scegliere **Proprietà**.  
 
-8. Fare clic sulla scheda **Account**.  
+8. Fare clic sulla scheda **account** .  
 
 9. Nel campo **Opzioni account** selezionare l' **account è sensibile e non può essere delegata** flag, selezionare il **questo account supporta la crittografia AES 128 bit Kerberos** e/o l'account supporta il flag di **crittografia AES 256 Kerberos** e fare clic su **OK**.  
 
@@ -178,15 +177,15 @@ Per creare gli account di gestione, seguire questa procedura:
     > [!NOTE]  
     > È improbabile che questo account verrà usato per accedere ai controller di dominio di sola lettura (RODC) nell'ambiente in uso. Tuttavia, in caso di circostanza è necessario che l'account acceda a un RODC, è necessario aggiungere questo account al gruppo di replica password di RODC negato, in modo che la password non venga memorizzata nella cache nel RODC.  
     >
-    > Anche se la password dell'account deve essere reimpostata dopo ogni utilizzo e l'account deve essere disabilitato, l'implementazione di questa impostazione non ha un effetto deleterio sull'account e potrebbe essere utile in situazioni in cui un amministratore dimentica di reimpostare l'account password e disabilitarla.  
+    > Anche se la password dell'account deve essere reimpostata dopo ogni utilizzo e l'account deve essere disabilitato, l'implementazione di questa impostazione non ha un effetto deleterio sull'account e potrebbe essere utile in situazioni in cui un amministratore dimentica di reimpostare la password dell'account e di disabilitarla.  
 
 17. Fare clic sulla scheda **Membro di**.  
 
-18. Fai clic su **Aggiungi**.  
+18. Fare clic su **Add**.  
 
 19. Digitare **negato controller** di sola lettura Password gruppo di replica nella finestra di dialogo **Seleziona utenti, contatti, computer** e fare clic su **Controlla nomi**. Quando il nome del gruppo è sottolineato nel selettore oggetti, fare clic su **OK** e verificare che l'account sia ora un membro dei due gruppi visualizzati nello screenshot seguente. Non aggiungere l'account a gruppi protetti.  
 
-20. Fai clic su **OK**.  
+20. Fare clic su **OK**.  
 
     ![creazione di account di gestione](media/Appendix-I--Creating-Management-Accounts-for-Protected-Accounts-and-Groups-in-Active-Directory/SAD_129.png)  
 
@@ -239,7 +238,7 @@ Indipendentemente dal modo in cui si sceglie di creare un gruppo in cui si inser
 
 È necessario configurare il controllo per l'account per la registrazione, come minimo, tutte le Scritture nell'account. Ciò consentirà di non solo identificare correttamente l'abilitazione dell'account e la reimpostazione della password durante gli usi autorizzati, ma anche di identificare i tentativi da parte di utenti non autorizzati di modificare l'account. Le Scritture non riuscite per l'account devono essere acquisite nel sistema SIEM (Security Information and Event Monitoring), se applicabile, e devono attivare avvisi che forniscono notifiche al personale responsabile dell'analisi dei potenziali compromessi.  
   
-Le soluzioni SIEM accettano informazioni sugli eventi da origini di sicurezza interattive (ad esempio, registri eventi, dati dell'applicazione, flussi di rete, prodotti antimalware e origini di rilevamento delle intrusioni), fascicolano i dati e tentano di creare visualizzazioni intelligenti e azioni proattive . Sono disponibili molte soluzioni SIEM commerciali e molte aziende creano implementazioni private. Un SIEM ben progettato e implementato in modo appropriato può migliorare significativamente le funzionalità di monitoraggio della sicurezza e di risposta agli eventi imprevisti. Tuttavia, le funzionalità e l'accuratezza variano notevolmente tra le soluzioni. I SIEM non rientrano nell'ambito di questo documento, ma le raccomandazioni specifiche per gli eventi devono essere prese in considerazione da qualsiasi implementatore di SIEM.  
+Le soluzioni SIEM accettano informazioni sugli eventi da origini di sicurezza interattive (ad esempio, registri eventi, dati dell'applicazione, flussi di rete, prodotti antimalware e origini di rilevamento delle intrusioni), fascicolano i dati e tentano di creare visualizzazioni intelligenti e azioni proattive. Sono disponibili molte soluzioni SIEM commerciali e molte aziende creano implementazioni private. Un SIEM ben progettato e implementato in modo appropriato può migliorare significativamente le funzionalità di monitoraggio della sicurezza e di risposta agli eventi imprevisti. Tuttavia, le funzionalità e l'accuratezza variano notevolmente tra le soluzioni. I SIEM non rientrano nell'ambito di questo documento, ma le raccomandazioni specifiche per gli eventi devono essere prese in considerazione da qualsiasi implementatore di SIEM.  
   
 Per ulteriori informazioni sulle impostazioni di configurazione di controllo consigliate per i controller di dominio, vedere [Active Directory di monitoraggio per i segnali di compromissione](../../../ad-ds/plan/security-best-practices/Monitoring-Active-Directory-for-Signs-of-Compromise.md). Le impostazioni di configurazione specifiche del controller di dominio sono disponibili nel [monitoraggio Active Directory per i segnali di compromissione](../../../ad-ds/plan/security-best-practices/Monitoring-Active-Directory-for-Signs-of-Compromise.md).  
   
@@ -309,7 +308,7 @@ In questo caso, verranno concessi gli account di gestione appena creati per cons
   
 #### <a name="verifying-group-and-account-configuration-settings"></a>Verifica delle impostazioni di configurazione di gruppi e account
 
-Ora che sono stati creati e configurati gli account di gestione che possono modificare l'appartenenza dei gruppi protetti nel dominio (che include i gruppi EA, DA e BA con privilegi elevati), è necessario verificare che gli account e il gruppo di gestione siano stati creazione corretta. La verifica è costituita dalle attività generali seguenti:  
+Ora che sono stati creati e configurati gli account di gestione che possono modificare l'appartenenza dei gruppi protetti nel dominio (che include i gruppi EA, DA e BA con privilegi elevati), è necessario verificare che gli account e il relativo gruppo di gestione siano stati creati correttamente. La verifica è costituita dalle attività generali seguenti:  
   
 1.  Testare il gruppo in grado di abilitare e disabilitare gli account di gestione per verificare che i membri del gruppo possano abilitare e disabilitare gli account e reimpostare le proprie password, ma non possono eseguire altre attività amministrative sugli account di gestione.  
   

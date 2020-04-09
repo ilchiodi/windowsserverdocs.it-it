@@ -1,7 +1,6 @@
 ---
 ms.assetid: c0d64566-5530-482e-a332-af029a5fb575
 title: Mapping dei requisiti di progettazione ai modelli di progettazione della foresta
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: d65b03dc255de5523c48c2bb9359530b8e7c3167
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9e5a1d17cbbc5a17b98dff2abf72359ce22142f1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408767"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822234"
 ---
 # <a name="mapping-design-requirements-to-forest-design-models"></a>Mapping dei requisiti di progettazione ai modelli di progettazione della foresta
 
@@ -24,7 +23,7 @@ La maggior parte dei gruppi dell'organizzazione può condividere una singola for
 
 Poiché la foresta organizzativa iniziale può ospitare più gruppi nell'organizzazione, il proprietario della foresta deve stabilire contratti di servizio con ogni gruppo, in modo che tutte le parti conoscano il previsto. Ciò consente di proteggere i singoli gruppi e il proprietario della foresta stabilendo le aspettative di servizio concordate.  
 
-Se non tutti i gruppi dell'organizzazione possono condividere una singola foresta organizzativa, è necessario espandere la struttura della foresta per soddisfare le esigenze dei diversi gruppi. Ciò implica l'identificazione dei requisiti di progettazione che si applicano ai gruppi in base alle proprie esigenze di autonomia e isolamento e a seconda che si disponga o meno di una rete con connettività limitata e che quindi identifichi il modello di foresta che è possibile usare per adattarle requisiti. La tabella seguente elenca gli scenari del modello di progettazione della foresta in base ai fattori di autonomia, isolamento e connettività. Dopo aver identificato lo scenario di progettazione della foresta più adatto alle proprie esigenze, determinare se è necessario prendere decisioni aggiuntive per soddisfare le specifiche di progettazione.  
+Se non tutti i gruppi dell'organizzazione possono condividere una singola foresta organizzativa, è necessario espandere la struttura della foresta per soddisfare le esigenze dei diversi gruppi. Ciò implica l'identificazione dei requisiti di progettazione che si applicano ai gruppi in base alle proprie esigenze di autonomia e isolamento e a seconda che si disponga o meno di una rete con connettività limitata e che quindi identifichi il modello di foresta che è possibile usare per soddisfare tali requisiti. La tabella seguente elenca gli scenari del modello di progettazione della foresta in base ai fattori di autonomia, isolamento e connettività. Dopo aver identificato lo scenario di progettazione della foresta più adatto alle proprie esigenze, determinare se è necessario prendere decisioni aggiuntive per soddisfare le specifiche di progettazione.  
 
 > [!NOTE]  
 > Se un fattore viene elencato come N/A, non è una considerazione, perché altri requisiti si adattano anche a tale fattore.  
@@ -39,11 +38,11 @@ Se non tutti i gruppi dell'organizzazione possono condividere una singola forest
 |[Scenario 6: usare una foresta o un dominio aziendale e riconfigurare il firewall per l'autonomia del servizio con connettività limitata](#BKMK_6)|Sì|No|N/D|No|Sì|  
 |[Scenario 7: usare una foresta di risorse e riconfigurare il firewall per l'isolamento dei servizi con connettività limitata](#BKMK_7)|Sì|No|N/D|Sì|N/D|  
 
-## <a name="BKMK_1"></a>Scenario 1: unire in join una foresta esistente per l'autonomia dei dati  
+## <a name="scenario-1-join-an-existing-forest-for-data-autonomy"></a><a name="BKMK_1"></a>Scenario 1: unire in join una foresta esistente per l'autonomia dei dati  
 
 È possibile soddisfare un requisito per l'autonomia dei dati semplicemente ospitando il gruppo in unità organizzative (OU) in una foresta organizzativa esistente. Delegare il controllo sulle unità organizzative agli amministratori di dati di tale gruppo per ottenere l'autonomia dei dati. Per ulteriori informazioni sulla delega del controllo tramite le unità organizzative, vedere [creazione di un'unità organizzativa progettazione](../../ad-ds/plan/Creating-an-Organizational-Unit-Design.md).  
   
-## <a name="BKMK_2"></a>Scenario 2: usare una foresta o un dominio aziendale per l'autonomia del servizio  
+## <a name="scenario-2-use-an-organizational-forest-or-domain-for-service-autonomy"></a><a name="BKMK_2"></a>Scenario 2: usare una foresta o un dominio aziendale per l'autonomia del servizio  
 
 Se un gruppo dell'organizzazione identifica l'autonomia del servizio come requisito, è consigliabile riconsiderare prima questo requisito. Il raggiungimento dell'autonomia dei servizi consente di creare un sovraccarico di gestione e costi aggiuntivi per l'organizzazione. Verificare che il requisito per l'autonomia del servizio non sia semplicemente per praticità e che sia possibile giustificare i costi associati a questo requisito.  
   
@@ -55,7 +54,7 @@ Se un gruppo dell'organizzazione identifica l'autonomia del servizio come requis
 
 Per ulteriori informazioni sull'utilizzo di domini aziendali, vedere [utilizzo del modello di foresta di domini aziendali](../../ad-ds/plan/../../ad-ds/plan/Using-the-Organizational-Domain-Forest-Model.md).  
 
-## <a name="BKMK_3"></a>Scenario 3: usare una foresta aziendale o una foresta di risorse per l'isolamento dei servizi  
+## <a name="scenario-3-use-an-organizational-forest-or-resource-forest-for-service-isolation"></a><a name="BKMK_3"></a>Scenario 3: usare una foresta aziendale o una foresta di risorse per l'isolamento dei servizi  
 
 È possibile soddisfare un requisito per l'isolamento dei servizi effettuando una delle operazioni seguenti:  
 
@@ -77,7 +76,7 @@ Di seguito sono riportate alcune considerazioni sull'isolamento dei servizi:
 
 - L'isolamento dei servizi richiede la creazione di una foresta aggiuntiva. Valutare se il costo di gestione dell'infrastruttura per il supporto della foresta aggiuntiva supera i costi associati alla perdita di accesso alle risorse a causa di una foresta organizzativa non disponibile.  
 
-## <a name="BKMK_4"></a>Scenario 4: usare una foresta organizzativa o una foresta con accesso limitato per l'isolamento dei dati  
+## <a name="scenario-4-use-an-organizational-forest-or-restricted-access-forest-for-data-isolation"></a><a name="BKMK_4"></a>Scenario 4: usare una foresta organizzativa o una foresta con accesso limitato per l'isolamento dei dati  
 
 È possibile ottenere l'isolamento dei dati eseguendo una delle operazioni seguenti:  
 
@@ -104,12 +103,12 @@ Di seguito sono riportate alcune considerazioni sulla creazione di foreste per l
 
 - Potrebbe essere necessario stabilire un firewall tra la foresta organizzativa e le altre foreste dell'organizzazione per limitare l'accesso degli utenti alle informazioni esterne alla foresta.  
 
-- Sebbene la creazione di una foresta separata consenta l'isolamento dei dati, purché i controller di dominio nella foresta isolata e i computer che ospitano informazioni protette siano accessibili in una rete, sono soggetti ad attacchi avviati dai computer della rete. Le organizzazioni che decidono che il rischio di attacco è troppo elevato o che la conseguenza di un attacco o di una violazione della sicurezza è troppo grande per limitare l'accesso alla rete o alle reti che ospitano i controller di dominio e ai computer che ospitano i dati protetti . La limitazione dell'accesso può essere eseguita utilizzando tecnologie quali firewall e Internet Protocol Security (IPsec). In casi estremi, le organizzazioni possono scegliere di mantenere i dati protetti in una rete indipendente senza connessione fisica ad altre reti dell'organizzazione.  
+- Sebbene la creazione di una foresta separata consenta l'isolamento dei dati, purché i controller di dominio nella foresta isolata e i computer che ospitano informazioni protette siano accessibili in una rete, sono soggetti ad attacchi avviati dai computer della rete. Le organizzazioni che decidono che il rischio di attacco è troppo elevato o che la conseguenza di un attacco o di una violazione della sicurezza è troppo importante per limitare l'accesso alla rete o alle reti che ospitano i controller di dominio e i computer che ospitano i dati protetti. La limitazione dell'accesso può essere eseguita utilizzando tecnologie quali firewall e Internet Protocol Security (IPsec). In casi estremi, le organizzazioni possono scegliere di mantenere i dati protetti in una rete indipendente senza connessione fisica ad altre reti dell'organizzazione.  
 
    > [!NOTE]  
    > Se esiste una connettività di rete tra una foresta con accesso limitato e un'altra rete, esiste la possibilità che i dati nell'area con restrizioni vengano trasmessi all'altra rete.  
 
-## <a name="BKMK_5"></a>Scenario 5: usare una foresta organizzativa o riconfigurare il firewall per la connettività limitata  
+## <a name="scenario-5-use-an-organizational-forest-or-reconfigure-the-firewall-for-limited-connectivity"></a><a name="BKMK_5"></a>Scenario 5: usare una foresta organizzativa o riconfigurare il firewall per la connettività limitata  
 
 Per soddisfare i requisiti di connettività limitati, è possibile eseguire una delle operazioni seguenti:  
 
@@ -119,7 +118,7 @@ Per soddisfare i requisiti di connettività limitati, è possibile eseguire una 
 
 Per ulteriori informazioni sulla configurazione dei firewall per l'utilizzo con Active Directory Domain Services (AD DS), vedere [Active Directory in reti segmentate in base ai firewall](https://go.microsoft.com/fwlink/?LinkId=37928).  
 
-## <a name="BKMK_6"></a>Scenario 6: usare una foresta o un dominio aziendale e riconfigurare il firewall per l'autonomia del servizio con connettività limitata  
+## <a name="scenario-6-use-an-organizational-forest-or-domain-and-reconfigure-the-firewall-for-service-autonomy-with-limited-connectivity"></a><a name="BKMK_6"></a>Scenario 6: usare una foresta o un dominio aziendale e riconfigurare il firewall per l'autonomia del servizio con connettività limitata  
 
 Se un gruppo dell'organizzazione identifica l'autonomia del servizio come requisito, è consigliabile riconsiderare prima questo requisito. Il raggiungimento dell'autonomia dei servizi consente di creare un sovraccarico di gestione e costi aggiuntivi per l'organizzazione. Verificare che il requisito per l'autonomia del servizio non sia semplicemente per praticità e che sia possibile giustificare i costi associati a questo requisito.  
 
@@ -131,7 +130,7 @@ Se la connettività limitata è un problema e si dispone di un requisito per l'a
 
 È anche necessario aprire il firewall abbastanza per consentire il passaggio del traffico Active Directory. Per ulteriori informazioni sulla configurazione dei firewall per l'utilizzo con servizi di dominio Active Directory, vedere [Active Directory in reti segmentate in base ai firewall](https://go.microsoft.com/fwlink/?LinkId=37928).  
 
-## <a name="BKMK_7"></a>Scenario 7: usare una foresta di risorse e riconfigurare il firewall per l'isolamento dei servizi con connettività limitata  
+## <a name="scenario-7-use-a-resource-forest-and-reconfigure-the-firewall-for-service-isolation-with-limited-connectivity"></a><a name="BKMK_7"></a>Scenario 7: usare una foresta di risorse e riconfigurare il firewall per l'isolamento dei servizi con connettività limitata  
 
 Se la connettività limitata è un problema e si dispone di un requisito per l'isolamento dei servizi, è possibile eseguire una delle operazioni seguenti:  
 

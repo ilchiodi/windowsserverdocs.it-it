@@ -2,22 +2,19 @@
 title: Migrazione del database WSUS da (database interno di Windows) WID a SQL
 description: "Argomento Windows Server Update Service (WSUS): come eseguire la migrazione del database WSUS (SUSDB) da un'istanza di database interno di Windows a un'istanza locale o remota di SQL Server."
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-wsus
-ms.tgt_pltfrm: na
 ms.topic: get-started article
 ms.assetid: 90e3464c-49d8-4861-96db-ee6f8a09g7dr
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dougkim
 ms.date: 07/25/2018
-ms.openlocfilehash: 594c20cbfea521006de6d1ec69763669298376e6
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 8d38833170aae5e13f9d42b726d7cb0b3c12de56
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948526"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828454"
 ---
 >Si applica a: Windows Server 2012, Windows Server 2012 R2, Windows Server 2016
 
@@ -49,7 +46,7 @@ Da PowerShell (con privilegi elevati) eseguire:
 
 1. Fare clic con il pulsante destro del mouse su **SUSDB** -&gt; **attività** -&gt; fare clic su **Disconnetti**: ![image1](images/image1.png)
 2. Selezionare **Elimina connessioni esistenti** e fare clic su **OK** (facoltativo, se esistono connessioni attive).
-    ![image2](images/image2.png)
+    ![Image2](images/image2.png)
 
 #### <a name="using-command-prompt"></a>Dal prompt dei comandi
 
@@ -116,22 +113,22 @@ L'account **NT Authority\Network Service** deve essere elencato. In caso contrar
 ##### <a name="adding-nt-authoritynetwork-service-and-granting-it-rights"></a>Aggiunta di NT AUTHORITY\NETWORK SERVICE e concessione dei diritti it
 
 1. Fare clic con il pulsante destro del mouse su **accessi** e scegliere **nuovo account di accesso.**
-    ![Image6](images/image6.png)
+    ![image6](images/image6.png)
 2. Nella pagina **generale** compilare il **nome dell'account di accesso** (**NT Authority\Network Service**) e impostare il **database predefinito** su SUSDB.
-    ![Image7](images/image7.png)
+    ![image7](images/image7.png)
 3. Nella pagina **ruoli server** verificare che sia selezionata l'opzione **pubblica** e **sysadmin** .
-    ![Immagine8](images/image8.png)
+    ![image8](images/image8.png)
 4. Nella pagina **mapping utenti** :
     - In **utenti con mapping a questo account di accesso**: selezionare **SUSDB**
     - In **appartenenza a ruoli del database per: SUSDB**verificare che siano controllati gli elementi seguenti:
-        - **public**
+        - **pubblico**
         - **webService** ![Image9](images/image9.png)
-5. Fare clic su **OK**
+5. Fare clic su **OK**.
 
 A questo punto verrà visualizzato **NT Authority\Network Service** in account di accesso.
-![Immagine10](images/image10.png)
+![image10](images/image10.png)
 
-#### <a name="database-permissions"></a>Autorizzazioni per il database
+#### <a name="database-permissions"></a>Autorizzazioni database
 
 1. Fare clic con il pulsante destro del mouse su SUSDB
 2. Selezione **Proprietà**
@@ -147,10 +144,10 @@ L'account **NT Authority\Network Service** deve essere elencato.
     > [!TIP]
     > Nell'esempio seguente, il nome di dominio completo è **contosto.com** e il nome del computer WSUS è **WsusMachine**:
     >
-    > ![Immagine11](images/image11.png)
+    > ![image11](images/image11.png)
 
-4. Nella pagina **mapping** utenti selezionare il database **SUSDB** in **"utenti con mapping a questo account di accesso"**
-5. Controllare **WebService** in **"appartenenza a ruoli del database per: SUSDB"** : ![IMAGE12](images/image12.png)
+4. Nella pagina **mapping utenti** selezionare il database **SUSDB** in utenti con **mapping a questo account di accesso**
+5. Verificare **l'** appartenenza al **ruolo del database per: SUSDB**: ![IMAGE12](images/image12.png)
 6. Fare clic su **OK** per salvare le impostazioni.
     > [!NOTE]
     > Per rendere effettive le modifiche, potrebbe essere necessario riavviare il servizio SQL.
@@ -158,7 +155,7 @@ L'account **NT Authority\Network Service** deve essere elencato.
 ### <a name="edit-the-registry-to-point-wsus-to-the-sql-server-instance"></a>Modificare il registro di sistema per puntare WSUS all'istanza di SQL Server
 
 > [!IMPORTANT]
-> Segui con attenzione la procedura descritta in questa sezione. Se le modifiche al Registro di sistema vengono apportate in modo non corretto, possono verificarsi problemi gravi. Prima di modificarlo, [esegui il backup del Registro di sistema per il ripristino](https://support.microsoft.com/help/322756) nel caso in cui si verifichino problemi.
+> Segui con attenzione la procedura descritta in questa sezione. Possono verificarsi dei problemi seri se si modifica il Registro di sistema in modo incorretto. Prima di modificarlo, [esegui il backup del Registro di sistema per il ripristino](https://support.microsoft.com/help/322756) nel caso in cui si verifichino problemi.
 
 1. Fare clic su **Start**, **Esegui**, digitare **regedit** e fare clic su **OK**.
 2. Individuare la chiave seguente: **HKEY_LOCAL_MACHINE \software\microsoft\updateservices\server\setup\sqlservername**

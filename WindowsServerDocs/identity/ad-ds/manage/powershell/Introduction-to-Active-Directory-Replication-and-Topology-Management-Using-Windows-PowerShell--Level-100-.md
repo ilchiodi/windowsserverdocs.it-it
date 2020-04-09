@@ -1,7 +1,6 @@
 ---
 ms.assetid: c54b544f-cc32-4837-bb2d-a8656b22f3de
 title: Introduzione alla gestione della topologia e della replica di Active Directory mediante Windows PowerShell (Livello 100)
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: c8a5863865d465d55f1d5865fdcbdeeb942ce194
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 63ecad01ec6d4b4d72b7aaff315b74541cb0fadc
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71409085"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822984"
 ---
 # <a name="introduction-to-active-directory-replication-and-topology-management-using-windows-powershell-level-100"></a>Introduzione alla gestione della topologia e della replica di Active Directory mediante Windows PowerShell (Livello 100)
 
@@ -43,7 +42,7 @@ Gli scenari seguenti sono studiati per consentire agli amministratori di acquisi
 
 ## <a name="lab-requirements"></a>Requisiti per il lab
 
--   Due controller di dominio Windows Server 2012: **DC1** e **DC2** appartenenti al dominio contoso.com e residenti nel sito CORPORATE incluso in tale dominio.
+-   Due controller di dominio di Windows Server 2012: **DC1** e **DC2** che fanno parte del dominio contoso.com e si trovano nel sito AZIENDA all'interno del dominio.
 
 ## <a name="view-domain-controllers-and-their-sites"></a>Visualizzare i controller di dominio e i relativi siti
 In questo passaggio verrà utilizzato il Modulo di Active Directory per Windows PowerShell per visualizzare i controller di dominio esistenti e la topologia di replica del dominio.
@@ -154,7 +153,7 @@ Per completare i passaggi illustrati nelle procedure seguenti è necessario esse
 
     L'ordinamento consente di confrontare facilmente l'ultimo USN rilevato da ogni controller di dominio per un determinato partner di replica. Si tratta di un modo rapido per verificare che la replica stia avvenendo in tutto l'ambiente. Se la replica funziona correttamente, il valore UsnFilter riportato per un determinato partner di replica deve essere simile in tutti i controller di dominio.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Gestione della topologia e della replica avanzata Active Directory &#40;usando il livello 200 di Windows PowerShell&#41;](Advanced-Active-Directory-Replication-and-Topology-Management-Using-Windows-PowerShell--Level-200-.md)
 
 

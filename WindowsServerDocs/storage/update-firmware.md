@@ -3,17 +3,17 @@ ms.assetid: e5945bae-4a33-487c-a019-92a69db8cf6c
 title: Aggiornamento del firmware dell'unità
 ms.prod: windows-server
 ms.author: toklima
-ms.manager: dmoss
+manager: dmoss
 ms.technology: storage-spaces
 ms.topic: article
 author: toklima
 ms.date: 10/04/2016
-ms.openlocfilehash: 2f0530101bb7d597d2d95c26648aad65d62b69ca
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 55a4fc94440b763c48735ffe44099da702857489
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365868"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820874"
 ---
 # <a name="updating-drive-firmware"></a>Aggiornamento del firmware dell'unità
 >Si applica a: Windows Server 2019, Windows Server 2016, Windows 10
@@ -30,11 +30,11 @@ Per aggiornare il firmware delle unità con Windows Server, è necessario che le
 Per informazioni sulla compatibilità dell'hardware in uso con l'aggiornamento del firmware delle unità da parte di Windows, contattare il fornitore della soluzione.
 Di seguito sono riportati i collegamenti relativi ai diversi requisiti:
 
--   SATA [Device. storage. HD. SATA](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragehdsata) : nella sezione **[if implemented @ No__t-2 firmware download & Activate**
+-   SATA: [Device.Storage.Hd.Sata](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragehdsata), sezione **[If Implemented\] Firmware Download & Activate** ([Se implementato] Download e attivazione del firmware)
     
--   FIRMA [Device. storage. HD. SAS](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragehdsas) : nella sezione **[if implemented @ No__t-2 firmware download & Activate**
+-   SAS: [Device.Storage.Hd.Sas](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragehdsas), sezione **[If Implemented\] Firmware Download & Activate** ([Se implementato] Download e attivazione del firmware)
 
--   NVMe [Device. storage. ControllerDrive. NVMe](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragecontrollerdrivenvme) -nelle sezioni **5,7** e **5,8**.
+-   NVMe: [Device.Storage.ControllerDrive.NVMe](https://msdn.microsoft.com/windows/hardware/commercialize/design/compatibility/device-storage#devicestoragecontrollerdrivenvme), sezioni **5.7** e **5.8**.
 
 ## <a name="powershell-cmdlets"></a>Cmdlet PowerShell
 
@@ -43,7 +43,7 @@ I due cmdlet aggiunti a Windows sono:
 -   Get–StorageFirmwareInformation
 -   Update–StorageFirmware
 
-Il primo cmdlet offre informazioni dettagliate sulle funzionalità del dispositivo, le immagini del firmware e le revisioni. In questo caso il computer contiene solo un singolo SSD SATA con uno slot del firmware. Di seguito è riportato un esempio:
+Il primo cmdlet offre informazioni dettagliate sulle funzionalità del dispositivo, le immagini del firmware e le revisioni. In questo caso il computer contiene solo un singolo SSD SATA con uno slot del firmware. Ecco un esempio:
 
    ```powershell
    Get-PhysicalDisk | Get-StorageFirmwareInformation
@@ -164,7 +164,7 @@ $NewDoc = Get-Content <Path> | Out-String
 $SpacesDirect | Set-StorageHealthSetting -Name "System.Storage.SupportedComponents.Document" -Value $NewDoc
 ```
 
-Se si desidera visualizzare il Servizio integrità in azione e ottenere ulteriori informazioni sul meccanismo di implementazione, vedere questo video: https://channel9.msdn.com/Blogs/windowsserver/Update-Drive-Firmware-Without-Downtime-in-Storage-Spaces-Direct
+Se si desidera visualizzare il Servizio integrità in azione e ottenere ulteriori informazioni sul meccanismo di implementazione, vedere il video seguente: https://channel9.msdn.com/Blogs/windowsserver/Update-Drive-Firmware-Without-Downtime-in-Storage-Spaces-Direct
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 

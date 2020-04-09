@@ -1,19 +1,20 @@
 ---
 title: Distribuire una condivisione file di controllo in Windows Server 2019
+description: I witness di condivisione file consentono di usare una condivisione file per votare il quorum del cluster. Questo argomento descrive i witness di condivisione file e le nuove funzionalità, tra cui l'uso di un'unità USB connessa a un router come condivisione file di controllo.
 ms.prod: windows-server
-ms.manager: eldenc
+manager: eldenc
 ms.technology: failover-clustering
 ms.topic: article
 author: johnmarlin-msft
+ms.author: johnmar
 ms.date: 01/24/2019
-description: I witness di condivisione file consentono di usare una condivisione file per votare il quorum del cluster. Questo argomento descrive i witness di condivisione file e le nuove funzionalità, tra cui l'uso di un'unità USB connessa a un router come condivisione file di controllo.
 ms.localizationpriority: medium
-ms.openlocfilehash: 9f0a0c5b48f7c382367e4b1100ff649fe73d3be9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 63e016b8e00482529e69aaa12727f854afd51e41
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369757"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827674"
 ---
 # <a name="deploy-a-file-share-witness"></a>Distribuire una condivisione file di controllo
 

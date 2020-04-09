@@ -1,7 +1,6 @@
 ---
 ms.assetid: 64142026-07b5-4601-840a-c8dcf6ab9814
 title: Creazione di un progetto di ponte di collegamenti di sito
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 79e91481c357d05617ee0ddc716e2bf6e90b8b27
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f75feb34b64e2ab41859dd708147a2e8d05a768a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408964"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822764"
 ---
 # <a name="creating-a-site-link-bridge-design"></a>Creazione di un progetto di ponte di collegamenti di sito
 

@@ -1,7 +1,6 @@
 ---
 ms.assetid: de054ac2-a386-43ec-a537-c0de21549741
 title: Impostazione delle proprietà di collegamento di sito
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: c9a9b25aa56948e3116ebfef67a6af73917b76c2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f448a29384b9ae9409981a67c515dab3640899dd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402474"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821864"
 ---
 # <a name="setting-site-link-properties"></a>Impostazione delle proprietà di collegamento di sito
 
@@ -30,7 +29,7 @@ L'impostazione delle proprietà dell'oggetto collegamento di sito include i pass
   
 -   Determinare l'intervallo di replica che definisce la frequenza con cui la replica deve essere eseguita durante i periodi in cui è consentita la replica, come definito nella pianificazione.  
   
-## <a name="in-this-guide"></a>Contenuto della guida  
+## <a name="in-this-guide"></a>In questa guida  
   
 -   [Definizione dei costi](../../ad-ds/plan/Determining-the-Cost.md)  
   

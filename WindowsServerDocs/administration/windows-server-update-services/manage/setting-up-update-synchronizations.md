@@ -1,26 +1,22 @@
 ---
-title: Impostazione delle sincronizzazioni di aggiornamento
+title: Impostazione delle sincronizzazioni degli aggiornamenti
 description: Argomento Windows Server Update Service (WSUS)-come configurare e configurare le sincronizzazioni degli aggiornamenti
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-wsus
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ddd5c395-451b-44a0-8e08-a05db26d2282
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9c7bca5be7a8ec0e857cba65680fbc3b967af4f8
-ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
+ms.openlocfilehash: f4da028b2100d824b55c00c185f8b90df7d787bf
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80639751"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828543"
 ---
-# <a name="setting-up-update-synchronizations"></a>Impostazione delle sincronizzazioni di aggiornamento
+# <a name="setting-up-update-synchronizations"></a>Impostazione delle sincronizzazioni degli aggiornamenti
 
 >Si applica a: Windows Server 2019, Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
@@ -30,7 +26,7 @@ La prima volta che un server WSUS scarica aggiornamenti può richiedere molto te
 
 È possibile copiare il contenuto dalla directory del contenuto del server WSUS a un altro. Quando si esegue la procedura di installazione di WSUS post, viene specificato il percorso della directory dei contenuti. È possibile utilizzare lo strumento wsusutil.exe per esportare i metadati dell'aggiornamento da un server WSUS in un file. È quindi possibile importare tale file in altri server WSUS.
 
-## <a name="setting-up-update-synchronizations"></a>Impostazione delle sincronizzazioni di aggiornamento
+## <a name="setting-up-update-synchronizations"></a>Impostazione delle sincronizzazioni degli aggiornamenti
 Il **Opzioni** pagina è il punto di accesso centrale nella Console di amministrazione di WSUS per la personalizzazione di come il server WSUS Sincronizza gli aggiornamenti. È possibile specificare gli aggiornamenti vengono sincronizzati automaticamente, in cui il server Ottiene gli aggiornamenti, le impostazioni di connessione e la pianificazione della sincronizzazione. È anche possibile utilizzare la configurazione guidata di **Opzioni** pagina per configurare o riconfigurare il server WSUS in qualsiasi momento.
 
 ### <a name="synchronizing-update-by-product-and-classification"></a>Aggiornamento per prodotto e classificazione di sincronizzazione
@@ -89,7 +85,7 @@ Opzioni per personalizzare la modalità del server WSUS Sincronizza con origine 
 
 -   È possibile specificare una porta personalizzata per la sincronizzazione. Per informazioni sulla configurazione delle porte, vedere [passaggio 3: configurare WSUS](../deploy/2-configure-wsus.md) nella Guida alla distribuzione di WSUS.
 
--   È possibile utilizzare livelli SSL (Secure Socket) per la sincronizzazione protetta di informazioni relative all'aggiornamento tra server WSUS. Per ulteriori informazioni sull'utilizzo di SSL, vedere la sezione "3.5. Proteggere WSUS con Secure Sockets Layer Protocol"di [passaggio 3: configurare WSUS](../deploy/2-configure-wsus.md) nella Guida alla distribuzione di WSUS.
+-   È possibile utilizzare livelli SSL (Secure Socket) per la sincronizzazione protetta di informazioni relative all'aggiornamento tra server WSUS. Per ulteriori informazioni sull'utilizzo di SSL, vedere la sezione 3,5. Proteggere WSUS con il protocollo Secure Sockets Layer del [passaggio 3: configurare WSUS](../deploy/2-configure-wsus.md) nella Guida alla distribuzione di WSUS.
 
 ## <a name="synchronizing-manually-or-automatically"></a>La sincronizzazione manualmente o automaticamente
 È possibile sincronizzare manualmente il server WSUS o specificare un'ora per la sincronizzazione automatica.

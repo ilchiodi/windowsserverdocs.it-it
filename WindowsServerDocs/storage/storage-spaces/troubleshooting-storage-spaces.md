@@ -1,7 +1,6 @@
 ---
 title: Risoluzione dei problemi di Spazi di archiviazione diretta
 description: Informazioni su come risolvere i problemi relativi alla distribuzione di Spazi di archiviazione diretta.
-keywords: Spazi di archiviazione
 ms.prod: windows-server
 ms.author: ''
 ms.technology: storage-spaces
@@ -9,12 +8,12 @@ ms.topic: article
 author: kaushika-msft
 ms.date: 10/24/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: ace19b711445106956ae223f17afb6b4181d352d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 429eddf30fddf6bfd035d1f928196a3b66d14646
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365943"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820944"
 ---
 # <a name="troubleshoot-storage-spaces-direct"></a>Risoluzione dei problemi Spazi di archiviazione diretta
 
@@ -36,12 +35,12 @@ Se si verificano ancora problemi, rivedere gli scenari seguenti.
 ## <a name="virtual-disk-resources-are-in-no-redundancy-state"></a>Le risorse del disco virtuale non sono in stato di ridondanza
 I nodi di un Spazi di archiviazione diretta riavvio del sistema in modo imprevisto a causa di un arresto anomalo o di alimentazione. Quindi, uno o più dischi virtuali potrebbero non essere online e viene visualizzata la descrizione "informazioni di ridondanza insufficiente".
 
-|FriendlyName|ResiliencySettingName| OperationalStatus| HealthStatus| IsManualAttach|Size| PSComputerName|
+|FriendlyName|ResiliencySettingName| OperationalStatus| HealthStatus| IsManualAttach|Dimensione| PSComputerName|
 |------------|---------------------| -----------------| ------------| --------------|-----| --------------|
 |DISK4| Mirror| OK|  Integro| True|  10 TB|  Node-01. conto...|
 |Disk3         |Mirror                 |OK                          |Integro       |True            |10 TB | Node-01. conto...|
-|Disk2         |Mirror                 |Nessuna ridondanza               |Unhealthy     |True            |10 TB | Node-01. conto...|
-|Disk1         |Mirror                 |{Nessuna ridondanza, inservice}  |Unhealthy     |True            |10 TB | Node-01. conto...| 
+|Disk2         |Mirror                 |Nessuna ridondanza               |Non integro     |True            |10 TB | Node-01. conto...|
+|Disk1         |Mirror                 |{Nessuna ridondanza, inservice}  |Non integro     |True            |10 TB | Node-01. conto...| 
 
 Inoltre, dopo il tentativo di portare online il disco virtuale, le informazioni seguenti vengono registrate nel log del cluster (DiskRecoveryAction).  
 
@@ -99,12 +98,12 @@ Quando si esegue il cmdlet **Get-VirtualDisk** , il OperationalStatus per uno o 
 
 Di seguito è riportato un esempio dell'output del cmdlet **Get-VirtualDisk** .
 
-|FriendlyName|  ResiliencySettingName|  OperationalStatus|   HealthStatus|  IsManualAttach|  Size|   PSComputerName|
+|FriendlyName|  ResiliencySettingName|  OperationalStatus|   HealthStatus|  IsManualAttach|  Dimensione|   PSComputerName|
 |-|-|-|-|-|-|-|
 |DISK4|         Mirror|                 OK|                  Integro|       True|            10 TB|  Node-01. conto...|
 |Disk3|         Mirror|                 OK|                  Integro|       True|            10 TB|  Node-01. conto...|
-|Disk2|         Mirror|                 Detached|            Sconosciuta|       True|            10 TB|  Node-01. conto...|
-|Disk1|         Mirror|                 Detached|            Sconosciuta|       True|            10 TB|  Node-01. conto...| 
+|Disk2|         Mirror|                 Detached|            Sconosciuto|       True|            10 TB|  Node-01. conto...|
+|Disk1|         Mirror|                 Detached|            Sconosciuto|       True|            10 TB|  Node-01. conto...| 
 
 
 Inoltre, è possibile che nei nodi siano registrati gli eventi seguenti:
@@ -151,7 +150,7 @@ DeviceName:
 Volume Name:
 ``` 
 
-Lo **stato operativo scollegato** può verificarsi se il log di rilevamento dell'area dirty (DRT) è pieno. Spazi di archiviazione usa il rilevamento dell'area dirty (DRT) per gli spazi con mirroring per assicurarsi che, quando si verifica un errore di alimentazione, vengano registrati tutti gli aggiornamenti in corso per i metadati per assicurarsi che lo spazio di archiviazione possa ripetere o annullare le operazioni per riportare lo spazio di archiviazione in una flessibilità e lo stato coerente quando l'alimentazione viene ripristinata e il sistema viene riattivato. Se il log DRT è pieno, non è possibile portare online il disco virtuale fino a quando i metadati di DRT non vengono sincronizzati e scaricati. Questo processo richiede l'esecuzione di un'analisi completa, il cui completamento può richiedere diverse ore.
+Lo **stato operativo scollegato** può verificarsi se il log di rilevamento dell'area dirty (DRT) è pieno. Spazi di archiviazione usa il rilevamento dell'area dirty (DRT) per gli spazi con mirroring per assicurarsi che, quando si verifica un errore di alimentazione, vengano registrati tutti gli aggiornamenti in corso per i metadati per assicurarsi che lo spazio di archiviazione possa ripristinare o annullare le operazioni per riportare lo spazio di archiviazione in uno stato flessibile e coerente quando viene ripristinata l'alimentazione e il sistema torna attivo. Se il log DRT è pieno, non è possibile portare online il disco virtuale fino a quando i metadati di DRT non vengono sincronizzati e scaricati. Questo processo richiede l'esecuzione di un'analisi completa, il cui completamento può richiedere diverse ore.
 
 Per risolvere il problema, attenersi alla seguente procedura:
 1. Rimuovere i dischi virtuali interessati dal volume condiviso del cluster.
@@ -206,7 +205,7 @@ Per ulteriori informazioni, vedere la pagina relativa alla [risoluzione dei prob
 ## <a name="event-5120-with-status_io_timeout-c00000b5"></a>Evento 5120 con STATUS_IO_TIMEOUT c00000b5 
 
 > [!Important]
-> **Per Windows Server 2016:** Per ridurre la possibilità di riscontrare questi sintomi durante l'applicazione dell'aggiornamento con la correzione, è consigliabile usare la procedura relativa alla modalità di manutenzione dell'archiviazione riportata di seguito per installare il [18 ottobre 2018, aggiornamento cumulativo per Windows Server 2016](https://support.microsoft.com/help/4462928) o una versione successiva. Quando i nodi hanno attualmente installato un aggiornamento cumulativo di Windows Server 2016 rilasciato dall' [8 maggio 2018](https://support.microsoft.com/help/4103723) fino al [9 ottobre 2018](https://support.microsoft.com/help/KB4462917).
+> **Per Windows Server 2016:** Per ridurre la possibilità di riscontrare questi sintomi durante l'applicazione dell'aggiornamento con la correzione, è consigliabile usare la procedura relativa alla modalità di manutenzione dell'archiviazione riportata di seguito per installare il [18 ottobre 2018, aggiornamento cumulativo per Windows server 2016](https://support.microsoft.com/help/4462928) o versione successiva quando i nodi hanno attualmente installato un aggiornamento cumulativo di windows server 2016 rilasciato dall' [8 maggio 2018](https://support.microsoft.com/help/4103723) al [9 ottobre 2018](https://support.microsoft.com/help/KB4462917).
 
 È possibile ottenere l'evento 5120 con STATUS_IO_TIMEOUT c00000b5 dopo il riavvio di un nodo in Windows Server 2016 con aggiornamento cumulativo rilasciato dall' [8 maggio 2018 kb 4103723](https://support.microsoft.com/help/4103723) al [9 ottobre, 2018 KB 4462917](https://support.microsoft.com/help/4462917) installati.
 
@@ -217,7 +216,7 @@ Event Source: Microsoft-Windows-FailoverClustering
 Event ID: 5120
 Description:    Cluster Shared Volume 'CSVName' ('Cluster Virtual Disk (CSVName)') has entered a paused state because of 'STATUS_IO_TIMEOUT(c00000b5)'. All I/O will temporarily be queued until a path to the volume is reestablished. 
 
-Cluster Shared Volume ‘CSVName' ('Cluster Virtual Disk (CSVName)') has entered a paused state because of 'STATUS_CONNECTION_DISCONNECTED(c000020c)'. All I/O will temporarily be queued until a path to the volume is reestablished.    
+Cluster Shared Volume 'CSVName' ('Cluster Virtual Disk (CSVName)') has entered a paused state because of 'STATUS_CONNECTION_DISCONNECTED(c000020c)'. All I/O will temporarily be queued until a path to the volume is reestablished.    
 ```
 
 Quando viene registrato un evento 5120, viene generato un dump attivo per raccogliere informazioni di debug che possono causare sintomi aggiuntivi o avere un effetto sulle prestazioni. La generazione del dump attivo crea una breve pausa per consentire l'esecuzione di uno snapshot della memoria per la scrittura del file di dump. I sistemi con una grande quantità di memoria e sottoposti a stress possono causare l'eliminazione dei nodi dall'appartenenza al cluster e la registrazione dell'evento 1135 seguente.
@@ -311,20 +310,20 @@ Esistono due modi per verificare:
 
 1. Utilizzando il log del cluster. Aprire il log del cluster nell'editor di testo desiderato e cercare "[= = = SBL disks = = =]". Si tratta di un elenco del disco nel nodo in cui è stato generato il log. 
 
-     Esempio di dischi abilitati per la cache: Si noti che lo stato è CacheDiskStateInitializedAndBound ed è presente un GUID. 
+     Disco abilitato per la cache esempio: si noti che lo stato è CacheDiskStateInitializedAndBound ed è presente un GUID presente qui. 
 
    ```
    [=== SBL Disks ===]
     {26e2e40f-a243-1196-49e3-8522f987df76},3,false,true,1,48,{1ff348f1-d10d-7a1a-d781-4734f4440481},CacheDiskStateInitializedAndBound,1,8087,54,false,false,HGST    ,HUH721010AL4200 ,        7PG3N2ER,A21D,{d5e27a3b-42fb-410a-81c6-9d8cc12da20c},[R/M 0 R/U 0 R/T 0 W/M 0 W/U 0 W/T 0],
     ```
 
-    Cache non abilitata: Qui è possibile notare che non è presente alcun GUID e lo stato è CacheDiskStateNonHybrid. 
+    Cache non abilitata: qui è possibile vedere che non è presente alcun GUID e lo stato è CacheDiskStateNonHybrid. 
     ```
    [=== SBL Disks ===]
     {426f7f04-e975-fc9d-28fd-72a32f811b7d},12,false,true,1,24,{00000000-0000-0000-0000-000000000000},CacheDiskStateNonHybrid,0,0,0,false,false,HGST    ,HUH721010AL4200 ,        7PGXXG6C,A21D,{d5e27a3b-42fb-410a-81c6-9d8cc12da20c},[R/M 0 R/U 0 R/T 0 W/M 0 W/U 0 W/T 0],
     ```
 
-    Cache non abilitata: Quando tutti i dischi sono dello stesso tipo, non è abilitato per impostazione predefinita. Qui è possibile notare che non è presente alcun GUID e lo stato è CacheDiskStateIneligibleDataPartition. 
+    Cache non abilitata: quando tutti i dischi sono dello stesso tipo case non è abilitato per impostazione predefinita. Qui è possibile notare che non è presente alcun GUID e lo stato è CacheDiskStateIneligibleDataPartition. 
     ```
     {d543f90c-798b-d2fe-7f0a-cb226c77eeed},10,false,false,1,20,{00000000-0000-0000-0000-000000000000},CacheDiskStateIneligibleDataPartition,0,0,0,false,false,NVMe    ,INTEL SSDPE7KX02,  PHLF7330004V2P0LGN,0170,{79b4d631-976f-4c94-a783-df950389fd38},[R/M 0 R/U 0 R/T 0 W/M 0 W/U 0 W/T 0], 
     ```  
@@ -333,7 +332,7 @@ Esistono due modi per verificare:
     2. Eseguire "IPMO storage"
     3. eseguire "$d". Si noti che l'utilizzo è selezione automatica, non Journal. verrà visualizzato un output simile al seguente: 
 
-   |FriendlyName|  SerialNumber| MediaType| CanPool| OperationalStatus| HealthStatus| Utilizzo| Size|
+   |FriendlyName|  SerialNumber| MediaType| CanPool| OperationalStatus| HealthStatus| Utilizzo| Dimensione|
    |-----------|------------|---------| -------| -----------------| ------------| -----| ----|
    |NVMe INTEL SSDPE7KX02| PHLF733000372P0LGN| SSD| False|   OK|                Integro|      Selezionare automaticamente 1,82 TB|
    |NVMe INTEL SSDPE7KX02 |PHLF7504008J2P0LGN| SSD|  False|    OK|                Integro| Selezione automatica| 1,82 TB|
@@ -358,7 +357,7 @@ Il passaggio successivo consiste nel rimuovere il pool di archiviazione fantasma
 
 A questo punto, se si esegue **Get-PhysicalDisk** su uno qualsiasi dei nodi, verranno visualizzati tutti i dischi presenti nel pool. Ad esempio, in un Lab con un cluster a 4 nodi con 4 dischi SAS, 100 GB ciascuno presentati a ogni nodo. In tal caso, dopo che lo spazio di archiviazione diretto è disabilitato, che rimuove il SBL (livello del bus di archiviazione) ma lascia il filtro, se si esegue **Get-PhysicalDisk**, dovrebbe segnalare 4 dischi, escluso il disco del sistema operativo locale. Invece è stato segnalato 16. Questo è lo stesso per tutti i nodi del cluster. Quando si esegue un comando **Get-disk** , verranno visualizzati i dischi collegati localmente numerati come 0, 1, 2 e così via, come illustrato in questo esempio di output:
 
-|NUMBER| Nome descrittivo| Numero di serie|HealthStatus|OperationalStatus|Dimensioni totali| Stile partizione|
+|Numero| Soprannome| Numero di serie|HealthStatus|OperationalStatus|Dimensione totale| Stile partizione|
 |-|-|-|-|-|-|-|-|
 |0|Virtu MSFT...  ||Integro | Online|  127 GB| GPT|
 ||Virtu MSFT... ||Integro| Offline| 100 GB| RAW|
@@ -394,13 +393,13 @@ Nel report di convalida vengono visualizzate le informazioni seguenti:
     Disk <identifier> connected to node <nodename> returned a SCSI Port Association and the corresponding enclosure device could not be found. The hardware is not compatible with Storage Spaces Direct (S2D), contact the hardware vendor to verify support for SCSI Enclosure Services (SES). 
 
 
-Il problema riguarda la scheda espansore SAS HPE che si trova tra i dischi e la scheda HBA. L'espansore SAS crea un ID duplicato tra la prima unità connessa all'espansore e l'espansore stesso.  Questo problema è stato risolto [in HPE Smart Array Controllers SAS Expander firmware: 4,02](https://support.hpe.com/hpsc/swd/public/detail?sp4ts.oid=7304566&swItemId=MTX_ef8d0bf4006542e194854eea6a&swEnvOid=4184#tab3).
+Il problema riguarda la scheda espansore SAS HPE che si trova tra i dischi e la scheda HBA. L'espansore SAS crea un ID duplicato tra la prima unità connessa all'espansore e l'espansore stesso.  Questo problema è stato risolto in [HPE Smart Array Controllers SAS Expander firmware: 4,02](https://support.hpe.com/hpsc/swd/public/detail?sp4ts.oid=7304566&swItemId=MTX_ef8d0bf4006542e194854eea6a&swEnvOid=4184#tab3).
 
 ## <a name="intel-ssd-dc-p4600-series-has-a-non-unique-nguid"></a>La serie P4600 di Intel SSD DC ha un NGUID non univoco
 Potrebbe essere visualizzato un problema per cui un dispositivo Intel SSD DC P4600 Series sembra segnalare un NGUID simile a 16 byte per più spazi dei nomi, ad esempio 0100000001000000E4D25C000014E214 o 0100000001000000E4D25C0000EEE214 nell'esempio riportato di seguito.
 
 
-|               UniqueId               | DeviceID | MediaType | BusType |               SerialNumber               |      dimensioni      | canpool | FriendlyName | OperationalStatus |
+|               UniqueId               | DeviceID | MediaType | BusType |               SerialNumber               |      size      | canpool | FriendlyName | OperationalStatus |
 |--------------------------------------|----------|-----------|---------|------------------------------------------|----------------|---------|--------------|-------------------|
 |           5000CCA251D12E30           |    0     |    Unità disco rigido    |   SAS   |                 7PKR197G                 | 10000831348736 |  False  |     HGST     |  HUH721010AL4200  |
 | EUI. 0100000001000000E4D25C000014E214 |    4     |    SSD    |  NVMe   | 0100_0000_0100_0000_E4D2_5C00_0014_E214. | 1600321314816  |  True   |    INTEL     |   SSDPE2KE016T7   |

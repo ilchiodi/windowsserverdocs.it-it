@@ -1,24 +1,20 @@
 ---
 title: Usare le regole dei criteri di restrizione software
 description: Sicurezza di Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-software-restriction-policies
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4a8047d5-9bb9-4bed-bc8f-583a237731e2
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: bb5e56fe541a06b1100de2f25fc10f4db46b8d24
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 249426f7b0ef1b427d903e8d0cac9ca2e0747b68
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322953"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820984"
 ---
 # <a name="work-with-software-restriction-policies-rules"></a>Usare le regole dei criteri di restrizione software
 
@@ -47,7 +43,7 @@ I criteri di restrizione software consentono di proteggere l'ambiente informatic
 
 Per informazioni su altre attività per gestire i criteri di restrizione software, vedere [amministrare i criteri di restrizione software](administer-software-restriction-policies.md).
 
-## <a name="BKMK_Cert_Rules"></a>Utilizzo delle regole dei certificati
+## <a name="working-with-certificate-rules"></a><a name="BKMK_Cert_Rules"></a>Utilizzo delle regole dei certificati
 I criteri di restrizione software possono inoltre identificare il software tramite il certificato di firma. È possibile creare una regola certificato per identificare il software e quindi consentirne o meno l'esecuzione a seconda del livello di sicurezza. È possibile utilizzare le regole certificati, ad esempio, per impostare automaticamente come attendibile un'applicazione proveniente da una fonte attendibile in un dominio, senza richiedere conferma all'utente. È inoltre possibile utilizzare le regole certificati per eseguire file nelle aree non consentite del sistema operativo. Le regole certificati non sono abilitate per impostazione predefinita.
 
 Quando vengono create regole per il dominio utilizzando Criteri di gruppo, è necessario disporre delle autorizzazioni per creare o modificare un oggetto Criteri di gruppo. Se si creano regole per il computer locale, è necessario disporre di credenziali amministrative per tale computer.
@@ -82,7 +78,7 @@ Esistono procedure diverse per l'abilitazione delle regole certificati a seconda
 
 -   [Solo per i controller di dominio e si è in un controller di dominio o in una workstation in cui è installato il Strumenti di amministrazione remota del server Pack](#BKMK_4)
 
-#### <a name="BKMK_1"></a>Per abilitare le regole dei certificati per il computer locale
+#### <a name="to-enable-certificate-rules-for-your-local-computer"></a><a name="BKMK_1"></a>Per abilitare le regole dei certificati per il computer locale
 
 1.  Aprire Impostazioni sicurezza locale.
 
@@ -96,7 +92,7 @@ Esistono procedure diverse per l'abilitazione delle regole certificati a seconda
 
     -   Per disabilitare le regole certificati, fare clic su **Disattivato**.
 
-#### <a name="BKMK_2"></a>Per abilitare le regole dei certificati per un oggetto Criteri di gruppo e si utilizza un server aggiunto a un dominio
+#### <a name="to-enable-certificate-rules-for-a-group-policy-object-and-you-are-on-a-server-that-is-joined-to-a-domain"></a><a name="BKMK_2"></a>Per abilitare le regole dei certificati per un oggetto Criteri di gruppo e si utilizza un server aggiunto a un dominio
 
 1.  Aprire Microsoft Management Console (MMC).
 
@@ -122,7 +118,7 @@ Esistono procedure diverse per l'abilitazione delle regole certificati a seconda
 
     -   Per disabilitare le regole certificati, fare clic su **Disattivato**.
 
-#### <a name="BKMK_3"></a>Per abilitare le regole dei certificati per un oggetto Criteri di gruppo e si è in un controller di dominio o in una workstation in cui è installato il Strumenti di amministrazione remota del server
+#### <a name="to-enable-certificate-rules-for-a-group-policy-object-and-you-are-on-a-domain-controller-or-on-a-workstation-that-has-the-remote-server-administration-tools-installed"></a><a name="BKMK_3"></a>Per abilitare le regole dei certificati per un oggetto Criteri di gruppo e si è in un controller di dominio o in una workstation in cui è installato il Strumenti di amministrazione remota del server
 
 1.  Aprire Utenti e computer di Active Directory.
 
@@ -144,7 +140,7 @@ Esistono procedure diverse per l'abilitazione delle regole certificati a seconda
 
     -   Per disabilitare le regole certificati, fare clic su **Disattivato**.
 
-#### <a name="BKMK_4"></a>Per abilitare le regole dei certificati solo per i controller di dominio e si è in un controller di dominio o in una workstation in cui è installato il Strumenti di amministrazione remota del server
+#### <a name="to-enable-certificate-rules-for-only-domain-controllers-and-you-are-on-a-domain-controller-or-on-a-workstation-that-has-the-remote-server-administration-tools-installed"></a><a name="BKMK_4"></a>Per abilitare le regole dei certificati solo per i controller di dominio e si è in un controller di dominio o in una workstation in cui è installato il Strumenti di amministrazione remota del server
 
 1.  Aprire Impostazioni di sicurezza controller di dominio.
 
@@ -218,7 +214,7 @@ Le impostazioni dei criteri disponibili nella scheda **Autori attendibili** dei 
 
 6.  Selezionare la casella di controllo **Definisci le impostazioni relative ai criteri**, apportare le modifiche desiderate e quindi fare clic su **OK** per applicare le nuove impostazioni.
 
-## <a name="BKMK_Hash_Rules"></a>Utilizzo delle regole hash
+## <a name="working-with-hash-rules"></a><a name="BKMK_Hash_Rules"></a>Utilizzo delle regole hash
 Un hash è una serie di byte con lunghezza fissa che identifica in modo univoco un programma software o un file. L'hash viene calcolato da un algoritmo hash. Quando si crea una regola hash per un programma software, i criteri di restrizione software calcolano un hash del programma. Quando un utente tenta di aprire un programma software, un hash del programma viene confrontato con le regole hash esistenti per i criteri di restrizione software. L'hash del programma software è sempre lo stesso, indipendentemente dalla posizione del programma nel computer. Se un programma software viene modificato in qualche modo, tuttavia, anche il relativo hash cambia e non corrisponde più all'hash nella regola hash per i criteri di restrizione software.
 
 È ad esempio possibile creare una regola hash e impostare il livello di sicurezza su **Non consentito** per impedire agli utenti di eseguire un determinato file. Un file può essere rinominato o spostato in un'altra cartella e mantenere comunque lo stesso hash. Qualsiasi modifica apportata al file, tuttavia, ne modifica il valore hash e consente al file di evitare le restrizioni.
@@ -248,7 +244,7 @@ Un hash è una serie di byte con lunghezza fissa che identifica in modo univoco 
 > -   Per rendere effettive i criteri di restrizione software, gli utenti devono aggiornare le impostazioni dei criteri disconnettendosi da e accedendo ai propri computer.
 > -   Quando più di una regola dei criteri di restrizione software viene applicata alle impostazioni di criteri, esiste la precedenza delle regole per la gestione dei conflitti.
 
-## <a name="BKMK_Internet_Zone_Rules"></a>Uso delle regole dell'area Internet
+## <a name="working-with-internet-zone-rules"></a><a name="BKMK_Internet_Zone_Rules"></a>Uso delle regole dell'area Internet
 Le regole area Internet si applicano solo ai pacchetti di Windows Installer. Una regola di area consente di identificare il software proveniente da un'area specificata tramite Internet Explorer. Queste aree sono Internet, Intranet locale, Siti con restrizioni, Siti attendibili e Computer locale. Una regola dell'area Internet è progettata per impedire agli utenti di scaricare e installare software.
 
 #### <a name="to-create-an-internet-zone-rule"></a>Per creare una regola area Internet
@@ -267,7 +263,7 @@ Le regole area Internet si applicano solo ai pacchetti di Windows Installer. Una
 > -   Per rendere effettive i criteri di restrizione software, gli utenti devono aggiornare le impostazioni dei criteri disconnettendosi da e accedendo ai propri computer.
 > -   Quando più di una regola dei criteri di restrizione software viene applicata alle impostazioni di criteri, esiste la precedenza delle regole per la gestione dei conflitti.
 
-## <a name="BKMK_Path_Rules"></a>Utilizzo delle regole di percorso
+## <a name="working-with-path-rules"></a><a name="BKMK_Path_Rules"></a>Utilizzo delle regole di percorso
 Una regola di percorso identifica il software in base al relativo percorso. Nel caso di un computer con livello di sicurezza predefinito **Non consentito**, ad esempio, è comunque possibile concedere l'accesso senza restrizioni a una cartella specifica per ogni utente. È possibile creare una regola di percorso utilizzando il percorso di file e impostando il livello di sicurezza della regola di percorso su **Senza restrizioni**. Alcuni percorsi comuni per questo tipo di regola sono %userprofile%, %windir%, %appdata%, %programfiles% e %temp%. È inoltre possibile creare regole di percorso del Registro di sistema che utilizzano la chiave del Registro di sistema del programma software come percorso.
 
 Dato che queste regole sono specificate in base al percorso, se un programma software viene spostato la regola di percorso non è più applicabile.

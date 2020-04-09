@@ -1,7 +1,6 @@
 ---
 ms.assetid: 19feca0e-a6d0-4d27-93b0-cb44f8c26484
 title: Delega dell'amministrazione di unità organizzative di account e unità organizzative di risorse
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 63fda63d5a34404563bab44ee54ba2e22d852782
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3043aaf79b2c0894fffe2f896a235ad519222e05
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402698"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822744"
 ---
 # <a name="delegating-administration-of-account-ous-and-resource-ous"></a>Delega dell'amministrazione di unità organizzative di account e unità organizzative di risorse
 

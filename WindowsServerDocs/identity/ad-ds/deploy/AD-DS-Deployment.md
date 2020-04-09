@@ -1,7 +1,6 @@
 ---
 ms.assetid: 241d93f9-06cf-4327-96a3-70dfe656f19d
 title: Distribuzione di Active Directory Domain Services
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 475b042c5b3a64acc793ff37501169d20ab2c3f1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1f32b51ac9832f6dd7817b0faf40dd3a8c9dd35f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390993"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80825374"
 ---
 # <a name="ad-ds-deployment"></a>Distribuzione di Active Directory Domain Services
 

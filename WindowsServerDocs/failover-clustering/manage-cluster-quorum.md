@@ -5,15 +5,16 @@ ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
+manager: lizross
 ms.technology: storage-failover-clustering
 ms.date: 06/07/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 03e155cb9d30bc32da407f0d9ae915308f31494a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 16f141eceb4831f588e33aca5284425f69e9e417
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361020"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827514"
 ---
 # <a name="configure-and-manage-quorum"></a>Configurare e gestire il quorum
 
@@ -27,7 +28,7 @@ Il quorum per un cluster è determinato dal numero di elementi di voto che devon
 
 ## <a name="quorum-configuration-options"></a>Opzioni di configurazione quorum
 
-Il modello di quorum in Windows Server è flessibile. Se è necessario modificare la configurazione quorum per il cluster, è possibile usare la configurazione guidata quorum del cluster o i cmdlet di Windows PowerShell per i cluster di failover. Per procedure e considerazioni sulla configurazione quorum, vedere [Configurare il quorum del cluster](#configure-the-cluster-quorum) più avanti in questo argomento.
+Il modello di quorum in Windows Server è flessibile. Se è necessario modificare la configurazione quorum per il cluster, è possibile usare la configurazione guidata quorum del cluster o i cmdlet di Windows PowerShell per i cluster di failover. Per procedure e considerazioni sulla configurazione del quorum, vedere [Configurare il quorum del cluster](#configure-the-cluster-quorum) più avanti in questo argomento.
 
 La tabella seguente elenca le tre opzioni di configurazione quorum disponibili nella Configurazione guidata quorum del cluster.
 
@@ -125,7 +126,7 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **A
 ### <a name="change-the-quorum-configuration-in-a-failover-cluster-by-using-failover-cluster-manager"></a>Modificare la configurazione quorum in un cluster di failover utilizzando Gestione cluster di failover
 
 1. In Gestione cluster di failover selezionare o specificare il cluster da modificare.
-2. Con il cluster selezionato, in **azioni**selezionare **altre azioni**, quindi selezionare **Configura impostazioni quorum del cluster**. Sarà visualizzata la Configurazione guidata quorum del cluster. Seleziona **Avanti**.
+2. Con il cluster selezionato, in **azioni**selezionare **altre azioni**, quindi selezionare **Configura impostazioni quorum del cluster**. Sarà visualizzata la Configurazione guidata quorum del cluster. Fare clic su **Avanti**.
 3. Nella pagina **Selezione opzione configurazione quorum** selezionare una delle tre opzioni di configurazione e completare i passaggi relativi all'opzione selezionata. Prima di configurare le impostazioni del quorum, è possibile verificare le opzioni disponibili. Per ulteriori informazioni sulle opzioni, vedere [informazioni sul quorum](#understanding-quorum), più indietro in questo argomento.
 
     - Per consentire al cluster di reimpostare automaticamente le impostazioni del quorum ottimali per la configurazione corrente del cluster, selezionare **Usa impostazioni tipiche** e quindi completare la procedura guidata.
@@ -139,7 +140,7 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **A
       2. Se si seleziona l'opzione per la configurazione di un disco di controllo, nella pagina **Configurazione risorsa di archiviazione di controllo** selezionare il volume di archiviazione da assegnare come disco di controllo e quindi completare la procedura guidata.
       3. Se si seleziona l'opzione per la configurazione di una condivisione file di controllo, nella pagina **Configurazione condivisione file di controllo** digitare o selezionare una condivisione file che sarà usata come risorsa di controllo, quindi completare la procedura guidata.
 
-    - Per configurare le impostazioni di gestione del quorum e per aggiungere o modificare il quorum di controllo, selezionare **configurazione quorum avanzata e selezione**controllo, quindi completare i passaggi seguenti. Per informazioni e considerazioni sulle impostazioni avanzate per la configurazione quorum, vedere [Assegnazione di voti al nodo](#node-vote-assignment) e [Gestione dinamica del quorum](#dynamic-quorum-management) nelle sezioni precedenti di questo argomento.
+    - Per configurare le impostazioni di gestione del quorum e per aggiungere o modificare il quorum di controllo, selezionare **configurazione quorum avanzata e selezione**controllo, quindi completare i passaggi seguenti. Per informazioni e considerazioni sulle impostazioni avanzate per la configurazione del quorum, vedere [Assegnazione di voti al nodo](#node-vote-assignment) e [Gestione dinamica del quorum](#dynamic-quorum-management) in precedenza in questo argomento.
 
       1. Nella pagina **Selezione configurazione di voto** selezionare un'opzione per l'assegnazione di voti ai nodi. Per impostazione predefinita, un voto è assegnato a tutti i nodi. Per determinati scenari è tuttavia possibile assegnare voti solo a un subset di nodi.
 
@@ -150,12 +151,12 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **A
       3. Nella pagina **Selezione quorum di controllo** selezionare un'opzione per configurare un disco di controllo o una condivisione file di controllo. Nella procedura guidata sono indicate le opzioni di selezione del controllo consigliate per il cluster.
 
           > [!NOTE]
-          > È anche possibile selezionare **Non configurare quorum di controllo**e quindi completare la procedura guidata. Se il cluster include un numero pari di nodi votanti, è possibile che questa non sia una configurazione consigliata.
+          > È anche possibile selezionare **Non configurare quorum di controllo** e quindi completare la procedura guidata. Se il cluster include un numero pari di nodi votanti, è possibile che questa non sia una configurazione consigliata.
 
       4. Se si seleziona l'opzione per la configurazione di un disco di controllo, nella pagina **Configurazione risorsa di archiviazione di controllo** selezionare il volume di archiviazione da assegnare come disco di controllo e quindi completare la procedura guidata.
       5. Se si seleziona l'opzione per la configurazione di una condivisione file di controllo, nella pagina **Configurazione condivisione file di controllo** digitare o selezionare una condivisione file che sarà usata come risorsa di controllo, quindi completare la procedura guidata.
 
-4. Seleziona **Avanti**. Confermare le selezioni nella pagina di conferma visualizzata, quindi fare clic su **Avanti**.
+4. Fare clic su **Avanti**. Confermare le selezioni nella pagina di conferma visualizzata, quindi fare clic su **Avanti**.
 
 Quando viene eseguita la procedura guidata e viene visualizzata la pagina **Riepilogo** , se si desidera visualizzare un report delle attività eseguite dalla procedura guidata, selezionare **Visualizza report**. Il report più recente rimarrà nella cartella <em>systemroot</em> **\\cluster\\Reports** con il nome **QuorumConfiguration. mht**.
 
@@ -196,7 +197,7 @@ Nell'esempio seguente il voto di quorum viene aggiunto al nodo *ContosoFCNode1* 
 (Get-ClusterNode ContosoFCNode1).NodeWeight=1
 ```
 
-L'esempio seguente abilita la proprietà **DynamicQuorum** del cluster *CONTOSO-FC1* (se era disabilitata):
+Nell'esempio seguente viene abilitata la proprietà **DynamicQuorum** del cluster *CONTOSO-FC1*, se era disabilitata in precedenza:
 
 ```PowerShell
 (Get-Cluster CONTOSO-FC1).DynamicQuorum=1
@@ -246,7 +247,7 @@ Di seguito viene illustrato come ripristinare il cluster con Gestione cluster di
 
 #### <a name="windows-powershell-equivalent-commands-start-clusternode"></a>Comandi equivalenti di Windows PowerShell (Start-clusternode)
 
-L'esempio seguente illustra come usare il cmdlet **Start-ClusterNode** per imporre l'avvio del cluster nel nodo *ContosoFCNode1*.
+Nell'esempio seguente viene illustrato come usare il cmdlet **Start-ClusterNode** per imporre l'avvio del cluster nel nodo *ContosoFCNode1*.
 
 ```PowerShell
 Start-ClusterNode –Node ContosoFCNode1 –FQ
@@ -258,7 +259,7 @@ In alternativa, è possibile digitare il comando seguente localmente nel nodo:
 Net Start ClusSvc /FQ
 ```
 
-L'esempio seguente illustra come usare il cmdlet **Start-ClusterNode** per avviare il Servizio cluster dopo averne impedito il quorum nel nodo *ContosoFCNode1*.
+Nell'esempio seguente viene mostrato come usare il cmdlet **Start-ClusterNode** per avviare il Servizio cluster dopo averne impedito il quorum nel nodo *ContosoFCNode1*.
 
 ```PowerShell
 Start-ClusterNode –Node ContosoFCNode1 –PQ
@@ -280,7 +281,7 @@ In questa configurazione il cluster è costituito da due o più siti che possono
 
 La tabella seguente include un riepilogo di considerazioni e suggerimenti per questa configurazione.
 
-| Item  | Descrizione  |
+| Elemento  | Descrizione  |
 | ---------| ---------|
 | Numero di voti di nodo per sito     | Deve essere uguale       |
 | Assegnazione di voti al nodo     |  Non rimuovere voti di nodo perché tutti i nodi sono ugualmente importanti       |
@@ -298,7 +299,7 @@ In questa configurazione il cluster è costituito da un sito primario, *SiteA*, 
 
 La tabella seguente include un riepilogo di considerazioni e suggerimenti per questa configurazione.
 
-| Item   |Descrizione  |
+| Elemento   |Descrizione  |
 | ---------| ---------|
 | Numero di voti di nodo per sito     |  <ul><li> I voti di nodo non devono essere rimossi dai nodi nel sito primario, **SiteA**</li><li>I voti di nodo devono essere rimossi dai nodi nel sito di backup, **SiteB**</li><li>In caso di interruzione a lungo termine in **SiteA**, i voti devono essere assegnati ai nodi in **SiteB** per abilitare una maggioranza del quorum in tale sito come parte del ripristino.</li>       |
 | Gestione dinamica del quorum     |  Deve essere abilitata       |
@@ -310,7 +311,7 @@ La tabella seguente include un riepilogo di considerazioni e suggerimenti per qu
 - Solo i nodi in *SiteA* sono configurati inizialmente con voti di quorum. Ciò è necessario per assicurare che lo stato dei nodi in *SiteB* non influisca sul quorum del cluster.
 - La procedura di ripristino dipende dalla capacità di *SiteA* di sostenere un errore temporaneo o un errore a lungo termine.
 
-## <a name="more-information"></a>Ulteriori informazioni
+## <a name="more-information"></a>Altre informazioni
 
 * [Clustering di failover](failover-clustering.md)
 * [Cmdlet di Windows PowerShell per i cluster di failover](https://docs.microsoft.com/powershell/module/failoverclusters/?view=win10-ps)

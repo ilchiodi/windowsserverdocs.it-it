@@ -1,22 +1,17 @@
 ---
 ms.assetid: 709353b0-b913-4367-8580-44745183e2bc
 title: Verificare le funzionalità DNS per supportare la replica di directory
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.service: ''
-ms.suite: na
 ms.technology: identity-adds
 ms.author: joflore
 ms.date: 05/31/2017
-ms.tgt_pltfrm: na
 author: Femila
-ms.openlocfilehash: 066f7ebe1cd8f981344e059797daa9d3f86bdf49
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 51472c1a64b7825b48362efbe76ea8ef6bbaac73
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71409059"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822954"
 ---
 # <a name="verify-dns-functionality-to-support-directory-replication"></a>Verificare le funzionalità DNS per supportare la replica di directory
 
@@ -24,7 +19,7 @@ ms.locfileid: "71409059"
 
  Per controllare le impostazioni di Domain Name System (DNS) che potrebbero interferire con la replica Active Directory, è possibile iniziare eseguendo il test di base che garantisce che il DNS funzioni correttamente per il dominio. Dopo aver eseguito il test di base, è possibile testare altri aspetti della funzionalità DNS, inclusa la registrazione dei record di risorse e l'aggiornamento dinamico.
 
-Sebbene sia possibile eseguire questo test della funzionalità DNS di base in qualsiasi controller di dominio, in genere si esegue questo test sui controller di dominio che si ritiene possano riscontrare problemi di replica, ad esempio controller di dominio che segnalano gli ID evento 1844, 1925, 2087 o 2088 nel log DNS del servizio directory Visualizzatore eventi.
+Sebbene sia possibile eseguire questo test della funzionalità DNS di base in qualsiasi controller di dominio, in genere si esegue questo test sui controller di dominio che si ritiene possano riscontrare problemi di replica, ad esempio controller di dominio che segnalano gli ID evento 1844, 1925, 2087 o 2088 nel registro DNS del servizio directory Visualizzatore eventi.
 
 
 
@@ -40,7 +35,7 @@ Il test DNS di base controlla gli aspetti seguenti della funzionalità DNS:
 - **Zona e inizio dell'autorità (SOA):** Se il controller di dominio esegue il servizio server DNS, il test conferma che sono presenti la Active Directory zona di dominio e il record di risorse di autorità SOA (SOA) per la zona del dominio Active Directory.
 - **Zona radice:** Verifica se è presente la zona radice (.).
 
-L'appartenenza al gruppo Enterprise Admins o a un gruppo equivalente è il requisito minimo necessario per completare queste procedure.
+Per completare queste procedure, è necessaria almeno l'appartenenza al gruppo Enterprise Admins oppure a un gruppo equivalente.
 
 È possibile utilizzare la procedura seguente per verificare la funzionalità DNS di base.
      
@@ -48,8 +43,8 @@ L'appartenenza al gruppo Enterprise Admins o a un gruppo equivalente è il requi
 
 
 1. Nel controller di dominio che si desidera testare o in un computer membro di dominio in cui sono installati gli strumenti di Active Directory Domain Services (AD DS), aprire un prompt dei comandi come amministratore. Per aprire un prompt dei comandi come amministratore, fare clic sul pulsante **Start**. 
-2. In Inizia ricerca digitare prompt dei comandi. 
-3. Nella parte superiore del menu Start, fare clic con il pulsante destro del mouse su prompt dei comandi e quindi scegliere Esegui come amministratore. Se viene visualizzata la finestra di dialogo Controllo account utente, verificare che l'azione visualizzata sia quella desiderata, quindi scegliere Continua.
+2. In Inizia ricerca digitare Prompt dei comandi. 
+3. Nella parte superiore del menu Start fare clic con il pulsante destro del mouse su Prompt dei comandi e quindi scegliere Esegui come amministratore. Se viene visualizzata la finestra di dialogo Controllo account utente, confermare che l'azione visualizzata sia quella desiderata, quindi fare clic su Continua.
 4. Al prompt dei comandi digitare il comando seguente e quindi premere INVIO: `dcdiag /test:dns /v /s:<DCName> /DnsBasic /f:dcdiagreport.txt`
 </br></br>Sostituire il nome distinto effettivo, il nome NetBIOS o il nome DNS del controller di dominio per &lt;DCName&gt;. In alternativa, è possibile testare tutti i controller di dominio nella foresta digitando/e: anziché/s:. L'opzione/f specifica un nome di file, che nel comando precedente è dcdiagreport. txt. Se si vuole inserire il file in un percorso diverso dalla directory di lavoro corrente, è possibile specificare un percorso di file, ad esempio/f: c:reportsdcdiagreport.txt.
 
@@ -63,15 +58,15 @@ Per convalidare le modifiche alla configurazione, eseguire di nuovo il comando d
             
 ## <a name="verifying-resource-record-registration"></a>Verifica della registrazione del record di risorse
     
-Il controller di dominio di destinazione usa il record di risorse alias DNS (CNAME) per individuare il partner di replica del controller di dominio di origine. Sebbene i controller di dominio che eseguono Windows Server (a partire da Windows Server 2003 con Service Pack 1 (SP1)) possano individuare i partner di replica di origine usando nomi di dominio completi (FQDN) o, in caso di errore, NetBIOS namesthe la presenza dell'alias (CNAME) il record di risorse è previsto ed è necessario verificarne il corretto funzionamento DNS. 
+Il controller di dominio di destinazione usa il record di risorse alias DNS (CNAME) per individuare il partner di replica del controller di dominio di origine. Sebbene i controller di dominio che eseguono Windows Server (a partire da Windows Server 2003 con Service Pack 1 (SP1)) possano individuare i partner di replica di origine utilizzando nomi di dominio completi (FQDN) o, in caso di esito negativo, è prevista la presenza del record di risorse alias (CNAME) da parte di NetBIOS ed è necessario verificarne il corretto funzionamento DNS. 
       
 È possibile utilizzare la procedura seguente per verificare la registrazione dei record di risorse, inclusa la registrazione dei record di risorse alias (CNAME).
       
 ### <a name="to-verify-resource-record-registrationtitle"></a>Per verificare la registrazione del record di risorse</title>
 
 
-1. Apri il prompt dei comandi come amministratore. Per aprire un prompt dei comandi come amministratore, fare clic su Avvia. In Inizia ricerca digitare prompt dei comandi. 
-2. Nella parte superiore del menu Start, fare clic con il pulsante destro del mouse su prompt dei comandi e quindi scegliere Esegui come amministratore. Se viene visualizzata la finestra di dialogo Controllo account utente, verificare che l'azione visualizzata sia quella desiderata, quindi scegliere Continua.  </br></br>È possibile utilizzare lo strumento Dcdiag per verificare la registrazione di tutti i record di risorse essenziali per il percorso del controller di dominio eseguendo il comando `dcdiag /test:dns /DnsRecordRegistration`.
+1. Apri il prompt dei comandi come amministratore. Per aprire un prompt dei comandi come amministratore, fare clic sul pulsante Start. In Inizia ricerca digitare Prompt dei comandi. 
+2. Nella parte superiore del menu Start fare clic con il pulsante destro del mouse su Prompt dei comandi e quindi scegliere Esegui come amministratore. Se viene visualizzata la finestra di dialogo Controllo account utente, confermare che l'azione visualizzata sia quella desiderata, quindi fare clic su Continua.  </br></br>È possibile utilizzare lo strumento Dcdiag per verificare la registrazione di tutti i record di risorse essenziali per il percorso del controller di dominio eseguendo il comando `dcdiag /test:dns /DnsRecordRegistration`.
 
 Questo comando verifica la registrazione dei seguenti record di risorse in DNS:
 
@@ -100,7 +95,7 @@ Se il test DNS di base mostra che i record di risorse non esistono in DNS, utili
 ### <a name="to-verify-dynamic-updatetitle"></a>Per verificare</title> aggiornamento dinamico
 
 
-1. Apri il prompt dei comandi come amministratore. Per aprire un prompt dei comandi come amministratore, fare clic su Avvia. In Inizia ricerca digitare prompt dei comandi. Nella parte superiore del menu Start, fare clic con il pulsante destro del mouse su prompt dei comandi e quindi scegliere Esegui come amministratore. Se viene visualizzata la finestra di dialogo Controllo account utente, verificare che l'azione visualizzata sia quella desiderata, quindi scegliere Continua.
+1. Apri il prompt dei comandi come amministratore. Per aprire un prompt dei comandi come amministratore, fare clic sul pulsante Start. In Inizia ricerca digitare Prompt dei comandi. Nella parte superiore del menu Start fare clic con il pulsante destro del mouse su Prompt dei comandi e quindi scegliere Esegui come amministratore. Se viene visualizzata la finestra di dialogo Controllo account utente, confermare che l'azione visualizzata sia quella desiderata, quindi fare clic su Continua.
 2. Al prompt dei comandi digitare il comando seguente e quindi premere INVIO: `dcdiag /test:dns /v /s:<DCName> /DnsDynamicUpdate`
    </br></br>Sostituire il nome distinto, il nome NetBIOS o il nome DNS del controller di dominio per &lt;DCName&gt;. In alternativa, è possibile testare tutti i controller di dominio nella foresta digitando/e: anziché/s:. Se per il controller di dominio non è abilitato IPv6, è necessario prevedere che la parte del record di risorse dell'host (AAAA) del test abbia esito negativo, situazione normale quando IPv6 non è abilitato.
 
@@ -122,9 +117,9 @@ Se i record di risorse DNS non vengono visualizzati nel DNS per il controller di
 ### <a name="to-register-dns-resource-records-manuallytitle"></a>Per registrare manualmente i record di risorse DNS</title>
 
 
-1. Apri il prompt dei comandi come amministratore. Per aprire un prompt dei comandi come amministratore, fare clic su Avvia. 
-2. In Inizia ricerca digitare prompt dei comandi. 
-3. Nella parte superiore del menu Start, fare clic con il pulsante destro del mouse su prompt dei comandi e quindi scegliere Esegui come amministratore. Se viene visualizzata la finestra di dialogo Controllo account utente, verificare che l'azione visualizzata sia quella desiderata, quindi scegliere Continua.
+1. Apri il prompt dei comandi come amministratore. Per aprire un prompt dei comandi come amministratore, fare clic sul pulsante Start. 
+2. In Inizia ricerca digitare Prompt dei comandi. 
+3. Nella parte superiore del menu Start, fare clic con il pulsante destro del mouse su prompt dei comandi e quindi scegliere Esegui come amministratore. Se viene visualizzata la finestra di dialogo Controllo account utente, confermare che l'azione visualizzata sia quella desiderata, quindi fare clic su Continua.
 4. Per avviare manualmente la registrazione dei record di risorse Locator del controller di dominio nel controller di dominio di origine, al prompt dei comandi digitare il comando seguente e quindi premere INVIO: `net stop netlogon && net start netlogon`
 5. Per avviare manualmente la registrazione del record di risorse host (A), al prompt dei comandi digitare il comando seguente e quindi premere INVIO: `ipconfig /flushdns && ipconfig /registerdns`
 6. Al prompt dei comandi digitare il comando seguente e quindi premere INVIO: `dcdiag /test:dns /v /s:<DCName>` </br></br>Sostituire il nome distinto, il nome NetBIOS o il nome DNS del controller di dominio per &lt;DCName&gt;. Esaminare l'output del test per assicurarsi che i test DNS siano stati superati. Se per il controller di dominio non è abilitato IPv6, è necessario prevedere che la parte del record di risorse dell'host (AAAA) del test abbia esito negativo, situazione normale quando IPv6 non è abilitato.

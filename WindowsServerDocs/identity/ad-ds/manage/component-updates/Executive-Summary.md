@@ -1,7 +1,6 @@
 ---
 ms.assetid: 85ca191c-0cc7-4453-a72c-42060ddf2ea2
 title: Schema riepilogativo
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 53f51d3a7a777ae378ce733ea9e66de66da5351a
-ms.sourcegitcommit: effbc183bf4b370905d95c975626c1ccde057401
+ms.openlocfilehash: 75b98e3f8078f33098512c8ecd01d3bb49a1c8ed
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74781338"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823044"
 ---
 # <a name="executive-summary"></a>Schema riepilogativo
 
@@ -23,7 +22,7 @@ ms.locfileid: "74781338"
 >[!IMPORTANT] 
 >La documentazione seguente è stata scritta in 2013 e viene fornita solo a scopo cronologico.  Attualmente si sta esaminando questa documentazione ed è soggetta a modifiche.  Potrebbe non riflettere le procedure consigliate correnti.
 
-Nessuna organizzazione con un'infrastruttura IT (Information Technology) è immune agli attacchi, ma se sono implementati criteri, processi e controlli appropriati per proteggere i segmenti chiave dell'infrastruttura di elaborazione di un'organizzazione, potrebbe essere possibile evitare che un evento di violazione aumenti fino a un compromesso all'ingrosso dell'ambiente di elaborazione.  
+Nessuna organizzazione con un'infrastruttura IT (Information Technology) è immune agli attacchi, ma se sono implementati criteri, processi e controlli appropriati per proteggere i segmenti chiave dell'infrastruttura di elaborazione di un'organizzazione, potrebbe essere possibile impedire a un evento di violazione di crescere fino a una compromissione indesiderata dell'ambiente informatico.  
   
 Questo riepilogo può essere utile come documento autonomo in cui viene riepilogato il contenuto del documento, che contiene raccomandazioni che aiuteranno le organizzazioni a migliorare la sicurezza delle installazioni Active Directory. Implementando questi consigli, le organizzazioni saranno in grado di identificare e classificare in ordine di priorità le attività di sicurezza, proteggere i segmenti chiave dell'infrastruttura di elaborazione dell'organizzazione e creare controlli che diminuiscono significativamente la probabilità di attacchi riusciti contro i componenti critici dell'ambiente IT.  
   
@@ -40,7 +39,7 @@ Le sezioni principali di questo documento sono:
 -   Pianificazione del compromesso  
   
 ## <a name="avenues-to-compromise"></a>Esposizione a possibili violazioni  
-Questa sezione fornisce informazioni su alcune delle vulnerabilità sfruttate più di frequente usate dagli utenti malintenzionati per compromettere le infrastrutture dei clienti. Contiene categorie generali di vulnerabilità e il modo in cui vengono usate per penetrare inizialmente le infrastrutture dei clienti, propagare la compromissione tra sistemi aggiuntivi e infine indirizzare Active Directory e controller di dominio per ottenere il completamento controllo delle foreste delle organizzazioni. Non fornisce indicazioni dettagliate sull'indirizzamento di ogni tipo di vulnerabilità, in particolare nelle aree in cui le vulnerabilità non vengono usate direttamente come destinazione Active Directory. Tuttavia, per ogni tipo di vulnerabilità sono disponibili collegamenti a informazioni aggiuntive da usare per sviluppare contromisure e ridurre la superficie di attacco dell'organizzazione.  
+Questa sezione fornisce informazioni su alcune delle vulnerabilità sfruttate più di frequente usate dagli utenti malintenzionati per compromettere le infrastrutture dei clienti. Contiene categorie generali di vulnerabilità e il modo in cui vengono usate per penetrare inizialmente le infrastrutture dei clienti, propagare i compromessi tra sistemi aggiuntivi e infine indirizzare Active Directory e controller di dominio per ottenere il controllo completo delle foreste delle organizzazioni. Non fornisce indicazioni dettagliate sull'indirizzamento di ogni tipo di vulnerabilità, in particolare nelle aree in cui le vulnerabilità non vengono usate direttamente come destinazione Active Directory. Tuttavia, per ogni tipo di vulnerabilità sono disponibili collegamenti a informazioni aggiuntive da usare per sviluppare contromisure e ridurre la superficie di attacco dell'organizzazione.  
   
 Sono inclusi gli argomenti seguenti:  
   
@@ -174,26 +173,26 @@ Le procedure sono elencate in ordine di priorità approssimativo, ovvero. i nume
   
 ||**Procedura consigliata**|**Tattica o strategica**|**Preventivo o detective**|  
 |-|-|-|-|  
-|1|Applicazione patch.|Tattico|Preventive|  
-|2|Applicare patch ai sistemi operativi.|Tattico|Preventive|  
-|3|Distribuisci e aggiorna tempestivamente il software antivirus e antimalware in tutti i sistemi e monitora i tentativi di rimozione o disabilitazione.|Tattico|Entrambi|  
+|1|Applicazione patch.|Tattico|Prevenzione|  
+|2|Applicare patch ai sistemi operativi.|Tattico|Prevenzione|  
+|3|Distribuisci e aggiorna tempestivamente il software antivirus e antimalware in tutti i sistemi e monitora i tentativi di rimozione o disabilitazione.|Tattico|Entrambe|  
 |4|Monitorare gli oggetti Active Directory sensibili per i tentativi di modifica e Windows per gli eventi che potrebbero indicare un tentativo di compromissione.|Tattico|Rilevamento|  
-|5|Proteggi e monitora gli account per gli utenti che hanno accesso ai dati sensibili|Tattico|Entrambi|  
-|6|Impedire l'utilizzo di account avanzati nei sistemi non autorizzati.|Tattico|Preventive|  
-|7|Eliminare l'appartenenza permanente a gruppi con privilegi elevati.|Tattico|Preventive|  
-|8|Implementare i controlli per concedere l'appartenenza temporanea a gruppi con privilegi quando necessario.|Tattico|Preventive|  
-|9|Implementare host amministrativi protetti.|Tattico|Preventive|  
-|10|Utilizzare l'elenco elementi consentiti dell'applicazione nei controller di dominio, negli host amministrativi e in altri sistemi sensibili.|Tattico|Preventive|  
-|11|Identificare le risorse critiche e classificare in ordine di priorità la sicurezza e il monitoraggio.|Tattico|Entrambi|  
-|12|Implementare i controlli di accesso con privilegi minimi e basati sui ruoli per l'amministrazione della directory, l'infrastruttura di supporto e i sistemi aggiunti a un dominio.|Strategico|Preventive|  
-|13|Isolare i sistemi e le applicazioni legacy.|Tattico|Preventive|  
-|14|Rimuovere le autorizzazioni di sistemi e applicazioni legacy.|Strategico|Preventive|  
-|15|Implementare programmi del ciclo di vita dello sviluppo sicuro per applicazioni personalizzate.|Strategico|Preventive|  
-|16|Implementare la gestione della configurazione, verificare regolarmente la conformità e valutare le impostazioni con ogni nuova versione hardware o software.|Strategico|Preventive|  
-|17|Esegui la migrazione di asset critici a foreste incontaminate con requisiti di sicurezza e monitoraggio rigorosi.|Strategico|Entrambi|  
-|18|Semplifica la sicurezza per gli utenti finali.|Strategico|Preventive|  
-|19|Usare firewall basati su host per controllare e proteggere le comunicazioni.|Tattico|Preventive|  
-|20|Dispositivi patch.|Tattico|Preventive|  
+|5|Proteggi e monitora gli account per gli utenti che hanno accesso ai dati sensibili|Tattico|Entrambe|  
+|6|Impedire l'utilizzo di account avanzati nei sistemi non autorizzati.|Tattico|Prevenzione|  
+|7|Eliminare l'appartenenza permanente a gruppi con privilegi elevati.|Tattico|Prevenzione|  
+|8|Implementare i controlli per concedere l'appartenenza temporanea a gruppi con privilegi quando necessario.|Tattico|Prevenzione|  
+|9|Implementare host amministrativi protetti.|Tattico|Prevenzione|  
+|10|Utilizzare l'elenco elementi consentiti dell'applicazione nei controller di dominio, negli host amministrativi e in altri sistemi sensibili.|Tattico|Prevenzione|  
+|11|Identificare le risorse critiche e classificare in ordine di priorità la sicurezza e il monitoraggio.|Tattico|Entrambe|  
+|12|Implementare i controlli di accesso con privilegi minimi e basati sui ruoli per l'amministrazione della directory, l'infrastruttura di supporto e i sistemi aggiunti a un dominio.|Strategico|Prevenzione|  
+|13|Isolare i sistemi e le applicazioni legacy.|Tattico|Prevenzione|  
+|14|Rimuovere le autorizzazioni di sistemi e applicazioni legacy.|Strategico|Prevenzione|  
+|15|Implementare programmi del ciclo di vita dello sviluppo sicuro per applicazioni personalizzate.|Strategico|Prevenzione|  
+|16|Implementare la gestione della configurazione, verificare regolarmente la conformità e valutare le impostazioni con ogni nuova versione hardware o software.|Strategico|Prevenzione|  
+|17|Esegui la migrazione di asset critici a foreste incontaminate con requisiti di sicurezza e monitoraggio rigorosi.|Strategico|Entrambe|  
+|18|Semplifica la sicurezza per gli utenti finali.|Strategico|Prevenzione|  
+|19|Usare firewall basati su host per controllare e proteggere le comunicazioni.|Tattico|Prevenzione|  
+|20|Dispositivi patch.|Tattico|Prevenzione|  
 |21|Implementare la gestione del ciclo di vita incentrata sull'azienda per le risorse IT.|Strategico|N/D|  
 |22|Crea o aggiorna i piani di ripristino degli eventi imprevisti.|Strategico|N/D|  
   

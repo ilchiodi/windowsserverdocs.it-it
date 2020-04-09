@@ -1,7 +1,6 @@
 ---
 ms.assetid: 4baefbd3-038f-44c0-85ba-f24e9722b757
 title: Appendice G-protezione dei gruppi di amministratori in Active Directory
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: cdea04e211b1873ff51c4bc3dc9ff24e746ead69
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f113dc7fc5b131a2c0ef10433125ef12a775707c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408648"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821524"
 ---
 # <a name="appendix-g-securing-administrators-groups-in-active-directory"></a>Appendice G: Protezione dei gruppi Administrators in Active Directory
 
@@ -271,7 +270,7 @@ Accedere localmente da qualsiasi server membro o workstation interessato dall'og
 
 7.  Nel campo **programma/script** fare clic su **Sfoglia**, individuare e selezionare il file batch creato nella sezione **creare un file batch** e fare clic su **Apri**.  
 
-8.  Fai clic su **OK**.  
+8.  Fare clic su **OK**.  
 
 9. Fare clic sulla scheda **Generale**.  
 
@@ -281,7 +280,7 @@ Accedere localmente da qualsiasi server membro o workstation interessato dall'og
 
 12. Selezionare **Esegui se l'utente è registrato onor not** e non **archiviare la password**. L'attività avrà accesso solo alle risorse del computer locale.  
 
-13. Fai clic su **OK**.  
+13. Fare clic su **OK**.  
 
 14. Verrà visualizzata una finestra di dialogo in cui vengono richieste le credenziali dell'account utente per l'esecuzione dell'attività.  
 

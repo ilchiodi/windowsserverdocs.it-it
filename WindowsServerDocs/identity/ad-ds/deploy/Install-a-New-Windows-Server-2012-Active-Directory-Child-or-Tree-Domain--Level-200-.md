@@ -1,7 +1,6 @@
 ---
 ms.assetid: e3d55565-ad45-4504-ad73-8103d1a92170
 title: Installare un nuovo dominio albero o un elemento figlio di Active Directory di Windows Server 2012 (livello 200)
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: d0944377739f43ea5d9b8d0d9c94c13e9f18985f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f7244b76364c8e2ce7249af8e76825a08b2a75c8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390892"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80825334"
 ---
 # <a name="install-a-new-windows-server-2012-active-directory-child-or-tree-domain-level-200"></a>Installare un nuovo dominio albero o un elemento figlio di Active Directory di Windows Server 2012 (livello 200)
 
@@ -28,22 +27,22 @@ In questo argomento viene illustrato come aggiungere domini figlio e albero a un
   
 -   [Distribuzione](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-.md#BKMK_Deployment)  
   
-## <a name="BKMK_Workflow"></a>Flusso di lavoro del dominio figlio ed albero  
+## <a name="child-and-tree-domain-workflow"></a><a name="BKMK_Workflow"></a>Flusso di lavoro del dominio figlio ed albero  
 Il diagramma seguente illustra il processo di configurazione di Servizi di dominio Active Directory, quando in precedenza è stato installato il ruolo Servizi di dominio Active Directory ed è stata avviata la Configurazione guidata Servizi di dominio Active Directory mediante Server Manager per creare un nuovo dominio in una foresta esistente.  
   
 ![Installare un nuovo elemento figlio AD](media/Install-a-New-Windows-Server-2012-Active-Directory-Child-or-Tree-Domain--Level-200-/adds_childtreedeploy_beta1.png)  
   
-## <a name="BKMK_PS"></a>Dominio figlio e albero di Windows PowerShell  
+## <a name="child-and-tree-domain-windows-powershell"></a><a name="BKMK_PS"></a>Dominio figlio e albero di Windows PowerShell  
   
 |||  
 |-|-|  
 |**Cmdlet di ADDSDeployment**|Argomenti. Gli argomenti in **grassetto** sono obbligatori. Gli argomenti in *corsivo* possono essere specificati usando Windows PowerShell o la Configurazione guidata Servizi di dominio Active Directory.|  
-|**Install-AddsDomain**|-SkipPreChecks<br /><br />***-NewDomainName***<br /><br />***-ParentDomainName***<br /><br />***-SafeModeAdministratorPassword***<br /><br />*-ADPrepCredential*<br /><br />-AllowDomainReinstall<br /><br />-Confirm<br /><br />*-CreateDNSDelegation*<br /><br />***-Credential***<br /><br />*-DatabasePath*<br /><br />*-DNSDelegationCredential*<br /><br />-NoDNSOnNetwork<br /><br />*-DomainMode*<br /><br />***-DomainType***<br /><br />-Force<br /><br />*-InstallDNS*<br /><br />*-LogPath*<br /><br />*-NewDomainNetBIOSName*<br /><br />*-NoGlobalCatalog*<br /><br />-NoNorebootoncompletion<br /><br />*-ReplicationSourceDC*<br /><br />*-SiteName*<br /><br />-SkipAutoConfigureDNS<br /><br />*-SYSVOLPath*<br /><br />*-WhatIf*|  
+|**Install-AddsDomain**|-SkipPreChecks<p>***-NewDomainName***<p>***-ParentDomainName***<p>***-SafeModeAdministratorPassword***<p>*-ADPrepCredential*<p>-AllowDomainReinstall<p>-Confirm<p>*-CreateDNSDelegation*<p>***-Credential***<p>*-DatabasePath*<p>*-DNSDelegationCredential*<p>-NoDNSOnNetwork<p>*-DomainMode*<p>***-DomainType***<p>-Force<p>*-InstallDNS*<p>*-LogPath*<p>*-NewDomainNetBIOSName*<p>*-NoGlobalCatalog*<p>-NoNorebootoncompletion<p>*-ReplicationSourceDC*<p>*-SiteName*<p>-SkipAutoConfigureDNS<p>*-SYSVOLPath*<p>*-WhatIf*|  
   
 > [!NOTE]  
 > L'argomento **-credential** è obbligatorio solo se attualmente non si è connessi come membro del gruppo Enterprise Admins. L'argomento **-NewDomainNetBIOSName** è obbligatorio solo se si vuole cambiare il nome di 15 caratteri generato automaticamente in base al prefisso del nome di dominio DNS o se il nome supera i 15 caratteri.  
   
-## <a name="BKMK_Deployment"></a>Distribuzione  
+## <a name="deployment"></a><a name="BKMK_Deployment"></a>Distribuzione  
   
 ### <a name="deployment-configuration"></a>Configurazione distribuzione  
 Nella cattura di schermata seguente vengono visualizzate le opzioni per aggiungere un dominio figlio:  
@@ -135,7 +134,7 @@ Ad esempio, è possibile utilizzare il cmdlet **Read-Host** per richiedere all'u
   
 ```  
   
-Infine, è possibile archiviare la password offuscata in un file e quindi riutilizzarla in seguito, senza visualizzare mai la password non crittografata. Esempio:  
+Infine, è possibile archiviare la password offuscata in un file e quindi riutilizzarla in seguito, senza visualizzare mai la password non crittografata. Ad esempio,  
   
 ```  
 $file = "c:\pw.txt"  
@@ -215,7 +214,7 @@ Gli argomenti del cmdlet di ADDSDeployment per **Percorsi** sono:
   
 Nella pagina **Verifica opzioni** è possibile convalidare le impostazioni e accertarsi se soddisfano i requisiti prima di iniziare l'installazione. Questa non è l'ultima possibilità per interrompere l'installazione quando si utilizza Server Manager. È semplicemente un'opzione per confermare le impostazioni prima di proseguire con la configurazione.  
   
-La pagina **Verifica opzioni** di Server Manager include inoltre un pulsante opzionale **Visualizza script** , che consente di creare un file di testo Unicode contenente la configurazione ADDSDeployment corrente come singolo script di Windows PowerShell. In questo modo è possibile utilizzare l'interfaccia grafica di Server Manager come strumento di distribuzione di Windows PowerShell. Utilizzare la Configurazione guidata Servizi di dominio Active Directory per configurare le opzioni, esportare la configurazione e annullare la procedura guidata.  Questo processo crea un esempio valido e sintatticamente corretto che può essere utilizzato direttamente o successivamente modificato. Esempio:  
+La pagina **Verifica opzioni** di Server Manager include inoltre un pulsante opzionale **Visualizza script** , che consente di creare un file di testo Unicode contenente la configurazione ADDSDeployment corrente come singolo script di Windows PowerShell. In questo modo è possibile utilizzare l'interfaccia grafica di Server Manager come strumento di distribuzione di Windows PowerShell. Utilizzare la Configurazione guidata Servizi di dominio Active Directory per configurare le opzioni, esportare la configurazione e annullare la procedura guidata.  Questo processo crea un esempio valido e sintatticamente corretto che può essere utilizzato direttamente o successivamente modificato. Ad esempio,  
   
 ```  
 #  
@@ -258,7 +257,7 @@ Quando si installa un nuovo dominio radice della foresta, la Configurazione guid
   
 **Controllo dei prerequisiti** copre anche le informazioni pertinenti, ad esempio le modifiche alla sicurezza, che interessano i sistemi operativi precedenti.  
   
-Per ulteriori informazioni sui controlli dei prerequisiti specifici, vedere [controllo dei prerequisiti](../../ad-ds/manage/AD-DS-Simplified-Administration.md#BKMK_PrereuisiteChecking).  
+Per altre informazioni sui controlli dei prerequisiti specifici, vedere [Controllo dei prerequisiti](../../ad-ds/manage/AD-DS-Simplified-Administration.md#BKMK_PrereuisiteChecking).  
   
 Non è possibile ignorare il **Controllo prerequisiti** quando si usa Server Manager, ma è possibile saltare il processo quando si usa il cmdlet di distribuzione di Servizi di dominio Active Directory con l'argomento seguente:  
   

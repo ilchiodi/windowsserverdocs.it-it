@@ -2,22 +2,19 @@
 title: Visualizzazione e gestione degli aggiornamenti
 description: Argomento Windows Server Update Service (WSUS)-come visualizzare e gestire gli aggiornamenti nella console di WSUS
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-wsus
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ac70192b-0309-4385-b697-2e8eda51911c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: de2d12ad34ba11f948baa390546747a6bf4b635c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a2a9f7e1f1f3f648a0cba22d599ccc64e7b424d8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361489"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828444"
 ---
 # <a name="viewing-and-managing-updates"></a>Visualizzazione e gestione degli aggiornamenti
 
@@ -76,7 +73,7 @@ Nel **aggiornamenti** pagina, è possibile eseguire le operazioni seguenti:
 
 5.  In **passaggio 3: specificare un nome**, denominare la nuova vista.
 
-6.  Fai clic su **OK**.
+6.  Fare clic su **OK**.
 
 La nuova visualizzazione verrà visualizzato nel riquadro di visualizzazione albero in aggiornamenti. Verrà visualizzato, ad esempio le visualizzazioni standard, nel riquadro centrale quando si seleziona.
 
@@ -164,7 +161,7 @@ Classificazioni degli aggiornamenti rappresentano il tipo di aggiornamento. Per 
 |Aggiornamento delle definizioni|Aggiornamenti a virus o altri file di definizione.|
 |Driver|Componenti software progettati per supportare nuovo hardware.|
 |Feature Pack|Rilasci di nuove funzionalità, in genere eseguito il rollback in prodotti alla versione successiva.|
-|Aggiornamenti della sicurezza|Correzioni rilasciate su vasta scala per i prodotti specifici, problemi di protezione.|
+|Aggiornamenti della protezione|Correzioni rilasciate su vasta scala per i prodotti specifici, problemi di protezione.|
 |Service Pack|Un set cumulativo di tutti gli aggiornamenti rapidi, aggiornamenti della sicurezza, aggiornamenti critici e aggiornamenti creati dopo il rilascio del prodotto. Service Pack possono inoltre contenere un numero limitato di funzionalità o modifiche della progettazione richieste dai clienti.|
 |Strumenti|Utilità o funzionalità che facilitano l'esecuzione di un'attività o un set di attività.|
 |Aggiornamenti cumulativi|Un set cumulativo di aggiornamenti rapidi, aggiornamenti della sicurezza, aggiornamenti critici e altri aggiornamenti sono riuniti insieme per semplificare la distribuzione. In genere è un rollup destinato a un'area specifica, ad esempio, sicurezza o un componente specifico, ad esempio Internet Information Services (IIS).|

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 16a344a9-f9a6-4ae2-9bea-c79a0075fd04
 title: Attestazione chiave TPM
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: d7104daaa10cf7093370cb309e0366e1ab2b9b51
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: de5a38ff6f811046d06c52a1ca4598f9650b3cfe
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389857"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823014"
 ---
 # <a name="tpm-key-attestation"></a>Attestazione chiave TPM
 
@@ -41,7 +40,7 @@ Mentre il supporto per le chiavi protette da TPM esistente dal Windows 8, non vi
 |EKCert|Certificato di verifica dell'AUTENTICITÀ. Un certificato emesso dal produttore del TPM per EKPub. TPM non tutti sono EKCert.|  
 |TPM|Trusted Platform Module. Un TPM è progettato per fornire funzioni correlate alla sicurezza basate su hardware. Un chip TPM è un cryptoprocessor sicuro progettato per eseguire operazioni di crittografia. Il chip include più meccanismi di sicurezza fisica in grado di proteggerlo da manomissioni; il software dannoso non sarà pertanto in grado di manomettere le funzioni di sicurezza del TPM.|  
   
-### <a name="background"></a>Informazioni  
+### <a name="background"></a>Background  
 A partire da Windows 8, un modulo TPM (Trusted Platform) può essere utilizzato per proteggere la chiave privata del certificato. Il Microsoft Platform Crypto Provider di archiviazione Provider chiavi (KSP) abilita questa funzionalità. Sono presenti due problemi con l'implementazione:  
 
 -   Non c'era alcuna garanzia che una chiave sia effettivamente protetta da un TPM (un utente può facilmente effettuare lo spoofing di un provider di archiviazione chiavi software come KSP del TPM con credenziali di amministratore locale).
@@ -67,7 +66,7 @@ In generale, l'attestazione chiave TPM si basa sui pilastri seguenti:
   
 4.  L'autorità di certificazione emette un certificato con un criterio di rilascio speciale OID per indicare che la chiave viene attestata ora possono essere protette da un TPM.  
   
-## <a name="BKMK_DeploymentOverview"></a>Panoramica della distribuzione  
+## <a name="deployment-overview"></a><a name="BKMK_DeploymentOverview"></a>Panoramica della distribuzione  
 In questa distribuzione, si presuppone che sia configurata una CA dell'organizzazione di Windows Server 2012 R2. Inoltre, i client (Windows 8.1) sono configurati per la registrazione a tale CA globale (Enterprise) usando modelli di certificato. 
 
 Esistono tre passaggi per la distribuzione di attestazione chiave TPM:  
@@ -101,9 +100,9 @@ Esistono tre passaggi per la distribuzione di attestazione chiave TPM:
     > -   Attestazione chiave TPM non è supportata per una CA autonoma.  
     > -   Attestazione chiave TPM non supporta [l'elaborazione di certificati non permanenti](https://technet.microsoft.com/library/ff934598).  
   
-## <a name="BKMK_DeploymentDetails"></a>Dettagli della distribuzione  
+## <a name="deployment-details"></a><a name="BKMK_DeploymentDetails"></a>Dettagli della distribuzione  
   
-### <a name="BKMK_ConfigCertTemplate"></a>Configurare un modello di certificato  
+### <a name="configure-a-certificate-template"></a><a name="BKMK_ConfigCertTemplate"></a>Configurare un modello di certificato  
 Per configurare il modello di certificato per l'attestazione chiave TPM, eseguire i passaggi di configurazione seguenti:  
   
 1.  **Compatibilità** scheda  
@@ -154,8 +153,8 @@ Per configurare il modello di certificato per l'attestazione chiave TPM, eseguir
   
     |OID|Tipo di attestazione chiave|Descrizione|Livello di garanzia|  
     |-------|------------------------|---------------|-------------------|  
-    |1.3.6.1.4.1.311.21.30|VERIFICA DELL'AUTENTICITÀ|"Verifica dell'AUTENTICITÀ Verified": per elenco gestite dall'amministratore di verifica dell'AUTENTICITÀ|Alto|  
-    |1.3.6.1.4.1.311.21.31|Certificato di verifica dell'autenticità|"Verifica dell'AUTENTICITÀ certificato Verified": quando viene convalidata la catena di certificati verifica dell'AUTENTICITÀ|Medio|  
+    |1.3.6.1.4.1.311.21.30|VERIFICA DELL'AUTENTICITÀ|"Verifica dell'AUTENTICITÀ Verified": per elenco gestite dall'amministratore di verifica dell'AUTENTICITÀ|Alta|  
+    |1.3.6.1.4.1.311.21.31|Certificato di verifica dell'autenticità|"Verifica dell'AUTENTICITÀ certificato Verified": quando viene convalidata la catena di certificati verifica dell'AUTENTICITÀ|Media|  
     |1.3.6.1.4.1.311.21.32|Credenziali dell'utente|"Verifica dell'AUTENTICITÀ Trusted in uso": per la verifica dell'AUTENTICITÀ con attestazione dell'utente|Bassa|  
   
     L'OID verrà inserito nel certificato emesso se **includere criteri di rilascio** è selezionata (configurazione predefinita).  
@@ -165,7 +164,7 @@ Per configurare il modello di certificato per l'attestazione chiave TPM, eseguir
     > [!TIP]  
     > Un potenziale utilizzo dell'OID presente nel certificato consiste nel limitare l'accesso alla rete VPN o wireless a determinati dispositivi. Ad esempio, i criteri di accesso potrebbero consentire la connessione (o l'accesso a una VLAN diversa) se OID 1.3.6.1.4.1.311.21.30 è presente nel certificato. Ciò consente di limitare l'accesso ai dispositivi cui EK TPM è presente nell'elenco EKPUB.  
   
-### <a name="BKMK_CAConfig"></a>Configurazione CA  
+### <a name="ca-configuration"></a><a name="BKMK_CAConfig"></a>Configurazione CA  
   
 1.  **Configurare gli archivi certificati EKCA e EKROOT in una CA emittente**  
   
@@ -199,9 +198,9 @@ Per configurare il modello di certificato per l'attestazione chiave TPM, eseguir
   
         Il EndorsementKeyListDirectories nel comando certutil è un'impostazione del registro di sistema, come descritto nella tabella seguente.  
   
-        |Nome del valore|Tipo|Data|  
+        |Nome del valore|Type|Data|  
         |--------------|--------|--------|  
-        |EndorsementKeyListDirectories|REG_MULTI_SZ|< percorso LOCALE o UNC EKPUB consentire elenchi ><br /><br />Esempio:<br /><br />*\\\blueCA.contoso.com\ekpub*<br /><br />*\\\bluecluster1.contoso.com\ekpub*<br /><br />D:\ekpub|  
+        |EndorsementKeyListDirectories|REG_MULTI_SZ|< percorso LOCALE o UNC EKPUB consentire elenchi ><p>Esempio:<p>*\\\blueCA.contoso.com\ekpub*<p>*\\\bluecluster1.contoso.com\ekpub*<p>D:\ekpub|  
   
         HKLM\SYSTEM\CurrentControlSet\Services\CertSvc\Configuration\\<CA Sanitized Name>  
   

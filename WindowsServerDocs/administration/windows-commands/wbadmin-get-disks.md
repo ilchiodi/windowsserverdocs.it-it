@@ -1,24 +1,20 @@
 ---
 title: comando Wbadmin get Disks
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per Wbadmin get disks, che elenca i dischi interni ed esterni attualmente online per il computer locale.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 320edef1-df11-446b-a183-9f81811ef938
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3440e061a97e54c32179ef7d71f469093e9fae00
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 0243edce77febddccc3497df34685113f2a1b48f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362422"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829764"
 ---
 # <a name="wbadmin-get-disks"></a>comando Wbadmin get Disks
 
@@ -34,12 +30,12 @@ Per elencare i dischi online con questo sottocomando, è necessario essere un me
 wbadmin get disks
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 Questo sottocomando non ha parametri.
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
 -   Cmdlet [Get-WBDisk](https://technet.microsoft.com/library/jj902446.aspx)

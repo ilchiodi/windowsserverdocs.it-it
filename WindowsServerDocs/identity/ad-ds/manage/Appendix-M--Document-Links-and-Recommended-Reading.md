@@ -1,7 +1,6 @@
 ---
 ms.assetid: 6785de86-4f7d-4ed1-9055-8de0871d59b5
 title: Appendice M-collegamenti al documento e lettura consigliata
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: c48b5330ee1b9a186885645aaa4c1ac79f1782e7
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: f1c13f0a7054f236f1ba35201ad9ad62c978d08f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822744"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823294"
 ---
 # <a name="appendix-m-document-links-and-recommended-reading"></a>Appendice M: Collegamenti a documenti e letture consigliate
 
@@ -28,7 +27,7 @@ La tabella seguente contiene un elenco di collegamenti a documenti esterni e i r
   
 |||  
 |-|-|  
-|**Links**|**URL**|  
+|**Collegamenti**|**URL**|  
 |[10 leggi non modificabili dell'amministrazione della sicurezza](https://technet.microsoft.com/library/cc722488.aspx)|[https://technet.microsoft.com/library/cc722488.aspx](https://technet.microsoft.com/library/cc722488.aspx)|  
 |[Microsoft Security Compliance Manager](https://technet.microsoft.com/library/cc677002.aspx)|[https://technet.microsoft.com/library/cc677002.aspx](https://technet.microsoft.com/library/cc677002.aspx)|  
 |[Simposio di Gartner ITXPO](http://www.gartner.com/technology/symposium/orlando/)|[http://www.gartner.com/technology/symposium/orlando/](http://www.gartner.com/technology/symposium/orlando/)|  
@@ -195,20 +194,20 @@ La tabella seguente contiene un elenco di letture consigliate che consentono di 
 |[Guida dettagliata al meccanismo di autenticazione per servizi di dominio Active Directory in Windows Server 2008 R2](https://technet.microsoft.com/library/dd378897(WS.10).aspx).|  
 |[Convalida KDC restrittiva](https://www.microsoft.com/download/details.aspx?id=6382)|  
   
-#### <a name="copyright-information"></a>Informazioni sul copyright  
+#### <a name="copyright-information"></a>Copyright Information  
 Le informazioni contenute in questo documento rappresentano la posizione attuale di Microsoft Corporation alla data della pubblicazione rispetto alle questioni trattate. Poiché Microsoft risponde alle condizioni del mercato in evoluzione, non sono da intendersi come un impegno da parte di Microsoft; inoltre, Microsoft non può garantire l'accuratezza delle informazioni presentate successivamente alla data della pubblicazione.  
   
-Questa white paper è esclusivamente a scopo informativo. Microsoft non rilascia alcuna garanzia, espressa o implicita, in questo documento.  
+Questo documento è esclusivamente per scopi informativi. Microsoft non rilascia alcuna garanzia, espressa o implicita, in questo documento.  
   
-Il rispetto di tutte le leggi applicabili in materia di copyright è esclusivamente a carico dell’utente. Senza limitare i diritti di copyright, nessuna parte di questo documento può essere riprodotta, archiviata o introdotta in un sistema di recupero o trasmessa in qualsiasi forma o con qualsiasi mezzo (elettronica, meccanica, fotocopiatrice, registrazione o altro) o per qualsiasi scopo. , senza il permesso scritto di Microsoft Corporation.  
+Il rispetto di tutte le leggi applicabili in materia di copyright è esclusivamente a carico dell'utente. Fermi restando tutti i diritti coperti da copyright, nessuna parte di questo documento potrà comunque essere riprodotta o inserita in un sistema di riproduzione o trasmessa in qualsiasi forma e con qualsiasi mezzo (in formato elettronico, meccanico, su fotocopia, come registrazione o altro) per qualsiasi scopo, senza il permesso scritto di Microsoft Corporation.  
   
-Microsoft può essere titolare di brevetti, richieste di brevetto, marchi, copyright o altri diritti di proprietà intellettuale relativi all’oggetto del presente documento. Salvo quanto espressamente previsto in un contratto scritto di licenza Microsoft, la consegna del presente documento non implica la concessione di alcuna licenza su tali brevetti, marchi, copyright o altra proprietà intellettuale.  
+Microsoft può essere titolare di brevetti, domande di brevetto, marchi, copyright o altri diritti di proprietà intellettuale relativi all'oggetto della presente documentazione. Salvo quanto espressamente previsto in un contratto scritto di licenza Microsoft, la consegna della presente documentazione non implica la concessione di alcuna licenza su tali brevetti, marchi, copyright o altra proprietà intellettuale.  
   
-Microsoft, Active Directory, BitLocker, Hyper-V, Internet Explorer, Windows Vista, Windows e Windows Server sono marchi o marchi registrati di Microsoft Corporation nel Stati Uniti e/o in altri paesi. Tutti gli altri marchi sono proprietà dei rispettivi titolari.  
+Microsoft, Active Directory, BitLocker, Hyper-V, Internet Explorer, Windows Vista, Windows e Windows Server sono marchi o marchi registrati di Microsoft Corporation nel Stati Uniti e/o in altri paesi. Tutti gli altri marchi sono proprietà dei rispettivi proprietari.  
   
-Le società, le organizzazioni, i prodotti, i nomi di dominio, gli indirizzi di posta elettronica, i logo, le persone, i luoghi e gli eventi di esempio descritti nel presente documento sono fittizi. Non esistono, né devono essere dedotti, collegamenti a società, organizzazioni, prodotti, nomi di dominio, indirizzi di posta elettronica, logo, persone, luoghi ed eventi reali.  
+Ogni riferimento a società, organizzazioni, prodotti, nomi di dominio, indirizzi di posta elettronica, logo, persone, luoghi ed eventi è puramente casuale. Non esistono, né devono essere dedotti, collegamenti a società, organizzazioni, prodotti, nomi di dominio, indirizzi di posta elettronica, logo, persone, luoghi ed eventi reali.  
   
-? 2013 Microsoft Corporation. Tutti i diritti sono riservati.  
+? 2013 Microsoft Corporation. Tutti i diritti riservati.  
   
 
 

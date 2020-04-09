@@ -1,27 +1,23 @@
 ---
 title: Considerazioni sull'account utente
 description: Fornisce considerazioni sull'account utente, sul nome utente e sulla password per servizi MultiPoint
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e225900b-cee9-48c9-b21c-394dc5e72b78
 author: lizap
 manager: dongill
 ms.author: elizapo
 ms.date: 08/04/2016
-ms.openlocfilehash: c81d14d46e96d39676e1fb6fa31892e0d5e1b683
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 732100a79adbdd7d9fbe4ade742c43084d6b54f6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389265"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820574"
 ---
 # <a name="user-account-considerations"></a>Considerazioni sull'account utente
-In questo argomento vengono descritti i problemi che, come un utente amministratore, tenere presenti quando si creano e gestiscono gli account utente. Gestire gli account utente nella scheda utenti gestione MultiPoint. Per altre informazioni, vedere l'argomento [Gestire account utente](Manage-User-Accounts.md).  
+Questo argomento descrive problemi che un utente con privilegi amministrativi deve tenere in considerazione per la creazione e la gestione di account utente. Gestire gli account utente nella scheda utenti gestione MultiPoint. Per altre informazioni, vedere l'argomento [Gestire account utente](Manage-User-Accounts.md).  
   
 ## <a name="user-account-types"></a>Tipi di account utente  
 Un account utente è una raccolta di informazioni che indica a MultiPoint Services i file e le cartelle a cui un utente può accedere, le modifiche che possono apportare al sistema MultiPoint Services e le preferenze di ogni utente, ad esempio lo sfondo del desktop. Ogni persona accede al proprio account utente usando un nome utente e una password univoci. Servizi multiPoint supporta tre tipi di account utente:  

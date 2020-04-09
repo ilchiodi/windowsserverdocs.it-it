@@ -1,7 +1,6 @@
 ---
 ms.assetid: 155abe09-6360-4913-8dd9-7392d71ea4e6
 title: Configurazione di un computer per la risoluzione dei problemi
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 53af8acd7da8f9008c88ad7c6c14b00e63801847
-ms.sourcegitcommit: 1f3ffff0af340868dcf3a2cfef5b8f8aea69d96d
+ms.openlocfilehash: d9d279615dc1f70ffdcff9e49a4aa619f0106a93
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78278556"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822974"
 ---
 # <a name="configuring-a-computer-for-troubleshooting"></a>Configurazione di un computer per la risoluzione dei problemi
 
@@ -36,7 +35,7 @@ Per informazioni sull'installazione di strumenti di amministrazione remota del s
 
 ### <a name="configure-reliability-and-performance-monitor"></a>Configurare il monitoraggio dell'affidabilità e delle prestazioni
 
-Windows Server include il monitoraggio dell'affidabilità e delle prestazioni di Windows, uno snap-in di Microsoft Management Console (MMC) che combina la funzionalità di precedenti strumenti autonomi, tra cui Avvisi e registri di prestazioni, Server Performance Advisor, e monitor di sistema. Questo snap-in fornisce un'interfaccia utente grafica (GUI) per personalizzare gli insiemi agenti di raccolta dati e le sessioni di traccia eventi.
+Windows Server include il monitoraggio dell'affidabilità e delle prestazioni di Windows, uno snap-in di Microsoft Management Console (MMC) che combina la funzionalità di precedenti strumenti autonomi, tra cui Avvisi e registri di prestazioni, Server Performance Advisor e monitor di sistema. Questo snap-in fornisce un'interfaccia utente grafica (GUI) per personalizzare gli insiemi agenti di raccolta dati e le sessioni di traccia eventi.
 
 Il monitoraggio dell'affidabilità e delle prestazioni include anche Monitoraggio affidabilità, uno snap-in di MMC che consente di tenere traccia delle modifiche apportate al sistema e di confrontarle con le modifiche apportate alla stabilità del sistema, offrendo una visualizzazione grafica della relazione.
 

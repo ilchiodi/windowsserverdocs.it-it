@@ -1,20 +1,20 @@
 ---
 ms.assetid: 289cbd10-e7ec-4f2e-8dd1-eb5692565578
 title: Cronologia delle modifiche per argomenti relativi al clustering di failover
+description: Argomenti nuovi e aggiornati nella documentazione relativa a clustering di failover per Windows Server 2016
 ms.prod: windows-server
 ms.technology: storage-failover-clustering
 ms.topic: article
 author: JasonGerend
-manager: daveba
+manager: lizross
 ms.author: jgerend
 ms.date: 01/07/2020
-description: Argomenti nuovi e aggiornati nella documentazione relativa a clustering di failover per Windows Server 2016
-ms.openlocfilehash: b29a1dd979dc5ab14684a83e549ce3e6b3c273f1
-ms.sourcegitcommit: 10331ff4f74bac50e208ba8ec8a63d10cfa768cc
+ms.openlocfilehash: 73767eb8411523a93f3a4fe2e04106c81cc39f9b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75953035"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827904"
 ---
 # <a name="change-history-for-failover-clustering-topics"></a>Cronologia delle modifiche per argomenti relativi al clustering di failover
 
@@ -28,27 +28,27 @@ In questo argomento vengono elencati gli argomenti nuovi e aggiornati nella docu
 
 |Argomento nuovo o modificato                                    |Descrizione |
 |--------------------------------------------------------|------------|
-|[Eventi cluster](system-events.md)| Nuova     |
+|[Eventi cluster](system-events.md)| Nuovo     |
 
-## <a name="march-2019"></a>Marzo 2019
+## <a name="march-2019"></a>2019 marzo
 
 |Argomento nuovo o modificato                                    |Descrizione |
 |--------------------------------------------------------|------------|
-|[Affinità del cluster](cluster-affinity.md)| Nuova     |
+|[Affinità del cluster](cluster-affinity.md)| Nuovo     |
 
 ## <a name="february-2019"></a>Febbraio 2019
 
 |Argomento nuovo o modificato                                    |Descrizione |
 |--------------------------------------------------------|------------|
-| [Aggiornamento di un cluster di failover nello stesso hardware](upgrade-option-same-hardware.md)| Nuova |
-|[Distribuire un file server a due nodi](deploy-two-node-clustered-file-server.md)| Nuova |
+| [Aggiornamento di un cluster di failover nello stesso hardware](upgrade-option-same-hardware.md)| Nuovo |
+|[Distribuire un file server a due nodi](deploy-two-node-clustered-file-server.md)| Nuovo |
 
 ## <a name="january-2019"></a>Gennaio 2019
 
 |Argomento nuovo o modificato                                    |Descrizione |
 |--------------------------------------------------------|------------|
-|[Distribuire una condivisione file di controllo](file-share-witness.md)    | Nuova        |
-|[Migrazione del dominio del cluster](cluster-domain-migration.md) | Nuova        |
+|[Distribuire una condivisione file di controllo](file-share-witness.md)    | Nuovo        |
+|[Migrazione del dominio del cluster](cluster-domain-migration.md) | Nuovo        |
 
 ## <a name="november-2018"></a>Novembre 2018
 
@@ -78,7 +78,7 @@ In questo argomento vengono elencati gli argomenti nuovi e aggiornati nella docu
 
 |Argomento nuovo o modificato|Descrizione|
 |---|---|
-|[Risoluzione dei problemi relativi a un cluster di failover con Segnalazione errori Windows](troubleshooting-using-WER-reports.md)| Nuovo argomento. |
+|[Risoluzione dei problemi relativi a un cluster di Failover con Segnalazione errori Windows](troubleshooting-using-WER-reports.md)| Nuovo argomento. |
 |[File server di scalabilità orizzontale per dati delle applicazioni](sofs-overview.md)|Migrata dalla libreria [versioni precedenti](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) .|
 |[Requisiti hardware](clustering-requirements.md)|Migrata dalla libreria [versioni precedenti](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) .|
 |[Usare Volumi condivisi cluster](failover-cluster-csvs.md)|Migrata dalla libreria [versioni precedenti](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012) .|

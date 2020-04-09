@@ -1,29 +1,25 @@
 ---
 title: Impostazioni del registro di sistema Transport Layer Security (TLS)
 description: Sicurezza di Windows Server
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: security-tls-ssl
-ms.tgt_pltfrm: na
 ms.topic: article
 author: justinha
 ms.author: justinha
-manager: brianlic-msft
+manager: brianlic
 ms.date: 02/28/2019
-ms.openlocfilehash: 60202e537093bd21515043ba56f70f3895c91d42
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: d65b314d6896c886ce606d2b649fcfd7309c583b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322403"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820284"
 ---
 # <a name="transport-layer-security-tls-registry-settings"></a>Impostazioni del registro di sistema Transport Layer Security (TLS)
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows 10
 
-Questo argomento di riferimento per i professionisti IT contiene informazioni sulle impostazioni del registro di sistema supportate per l'implementazione di Windows del protocollo Transport Layer Security (TLS) e il protocollo di Secure Sockets Layer (SSL) tramite il supporto della sicurezza Schannel Provider (SSP). Le sottochiavi e le voci del registro di sistema descritte in questo argomento consentono di amministrare e risolvere i problemi relativi a SSP Schannel, in particolare i protocolli TLS e SSL. 
+Questo argomento di riferimento per i professionisti IT contiene informazioni sulle impostazioni del registro di sistema supportate per l'implementazione di Windows del protocollo Transport Layer Security (TLS) e il protocollo di Secure Sockets Layer (SSL) tramite il provider di supporto della sicurezza (SSP) Schannel. Le sottochiavi e le voci del registro di sistema descritte in questo argomento consentono di amministrare e risolvere i problemi relativi a SSP Schannel, in particolare i protocolli TLS e SSL. 
 
 > [!CAUTION]
 > Queste informazioni vengono fornite come riferimento utilizzabile durante la risoluzione dei problemi o quando si verifica che le impostazioni obbligatorie siano applicate.

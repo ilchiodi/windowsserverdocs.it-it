@@ -1,7 +1,6 @@
 ---
 ms.assetid: 0abe0976-4b49-45d6-a7b3-81d28bdb8210
 title: Suggerimenti per i criteri di controllo
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 6cecf2edcb834a963c706fa4a63e7d15b13f7888
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: c25df61246bf6a7c731e08e11cee54fd87d6ae4c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949624"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821344"
 ---
 # <a name="audit-policy-recommendations"></a>Suggerimenti per i criteri di controllo
 
@@ -34,7 +33,7 @@ Le impostazioni dei criteri di controllo di base seguenti sono consigliate per i
 ## <a name="recommended-audit-policies-by-operating-system"></a>Criteri di controllo consigliati per sistema operativo  
 In questa sezione sono contenute le tabelle in cui sono elencate le indicazioni sulle impostazioni di controllo applicabili ai sistemi operativi seguenti:  
 
--   Windows Server 2016 
+-   Windows Server 2016 
 
 -   Windows Server 2012  
 
@@ -42,9 +41,9 @@ In questa sezione sono contenute le tabelle in cui sono elencate le indicazioni 
 
 -   Windows Server 2008  
 
--   Windows 10
+-   Windows 10
 
--   Windows 8.1  
+-   Windows 8.1  
 
 -   Windows 7  
 
@@ -65,23 +64,23 @@ Queste tabelle contengono l'impostazione predefinita di Windows, le raccomandazi
 
 **Criteri di controllo**  
 
-|Categoria o sottocategoria dei criteri di controllo|Impostazione predefinita di Windows<br /><br />Esito negativo|Raccomandazione Baseline<br /><br />Esito negativo|Raccomandazione più avanzata<br /><br />Esito negativo|  
+|Categoria o sottocategoria dei criteri di controllo|Impostazione predefinita di Windows<p>Esito negativo|Raccomandazione Baseline<p>Esito negativo|Raccomandazione più avanzata<p>Esito negativo|  
 |----------------------------------------|------------------------------------------|--------------------------------------------------|--------------------------------------------------|  
 |**Accesso all'account**||||  
-|Controlla Convalida credenziali|No, no|Sì No|Sì, sì|  
+|Controlla Convalida delle credenziali|No, no|Sì No|Sì, sì|  
 |Controlla Servizio di autenticazione Kerberos|||Sì, sì|  
 |Controlla Operazioni ticket di servizio Kerberos|||Sì, sì|  
 |Controlla Altri eventi di accesso account|||Sì, sì|  
-|**Gestione dell'account**||||  
+|**Gestione degli account**||||  
 |Controlla Gestione gruppi di applicazioni||||  
 |Controlla Gestione account computer||Sì No|Sì, sì|  
 |Controlla Gestione gruppi di distribuzione||||  
-|Controlla Altri eventi di gestione account||Sì No|Sì, sì|  
-|Controlla Gestione gruppi di sicurezza||Sì No|Sì, sì|  
-|Controlla Gestione account utente|Sì No|Sì No|Sì, sì|  
+|Controllo Altri eventi di gestione account||Sì No|Sì, sì|  
+|Controllo Gestione gruppi di sicurezza||Sì No|Sì, sì|  
+|Controllo della Gestione account utente|Sì No|Sì No|Sì, sì|  
 |**Rilevamento dettagliato**||||  
 |Controlla Attività DPAPI|||Sì, sì|  
-|Creazione del processo di controllo||Sì No|Sì, sì|  
+|Controlla Creazione di processi||Sì No|Sì, sì|  
 |Controlla Chiusura di processi||||  
 |Controlla Eventi RPC||||  
 |**Accesso DS**||||  
@@ -126,7 +125,7 @@ Queste tabelle contengono l'impostazione predefinita di Windows, le raccomandazi
 |Controlla Utilizzo privilegi non sensibili||||  
 |Controlla Altri eventi di utilizzo dei privilegi||||  
 |Controlla Utilizzo privilegi sensibili||||  
-|**System** (Sistema)||||  
+|**Sistema**||||  
 |Controlla Driver IPSec||Sì, sì|Sì, sì|  
 |Controlla Altri eventi di sistema|Sì, sì|||  
 |Controlla Modifica stato sicurezza|Sì No|Sì, sì|Sì, sì|  
@@ -143,23 +142,23 @@ Queste tabelle contengono l'impostazione predefinita di Windows, le raccomandazi
 
 **Indicazioni sulle impostazioni di controllo di Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 e Windows Server 2008**  
 
-|Categoria o sottocategoria dei criteri di controllo|Impostazione predefinita di Windows<br /><br />Esito negativo|Raccomandazione Baseline<br /><br />Esito negativo|Raccomandazione più avanzata<br /><br />Esito negativo|  
+|Categoria o sottocategoria dei criteri di controllo|Impostazione predefinita di Windows<p>Esito negativo|Raccomandazione Baseline<p>Esito negativo|Raccomandazione più avanzata<p>Esito negativo|  
 |----------------------------------------|------------------------------------------|--------------------------------------------------|--------------------------------------------------|  
 |**Accesso all'account**||||  
-|Controlla Convalida credenziali|No, no|Sì, sì|Sì, sì|  
+|Controlla Convalida delle credenziali|No, no|Sì, sì|Sì, sì|  
 |Controlla Servizio di autenticazione Kerberos|||Sì, sì|  
 |Controlla Operazioni ticket di servizio Kerberos|||Sì, sì|  
 |Controlla Altri eventi di accesso account|||Sì, sì|  
-|**Gestione dell'account**||||  
+|**Gestione degli account**||||  
 |Controlla Gestione gruppi di applicazioni||||  
 |Controlla Gestione account computer||Sì DC|Sì, sì|  
 |Controlla Gestione gruppi di distribuzione||||  
-|Controlla Altri eventi di gestione account||Sì, sì|Sì, sì|  
-|Controlla Gestione gruppi di sicurezza||Sì, sì|Sì, sì|  
-|Controlla Gestione account utente|Sì No|Sì, sì|Sì, sì|  
+|Controllo Altri eventi di gestione account||Sì, sì|Sì, sì|  
+|Controllo Gestione gruppi di sicurezza||Sì, sì|Sì, sì|  
+|Controllo della Gestione account utente|Sì No|Sì, sì|Sì, sì|  
 |**Rilevamento dettagliato**||||  
 |Controlla Attività DPAPI|||Sì, sì|  
-|Creazione del processo di controllo||Sì No|Sì, sì|  
+|Controlla Creazione di processi||Sì No|Sì, sì|  
 |Controlla Chiusura di processi||||  
 |Controlla Eventi RPC||||  
 |**Accesso DS**||||  
@@ -204,7 +203,7 @@ Queste tabelle contengono l'impostazione predefinita di Windows, le raccomandazi
 |Controlla Utilizzo privilegi non sensibili||||  
 |Controlla Altri eventi di utilizzo dei privilegi||||  
 |Controlla Utilizzo privilegi sensibili||||  
-|**System** (Sistema)||||  
+|**Sistema**||||  
 |Controlla Driver IPSec||Sì, sì|Sì, sì|  
 |Controlla Altri eventi di sistema|Sì, sì|||  
 |Controlla Modifica stato sicurezza|Sì No|Sì, sì|Sì, sì|  

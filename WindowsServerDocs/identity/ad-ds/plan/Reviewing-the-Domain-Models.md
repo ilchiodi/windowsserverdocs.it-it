@@ -1,7 +1,6 @@
 ---
 ms.assetid: e727a33d-133b-43c9-b6a4-7c00f9cb6000
 title: Revisione dei modelli di dominio
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 00683b09aff5b3a3b097f7f8b423c51080b86d02
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b77f634d8548994d2f9e130faad9ca34aa226327
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408682"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821954"
 ---
 # <a name="reviewing-the-domain-models"></a>Revisione dei modelli di dominio
 

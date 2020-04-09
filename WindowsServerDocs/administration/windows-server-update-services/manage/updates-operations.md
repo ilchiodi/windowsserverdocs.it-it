@@ -2,26 +2,23 @@
 title: Operazioni di aggiornamento
 description: Argomento di Windows Server Update Service (WSUS)-come gestire gli aggiornamenti, incluso il processo di approvazione
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-wsus
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4cb7ff54-3014-4e91-842a-a7b831ea59ff
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7121f6303bef48486720d4cdca4582fd897467c4
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 327bff2e678e278dcba05ce1df807dc3842a56cd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361476"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828494"
 ---
 # <a name="updates-operations"></a>Operazioni di aggiornamento
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+>Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Dopo gli aggiornamenti sono stati sincronizzati con il server WSUS, essi verrà eseguite automaticamente la rilevanza ai computer client del server. Tuttavia, è necessario approvare gli aggiornamenti prima di distribuirli ai computer della rete. Quando si approva un aggiornamento, sostanza si istruisce WSUS cosa fare con esso (le scelte disponibili sono **installare** o **Rifiuta** per un nuovo aggiornamento). È possibile approvare gli aggiornamenti per il gruppo **tutti i computer** o per i sottogruppi. Se non si approva un aggiornamento, lo stato di approvazione rimane **non approvato**, e il server WSUS consente ai client di valutare se è necessario l'aggiornamento.
 
@@ -38,9 +35,9 @@ Se il server WSUS è in esecuzione in modalità di replica, non sarà possibile 
 
 È necessario tenere presente due aspetti importanti:
 
--   In primo luogo, è possibile impostare una scadenza per l'installazione automatica per un aggiornamento se l'input dell'utente è necessario (ad esempio, specificando un'impostazione relativa all'aggiornamento). Per determinare se un aggiornamento potrebbe richiedere l'input dell'utente, esaminare il **potrebbe richiedere l'input dell'utente** nelle proprietà dell'aggiornamento per un aggiornamento visualizzato nel campo di **Aggiorna** pagina. Anche cercare un messaggio nel **Approva aggiornamenti** casella con la dicitura "**l'aggiornamento selezionato richiede l'input dell'utente e non supporta una scadenza di installazione**."
+-   In primo luogo, è possibile impostare una scadenza per l'installazione automatica per un aggiornamento se l'input dell'utente è necessario (ad esempio, specificando un'impostazione relativa all'aggiornamento). Per determinare se un aggiornamento potrebbe richiedere l'input dell'utente, esaminare il **potrebbe richiedere l'input dell'utente** nelle proprietà dell'aggiornamento per un aggiornamento visualizzato nel campo di **Aggiorna** pagina. Controllare anche la presenza di un messaggio nella casella **Approva aggiornamenti** . **l'aggiornamento selezionato richiede l'input dell'utente e non supporta la scadenza dell'installazione**.
 
--   Se sono disponibili aggiornamenti per il componente server WSUS, non è possibile approvare altri aggiornamenti per i sistemi client fino a quando non viene approvata l'aggiornamento WSUS. Questo messaggio di avviso verrà visualizzato nella finestra di dialogo Approva aggiornamenti: "Sono presenti aggiornamenti WSUS che non sono stati approvati. È necessario approvare gli aggiornamenti WSUS prima di approvare l'aggiornamento." In questo caso, si deve fare clic sul nodo gli aggiornamenti di WSUS e assicurarsi che tutti gli aggiornamenti in tale visualizzazione stati approvati prima di restituire gli aggiornamenti generali.
+-   Se sono disponibili aggiornamenti per il componente server WSUS, non è possibile approvare altri aggiornamenti per i sistemi client fino a quando non viene approvata l'aggiornamento WSUS. Questo messaggio di avviso verrà visualizzato nella finestra di dialogo Approva aggiornamenti: sono presenti aggiornamenti WSUS che non sono stati approvati. È necessario approvare gli aggiornamenti WSUS prima di approvare l'aggiornamento. In questo caso, si deve fare clic sul nodo gli aggiornamenti di WSUS e assicurarsi che tutti gli aggiornamenti in tale visualizzazione stati approvati prima di restituire gli aggiornamenti generali.
 
 #### <a name="to-approve-updates"></a>Per approvare gli aggiornamenti
 
@@ -88,7 +85,7 @@ Se si seleziona questa opzione, l'aggiornamento viene rimosso dall'elenco predef
 3.  Selezionare **rifiuta**, quindi fare clic su **Sì** nel messaggio di conferma.
 
 ## <a name="cleaning-up-declined-updates"></a>Pulizia di aggiornamenti rifiutati
-Gli aggiornamenti rifiutati continueranno a utilizzare alcune risorse di server WSUS. È consigliabile eseguire la pulitura guidata del server per rimuovere gli aggiornamenti rifiutati dal database WSUS. Vedere: [Pulitura guidata del server](the-server-cleanup-wizard.md), per altri dettagli.
+Gli aggiornamenti rifiutati continueranno a utilizzare alcune risorse di server WSUS. È consigliabile eseguire la pulitura guidata del server per rimuovere gli aggiornamenti rifiutati dal database WSUS. Per ulteriori informazioni, vedere: [Pulitura guidata del server](the-server-cleanup-wizard.md).
 
 ## <a name="reinstating-declined-updates"></a>Sospensione di aggiornamenti rifiutati
 Dopo un aggiornamento rifiutato, è possibile ripristinare il.
@@ -101,7 +98,7 @@ Dopo un aggiornamento rifiutato, è possibile ripristinare il.
 
 3.  Nell'elenco degli aggiornamenti, selezionare uno o più aggiornamenti rifiutati che si desidera ripristinare.
 
-4.  Per ripristinare un aggiornamento specifico, fare clic con l'aggiornamento e selezionare **Approva**. Nel **Approva aggiornamenti** finestra di dialogo, fare clic su **OK** per applicare nuovamente lo stato di approvazione "Non approvati" predefinito. L'aggiornamento verrà visualizzato nell'elenco come **non approvato** anziché rifiutato.
+4.  Per ripristinare un aggiornamento specifico, fare clic con l'aggiornamento e selezionare **Approva**. Nella finestra di dialogo **Approva aggiornamenti** fare clic su **OK** per applicare nuovamente lo stato di approvazione predefinito non approvato. L'aggiornamento verrà visualizzato nell'elenco come **non approvato** anziché rifiutato.
 
 Dopo la pulizia di un aggiornamento rifiutato utilizzando la pulitura guidata del server WSUS, questo verrà eliminato dal server WSUS e non verrà più visualizzato nella vista tutti gli aggiornamenti. È possibile importare nuovamente rifiutato, puliti aggiornamenti dal catalogo di Microsoft Update. Per ulteriori informazioni, vedere [WSUS e il sito del catalogo](wsus-and-the-catalog-site.md).
 
@@ -150,7 +147,7 @@ Se è stato approvato un aggiornamento e si decide di non installarlo in questo 
 
 4.  In **passaggio 2: modificare le proprietà** fare clic sulle proprietà sottolineate per selezionare le classificazioni, i prodotti e i gruppi di computer per i quali si desidera approvazioni automatiche, come applicabile. Facoltativamente, scegliere il giorno e l'ora di scadenza dell'approvazione dell'aggiornamento.
 
-5.  In **passaggio 3: Specificare una casella**nome, digitare un nome univoco per la regola.
+5.  In **passaggio 3: specificare un nome**, digitare un nome univoco per la regola.
 
 6.  Fare clic su **OK**.
 
@@ -168,15 +165,15 @@ La sezione delle approvazioni automatiche del riquadro delle opzioni contiene un
 
 2.  Nella scheda **Avanzate** assicurarsi che entrambe le **nuove revisioni degli aggiornamenti approvati vengano approvate** automaticamente e **rifiutare automaticamente gli aggiornamenti quando viene selezionata una nuova revisione che ne provoca la scadenza** .
 
-3.  Fare clic su OK.
+3.  Fai clic su OK.
 
     > [!NOTE]
     > Mantenendo i valori predefiniti per queste opzioni consente che gestire buone prestazioni della rete di Windows Server Update SERVICES. Se si preferisce non aggiornamenti scaduti per essere rifiutato automaticamente, assicurarsi che non si desidera eseguire manualmente su base periodica.
 
 ## <a name="automatically-declining-superseded-updates"></a>Rifiuto automaticamente gli aggiornamenti sostituiti
-Quando si approva un nuovo aggiornamento che sostituisce un aggiornamento esistente che viene automaticamente approvato, l'aggiornamento sostituito, diventa "Non applicabile" in un computer o dispositivo è stato installato l'aggiornamento più recente. Nella console di WSUS è possibile verificare che un aggiornamento non è applicabile per tutti i computer. Una volta che il caso, l'aggiornamento può essere tranquillamente rifiutata. Inoltre, è possibile che l'aggiornamento venga rifiutato automaticamente quando si esegue la pulitura guidata del server WSUS.
+Quando si approva un nuovo aggiornamento che sostituisce un aggiornamento esistente che viene approvato automaticamente, l'aggiornamento sostituito diventa non applicabile a un computer o a un dispositivo dopo l'installazione dell'aggiornamento più recente. Nella console di WSUS è possibile verificare che un aggiornamento non è applicabile per tutti i computer. Una volta che il caso, l'aggiornamento può essere tranquillamente rifiutata. Inoltre, è possibile che l'aggiornamento venga rifiutato automaticamente quando si esegue la pulitura guidata del server WSUS.
 
-Per cercare gli aggiornamenti sostituiti, è possibile selezionare la colonna del contrassegno "Sostituito" nella visualizzazione di tutti gli aggiornamenti e ordinamento di tale colonna. Esisterà quattro gruppi:
+Per cercare gli aggiornamenti sostituiti, è possibile selezionare la colonna flag sostituita nella vista tutti gli aggiornamenti e ordinarla in tale colonna. Esisterà quattro gruppi:
 
 -   Gli aggiornamenti che non sono mai state sostituito (un'icona vuota).
 
@@ -186,7 +183,7 @@ Per cercare gli aggiornamenti sostituiti, è possibile selezionare la colonna de
 
 -   Aggiornamenti che sono sostituiti, un'icona con un quadrato blu nella parte superiore, a un altro aggiornamento.
 
-Non è disponibile alcuna funzionalità in Windows Server Update Services che automaticamente rifiuta gli aggiornamenti sostituiti all'approvazione da parte di un aggiornamento più recente. È consigliabile impostare prima di tutto l'approvazione su "non approvato", quindi utilizzare la pulitura guidata del server per rifiutare automaticamente l'aggiornamento quando sono state soddisfatte tutte le condizioni pertinenti. Per altre informazioni, vedere: [Pulitura guidata del server](the-server-cleanup-wizard.md).
+Non è disponibile alcuna funzionalità in Windows Server Update Services che automaticamente rifiuta gli aggiornamenti sostituiti all'approvazione da parte di un aggiornamento più recente. Si consiglia di impostare prima l'approvazione su non approvato, quindi utilizzare la pulizia guidata del server per rifiutare automaticamente l'aggiornamento quando sono state soddisfatte tutte le condizioni pertinenti. Per ulteriori informazioni, vedere la pagina relativa [alla pulitura guidata del server](the-server-cleanup-wizard.md).
 
 ## <a name="approving-superseding-or-superseded-updates"></a>Approvazione degli aggiornamenti in sostituzione o sostituiti
 In genere, un aggiornamento che sostituisce altri aggiornamenti comporta uno o più dei seguenti:
@@ -203,7 +200,7 @@ Al contrario, un aggiornamento sostituito da un altro aggiornamento esegue le op
 
 -   Aggiorna le versioni precedenti dei sistemi operativi. In alcuni casi, queste versioni dei sistemi operativi non vengano più aggiornate per l'aggiornamento sostitutivo.
 
-Nel riquadro dei dettagli di un singolo aggiornamento, un'icona informativa e un messaggio nella parte superiore indica che sostituisce o è stato sostituito da un altro aggiornamento. Inoltre, è possibile determinare quali aggiornamenti sostituiscono o vengono sostituiti dall'aggiornamento esaminando gli **aggiornamenti che sostituiscono l'aggiornamento** e **gli aggiornamenti sostituiti da queste** voci di aggiornamento nella sezione **dettagli aggiuntivi** della  **Proprietà**. Riquadro dei dettagli di un aggiornamento viene visualizzato sotto l'elenco degli aggiornamenti.
+Nel riquadro dei dettagli di un singolo aggiornamento, un'icona informativa e un messaggio nella parte superiore indica che sostituisce o è stato sostituito da un altro aggiornamento. Inoltre, è possibile determinare quali aggiornamenti sostituiscono o vengono sostituiti dall'aggiornamento esaminando gli **aggiornamenti che sostituiscono l'aggiornamento** e **gli aggiornamenti sostituiti da queste** voci di aggiornamento nella sezione **dettagli aggiuntivi** delle **Proprietà**. Riquadro dei dettagli di un aggiornamento viene visualizzato sotto l'elenco degli aggiornamenti.
 
 WSUS non automaticamente sostituiti gli aggiornamenti vengono rifiutati, e si consiglia di non presupporre che gli aggiornamenti sostituiti debbano essere rifiutati a favore dei nuovi aggiornamenti in sostituzione. Prima di rifiutare un aggiornamento sostituito, assicurarsi che non è più necessario per i computer client. Di seguito è riportati esempi di scenari in cui potrebbe essere necessario installare un aggiornamento sostituito:
 

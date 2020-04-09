@@ -1,7 +1,6 @@
 ---
 ms.assetid: 5b2876ac-fe7d-4054-bfba-b692e57bc0d2
 title: Appendice C-account e gruppi protetti in Active Directory
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 606b3a42d70ee5c2a3479f9c9df2f95a495d6afd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3036176127cbb5401c582d81ddb2704d790a209a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408729"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821684"
 ---
 # <a name="appendix-c-protected-accounts-and-groups-in-active-directory"></a>Appendice C: Account protetti e gruppi in Active Directory
 
@@ -22,7 +21,7 @@ ms.locfileid: "71408729"
 
 ## <a name="appendix-c-protected-accounts-and-groups-in-active-directory"></a>Appendice C: Account protetti e gruppi in Active Directory
 
-All'interno Active Directory, un set predefinito di account e gruppi con privilegi elevati viene considerato come account e gruppi protetti. Con la maggior parte degli oggetti in Active Directory, gli amministratori delegati (gli utenti a cui sono state delegate le autorizzazioni per la gestione di oggetti Active Directory) possono modificare le autorizzazioni per gli oggetti, inclusa la modifica delle autorizzazioni per consentire la modifica delle appartenenze di i gruppi, ad esempio.  
+All'interno Active Directory, un set predefinito di account e gruppi con privilegi elevati viene considerato come account e gruppi protetti. Con la maggior parte degli oggetti in Active Directory, gli amministratori delegati (gli utenti a cui sono state delegate le autorizzazioni per la gestione di oggetti Active Directory) possono modificare le autorizzazioni per gli oggetti, inclusa la modifica delle autorizzazioni per consentire la modifica dell'appartenenza dei gruppi, ad esempio.  
 
 Tuttavia, con gli account e i gruppi protetti, le autorizzazioni degli oggetti vengono impostate e applicate tramite un processo automatico che garantisce che le autorizzazioni per gli oggetti rimangano coerenti anche se gli oggetti vengono spostati nella directory. Anche se un utente modifica manualmente le autorizzazioni di un oggetto protetto, questo processo assicura che le autorizzazioni vengano restituite rapidamente ai valori predefiniti.  
 
@@ -32,10 +31,10 @@ La tabella seguente contiene i gruppi protetti in Active Directory elencati dal 
 
 #### <a name="protected-accounts-and-groups-in-active-directory-by-operating-system"></a>Account e gruppi protetti in Active Directory dal sistema operativo
 
-| Windows Server 2003 RTM | Windows Server 2003 SP1 + | Windows Server 2012, <br> Windows Server 2008 R2, <br> Windows Server 2008 | Windows Server 2016 |
+| Windows Server 2003 RTM | Windows Server 2003 SP1 + | Windows Server 2012, <br> Windows Server 2008 R2, <br> Windows Server 2008 | Windows Server 2016 |
 | --- | --- | --- | --- |
 |Account Operators|Account Operators|Account Operators|Account Operators|
-|Administrator|Administrator|Administrator|Administrator|
+|Amministratore|Amministratore|Amministratore|Amministratore|
 |Administrators|Administrators|Administrators|Administrators|
 |Backup Operators|Backup Operators|Backup Operators|Backup Operators|
 |Cert Publishers|||

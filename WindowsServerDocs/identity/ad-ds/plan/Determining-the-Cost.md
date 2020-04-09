@@ -1,7 +1,6 @@
 ---
 ms.assetid: e3ea1f67-60d4-4566-b24c-37faa95c3b2a
 title: Definizione dei costi
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 0ce7acddbfa9f7536f3d5a190c6968ea0d8cf6b3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 1bbc75cab2e78d1001fa13d419072807f202fd61
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408872"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822584"
 ---
 # <a name="determining-the-cost"></a>Definizione dei costi
 
@@ -39,7 +38,7 @@ Nella tabella seguente sono elencate le velocità per diversi tipi di reti.
 |10BaseT|10 Mbps|  
 |Modalità di trasferimento asincrono (ATM)|Frequenza variabile, in genere tra 155 Mbps e 622 Mbps|  
 |100BaseT|100 Mbps|  
-|Ethernet Gigabit|1 Gigabit al secondo (Gbps)|  
+|Ethernet Gigabit|1 gigabit al secondo (Gbps)|  
   
 Usare la tabella seguente per calcolare il costo di ogni collegamento di sito in base alla velocità di collegamento della velocità di Wide Area Network (WAN). Per la velocità del collegamento WAN non elencata nella tabella, è possibile calcolare un fattore di costo relativo dividendo 1.024 in base al log della larghezza di banda disponibile, misurato in kbps.  
   

@@ -3,30 +3,24 @@ title: Risoluzione dei problemi relativi a Windows Server
 description: Ottenere collegamenti ad articoli sulla risoluzione dei problemi di Windows Server
 layout: LandingPage
 ms.prod: windows-server
-ms.custom:
-- CI 113175
-- CSSTroubleshooting
-audience: Admin
-ms.service: na
-manager: ''
 ms.technology: server-general
 ms.date: 1/24/2020
 ms.topic: landing-page
 author: kaushika-msft
 ms.author: kaushika
-ms.openlocfilehash: cd4e61a9fac5b1a1f6a1b66309e514ef75b1e4db
-ms.sourcegitcommit: f0fcfee992b76f1ad5dad460d4557f06ee425083
+ms.openlocfilehash: 0537f00a06b27f855fcd87e9b1caa9d2e5085685
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77125132"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820734"
 ---
 # <a name="troubleshooting-windows-server-components"></a>Risoluzione dei problemi relativi ai componenti di Windows Server
 
 > [!TIP]
-> Per informazioni sulle versioni precedenti di Windows Server, vedere le altre [librerie di Windows Server](/previous-versions/windows/) in docs.microsoft.com.  
+> Cerchi informazioni sull'installazione delle versioni precedenti di Windows Server? Vedi le nostre altre [librerie di Windows Server](/previous-versions/windows/) in docs.microsoft.com.  
 >   
-> È anche possibile cercare informazioni specifiche [in questo sito](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions).
+> Puoi anche [cercare nel sito](https://docs.microsoft.com/search/index?search=Windows+Server&dataSource=previousVersions) informazioni specifiche.
 
 Microsoft rilascia periodicamente entrambi gli aggiornamenti per Windows Server. Per garantire che i server ricevano gli aggiornamenti futuri, inclusi gli aggiornamenti della sicurezza, è importante mantenerli aggiornati. Consulta la pagina [Cronologia degli aggiornamenti di Windows 10 e Windows Server 2016](https://support.microsoft.com/help/4000825/windows-10-windows-server-2016-update-history) per un elenco completo di aggiornamenti rilasciati.
 

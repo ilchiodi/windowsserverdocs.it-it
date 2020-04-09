@@ -1,24 +1,20 @@
 ---
 title: Wbadmin get versions
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per Wbadmin get versions, che elenca i dettagli relativi ai backup disponibili archiviati nel computer locale o in un altro computer.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b986acc4-d083-4d32-9434-862314ed5e97
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0b7ba0749c8ef347e27590bde4eed7bbcf25af7e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 61353d4d607f87878d8001a626279016274c8eff
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362363"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829734"
 ---
 # <a name="wbadmin-get-versions"></a>Wbadmin get versions
 
@@ -38,18 +34,18 @@ wbadmin get versions
 [-machine:BackupMachineName]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
 |-backupTarget|Specifica il percorso di archiviazione che contiene i backup che si desidera visualizzare i dettagli per. Utilizzare per l'elenco dei backup archiviati in tale percorso di destinazione. I percorsi di destinazione di backup possono essere collegate localmente le unità disco, volumi, cartelle condivise remote, supporti rimovibili come unità DVD o altri supporti ottici. Se **wbadmin ottenere versioni** viene eseguito nello stesso computer in cui è stato creato il backup, questo parametro non è necessaria. Tuttavia, questo parametro è obbligatorio per ottenere informazioni su un backup creato da un altro computer.|
 |-machine|Specifica il computer che si desidera visualizzare dettagli backup per. Utilizzarlo quando nello stesso percorso di archiviazione dei backup di più computer. Deve essere utilizzato quando **- backupTarget** specificato.|
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 Per elencare gli elementi disponibili per il ripristino da un backup specifico, utilizzare **wbadmin ottenere elementi**.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Per visualizzare un elenco di backup disponibili che vengono archiviati nel volume h, digitare:
 ```
@@ -60,8 +56,8 @@ Per visualizzare un elenco dei backup disponibili archiviati nella cartella cond
 wbadmin get versions -backupTarget:\\servername\share -machine:server01
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
 -   [Get-WBBackupTarget](https://technet.microsoft.com/library/jj902447.aspx) cmdlet

@@ -1,6 +1,5 @@
 ---
 title: 'Ripristino della foresta di Active Directory: requisizione di un ruolo di master operazioni'
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 7e6bb370-f840-4416-b5e2-86b0ba715f4f
 ms.technology: identity-adds
-ms.openlocfilehash: 672dc119845acbe9cf38f82c793bd377d31db3b2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b229215eb7dde23bd1c17e6023b1c5eace0a56bf
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390281"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823534"
 ---
 # <a name="ad-forest-recovery---seizing-an-operations-master-role"></a>Ripristino della foresta di Active Directory: requisizione di un ruolo di master operazioni  
 
@@ -24,7 +23,7 @@ Utilizzare la procedura seguente per requisire un ruolo di master operazioni, no
   
 ## <a name="to-seize-an-operations-master-role"></a>Per requisire un ruolo di master operazioni  
   
-1. Al prompt dei comandi digitare il comando seguente e quindi premere INVIO:  
+1. Al prompt dei comandi digitare il comando seguente, quindi premere INVIO:  
 
    ```  
    ntdsutil  
@@ -64,14 +63,14 @@ Utilizzare la procedura seguente per requisire un ruolo di master operazioni, no
 |----------|-----------------|-------------|  
 |Master per la denominazione dei domini|Enterprise Admins|**Requisire il master di denominazione**|  
 |Master schema|Schema Admins|**Cogli schema master**|  
-|Nota master infrastrutture **:**  Dopo aver ripreso il ruolo di master infrastrutture, è possibile che venga visualizzato un errore in un secondo momento se è necessario eseguire adprep/rodcprep. Per ulteriori informazioni, vedere l'articolo KB [949257](https://support.microsoft.com/kb/949257).|Domain Admins|**Requisire il master infrastrutture**|  
+|Nota master infrastrutture **:** dopo avere ripreso il ruolo di master infrastrutture, è possibile che venga visualizzato un errore in un secondo momento se è necessario eseguire adprep/rodcprep. Per ulteriori informazioni, vedere l'articolo KB [949257](https://support.microsoft.com/kb/949257).|Domain Admins|**Requisire il master infrastrutture**|  
 |Master emulatore PDC|Domain Admins|**Requisire PDC**|  
-|Master RID di|Domain Admins|**Requisire il master RID**|  
+|Master RID|Domain Admins|**Requisire il master RID**|  
 
 Una volta confermata la richiesta, Active Directory o servizi di dominio Active Directory tenta di trasferire il ruolo. Quando il trasferimento non riesce, vengono visualizzate alcune informazioni sull'errore e Active Directory o servizi di dominio Active Directory procede con il grippaggio. Una volta completato il grippaggio, viene visualizzato un elenco dei ruoli e il nome LDAP (Lightweight Directory Access Protocol) del server che attualmente include ogni ruolo. È anche possibile eseguire **netdom query FSMO** a un prompt dei comandi con privilegi elevati per verificare i titolari dei ruoli correnti.  
   
 > [!NOTE]
-> Se il computer non è un master RID prima dell'errore e si tenta di riassegnare il ruolo di master RID, il computer tenterà di eseguire la sincronizzazione con un partner di replica prima di accettare questo ruolo. Tuttavia, poiché questo passaggio viene eseguito quando il computer è isolato, non riuscirà a eseguire la sincronizzazione con un partner. Viene quindi visualizzata una finestra di dialogo in cui viene chiesto se si desidera continuare l'operazione nonostante il computer non sia in grado di eseguire la sincronizzazione con un partner. Scegliere **Sì**.  
+> Se il computer non è un master RID prima dell'errore e si tenta di riassegnare il ruolo di master RID, il computer tenterà di eseguire la sincronizzazione con un partner di replica prima di accettare questo ruolo. Tuttavia, poiché questo passaggio viene eseguito quando il computer è isolato, non riuscirà a eseguire la sincronizzazione con un partner. Viene quindi visualizzata una finestra di dialogo in cui viene chiesto se si desidera continuare l'operazione nonostante il computer non sia in grado di eseguire la sincronizzazione con un partner. Fare clic su **Sì**.  
   
 ## <a name="next-steps"></a>Passaggi successivi
 

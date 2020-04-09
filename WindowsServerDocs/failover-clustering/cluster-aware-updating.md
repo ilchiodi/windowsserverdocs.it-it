@@ -1,20 +1,20 @@
 ---
 title: Panoramica di Aggiornamento compatibile con cluster
+description: Aggiornamento compatibile con cluster automatizza l'installazione degli aggiornamenti software nei cluster che eseguono Windows Server.
 ms.topic: article
 ms.prod: windows-server
-ms.manager: dongill
+manager: lizross
 author: JasonGerend
 ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 08/06/2018
-description: Aggiornamento compatibile con cluster automatizza l'installazione degli aggiornamenti software nei cluster che eseguono Windows Server.
 ms.assetid: 3c2993b4-aa81-452b-a5c3-3724ad95d892
-ms.openlocfilehash: e96223e0b4b44e87ade9dc8eb875f9aa7104f451
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6a2b6ad06b8a003f9cbf020956994b08cb8cf194
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361248"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827994"
 ---
 # <a name="cluster-aware-updating-overview"></a>Panoramica di Aggiornamento compatibile con cluster
 
@@ -25,7 +25,7 @@ Questo argomento fornisce una panoramica dell'aggiornamento compatibile con clus
 > [!NOTE]
 > Quando si aggiornano i cluster di [spazi di archiviazione diretta](../storage/storage-spaces/storage-spaces-direct-overview.md) , è consigliabile usare l'aggiornamento compatibile con cluster.
   
-## <a name="BKMK_OVER"></a>Descrizione della funzionalità  
+## <a name="feature-description"></a><a name="BKMK_OVER"></a>Descrizione delle funzionalità  
 Aggiornamento compatibile con cluster è una funzionalità automatizzata che consente di aggiornare i server in un [cluster di failover](failover-clustering-overview.md) con una perdita di disponibilità minima o nulla durante il processo di aggiornamento. Durante un'operazione di aggiornamento, l'aggiornamento compatibile con cluster esegue in modo trasparente le attività seguenti:  
 
 1. Inserisce ogni nodo del cluster in modalità di manutenzione del nodo.
@@ -117,16 +117,16 @@ Per informazioni dettagliate sui requisiti e Best Practices Analyzer le procedur
   
 1.  Avviare Server Manager.  
   
-2.  Effettua una delle seguenti operazioni:  
+2.  Esegui una delle operazioni seguenti:  
   
     -   Nel menu **strumenti** fare clic su **cluster\-aggiornamento compatibile**.  
   
     -   Se uno o più nodi del cluster, o il cluster, vengono aggiunti a Server Manager, nella pagina **tutti i server** fare clic con il pulsante destro del mouse\-fare clic sul nome di un nodo \(o sul nome del cluster\)e quindi fare clic su **Aggiorna cluster**.  
   
-## <a name="see-also"></a>Vedi anche  
+## <a name="see-also"></a>Vedere anche  
 I collegamenti seguenti forniscono ulteriori informazioni sull'utilizzo di aggiornamento compatibile con cluster.  
   
--   [Requisiti e procedure consigliate per l'aggiornamento compatibile con\-cluster](cluster-aware-updating.md)  
+-   [Requisiti e procedure consigliate per Aggiornamento compatibile con cluster\-  
   
 -   [Aggiornamento compatibile con\-cluster: domande frequenti](cluster-aware-updating-faq.md)  
   

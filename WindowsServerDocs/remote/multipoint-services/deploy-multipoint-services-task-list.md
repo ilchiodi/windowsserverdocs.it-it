@@ -1,29 +1,25 @@
 ---
 title: Attività per la distribuzione di servizi MultiPoint
 description: Elenca tutte le attività necessarie per la distribuzione di MultiPoint Services, oltre a collegamenti alle istruzioni
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e08c5784-5b3e-4028-86c1-96deaee41f09
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 9d50cfc3ed48f77281af400e9e80fb8b4895bac5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 70488d3c7d6c60071d52f9f60dcde4f825928824
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71394762"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820354"
 ---
-# <a name="task-lists-multipoint-services"></a>Elenchi attività: MultiPoint Services
+# <a name="task-lists-multipoint-services"></a>Elenchi di attività: Servizi MultiPoint
 Usare gli elenchi di attività in questo argomento per facilitare la distribuzione del sistema MultiPoint Services e tenere traccia delle attività completate. Non tutte le attività si applicano a tutti gli ambienti. Alcune attività, ad esempio, vengono eseguite solo se si distribuisce un server MultiPoint in un dominio Active Directory. Altri, ad esempio la creazione di stazioni a schermo diviso o la distribuzione di desktop virtuali per le stazioni, sono facoltativi. Per le procedure che illustrano come eseguire queste attività, vedere [Deploying multipoint Services](deploying-multipoint-services.md).  
   
-## <a name="task-list-deploy-the-server"></a>Elenco attività: Distribuire il server  
+## <a name="task-list-deploy-the-server"></a>Elenco attività: distribuire il server  
 
 |Attività|Descrizione|  
 |--------|---------------|  
@@ -39,7 +35,7 @@ Usare gli elenchi di attività in questo argomento per facilitare la distribuzio
 |**10**|[Attivare servizi MultiPoint e aggiungere licenze CAL](manage-client-access-licenses-with-multipoint-services.md)|  
 |**11**|[Installare il software nel sistema MultiPoint Services](Install-software-on-your-MultiPoint-services-system.md)|  
   
-## <a name="task-list-optional-configurations"></a>Elenco attività: Configurazioni facoltative  
+## <a name="task-list-optional-configurations"></a>Elenco attività: configurazioni facoltative  
   
 |Attività|  
 |--------|  
@@ -47,7 +43,7 @@ Usare gli elenchi di attività in questo argomento per facilitare la distribuzio
 |[Aggiungere stampanti](Add-printers.md)|  
 |[Creare desktop virtuali per le stazioni](Create-Windows-10-Enterprise-virtual-desktops-for-stations.md)|  
   
-## <a name="task-list-prepare-your-system-for-users"></a>Elenco attività: Preparare il sistema per gli utenti  
+## <a name="task-list-prepare-your-system-for-users"></a>Elenco attività: preparare il sistema per gli utenti  
   
 |Attività|  
 |--------|  
@@ -58,7 +54,7 @@ Usare gli elenchi di attività in questo argomento per facilitare la distribuzio
 |[Consentire a un account per avere più sessioni](Allow-one-account-to-have-multiple-sessions.md)|  
 |[Abilita condivisione file](Enable-file-sharing-in-MultiPoint-services.md)|  
   
-## <a name="task-list-server-administration"></a>Elenco attività: Amministrazione del server  
+## <a name="task-list-server-administration"></a>Elenco attività: amministrazione server  
   
 |Attività|  
 |--------|  

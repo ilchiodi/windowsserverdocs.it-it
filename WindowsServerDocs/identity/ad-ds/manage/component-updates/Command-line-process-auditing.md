@@ -1,7 +1,6 @@
 ---
 ms.assetid: c8597cc8-bdcb-4e59-a09e-128ef5ebeaf8
 title: Controllo dell'elaborazione della riga di comando
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 5d5ab971327ab7ec16bf2748571882458cc38f72
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: dc6cba306a36589d8b585b23ecb43e7d16b7d201
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71368992"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823074"
 ---
 # <a name="command-line-process-auditing"></a>Controllo dell'elaborazione della riga di comando
 
@@ -74,7 +73,7 @@ Volume di eventi: bassa a supporto, a seconda dell'utilizzo del sistema
 |**Impostazione**|**Includi riga di comando negli eventi di creazione del processo**|  
 |**Impostazione predefinita**|Non configurata (non abilitata)|  
 |**Supportato in:**|?|  
-|**Descrizione**|Questa impostazione di criterio determina quali informazioni vengono registrate negli eventi di controllo di sicurezza quando viene creato un nuovo processo.<br /><br />Questa impostazione si applica solo quando il criterio di creazione del processo di controllo è abilitato. Se si abilita questa impostazione di criteri, che le informazioni della riga di comando per ogni processo verranno registrate in testo normale nel registro eventi di protezione come parte dell'evento di creazione del processo di controllo 4688, "un nuovo processo creato," sulla workstation e server in cui viene applicata questa impostazione di criteri.<br /><br />Se si disabilita o non si configura questa impostazione di criteri, le informazioni del processo della riga di comando non includerà negli eventi di creazione del processo di controllo.<br /><br />Valore predefinito: Non configurato<br /><br />Nota: Quando questa impostazione di criterio è abilitata, qualsiasi utente con accesso per leggere che gli eventi di sicurezza sarà in grado di leggere gli argomenti della riga di comando per qualsiasi correttamente creato processo. Argomenti della riga di comando possono contenere informazioni riservate o private, ad esempio password o dati utente.|  
+|**Descrizione**|Questa impostazione di criterio determina quali informazioni vengono registrate negli eventi di controllo di sicurezza quando viene creato un nuovo processo.<p>Questa impostazione si applica solo quando il criterio di creazione del processo di controllo è abilitato. Se si abilita questa impostazione di criteri, che le informazioni della riga di comando per ogni processo verranno registrate in testo normale nel registro eventi di protezione come parte dell'evento di creazione del processo di controllo 4688, "un nuovo processo creato," sulla workstation e server in cui viene applicata questa impostazione di criteri.<p>Se si disabilita o non si configura questa impostazione di criteri, le informazioni del processo della riga di comando non includerà negli eventi di creazione del processo di controllo.<p>Valore predefinito: Non configurato<p>Nota: Quando questa impostazione di criterio è abilitata, qualsiasi utente con accesso per leggere che gli eventi di sicurezza sarà in grado di leggere gli argomenti della riga di comando per qualsiasi correttamente creato processo. Argomenti della riga di comando possono contenere informazioni riservate o private, ad esempio password o dati utente.|  
   
 ![il controllo della riga di comando](media/Command-line-process-auditing/GTR_ADDS_IncludeCLISetting.gif)  
   
@@ -89,13 +88,13 @@ La procedura seguente illustra come evitare conflitti, bloccando l'applicazione 
   
 1.  Aprire la console Gestione criteri di gruppo  
   
-2.  Fare doppio clic su criterio dominio predefinito e quindi fare clic su Modifica.  
+2.  Fare clic con il pulsante destro del mouse su Criterio dominio predefinito, quindi scegliere Modifica.  
   
-3.  Fare doppio clic su configurazione Computer, fare doppio clic su criteri e quindi fare doppio clic su impostazioni di Windows.  
+3.  Fare doppio clic su Configurazione computer, quindi su Criteri e infine su Impostazioni di Windows.  
   
 4.  Fare doppio clic su impostazioni di sicurezza, fare doppio clic su criteri locali e quindi su opzioni di sicurezza.  
   
-5.  Fare doppio clic sul controllo: Forza subcategory criteri di controllo (Windows Vista o versioni successive) per eseguire l'override delle impostazioni di categoria di criteri di controllo e quindi fare clic su Definisci questa impostazione.  
+5.  Fare doppio clic su Audit: Controllo: imposizione delle impostazioni di sottocategoria del criterio di controllo (Windows Vista o versione successiva) per sostituire le impostazioni di categoria del criterio di controllo e quindi fare clic su Definisci le impostazioni relative al criterio.  
   
 6.  Fare clic su attivato e quindi fare clic su OK.  
   

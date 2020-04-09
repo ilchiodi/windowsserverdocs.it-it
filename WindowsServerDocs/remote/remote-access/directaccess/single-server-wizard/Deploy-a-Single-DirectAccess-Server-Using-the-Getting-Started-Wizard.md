@@ -2,22 +2,18 @@
 title: Distribuire un server DirectAccess singolo usando Attività iniziali guidate
 description: Questo argomento fa parte della Guida distribuire un server DirectAccess singolo usando la procedura guidata di Introduzione per Windows Server 2016
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-da
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: eb0cf464-0668-40f8-8222-feb6bae6d3d5
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: c37ed120b811cd86dd70580d31cff18f2c330677
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 13b3fdea120a857cc0c8e890bba87c13823c3a38
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80309061"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80819564"
 ---
 # <a name="deploy-a-single-directaccess-server-using-the-getting-started-wizard"></a>Distribuire un server DirectAccess singolo usando Attività iniziali guidate
 
@@ -98,8 +94,8 @@ Nella tabella seguente sono elencati i ruoli e le funzionalità richiesti per lo
   
 |Ruolo/funzionalità|Modalità di supporto dello scenario|  
 |---------|-----------------|  
-|Ruolo Accesso remoto|Il ruolo viene installato e disinstallato tramite la console di Server Manager o Windows PowerShell. Questo ruolo comprende DirectAccess, una funzionalità precedentemente inclusa in Windows Server 2008 R2, e il servizio Routing e Accesso remoto che in precedenza era un servizio ruolo nel ruolo server Servizi di accesso e criteri di rete (NPAS). Il ruolo Accesso remoto è costituito da due componenti:<br /><br />1. DirectAccess e VPN Servizi routing e accesso remoto (RRAS). DirectAccess e VPN vengono gestiti insieme nella console di gestione accesso remoto.<br />2. routing RRAS. Le funzionalità di routing RRAS sono gestite nella console di routing e accesso remoto legacy.<br /><br />Il ruolo del server di Accesso remoto dipende dai ruoli/funzionalità del server seguenti:<br /><br />-Server Web Internet Information Services (IIS): questa funzionalità è necessaria per configurare il server dei percorsi di rete nel server di accesso remoto e il probe Web predefinito.<br />-Database interno di Windows. Usato per l'accounting locale sul server di Accesso remoto.|  
-|Funzionalità Strumenti di Gestione Accesso remoto|Questa funzionalità viene installata come segue:<br /><br />-Viene installato per impostazione predefinita in un server di accesso remoto quando viene installato il ruolo accesso remoto e supporta l'interfaccia utente della console di gestione remota e i cmdlet di Windows PowerShell.<br />-Può essere installata facoltativamente in un server non è in esecuzione il ruolo di server di accesso remoto. In questo caso viene utilizzata per la gestione remota di un computer di Accesso remoto che esegue DirectAccess e VPN.<br /><br />La funzionalità Strumenti di Gestione Accesso remoto è costituita dai seguenti elementi:<br /><br />-GUI di accesso remoto<br />-Modulo di accesso remoto per Windows PowerShell<br /><br />Le dipendenze includono:<br /><br />-Console Gestione criteri di gruppo<br />-RAS Connection Manager Administration Kit (CMAK)<br />-Windows PowerShell 3.0<br />-Infrastruttura e strumenti di gestione grafico|  
+|Ruolo Accesso remoto|Il ruolo viene installato e disinstallato tramite la console di Server Manager o Windows PowerShell. Questo ruolo comprende DirectAccess, una funzionalità precedentemente inclusa in Windows Server 2008 R2, e il servizio Routing e Accesso remoto che in precedenza era un servizio ruolo nel ruolo server Servizi di accesso e criteri di rete (NPAS). Il ruolo Accesso remoto è costituito da due componenti:<p>1. DirectAccess e VPN Servizi routing e accesso remoto (RRAS). DirectAccess e VPN vengono gestiti insieme nella console di gestione accesso remoto.<br />2. routing RRAS. Le funzionalità di routing RRAS sono gestite nella console di routing e accesso remoto legacy.<p>Il ruolo del server di Accesso remoto dipende dai ruoli/funzionalità del server seguenti:<p>-Server Web Internet Information Services (IIS): questa funzionalità è necessaria per configurare il server dei percorsi di rete nel server di accesso remoto e il probe Web predefinito.<br />-Database interno di Windows. Usato per l'accounting locale sul server di Accesso remoto.|  
+|Funzionalità Strumenti di Gestione Accesso remoto|Questa funzionalità viene installata come segue:<p>-Viene installato per impostazione predefinita in un server di accesso remoto quando viene installato il ruolo accesso remoto e supporta l'interfaccia utente della console di gestione remota e i cmdlet di Windows PowerShell.<br />-Può essere installata facoltativamente in un server non è in esecuzione il ruolo di server di accesso remoto. In questo caso viene utilizzata per la gestione remota di un computer di Accesso remoto che esegue DirectAccess e VPN.<p>La funzionalità Strumenti di Gestione Accesso remoto è costituita dai seguenti elementi:<p>-GUI di accesso remoto<br />-Modulo di accesso remoto per Windows PowerShell<p>Le dipendenze includono:<p>-Console Gestione criteri di gruppo<br />-RAS Connection Manager Administration Kit (CMAK)<br />-Windows PowerShell 3.0<br />-Infrastruttura e strumenti di gestione grafico|  
   
 ## <a name="hardware-requirements"></a><a name="BKMK_HARD"></a>Requisiti hardware  
 I requisiti hardware per questo scenario includono i seguenti.  

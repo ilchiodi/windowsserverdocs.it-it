@@ -2,22 +2,18 @@
 title: Guida al Lab di test-dimostrazione di DirectAccess in un cluster con bilanciamento carico di servizio di Windows
 description: 'Questo argomento fa parte della Guida al Lab di test: dimostrazione di DirectAccess in un cluster con bilanciamento carico di servizio di Windows per Windows Server 2016'
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-da
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: db15dcf5-4d64-48d7-818a-06c2839e1289
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 563ccf1cf68fc6ffd67a29533b3fb3b579a55ee6
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: fc9f619835262a47894f23c5c04e4c89d4463d7a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80308844"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80819064"
 ---
 # <a name="test-lab-guide-demonstrate-directaccess-in-a-cluster-with-windows-nlb"></a>Guida al lab di test: Dimostrazione di DirectAccess in un cluster con Bilanciamento carico di rete di Windows
 

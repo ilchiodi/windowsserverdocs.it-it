@@ -1,7 +1,6 @@
 ---
 ms.assetid: 864ad4bc-8428-4a8b-8671-cb93b68b0c03
 title: Riduzione della superficie di attacco di Active Directory
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 94bc65d42fa90dd7c93ba759a41d34edec10de09
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: dcd0b412e7a0005bc6574638e0f6fce4554c6487
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71367653"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821054"
 ---
 # <a name="reducing-the-active-directory-attack-surface"></a>Riduzione della superficie di attacco di Active Directory
 
@@ -32,7 +31,7 @@ Questa sezione è incentrata sui controlli tecnici da implementare per ridurre l
 In questa sezione vengono fornite informazioni complementari sugli account e i gruppi con privilegi in Active Directory destinati a illustrare le comunanze e le differenze tra gli account con privilegi e i gruppi in Active Directory. Con la comprensione di queste distinzioni, se si implementano le raccomandazioni nell' [implementazione di modelli amministrativi con privilegi minimi](../../../ad-ds/plan/security-best-practices/../../../ad-ds/plan/security-best-practices/Implementing-Least-Privilege-Administrative-Models.md) o si sceglie di personalizzarli per l'organizzazione, sono disponibili gli strumenti necessari per proteggere ogni gruppo e account in modo appropriato.  
   
 ### <a name="built-in-privileged-accounts-and-groups"></a>Account e gruppi predefiniti con privilegi  
-Active Directory facilita la delega dell'amministrazione e supporta il principio dei privilegi minimi nell'assegnazione di diritti e autorizzazioni. Gli utenti "normali" che dispongono di account in un dominio sono, per impostazione predefinita, in grado di leggere la maggior parte degli elementi archiviati nella directory, ma sono in grado di modificare solo un set molto limitato di dati nella directory. Agli utenti che richiedono privilegi aggiuntivi è possibile concedere l'appartenenza a diversi gruppi "con privilegi" compilati nella directory, in modo che possano eseguire attività specifiche correlate ai rispettivi ruoli, ma non possono eseguire attività che non sono rilevanti per le proprie mansioni. Le organizzazioni possono inoltre creare gruppi adattati a responsabilità specifiche per i processi e a cui vengono concessi diritti e autorizzazioni granulari che consentono al personale IT di eseguire funzioni amministrative quotidiane senza concedere diritti e autorizzazioni che superino il è obbligatorio per queste funzioni.  
+Active Directory facilita la delega dell'amministrazione e supporta il principio dei privilegi minimi nell'assegnazione di diritti e autorizzazioni. Gli utenti "normali" che dispongono di account in un dominio sono, per impostazione predefinita, in grado di leggere la maggior parte degli elementi archiviati nella directory, ma sono in grado di modificare solo un set molto limitato di dati nella directory. Agli utenti che richiedono privilegi aggiuntivi è possibile concedere l'appartenenza a diversi gruppi "con privilegi" compilati nella directory, in modo che possano eseguire attività specifiche correlate ai rispettivi ruoli, ma non possono eseguire attività che non sono rilevanti per le proprie mansioni. Le organizzazioni possono inoltre creare gruppi adattati a responsabilità specifiche per i processi e a cui vengono concessi diritti e autorizzazioni granulari che consentono al personale IT di eseguire funzioni amministrative quotidiane senza concedere diritti e autorizzazioni che superino gli elementi necessari per tali funzioni.  
   
 All'interno Active Directory tre gruppi predefiniti sono i gruppi di privilegi più elevati nella directory: Enterprise Admins, Domain Admins e Administrators. Le funzionalità e la configurazione predefinite di ognuno di questi gruppi sono descritte nelle seguenti sezioni:  
   
@@ -55,7 +54,7 @@ Il terzo gruppo è il gruppo Administrators locale di dominio (BA) in cui sono a
 
 Un quarto gruppo con privilegi, Schema Admins (SA), esiste solo nel dominio radice della foresta e dispone solo dell'account Administrator predefinito del dominio come membro predefinito, in modo analogo al gruppo Enterprise Admins. Il gruppo Schema Admins deve essere popolato solo temporaneamente e occasionalmente (quando è richiesta la modifica dello schema di servizi di dominio Active Directory).  
   
-Sebbene il gruppo SA sia l'unico gruppo in grado di modificare lo schema di Active Directory (ovvero, le strutture di dati sottostanti della directory, ad esempio oggetti e attributi), l'ambito dei diritti e delle autorizzazioni del gruppo SA è più limitato rispetto a quanto descritto in precedenza. gruppi. È anche comune rilevare che le organizzazioni hanno sviluppato procedure appropriate per la gestione dell'appartenenza al gruppo SA perché l'appartenenza al gruppo è in genere necessaria raramente e solo per brevi periodi di tempo. Questa situazione è tecnicamente vera anche per i gruppi EA, DA e BA in Active Directory, ma è molto meno comune trovare che le organizzazioni abbiano implementato procedure simili per questi gruppi come per il gruppo SA.  
+Sebbene il gruppo SA sia l'unico gruppo che può modificare lo schema di Active Directory (ovvero, le strutture di dati sottostanti della directory, ad esempio oggetti e attributi), l'ambito dei diritti e delle autorizzazioni del gruppo SA è più limitato rispetto ai gruppi descritti in precedenza. È anche comune rilevare che le organizzazioni hanno sviluppato procedure appropriate per la gestione dell'appartenenza al gruppo SA perché l'appartenenza al gruppo è in genere necessaria raramente e solo per brevi periodi di tempo. Questa situazione è tecnicamente vera anche per i gruppi EA, DA e BA in Active Directory, ma è molto meno comune trovare che le organizzazioni abbiano implementato procedure simili per questi gruppi come per il gruppo SA.  
   
 #### <a name="protected-accounts-and-groups-in-active-directory"></a>Account e gruppi protetti in Active Directory  
 All'interno Active Directory, un set predefinito di account con privilegi e gruppi denominati account e gruppi "protetti" viene protetto in modo diverso rispetto ad altri oggetti nella directory. Qualsiasi account con appartenenza diretta o transitiva a qualsiasi gruppo protetto (indipendentemente dal fatto che l'appartenenza sia derivata da gruppi di sicurezza o di distribuzione) eredita questa sicurezza con restrizioni.  
@@ -74,7 +73,7 @@ La tabella seguente elenca i gruppi e gli account protetti predefiniti in Active
 |-|-|-|-|  
 |**Windows 2000 < SP4**|**Windows 2000 SP4-Windows Server 2003**|**Windows Server 2003 SP1 +**|**Windows Server 2008-Windows Server 2012**|  
 |Administrators|Account Operators|Account Operators|Account Operators|  
-||Administrator|Administrator|Administrator|  
+||Amministratore|Amministratore|Amministratore|  
 ||Administrators|Administrators|Administrators|  
 |Domain Admins|Backup Operators|Backup Operators|Backup Operators|  
 ||Cert Publishers|||  
@@ -100,7 +99,7 @@ L'ereditarietà delle autorizzazioni è disabilitata per i gruppi e gli account 
 ###### <a name="adminsdholder-ownership"></a>Proprietà di AdminSDHolder  
 La maggior parte degli oggetti in Active Directory appartiene al gruppo BA del dominio. Tuttavia, l'oggetto AdminSDHolder è, per impostazione predefinita, di proprietà del gruppo DA del dominio. Si tratta di una circostanza in cui DAs non derivano i diritti e le autorizzazioni tramite l'appartenenza al gruppo Administrators per il dominio.  
   
-Nelle versioni di Windows precedenti a Windows Server 2008, i proprietari di un oggetto possono modificare le autorizzazioni dell'oggetto, inclusa la concessione delle autorizzazioni stesse che non avevano originariamente. Pertanto, le autorizzazioni predefinite per l'oggetto AdminSDHolder di un dominio impediscono agli utenti che sono membri dei gruppi BA o EA di modificare le autorizzazioni per l'oggetto AdminSDHolder di un dominio. Tuttavia, i membri del gruppo Administrators per il dominio possono assumere la proprietà dell'oggetto e concedere autorizzazioni aggiuntive, il che significa che questa protezione è rudimentale e protegge solo l'oggetto da modifiche accidentali da parte degli utenti non membri del gruppo DA nel dominio. Inoltre, i gruppi BA e EA (dove applicabile) dispongono delle autorizzazioni per modificare gli attributi dell'oggetto AdminSDHolder nel dominio locale (dominio radice per EA).  
+Nelle versioni di Windows precedenti a Windows Server 2008, i proprietari di un oggetto possono modificare le autorizzazioni dell'oggetto, inclusa la concessione delle autorizzazioni stesse che non avevano originariamente. Pertanto, le autorizzazioni predefinite per l'oggetto AdminSDHolder di un dominio impediscono agli utenti che sono membri dei gruppi BA o EA di modificare le autorizzazioni per l'oggetto AdminSDHolder di un dominio. Tuttavia, i membri del gruppo Administrators per il dominio possono assumere la proprietà dell'oggetto e concedere autorizzazioni aggiuntive, il che significa che questa protezione è rudimentale e protegge solo l'oggetto da modifiche accidentali da parte degli utenti che non sono membri del gruppo DA nel dominio. Inoltre, i gruppi BA e EA (dove applicabile) dispongono delle autorizzazioni per modificare gli attributi dell'oggetto AdminSDHolder nel dominio locale (dominio radice per EA).  
   
 > [!NOTE]  
 > Un attributo nell'oggetto AdminSDHolder, dSHeuristics, consente la personalizzazione limitata (rimozione) di gruppi considerati gruppi protetti e sono interessati da AdminSDHolder e SDProp. Questa personalizzazione deve essere considerata attentamente se è implementata, sebbene esistano circostanze valide in cui la modifica di dSHeuristics su AdminSDHolder è utile. Altre informazioni sulla modifica dell'attributo dSHeuristics in un oggetto AdminSDHolder sono disponibili negli articoli supporto tecnico Microsoft [817433](https://support.microsoft.com/?id=817433) e [973840](https://support.microsoft.com/kb/973840)e nell' [Appendice C: account e gruppi protetti in Active Directory](Appendix-C--Protected-Accounts-and-Groups-in-Active-Directory.md).  

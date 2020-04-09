@@ -1,24 +1,20 @@
 ---
 title: Installare il backup del server nel server MultiPoint
 description: Vengono illustrati i passaggi per installare gli strumenti di backup e ripristino
-ms.custom: na
 ms.date: 07/22/2016
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e4331370-ba07-4529-92ab-db14a41bfc3b
 author: evaseydl
 manager: scottman
 ms.author: evas
-ms.openlocfilehash: 933a24ee91fa1f5ccbe31ff4cb722a7c3eb54e4b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f8fe5ac8b57105d421af431b12c8dc17250b622d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71395115"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820334"
 ---
 # <a name="install-server-backup-on-your-multipoint-server"></a>Installare il backup del server nel server MultiPoint
 Si consiglia di prendere in considerazione un piano di backup e ripristino per i server MultiPoint.
@@ -56,7 +52,7 @@ Utilizzare le procedure seguenti per impostare il tipo di backup richiesto.
   
     -   Per aprire lo snap-in Windows Server Backup, nella schermata **Start** Digitare **backup**, quindi fare clic su **Windows Server Backup** nei risultati.  
   
-    -   Per avviare lo strumento Wbadmin e visualizzare la sintassi per i comandi: Nella schermata **Start** Digitare **Command**. Nei risultati fare clic con il pulsante destro del mouse su **prompt dei comandi**, scegliere **Esegui come amministratore** nella parte inferiore della pagina e quindi fare clic su **Sì** alla richiesta di conferma. Al prompt dei comandi digitare **Wbadmin/?** e premere INVIO. Verranno visualizzate la sintassi dei comandi e le descrizioni per lo strumento.  
+    -   Per avviare lo strumento Wbadmin e visualizzare la sintassi per i comandi: nella schermata **Start** Digitare **Command**. Nei risultati fare clic con il pulsante destro del mouse su **prompt dei comandi**, scegliere **Esegui come amministratore** nella parte inferiore della pagina e quindi fare clic su **Sì** alla richiesta di conferma. Al prompt dei comandi digitare **Wbadmin/?** e premere INVIO. Verranno visualizzate la sintassi dei comandi e le descrizioni per lo strumento.  
   
 ## <a name="configure-backups-using-windows-server-backup"></a>Configurare i backup con Windows Server Backup  
   

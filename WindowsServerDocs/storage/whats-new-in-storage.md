@@ -3,17 +3,17 @@ ms.assetid: 0f2a7f7b-aca8-4e5d-ad67-4258e88bc52f
 title: Novità nell'archiviazione in Windows Server
 ms.prod: windows-server
 ms.author: jgerend
-ms.manager: dongill
+manager: dongill
 ms.technology: storage
 ms.topic: article
 author: jasongerend
 ms.date: 05/29/2019
-ms.openlocfilehash: ffcff036a7e30018e523def055ce3aeb8d30c225
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 0de83c8642629b3a7ff21c9accadec5f9331178e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322333"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820854"
 ---
 # <a name="whats-new-in-storage-in-windows-server"></a>Novità di archiviazione in Windows Server
 
@@ -63,9 +63,9 @@ Per essere onesti, l'interfaccia di amministrazione di Windows è un download se
 
 ### <a name="storage-migration-service"></a>Servizio di migrazione della risorsa di archiviazione
 
-Il servizio di migrazione archiviazione è una nuova tecnologia che semplifica la migrazione dei server a una versione più recente di Windows Server. Fornisce uno strumento grafico che esegue l'inventario dei dati nei server, trasferisce i dati e la configurazione nei server più recenti e, facoltativamente, sposta le identità dei server precedenti ai nuovi server in modo che le app e gli utenti non debbano apportare alcuna modifica. Per altre informazioni, vedi [Servizio di migrazione archiviazione](storage-migration-service/overview.md).
+Il servizio di migrazione della risorsa di archiviazione è una nuova tecnologia che semplifica la migrazione dei server a una versione più recente di Windows Server. Fornisce uno strumento grafico che esegue l'inventario dei dati nei server, trasferisce i dati e la configurazione nei server più recenti e, facoltativamente, sposta le identità dei server precedenti ai nuovi server in modo che le app e gli utenti non debbano apportare alcuna modifica. Per altre info, vedi [Servizio di migrazione della risorsa di archiviazione](storage-migration-service/overview.md).
 
-### <a id="storage-spaces-direct"></a>Spazi di archiviazione diretta (solo Windows Server 2019)
+### <a name="storage-spaces-direct-windows-server-2019-only"></a><a id="storage-spaces-direct"></a>Spazi di archiviazione diretta (solo Windows Server 2019)
 
 Sono stati apportati numerosi miglioramenti Spazi di archiviazione diretta in Windows Server 2019 (Spazi di archiviazione diretta non è incluso in Windows Server, un canale semestrale):
 
@@ -109,7 +109,7 @@ Sono stati apportati numerosi miglioramenti Spazi di archiviazione diretta in Wi
 
     Ciò consente agli amministratori di delimitare manualmente l'allocazione di volumi in Spazi di archiviazione diretta. Questa operazione può aumentare significativamente la tolleranza di errore in determinate condizioni, ma impone alcune considerazioni e complessità di gestione aggiuntive. Per altre informazioni, vedere [delimitare l'allocazione dei volumi](storage-spaces/delimit-volume-allocation.md).
 
-### <a name="storage-replica2019"></a>Replica archiviazione
+### <a name="storage-replica"></a><a name="storage-replica2019"></a>Replica archiviazione
 
 In questa versione sono stati apportati numerosi miglioramenti alla [replica di archiviazione](storage-replica/storage-replica-overview.md) :
 
@@ -120,7 +120,7 @@ In questa versione sono stati apportati numerosi miglioramenti alla [replica di 
 - Replica archiviazione replica un singolo volume anziché un numero illimitato di volumi.
 - I volumi possono avere dimensioni fino a 2 TB anziché una dimensione illimitata.
 
-#### <a name="storage-replica-log-performance-improvements"></a>Miglioramenti alle prestazioni del log per Replica di archiviazione
+#### <a name="storage-replica-log-performance-improvements"></a>Miglioramenti delle prestazioni del log per Replica di archiviazione
 
 Sono stati apportati miglioramenti anche al modo in cui il log delle repliche di archiviazione tiene traccia della replica, migliorando la velocità effettiva e la latenza della replica, in particolare nell'archiviazione di tutti i flash e Spazi di archiviazione diretta cluster che si replicano tra loro
 
@@ -143,9 +143,9 @@ Replica archiviazione contiene inoltre i miglioramenti seguenti:
 
 ### <a name="smb"></a>SMB
 
-- **SMB1 e rimozione dell'autenticazione guest**: Windows Server non installa più il client e il server SMB1 per impostazione predefinita. Inoltre, la possibilità di eseguire l'autenticazione come Guest in SMB2 e versioni successive è disattivata per impostazione predefinita. Per altre informazioni, leggere l'articolo in cui è indicato che [SMBv1 non è installato per impostazione predefinita in Windows 10 versione 1709 e Windows Server versione 1709](https://support.microsoft.com/help/4034314/smbv1-is-not-installed-by-default-in-windows-10-rs3-and-windows-server). 
+- **SMB1 e rimozione dell'autenticazione guest**: Windows Server non installa più il client e il server SMB1 per impostazione predefinita. Inoltre, la possibilità di eseguire l'autenticazione come Guest in SMB2 e versioni successive è disattivata per impostazione predefinita. Per altre informazioni, leggi l'articolo in cui è indicato che [SMBv1 non è installato per impostazione predefinita in Windows 10 versione 1709 e Windows Server versione 1709](https://support.microsoft.com/help/4034314/smbv1-is-not-installed-by-default-in-windows-10-rs3-and-windows-server). 
 
-- **Compatibilità e sicurezza SMB2/SMB3**: sono state aggiunte ulteriori opzioni per la compatibilità delle applicazioni e la sicurezza, inclusa la possibilità di disabilitare oplock in SMB2+ per le applicazioni legacy e di richiedere la firma o codifica per ogni connessione da un client. Per altre informazioni, consultare la guida del modulo SMBShare PowerShell.
+- **Compatibilità e sicurezza SMB2/SMB3**: sono state aggiunte ulteriori opzioni per la compatibilità delle applicazioni e la sicurezza, inclusa la possibilità di disabilitare oplock in SMB2+ per le applicazioni legacy e di richiedere la firma o codifica per ogni connessione da un client. Per altre informazioni, consulta la guida del modulo SMBShare PowerShell.
 
 ### <a name="data-deduplication"></a>Deduplicazione dati
 
@@ -154,13 +154,13 @@ Replica archiviazione contiene inoltre i miglioramenti seguenti:
 
 ### <a name="file-server-resource-manager"></a>Gestione risorse file server
 
-Windows Server 2019 include la possibilità di impedire al file server Gestione risorse servizio di creare un journal delle modifiche (noto anche come journal USN) su tutti i volumi all'avvio del servizio. Ciò consente di risparmiare spazio su ciascun volume, ma disabilita la classificazione dei file in tempo reale. Per altre informazioni, vedi [Panoramica di Gestione risorse file server](fsrm/fsrm-overview.md).
+Windows Server 2019 include la possibilità di impedire al file server Gestione risorse servizio di creare un journal delle modifiche (noto anche come journal USN) su tutti i volumi all'avvio del servizio. Ciò consente di risparmiare spazio su ciascun volume, ma disabilita la classificazione dei file in tempo reale. Per altre info, vedi [Panoramica di Gestione risorse file server](fsrm/fsrm-overview.md).
 
 ## <a name="whats-new-in-storage-in-windows-server-version-1803"></a>Novità di archiviazione in Windows Server, versione 1803
 
 ### <a name="file-server-resource-manager"></a>Gestione risorse file server
 
-Windows Server versione 1803 include la possibilità di impedire al servizio file server Gestione risorse di creare un journal delle modifiche (noto anche come journal USN) su tutti i volumi all'avvio del servizio. Ciò consente di risparmiare spazio su ciascun volume, ma disabilita la classificazione dei file in tempo reale. Per altre informazioni, vedi [Panoramica di Gestione risorse file server](fsrm/fsrm-overview.md).
+Windows Server versione 1803 include la possibilità di impedire al servizio file server Gestione risorse di creare un journal delle modifiche (noto anche come journal USN) su tutti i volumi all'avvio del servizio. Ciò consente di risparmiare spazio su ciascun volume, ma disabilita la classificazione dei file in tempo reale. Per altre info, vedi [Panoramica di Gestione risorse file server](fsrm/fsrm-overview.md).
 
 ## <a name="whats-new-in-storage-in-windows-server-version-1709"></a>Novità di archiviazione in Windows Server, versione 1709
 
@@ -182,9 +182,9 @@ Replica archiviazione contiene inoltre i miglioramenti seguenti:
 
 ### <a name="smb"></a>SMB
 
-- **SMB1 e rimozione dell'autenticazione Guest**: Windows Server, versione 1709 non esegue più l'installazione del server e del client SMB1 per impostazione predefinita. Inoltre, la possibilità di eseguire l'autenticazione come Guest in SMB2 e versioni successive è disattivata per impostazione predefinita. Per altre informazioni, leggere l'articolo in cui è indicato che [SMBv1 non è installato per impostazione predefinita in Windows 10 versione 1709 e Windows Server versione 1709](https://support.microsoft.com/help/4034314/smbv1-is-not-installed-by-default-in-windows-10-rs3-and-windows-server). 
+- **SMB1 e rimozione dell'autenticazione Guest**: Windows Server, versione 1709 non esegue più l'installazione del server e del client SMB1 per impostazione predefinita. Inoltre, la possibilità di eseguire l'autenticazione come Guest in SMB2 e versioni successive è disattivata per impostazione predefinita. Per altre informazioni, leggi l'articolo in cui è indicato che [SMBv1 non è installato per impostazione predefinita in Windows 10 versione 1709 e Windows Server versione 1709](https://support.microsoft.com/help/4034314/smbv1-is-not-installed-by-default-in-windows-10-rs3-and-windows-server). 
 
-- **Compatibilità e sicurezza SMB2/SMB3**: sono state aggiunte ulteriori opzioni per la compatibilità delle applicazioni e la sicurezza, inclusa la possibilità di disabilitare oplock in SMB2+ per le applicazioni legacy e di richiedere la firma o codifica per ogni connessione da un client. Per altre informazioni, consultare la guida del modulo SMBShare PowerShell.
+- **Compatibilità e sicurezza SMB2/SMB3**: sono state aggiunte ulteriori opzioni per la compatibilità delle applicazioni e la sicurezza, inclusa la possibilità di disabilitare oplock in SMB2+ per le applicazioni legacy e di richiedere la firma o codifica per ogni connessione da un client. Per altre informazioni, consulta la guida del modulo SMBShare PowerShell.
 
 ### <a name="data-deduplication"></a>Deduplicazione dati
 
@@ -193,7 +193,7 @@ Replica archiviazione contiene inoltre i miglioramenti seguenti:
 
 ## <a name="whats-new-in-storage-in-windows-server-2016"></a>Novità nell'archiviazione in Windows Server 2016
 
-### <a name="s2d"></a>Spazi di archiviazione diretta  
+### <a name="storage-spaces-direct"></a><a name="s2d"></a>Spazi di archiviazione diretta  
 Spazi di archiviazione diretta consente di creare un'archiviazione altamente disponibile e scalabile con server di archiviazione locale. Questa funzionalità semplifica la distribuzione e la gestione dei sistemi con archiviazione definita dal software e consente l'uso di nuove classi di dispositivi disco, ad esempio le unità SSD SATA e NVMe, che in precedenza non erano disponibili con spazi di archiviazione raggruppati in cluster che includevano i dischi condivisi.  
 
 **Valore aggiunto da queste modifiche**  
@@ -205,7 +205,7 @@ Per altre informazioni, vedere [Storage Spaces Direct in Windows Server 2016](st
 **Differenze di funzionamento**  
 Questa funzionalità è stata introdotta in Windows Server 2016.  
 
-### <a name="storage-replica"></a>Replica archiviazione
+### <a name="storage-replica"></a><a name="storage-replica"></a>Replica archiviazione
 
 Replica di archiviazione consente di eseguire la replica sincrona a livello di blocco, indipendente dall'archiviazione, tra server o cluster per il ripristino di emergenza, nonché l'estensione di un cluster di failover tra siti. La replica sincrona consente il mirroring dei dati in siti fisici con volumi coerenti per arresto anomalo del sistema senza perdere dati a livello di file system. La replica asincrona consente l'estensione del sito oltre le aree metropolitane con la possibilità di perdita di dati.  
 
@@ -229,7 +229,7 @@ Per altre informazioni, vedere [Replica archiviazione in Windows Server 2016](st
 **Differenze di funzionamento**  
 Questa funzionalità è stata introdotta in Windows Server 2016.  
 
-### <a name="storage-qos"></a>Qualità del servizio di archiviazione  
+### <a name="storage-quality-of-service"></a><a name="storage-qos"></a>Qualità del servizio di archiviazione  
 È ora possibile usare Qualità del servizio (QoS) di archiviazione per monitorare in modo centralizzato le prestazioni di archiviazione end-to-end e creare criteri di gestione usando cluster Hyper-V e CSV in Windows Server 2016.  
 
 **Valore aggiunto da queste modifiche**  
@@ -248,7 +248,7 @@ Questa funzionalità è stata introdotta in Windows Server 2016. La gestione del
 
 Per altre informazioni, vedere [QoS di archiviazione](storage-qos/storage-qos-overview.md)
 
-### <a name="dedup"></a>Deduplicazione dati  
+### <a name="data-deduplication"></a><a name="dedup"></a>Deduplicazione dati  
 | Funzionalità | Novità o aggiornamento | Descrizione |
 |---------------|----------------|-------------|
 | [Supporto per volumi di grandi dimensioni](data-deduplication/whats-new.md#large-volume-support) | Aggiornamento | Prima di Windows Server 2016 i volumi dovevano essere ridimensionati in modo specifico per la varianza prevista e i volumi di dimensioni superiori a 10 TB non erano buoni candidati per la deduplicazione. In Windows Server 2016 la deduplicazione dati supporta dimensioni di volume **fino a 64 TB**. |
@@ -257,7 +257,7 @@ Per altre informazioni, vedere [QoS di archiviazione](storage-qos/storage-qos-ov
 | [Supporto semplificato per il backup](data-deduplication/whats-new.md#simple-backup-support) | Nuovo | In Windows Server 2012 R2 le applicazioni di backup virtualizzato come [Data Protection Manager](https://technet.microsoft.com/library/hh758173.aspx) di Microsoft erano supportati grazie a una serie di passaggi di configurazione manuale. In Windows Server 2016 è stato aggiunto il nuovo tipo di utilizzo predefinito "Backup", per una distribuzione semplice della deduplicazione dati per le applicazioni di backup virtualizzato. |
 | [Supporto per gli aggiornamenti in sequenza del sistema operativo del cluster](data-deduplication/whats-new.md#cluster-upgrade-support) | Nuovo | La deduplicazione dati supporta la nuova funzionalità [Aggiornamento in sequenza del sistema operativo cluster](..//failover-clustering/cluster-operating-system-rolling-upgrade.md) di Windows Server 2016. |
 
-### <a name="smb-hardening-improvements"></a>Miglioramenti della protezione avanzata SMB per le connessioni SYSVOL e NETLOGON  
+### <a name="smb-hardening-improvements-for-sysvol-and-netlogon-connections"></a><a name="smb-hardening-improvements"></a>Miglioramenti della protezione avanzata SMB per le connessioni SYSVOL e NETLOGON  
 In Windows 10 e Windows Server 2016 le connessioni client alle condivisioni SYSVOL e NETLOGON predefinite di Servizi di dominio Active Directory sui controller di dominio richiedono ora la firma SMB e l'autenticazione reciproca (ad esempio Kerberos).   
 
 **Valore aggiunto da queste modifiche**  

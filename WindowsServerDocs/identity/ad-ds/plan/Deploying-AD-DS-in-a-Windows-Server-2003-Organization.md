@@ -1,7 +1,6 @@
 ---
 ms.assetid: e6b72a80-e8b7-4305-be0c-0a290f468d36
 title: Distribuzione di Active Directory Domain Services in un'organizzazione con Windows Server 2003
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 7426ba8fa3ea5077510655ea4877d0e0b69226ff
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d377e2903d23db9b518323ae7bf5e5a39e40fade
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408909"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822624"
 ---
 # <a name="deploying-ad-ds-in-a-windows-server-2003-organization"></a>Distribuzione di Active Directory Domain Services in un'organizzazione con Windows Server 2003
 

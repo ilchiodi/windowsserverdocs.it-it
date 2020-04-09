@@ -9,12 +9,12 @@ manager: dougkim
 ms.author: jgerend
 ms.date: 06/07/2019
 description: 'Una panoramica di Cartelle di lavoro: un ruolo del server in Windows Server che consente agli utenti di accedere ai file di lavoro da PC e dispositivi in modo uniforme.'
-ms.openlocfilehash: ca76412a6e623b42718fc4f7589f7053073e0f64
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 67c62d81c7d9b6d33a198f5282fa39a88e07f2e8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950197"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820784"
 ---
 # <a name="work-folders-overview"></a>Panoramica di Cartelle di lavoro
 
@@ -30,7 +30,7 @@ Se si vuole scaricare o usare cartelle di lavoro in Windows 10, Windows 7 o un d
 - [Cartelle di lavoro per iOS](https://itunes.apple.com/app/work-folders/id950878067)
 - [Cartelle di lavoro per Android](https://play.google.com/store/apps/details?id=com.microsoft.workfolders)
 
-## <a name="role-description"></a>Descrizione del ruolo
+## <a name="role-description"></a>Descrizione ruolo
 
  Cartelle di lavoro consente agli utenti di archiviare e accedere ai file di lavoro su computer e dispositivi personali, spesso chiamati dispositivi BYOD (Bring Your Own Device), oltre che sui PC aziendali. Gli utenti avranno a disposizione una posizione in cui archiviare i file di lavoro a cui possono accedere da qualsiasi luogo. Le organizzazioni mantengono il controllo sui dati aziendali archiviando i file in file server gestiti centralmente e, facoltativamente, specificando criteri per i dispositivi degli utenti, ad esempio le password di crittografia e schermata di blocco.  
   
@@ -60,8 +60,8 @@ Se si vuole scaricare o usare cartelle di lavoro in Windows 10, Windows 7 o un d
 | ------------------- | ------------------ | ----------------- |  
 | Servizio ruolo di Cartelle di lavoro in Server Manager | Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2 | I servizi file e archiviazione offrono un modo per configurare condivisioni di sincronizzazione (cartelle in cui vengono archiviati i file di lavoro dell'utente), consentono di monitorare Cartelle di lavoro e di gestire condivisioni di sincronizzazione e accesso degli utenti |
 | Cmdlet di Cartelle di lavoro | Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2 | Un modulo Windows PowerShell che contiene i cmdlet completi per la gestione dei server di Cartelle di lavoro |  
-| Integrazione di Cartelle di lavoro con Windows | Windows 10<br /><br /> Windows 8.1<br /><br /> Windows RT 8.1<br /><br /> Windows 7 (download necessario) | Cartelle di lavoro offre la seguente funzionalità nei computer Windows:<br /><br /> -   Un elemento del Pannello di controllo che consente di configurare e monitorare Cartelle di lavoro<br />-   Integrazione di Esplora file che consente di accedere facilmente ai file in Cartelle di lavoro<br />-   Un motore di sincronizzazione che consente di trasferire file verso e da un file server centrale ottimizzando al contempo la durata della batteria e le prestazioni del sistema |
-| App Cartelle di lavoro per dispositivi | Android<br /><br /> iPhone e iPad® Apple | Un'app che consente ai dispositivi comuni di accedere ai file in Cartelle di lavoro |  
+| Integrazione di Cartelle di lavoro con Windows | Windows 10<p> Windows 8.1<p> Windows RT 8.1<p> Windows 7 (download necessario) | Cartelle di lavoro offre la seguente funzionalità nei computer Windows:<p> -   Un elemento del Pannello di controllo che consente di configurare e monitorare Cartelle di lavoro<br />-   Integrazione di Esplora file che consente di accedere facilmente ai file in Cartelle di lavoro<br />-   Un motore di sincronizzazione che consente di trasferire file verso e da un file server centrale ottimizzando al contempo la durata della batteria e le prestazioni del sistema |
+| App Cartelle di lavoro per dispositivi | Android<p> iPhone e iPad® Apple | Un'app che consente ai dispositivi comuni di accedere ai file in Cartelle di lavoro |  
   
 ## <a name="new-and-changed-functionality"></a>Funzionalità nuove e modificate
   
@@ -100,9 +100,9 @@ Per Cartelle di lavoro, è necessario che i computer client soddisfino i requisi
   
 -   È necessario che in PC e dispositivi sia eseguito uno dei sistemi operativi seguenti:  
   
-    -   Windows 10  
+    -   Windows 10  
   
-    -   Windows 8.1  
+    -   Windows 8.1  
   
     -   Windows RT 8.1  
   
@@ -114,9 +114,9 @@ Per Cartelle di lavoro, è necessario che i computer client soddisfino i requisi
   
 -   I computer con Windows 7 devono eseguire una delle edizioni seguenti di Windows:  
   
-    -   Windows 7 Professional  
+    -   Windows 7 Professional  
   
-    -   Windows 7 Ultimate  
+    -   Windows 7 Ultimate  
   
     -   Windows 7 Enterprise  
   
@@ -134,12 +134,12 @@ Per Cartelle di lavoro, è necessario che i computer client soddisfino i requisi
 
 Nella tabella seguente è illustrato come le varie tecnologie di sincronizzazione di Microsoft vengono posizionate e quando utilizzarle.  
   
-| | Cartelle di lavoro | File offline | OneDrive for Business | OneDrive |
+| | Cartelle di lavoro | File non in linea | OneDrive for Business | OneDrive |
 | - | ------------------ | ------------------- | -------------------------- | -------------- |
 | **Riepilogo tecnologia** | Consente di sincronizzare i file archiviati su un file server con PC e dispositivi | Consente di sincronizzare i file archiviati su un file server con PC che hanno accesso alla rete aziendale (può essere sostituito da Cartelle di lavoro) | Consente di sincronizzare i file archiviati in Office 365 o in SharePoint con PC e dispositivi all'interno o all'esterno di una rete aziendale, e di offrire la funzionalità di condivisione dei documenti | Consente di sincronizzare i file personali archiviati in OneDrive con PC, computer e dispositivi Mac |
 | **Progettato per fornire l'accesso utente ai file di lavoro** | Sì | Sì | Sì | No |
-| **Servizio cloud** | Nessuno | Nessuno | Office 365 | Microsoft OneDrive |
-| **Server di rete interni** | File server che eseguono Windows Server 2012 R2 o Windows Server 2016 | File server | Server SharePoint (facoltativo) | Nessuno |
+| **Servizio cloud** | None | None | Office 365 | Microsoft OneDrive |
+| **Server di rete interni** | File server che eseguono Windows Server 2012 R2 o Windows Server 2016 | File server | Server SharePoint (facoltativo) | None |
 | **Client supportati** | PC, iOS, Android | PC di una rete aziendale o connessi tramite DirectAccess, VPN o altre tecnologie di accesso remoto | PC, iOS, Android, Windows Phone | PC, computer Mac, Windows Phone, iOS, Android |
   
 > [!NOTE]
@@ -161,9 +161,9 @@ Cartelle di lavoro fa parte del ruolo Servizi file e archiviazione. È possibile
   
 Per altre informazioni introduttive sulle macchine virtuali di Windows Azure, visitare il [sito Web di Windows Azure](http://www.windowsazure.com/documentation/services/virtual-machines).  
   
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
- Per altre informazioni correlate, vedi le risorse seguenti.  
+ Per altre informazioni correlate, vedere le risorse seguenti.  
   
 | Tipo di contenuto | Riferimenti |
 | ------------------ | ---------------- |

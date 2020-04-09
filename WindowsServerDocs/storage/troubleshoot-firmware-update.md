@@ -3,21 +3,21 @@ ms.assetid: 13210461-1e92-48a1-91a2-c251957ba256
 title: Risoluzione dei problemi degli aggiornamenti del firmware delle unità
 ms.prod: windows-server
 ms.author: toklima
-ms.manager: masriniv
+manager: masriniv
 ms.technology: storage
 ms.topic: article
 author: toklima
 ms.date: 04/18/2017
-ms.openlocfilehash: 9c9c1083def53e09b063a0ca9879e4d4527e98c0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b62fdfe64ea579f61239dc582c639fb10ec1371c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71365891"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820884"
 ---
 # <a name="troubleshooting-drive-firmware-updates"></a>Risoluzione dei problemi degli aggiornamenti del firmware delle unità
 
->Si applica a: Windows 10, Windows Server (canale semestrale),
+>Si applica a: Windows 10, Windows Server (Canale semestrale),
 
 Windows 10, versione 1703 e successive e Windows Server (Canale semestrale) includono la possibilità di aggiornare il firmware delle unità disco rigido e delle unità SSD che sono state certificate con Firmware Upgradeable AQ (Additional Qualifier) tramite PowerShell.
 
@@ -41,7 +41,7 @@ Dal punto di vista dell'architettura, questa nuova funzionalità si basa sulle A
 Le sezioni seguenti delineano le informazioni sulla risoluzione dei problemi, a seconda se vengono utilizzati driver Microsoft o di terze parti.
 
 ## <a name="identifying-inappropriate-hardware"></a>Identificazione dell'hardware non appropriato
-Il modo più rapido per identificare se un dispositivo supporta il set di comandi corretto consiste semplicemente nell'avviare PowerShell e passare l'oggetto PhysicalDisk di rappresentazione di un disco nel cmdlet Get-StorageFirmwareInfo. Di seguito è fornito un esempio:
+Il modo più rapido per identificare se un dispositivo supporta il set di comandi corretto consiste semplicemente nell'avviare PowerShell e passare l'oggetto PhysicalDisk di rappresentazione di un disco nel cmdlet Get-StorageFirmwareInfo. Segue un esempio:
 
 ```powershell
 Get-PhysicalDisk -SerialNumber 15140F55976D | Get-StorageFirmwareInformation
@@ -142,7 +142,7 @@ I registri di diagnostica non vengono visualizzati per impostazione predefinita 
 
 Per raccogliere queste voci di log avanzate, abilitare il log, riprodurre l'errore di aggiornamento del firmware e salvare il log di diagnostica.
 
-Di seguito è riportato un esempio di aggiornamento del firmware in un dispositivo SATA che non riesce perché l'immagine da scaricare non è valida (ID evento: 258):
+Ecco un esempio di aggiornamento del firmware in un dispositivo SATA che ha esito negativo perché l'immagine da scaricare non era valida (ID evento: 258):
 
 ``` 
 EventData
@@ -174,11 +174,11 @@ Parameter8Value 0
 ```
 
 L'evento precedente contiene informazioni dettagliate sul dispositivo nei valori di parametro da 2 a 6. Qui stiamo osservando diversi valori di registro ATA. La specifica di ACS ATA può essere utilizzata per decodificare i valori di seguito per l'errore di un comando download microcodice:
-- Codice restituito: 0 (0000 0000) (N/d: non significativo perché non è stato trasferito alcun payload)
+- Codice restituito: 0 (0000 0000) (N/D: senza significato in quanto non è stato trasferito alcun payload)
 - Funzionalità: 15 (0000 1111) (bit 1 è impostato su "1" e indica "Abort")
 - SectorCount: 0 (0000 0000) (N/D)
-- DriveHead: 160 (1010 0000) (N/d: sono impostati solo bit obsoleti)
-- Comando 146 (1001 0010) (bit 1 è impostato su "1" che indica la disponibilità dei dati di rilevamento)
+- DriveHead: 160 (1010 0000) (N/D: sono impostati solo i bit obsoleti)
+- Comando: 146 (1001 0010) (bit 1 è impostato su "1" che indica la disponibilità dei dati di rilevamento)
 
 Ciò indica che l'operazione di aggiornamento del firmware è stata interrotta dal dispositivo.
 

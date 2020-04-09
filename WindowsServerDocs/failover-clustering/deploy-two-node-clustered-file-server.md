@@ -1,24 +1,25 @@
 ---
 title: Distribuzione di un file server cluster a due nodi
+description: Questo articolo descrive la creazione di un cluster file server a due nodi
 ms.prod: windows-server
-ms.manager: eldenc
+manager: eldenc
 ms.technology: failover-clustering
 ms.topic: article
 author: johnmarlin-msft
+ms.author: johnmar
 ms.date: 02/01/2019
-description: Questo articolo descrive la creazione di un cluster file server a due nodi
-ms.openlocfilehash: 03e78495b3fc85449d3d383706fb82541dd10372
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6b92ab965e94bec5bc7cfa5d068bff601d2f8f6b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361301"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827884"
 ---
 # <a name="deploying-a-two-node-clustered-file-server"></a>Distribuzione di un file server cluster a due nodi
 
 > Si applica a: Windows Server 2019, Windows Server 2016
 
-Un cluster di failover è costituito da un gruppo di computer indipendenti che interagiscono tra di loro per migliorare la disponibilità di servizi e applicazioni. I server inclusi nel cluster (detti nodi) sono connessi mediante cavi fisici e software. Se in uno dei nodi si verifica un errore, il servizio verrà garantito da un altro nodo tramite un processo denominato failover. Per gli utenti l'interruzione del servizio risulterà minima.
+Un cluster di failover è costituito da un gruppo di computer indipendenti che interagiscono tra di loro per migliorare la disponibilità di servizi e applicazioni. I server inclusi nel cluster (denominati nodi) sono connessi mediante cavi fisici e software. Se in uno dei nodi si verifica un errore, il servizio verrà garantito da un altro nodo tramite un processo denominato failover. Per gli utenti l'interruzione del servizio risulterà minima.
 
 Questa guida descrive i passaggi per l'installazione e la configurazione di un cluster di failover di file server per utilizzo generico con due nodi. Creando la configurazione in questa guida, è possibile ottenere informazioni sui cluster di failover e acquisire familiarità con l'interfaccia dello snap-in Gestione cluster di failover in Windows Server 2019 o Windows Server 2016.
 
@@ -42,7 +43,7 @@ Lo scenario seguente illustra il modo in cui può essere configurato un cluster 
 
 Nell'elenco seguente vengono descritte le funzionalità di configurazione di cartelle condivise integrate nel clustering di failover di:
 
-- La visualizzazione ha come ambito solo le cartelle condivise cluster (nessuna combinazione con cartelle condivise non cluster): quando un utente Visualizza cartelle condivise specificando il percorso di un file server cluster, la visualizzazione includerà solo le cartelle condivise che fanno parte del file specifico ruolo del server. Esclude le cartelle condivise non in cluster e condivide parte di ruoli di file server distinti che si trovano in un nodo del cluster.
+- La visualizzazione è destinata solo a cartelle condivise in cluster (nessuna combinazione con cartelle condivise non in cluster): quando un utente Visualizza cartelle condivise specificando il percorso di un file server cluster, la visualizzazione includerà solo le cartelle condivise che fanno parte del ruolo di file server specifico. Esclude le cartelle condivise non in cluster e condivide parte di ruoli di file server distinti che si trovano in un nodo del cluster.
 
 - Enumerazione basata sull'accesso: è possibile usare l'enumerazione basata sull'accesso per nascondere una cartella specificata dalla visualizzazione degli utenti. Anziché consentire agli utenti di visualizzare la cartella senza potervi accedere, è possibile evitare che la vedano. È possibile configurare l'enumerazione basata sull'accesso per una cartella condivisa in cluster in modo analogo a una cartella condivisa non in cluster.
 
@@ -127,7 +128,7 @@ Passaggio 3: convalidare la configurazione del cluster
 
 Passaggio 4: creare il cluster
 
-Se i nodi del cluster sono già stati installati e si desidera configurare un cluster di failover di file server, vedere la procedura per la configurazione di un cluster file server a due nodi, più avanti in questa guida.
+Se i nodi del cluster sono già stati installati e si desidera configurare un cluster di failover di file server, vedere Procedura per la configurazione di un cluster di file server a due nodi, più avanti in questa guida.
 
 ### <a name="step-1-connect-the-cluster-servers-to-the-networks-and-storage"></a>Passaggio 1: connettere i server del cluster alle reti e all'archiviazione
 
@@ -153,9 +154,9 @@ Per un cluster del file server a due nodi, quando si connettono i server all'arc
 
 6. Se è stato acquistato un software che controlla il formato o la funzione del disco, seguire le istruzioni fornite dal fornitore per informazioni sull'utilizzo del software con Windows Server.
 
-7. In uno dei server che si desidera inserire nel cluster, fare clic sul pulsante Start, scegliere Strumenti di amministrazione, Gestione computer, quindi fare clic su Gestione disco. Se viene visualizzata la finestra di dialogo controllo account utente, verificare che l'azione visualizzata sia quella desiderata, quindi fare clic su continua. In Gestione disco verificare che i dischi del cluster siano visibili.
+7. In uno dei server che si desidera includere nel cluster fare clic su Start e scegliere Strumenti di amministrazione, Gestione computer e quindi Gestione disco. Se viene visualizzata la finestra di dialogo controllo account utente, verificare che l'azione visualizzata sia quella desiderata, quindi fare clic su continua. In Gestione disco verificare che i dischi del cluster siano visibili.
 
-8. Se si desidera un nuovo volume di archiviazione superiore a 2 terabyte e si utilizza l'interfaccia di Windows per controllare il formato del disco, convertire il disco nello stile di partizione denominato GPT (Tabella di partizione GUID, GUID Partition Table). A tale scopo, eseguire il backup di tutti i dati sul disco, eliminare tutti i volumi sul disco e quindi, in Gestione disco, fare clic con il pulsante destro del mouse sul disco (non una partizione) e scegliere Converti in disco GPT.  Per i volumi inferiori a 2 terabyte, anziché utilizzare GPT, è possibile utilizzare lo stile di partizione denominato MBR (Record di avvio principale, Master Boot Record).
+8. Se si desidera un nuovo volume di archiviazione superiore a 2 terabyte e si utilizza l'interfaccia di Windows per controllare il formato del disco, convertire il disco nello stile di partizione denominato GPT (Tabella di partizione GUID, GUID Partition Table). A tale scopo, eseguire il backup di qualsiasi dato nel disco, eliminare tutti i volumi nel disco e quindi, in Gestione disco, fare clic con il pulsante destro del mouse sul disco (non una partizione) e scegliere Converti in disco GPT.  Per i volumi inferiori a 2 terabyte, anziché utilizzare GPT, è possibile utilizzare lo stile di partizione denominato MBR (Record di avvio principale, Master Boot Record).
 
 9. Controllare il formato di tutti i LUN o i volumi esposti. È consigliabile utilizzare NTFS per il formato. Per il disco di controllo l'utilizzo di NTFS è obbligatorio.
 
@@ -189,7 +190,7 @@ In questo passaggio verrà installato il ruolo file server e la funzionalità cl
 
 9. Ripetere i passaggi nel secondo computer.
 
-#### <a name="using-powershell"></a>Mediante PowerShell
+#### <a name="using-powershell"></a>Utilizzo di PowerShell
 
 1. Aprire una sessione di PowerShell amministrativa facendo clic con il pulsante destro del mouse sul pulsante Start e quindi scegliendo **Windows PowerShell (amministratore)** .
 2. Per installare il ruolo file server, eseguire il comando:
@@ -241,9 +242,9 @@ Prima di creare un cluster, è consigliabile convalidare la configurazione. La c
 
 8. Sempre nella pagina Riepilogo, fare clic su Visualizza rapporto e leggere i risultati del test. Apportare le modifiche necessarie alla configurazione ed eseguire di nuovo i test. <br>Per visualizzare i risultati dei test dopo aver chiuso la procedura guidata, vedere *SystemRoot\Cluster\Reports\Validation Report data e ora. html*.
 
-9. Per visualizzare gli argomenti della guida sulla convalida del cluster dopo aver chiuso la procedura guidata, in Gestione cluster di failover fare clic su?, argomenti della guida, fare clic sulla scheda Sommario, espandere il contenuto della guida del cluster di failover e fare clic su convalida di una configurazione del cluster di failover. .
+9. Per visualizzare gli argomenti della Guida sulla convalida del cluster dopo aver chiuso la procedura guidata, in Gestione cluster di failover fare clic su ?, Guida, scegliere la scheda Sommario, espandere il sommario della Guida del cluster di failover e fare clic su Convalida della configurazione di un cluster di failover.
 
-#### <a name="using-powershell"></a>Mediante PowerShell
+#### <a name="using-powershell"></a>Utilizzo di PowerShell
 
 1. Aprire una sessione di PowerShell amministrativa facendo clic con il pulsante destro del mouse sul pulsante Start e quindi scegliendo **Windows PowerShell (amministratore)** .
 
@@ -281,7 +282,7 @@ Di seguito viene creato un cluster da computer e configurazione.
 
 8. Nella pagina **Riepilogo** verrà restituita la configurazione creata.  È possibile selezionare Visualizza report per visualizzare il report della creazione.
 
-#### <a name="using-powershell"></a>Mediante PowerShell
+#### <a name="using-powershell"></a>Utilizzo di PowerShell
 
 1. Aprire una sessione di PowerShell amministrativa facendo clic con il pulsante destro del mouse sul pulsante Start e quindi scegliendo **Windows PowerShell (amministratore)** .
 

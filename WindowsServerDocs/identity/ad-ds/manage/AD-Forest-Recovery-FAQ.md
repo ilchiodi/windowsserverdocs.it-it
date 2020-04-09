@@ -1,6 +1,5 @@
 ---
 title: Ripristino della foresta di Active Directory - Domande frequenti
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: ac9e5a3d-8b1e-41b7-8e02-f64b7acf1359
 ms.technology: identity-adds
-ms.openlocfilehash: 49cd12621c6ddf89393f0463e4856555ca241491
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f32111cf7cc81f8f49b7b1058cc1a0ccc780da7f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369111"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824004"
 ---
 # <a name="ad-forest-recovery---faq"></a>Ripristino della foresta di Active Directory - Domande frequenti
 
@@ -24,7 +23,7 @@ Questo documento contiene le domande frequenti relative al ripristino della fore
 
 ## <a name="general-recovery"></a>Ripristino generale
 
-**D Cosa è possibile fare per velocizzare il ripristino?**
+**D: quali operazioni è possibile eseguire per velocizzare il ripristino?**
 
 Sebbene la velocità di recupero non sia l'obiettivo principale di questa guida, è possibile ottenere tempi di ripristino più brevi:  
   
@@ -46,7 +45,7 @@ Gli altri fattori che influiscono sulla durata del processo di ripristino della 
 - Quando si ricompilano i controller di dominio, la replica dei dati per le promozioni basate sulla rete richiede tempo.  
    - È possibile ridurre il tempo necessario per il ripristino dei controller di dominio attenendosi alla procedura seguente:  
 - Ridurre il tempo necessario per il recupero dei supporti di backup:  
-   - Utilizzo dello strumento di montaggio del database Active Directory (dsamain. exe) per identificare il backup migliore da utilizzare per le operazioni di ripristino. Per ulteriori informazioni sull'utilizzo dello strumento di montaggio Active Directory database, vedere la [Guida dettagliata allo strumento di montaggio dei database Active Directory](https://go.microsoft.com/fwlink/?LinkId=132577) (https://go.microsoft.com/fwlink/?LinkId=132577).  
+   - Utilizzo dello strumento di montaggio del database Active Directory (dsamain. exe) per identificare il backup migliore da utilizzare per le operazioni di ripristino. Per ulteriori informazioni sull'utilizzo dello strumento di montaggio Active Directory database, vedere la [Guida dettagliata allo strumento di montaggio di database Active Directory](https://go.microsoft.com/fwlink/?LinkId=132577) (https://go.microsoft.com/fwlink/?LinkId=132577).  
    - Etichettare i supporti di backup in modo chiaro e archiviare i supporti in modo organizzato in una posizione pratica, ma sicura, che consente un rapido recupero.  
    - Utilizzando la Servizio Copia Shadow del volume con una rete di archiviazione (SAN) per mantenere i backup da diversi punti nel tempo. Per ulteriori informazioni, vedere [Windows Server 2003 Active Directory ripristino rapido con servizio Copia Shadow del volume e servizio dischi virtuali](https://go.microsoft.com/fwlink/?LinkId=70781) (https://go.microsoft.com/fwlink/?LinkId=70781).  
 - Forzare la rimozione di servizi di dominio Active Directory dal controller di dominio anziché reinstallare il sistema operativo. Se la cause dell'errore a livello di foresta è stata identificata come esclusivamente nell'ambito di servizi di dominio Active Directory, non è necessario reinstallare il sistema operativo nei controller di dominio.  
@@ -57,7 +56,7 @@ Gli altri fattori che influiscono sulla durata del processo di ripristino della 
   
 Le aziende che hanno un contratto di servizio (SLA) più aggressivo potrebbero considerare la modifica delle procedure di ripristino della foresta per velocizzare il ripristino.  
   
-**D È possibile automatizzare il processo di ripristino della foresta?**
+**D: è possibile automatizzare il processo di ripristino della foresta?**
 
 A causa della complessità e della natura critica del processo di ripristino della foresta, attualmente non esiste alcuna automazione end-to-end. Il processo di ripristino della foresta è più una sfida logistica e organizzativa del ripristino della continuità aziendale rispetto a un problema tecnico dell'automazione dei processi. Pertanto, l'utente che amministra l'ambiente deve creare un piano di ripristino della foresta specifico di tale ambiente e quindi automatizzare le sezioni che possono essere automatizzate correttamente.  
   

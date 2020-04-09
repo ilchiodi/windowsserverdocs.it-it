@@ -1,7 +1,6 @@
 ---
 ms.assetid: b3d6fb87-c4d4-451c-b3de-a53d2402d295
 title: Installare una nuova foresta di Active Directory di Windows Server 2012 (livello 200)
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: f87c383618bc1cef09652ea36e172fc634f5128e
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: b5dfb18917defa50df07ae747916b71539681312
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948809"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80825514"
 ---
 # <a name="install-a-new-windows-server-2012-active-directory-forest-level-200"></a>Installare una nuova foresta di Active Directory di Windows Server 2012 (livello 200)
 
@@ -30,7 +29,7 @@ In questo argomento viene illustrata la nuova funzionalità di innalzamento di l
   
 -   [Distribuzione di una foresta con Windows PowerShell](../../ad-ds/deploy/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-.md#BKMK_PSForest)  
   
-## <a name="BKMK_SimplifiedAdmin"></a>Active Directory Domain Services amministrazione semplificata  
+## <a name="active-directory-domain-services-simplified-administration"></a><a name="BKMK_SimplifiedAdmin"></a>Active Directory Domain Services amministrazione semplificata  
 In Windows Server 2012 è stata introdotta la nuova generazione di amministrazione semplificata di Servizi di dominio Active Directory. Si tratta dell'innovazione più radicale realizzata dopo Windows 2000 Server. L'amministrazione semplificata di Servizi di dominio Active Directory prende le mosse dagli insegnamenti appresi in dodici anni di Active Directory per offrire un'esperienza amministrativa più supportata, flessibile e intuitiva ad architetti e amministratori. Il risultato è stata la creazione di nuove versioni delle tecnologie esistenti oltre all'estensione delle funzionalità dei componenti rilasciati in Windows Server 2008 R2.  
   
 ### <a name="what-is-ad-ds-simplified-administration"></a>Informazioni sull'amministrazione semplificata di Servizi di dominio Active Directory  
@@ -51,7 +50,7 @@ L'importanza di Windows PowerShell in Windows Server 2012 è data dal fatto che,
   
 Un amministratore esperto di Servizi di dominio Active Directory potrà mettere a frutto le proprie precedenti conoscenze, mentre un amministratore agli inizi sperimenterà una curva di apprendimento più bassa.  
   
-## <a name="BKMK_TechOverview"></a>Panoramica tecnica  
+## <a name="technical-overview"></a><a name="BKMK_TechOverview"></a>Panoramica tecnica  
   
 ### <a name="what-you-should-know-before-you-begin"></a>Informazioni importanti prima di iniziare  
 In questo argomento si presuppone una certa familiarità con le versioni precedenti di Servizi di dominio Active Directory e non vengono forniti dettagli di base sullo scopo e sulle funzionalità. Per altre informazioni su Servizi di dominio Active Directory, vedere le pagine seguenti del portale TechNet:  
@@ -102,7 +101,7 @@ Queste nuove funzionalità non sono compatibili con le versioni precedenti di Wi
 #### <a name="prerequisite-checking"></a>Controllo dei prerequisiti  
 La configurazione dei controller di dominio implementa anche una fase di controllo dei prerequisiti che valuta la foresta e il dominio prima di procedere con l'innalzamento di livello dei controller di dominio. Sono inclusi la disponibilità del ruolo FSMO, i privilegi utente, la compatibilità dello schema esteso e altri requisiti. Questa nuova progettazione riduce i problemi in cui l'innalzamento di livello dei controller di dominio inizia e quindi si ferma a metà con un errore di configurazione irreversibile. Di conseguenza sarà meno possibile che siano presenti metadati di controller di dominio orfani nella foresta o che un server venga erroneamente usato come controller di dominio.  
   
-## <a name="BKMK_SMForest"></a>Distribuzione di una foresta con Server Manager  
+## <a name="deploying-a-forest-with-server-manager"></a><a name="BKMK_SMForest"></a>Distribuzione di una foresta con Server Manager  
 In questa sezione viene illustrato come installare il primo controller di dominio in un dominio radice della foresta con Server Manager in un computer Windows Server 2012 grafico.  
   
 ### <a name="server-manager-ad-ds-role-installation-process"></a>Processo di installazione del ruolo Servizi di dominio Active Directory di Server Manager  
@@ -133,7 +132,7 @@ La finestra offre tre modi per aggiungere i server al pool per usarli o raggrupp
   
 -   Importazione (utilizza un elenco di server nel formato file di testo con CR/LF come separatori)  
   
-Fare clic su **Trova** per ottenere un elenco di server dallo stesso dominio Active Directory a cui è stato aggiunto il computer e fare clic su uno o più nomi di server nell'elenco. Fare clic sulla freccia destra per aggiungere i server all'elenco **Selezionati** . Usare la finestra di dialogo **Aggiungi server** per aggiungere i server selezionati ai gruppi di ruoli del dashboard. In alternativa fare clic su **Gestisci**e quindi su **Crea gruppo di server**oppure fare clic su **Crea gruppo di server** nel riquadro **Server Manager** del dashboard per creare gruppi di server personalizzati.  
+Fare clic su **Trova** per ottenere un elenco di server dallo stesso dominio Active Directory a cui è stato aggiunto il computer e fare clic su uno o più nomi di server nell'elenco. Fare clic sulla freccia destra per aggiungere i server all'elenco **Selezionati**. Usare la finestra di dialogo **Aggiungi server** per aggiungere i server selezionati ai gruppi di ruoli del dashboard. In alternativa fare clic su **Gestisci** e quindi su **Crea gruppo di server** oppure fare clic su **Crea gruppo di server** nel riquadro **Server Manager** del dashboard per creare gruppi di server personalizzati.  
   
 > [!NOTE]  
 > La procedura di aggiunta dei server non verifica se un server è online o accessibile. Al successivo aggiornamento, tuttavia, tutti i server che non sono raggiungibili vengono contrassegnati nella visualizzazione Gestibilità di Server Manager.  
@@ -142,7 +141,7 @@ Fare clic su **Trova** per ottenere un elenco di server dallo stesso dominio Act
   
 ![Installare una nuova foresta](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/tADDS_SMI_TR_AddRolesFeatures.png)  
   
-Non è possibile gestire completamente server che eseguono sistemi operativi precedenti a Windows Server 2012. La selezione di **Aggiungi ruoli e funzionalità** esegue il modulo **Install-WindowsFeature**di Windows PowerShell ServerManager.  
+Non è possibile gestire completamente server che eseguono sistemi operativi precedenti a Windows Server 2012. La selezione di **Aggiungi ruoli e funzionalità** esegue il modulo **Install-WindowsFeature** di Windows PowerShell ServerManager.  
   
 ![Installare una nuova foresta](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_SMI_TR_AddADDSToAnotherServer.png)  
   
@@ -159,7 +158,7 @@ La finestra di dialogo **Tipo di installazione** contiene un'opzione che non sup
   
 Quando si installa Servizi di dominio Active Directory, lasciare sempre la selezione predefinita: **Installazione basata su ruoli o basata su funzionalità**.  
   
-#### <a name="server-selection"></a>Selezione server  
+#### <a name="server-selection"></a>Selezione dei server  
 ![Installare una nuova foresta](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_SMI_TR_SelectDestinationServer.png)  
   
 La finestra di dialogo **Selezione dei server** consente di scegliere uno dei server aggiunti in precedenza al pool, purché sia accessibile. Il server locale che esegue Server Manager è automaticamente disponibile.  
@@ -169,17 +168,17 @@ Inoltre, selezionando i file VHD di Hyper-V offline con il sistema operativo Win
 #### <a name="server-roles-and-features"></a>Ruoli del server e funzionalità  
 ![Installare una nuova foresta](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_SMI_TR_SelectServerRoles.png)  
   
-Per alzare di livello un controller di dominio, selezionare il ruolo **Servizi di dominio Active Directory** . Tutte le funzionalità di amministrazione di Active Directory e i servizi necessari vengono installati automaticamente, anche se apparentemente fanno parte di un altro ruolo o non risultano selezionati nell'interfaccia di Server Manager.  
+Per alzare di livello un controller di dominio, selezionare il ruolo **Servizi di dominio Active Directory**. Tutte le funzionalità di amministrazione di Active Directory e i servizi necessari vengono installati automaticamente, anche se apparentemente fanno parte di un altro ruolo o non risultano selezionati nell'interfaccia di Server Manager.  
   
-In Server Manager è inoltre disponibile una finestra di dialogo informativa che mostra le funzionalità di gestione installate implicitamente da questo ruolo. È l'equivalente dell'argomento **-IncludeManagementTools** .  
+In Server Manager è inoltre disponibile una finestra di dialogo informativa che mostra le funzionalità di gestione installate implicitamente da questo ruolo. È l'equivalente dell'argomento **-IncludeManagementTools**.  
   
 ![Installare una nuova foresta](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_SMI_TR_AddFeaturesDialog.gif)  
   
 ![Installare una nuova foresta](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_SMI_TR_SelectFeatures.png)  
   
-Se necessario, è possibile aggiungere qui altre **Funzionalità** .  
+Se necessario, è possibile aggiungere qui altre **Funzionalità**.  
   
-#### <a name="active-directory-domain-services"></a>Servizi di dominio Active Director  
+#### <a name="active-directory-domain-services"></a>Servizi di dominio Active Directory  
 ![Installare una nuova foresta](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_SMI_TR_ADDSIntro.png)  
   
 La finestra di dialogo **Servizi di dominio Active Directory** contiene informazioni limitate sui requisiti e sulle procedure consigliate. Funge essenzialmente da un messaggio di conferma che si è scelto il ruolo di dominio Active Directory "Se non viene visualizzata questa schermata, non è stata selezionata AD DS.  
@@ -213,9 +212,9 @@ La verifica dei risultati dell'installazione è tuttavia una procedura consiglia
 #### <a name="promote-to-domain-controller"></a>Alzare di livello a controller di dominio  
 ![Installare una nuova foresta](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_SMI_TR_Promote.png)  
   
-Al termine dell'installazione del ruolo Servizi di dominio Active Directory, è possibile continuare con la configurazione usando il collegamento **Alza di livello il server a controller di dominio** . Questa operazione è richiesta per impostare il server come controller di dominio, ma non è necessario eseguire immediatamente la configurazione guidata. È ad esempio possibile avere la necessità di effettuare il provisioning dei file binari di Servizi di dominio Active Directory ai server prima di inviarli a un'altra succursale per una configurazione successiva. Aggiungendo il ruolo Servizi di dominio Active Directory prima dell'invio, si risparmia tempo quando raggiunge la destinazione. In questo modo si applica inoltre la procedura consigliata di non lasciare un controller di dominio offline per giorni o settimane. Infine questo consente di aggiornare i componenti prima dell'innalzamento di livello del controller di dominio, evitando almeno un riavvio successivo.  
+Al termine dell'installazione del ruolo Servizi di dominio Active Directory, è possibile continuare con la configurazione usando il collegamento **Alza di livello il server a controller di dominio**. Questa operazione è richiesta per impostare il server come controller di dominio, ma non è necessario eseguire immediatamente la configurazione guidata. È ad esempio possibile avere la necessità di effettuare il provisioning dei file binari di Servizi di dominio Active Directory ai server prima di inviarli a un'altra succursale per una configurazione successiva. Aggiungendo il ruolo Servizi di dominio Active Directory prima dell'invio, si risparmia tempo quando raggiunge la destinazione. In questo modo si applica inoltre la procedura consigliata di non lasciare un controller di dominio offline per giorni o settimane. Infine questo consente di aggiornare i componenti prima dell'innalzamento di livello del controller di dominio, evitando almeno un riavvio successivo.  
   
-Se si seleziona questo collegamento in un secondo momento, vengono richiamati i cmdlet ADDSDeployment: **install-addsforest**, **install-addsdomain**o **install-addsdomaincontroller**.  
+Se si seleziona questo collegamento in un secondo momento, vengono richiamati i cmdlet ADDSDeployment: **install-addsforest**, **install-addsdomain** o **install-addsdomaincontroller**.  
   
 ### <a name="uninstallingdisabling"></a>Disinstallazione/Disabilitazione  
 Il ruolo Servizi di dominio Active Directory viene rimosso come tutti gli altri ruoli, indipendentemente dal fatto che il server sia stato alzato di livello a controller di dominio o meno. Tuttavia, al termine della rimozione del ruolo Servizi di dominio Active Directory sarà necessario eseguire un riavvio.  
@@ -264,14 +263,14 @@ La **Password modalità ripristino servizi directory** specificata deve soddisfa
   
 La pagina **Opzioni DNS** consente di configurare la delega DNS e di specificare le credenziali amministrative DNS.  
   
-Non è possibile configurare le opzioni o la delega DNS nella Configurazione guidata Servizi di dominio Active Directory quando si installa un nuovo dominio radice della foresta Active Directory in cui si è selezionato il **server DNS** nella pagina **Opzioni controller di dominio** . L'opzione **Crea delega DNS** è disponibile quando si crea una nuova zona DNS radice della foresta in un'infrastruttura di server DNS esistente. Questa opzione consente di specificare credenziali amministrative DNS alternative con i diritti per aggiornare la zona DNS.  
+Non è possibile configurare le opzioni o la delega DNS nella Configurazione guidata Servizi di dominio Active Directory quando si installa un nuovo dominio radice della foresta Active Directory in cui si è selezionato il **server DNS** nella pagina **Opzioni controller di dominio**. L'opzione **Crea delega DNS** è disponibile quando si crea una nuova zona DNS radice della foresta in un'infrastruttura di server DNS esistente. Questa opzione consente di specificare credenziali amministrative DNS alternative con i diritti per aggiornare la zona DNS.  
   
-Per altre informazioni su come comprendere se è necessario creare una delega DNS, vedere [Informazioni sulla delega delle zone](https://technet.microsoft.com/library/cc771640.aspx).  
+Per altre informazioni sulla necessità di creare una delega DNS, vedere [Informazioni sulla delega delle zone](https://technet.microsoft.com/library/cc771640.aspx).  
   
 #### <a name="additional-options"></a>Opzioni aggiuntive  
 ![Installare una nuova foresta](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_SMI_TR_ForestAdditionalOptions.png)  
   
-La pagina **Opzioni aggiuntive** mostra il nome NetBIOS del dominio e consente di sostituirlo. Per impostazione predefinita, il nome di dominio NetBIOS corrisponde all'etichetta a sinistra del nome di dominio completo specificato nella pagina **Configurazione distribuzione** . Se, ad esempio, è stato specificato il nome di dominio completo corp.contoso.com, il nome di dominio NetBIOS predefinito è CORP.  
+La pagina **Opzioni aggiuntive** mostra il nome NetBIOS del dominio e consente di sostituirlo. Per impostazione predefinita, il nome di dominio NetBIOS corrisponde all'etichetta a sinistra del nome di dominio completo specificato nella pagina **Configurazione distribuzione**. Se, ad esempio, è stato specificato il nome di dominio completo corp.contoso.com, il nome di dominio NetBIOS predefinito è CORP.  
   
 Se il nome non contiene più di 15 caratteri e non è in conflitto con un altro nome NetBIOS, non viene modificato. Se è in conflitto con un altro nome NetBIOS, al nome viene aggiunto un numero. Se il nome contiene più di 15 caratteri, la procedura guidata propone un suggerimento univoco troncato. In entrambi i casi, la procedura guidata convalida prima il nome che non è già in uso tramite una ricerca WINS e una trasmissione NetBIOS.  
   
@@ -287,7 +286,7 @@ Nella pagina **Percorsi** è possibile sostituire i percorsi predefiniti delle c
   
 Nella pagina **Verifica opzioni** è possibile convalidare le impostazioni e accertarsi se soddisfano i requisiti prima di iniziare l'installazione. Questa non è l'ultima possibilità per interrompere l'installazione quando si utilizza Server Manager. È semplicemente un'opzione per confermare le impostazioni prima di proseguire con la configurazione.  
   
-La pagina **Verifica opzioni** di Server Manager include inoltre un pulsante opzionale **Visualizza script** , che consente di creare un file di testo Unicode contenente la configurazione ADDSDeployment corrente come singolo script di Windows PowerShell. In questo modo è possibile utilizzare l'interfaccia grafica di Server Manager come strumento di distribuzione di Windows PowerShell. Utilizzare la Configurazione guidata Servizi di dominio Active Directory per configurare le opzioni, esportare la configurazione e annullare la procedura guidata. Questo processo crea un esempio valido e sintatticamente corretto che può essere utilizzato direttamente o successivamente modificato. Ad esempio:  
+La pagina **Verifica opzioni** di Server Manager include inoltre un pulsante opzionale **Visualizza script** , che consente di creare un file di testo Unicode contenente la configurazione ADDSDeployment corrente come singolo script di Windows PowerShell. In questo modo è possibile utilizzare l'interfaccia grafica di Server Manager come strumento di distribuzione di Windows PowerShell. Utilizzare la Configurazione guidata Servizi di dominio Active Directory per configurare le opzioni, esportare la configurazione e annullare la procedura guidata. Questo processo crea un esempio valido e sintatticamente corretto che può essere utilizzato direttamente o successivamente modificato. Ad esempio,  
   
 ```powershell 
 #  
@@ -311,7 +310,7 @@ Install-ADDSForest `
 ```  
   
 > [!NOTE]  
-> Server Manager completa in genere tutti gli argomenti con i valori durante l'innalzamento di livello e non usa le impostazioni predefinite perché queste potrebbero cambiare nelle future versioni di Windows o nei Service Pack. La sola eccezione è l'argomento **-safemodeadministratorpassword** , che viene deliberatamente omesso dallo script. Per forzare un prompt di conferma, omettere il valore quando si esegue il cmdlet in modo interattivo.  
+> Server Manager completa in genere tutti gli argomenti con i valori durante l'innalzamento di livello e non usa le impostazioni predefinite perché queste potrebbero cambiare nelle future versioni di Windows o nei Service Pack. La sola eccezione è l'argomento **-safemodeadministratorpassword**, che viene deliberatamente omesso dallo script. Per forzare un prompt di conferma, omettere il valore quando si esegue il cmdlet in modo interattivo.  
   
 #### <a name="prerequisites-check"></a>Controllo dei prerequisiti  
 ![Installare una nuova foresta](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_SMI_TR_ForestPrereqCheck.png)  
@@ -322,7 +321,7 @@ Quando si installa un nuovo dominio radice della foresta, la Configurazione guid
   
 **Controllo dei prerequisiti** copre anche le informazioni pertinenti, ad esempio le modifiche alla sicurezza, che interessano i sistemi operativi precedenti.  
   
-Per ulteriori informazioni sui controlli dei prerequisiti specifici, vedere [controllo dei prerequisiti](../../ad-ds/manage/AD-DS-Simplified-Administration.md#BKMK_PrereuisiteChecking).  
+Per altre informazioni sui controlli dei prerequisiti specifici, vedere [Controllo dei prerequisiti](../../ad-ds/manage/AD-DS-Simplified-Administration.md#BKMK_PrereuisiteChecking).  
   
 #### <a name="installation"></a>Installazione  
 ![Installare una nuova foresta](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_SMI_TR_ForestInstallation.png)  
@@ -341,7 +340,7 @@ Quando la pagina **Installazione** viene visualizzata, la configurazione del con
   
 La pagina **Risultati** mostra l'esito positivo o negativo dell'innalzamento di livello e le informazioni amministrative importanti. Il controller di dominio verrà automaticamente riavviato dopo 10 secondi.  
   
-## <a name="BKMK_PSForest"></a>Distribuzione di una foresta con Windows PowerShell  
+## <a name="deploying-a-forest-with-windows-powershell"></a><a name="BKMK_PSForest"></a>Distribuzione di una foresta con Windows PowerShell  
 In questa sezione viene illustrato come installare il primo controller di dominio in un dominio radice della foresta con Windows PowerShell in un computer Windows Server 2012 principale.  
   
 ### <a name="windows-powershell-ad-ds-role-installation-process"></a>Processo di installazione del ruolo Servizi di dominio Active Directory di Windows PowerShell  
@@ -353,8 +352,8 @@ La figura successiva illustra il processo di installazione del ruolo Servizi di 
   
 |||  
 |-|-|  
-|Cmdlet ServerManager|Argomenti. Gli argomenti in**grassetto** sono obbligatori. Gli argomenti in*corsivo* possono essere specificati usando Windows PowerShell o la Configurazione guidata Servizi di dominio Active Directory.|  
-|Install-WindowsFeature/Add-WindowsFeature|***-Nome***<br /><br />*-Riavvia*<br /><br />*-IncludeAllSubFeature*<br /><br />*-IncludeManagementTools*<br /><br />-Source<br /><br />*-ComputerName*<br /><br />-Credential<br /><br />-LogPath<br /><br />*-VHD*<br /><br />*-ConfigurationFilePath*|  
+|Cmdlet ServerManager|Argomenti. Gli argomenti in **grassetto** sono obbligatori. Gli argomenti in *corsivo* possono essere specificati usando Windows PowerShell o la Configurazione guidata Servizi di dominio Active Directory.|  
+|Install-WindowsFeature/Add-WindowsFeature|***-Nome***<p>*-Riavvia*<p>*-IncludeAllSubFeature*<p>*-IncludeManagementTools*<p>-Source<p>*-ComputerName*<p>-Credential<p>-LogPath<p>*-VHD*<p>*-ConfigurationFilePath*|  
   
 > [!NOTE]  
 > Anche se non è obbligatorio, l'argomento **-IncludeManagementTools** è consigliato quando si installano i file binari del ruolo Servizi di dominio Active Directory.  
@@ -367,7 +366,7 @@ Usare **Get-Command** per esportare gli alias e i cmdlet in ServerManager.
 Get-Command -module ServerManager  
 ```  
   
-Ad esempio:  
+Ad esempio,  
   
 ![Installare una nuova foresta](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_PSGetCommand.png)  
   
@@ -377,13 +376,13 @@ Per aggiungere il ruolo Servizi di dominio Active Directory, è sufficiente eseg
 Install-WindowsFeature -name AD-Domain-Services  
 ```  
   
-Per installare anche gli strumenti di gestione di Servizi di dominio Active Directory (consigliato), specificare l'argomento **-IncludeManagementTools** :  
+Per installare anche gli strumenti di gestione di Servizi di dominio Active Directory (consigliato), specificare l'argomento **-IncludeManagementTools**:  
   
 ```powershell  
 Install-WindowsFeature -name AD-Domain-Services -IncludeManagementTools  
 ```  
   
-Ad esempio:  
+Ad esempio,  
   
 ![Installare una nuova foresta](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_PSInstallWinFeature.png)  
   
@@ -399,7 +398,7 @@ Poiché **Get-WindowsFeature** non dispone di un meccanismo di filtro, è necess
 Get-WindowsFeature | where-object <options>  
 ```  
   
-Ad esempio, per trovare tutte le funzionalità contenenti "Active Dir" nella proprietà **Nome visualizzato** , usare:  
+Ad esempio, per trovare tutte le funzionalità contenenti "Active Dir" nella proprietà **Nome visualizzato**, usare:  
   
 ```powershell  
 Get-WindowsFeature | where displayname -like "*active dir*"  
@@ -417,7 +416,7 @@ In Windows PowerShell 3.0, inoltre, sono stati considerevolmente semplificati gl
 Get-WindowsFeature | where {$_.displayname - like "*active dir*"}  
 ```  
   
-Usando la pipeline di Windows PowerShell, è possibile creare risultati leggibili. Ad esempio:  
+Usando la pipeline di Windows PowerShell, è possibile creare risultati leggibili. Ad esempio,  
   
 ```powershell  
 Install-WindowsFeature | Format-List  
@@ -427,14 +426,14 @@ Install-WindowsFeature | select-object | Format-List
   
 ![Installare una nuova foresta](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_PSInstallADDS.png)  
   
-Se si usa il cmdlet **Select-Object** con l'argomento **-expandproperty** , vengono restituiti dati interessanti:  
+Se si usa il cmdlet **Select-Object** con l'argomento **-expandproperty**, vengono restituiti dati interessanti:  
   
 ![Installare una nuova foresta](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_PSInstallADDSWithTools.png)  
   
 > [!NOTE]  
 > L'argomento **Select-Object -expandproperty** riduce leggermente le prestazioni generali dell'installazione.  
   
-### <a name="BKMK_PS"></a>Creare un dominio radice della foresta di servizi di dominio Active Directory con Windows PowerShell  
+### <a name="create-an-ad-ds-forest-root-domain-with-windows-powershell"></a><a name="BKMK_PS"></a>Creare un dominio radice della foresta di servizi di dominio Active Directory con Windows PowerShell  
 Per installare una nuova foresta Active Directory con il modulo ADDSDeployment, usare il cmdlet seguente:  
   
 ```powershell  
@@ -445,8 +444,8 @@ Il cmdlet **Install-AddsForest** ha solo due fasi (controllo dei prerequisiti e 
   
 |||  
 |-|-|  
-|Cmdlet di ADDSDeployment|Argomenti. Gli argomenti in**grassetto** sono obbligatori. Gli argomenti in*corsivo* possono essere specificati usando Windows PowerShell o la Configurazione guidata Servizi di dominio Active Directory.|  
-|install-addsforest|-Confirm<br /><br />*-CreateDNSDelegation*<br /><br />*-DatabasePath*<br /><br />*-DomainMode*<br /><br />***-DomainName***<br /><br />***-DomainNetBIOSName***<br /><br />*-DNSDelegationCredential*<br /><br />*-ForestMode*<br /><br />-Force<br /><br />*-InstallDNS*<br /><br />*-LogPath*<br /><br />-NoDnsOnNetwork<br /><br />-NoRebootOnCompletion<br /><br />*-SafeModeAdministratorPassword*<br /><br />-SkipAutoConfigureDNS<br /><br />-SkipPreChecks<br /><br />*-SYSVOLPath*<br /><br />*-WhatIf*|  
+|Cmdlet di ADDSDeployment|Argomenti. Gli argomenti in **grassetto** sono obbligatori. Gli argomenti in *corsivo* possono essere specificati usando Windows PowerShell o la Configurazione guidata Servizi di dominio Active Directory.|  
+|install-addsforest|-Confirm<p>*-CreateDNSDelegation*<p>*-DatabasePath*<p>*-DomainMode*<p>***-DomainName***<p>***-DomainNetBIOSName***<p>*-DNSDelegationCredential*<p>*-ForestMode*<p>-Force<p>*-InstallDNS*<p>*-LogPath*<p>-NoDnsOnNetwork<p>-NoRebootOnCompletion<p>*-SafeModeAdministratorPassword*<p>-SkipAutoConfigureDNS<p>-SkipPreChecks<p>*-SYSVOLPath*<p>*-WhatIf*|  
   
 > [!NOTE]  
 > L'argomento **DomainNetBIOSName** è obbligatorio se si desidera modificare il nome di 15 caratteri generato automaticamente sulla base del prefisso del nome di dominio DNS o se il nome eccede i 15 caratteri.  
@@ -468,7 +467,7 @@ Gli argomenti equivalenti del cmdlet ADDSDeployment di Opzioni controller di dom
   
 ```  
   
-Gli argomenti **Install-ADDSForest** , se non specificati, seguono le stesse impostazioni predefinite di Server Manager.  
+Gli argomenti **Install-ADDSForest**, se non specificati, seguono le stesse impostazioni predefinite di Server Manager.  
   
 L'operazione dell'argomento **SafeModeAdministratorPassword** è particolare:  
   
@@ -497,7 +496,7 @@ Ad esempio, è possibile utilizzare il cmdlet **Read-Host** per richiedere all'u
 -safemodeadministratorpassword (convertto-securestring "Password1" -asplaintext -force)  
 ```  
   
-Infine, è possibile archiviare la password offuscata in un file e quindi riutilizzarla in seguito, senza visualizzare mai la password non crittografata. Ad esempio:  
+Infine, è possibile archiviare la password offuscata in un file e quindi riutilizzarla in seguito, senza visualizzare mai la password non crittografata. Ad esempio,  
   
 ```powershell  
 $file = "c:\pw.txt"  
@@ -544,7 +543,7 @@ Gli argomenti equivalenti del cmdlet ADDSDeployment di **Percorsi** di Server Ma
   
 Usare l'argomento facoltativo **Whatif** con il cmdlet **Install-ADDSForest** per rivedere le informazioni sulla configurazione. In questo modo è possibile visualizzare i valori espliciti e impliciti degli argomenti di un cmdlet.  
   
-Ad esempio:  
+Ad esempio,  
   
 ![Installare una nuova foresta](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_PSPaths.png)  
   
@@ -563,7 +562,7 @@ Si noti che, esattamente come Server Manager, **Install-ADDSForest** ricorda che
   
 ![Installare una nuova foresta](media/Install-a-New-Windows-Server-2012-Active-Directory-Forest--Level-200-/ADDS_PSInstallProgress.png)  
   
-Per accettare automaticamente il prompt di riavvio, usare gli argomenti **-force** o **-confirm:$false** con un cmdlet ADDSDeployment di Windows PowerShell. Per evitare il riavvio automatico del server al termine dell'innalzamento di livello, usare l'argomento **-norebootoncompletion** .  
+Per accettare automaticamente il prompt di riavvio, usare gli argomenti **-force** o **-confirm:$false** con un cmdlet ADDSDeployment di Windows PowerShell. Per evitare il riavvio automatico del server al termine dell'innalzamento di livello, usare l'argomento **-norebootoncompletion**.  
   
 > [!WARNING]  
 > Si sconsiglia di eseguire l'override del riavvio. Il controller di dominio deve essere riavviato per funzionare correttamente.  

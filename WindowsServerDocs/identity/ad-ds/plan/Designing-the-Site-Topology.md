@@ -1,7 +1,6 @@
 ---
 ms.assetid: eeb919de-e21e-48d8-8186-e42adec6933f
 title: Progettazione della topologia di un sito
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: d3ebc3bd764a8ed44e201d0fca5f85b06df8be9d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e7b6267946217d5c5fb57496eb6bf54911b61e8a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408891"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822599"
 ---
 # <a name="designing-the-site-topology"></a>Progettazione della topologia di un sito
 
@@ -36,7 +35,7 @@ Prima di iniziare a progettare la topologia del sito, è necessario comprendere 
   
 Dopo aver completato la progettazione della topologia del sito, è necessario verificare che i controller di dominio soddisfino i requisiti hardware per Windows Server 2008 standard, Windows Server 2008 Enterprise e Windows Server 2008 Datacenter.  
   
-## <a name="in-this-guide"></a>Contenuto della guida  
+## <a name="in-this-guide"></a>In questa guida  
   
 -   [Informazioni sulla topologia del sito di Active Directory](../../ad-ds/plan/Understanding-Active-Directory-Site-Topology.md)  
   

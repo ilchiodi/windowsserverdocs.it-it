@@ -1,7 +1,6 @@
 ---
 ms.assetid: ea015cbc-dea9-4c72-a9d8-d6c826d07608
 title: Appendice H-protezione degli account e dei gruppi dell'amministratore locale
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 7e0cff62851250009d8af6ec7d87ec8191dcaec0
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9c5cb76ff137912893c5bc0322d5b79bee2203fe
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408639"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821464"
 ---
 # <a name="appendix-h-securing-local-administrator-accounts-and-groups"></a>Appendice H: Protezione degli account Administrator locali e i gruppi
 
@@ -83,7 +82,7 @@ Per l'account amministratore locale in ogni dominio della foresta, è necessario
 
         ![proteggere gli account di amministratore locale e i gruppi](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_105.png)  
 
-    3.  Fai clic su **OK**.  
+    3.  Fare clic su **OK**.  
 
         > [!IMPORTANT]  
         > Quando si aggiunge l'account Administrator a queste impostazioni, è necessario specificare se si sta configurando l'account Administrator locale o l'account amministratore di dominio mediante l'assegnazione di etichette agli account. Ad esempio, per aggiungere l'account amministratore del dominio TAILSPINTOYS a questi diritti nega, è necessario passare all'account Administrator per il dominio TAILSPINTOYS, che verrebbe visualizzato come TAILSPINTOYS\Administrator. Se si digita **Administrator** in queste impostazioni di diritti utente nel Editor oggetti Criteri di gruppo, si limiterà l'account amministratore locale in ogni computer a cui viene applicato l'oggetto Criteri di gruppo, come descritto in precedenza.  
@@ -96,7 +95,7 @@ Per l'account amministratore locale in ogni dominio della foresta, è necessario
 
         ![proteggere gli account di amministratore locale e i gruppi](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_106.png)  
 
-    3.  Fai clic su **OK**.  
+    3.  Fare clic su **OK**.  
 
         > [!IMPORTANT]  
         > Quando si aggiunge l'account Administrator a queste impostazioni, è necessario specificare se si sta configurando l'account Administrator locale o l'account amministratore di dominio mediante l'assegnazione di etichette agli account. Ad esempio, per aggiungere l'account amministratore del dominio TAILSPINTOYS a questi diritti nega, è necessario passare all'account Administrator per il dominio TAILSPINTOYS, che verrebbe visualizzato come TAILSPINTOYS\Administrator. Se si digita **Administrator** in queste impostazioni di diritti utente nel Editor oggetti Criteri di gruppo, si limiterà l'account amministratore locale in ogni computer a cui viene applicato l'oggetto Criteri di gruppo, come descritto in precedenza.  
@@ -109,7 +108,7 @@ Per l'account amministratore locale in ogni dominio della foresta, è necessario
 
         ![proteggere gli account di amministratore locale e i gruppi](media/Appendix-H--Securing-Local-Administrator-Accounts-and-Groups/SAD_107.png)  
 
-    3.  Fai clic su **OK**.  
+    3.  Fare clic su **OK**.  
 
         > [!IMPORTANT]  
         > Quando si aggiunge l'account Administrator a queste impostazioni, è necessario specificare se si sta configurando l'account Administrator locale o l'account amministratore di dominio mediante l'assegnazione di etichette agli account. Ad esempio, per aggiungere l'account amministratore del dominio TAILSPINTOYS a questi diritti nega, è necessario passare all'account Administrator per il dominio TAILSPINTOYS, che verrebbe visualizzato come TAILSPINTOYS\Administrator. Se si digita **Administrator** in queste impostazioni di diritti utente nel Editor oggetti Criteri di gruppo, si limiterà l'account amministratore locale in ogni computer a cui viene applicato l'oggetto Criteri di gruppo, come descritto in precedenza.  
@@ -191,7 +190,7 @@ Accedere localmente da qualsiasi server membro o workstation interessato dall'og
 
 7.  Nel campo **programma/script** fare clic su **Sfoglia**, individuare e selezionare il file batch creato nella sezione **creare un file batch** e fare clic su **Apri**.  
 
-8.  Fai clic su **OK**.  
+8.  Fare clic su **OK**.  
 
 9. Fare clic sulla scheda **Generale**.  
 
@@ -201,7 +200,7 @@ Accedere localmente da qualsiasi server membro o workstation interessato dall'og
 
 12. Selezionare **Esegui se l'utente è connesso o meno** e non **archiviare la password**. L'attività avrà accesso solo alle risorse del computer locale.  
 
-13. Fai clic su **OK**.  
+13. Fare clic su **OK**.  
 
 14. Verrà visualizzata una finestra di dialogo in cui vengono richieste le credenziali dell'account utente per l'esecuzione dell'attività.  
 

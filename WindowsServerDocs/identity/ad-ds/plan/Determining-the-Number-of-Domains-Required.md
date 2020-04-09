@@ -1,7 +1,6 @@
 ---
 ms.assetid: 87bca912-b912-4bbe-9533-2c34a7abc52d
 title: Determinazione del numero di domini necessari
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 87214178fdda0cd70c79aed2e46e056deecb6291
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 32093409150e54f30eec5385ea80fc1c30851142
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402606"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822564"
 ---
 # <a name="determining-the-number-of-domains-required"></a>Determinazione del numero di domini necessari
 
@@ -34,13 +33,13 @@ Ogni foresta inizia con un singolo dominio. Il numero massimo di utenti che poss
   
 |Collegamento più lento alla connessione di un controller di dominio (Kbps)|Numero massimo di utenti se è disponibile una larghezza di banda di 1%|Numero massimo di utenti se è disponibile la larghezza di banda del 5%|Numero massimo di utenti se è disponibile una larghezza di banda di 10%|  
 | --- | --- | --- | --- |  
-|28,8|10,000|25.000|40.000|  
-|32|10,000|25.000|50,000|  
-|56|10,000|50,000|100.000|  
-|64|10,000|50,000|100.000|  
+|28,8|10,000|25.000|40,000|  
+|32|10,000|25.000|50.000|  
+|56|10,000|50.000|100.000|  
+|64|10,000|50.000|100.000|  
 |128|25.000|100.000|100.000|  
-|256|50,000|100.000|100.000|  
-|512|80.000|100.000|100.000|  
+|256|50.000|100.000|100.000|  
+|512|80,000|100.000|100.000|  
 |1,500|100.000|100.000|100.000|  
 
 Per usare questa tabella:  
@@ -72,11 +71,11 @@ Per prima cosa, determinare il numero massimo di utenti che la foresta può ospi
   
 |Collegamento più lento alla connessione di un controller di dominio (Kbps)|Numero massimo di utenti se è disponibile una larghezza di banda di 1%|Numero massimo di utenti se è disponibile la larghezza di banda del 5%|Numero massimo di utenti se è disponibile una larghezza di banda di 10%|  
 | --- | --- | --- | --- |  
-|28,8|10,000|50,000|75.000|  
-|32|10,000|50,000|75.000|  
+|28,8|10,000|50.000|75.000|  
+|32|10,000|50.000|75.000|  
 |56|10,000|75.000|100.000|  
 |64|25.000|75.000|100.000|  
-|128|50,000|100.000|100.000|  
+|128|50.000|100.000|100.000|  
 |256|75.000|100.000|100.000|  
 |512|100.000|100.000|100.000|  
 |1,500|100.000|100.000|100.000|  
@@ -106,13 +105,13 @@ Determinare il numero di utenti che devono essere ospitati in ogni area, quindi 
   
 |Collegamento più lento alla connessione di un controller di dominio (Kbps)|Numero massimo di utenti se è disponibile una larghezza di banda di 1%|Numero massimo di utenti se è disponibile la larghezza di banda del 5%|Numero massimo di utenti se è disponibile una larghezza di banda di 10%|  
 | --- | --- | --- | --- |  
-|28,8|10,000|18.000|40.000|  
-|32|10,000|20.000|50,000|  
-|56|10,000|40.000|100.000|  
-|64|10,000|50,000|100.000|  
+|28,8|10,000|18.000|40,000|  
+|32|10,000|20.000|50.000|  
+|56|10,000|40,000|100.000|  
+|64|10,000|50.000|100.000|  
 |128|15.000|100.000|100.000|  
 |256|30.000|100.000|100.000|  
-|512|80.000|100.000|100.000|  
+|512|80,000|100.000|100.000|  
 |1,500|100.000|100.000|100.000|  
 
 Per usare questa tabella:  
@@ -129,4 +128,4 @@ Anche se il numero totale di utenti che è possibile inserire in un dominio in u
 
 Dopo aver suddiviso l'organizzazione in domini regionali, documentare le aree da rappresentare e il numero di utenti che dovranno esistere in ogni area. Si noti inoltre la velocità dei collegamenti più lenti in ogni area che si utilizzerà per la replica Active Directory. Queste informazioni vengono utilizzate per determinare se sono necessari domini o foreste aggiuntivi.  
 
-Per un foglio di lavoro che assiste l'utente nella documentazione delle aree identificate, scaricare Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip da [Job Aids per Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558) e aprire "Identification regions" (DSSLOGI _4. doc).  
+Per un foglio di lavoro che consente di documentare le aree identificate, scaricare Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip da supporto [per i processi per Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558) e aprire "identificazione delle aree" (DSSLOGI_4. doc).  
