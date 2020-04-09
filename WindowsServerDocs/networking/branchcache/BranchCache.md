@@ -2,22 +2,18 @@
 title: BranchCache
 description: Questo argomento fornisce una panoramica di BranchCache in Windows Server 2016
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-bc
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a4587cff-c086-49f1-a0bf-cd74b8a44440
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 1eea3e11231e1be94db1f88d77faa89a67d46444
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 4e4bff53e5b1e77d81556f59116d8fde33fee72d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80318528"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861754"
 ---
 # <a name="branchcache"></a>BranchCache
 

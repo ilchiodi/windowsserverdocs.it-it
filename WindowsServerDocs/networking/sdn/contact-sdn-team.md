@@ -1,19 +1,19 @@
 ---
 title: Contattare il team Datacenter and Cloud Networking
 description: Questa pagina è stata progettata per informare i clienti sui metodi migliori per raggiungere il team SDN in diversi contesti.
-manager: brianlic
+manager: grcusanz
 ms.prod: windows-server
 ms.technology: networking-sdn
 ms.topic: article
 ms.assetid: f9945c55-c2d0-448f-86dd-8c734e1b2987
-ms.author: lizross
-author: kallie-b
-ms.openlocfilehash: 84c0847313542953543316ceb6c3d9cffb99c2dc
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.author: anpaul
+author: AnirbanPaul
+ms.openlocfilehash: ed8041750f2b57526a173d7cacb5f221ce1f9722
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80309970"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860744"
 ---
 # <a name="contact-the-datacenter-and-cloud-networking-team"></a>Contattare il team Datacenter and Cloud Networking
 

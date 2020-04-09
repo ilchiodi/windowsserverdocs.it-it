@@ -1,7 +1,6 @@
 ---
 ms.assetid: ad0bf21d-2ace-4565-b1f5-ce57c8eb2689
 title: Quando creare una farm di proxy server federativi
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 247daf1b9b49124188f6bb16bce7da381fe997ef
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d4b2b889159dee9f3b93a54a2b1924be286792f4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402423"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858494"
 ---
 # <a name="when-to-create-a-federation-server-proxy-farm"></a>Quando creare una farm di proxy server federativi
 
@@ -31,8 +30,8 @@ Nella tabella seguente vengono descritte le attività che è necessario completa
   
 |Attività|Descrizione|  
 |--------|---------------|  
-|Puntare tutti i proxy nella farm allo stesso nome di Servizio federativo AD FS|Quando si creano i proxy server federativi, è necessario digitare lo stesso nome di Servizio federativo nella configurazione guidata del proxy server federativo di AD FS per tutti i proxy server federativi che parteciperanno alla farm. Il proxy server federativo utilizza l'URL che costituisce questo nome host DNS per determinare quale AD FS Servizio federativo istanza contattata.<br /><br />Per altre informazioni, vedere [Configure a Computer for the Federation Server Proxy Role](../../ad-fs/deployment/Configure-a-Computer-for-the-Federation-Server-Proxy-Role.md).|  
-|Ottenere e condividere i certificati|È possibile ottenere un certificato di autenticazione server da un'autorità di certificazione pubblica \(CA\), ad esempio VeriSign, e quindi configurare il certificato in modo che tutti i proxy server federativi condividano la stessa parte di chiave privata dello stesso certificato nel sito Web predefinito per ogni proxy server federativo. Per condividere il certificato, è necessario installare lo stesso certificato di autenticazione server nel sito Web predefinito per ogni proxy server federativo. Per ulteriori informazioni, vedere [importare un certificato di autenticazione server nel sito Web predefinito](../../ad-fs/deployment/Import-a-Server-Authentication-Certificate-to-the-Default-Web-Site.md).<br /><br />Per altre informazioni, vedere [Certificate Requirements for Federation Server Proxies](Certificate-Requirements-for-Federation-Server-Proxies.md).|  
+|Puntare tutti i proxy nella farm allo stesso nome di Servizio federativo AD FS|Quando si creano i proxy server federativi, è necessario digitare lo stesso nome di Servizio federativo nella configurazione guidata del proxy server federativo di AD FS per tutti i proxy server federativi che parteciperanno alla farm. Il proxy server federativo utilizza l'URL che costituisce questo nome host DNS per determinare quale AD FS Servizio federativo istanza contattata.<p>Per altre informazioni, vedere [Configure a Computer for the Federation Server Proxy Role](../../ad-fs/deployment/Configure-a-Computer-for-the-Federation-Server-Proxy-Role.md).|  
+|Ottenere e condividere i certificati|È possibile ottenere un certificato di autenticazione server da un'autorità di certificazione pubblica \(CA\), ad esempio VeriSign, e quindi configurare il certificato in modo che tutti i proxy server federativi condividano la stessa parte di chiave privata dello stesso certificato nel sito Web predefinito per ogni proxy server federativo. Per condividere il certificato, è necessario installare lo stesso certificato di autenticazione server nel sito Web predefinito per ogni proxy server federativo. Per ulteriori informazioni, vedere [importare un certificato di autenticazione server nel sito Web predefinito](../../ad-fs/deployment/Import-a-Server-Authentication-Certificate-to-the-Default-Web-Site.md).<p>Per altre informazioni, vedere [Certificate Requirements for Federation Server Proxies](Certificate-Requirements-for-Federation-Server-Proxies.md).|  
   
 Per ulteriori informazioni sull'aggiunta di nuovi proxy server federativi per creare una farm proxy server federativo, vedere [Checklist: Setting up a Federation Server proxy](../../ad-fs/deployment/Checklist--Setting-Up-a-Federation-Server-Proxy.md).  
   
