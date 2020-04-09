@@ -1,29 +1,25 @@
 ---
 title: Introduzione a Windows Server Essentials ADK
 description: Viene descritto come usare Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 343e600f-5131-4692-b8aa-69d275a8295b
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: c10f3e0215033ff4bab14a2c68f73554bcca1bb9
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 7e8ba36f9f5b4d919937b3346b81a93de600631d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80311765"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80817914"
 ---
 # <a name="getting-started-with-the-windows-server-essentials-adk"></a>Introduzione a Windows Server Essentials ADK
 
 >Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
 
-Il kit di valutazione e distribuzione (ADK) per il software server di Windows Server Essentials si basa sul ADK per il sistema operativo Windows Server® 2012, quindi la documentazione relativa a tale ADK viene applicata qui, salvo diversa indicazione. Le informazioni qui incluse sono specifiche per i partner che intendono preinstallare il sistema operativo per i loro clienti.  
+Il kit di valutazione e distribuzione (ADK) per il software server di Windows Server Essentials si basa sul ADK per il sistema operativo Windows Server&reg; 2012, quindi la documentazione relativa a tale ADK viene applicata qui, salvo diversa indicazione. Le informazioni qui incluse sono specifiche per i partner che intendono preinstallare il sistema operativo per i loro clienti.  
   
 > [!NOTE]
 >  È possibile scaricare assessment and Deployment Kit (ADK) per Windows Server Essentials dall' [area download Microsoft](https://www.microsoft.com/download/details.aspx?id=34866).  

@@ -1,6 +1,5 @@
 ---
 title: 'Ripristino della foresta di Active Directory: esecuzione di un ripristino completo del server'
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 1a1182a6-4462-4a13-806e-0e642a0d5db2
 ms.technology: identity-adds
-ms.openlocfilehash: 1ade1f2e316387fbe84209c1bc7a986fff6f2a71
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: bf321ae769aa6f0da1cebce7700ea429161a0956
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390544"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824014"
 ---
 # <a name="ad-forest-recovery---performing-a-full-server-recovery"></a>Ripristino della foresta di Active Directory: esecuzione di un ripristino completo del server 
 
@@ -51,8 +50,8 @@ A seconda dello scenario, utilizzare una delle procedure riportate di seguito pe
    -  Installare i driver
    -  Deselezionare le funzionalità **Avanzate** per il riavvio automatico e il controllo degli errori del disco. Queste sono abilitate per impostazione predefinita.
    Ripristino del server ![](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore6.png)
-8. Fai clic su **Next**.
-9. Fare clic su **Fine**. Verrà chiesto se si è certi di voler continuare. fare clic su **Sì**. 
+8. Fare clic su **Avanti**.
+9. Fare clic su **Fine**. Verrà chiesto se si è certi di voler continuare. Fare clic su **Sì**. 
    Ripristino del server ![](media/AD-Forest-Recovery-Perform-a-Full-Recovery/restore11.png) 
 10. Al termine dell'operazione, eseguire un ripristino autorevole di SYSVOL, come descritto in [ad Forest Recovery-esecuzione di una sincronizzazione autorevole di DFSR-Replicated SYSVOL](AD-Forest-Recovery-Authoritative-Recovery-SYSVOL.md).
 
@@ -75,8 +74,8 @@ A seconda dello scenario, utilizzare una delle procedure riportate di seguito pe
     - Formattare e partizionare i dischi
     - Installare i driver
     - Deselezionare le funzionalità **Avanzate** per il riavvio automatico e il controllo degli errori del disco. Queste sono abilitate per impostazione predefinita.
-12. Fai clic su **Next**.
-13. Fare clic su **Fine**. Verrà chiesto se si è certi di voler continuare. fare clic su **Sì**.  
+12. Fare clic su **Avanti**.
+13. Fare clic su **Fine**. Verrà chiesto se si è certi di voler continuare. Fare clic su **Sì**.  
 14. Al termine dell'operazione, eseguire un ripristino autorevole di SYSVOL, come descritto in [ad Forest Recovery-esecuzione di una sincronizzazione autorevole di DFSR-Replicated SYSVOL](AD-Forest-Recovery-Authoritative-Recovery-SYSVOL.md).
 
 ## <a name="enabling-the-network-adapter-for-a-network-backup"></a>Abilitazione della scheda di rete per un backup di rete
@@ -120,7 +119,7 @@ Se è necessario abilitare una scheda di rete dal prompt dei comandi per eseguir
    set address "Name of Network Adapter" static IPv4 Address SubnetMask IPv4 Gateway Address 1  
    ```  
 
-   Ad esempio:  
+   Ad esempio,  
   
    ```  
    set address "Local Area Connection" static 192.168.1.2 255.0.0.0 192.168.1.1 1  

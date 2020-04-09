@@ -1,26 +1,23 @@
 ---
 title: Risoluzione dei problemi relativi a un cluster di failover con Segnalazione errori Windows
 description: Risoluzione dei problemi relativi a un cluster di failover con report di WER, con dettagli specifici su come raccogliere i report e diagnosticare i problemi comuni.
-keywords: Cluster di failover, report WER, diagnostica, cluster, Segnalazione errori Windows
 ms.prod: windows-server
 ms.technology: storage-failover-clustering
 ms.author: vpetter
-ms.topic: article
-author: vpetter
+author: dcuomo
 ms.date: 03/27/2018
-ms.localizationpriority: ''
-ms.openlocfilehash: 46c633af8cf82ac43d2a787a7193685d88ad0ecc
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: e8db88dc4fe3ad9176299c5b423a7aac6093f254
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322153"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827354"
 ---
 # <a name="troubleshooting-a-failover-cluster-using-windows-error-reporting"></a>Risoluzione dei problemi relativi a un cluster di failover con Segnalazione errori Windows 
 
 > Si applica a: Windows Server 2019, Windows Server 2016, Windows Server
 
-Segnalazione errori Windows (WER) è un'infrastruttura di feedback basata su eventi flessibile progettata per aiutare gli amministratori avanzati o il supporto di livello 3 a raccogliere informazioni sui problemi hardware e software che Windows è in grado di rilevare, segnalare le informazioni a Microsoft, e forniscono agli utenti tutte le soluzioni disponibili. Questo [riferimento](https://docs.microsoft.com/powershell/module/windowserrorreporting/) fornisce le descrizioni e la sintassi per tutti i cmdlet di WindowsErrorReporting.
+Segnalazione errori Windows (WER) è un'infrastruttura di feedback basata su eventi flessibile progettata per aiutare gli amministratori avanzati o il supporto di livello 3 a raccogliere informazioni sui problemi hardware e software che Windows è in grado di rilevare, segnalare le informazioni a Microsoft e fornire agli utenti le soluzioni disponibili. Questo [riferimento](https://docs.microsoft.com/powershell/module/windowserrorreporting/) fornisce le descrizioni e la sintassi per tutti i cmdlet di WindowsErrorReporting.
 
 Le informazioni sulla risoluzione dei problemi illustrate di seguito saranno utili per la risoluzione dei problemi avanzati che sono stati escalati e che potrebbero richiedere l'invio di dati a Microsoft per la valutazione.
 

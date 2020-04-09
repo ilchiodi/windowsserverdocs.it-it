@@ -1,7 +1,6 @@
 ---
 ms.assetid: 45a65504-70b5-46ea-b2e0-db45263fabaa
 title: Supporto per l'uso della replica Hyper-V per controller di dominio virtualizzati
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 92324ef7c0fab81e80974a1f05eeec4833f09875
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d882fc5a8e519c461e17a7a82c8abfc6c16fbe9c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390435"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824504"
 ---
 # <a name="support-for-using-hyper-v-replica-for-virtualized-domain-controllers"></a>Supporto per l'uso della replica Hyper-V per controller di dominio virtualizzati
 
@@ -64,7 +63,7 @@ La tabella seguente illustra il supporto per controller di dominio virtualizzati
 |-|-|  
 |Failover pianificato|Failover non pianificato|  
 |Supportato|Supportato|  
-|Test case:<br /><br />-DC1 e DC2 eseguono Windows Server 2012.<br /><br />-DC2 viene arrestato e viene eseguito un failover in DC2-REC. Il failover può essere pianificato o non pianificato.<br /><br />-Dopo l'avvio di DC2-REC, verifica se il valore di VMGenID del database è uguale al valore del driver della macchina virtuale salvato dal server di replica Hyper-V.<br /><br />Di conseguenza, DC2-REC attiva le misure di sicurezza della virtualizzazione; in altre parole, reimposta il relativo InvocationID, ignora il pool di RID e imposta un requisito di sincronizzazione iniziale prima di assumere un ruolo di master operazioni. Per altre informazioni sul requisito di sincronizzazione iniziale, vedere .<br /><br />-DC2-REC salva quindi il nuovo valore di VMGenID nel proprio database ed esegue il commit degli aggiornamenti successivi nel contesto del nuovo InvocationID.<br /><br />-In seguito alla reimpostazione del InvocationID, DC1 convergerà su tutte le modifiche AD introdotte da DC2-REC anche se ne è stato eseguito il rollback nel tempo, ovvero gli eventuali aggiornamenti di AD eseguiti in DC2-REC dopo che il failover eseguirà la convergenza|Il test case è identico a quello del failover pianificato, con le eccezioni seguenti:<br /><br />-Tutti gli aggiornamenti di Active Directory ricevuti in DC2 ma non ancora replicati da AD a un partner di replica prima dell'evento di failover andranno perduti.<br /><br />-Gli aggiornamenti di Active Directory ricevuti in DC2 dopo l'ora del punto di ripristino replicato da AD a DC1 verranno replicati da DC1 a DC2-REC.|  
+|Test case:<p>-DC1 e DC2 eseguono Windows Server 2012.<p>-DC2 viene arrestato e viene eseguito un failover in DC2-REC. Il failover può essere pianificato o non pianificato.<p>-Dopo l'avvio di DC2-REC, verifica se il valore di VMGenID del database è uguale al valore del driver della macchina virtuale salvato dal server di replica Hyper-V.<p>Di conseguenza, DC2-REC attiva le misure di sicurezza della virtualizzazione; in altre parole, reimposta il relativo InvocationID, ignora il pool di RID e imposta un requisito di sincronizzazione iniziale prima di assumere un ruolo di master operazioni. Per altre informazioni sul requisito di sincronizzazione iniziale, vedere .<p>-DC2-REC salva quindi il nuovo valore di VMGenID nel proprio database ed esegue il commit degli aggiornamenti successivi nel contesto del nuovo InvocationID.<p>-In seguito alla reimpostazione del InvocationID, DC1 convergerà su tutte le modifiche AD introdotte da DC2-REC anche se ne è stato eseguito il rollback nel tempo, ovvero gli eventuali aggiornamenti di AD eseguiti in DC2-REC dopo che il failover eseguirà la convergenza|Il test case è identico a quello del failover pianificato, con le eccezioni seguenti:<p>-Tutti gli aggiornamenti di Active Directory ricevuti in DC2 ma non ancora replicati da AD a un partner di replica prima dell'evento di failover andranno perduti.<p>-Gli aggiornamenti di Active Directory ricevuti in DC2 dopo l'ora del punto di ripristino replicato da AD a DC1 verranno replicati da DC1 a DC2-REC.|  
   
 ### <a name="windows-server-2008-r2-and-earlier-versions"></a>Windows Server 2008 R2 e versioni precedenti
 
@@ -73,5 +72,5 @@ La tabella seguente illustra il supporto per controller di dominio virtualizzati
 |||  
 |-|-|  
 |Failover pianificato|Failover non pianificato|  
-|Supportato ma non consigliato, perché i controller di dominio che eseguono queste versioni di Windows Server non supportano VMGenID né usano le misure di sicurezza della virtualizzazione associate. Di conseguenza, sono soggetti al rischio di un rollback degli USN. Per altre informazioni, vedere [USN e rollback degli USN](https://technet.microsoft.com/library/d2cae85b-41ac-497f-8cd1-5fbaa6740ffe(v=ws.10)).|Nota non supportata **:** Il failover non pianificato sarebbe supportato se non esistesse il rischio di rollback degli USN, ad esempio con un singolo controller di dominio nella foresta (una configurazione non consigliata).|  
-|Test case:<br /><br />-DC1 e DC2 eseguono Windows Server 2008 R2.<br /><br />-DC2 viene arrestato e viene eseguito un failover pianificato in DC2-REC. Tutti i dati di DC2 vengono replicati in DC2-Rec prima dell'arresto.<br /><br />-Dopo l'avvio di DC2-REC, riprende la replica con DC1 usando lo stesso invocationID di DC2.|N/D|  
+|Supportato ma non consigliato, perché i controller di dominio che eseguono queste versioni di Windows Server non supportano VMGenID né usano le misure di sicurezza della virtualizzazione associate. Di conseguenza, sono soggetti al rischio di un rollback degli USN. Per altre informazioni, vedere [USN e rollback degli USN](https://technet.microsoft.com/library/d2cae85b-41ac-497f-8cd1-5fbaa6740ffe(v=ws.10)).|Nota non supportata **:** il failover non pianificato è supportato quando il rollback degli USN non è un rischio, ad esempio un singolo controller di dominio nella foresta (una configurazione non consigliata).|  
+|Test case:<p>-DC1 e DC2 eseguono Windows Server 2008 R2.<p>-DC2 viene arrestato e viene eseguito un failover pianificato in DC2-REC. Tutti i dati in DC2 vengono replicati in DC2-REC prima del completamento dell'arresto.<p>-Dopo l'avvio di DC2-REC, riprende la replica con DC1 usando lo stesso invocationID di DC2.|N/D|  

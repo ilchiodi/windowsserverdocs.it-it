@@ -1,7 +1,6 @@
 ---
 ms.assetid: eefcc989-8763-45ee-8a64-3a97b4397160
-title: Operazioni di ADFS
-description: ''
+title: Operazioni di AD FS
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,14 +8,14 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 2db9cd83ed08673835a38e443e90c5eb092f43ac
-ms.sourcegitcommit: b649047f161cb605df084f18b573f796a584753b
+ms.openlocfilehash: cdedcbd5b9491b57ee31170b781dc821853d058f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76162482"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815135"
 ---
-# <a name="ad-fs-operations"></a>Operazioni di ADFS
+# <a name="ad-fs-operations"></a>Operazioni di AD FS
 
 
 

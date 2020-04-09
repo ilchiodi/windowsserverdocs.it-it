@@ -1,24 +1,20 @@
 ---
 title: wbadmin Ottieni elementi
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per Wbadmin get items, che elenca gli elementi inclusi in un backup specifico.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 27d08ce3-6e06-4260-b264-fc1bde132d09
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6c3cc532381321655bbd3d5549b3c9b1896b9280
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 781057bb450ab4b692c793f67d807e008efcf5d8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362406"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829754"
 ---
 # <a name="wbadmin-get-items"></a>wbadmin Ottieni elementi
 
@@ -39,7 +35,7 @@ wbadmin get items
 [-machine:<BackupMachineName>]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
@@ -47,7 +43,7 @@ wbadmin get items
 |-backupTarget|Specifica il percorso di archiviazione che contiene i backup per i quali si desiderano i dettagli. Utilizzare per l'elenco dei backup archiviati in tale percorso di destinazione. I percorsi di destinazione di backup possono essere un'unità disco collegata localmente o una cartella condivisa remota. Se **Wbadmin get items**viene eseguito nello stesso computer in cui è stato creato il backup, questo parametro non è necessario. Tuttavia, questo parametro è obbligatorio per ottenere informazioni su un backup creato da un altro computer.|
 |-machine|Specifica il nome del computer per il quale si desiderano i dettagli di backup. Utile quando è stato eseguito il backup di più computer nello stesso percorso. Deve essere utilizzato quando **- backupTarget** specificato.|
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Per elencare gli elementi del backup eseguito il 31 marzo 2013 alle 9:00, digitare:
 ```
@@ -58,8 +54,8 @@ Per elencare gli elementi del backup di Server01 eseguito il 30 aprile 2013 alle
 wbadmin get items -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
 -   Cmdlet [Get-WBBackupSet](https://technet.microsoft.com/library/jj902473.aspx)

@@ -1,24 +1,20 @@
 ---
 title: waitfor
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per Wait, che invia o attende un segnale in un sistema. Il valore di **aspetter** viene usato per sincronizzare i computer in una rete.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a48ef70d-4d28-4035-b6b0-7d7b46ac2157
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: aecea0ad19ee42e61396eb8b8ccd579b9ce2057b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4542fc9d231b8150ab89e07e173d9671d6b7a3f3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362596"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829934"
 ---
 # <a name="waitfor"></a>waitfor
 
@@ -35,7 +31,7 @@ waitfor [/s <Computer> [/u [<Domain>\]<User> [/p [<Password>]]]] /si <SignalName
 waitfor [/t <Timeout>] <SignalName>
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |       Parametro       |                                                                                         Descrizione                                                                                          |
 |-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -47,7 +43,7 @@ waitfor [/t <Timeout>] <SignalName>
 |     \<Signalname >     |                                                Specifica il **segnale che wait** attende o Invia. *Signalname* non distingue tra maiuscole e minuscole.                                                 |
 |          /?           |                                                                             Visualizza la guida al prompt dei comandi.                                                                             |
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 -   I nomi dei segnali non possono superare i 225 caratteri. I caratteri validi includono a-z, A-Z, 0-9 e il set di caratteri ASCII esteso (128-255).
 -   Se non si usa **/s**, il segnale viene trasmesso a tutti i sistemi di un dominio. Se si usa **/s**, il segnale viene inviato solo al sistema specificato.
@@ -57,23 +53,23 @@ waitfor [/t <Timeout>] <SignalName>
 -   I computer possono ricevere segnali solo se si trovano nello stesso dominio del computer che invia il segnale.
 -   **Quando si** testano le compilazioni software, è possibile utilizzare il controllo. Il computer di compilazione, ad esempio, può inviare un segnale a diversi computer che eseguono **aspetter** dopo che la compilazione è stata completata correttamente. Al ricevimento del segnale, il file batch che include la funzione **aspetter** può indicare ai computer di avviare immediatamente l'installazione del software o l'esecuzione di test nella compilazione compilata.
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
-Per attendere che venga ricevuto il segnale "espresso\build007", digitare:
+Per attendere la ricezione del segnale espresso\build007, digitare:
 ```
 waitfor espresso\build007
 ```
 Per impostazione predefinita **, wait attende** per un periodo illimitato per un segnale.
 
-Per attendere 10 secondi per la ricezione del segnale "espresso\compile007" prima del timeout, digitare:
+Per attendere 10 secondi per la ricezione del segnale espresso\compile007 prima del timeout, digitare:
 ```
 waitfor /t 10 espresso\build007
 ```
-Per attivare manualmente il segnale "espresso\build007", digitare:
+Per attivare manualmente il segnale espresso\build007, digitare:
 ```
 waitfor /si espresso\build007
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

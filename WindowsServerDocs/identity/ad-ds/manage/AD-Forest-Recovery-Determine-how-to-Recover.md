@@ -1,6 +1,5 @@
 ---
 title: Ripristino della foresta di Active Directory-determinare come ripristinare la foresta
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: d604efded5b6a2ff3911a92f52817498f43c9933
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: fea55dc5551198f7bc06afb2ec38077398b9cf77
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369170"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824054"
 ---
 # <a name="determine-how-to-recover-the-forest"></a>Determinare come ripristinare la foresta
 
@@ -26,7 +25,7 @@ Il ripristino di un'intera foresta Active Directory comporta il ripristino dal b
 - Tutti gli aggiornamenti apportati agli oggetti esistenti dall'ultimo backup attendibile
 - Tutte le modifiche apportate alla partizione di configurazione o alla partizione dello schema in servizi di dominio Active Directory, ad esempio modifiche dello schema, dall'ultimo backup attendibile
 
-Per ogni dominio nella foresta, è necessario conoscere la password di un account amministratore di dominio. Preferibilmente, si tratta della password dell'account Administrator predefinito. Per eseguire un ripristino dello stato del sistema di un controller di dominio, è inoltre necessario conoscerne la password. In generale, è consigliabile archiviare l'account amministratore e la cronologia delle password della modalità ripristino servizi directory in un luogo sicuro per il periodo di tempo in cui i backup sono validi, ovvero entro il periodo di durata della rimozione definitiva o entro il periodo di durata degli oggetti eliminati se Active Directory riciclo Il contenitore è abilitato. È anche possibile sincronizzare la password della modalità ripristino servizi directory con un account utente di dominio per renderla più semplice da ricordare. Per ulteriori informazioni, vedere l'articolo KB [961320](https://support.microsoft.com/kb/961320). La sincronizzazione dell'account della modalità ripristino servizi directory deve essere eseguita prima del ripristino della foresta, come parte della preparazione.
+Per ogni dominio nella foresta, è necessario conoscere la password di un account amministratore di dominio. Preferibilmente, si tratta della password dell'account Administrator predefinito. Per eseguire un ripristino dello stato del sistema di un controller di dominio, è inoltre necessario conoscerne la password. In generale, è consigliabile archiviare l'account amministratore e la cronologia delle password della modalità ripristino servizi directory in un luogo sicuro per il periodo di tempo in cui i backup sono validi, ovvero entro il periodo di durata della rimozione definitiva o entro il periodo di durata degli oggetti eliminati se Active Directory Cestino è abilitato. È anche possibile sincronizzare la password della modalità ripristino servizi directory con un account utente di dominio per renderla più semplice da ricordare. Per ulteriori informazioni, vedere l'articolo KB [961320](https://support.microsoft.com/kb/961320). La sincronizzazione dell'account della modalità ripristino servizi directory deve essere eseguita prima del ripristino della foresta, come parte della preparazione.
 
 > [!NOTE]
 > Per impostazione predefinita, l'account Administrator è un membro del gruppo Administrators predefinito, così come i gruppi Domain Admins ed Enterprise Admins. Questo gruppo dispone del controllo completo di tutti i controller di dominio nel dominio.
@@ -53,7 +52,7 @@ Se l'ora dell'occorrenza dell'errore è sconosciuta, controllare ulteriormente p
 
 Se Active Directory Cestino è abilitato, la durata del backup è uguale al valore di **deletedObjectLifetime** o al valore **tombstoneLifetime** , a seconda del valore minore. Per ulteriori informazioni, vedere la [Guida dettagliata al cestino Active Directory](https://go.microsoft.com/fwlink/?LinkId=178657) (https://go.microsoft.com/fwlink/?LinkId=178657).
 
-In alternativa, è anche possibile usare lo strumento di montaggio del database Active Directory (dsamain. exe) e uno strumento LDAP (Lightweight Directory Access Protocol), ad esempio LDP. exe o Active Directory utenti e computer, per identificare il backup con l'ultimo stato sicuro del foresta. Lo strumento di montaggio Active Directory database, incluso nei sistemi operativi Windows Server 2008 e versioni successive, espone Active Directory dati archiviati in backup o snapshot come server LDAP. Quindi, è possibile usare uno strumento LDAP per esplorare i dati. Questo approccio ha il vantaggio di non richiedere il riavvio del controller di dominio in modalità ripristino servizi directory per esaminare il contenuto del backup di servizi di dominio Active Directory.
+In alternativa, è inoltre possibile utilizzare lo strumento di montaggio del database Active Directory (dsamain. exe) e uno strumento LDAP (Lightweight Directory Access Protocol), ad esempio LDP. exe o Active Directory utenti e computer, per identificare il backup con l'ultimo stato di sicurezza della foresta. Lo strumento di montaggio Active Directory database, incluso nei sistemi operativi Windows Server 2008 e versioni successive, espone Active Directory dati archiviati in backup o snapshot come server LDAP. Quindi, è possibile usare uno strumento LDAP per esplorare i dati. Questo approccio ha il vantaggio di non richiedere il riavvio del controller di dominio in modalità ripristino servizi directory per esaminare il contenuto del backup di servizi di dominio Active Directory.
 
 Per ulteriori informazioni sull'utilizzo dello strumento di montaggio Active Directory database, vedere la [Guida dettagliata allo strumento di montaggio dei database Active Directory](https://technet.microsoft.com/library/cc753609\(WS.10\).aspx).
 
@@ -68,7 +67,7 @@ La facilità del processo di ripristino è un fattore importante nella scelta de
 
 Scegliere un controller di dominio che soddisfi al meglio i criteri seguenti:
 
-- Un controller di dominio scrivibile. Questa operazione è obbligatoria.
+- Un controller di dominio scrivibile. Tale informazione è obbligatoria.
 
 - Un controller di dominio che esegue Windows Server 2012 come macchina virtuale in un hypervisor che supporta VM-generazione. Questo controller di dominio può essere usato come origine per la clonazione.
 - Un controller di dominio accessibile, fisicamente o in una rete virtuale e preferibilmente situato in un Data Center. In questo modo, è possibile isolarlo facilmente dalla rete durante il ripristino della foresta.
@@ -93,23 +92,23 @@ Preparare una tabella che mostra le funzioni di ogni controller di dominio nel d
 |Nome controller di dominio|Sistema operativo|FSMO|GC|Controller di dominio di sola lettura|Backup|DNS|Server Core|VM|Con GenId VM|  
 |-------------|----------------------|----------|--------|----------|------------|---------|-----------------|--------|---------------|  
 |DC_1|Windows Server 2012|Master schema, Master per la denominazione dei domini|Sì|No|Sì|No|No|Sì|Sì|  
-|DC_2|Windows Server 2012|Nessuno|Sì|No|Sì|Sì|No|Sì|Sì|  
+|DC_2|Windows Server 2012|None|Sì|No|Sì|Sì|No|Sì|Sì|  
 |DC_3|Windows Server 2012|Master infrastrutture|No|No|No|Sì|Sì|Sì|Sì|  
 |DC_4|Windows Server 2012|Emulatore PDC, master RID|Sì|No|No|No|No|Sì|No|  
-|DC_5|Windows Server 2012|Nessuno|No|No|Sì|Sì|No|Sì|Sì|  
-|RODC_1|Windows Server 2008 R2|Nessuno|Sì|Sì|Sì|Sì|Sì|Sì|No|  
-|RODC_2|Windows Server 2008|Nessuno|Sì|Sì|No|Sì|Sì|Sì|No|  
+|DC_5|Windows Server 2012|None|No|No|Sì|Sì|No|Sì|Sì|  
+|RODC_1|Windows Server 2008 R2|None|Sì|Sì|Sì|Sì|Sì|Sì|No|  
+|RODC_2|Windows Server 2008|None|Sì|Sì|No|Sì|Sì|Sì|No|  
 
 Per ogni dominio nella foresta, identificare un singolo controller di dominio scrivibile che disponga di un backup attendibile del database Active Directory per quel dominio. Prestare attenzione quando si sceglie un backup per ripristinare un controller di dominio. Se il giorno e la motivo dell'errore sono circa noti, l'indicazione generale prevede l'uso di un backup eseguito pochi giorni prima di tale data.
   
 In questo esempio sono disponibili quattro candidati di backup: DC_1, DC_2, DC_4 e DC_5. Di questi candidati di backup, è possibile ripristinarne solo uno. Il controller di dominio consigliato è DC_5 per i motivi seguenti:  
 
-- Soddisfa i requisiti per l'uso come origine per la clonazione del controller di dominio virtualizzato, ovvero esegue Windows Server 2012 come controller di dominio virtuale in un hypervisor che supporta VM-generazione, esegue software che può essere clonato (o che può essere rimosso se non è possibile clonare). d). Dopo il ripristino, il ruolo emulatore PDC verrà sequestrato a tale server e potrà essere aggiunto al gruppo controller di dominio clonabili per il dominio.  
+- Soddisfa i requisiti per l'uso come origine per la clonazione del controller di dominio virtualizzato, ovvero esegue Windows Server 2012 come controller di dominio virtuale in un hypervisor che supporta VM-generazione, esegue software che può essere clonato (o che è possibile rimuovere se non è possibile clonare). Dopo il ripristino, il ruolo emulatore PDC verrà sequestrato a tale server e potrà essere aggiunto al gruppo controller di dominio clonabili per il dominio.  
 - Esegue un'installazione completa di Windows Server 2012. Un controller di dominio che esegue un'installazione dei componenti di base del server può essere meno comodo come destinazione per il ripristino.  
 - Si tratta di un server DNS. Di conseguenza, non è necessario reinstallare il DNS.  
 
 > [!NOTE]
-> Poiché DC_5 non è un server di catalogo globale, presenta anche un vantaggio nel fatto che non è necessario rimuovere il catalogo globale dopo il ripristino. Tuttavia, indipendentemente dal fatto che il controller di dominio sia anche un server di catalogo globale non è un fattore decisivo perché a partire da Windows Server 2012, tutti i controller di dominio sono server di catalogo globale per impostazione predefinita e la rimozione e l'aggiunta del catalogo globale dopo il ripristino sono consigliate come parte della foresta processo di ripristino in qualsiasi caso.  
+> Poiché DC_5 non è un server di catalogo globale, presenta anche un vantaggio nel fatto che non è necessario rimuovere il catalogo globale dopo il ripristino. Tuttavia, indipendentemente dal fatto che il controller di dominio sia anche un server di catalogo globale non è un fattore decisivo perché a partire da Windows Server 2012, tutti i controller di dominio sono server di catalogo globale per impostazione predefinita e la rimozione e l'aggiunta del catalogo globale dopo il ripristino sono consigliate come parte del processo di ripristino della foresta in ogni caso.  
 
 ## <a name="recover-the-forest-in-isolation"></a>Ripristinare la foresta in isolamento
 
@@ -125,7 +124,7 @@ Se si eseguono controller di dominio virtualizzati, è possibile spostarli in un
 
 Se i controller di dominio sono in esecuzione su hardware fisico, disconnettere il cavo di rete del primo controller di dominio che si intende ripristinare nel dominio radice della foresta. Se possibile, disconnettere anche i cavi di rete di tutti gli altri controller di dominio. In questo modo si impedisce la replica dei controller di dominio, se vengono accidentalmente avviati durante il processo di ripristino della foresta.  
 
-In una foresta di grandi dimensioni distribuita in più posizioni, può essere difficile garantire che tutti i controller di dominio scrivibili siano arrestati. Per questo motivo, i passaggi di ripristino, ad esempio la reimpostazione dell'account del computer e dell'account krbtgt, oltre alla pulizia dei metadati, sono progettati per garantire che i controller di dominio scrivibili scrivibile non vengano replicati con controller di dominio scrivibile pericolosi (nel caso in cui alcuni siano ancora online nel foresta).  
+In una foresta di grandi dimensioni distribuita in più posizioni, può essere difficile garantire che tutti i controller di dominio scrivibili siano arrestati. Per questo motivo, i passaggi di ripristino, ad esempio la reimpostazione dell'account del computer e dell'account krbtgt, oltre alla pulizia dei metadati, sono progettati per garantire che i controller di dominio scrivibili scrivibile non vengano replicati con controller di dominio scrivibile pericolosi, nel caso in cui alcuni siano ancora online nella foresta.  
   
 Tuttavia, solo con i controller di dominio scrivibili in modalità offline, è possibile garantire che la replica non venga eseguita. Pertanto, laddove possibile, è consigliabile distribuire la tecnologia di gestione remota che consente di arrestare e isolare fisicamente i controller di dominio scrivibili durante il ripristino della foresta.  
   

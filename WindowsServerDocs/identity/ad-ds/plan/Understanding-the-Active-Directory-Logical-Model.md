@@ -1,7 +1,6 @@
 ---
 ms.assetid: 62708b2e-4090-4cf7-8ae6-a557f31f561f
 title: Informazioni sul modello logico di Active Directory
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: c8f1cb2d7e3970ace95f2d0a4fac6b12efba1ca9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: cf2b997d601d42a47282df0ed95382e471233ff6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408654"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821614"
 ---
 # <a name="understanding-the-active-directory-logical-model"></a>Informazioni sul modello logico di Active Directory
 
@@ -25,7 +24,7 @@ La progettazione della struttura logica per Active Directory Domain Services (AD
 Prima di progettare la struttura logica di Active Directory, è importante comprendere il modello logico Active Directory. Servizi di dominio Active Directory è un database distribuito che archivia e gestisce le informazioni sulle risorse di rete, nonché i dati specifici dell'applicazione dalle applicazioni abilitate all'uso di directory. Servizi di dominio Active Directory consente agli amministratori di organizzare gli elementi di una rete, ad esempio utenti, computer e dispositivi, in una struttura di contenimento gerarchica. Il contenitore di livello superiore è l'insieme di strutture. Le foreste sono domini e all'interno di domini sono unità organizzative (OU). Questo è il modello logico perché è indipendente dagli aspetti fisici della distribuzione, ad esempio il numero di controller di dominio necessari in ogni dominio e topologia di rete.  
   
 ## <a name="active-directory-forest"></a>Foresta Active Directory  
-Una foresta è una raccolta di uno o più domini Active Directory che condividono una struttura logica comune, lo schema di directory (definizioni di classi e attributi), la configurazione della directory (informazioni sul sito e sulla replica) e il catalogo globale (ricerca a livello di foresta). funzionalità). I domini nella stessa foresta vengono collegati automaticamente con relazioni di trust transitive bidirezionali.  
+Una foresta è una raccolta di uno o più domini Active Directory che condividono una struttura logica comune, lo schema di directory (definizioni di classi e attributi), la configurazione della directory (informazioni sul sito e sulla replica) e il catalogo globale (funzionalità di ricerca a livello di foresta). I domini nella stessa foresta vengono collegati automaticamente con relazioni di trust transitive bidirezionali.  
   
 ## <a name="active-directory-domain"></a>Dominio di Active Directory  
 Un dominio è una partizione in una foresta Active Directory. Il partizionamento dei dati consente alle organizzazioni di replicare i dati solo in base alle esigenze. In questo modo, la directory può essere ridimensionata a livello globale su una rete con larghezza di banda disponibile limitata. Il dominio supporta inoltre una serie di altre funzioni principali correlate all'amministrazione, tra cui:  

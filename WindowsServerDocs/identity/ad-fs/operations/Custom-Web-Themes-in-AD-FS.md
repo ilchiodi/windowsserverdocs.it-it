@@ -1,7 +1,6 @@
 ---
 ms.assetid: 0379abc3-25c7-46ab-9a6b-80a5152365b0
 title: Temi Web personalizzati in ADFS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 03e493c1022653e4c258634c2b0f258849876a00
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 69255eeaecd3e5198054242c1ab6dd1d0a58ce33
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357996"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80816424"
 ---
 # <a name="custom-web-themes-in-ad-fs"></a>Temi Web personalizzati in ADFS 
 
@@ -35,13 +34,13 @@ Il seguente cmdlet crea un tema Web personalizzato duplicando il tema Web predef
 Per applicare il file CSS al nuovo tema Web, usare il cmdlet seguente.  
   
 
-    Set-AdfsWebTheme –TargetName custom –StyleSheet @{path=”c:\NewTheme.css”}  
+    Set-AdfsWebTheme –TargetName custom –StyleSheet @{path="c:\NewTheme.css"}  
   
   
 Il cmdlet seguente crea un tema Web personalizzato da un nuovo foglio di stile.  
   
   
-`New-AdfsWebTheme –Name custom –StyleSheet @{path=”c:\NewTheme.css”} –RTLStyleSheetPath c:\NewRtlTheme.css ` 
+`New-AdfsWebTheme –Name custom –StyleSheet @{path="c:\NewTheme.css"} –RTLStyleSheetPath c:\NewRtlTheme.css ` 
   
   
   

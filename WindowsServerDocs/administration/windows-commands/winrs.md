@@ -1,24 +1,20 @@
 ---
 title: winrs
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Windows Commands Topic for WinRS, che consente di gestire ed eseguire programmi in modalità remota.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c370de31-5651-400a-872d-ef229aae2309
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d6ee44cb530614485f0dbd58a9ec13a4788370fe
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: d3b714f851c981611bbe4d4f26a7b7eed2db7903
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361945"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829144"
 ---
 # <a name="winrs"></a>winrs
 
@@ -29,30 +25,30 @@ Gestione remota Windows consente di gestire ed eseguire programmi in modalità r
 ```  
 winrs [/<parameter>[:<value>]] <command>  
 ```  
-### <a name="parameters"></a>Parametri  
+#### <a name="parameters"></a>Parametri  
 
 |           Parametro            |                                                                                                                                                                                    Descrizione                                                                                                                                                                                     |
 |--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|      /Remote: > endpoint\<       |                                                                                          Specifica l'endpoint di destinazione usando un nome NetBIOS o la connessione standard:<br /><br />-   <url>: [trasporto\<>://]\<> di destinazione [:\<Port >]<br /><br />Se non è specificato, viene usato **/r: localhost** .                                                                                          |
-|          /unencrypted          | Specifica che i messaggi alla shell remota non verranno crittografati. Questa operazione è utile per la risoluzione dei problemi o quando il traffico di rete è già crittografato tramite **IPSec**o quando viene applicata la sicurezza fisica.<br /><br />Per impostazione predefinita, i messaggi vengono crittografati utilizzando le chiavi Kerberos o NTLM.<br /><br />Questa opzione della riga di comando viene ignorata quando si seleziona trasporto HTTPS. |
-|     /username:\<nome utente >      |                                                                                Specifica il nome utente nella riga di comando.<br /><br />Se non specificato, lo strumento utilizzerà l'autenticazione Negotiate o richiederà il nome.<br /><br />Se viene specificato **/username** , è necessario specificare anche **/password** .                                                                                 |
-|     /password:\<> password      |                                                                           Specifica la password nella riga di comando.<br /><br />Se **/password** non è specificato, ma **/username** è, lo strumento richiederà la password.<br /><br />Se viene specificato **/password** , è necessario specificare anche **/username** .                                                                            |
+|      /Remote: > endpoint\<       |                                                                                          Specifica l'endpoint di destinazione usando un nome NetBIOS o la connessione standard:<p>-   <url>: [trasporto\<>://]\<> di destinazione [:\<Port >]<p>Se non è specificato, viene usato **/r: localhost** .                                                                                          |
+|          /unencrypted          | Specifica che i messaggi alla shell remota non verranno crittografati. Questa operazione è utile per la risoluzione dei problemi o quando il traffico di rete è già crittografato tramite **IPSec**o quando viene applicata la sicurezza fisica.<p>Per impostazione predefinita, i messaggi vengono crittografati utilizzando le chiavi Kerberos o NTLM.<p>Questa opzione della riga di comando viene ignorata quando si seleziona trasporto HTTPS. |
+|     /username:\<nome utente >      |                                                                                Specifica il nome utente nella riga di comando.<p>Se non specificato, lo strumento utilizzerà l'autenticazione Negotiate o richiederà il nome.<p>Se viene specificato **/username** , è necessario specificare anche **/password** .                                                                                 |
+|     /password:\<> password      |                                                                           Specifica la password nella riga di comando.<p>Se **/password** non è specificato, ma **/username** è, lo strumento richiederà la password.<p>Se viene specificato **/password** , è necessario specificare anche **/username** .                                                                            |
 |      /timeout:\<secondi >       |                                                                                                                                                                             Questa opzione è deprecata.                                                                                                                                                                             |
-|       /Directory: > percorso\<       |                                                                                            Specifica la directory di avvio per la shell remota.<br /><br />Se non specificato, la shell remota viene avviata nella home directory dell'utente definita dalla variabile di ambiente **% USERPROFILE%** .                                                                                             |
-| /Environment:\<stringa > =<value> |                                                                          Specifica una singola variabile di ambiente da impostare all'avvio della shell, che consente la modifica dell'ambiente predefinito per la Shell.<br /><br />Per specificare più variabili di ambiente, è necessario utilizzare più occorrenze di questa opzione.                                                                          |
-|            /noecho             |                                                                                                    Specifica che ECHO deve essere disabilitato. Questa operazione può essere necessaria per garantire che le risposte dell'utente alle richieste remote non vengano visualizzate localmente.<br /><br />Per impostazione predefinita Echo è "on".                                                                                                    |
-|           /noprofile           |                                              Specifica che il profilo utente non deve essere caricato.<br /><br />Per impostazione predefinita, il server tenterà di caricare il profilo utente.<br /><br />Se l'utente remoto non è un amministratore locale nel sistema di destinazione, questa opzione sarà obbligatoria (l'impostazione predefinita comporterà un errore).                                               |
+|       /Directory: > percorso\<       |                                                                                            Specifica la directory di avvio per la shell remota.<p>Se non specificato, la shell remota viene avviata nella home directory dell'utente definita dalla variabile di ambiente **% USERPROFILE%** .                                                                                             |
+| /Environment:\<stringa > =<value> |                                                                          Specifica una singola variabile di ambiente da impostare all'avvio della shell, che consente la modifica dell'ambiente predefinito per la Shell.<p>Per specificare più variabili di ambiente, è necessario utilizzare più occorrenze di questa opzione.                                                                          |
+|            /noecho             |                                                                                                    Specifica che ECHO deve essere disabilitato. Questa operazione può essere necessaria per garantire che le risposte dell'utente alle richieste remote non vengano visualizzate localmente.<p>Per impostazione predefinita, Echo è on.                                                                                                    |
+|           /noprofile           |                                              Specifica che il profilo utente non deve essere caricato.<p>Per impostazione predefinita, il server tenterà di caricare il profilo utente.<p>Se l'utente remoto non è un amministratore locale nel sistema di destinazione, questa opzione sarà obbligatoria (l'impostazione predefinita comporterà un errore).                                               |
 |         /allowdelegate         |                                                                                                                  Specifica che è possibile usare le credenziali dell'utente per accedere a una condivisione remota, ad esempio, disponibile in un computer diverso rispetto all'endpoint di destinazione.                                                                                                                   |
-|          /Compression          |                                                                           Attivare la compressione.  Per impostazione predefinita, le installazioni precedenti dei computer remoti potrebbero non supportare la compressione.<br /><br />L'impostazione predefinita è disattivata, poiché le installazioni precedenti nei computer remoti potrebbero non supportare la compressione.                                                                           |
+|          /Compression          |                                                                           Attivare la compressione.  Per impostazione predefinita, le installazioni precedenti dei computer remoti potrebbero non supportare la compressione.<p>L'impostazione predefinita è disattivata, poiché le installazioni precedenti nei computer remoti potrebbero non supportare la compressione.                                                                           |
 |            /usessl             |                                                                                                               Usare una connessione SSL quando si usa un endpoint remoto.  Se si specifica questo anziché il trasporto **https:** utilizzerà la porta predefinita **WinRM** predefinita.                                                                                                                |
 |               /?               |                                                                                                                                                                        Visualizza la guida al prompt dei comandi.                                                                                                                                                                        |
 
-## <a name="remarks"></a>Osservazioni  
+## <a name="remarks"></a>Note  
 -   Tutte le opzioni della riga di comando accettano una forma breve o una forma estesa. Ad esempio, sia **/r** che **/Remote** sono validi.  
 -   Per terminare il comando **/Remote** , l'utente può digitare **CTRL + C** o **CTRL + INTERR**, che verrà inviato alla shell remota. Il secondo **CTRL + C** forza la chiusura di **Winrs. exe**.  
 -   Per gestire le shell remote attive o la configurazione WinRS, usare lo strumento WinRM.  L'alias URI per gestire le Shell attive è **shell/cmd**.  L'alias URI per la configurazione di winrs è **winrm/config/winrs**.  
 
-## <a name="BKMK_Examples"></a>Esempi  
+## <a name="examples"></a><a name=BKMK_Examples></a>Esempi  
 ```  
 winrs /r:https://contoso.com command  
 ```  
@@ -88,5 +84,5 @@ winrs /r:myserver /ad /u:administrator /p:$%fgh7 dir \\anotherserver\share
 ```  
 
 ## <a name="additional-references"></a>Altri riferimenti  
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
 

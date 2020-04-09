@@ -3,17 +3,17 @@ ms.assetid: 6416d125-bcaf-433d-971a-2f0283bca2c2
 title: Aggiornamento compatibile con cluster-domande frequenti
 ms.topic: article
 ms.prod: windows-server
-manager: dongill
+manager: lizross
 ms.author: jgerend
 author: JasonGerend
 ms.date: 04/28/2017
 description: Risposte alle domande frequenti sull'aggiornamento compatibile con cluster in Windows Server.
-ms.openlocfilehash: 736b49222ae4c9e2a27229341f0d886bd3e0343c
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: ca81e952c0524af36ab6d241a205bd1cc971c74a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822134"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828104"
 ---
 # <a name="cluster-aware-updating-frequently-asked-questions"></a>Aggiornamento compatibile con cluster: Domande frequenti
 
@@ -118,11 +118,11 @@ Aggiornamento compatibile con cluster offre opzioni di esportazione tramite l'in
   
 **Opzioni interfaccia utente:**  
   
--   Copia dei risultati del report dalla schermata **Anteprima aggiornamenti** . Output: CSV  
+-   Copia dei risultati del report dalla schermata **Anteprima aggiornamenti**. Output: CSV  
   
--   Copia dei risultati del report dalla schermata **Genera rapporto** . Output: CSV  
+-   Copia dei risultati del report dalla schermata **Genera rapporto**. Output: CSV  
   
--   Esportazione dei risultati del report dalla schermata **Genera rapporto** . Output: HTML  
+-   Esportazione dei risultati del report dalla schermata **Genera rapporto**. Output: HTML  
   
 ## <a name="how-do-i-install-cau"></a>Come si installa Aggiornamento compatibile con cluster?  
 Un'installazione di Aggiornamento compatibile con cluster è integrata nella funzionalità Clustering di failover. La funzionalità di Aggiornamento compatibile con cluster viene installata come segue:  
@@ -158,7 +158,7 @@ Sì. Aggiornamento compatibile con cluster supporta numerose opzioni dell'operaz
   
 -   [\-di plug-in di aggiornamento compatibile con cluster nell'esempio](https://code.msdn.microsoft.com/windowsdesktop/Cluster-Aware-Updating-6a8854c9)  
   
-## <a name="see-also"></a>Vedi anche  
+## <a name="see-also"></a>Vedere anche  
   
--   [Panoramica di Aggiornamento compatibile con cluster](cluster-aware-updating.md)  
+-   [Panoramica di Aggiornamento compatibile con cluster\-  
   

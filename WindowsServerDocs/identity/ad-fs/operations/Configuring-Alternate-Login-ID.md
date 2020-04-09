@@ -1,7 +1,6 @@
 ---
 ms.assetid: f0cbdd78-f5ae-47ff-b5d3-96faf4940f4a
 title: Configurazione di un ID di accesso alternativo
-description: ''
 author: billmath
 ms.author: billmath
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 11/14/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 026873e231628e93738cba096cfae44c8b053217
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 7e7a881a2e6bae499ed7d4713bd70a804c3412e6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948558"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80816964"
 ---
 # <a name="configuring-alternate-login-id"></a>Configurazione di un ID di accesso alternativo
 
@@ -36,7 +35,7 @@ Un'organizzazione potrebbe dover utilizzare un ID alternativo negli scenari segu
    Negli scenari indicati in precedenza, l'ID alternativo con AD FS consente agli utenti di accedere a Azure AD senza modificare la UPN locale. 
 
 ## <a name="end-user-experience-with-alternate-login-id"></a>Esperienza dell'utente finale con ID di accesso alternativo
-L'esperienza dell'utente finale varia a seconda del metodo di autenticazione utilizzato con l'ID di accesso alternativo.  Attualmente esistono tre modi diversi in cui è possibile ottenere l'utilizzo di un ID di accesso alternativo.  e sono:
+L'esperienza dell'utente finale varia a seconda del metodo di autenticazione utilizzato con l'ID di accesso alternativo.  Attualmente esistono tre modi diversi in cui è possibile ottenere l'utilizzo di un ID di accesso alternativo.  ovvero:
 
 - **Autenticazione normale (legacy)** : usa il protocollo di autenticazione di base.
 - **Autenticazione moderna** : consente l'accesso basato su Active Directory Authentication Library (adal) alle applicazioni. Questo consente funzionalità di accesso come Multi-Factor Authentication (multi-factor authentication), provider di identità di terze parti basati su SAML con applicazioni client Office, smart card e autenticazione basata su certificati.
@@ -135,15 +134,15 @@ Windows versione 1709 e successive hanno aggiornato la logica di autenticazione 
 ##### <a name="step-3-configure-registry-for-impacted-users-using-group-policy"></a>Passaggio 3. Configurare il registro di sistema per utenti interessati tramite criteri di gruppo
 Le applicazioni di Office si basano sulle informazioni inviate dall'amministratore di directory per identificare l'ambiente di ID alternativo. Le chiavi del registro di sistema seguenti devono essere configurate per consentire alle applicazioni di Office di autenticare l'utente con ID alternativo senza visualizzare richieste aggiuntive
 
-|Chiave da aggiungere|Chiave nome dati, tipo e valore|Windows 7/8|Windows 10|Descrizione|
+|Chiave da aggiungere|Chiave nome dati, tipo e valore|Windows 7/8|Windows 10|Descrizione|
 |-----|-----|-----|-----|-----|
-|HKEY_CURRENT_USER \Software\Microsoft\AuthN|DomainHint</br>REG_SZ</br>contoso.com|Obbligatorio|Obbligatorio|Il valore di questo chiave è un nome di dominio personalizzato verificato nel tenant dell'organizzazione. Ad esempio, Contoso Corp può fornire un valore Contoso.com in questo chiave se Contoso.com è uno dei nomi di dominio personalizzati verificati nel tenant Contoso.onmicrosoft.com.|
+|HKEY_CURRENT_USER \Software\Microsoft\AuthN|DomainHint</br>REG_SZ</br>contoso.com|Obbligatoria|Obbligatoria|Il valore di questo chiave è un nome di dominio personalizzato verificato nel tenant dell'organizzazione. Ad esempio, Contoso Corp può fornire un valore Contoso.com in questo chiave se Contoso.com è uno dei nomi di dominio personalizzati verificati nel tenant Contoso.onmicrosoft.com.|
 HKEY_CURRENT_USER \Software\Microsoft\Office\16.0\Common\Identity|EnableAlternateIdSupport</br>REG_DWORD</br>1|Obbligatorio per Outlook 2016 ProPlus|Obbligatorio per Outlook 2016 ProPlus|Il valore di questo chiave può essere 1/0 per indicare all'applicazione Outlook se deve coinvolgere la logica di autenticazione con ID alternativo migliorata.|
-HKEY_CURRENT_USER \Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\contoso.com\sts|&#42;</br>REG_DWORD</br>1|Obbligatorio|Obbligatorio|Questo chiave può essere usato per impostare il servizio token di accesso come zona attendibile nelle impostazioni Internet. La distribuzione standard di ADFS consiglia di aggiungere lo spazio dei nomi ADFS all'area Intranet locale per Internet Explorer|
+HKEY_CURRENT_USER \Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\contoso.com\sts|&#42;</br>REG_DWORD</br>1|Obbligatoria|Obbligatoria|Questo chiave può essere usato per impostare il servizio token di accesso come zona attendibile nelle impostazioni Internet. La distribuzione standard di ADFS consiglia di aggiungere lo spazio dei nomi ADFS all'area Intranet locale per Internet Explorer|
 
 ## <a name="new-authentication-flow-after-additional-configuration"></a>Nuovo flusso di autenticazione dopo una configurazione aggiuntiva
 
-![Flusso di autenticazione](media/Configure-Alternate-Login-ID/alt1a.png)
+![flusso di autenticazione](media/Configure-Alternate-Login-ID/alt1a.png)
 
 1. a: l'utente viene sottoposta a provisioning in Azure AD usando l'ID alternativo
    </br>b: l'amministratore della directory inserisce le impostazioni chiave necessarie per i computer client interessati
@@ -156,23 +155,23 @@ HKEY_CURRENT_USER \Software\Microsoft\Windows\CurrentVersion\Internet Settings\Z
 
 ### <a name="non-exchange-and-skype-for-business-clients"></a>Client non Exchange e Skype for business
 
-|Client|Informativa sul supporto|Osservazioni|
+|Client|Istruzione support|Note|
 | ----- | -----|-----|
-|Microsoft Teams|Funzionalità supportata|<li>Microsoft teams supporta AD FS (SAML-P, WS-Fed, WS-Trust e OAuth) e l'autenticazione moderna.</li><li> I principali team Microsoft, ad esempio canali, chat e funzionalità di file, funzionano con l'ID di accesso alternativo.</li><li>le app 1st e di terze parti devono essere esaminate separatamente dal cliente. Ciò è dovuto al fatto che ogni applicazione dispone di protocolli di autenticazione del supporto.</li>|     
+|Microsoft Teams|Supportato|<li>Microsoft teams supporta AD FS (SAML-P, WS-Fed, WS-Trust e OAuth) e l'autenticazione moderna.</li><li> I principali team Microsoft, ad esempio canali, chat e funzionalità di file, funzionano con l'ID di accesso alternativo.</li><li>le app 1st e di terze parti devono essere esaminate separatamente dal cliente. Ciò è dovuto al fatto che ogni applicazione dispone di protocolli di autenticazione del supporto.</li>|     
 |OneDrive for Business|Supportato: chiave del registro di sistema lato client consigliata |Con l'ID alternativo configurato è possibile vedere che l'UPN locale è già popolato nel campo di verifica. Questa operazione deve essere modificata nell'identità alternativa utilizzata. Si consiglia di usare la chiave del registro di sistema lato client indicata in questo articolo: Office 2013 e Lync 2013 richiedono periodicamente le credenziali per SharePoint Online, OneDrive e Lync Online.|
-|Client per dispositivi mobili OneDrive for business|Funzionalità supportata|| 
+|Client per dispositivi mobili OneDrive for business|Supportato|| 
 |Pagina di attivazione di Office 365 Pro Plus|Supportato: chiave del registro di sistema lato client consigliata|Con l'ID alternativo configurato è possibile vedere che l'UPN locale è già popolato nel campo di verifica. Questa operazione deve essere modificata nell'identità alternativa utilizzata. Si consiglia di usare la chiave del registro di sistema lato client indicata in questo articolo: Office 2013 e Lync 2013 richiedono periodicamente le credenziali per SharePoint Online, OneDrive e Lync Online.|
 
 ### <a name="exchange-and-skype-for-business-clients"></a>Client Exchange e Skype for business
 
 |Client|Istruzione di supporto-con HMA|Istruzione di supporto-senza HMA|
 | ----- |----- | ----- |
-|Outlook|Supportato, nessun prompt aggiuntivo|Funzionalità supportata</br></br>Con **l'autenticazione moderna** per Exchange Online: supportato</br></br>Con **l'autenticazione normale** per Exchange Online: supportata con le avvertenze seguenti:</br><li>È necessario trovarsi in un computer aggiunto a un dominio e connettersi alla rete aziendale </li><li>È possibile utilizzare l'ID alternativo solo negli ambienti che non consentono l'accesso esterno per gli utenti delle cassette postali. Questo significa che gli utenti possono eseguire l'autenticazione alla propria cassetta postale in modo supportato quando sono connessi e aggiunti alla rete aziendale, in una VPN o connessi tramite computer ad accesso diretto, ma quando si configura il profilo di Outlook si ottengono due richieste aggiuntive.| 
+|Outlook|Supportato, nessun prompt aggiuntivo|Supportato</br></br>Con **l'autenticazione moderna** per Exchange Online: supportato</br></br>Con **l'autenticazione normale** per Exchange Online: supportata con le avvertenze seguenti:</br><li>È necessario trovarsi in un computer aggiunto a un dominio e connettersi alla rete aziendale </li><li>È possibile utilizzare l'ID alternativo solo negli ambienti che non consentono l'accesso esterno per gli utenti delle cassette postali. Questo significa che gli utenti possono eseguire l'autenticazione alla propria cassetta postale in modo supportato quando sono connessi e aggiunti alla rete aziendale, in una VPN o connessi tramite computer ad accesso diretto, ma quando si configura il profilo di Outlook si ottengono due richieste aggiuntive.| 
 |Cartelle pubbliche ibride|Supportato, nessuna richiesta aggiuntiva.|Con **l'autenticazione moderna** per Exchange Online: supportato</br></br>Con **autenticazione normale** per Exchange Online: non supportato</br></br><li>Le cartelle pubbliche ibride non possono espandersi se vengono usati ID alternativi e pertanto non devono essere usati oggi con metodi di autenticazione regolari.|
 |Delega cross-premise|Vedere [configurare Exchange per supportare le autorizzazioni delle cassette postali delegate in una distribuzione ibrida](https://technet.microsoft.com/library/mt784505.aspx)|Vedere [configurare Exchange per supportare le autorizzazioni delle cassette postali delegate in una distribuzione ibrida](https://technet.microsoft.com/library/mt784505.aspx)|
 |Archiviare l'accesso alle cassette postali (cassetta postale locale-archivio nel cloud)|Supportato, nessun prompt aggiuntivo|Supportato: gli utenti ricevono un prompt aggiuntivo per le credenziali quando accedono all'archivio, devono fornire il proprio ID alternativo quando richiesto.| 
-|Outlook Web Access|Funzionalità supportata|Funzionalità supportata|
-|App Outlook per dispositivi mobili per Android, IOS e Windows Phone|Funzionalità supportata|Funzionalità supportata|
+|Outlook Web Access|Supportato|Supportato|
+|App Outlook per dispositivi mobili per Android, IOS e Windows Phone|Supportato|Supportato|
 |Skype for business/Lync|Supportato, senza richieste aggiuntive|Supportato (ad eccezione di quanto indicato), ma è possibile che si verifichi una confusione utente.</br></br>Nei client mobili, l'ID alternativo è supportato solo se l'indirizzo SIP = indirizzo di posta elettronica = ID alternativo.</br></br> È possibile che gli utenti debbano eseguire due volte l'accesso a Skype for business desktop client usando il nome UPN locale e quindi usando l'ID alternativo. (Si noti che il "indirizzo di accesso" è in realtà l'indirizzo SIP che potrebbe non corrispondere al "nome utente", anche se spesso è). Quando viene richiesto per la prima volta un nome utente, l'utente deve immettere l'UPN, anche se non viene prepopolato erroneamente con l'ID alternativo o l'indirizzo SIP. Dopo che l'utente ha fatto clic su Accedi con l'UPN, la richiesta del nome utente viene nuovamente visualizzata e questa volta viene prepopolato con l'UPN. Questa volta l'utente deve sostituire con l'ID alternativo e fare clic su Accedi per completare il processo di accesso. Nei client mobili, gli utenti devono immettere l'ID utente locale nella pagina avanzate, usando il formato di tipo SAM (dominio\nomeutente) e non il formato UPN.</br></br>Dopo aver eseguito l'accesso, se Skype for business o Lync indica che "Exchange richiede le credenziali", è necessario fornire le credenziali valide per la posizione della cassetta postale. Se la cassetta postale si trova nel cloud, è necessario fornire l'ID alternativo. Se la cassetta postale è locale, è necessario fornire l'UPN locale.| 
 
 ## <a name="additional-details--considerations"></a>Dettagli aggiuntivi & considerazioni

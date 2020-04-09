@@ -1,6 +1,5 @@
 ---
 title: Ripristino della foresta di Active Directory-ripristino di Windows Server 2003
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: 43a2034cb707d4333abdce5f5b2b09d6c4b5a33a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 05fece3093d36073358d0d1822559c5b030085d7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390065"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823344"
 ---
 # <a name="ad-forest-recovery---windows-server-2003-recovery"></a>Ripristino della foresta di Active Directory-ripristino di Windows Server 2003
 
@@ -100,7 +99,7 @@ Se il controller di dominio ripristinato dal backup esegue Windows Server 2003, 
 
 5. Fare clic sul pulsante **Start**, scegliere **tutti i programmi**, **strumenti di amministrazione**e quindi fare clic su **DNS**.  
 6. Creare zone DNS per gli stessi nomi di dominio DNS ospitati nei server DNS prima del malfunzionamento critico. Per ulteriori informazioni, vedere la pagina relativa all'aggiunta di una zona di ricerca diretta ([https://go.microsoft.com/fwlink/?LinkId=74574](https://go.microsoft.com/fwlink/?LinkId=74574)).  
-7. Configurare i dati DNS esistenti prima del malfunzionamento critico. Ad esempio:  
+7. Configurare i dati DNS esistenti prima del malfunzionamento critico. Ad esempio,  
 
    - Configurare le zone DNS da archiviare in servizi di dominio Active Directory. Per ulteriori informazioni, vedere Modificare il tipo di zona ([https://go.microsoft.com/fwlink/?LinkId=74579](https://go.microsoft.com/fwlink/?LinkId=74579)).  
    - Configurare la zona DNS autorevole per i record di risorse del localizzatore controller di dominio (DC Locator) per consentire l'aggiornamento dinamico protetto. Per ulteriori informazioni, vedere Consenti solo aggiornamenti dinamici protetti ([https://go.microsoft.com/fwlink/?LinkId=74580](https://go.microsoft.com/fwlink/?LinkId=74580)).  

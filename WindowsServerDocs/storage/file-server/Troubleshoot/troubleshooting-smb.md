@@ -3,16 +3,15 @@ title: Funzionalità avanzate di risoluzione dei problemi di Server Message Bloc
 description: Introduce i metodi avanzati per la risoluzione dei problemi di SMB (Server Message Block).
 author: Deland-Han
 manager: dcscontentpm
-audience: ITPro
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: 433221f9846e9e071557b5537974b5739131742b
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 654cb1b0eea65457d521d201739721ed8c3c0203
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949690"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815194"
 ---
 # <a name="advanced-troubleshooting-server-message-block-smb"></a>Funzionalità avanzate di risoluzione dei problemi di Server Message Block (SMB)
 
@@ -31,7 +30,7 @@ Se ad esempio si usa Windows Server 2016 per raggiungere una condivisione SMB os
 
 ### <a name="collect-data"></a>Raccolta di dati
 
-Prima di risolvere i problemi relativi a SMB, è consigliabile raccogliere prima una traccia di rete sul lato client e server. Vengono applicate le linee guida riportate di seguito:
+Prima di risolvere i problemi relativi a SMB, è consigliabile raccogliere prima una traccia di rete sul lato client e server. Si applicano le linee guida seguenti:
 
 - Nei sistemi Windows, è possibile usare NetShell (netsh), Network Monitor, Message Analyst o Wireshark per raccogliere una traccia di rete.
 
@@ -100,7 +99,7 @@ Controllare se TCP/IP riscontra uno di questi problemi:
 
 4. La finestra di ricezione TCP sta diminuendo. Questa situazione può essere causata da un archivio lento o da un altro problema che impedisce che i dati vengano recuperati dal buffer Winsock del driver della funzione ausiliario (AFD).
 
-Se non è presente alcun problema TCP/IP riscontrabile, cercare errori SMB. A tale scopo, attieniti alla seguente procedura:
+Se non è presente alcun problema TCP/IP riscontrabile, cercare errori SMB. A tale scopo, effettuare le operazioni seguenti:
 
 1. Controllare sempre gli errori SMB rispetto alla specifica del protocollo MS-SMB2. Molti errori SMB sono benigni (non dannosi). Vedere le informazioni seguenti per determinare il motivo per cui SMB ha restituito l'errore prima di concludere che l'errore è correlato a uno dei problemi seguenti:
 
@@ -129,7 +128,7 @@ Esaminare i dettagli del protocollo SMB effettivi nella traccia di rete per comp
 
 - Per informazioni sulle operazioni che l'applicazione sta tentando di eseguire, è possibile esaminare i comandi SMB.
 
-Confrontare i comandi e le operazioni con la specifica del protocollo per assicurarsi che tutto funzioni correttamente. In caso contrario, raccogliere i dati più vicini o a un livello inferiore per cercare ulteriori informazioni sulla causa principale. A tale scopo, attieniti alla seguente procedura:
+Confrontare i comandi e le operazioni con la specifica del protocollo per assicurarsi che tutto funzioni correttamente. In caso contrario, raccogliere i dati più vicini o a un livello inferiore per cercare ulteriori informazioni sulla causa principale. A tale scopo, effettuare le operazioni seguenti:
 
 1. Raccolta di un'acquisizione di pacchetti standard.
 
@@ -137,7 +136,7 @@ Confrontare i comandi e le operazioni con la specifica del protocollo per assicu
 
 3. Se tutte le altre opzioni hanno esito negativo, raccogliere un t. cmd se si ritiene che il problema si verifichi all'interno di SMB, oppure se nessuno degli altri dati è sufficiente per identificare la causa principale.
 
-Ad esempio:
+Ad esempio,
 
 - Si verificano trasferimenti di file lenti a un singolo file server.
 
@@ -200,6 +199,6 @@ Prima di risolvere i problemi relativi a SMB, è consigliabile aggiornare i comp
 
 - Per migliorare le prestazioni e la stabilità, aggiornare Windows Core.
 
-## <a name="reference"></a>Informazioni di riferimento
+## <a name="reference"></a>Riferimento
 
 [Scenario di scambio di pacchetti del protocollo SMB Microsoft](https://docs.microsoft.com/windows/win32/fileio/microsoft-smb-protocol-packet-exchange-scenario)

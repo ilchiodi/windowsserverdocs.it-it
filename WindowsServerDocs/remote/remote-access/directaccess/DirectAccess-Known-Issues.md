@@ -2,22 +2,18 @@
 title: Problemi noti di DirectAccess
 description: In questo argomento viene fornito un collegamento ai documenti di supporto tecnico Microsoft per DirectAccess in Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-da
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3511a91f-1d5d-45a0-97f2-3fc0d6f079b4
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 3eb27f9249be04f43544eb928570ea252df27f73
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 2e2cafd676fb25eacb5fb02ece584b5cc7f64268
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80310933"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815684"
 ---
 # <a name="directaccess-known-issues"></a>Problemi noti di DirectAccess
 

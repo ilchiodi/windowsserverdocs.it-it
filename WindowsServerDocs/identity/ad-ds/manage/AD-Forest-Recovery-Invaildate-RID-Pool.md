@@ -1,6 +1,5 @@
 ---
 title: Ripristino della foresta di Active Directory-invalidamento del pool di RID
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 2f5f84df-bd85-4ca4-bdd3-835bd1d45c11
 ms.technology: identity-adds
-ms.openlocfilehash: c3c477e21a455e5e5777da00b064ca7a02672571
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9e693f6f30fb721897eaaac89b3d146c57e0e63f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390407"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823924"
 ---
 # <a name="ad-forest-recovery---invalidating-the-current-rid-pool"></a>Ripristino della foresta di Active Directory-invalidamento del pool di RID corrente  
 

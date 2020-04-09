@@ -2,19 +2,19 @@
 ms.assetid: 0cd1ac70-532c-416d-9de6-6f920a300a45
 title: Distribuire un cloud di controllo per un cluster di failover
 ms.prod: windows-server
-manager: eldenc
+manager: lizross
 ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.topic: article
 author: JasonGerend
 ms.date: 01/18/2019
 description: Come usare Microsoft Azure per ospitare il server di controllo del mirroring per un cluster di failover di Windows Server nel cloud, ovvero come distribuire un cloud di controllo.
-ms.openlocfilehash: ad5ff47a72319fee7650d1d9c0d0616cfaaa22d3
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 0b4ba643dca81d2d19b94b1d27485149f938e1c4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948169"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827914"
 ---
 # <a name="deploy-a-cloud-witness-for-a-failover-cluster"></a>Distribuire un cloud di controllo per un cluster di failover
 
@@ -22,7 +22,7 @@ ms.locfileid: "75948169"
 
 Cloud Witness è un tipo di quorum di controllo del cluster di failover che usa Microsoft Azure per fornire un voto sul quorum del cluster. Questo argomento fornisce una panoramica della funzionalità di controllo del cloud, degli scenari supportati e delle istruzioni per la configurazione di un cloud di controllo per un cluster di failover.
 
-## <a name="CloudWitnessOverview"></a>Panoramica di cloud Witness
+## <a name="cloud-witness-overview"></a><a name="CloudWitnessOverview"></a>Panoramica di cloud Witness
 
 Nella figura 1 viene illustrata una configurazione del quorum del cluster di failover esteso multisito con Windows Server 2016. In questa configurazione di esempio (Figura 1) sono presenti 2 nodi in 2 Data Center (detti siti). Si noti che è possibile che un cluster si estenda su più di 2 Data Center. Ogni data center può inoltre avere più di due nodi. Una tipica configurazione del quorum del cluster in questa configurazione (SLA di failover automatico) assegna a ogni nodo un voto. Un ulteriore voto viene assegnato al quorum di controllo per consentire l'esecuzione del cluster anche se uno dei data center riscontra un'interruzione dell'alimentazione. La matematica è semplice: sono disponibili 5 voti totali ed è necessario disporre di 3 voti per il cluster per mantenerne l'esecuzione.  
 
@@ -47,7 +47,7 @@ Questo approccio presenta vantaggi significativi:
 
 Come illustrato nella figura 2, non è disponibile un terzo sito separato obbligatorio. Il mirroring del cloud, come qualsiasi altro quorum di controllo, ottiene un voto e può partecipare ai calcoli del quorum.  
 
-## <a name="CloudWitnessSupportedScenarios"></a>Cloud Witness: scenari supportati per il tipo di server di controllo singolo
+## <a name="cloud-witness-supported-scenarios-for-single-witness-type"></a><a name="CloudWitnessSupportedScenarios"></a>Cloud Witness: scenari supportati per il tipo di server di controllo singolo
 Se si dispone di una distribuzione di cluster di failover, in cui tutti i nodi possono raggiungere Internet (per estensione di Azure), è consigliabile configurare un cloud di controllo come risorsa di controllo del quorum.  
 
 Di seguito sono riportati alcuni degli scenari supportati dall'uso di cloud Witness come server di controllo del quorum:  
@@ -60,7 +60,7 @@ Di seguito sono riportati alcuni degli scenari supportati dall'uso di cloud Witn
 
 A partire da Windows Server 2012 R2, è consigliabile configurare sempre un server di controllo del mirroring poiché il cluster gestisce automaticamente il voto del server di controllo del mirroring e i nodi votano con il quorum dinamico.  
 
-## <a name="CloudWitnessSetUp"></a>Configurare un cloud di controllo per un cluster
+## <a name="set-up-a-cloud-witness-for-a-cluster"></a><a name="CloudWitnessSetUp"></a>Configurare un cloud di controllo per un cluster
 Per configurare un server di controllo del mirroring come quorum di controllo per il cluster, seguire questa procedura:
 1. Creare un account di archiviazione di Azure da usare come server di controllo del cloud
 2. Configurare il server di controllo del mirroring come quorum di controllo per il cluster.
@@ -75,7 +75,7 @@ Quando si usa lo stesso account di archiviazione di Azure per la configurazione 
 
 ### <a name="to-create-an-azure-storage-account"></a>Per creare un account di archiviazione di Azure
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedi al [portale di Azure](https://portal.azure.com).
 2. Nel menu Hub selezionare Nuovo -> Dati e archiviazione -> Account di archiviazione.
 3. Nella pagina Crea un account di archiviazione eseguire le operazioni seguenti:
     1. Immettere un nome per l'account di archiviazione.
@@ -83,7 +83,7 @@ Quando si usa lo stesso account di archiviazione di Azure per la configurazione 
         
     2. Per **tipologia account**selezionare **utilizzo generico**.
     <br>Non è possibile usare un account di archiviazione BLOB per un cloud di controllo.
-    3. Per **Prestazioni** selezionare **Standard**.
+    3. Per **prestazioni**, selezionare **standard**.
     <br>Non è possibile usare archiviazione Premium di Azure per un cloud di controllo.
     2. Per la **replica**, selezionare **archiviazione con ridondanza locale (con ridondanza locale)** .
     <br>Il clustering di failover usa il file BLOB come punto di arbitraggio, che richiede alcune garanzie di coerenza durante la lettura dei dati. Pertanto, è necessario selezionare l' **archiviazione con ridondanza locale** per il tipo di **replica** .

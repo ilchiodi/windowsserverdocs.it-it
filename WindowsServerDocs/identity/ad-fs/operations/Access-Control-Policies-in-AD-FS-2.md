@@ -1,7 +1,5 @@
 ---
-ms.assetid: ''
 title: Criteri di controllo degli accessi client in Active Directory Federation Services 2,0
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +7,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 4f5d2cfa8383bcf3c0813b272f8c4828473b8df9
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 6ae1f34343e8574ce776fcc5761c078b12bc9977
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948602"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80814824"
 ---
 # <a name="client-access-control-policies-in-ad-fs-20"></a>Criteri di controllo degli accessi client in AD FS 2,0
 I criteri di accesso client in Active Directory Federation Services 2,0 consentono di limitare o concedere agli utenti l'accesso alle risorse.  Questo documento descrive come abilitare i criteri di accesso client in AD FS 2,0 e come configurare gli scenari più comuni.
@@ -45,7 +43,7 @@ Nell'Active Directory attendibilità del provider di attestazioni, creare una nu
 5. Nella pagina Configura regola, in nome regola attestazione, digitare il nome visualizzato per la regola. in tipo di attestazione in ingresso digitare l'URL del tipo di attestazione seguente e quindi selezionare passa attraverso tutti i valori di attestazione.</br>
         `https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip`</br>
 6. Per verificare la regola, selezionarla nell'elenco e fare clic su Modifica regola, quindi su Visualizza lingua regola. Il linguaggio delle regole attestazioni dovrebbe apparire come segue: `c:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip"] => issue(claim = c);`
-7. Fare clic su Finish.
+7. Scegliere Fine.
 8. Nella finestra di dialogo Modifica regole attestazione fare clic su OK per salvare le regole.
 9. Ripetere i passaggi da 2 a 6 per creare una regola attestazioni aggiuntiva per ognuno dei quattro tipi di attestazione rimanenti mostrati sotto fino a quando non sono state create tutte le cinque regole.
 
@@ -83,7 +81,7 @@ Questo scenario di criteri di accesso client consente l'accesso da tutti i clien
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip",
     Value=~"customer-provided public ip address regex"])
     => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "true");` 
-6. Fare clic su Finish. Verificare che la nuova regola venga visualizzata immediatamente sotto la regola Consenti accesso a tutti gli utenti nell'elenco regole di autorizzazione rilascio.
+6. Scegliere Fine. Verificare che la nuova regola venga visualizzata immediatamente sotto la regola Consenti accesso a tutti gli utenti nell'elenco regole di autorizzazione rilascio.
 7. Per salvare la regola, nella finestra di dialogo Modifica regole attestazione fare clic su OK.
 
 >[!NOTE]
@@ -110,7 +108,7 @@ Nell'esempio seguente viene consentito l'accesso a tutte le applicazioni Office 
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip",
     Value=~"customer-provided public ip address regex"])
     => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "true");`
-6. Fare clic su Finish. Verificare che la nuova regola venga visualizzata immediatamente sotto la regola Consenti accesso a tutti gli utenti nell'elenco regole di autorizzazione rilascio.
+6. Scegliere Fine. Verificare che la nuova regola venga visualizzata immediatamente sotto la regola Consenti accesso a tutti gli utenti nell'elenco regole di autorizzazione rilascio.
 7. Per salvare la regola, nella finestra di dialogo Modifica regole attestazione fare clic su OK.
 
 >[!NOTE]
@@ -136,12 +134,12 @@ Il set di regole si basa sulla regola di autorizzazione di rilascio predefinita 
     Value=~"customer-provided public ip address regex"]) &&
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value == "/adfs/ls/"])
     => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "true");`
-6. Fare clic su Finish. Verificare che la nuova regola venga visualizzata immediatamente sotto la regola Consenti accesso a tutti gli utenti nell'elenco regole di autorizzazione rilascio.
+6. Scegliere Fine. Verificare che la nuova regola venga visualizzata immediatamente sotto la regola Consenti accesso a tutti gli utenti nell'elenco regole di autorizzazione rilascio.
 7. Per salvare la regola, nella finestra di dialogo Modifica regole attestazione fare clic su OK.
 
 ### <a name="scenario-4-block-all-external-access-to-office-365-for-designated-active-directory-groups"></a>Scenario 4: bloccare tutto l'accesso esterno a Office 365 per gruppi di Active Directory designati
 
-Nell'esempio seguente viene abilitato l'accesso da client interni in base all'indirizzo IP. Blocca l'accesso dai client che si trovano all'esterno della rete aziendale che dispongono di un indirizzo IP client esterno, ad eccezione di quelli inclusi in un gruppo di Active Directory specificato. il set di regole si basa sulla regola di autorizzazione di rilascio predefinita denominata Consenti accesso a Tutti gli utenti. Usare la procedura seguente per aggiungere una regola di autorizzazione rilascio alla piattaforma di identità Microsoft Office 365 relying party attendibilità usando la creazione guidata regola attestazione:
+Nell'esempio seguente viene abilitato l'accesso da client interni in base all'indirizzo IP. Blocca l'accesso dai client che si trovano all'esterno della rete aziendale che dispongono di un indirizzo IP client esterno, tranne che per gli utenti di un gruppo di Active Directory specificato. il set di regole si basa sulla regola di autorizzazione di rilascio predefinita denominata Consenti l'accesso a tutti gli utenti. Usare la procedura seguente per aggiungere una regola di autorizzazione rilascio alla piattaforma di identità Microsoft Office 365 relying party attendibilità usando la creazione guidata regola attestazione:
 
 #### <a name="to-create-a-rule-to-block-all-external-access-to-office-365-for-designated-active-directory-groups"></a>Per creare una regola per bloccare l'accesso esterno a Office 365 per i gruppi di Active Directory designati
 
@@ -156,7 +154,7 @@ Nell'esempio seguente viene abilitato l'accesso da client interni in base all'in
     NOT exists([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip",
     Value=~"customer-provided public ip address regex"])
     => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "true");`
-6. Fare clic su Finish. Verificare che la nuova regola venga visualizzata immediatamente sotto la regola Consenti accesso a tutti gli utenti nell'elenco regole di autorizzazione rilascio.
+6. Scegliere Fine. Verificare che la nuova regola venga visualizzata immediatamente sotto la regola Consenti accesso a tutti gli utenti nell'elenco regole di autorizzazione rilascio.
 7. Per salvare la regola, nella finestra di dialogo Modifica regole attestazione fare clic su OK.
 
 
@@ -187,7 +185,7 @@ Un singolo indirizzo IP: l'indirizzo IP del client connesso direttamente a Excha
 
 I client connessi alla rete aziendale da una VPN o da Microsoft DirectAccess (DA) possono essere visualizzati come client aziendali interni o come client esterni, a seconda della configurazione di VPN o DA.
 
-Uno o più indirizzi IP: quando Exchange Online non è in grado di determinare l'indirizzo IP del client che si connette, il valore verrà impostato in base al valore dell'intestazione x-inoltred-for, un'intestazione non standard che può essere inclusa nelle richieste basate su HTTP ed è supportata da molti client, bilanciamenti del carico e proxy sul mercato.
+Uno o più indirizzi IP: quando Exchange Online non è in grado di determinare l'indirizzo IP del client che si connette, il valore verrà impostato in base al valore dell'intestazione x-inoltro-for, un'intestazione non standard che può essere inclusa nelle richieste basate su HTTP ed è supportata da molti client, bilanciamenti del carico e proxy sul mercato.
 
 >[!Note]
 >Più indirizzi IP, che indicano l'indirizzo IP del client e l'indirizzo di ogni proxy che ha superato la richiesta, saranno separati da una virgola.
@@ -271,6 +269,6 @@ AD FS eventi di traccia vengono registrati nel log di debug AD FS 2,0. Per abili
 
 Dopo aver abilitato la traccia, usare la sintassi della riga di comando seguente per abilitare il livello di registrazione dettagliato: wevtutil. exe SL "AD FS 2,0 Tracing/debug"/l: 5  
 
-## <a name="related"></a>Informazioni correlate
+## <a name="related"></a>Correlato
 Per ulteriori informazioni sui nuovi tipi di attestazione, vedere [ad FS tipi di attestazione](AD-FS-Claims-Types.md).
 

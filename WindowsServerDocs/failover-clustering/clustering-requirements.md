@@ -5,15 +5,16 @@ ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
+manager: lizross
 ms.technology: storage-failover-clustering
 ms.date: 04/26/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: ebd4e50d712b834db1f0fd7f8e46d27697a4065f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: dec242282b0d7a07b8f244a1044134bd8af03f6f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361217"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827854"
 ---
 # <a name="failover-clustering-hardware-requirements-and-storage-options"></a>Requisiti hardware per il clustering di failover e opzioni di archiviazione
 
@@ -21,8 +22,8 @@ Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, 
 
 Per creare un cluster di failover, è necessario disporre dell'hardware seguente. Per essere supportato da Microsoft, tutto l'hardware deve essere certificato per la versione di Windows Server in esecuzione e la soluzione completa del cluster di failover deve superare tutti i test della Convalida guidata configurazione. Per altre informazioni sulla convalida del cluster di failover, vedere [Convalidare l'hardware per un cluster di failover](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134244(v%3dws.11)>).
 
-- **Server**: è consigliabile utilizzare un insieme di computer corrispondenti che contengono gli stessi componenti o componenti simili.
-- **Cavo e adattatori di rete (per comunicazione di rete)** : In caso di uso di iSCSI, ogni scheda di rete deve essere dedicata alle comunicazioni di rete o a iSCSI, non a entrambi.
+- **Server**: è consigliabile utilizzare un insieme di computer corrispondenti che contengono componenti identici o simili.
+- **Schede di rete e cavo (per la comunicazione di rete)** : se si utilizza iSCSI, ogni scheda di rete deve essere dedicata alla comunicazione di rete o alla configurazione iSCSI, non a entrambe.
 
     Evitare singoli punti di errore nell'infrastruttura di rete utilizzata per la connessione dei nodi del cluster. È ad esempio possibile connettere i nodi del cluster con più reti distinte. In alternativa, è possibile connettere i nodi del cluster con una rete costruita con schede di rete raggruppate, commutatori ridondanti, router ridondanti o hardware analogo che rimuove i singoli punti di errore.
 
@@ -31,9 +32,9 @@ Per creare un cluster di failover, è necessario disporre dell'hardware seguente
 
 - **Controller di dispositivi o adattatori appropriati per l'archiviazione**:
 
-  - **SAS o Fibre Channel**: se si usa SAS o Fibre Channel, in tutti i server del cluster, è preferibile che tutti gli elementi dello stack di archiviazione siano identici. È necessario che il software Multipath I/O (MPIO) sia identico e che il software del modulo specifico del dispositivo (DSM) sia identico. È consigliabile che i controller dei dispositivi di archiviazione di massa, ovvero la scheda bus host (HBA), i driver HBA e il firmware HBA, collegati all'archiviazione del cluster siano identici. Se si utilizzano schede HBA diverse, è opportuno verificare con il fornitore dell'archiviazione che vengano eseguite le configurazioni supportate o consigliate.
-  - **iSCSI**: se si usa iSCSI, ogni server del cluster deve disporre di una o più schede di rete o HBA dedicate all'archiviazione cluster. La rete utilizzata per i dispositivi iSCSI non deve essere utilizzata per la comunicazione di rete. In tutti i server del cluster, le schede di rete utilizzate per eseguire la connessione alla destinazione di archiviazione iSCSI devono essere identiche ed è consigliabile utilizzare Gigabit Ethernet o versione successiva.
-- **Archiviazione**: È necessario usare [spazi di archiviazione diretta](../storage/storage-spaces/storage-spaces-direct-overview.md) o una risorsa di archiviazione condivisa compatibile con windows Server 2012 R2 o windows Server 2012. È possibile utilizzare lo spazio di archiviazione condiviso collegato ed è inoltre possibile utilizzare le condivisioni file SMB 3,0 come archiviazione condivisa per i server che eseguono Hyper-V configurati in un cluster di failover. Per altre informazioni, vedere [Distribuire Hyper-V tramite SMB](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134187(v%3dws.11)>).
+  - **Serial Attached SCSI o Fibre Channel**: se si utilizza Serial Attached SCSI o Fibre Channel, in tutti i server del cluster tutti gli elementi dello stack di archiviazione devono essere identici. È necessario che il software Multipath I/O (MPIO) sia identico e che il software del modulo specifico del dispositivo (DSM) sia identico. È consigliabile che i controller dei dispositivi di archiviazione di massa, ovvero la scheda bus host (HBA), i driver HBA e il firmware HBA, collegati all'archiviazione del cluster siano identici. Se si utilizzano schede HBA diverse, è opportuno verificare con il fornitore dell'archiviazione che vengano eseguite le configurazioni supportate o consigliate.
+  - **iSCSI**: se si utilizza iSCSI, ogni server del cluster deve disporre di una o più schede di rete o HBA dedicate all'archiviazione cluster. La rete utilizzata per i dispositivi iSCSI non deve essere utilizzata per la comunicazione di rete. In tutti i server del cluster, le schede di rete utilizzate per eseguire la connessione alla destinazione di archiviazione iSCSI devono essere identiche ed è consigliabile utilizzare Gigabit Ethernet o versione successiva.
+- **Archiviazione**: è necessario usare [spazi di archiviazione diretta](../storage/storage-spaces/storage-spaces-direct-overview.md) o lo spazio di archiviazione condiviso compatibile con Windows Server 2012 R2 o Windows Server 2012. È possibile utilizzare lo spazio di archiviazione condiviso collegato ed è inoltre possibile utilizzare le condivisioni file SMB 3,0 come archiviazione condivisa per i server che eseguono Hyper-V configurati in un cluster di failover. Per ulteriori informazioni, vedere [Distribuire Hyper-V tramite SMB](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj134187(v%3dws.11)>).
 
     Nella maggior parte dei casi, l'archiviazione collegata deve contenere più dischi separati (LUN, Logical Unit Number) configurati a livello hardware. Per alcuni cluster, un disco viene utilizzato come disco di controllo (descritto alla fine di questa sottosezione). Altri dischi contengono i file necessari per i ruoli del cluster (in precedenza denominati servizi o applicazioni del cluster). Di seguito sono elencati i requisiti di archiviazione:
 
@@ -60,16 +61,16 @@ Per ulteriori informazioni sul ruolo Hyper-V, vedere [Panoramica di Hyper-v](<ht
 
 In fase di distribuzione di una rete SAN con un cluster di failover, attenersi alle linee guida seguenti:
 
-- **Confermare la compatibilità della soluzione di archiviazione**: verificare con i produttori e i fornitori che la soluzione di archiviazione, inclusi driver, firmware e software utilizzati per l'archiviazione, siano compatibili con i cluster di failover nella versione di Windows Server in esecuzione.
+- **Confermare la compatibilità dell'archiviazione**: verificare con i produttori e i fornitori che lo spazio di archiviazione, inclusi i driver, il firmware e il software utilizzati per l'archiviazione, siano compatibili con i cluster di failover nella versione di Windows Server in esecuzione.
 - **Isolare i dispositivi di archiviazione, un cluster per dispositivo**: i server di cluster diversi non devono essere in grado di accedere agli stessi dispositivi di archiviazione. Nella maggior parte dei casi, è consigliabile isolare un LUN utilizzato da un insieme di server del cluster da tutti gli altri server mediante il mascheramento dei LUN o la suddivisione in zone.
-- **Valutare l'uso di software Multipath I/O o di gruppi di schede di rete**: in un fabric di archiviazione a disponibilità elevata è possibile distribuire cluster di failover con più schede bus host usando software Multipath I/O o un gruppo di schede di rete (detto anche bilanciamento del carico e failover). In questo modo viene fornito il livello più elevato di ridondanza e disponibilità. Per Windows Server 2012 R2 o Windows Server 2012, la soluzione a percorsi multipli deve essere basata su Microsoft Multipath I/O (MPIO). Il fornitore dell'hardware offre in genere un modulo DSM MPIO per l'hardware, sebbene Windows Server includa uno o più moduli DSM all'interno del sistema operativo.
+- **Valutare l'utilizzo di software Multipath I/O o di gruppi di schede di rete**: in un fabric di archiviazione a disponibilità elevata è possibile distribuire cluster di failover con più schede bus host utilizzando software Multipath I/O o un gruppo di schede di rete (detto anche bilanciamento del carico e failover). In questo modo viene fornito il livello più elevato di ridondanza e disponibilità. Per Windows Server 2012 R2 o Windows Server 2012, la soluzione a percorsi multipli deve essere basata su Microsoft Multipath I/O (MPIO). Il fornitore dell'hardware offre in genere un modulo DSM MPIO per l'hardware, sebbene Windows Server includa uno o più moduli DSM all'interno del sistema operativo.
 
     Per ulteriori informazioni su LBFO, vedere la pagina relativa alla [Panoramica del gruppo NIC](https://docs.microsoft.com/windows-server/networking/technologies/nic-teaming/nic-teaming) nella raccolta di documentazione tecnica su Windows Server.
 
     >[!IMPORTANT]
     >Le schede HBA e il software Multipath I/O possono variare significativamente in base alle versioni. In caso di implementazione di una soluzione a percorsi multipli per il cluster, è opportuno scegliere attentamente con il fornitore dell'hardware le schede, il firmware e il software corretti per la versione di Windows Server in esecuzione.
 
-- **Valutare l'uso di Spazi di archiviazione**: Se si prevede di distribuire l'archiviazione in cluster SAS (Serial Attached SCSI) configurata usando spazi di archiviazione, vedere [distribuire spazi di archiviazione in cluster](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj822937(v%3dws.11)>) per i requisiti.
+- **Provare a usare spazi di archiviazione**: se si prevede di distribuire l'archiviazione in cluster SAS (Serial Attached SCSI) configurata usando spazi di archiviazione, vedere [distribuire spazi di archiviazione in cluster](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj822937(v%3dws.11)>) per i requisiti.
 
 ## <a name="more-information"></a>Altre informazioni
 

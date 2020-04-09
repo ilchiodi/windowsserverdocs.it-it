@@ -1,7 +1,6 @@
 ---
 ms.assetid: 7b7ae389-5032-44f7-9c0a-94398c3e4d88
 title: Creazione di un'attendibilità della relying party non in grado di riconoscere attestazioni
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b0ea877170a07db6abe9ac82e72d1722600ec933
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: c6886145e910b76edbe99549266d651cdd7c3edf
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358107"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80816924"
 ---
 # <a name="create-a-non-claims-aware-relying-party-trust"></a>Creare un Trust Non attestazioni Relying Party
 
@@ -25,7 +24,7 @@ Non\-attestazioni\-trust della relying party è un trust della relying party cos
   
 Per aggiungere un nuovo non\-attestazioni\-compatibile con trust della relying party, utilizzando lo snap di gestione di ADFS\-eseguire la procedura seguente.  
   
-Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente nel computer locale.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).   
+L'appartenenza al gruppo **Administrators**, o a un gruppo equivalente, nel computer locale è il requisito minimo per eseguire questa procedura.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).   
   
 ## <a name="to-create-a-non-claims-aware-relying-party-trust-manually"></a>Per creare manualmente un attestazioni non compatibile con Trust della Relying Party 
 1. In Server Manager, fare clic su **strumenti**, quindi selezionare **Gestione ADFS**.  
@@ -45,7 +44,7 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 6.  Nel **scegliere Criteri di controllo di accesso** Selezionare un criterio e fare clic su **Avanti**.  Per ulteriori informazioni sui criteri di controllo di accesso, vedere [criteri di controllo di accesso in ADFS](Access-Control-Policies-in-AD-FS.md). 
 ![relying party](media/Create-a-Non-Claims-Aware-Relying-Party-Trust/addnon4.PNG)
 
-7. Nel **Aggiunta attendibilità** pagina, controllare le impostazioni e quindi fare clic su **Avanti** per salvare la relying party trust informazioni.  
+7. Nella pagina **Aggiunta attendibilità** esaminare le impostazioni e quindi fare clic su **Avanti** per salvare le informazioni sul trust della relying party.  
    ![relying party](media/Create-a-Non-Claims-Aware-Relying-Party-Trust/addnon5.PNG) 
 
 8. Nella pagina **Fine** fare clic su **Chiudi**. Con questa azione viene visualizzata automaticamente la finestra di dialogo **Modifica regole attestazione**.  

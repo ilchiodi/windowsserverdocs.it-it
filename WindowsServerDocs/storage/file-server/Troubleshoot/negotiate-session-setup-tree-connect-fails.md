@@ -3,16 +3,15 @@ title: Errori di negoziazione, configurazione della sessione e connessione ad al
 description: Viene illustrato come risolvere i problemi relativi a negoziazione, configurazione della sessione ed errori di connessione ad albero.
 author: Deland-Han
 manager: dcscontentpm
-audience: ITPro
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: 0ccd8d882060432dcfc27ee47b82d0c61e3aad4d
-ms.sourcegitcommit: 8cf04db0bc44fd98f4321dca334e38c6573fae6c
+ms.openlocfilehash: 13124176e530aa7b74d18a38c906bf5297be511e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75654372"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815384"
 ---
 # <a name="negotiate-session-setup-and-tree-connect-failures"></a>Errori di negoziazione, configurazione della sessione e connessione ad albero
 
@@ -30,7 +29,7 @@ Se si usa Windows Server 2008 R2, sono presenti hotfix per questo problema. Veri
 
 Il server SMB riceve una sessione SMB\_richiesta di installazione da un client SMB, ma non è riuscita a rispondere.
 
-Se il nome di dominio completo (FQDN) o il nome NetBIOS (Network Basic Input/Output System) del server viene utilizzato nel percorso Universal Naming Convention (UNC), Windows utilizzerà Kerberos per l'autenticazione.
+Se il nome di dominio completo (FQDN) o il nome di rete Basic Input/Output System (NetBIOS) del server è' sed ' nel percorso Universal Naming Convention (UNC), Windows utilizzerà Kerberos per l'autenticazione.
 
 Dopo la risposta di negoziazione, verrà effettuato un tentativo di ottenere un ticket Kerberos per il nome dell'entità servizio (SPN) Common Internet file System (CIFS) del server. Esaminare il traffico Kerberos sulla porta TCP 88 per assicurarsi che non siano presenti errori Kerberos quando il client SMB sta ottenendo il token.
 
@@ -61,7 +60,7 @@ STATO \[\_accesso\_negato\]
 
 Verificare che il disco e la cartella utilizzati dalla condivisione esistano e siano accessibili.
 
-Se si usa SMBv3 o versione successiva, verificare se il server e la condivisione richiedono la crittografia, ma il client non supporta la crittografia. Per effettuare questa operazione, eseguire le azioni seguenti:
+Se si usa SMBv3 o versione successiva, verificare se il server e la condivisione richiedono la crittografia, ma il client non supporta la crittografia. A tale scopo, effettuare le operazioni seguenti:
 
 - Controllare il server eseguendo il comando seguente.
 
@@ -89,7 +88,7 @@ Seguire queste linee guida durante la risoluzione dei problemi:
 
 ## <a name="references"></a>Riferimenti
 
-Per altre informazioni, vedere gli articoli seguenti.
+Per ulteriori informazioni, vedere gli articoli seguenti.
 
 [3.3.5.4 che riceve una richiesta di negoziazione SMB2](https://docs.microsoft.com/openspecs/windows_protocols/ms-smb2/b39f253e-4963-40df-8dff-2f9040ebbeb1)
 

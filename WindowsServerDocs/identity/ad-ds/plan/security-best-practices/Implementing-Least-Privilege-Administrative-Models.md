@@ -1,7 +1,6 @@
 ---
 ms.assetid: 7a7ab95c-9cb3-4a7b-985a-3fc08334cf4f
 title: Implementazione dei modelli amministrativi con privilegi minimi
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 08/09/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: a2b4bd25c50eb8e76627bb6532345f3c187e4f0e
-ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
+ms.openlocfilehash: c8655c7bac977bf94add1531d299e2fa17ef530d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465535"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80821244"
 ---
 # <a name="implementing-least-privilege-administrative-models"></a>Implementazione dei modelli amministrativi con privilegi minimi
 
@@ -244,7 +243,7 @@ In generale, i controlli di accesso basato sui ruoli (RBAC) sono un meccanismo p
 
 Nell'implementazione RBAC più semplice, è possibile implementare i ruoli come gruppi di dominio Active Directory e delegare i diritti e autorizzazioni per i gruppi che consentono loro di eseguire l'amministrazione giornaliera all'interno dell'ambito designato del ruolo.  
 
-In alcuni casi, è possono utilizzare gruppi di sicurezza esistenti in Active Directory per concedere diritti e le autorizzazioni appropriate per una funzione del processo. Ad esempio, se dipendenti specifici nell'organizzazione IT responsabili della gestione e manutenzione di record e le zone DNS, il delegare le responsabilità può essere semplice come la creazione di un account per ogni amministratore DNS e aggiungerlo al gruppo DNS Admins in Active Directory. Il gruppo DNS Admins, a differenza dei gruppi con privilegi più elevati, ha pochi diritti potenti per Active Directory, anche se i membri di questo gruppo sono stati delegati autorizzazioni che consentono loro di amministrare DNS ed è ancora soggetto a compromessi e abusi possono causare elevazione dei privilegi.
+In alcuni casi, è possono utilizzare gruppi di sicurezza esistenti in Active Directory per concedere diritti e le autorizzazioni appropriate per una funzione del processo. Ad esempio, se dipendenti specifici nell'organizzazione IT responsabili della gestione e manutenzione di record e le zone DNS, il delegare le responsabilità può essere semplice come la creazione di un account per ogni amministratore DNS e aggiungerlo al gruppo DNS Admins in Active Directory. Il gruppo DNS Admins, a differenza dei gruppi con privilegi più elevati, ha pochi diritti potenti per Active Directory, anche se i membri di questo gruppo sono stati delegati autorizzazioni che consentono loro di amministrare DNS e sono ancora soggetti a compromessi e abusi possono comportare un'elevazione dei privilegi.
 
 In altri casi, potrebbe essere necessario creare gruppi di sicurezza e delegare i diritti e autorizzazioni per oggetti di Active Directory, oggetti del file system e gli oggetti del Registro di sistema per consentire ai membri dei gruppi per eseguire attività amministrative designata. Ad esempio, se gli operatori dell'Help Desk sono responsabili per la reimpostazione delle password dimenticate, assistere gli utenti con problemi di connettività e risoluzione dei problemi di impostazioni dell'applicazione, si potrebbe essere necessario combinare le impostazioni di delega per gli oggetti utente in Active Directory con privilegi che consentono agli utenti dell'Help Desk di connettersi in remoto ai computer degli utenti per visualizzare o modificare le impostazioni di configurazione degli utenti. Per definire ogni ruolo, è necessario identificare:  
 
@@ -253,13 +252,13 @@ In altri casi, potrebbe essere necessario creare gruppi di sicurezza e delegare 
 3. Gli utenti che devono essere concesse appartenenza a un ruolo.  
 4. Come verrà eseguita la gestione di appartenenza ai ruoli.  
 
-In molti ambienti, la creazione manuale di controlli di accesso basato sui ruoli per l'amministrazione di un ambiente Active Directory può essere difficile da implementare e gestire. Se è stato definito chiaramente ruoli e responsabilità per l'amministrazione dell'infrastruttura IT, si consiglia di utilizzare altri strumenti che facilitano la creazione di una distribuzione RBAC nativa gestibile. Se, ad esempio, Forefront Identity Manager (FIM) è in uso nell'ambiente in uso, è possibile utilizzare FIM per automatizzare la creazione e popolamento dei ruoli amministrativi, che possono facilitare l'amministrazione in corso. Se si usa Microsoft endpoint Configuration Manager e System Center Operations Manager (SCOM), è possibile usare ruoli specifici dell'applicazione per delegare le funzioni di gestione e monitoraggio, nonché per applicare la configurazione e il controllo coerenti tra i sistemi in dominio. Se è stato implementato un'infrastruttura a chiave pubblica (PKI), è possibile emettere e richiedere smart card per IL personale IT responsabile dell'amministrazione dell'ambiente. Con gestione delle credenziali di FIM (FIM CM), è inoltre possibile combinare la gestione dei ruoli e le credenziali per il personale amministrativo.  
+In molti ambienti, la creazione manuale di controlli di accesso basato sui ruoli per l'amministrazione di un ambiente Active Directory può essere difficile da implementare e gestire. Se è stato definito chiaramente ruoli e responsabilità per l'amministrazione dell'infrastruttura IT, si consiglia di utilizzare altri strumenti che facilitano la creazione di una distribuzione RBAC nativa gestibile. Se, ad esempio, Forefront Identity Manager (FIM) è in uso nell'ambiente in uso, è possibile utilizzare FIM per automatizzare la creazione e popolamento dei ruoli amministrativi, che possono facilitare l'amministrazione in corso. Se si usa Microsoft endpoint Configuration Manager e System Center Operations Manager (SCOM), è possibile usare ruoli specifici dell'applicazione per delegare le funzioni di gestione e monitoraggio, nonché per applicare la configurazione e il controllo coerenti tra i sistemi del dominio. Se è stato implementato un'infrastruttura a chiave pubblica (PKI), è possibile emettere e richiedere smart card per IL personale IT responsabile dell'amministrazione dell'ambiente. Con gestione delle credenziali di FIM (FIM CM), è inoltre possibile combinare la gestione dei ruoli e le credenziali per il personale amministrativo.  
 
 In altri casi, potrebbe essere preferibile per un'organizzazione considerare la distribuzione di software di terze parti RBAC che fornisce la funzionalità "out-of-box". Soluzioni (COTS) commerciali, disponibili sul mercato per RBAC per Active Directory, Windows e le directory non Windows e sistemi operativi sono offerte da un numero di fornitori. Quando si sceglie tra soluzioni native e i prodotti di terze parti, è necessario considerare i fattori seguenti:  
 
 1. Budget: Da investire nello sviluppo di RBAC tramite software e gli strumenti che possono già in uso, è possibile ridurre i costi software coinvolti nella distribuzione di una soluzione. Tuttavia, a meno che non si dispone di personale di esperti nella creazione e distribuzione di soluzioni RBAC native, potrebbe essere necessario coinvolgere consulenze risorse per sviluppare la soluzione. È opportuno valutare attentamente i costi previsti per una soluzione personalizzata con i costi per distribuire una soluzione "out-of-box", in particolare se il budget è limitato.  
 2. Composizione dell'ambiente IT: se l'ambiente è costituito principalmente sistemi Windows, o se già sfruttate Active Directory per la gestione dei sistemi non Windows e gli account, soluzioni personalizzate native possono fornire la soluzione ottimale per le proprie esigenze. Se l'infrastruttura contiene molti sistemi che non sono in esecuzione Windows e non gestiti da Active Directory, è necessario prendere in considerazione le opzioni per la gestione dei sistemi non Windows separatamente dall'ambiente di Active Directory.  
-3. Modello di privilegi nella soluzione: se un prodotto si basa sul posizionamento degli account di servizio in gruppi con privilegi elevati in Active Directory e non offre opzioni che non richiedono privilegi eccessivi per il software RBAC, non è stato effettivamente ridotto la superficie di attacco Active Directory è stata modificata solo la composizione dei gruppi con privilegi più elevati nella directory. A meno che un fornitore dell'applicazione può fornire controlli per gli account di servizio che riducono al minimo la probabilità che l'account viene compromesso e utilizzato da utenti malintenzionati, si consiglia di considerare altre opzioni.  
+3. Modello di privilegi nella soluzione: se un prodotto si basa sul posizionamento degli account di servizio in gruppi con privilegi elevati in Active Directory e non offre opzioni che non richiedono privilegi eccessivi per il software RBAC, non è stata effettivamente ridotta la superficie di attacco Active Directory è stata modificata solo la composizione dei gruppi con privilegi elevati nella directory. A meno che un fornitore dell'applicazione può fornire controlli per gli account di servizio che riducono al minimo la probabilità che l'account viene compromesso e utilizzato da utenti malintenzionati, si consiglia di considerare altre opzioni.  
 
 ### <a name="privileged-identity-management"></a>Privileged Identity Management
 

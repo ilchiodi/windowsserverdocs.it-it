@@ -1,24 +1,20 @@
 ---
 title: robocopy
 description: Informazioni su come usare il comando Robocopy in Windows e Windows Server per copiare i file
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d4c6e8e9-fcb3-4a4a-9d04-2d8c367b6354
 author: coreyp-at-msft
 ms.author: coreyp
 manager: lizapo
 ms.date: 07/25/2018
-ms.openlocfilehash: f675f66eaafbfd79ac6b452a92417159d8ebb28c
-ms.sourcegitcommit: 51e0b575ef43cd16b2dab2db31c1d416e66eebe8
+ms.openlocfilehash: 27a08aabbfd1c2f19f4c70120182f4092cc2a6c9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76259033"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80835674"
 ---
 # <a name="robocopy"></a>robocopy
 
@@ -30,14 +26,14 @@ Copia i dati del file.
 robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |   Parametro    |                                                                                            Descrizione                                                                                           |
 |----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |   > origine \<    |                                                                            Specifica il percorso della directory di origine.                                                                           |
 | > di destinazione \< |                                                                          Specifica il percorso della directory di destinazione.                                                                        |
-|    File di \<     | Specifica il file o i file da copiare. Se lo si desidera, è **&#42;** possibile utilizzare caratteri jolly (o **?** ). Se il parametro **file** non è specificato, viene utilizzato **\*.\*** come valore predefinito. |
-|   Opzioni di \<   |                                                                    Specifica le opzioni da utilizzare con il comando **Robocopy** .                                                                   |
+|    File di \<>     | Specifica il file o i file da copiare. Se lo si desidera, è **&#42;** possibile utilizzare caratteri jolly (o **?** ). Se il parametro **file** non è specificato, viene utilizzato **\*.\*** come valore predefinito. |
+|   Opzioni di \<>   |                                                                    Specifica le opzioni da utilizzare con il comando **Robocopy** .                                                                   |
 
 ### <a name="copy-options"></a>Opzioni di copia
 
@@ -48,7 +44,7 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/Lev:\<N >|Copia solo i primi *N* livelli dell'albero della directory di origine.|
 |/z|Copia i file in modalità riavviabile.|
 |/ b|Copia i file in modalità di backup.|
-|/zb|Usa la modalità riavviabile. Se l'accesso viene negato, questa opzione usa la modalità di backup.|
+|/ZB|Usa la modalità riavviabile. Se l'accesso viene negato, questa opzione Usa la modalità di backup.|
 |/efsraw|Copia tutti i file crittografati in modalità RAW EFS.|
 |/Copy:\<CopyFlags >|Specifica le proprietà del file da copiare. Di seguito sono riportati i valori validi per questa opzione:</br>Dati **D**</br>**Attributi**</br>**Timestamp**</br>Elenco di controllo di accesso NTFS **S** (ACL)</br>Informazioni sul proprietario **O**</br>Informazioni sul controllo **U**</br>Il valore predefinito per **CopyFlags** è **dat** (data, attributi e timestamp).|
 |/DCOPY:\<copyflags\>|Definisce gli elementi da copiare per le directory. Il valore predefinito è DA. Le opzioni sono D = data, A = Attributes e T = timestamps.|
@@ -68,7 +64,7 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/256|Disattiva il supporto per percorsi molto lunghi (più di 256 caratteri).|
 |/Mon:\<N >|Monitora l'origine e viene eseguita di nuovo quando vengono rilevate più di *N* modifiche.|
 |/mot:\<M >|Monitora l'origine e viene eseguita nuovamente in *M* minuti se vengono rilevate modifiche.|
-|/MT[:N]|Crea copie multithread con *N* thread. *N* deve essere un numero intero compreso tra 1 e 128. Il valore predefinito per *N* è 8.</br>Il parametro **/mt** non può essere usato con i parametri **/IPG** e **/EFSRAW** .</br>Reindirizzare l'output utilizzando l'opzione **/log** per ottenere prestazioni migliori.</br>Nota: il parametro/MT si applica a Windows Server 2008 R2 e Windows 7.|
+|/MT [: N]|Crea copie multithread con *N* thread. *N* deve essere un numero intero compreso tra 1 e 128. Il valore predefinito per *N* è 8.</br>Il parametro **/mt** non può essere usato con i parametri **/IPG** e **/EFSRAW** .</br>Reindirizzare l'output utilizzando l'opzione **/log** per ottenere prestazioni migliori.</br>Nota: il parametro/MT si applica a Windows Server 2008 R2 e Windows 7.|
 |/RH: hhmm-HHMM|Specifica i tempi di esecuzione quando è possibile avviare nuove copie.|
 |/PF|Verifica i tempi di esecuzione in base a un singolo file (non al passaggio).|
 |/IPG: n|Specifica il gap tra pacchetti per la larghezza di banda disponibile sulle righe lente.|
@@ -106,7 +102,7 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/MAXLAD:\<N >|Specifica la data massima dell'ultimo accesso (esclude i file non utilizzati da *N*).|
 |/MINLAD:\<N >|Specifica la data di ultimo accesso minima (esclude i file usati da *n*) se *n* è minore di 1900, *n* specifica il numero di giorni. In caso contrario, *N* specifica una data nel formato AAAAMMGG.|
 |/xj|Esclude i punti di giunzione, che in genere sono inclusi per impostazione predefinita.|
-|/fft|Presuppone i tempi dei file FAT (precisione di due secondi).|
+|/fft|Presuppone tempi di file FAT (precisione di due secondi).|
 |/dst|Compensa le differenze temporali di un'ora per l'ora legale.|
 |/xjd|Esclude i punti di giunzione per le directory.|
 |/xjf|Esclude i punti di giunzione per i file.|
@@ -128,15 +124,15 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 |/x|Segnala tutti i file aggiuntivi, non solo quelli selezionati.|
 |/v|Produce output dettagliato e Mostra tutti i file ignorati.|
 |/ts|Include i timestamp del file di origine nell'output.|
-|/fp|Include i nomi di percorso completo dei file nell'output.|
+|/FP|Include i nomi di percorso completo dei file nell'output.|
 |/bytes|Stampa le dimensioni come byte.|
 |/NS|Specifica che le dimensioni dei file non devono essere registrate.|
 |/nc|Specifica che le classi di file non devono essere registrate.|
-|/nfl|Specifica che i nomi dei file non devono essere inseriti nei log.|
-|/ndl|Specifica che i nomi di directory non devono essere inseriti nei log.|
-|/np|Specifica che lo stato dell'operazione di copia (il numero di file o directory copiati finora) non deve essere visualizzato.|
+|/nfl|Specifica che i nomi di file non devono essere registrati.|
+|/ndl|Specifica che i nomi di directory non devono essere registrati.|
+|/np|Specifica che lo stato di avanzamento dell'operazione di copia (il numero di file o directory copiati finora) non verrà visualizzato.|
 |/eta|Mostra il tempo stimato di arrivo (ETA) dei file copiati.|
-|/log: > LogFile\<|Scrive l'output di stato nel file di log sovrascrivendo il file di log esistente.|
+|/log: > LogFile\<|Scrive l'output dello stato nel file di log (sovrascrive il file di log esistente).|
 |/log +:\<LogFile >|Scrive l'output dello stato nel file di log (aggiunge l'output al file di log esistente).|
 |/unicode|Visualizza l'output dello stato come testo Unicode.|
 |/UNILOG: > LogFile\<|Scrive l'output dello stato nel file di log come testo Unicode, sovrascrivendo il file di log esistente.|
@@ -158,7 +154,7 @@ robocopy <Source> <Destination> [<File>[ ...]] [<Options>]
 
 ### <a name="exit-return-codes"></a>Codici di uscita (ritorno)
 
-Value | Descrizione
+Valore | Descrizione
 -- | --
 0 | Nessun file copiato. Non è stato rilevato alcun errore.  Nessun file non corrispondente. I file sono già presenti nella directory di destinazione. Pertanto, l'operazione di copia è stata ignorata.
 1 | Copia di tutti i file completata.
@@ -172,12 +168,12 @@ Value | Descrizione
 > [!NOTE]
 > Qualsiasi valore maggiore di 8 indica che si è verificato almeno un errore durante l'operazione di copia.
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Note
 
 -   L'opzione **/Mir** è equivalente alle opzioni **/e** Plus **/Purge** con una piccola differenza nel comportamento:  
     -   Con le opzioni **/e** Plus **/Purge** , se la directory di destinazione esiste, le impostazioni di sicurezza della directory di destinazione non vengono sovrascritte.
     -   Con l'opzione **/Mir** , se la directory di destinazione esiste, le impostazioni di sicurezza della directory di destinazione vengono sovrascritte.
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
-[Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

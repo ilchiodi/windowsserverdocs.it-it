@@ -1,7 +1,6 @@
 ---
 ms.assetid: 0fd7b6aa-3e50-45a3-a3a6-56982844363e
 title: 'ID evento 2088: si è verificato un errore di ricerca DNS con esito positivo della replica'
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: d51cbcc93a8decbcb72a1e91854a09345507511d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f84fd7be45995e9e0b318b42c8b4152af244a9da
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71368907"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823054"
 ---
 # <a name="event-id-2088-dns-lookup-failure-occurred-with-replication-success"></a>ID evento 2088: errore di ricerca DNS con esito positivo della replica
 
@@ -54,7 +53,7 @@ Percorso del registro di sistema: client RPC HKLM\System\CurrentControlSet\Servi
 
 Azione dell'utente: 
 
-1) Se il controller di dominio di origine non è più funzionante o il sistema operativo è stato reinstallato con un nome computer diverso o un GUID oggetto NTDSDSA, rimuovere i metadati del controller di dominio di origine con Ntdsutil. exe, seguendo la procedura descritta nell'articolo MSKB 216498. 
+1) Se il controller di dominio di origine non è più funzionante o il sistema operativo è stato reinstallato con un nome computer diverso o un GUID oggetto NTDSDSA, rimuovere i metadati del controller di dominio di origine con Ntdsutil. exe, seguendo la procedura descritta nell'articolo 216498 di MSKB. 
 
 2) Verificare che il controller di dominio di origine sia in esecuzione Active Directory e che sia accessibile in rete digitando "NET View \\&lt;nome del controller di dominio di origine&gt;" o "ping &lt;origine DC name&gt;". 
 

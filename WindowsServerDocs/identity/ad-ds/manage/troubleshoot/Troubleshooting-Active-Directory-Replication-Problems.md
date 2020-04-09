@@ -1,7 +1,6 @@
 ---
 ms.assetid: b11f7a65-ec7b-4c11-8dc4-d7cabb54cd94
 title: Risoluzione dei problemi di replica di Active Directory
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: cf6b50ab3b4991bd8cab8523494261f1284945a5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: a3e9c3e901f164d793ca40943934efbbccafda38
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71409065"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822964"
 ---
 # <a name="troubleshooting-active-directory-replication-problems"></a>Risoluzione dei problemi di replica di Active Directory
 
@@ -26,7 +25,7 @@ Nella parte restante di questo argomento vengono illustrati gli strumenti e una 
 
 ## <a name="introduction-and-resources-for-troubleshooting-active-directory-replication"></a>Introduzione e risorse per la risoluzione dei problemi relativi alla replica di Active Directory
 
-L'errore di replica in ingresso o in uscita causa l'incoerenza degli oggetti Active Directory che rappresentano la topologia di replica, la pianificazione della replica, i controller di dominio, gli utenti, i computer, le password, i gruppi di sicurezza, le appartenenze ai gruppi e i Criteri di gruppo tra controller di dominio. L'incoerenza della directory e l'errore di replica causano errori operativi o risultati incoerenti, a seconda del controller di dominio contattato per l'operazione e possono impedire l'applicazione di Criteri di gruppo e le autorizzazioni di controllo di accesso. Active Directory Domain Services (AD DS) dipende dalla connettività di rete, dalla risoluzione dei nomi, dall'autenticazione e dall'autorizzazione, dal database di directory, dalla topologia di replica e dal motore di replica. Quando la causa principale di un problema di replica non è immediatamente ovvia, per determinare la causa tra le diverse cause è necessario eliminare sistematicamente le possibili cause.
+L'errore di replica in ingresso o in uscita causa l'incoerenza tra i controller di dominio Active Directory oggetti che rappresentano la topologia di replica, la pianificazione della replica, i controller di dominio, gli utenti, i computer, le password, i gruppi di sicurezza, le appartenenze ai gruppi e i Criteri di gruppo. L'incoerenza della directory e l'errore di replica causano errori operativi o risultati incoerenti, a seconda del controller di dominio contattato per l'operazione e possono impedire l'applicazione di Criteri di gruppo e le autorizzazioni di controllo di accesso. Active Directory Domain Services (AD DS) dipende dalla connettività di rete, dalla risoluzione dei nomi, dall'autenticazione e dall'autorizzazione, dal database di directory, dalla topologia di replica e dal motore di replica. Quando la causa principale di un problema di replica non è immediatamente ovvia, per determinare la causa tra le diverse cause è necessario eliminare sistematicamente le possibili cause.
 
 Per uno strumento basato su interfaccia utente che consente di monitorare la replica e diagnosticare gli errori, vedere [strumento stato replica di Active Directory](https://www.microsoft.com/download/details.aspx?id=30005)
 
@@ -49,7 +48,7 @@ A volte si verificano errori di replica a causa di interruzioni intenzionali. Ad
 
 ### <a name="intentional-disconnections"></a>Disconnessioni intenzionali
 
-Se gli errori di replica vengono segnalati da un controller di dominio che tenta di eseguire la replica con un controller di dominio compilato in un sito di gestione temporanea ed è attualmente offline in attesa della distribuzione nel sito di produzione finale (un sito remoto, ad esempio una succursale ), è possibile tenere conto di tali errori di replica. Per evitare la separazione di un controller di dominio dalla topologia di replica per periodi prolungati, causando errori continui fino alla riconnessione del controller di dominio, è consigliabile aggiungere tali computer inizialmente come server membri e utilizzare l'installazione dal supporto ( INSTALLAZIONE da supporto) per installare Active Directory Domain Services (AD DS). È possibile utilizzare lo strumento da riga di comando Ntdsutil per creare supporti di installazione che è possibile archiviare su supporti rimovibili (CD, DVD o altri supporti) e spedire al sito di destinazione. Quindi, è possibile usare il supporto di installazione di per installare servizi di dominio Active Directory nei controller di dominio del sito, senza usare la replica. 
+Se gli errori di replica vengono segnalati da un controller di dominio che tenta di eseguire la replica con un controller di dominio compilato in un sito di gestione temporanea ed è attualmente offline in attesa della distribuzione nel sito di produzione finale (un sito remoto, ad esempio una succursale), è possibile tenere conto di tali errori di replica. Per evitare la separazione di un controller di dominio dalla topologia di replica per periodi prolungati, causando errori continui fino alla riconnessione del controller di dominio, è consigliabile aggiungere tali computer inizialmente come server membri e utilizzare il metodo Install from media (installazione da supporto) per installare Active Directory Domain Services (AD DS). È possibile utilizzare lo strumento da riga di comando Ntdsutil per creare supporti di installazione che è possibile archiviare su supporti rimovibili (CD, DVD o altri supporti) e spedire al sito di destinazione. Quindi, è possibile usare il supporto di installazione di per installare servizi di dominio Active Directory nei controller di dominio del sito, senza usare la replica. 
 
 ### <a name="hardware-failures-or-upgradestitle"></a>Errori hardware o aggiornamenti</title>
 
@@ -146,7 +145,7 @@ Strumenti:
 12. Ripetere il passaggio 11 per l'ultima colonna ora di errore, ma usare il valore non è uguale a, quindi digitare il valore 0.
 13. Risolvere gli errori di replica.
 
-Per ogni controller di dominio nella foresta, nel foglio di calcolo vengono visualizzati il partner di replica di origine, l'ora in cui si è verificata l'ultima replica e l'ora in cui si è verificato l'ultimo errore di replica per ogni contesto di denominazione (partizione di directory). Utilizzando Filtro automatico in Excel, è possibile visualizzare l'integrità della replica solo per i controller di dominio in esecuzione, solo per i controller di dominio che hanno esito negativo o per i controller di dominio più o meno recenti ed è possibile visualizzare i partner di replica che eseguono la replica correttamente.
+Per ogni controller di dominio nella foresta, nel foglio di calcolo vengono visualizzati il partner di replica di origine, l'ora in cui si è verificata l'ultima replica e l'ora in cui si è verificato l'ultimo errore di replica per ogni contesto di denominazione (partizione di directory). Utilizzando Filtro automatico in Excel, è possibile visualizzare l'integrità della replica solo per i controller di dominio in esecuzione, solo per i controller di dominio che hanno esito negativo o per i controller di dominio più o meno recenti ed è possibile visualizzare i partner di replica che eseguono correttamente la replica.
 
 ## <a name="replication-problems-and-resolutions"></a>Problemi di replica e soluzioni
 
@@ -158,7 +157,7 @@ La maggior parte dei problemi di replica viene identificata nei messaggi di even
 
 Per identificare Active Directory problemi di replica, usare il comando <system>repadmin/showrepl</system> , come descritto nella sezione precedente. Nella tabella seguente vengono illustrati i messaggi di errore generati da questo comando, insieme alle cause principali degli errori e ai collegamenti ad argomenti che forniscono soluzioni per gli errori.
 
-|Errore repadmin|Causa principale|Soluzione|
+|Errore repadmin|Causa radice|Soluzione|
 | --- | --- | --- |
 |Il tempo trascorso dall'ultima replica con il server ha superato la durata dell'oggetto contrassegnato per la rimozione definitiva.|Un controller di dominio non ha superato la replica in ingresso con il controller di dominio di origine denominato per un periodo di tempo sufficiente perché un'eliminazione sia stata rimossa definitivamente, replicata e sottoposta a Garbage Collection da Active Directory Domain Services.|ID evento 2042: è trascorso troppo tempo dalla replica di questo computer|
 |Nessun Neighbor in ingresso.|Se non viene visualizzato alcun elemento nella sezione "elementi adiacenti in ingresso" dell'output generato da repadmin/showrepl, il controller di dominio non è stato in grado di stabilire collegamenti di replica con un altro controller di dominio.|Correzione dei problemi di connettività della replica (ID evento 1925)| 

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 1df78c2a-5054-4b54-8310-c48ea62e6e0b
 title: Messaggi di errore personalizzati per la pagina di accesso AD ADFS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 98cd1dd6763886a9b9f63ab6eca1c52094424284
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 31da3e65e69910817a78ab1007e897fb5a9ad683
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407556"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80816434"
 ---
 # <a name="custom-error-messages-for-ad-fs-sign-in-page"></a>Messaggi di errore personalizzati per la pagina di accesso AD ADFS  
 
@@ -65,7 +64,7 @@ Per personalizzare il messaggio di errore di posta elettronica di supporto, util
   
 Per personalizzare il messaggio di errore relying party, usare la sintassi e i cmdlet Windows PowerShell seguente.  
 
-    Set-AdfsRelyingPartyWebContent -Name fedpassive -ErrorPageAuthorizationErrorMessage "<p> You need to be a member of Security Auditors to access this site. Click <A href='http://accessrequest/'>here</A> for more information.</p>“  
+    Set-AdfsRelyingPartyWebContent -Name fedpassive -ErrorPageAuthorizationErrorMessage "<p> You need to be a member of Security Auditors to access this site. Click <A href='http://accessrequest/'>here</A> for more information.</p>"  
 
 
 ## <a name="additional-references"></a>Altri riferimenti 

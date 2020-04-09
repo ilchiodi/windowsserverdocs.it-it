@@ -1,7 +1,6 @@
 ---
 ms.assetid: 475e34f9-9399-43f4-a840-9dd77258e11a
 title: Creare una regola per l'appartenenza al gruppo di trasmissione come attestazione
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,20 +8,20 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: b8217302cc0ec5bc6972004cb2f26ffae1371614
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e5777a3310776115f02395df365352be94a89928
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407586"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80816664"
 ---
 # <a name="create-a-rule-to-send-group-membership-as-a-claim"></a>Creare una regola per l'appartenenza al gruppo di trasmissione come attestazione
 
-Utilizzando il modello di regola di invio dell'appartenenza al gruppo come \(attestazione in Active Directory Federation Services ad FS\), è possibile creare una regola che consenta di selezionare un gruppo di sicurezza Active Directory da inviare come attestazione. Verrà generata solo una singola attestazione da questa regola, in base al gruppo selezionato. Ad esempio, è possibile utilizzare questo modello di regola per creare una regola che se l'utente è un membro del gruppo di protezione Domain Admins, invierà un'attestazione di gruppo con un valore di amministrazione. Questa regola deve essere utilizzata solo per gli utenti nel dominio Active Directory locale.  
+Utilizzando il modello di regola di invio dell'appartenenza al gruppo come attestazione in Active Directory Federation Services \(AD FS\), è possibile creare una regola che consenta di selezionare un gruppo di sicurezza Active Directory da inviare come attestazione. Verrà generata solo una singola attestazione da questa regola, in base al gruppo selezionato. Ad esempio, è possibile utilizzare questo modello di regola per creare una regola che se l'utente è un membro del gruppo di protezione Domain Admins, invierà un'attestazione di gruppo con un valore di amministrazione. Questa regola deve essere utilizzata solo per gli utenti nel dominio Active Directory locale.  
   
 È possibile utilizzare la procedura seguente per creare una regola attestazione con lo snap di gestione di ADFS\-in.  
   
-Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo **Administrators** oppure a un gruppo equivalente nel computer locale.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).   
+L'appartenenza al gruppo **Administrators**, o a un gruppo equivalente, nel computer locale è il requisito minimo per eseguire questa procedura.  Informazioni dettagliate sull'utilizzo degli account appropriati e appartenenze [dominio gruppi predefiniti locali e](https://go.microsoft.com/fwlink/?LinkId=83477).   
 
 ## <a name="to-create-a-rule-to-send-group-membership-as-a-claim-on-a-relying-party-trust-in-windows-server-2016"></a>Per creare una regola per inviare l'appartenenza al gruppo come attestazione in un Trust della Relying Party in Windows Server 2016 
 
@@ -40,7 +39,7 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 5.  Nel **Seleziona modello di regola** nella pagina **modello di regola attestazione**, selezionare **inviare l'appartenenza al gruppo come attestazione** dall'elenco, quindi fare clic su **Avanti**.  
 ![Crea regola](media/Create-a-Rule-to-Send-Group-Membership-as-a-Claim/group3.PNG)      
 
-6.   Nella pagina **Configura regola** in **Nome regola attestazione** digitare il nome visualizzato per questa regola, in **gruppo utente** fare clic su **Sfoglia** e selezionare un gruppo, in **tipo attestazione in uscita** selezionare il tipo di attestazione desiderato e quindi **in Tipo di attestazione in uscita** Digitare un valore.
+6.   Nella pagina **Configura regola** in **Nome regola attestazione** digitare il nome visualizzato per questa regola, in **gruppo utente** fare clic **su Sfoglia** e selezionare un gruppo, in **tipo attestazione in uscita** selezionare il tipo di attestazione desiderato e quindi in tipo di **attestazione in uscita** digitare un valore.
 ![Crea regola](media/Create-a-Rule-to-Send-Group-Membership-as-a-Claim/group4.PNG)   
 
 7.  Fare clic sui **Fine** pulsante.  
@@ -63,7 +62,7 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 5.  Nel **Seleziona modello di regola** nella pagina **modello di regola attestazione**, selezionare **inviare l'appartenenza al gruppo come attestazione** dall'elenco, quindi fare clic su **Avanti**.  
 ![Crea regola](media/Create-a-Rule-to-Send-Group-Membership-as-a-Claim/group3.PNG)     
 
-6.   Nella pagina **Configura regola** in **Nome regola attestazione** digitare il nome visualizzato per questa regola, in **gruppo utente** fare clic su **Sfoglia** e selezionare un gruppo, in **tipo attestazione in uscita** selezionare il tipo di attestazione desiderato e quindi **in Tipo di attestazione in uscita** Digitare un valore. 
+6.   Nella pagina **Configura regola** in **Nome regola attestazione** digitare il nome visualizzato per questa regola, in **gruppo utente** fare clic **su Sfoglia** e selezionare un gruppo, in **tipo attestazione in uscita** selezionare il tipo di attestazione desiderato e quindi in tipo di **attestazione in uscita** digitare un valore. 
 ![Crea regola](media/Create-a-Rule-to-Send-Group-Membership-as-a-Claim/group4.PNG)      
 
 7.  Fare clic sui **Fine** pulsante.  
@@ -97,10 +96,10 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 5.  Nel **Seleziona modello di regola** nella pagina **modello di regola attestazione**, selezionare **inviare l'appartenenza al gruppo come attestazione** dall'elenco, quindi fare clic su **Avanti**.  
 ![Crea regola](media/Create-a-Rule-to-Send-Group-Membership-as-a-Claim/group1.PNG)
 
-6.  Nella pagina **Configura regola** in **Nome regola attestazione** digitare il nome visualizzato per questa regola, in **gruppo utente** fare clic su **Sfoglia** e selezionare un gruppo, in **tipo attestazione in uscita** selezionare il tipo di attestazione desiderato e quindi **in Tipo di attestazione in uscita** Digitare un valore.  
+6.  Nella pagina **Configura regola** in **Nome regola attestazione** digitare il nome visualizzato per questa regola, in **gruppo utente** fare clic **su Sfoglia** e selezionare un gruppo, in **tipo attestazione in uscita** selezionare il tipo di attestazione desiderato e quindi in tipo di **attestazione in uscita** digitare un valore.  
 ![Crea regola](media/Create-a-Rule-to-Send-Group-Membership-as-a-Claim/group2.PNG)  
 
-7.  Scegliere **Fine**.  
+7.  Fare clic su **Fine**.  
   
 8.  Nel **Modifica regole attestazione** la finestra di dialogo, fare clic su **OK** per salvare la regola.  
 
@@ -109,9 +108,9 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 ## <a name="additional-references"></a>Altri riferimenti 
 [Configurare le regole delle attestazioni](Configure-Claim-Rules.md)  
  
-[Elenco di controllo: Creazione di regole delle attestazioni per un'istanza di attendibilità del componente](https://technet.microsoft.com/library/ee913578.aspx)  
+[Elenco di controllo: creazione di regole attestazione per un trust della relying party](https://technet.microsoft.com/library/ee913578.aspx)  
 
-[Elenco di controllo: Creazione di regole delle attestazioni per un'istanza di attendibilità del provider di attestazioni](https://technet.microsoft.com/library/ee913564.aspx)  
+[Elenco di controllo: creazione di regole attestazione per un trust del provider di attestazioni](https://technet.microsoft.com/library/ee913564.aspx)  
   
 [Quando usare una regola attestazioni di autorizzazione](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 

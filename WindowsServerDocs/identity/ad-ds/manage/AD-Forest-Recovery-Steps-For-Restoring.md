@@ -1,6 +1,5 @@
 ---
 title: Ripristino della foresta di Active Directory-passaggi per il ripristino della foresta
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: 5a291f65-794e-4fc3-996e-094c5845a383
 ms.technology: identity-adds
-ms.openlocfilehash: 07a043c4361f8eaae30b1dea665c604c0df42333
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 537543bedd68bff002054f637d96240a71f75793
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390293"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823404"
 ---
 # <a name="ad-forest-recovery---steps-for-restoring-the-forest"></a>Ripristino della foresta di Active Directory-passaggi per il ripristino della foresta
 
@@ -30,7 +29,7 @@ Nell'elenco seguente vengono riepilogati i passaggi di ripristino a un livello e
   
 2. [Decidere come ripristinare la foresta](AD-Forest-Recovery-Determine-how-to-Recover.md)  
 
-   Dopo aver determinato che il ripristino della foresta è necessario, completare le procedure preliminari per prepararlo: determinare la struttura della foresta corrente, identificare le funzioni eseguite da ogni controller di dominio, decidere quale controller di dominio ripristinare per ogni dominio e assicurarsi che tutti i controller di dominio scrivibili vengono portati offline.  
+   Dopo aver determinato che il ripristino della foresta è necessario, completare le procedure preliminari per prepararlo: determinare la struttura della foresta corrente, identificare le funzioni eseguite da ogni controller di dominio, decidere quale controller di dominio ripristinare per ogni dominio e assicurarsi che tutti i controller di dominio scrivibili siano portati offline.  
 
 3. [Eseguire il ripristino iniziale](AD-Forest-Recovery-Perform-initial-recovery.md)  
 

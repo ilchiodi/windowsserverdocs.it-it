@@ -1,23 +1,19 @@
 ---
 title: Novità di Windows Server 2016 Essentials
 description: Viene descritto come usare Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: affff774-5fa6-4944-887a-9bfde05f6a3f
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 1d5176a69136e9bad36e22472b8fadbd6d0e9e79
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 420d3b043959b8b1201aad7a5b3210fd9bd6a0da
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80310300"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80817754"
 ---
 # <a name="whats-new-in-windows-server-2016-essentials"></a>Novità di Windows Server 2016 Essentials
 
@@ -27,7 +23,7 @@ Di seguito sono riportate le funzionalità nuove e migliorate di Windows Server 
 
 ## <a name="integration-with-azure-site-recovery-services"></a>[Integrazione con Azure Site Recovery Services](azure-site-recovery-services-integration.md)
 
-**Cosa accade** : quando una macchina virtuale protetta non riesce o il server host in cui viene eseguita la macchina virtuale protetta non riesce, il failover con Azure Site Recovery Services mantiene la continuità aziendale fino a quando la macchina virtuale o il server host locale non viene ripristinato e disponibile. 
+** --&reg;** quando una macchina virtuale protetta ha esito negativo o se il server host in cui viene eseguita la macchina virtuale protetta non riesce, il failover con Azure Site Recovery Services mantiene la continuità aziendale fino a quando la macchina virtuale o il server host locale non viene ripristinato e disponibile. 
 
 **Come funziona** : Azure Site Recovery Services, offerto in Microsoft Azure, consente la replica in tempo reale delle macchine virtuali (VM) in un insieme di credenziali per il backup in Azure. Se il server o il sito si arresta a causa di un errore hardware o di altro genere, è possibile eseguire il failover con Azure Site Recovery servizi in modo che l'immagine di macchina virtuale archiviata nell'insieme di credenziali di backup venga sottoposta a provisioning come macchina virtuale in esecuzione in Azure. In combinazione con una rete virtuale di Azure, i computer client che in precedenza erano connessi al server locale si connetteranno in modo trasparente al server in esecuzione in Azure.     
                                                                                                                                                                                                                                                                                                                
@@ -52,4 +48,4 @@ Alcune piccole imprese più grandi necessitano di più funzionalità e capacità
 <a name="see-also"></a>Vedere anche
 --------
 
-[Introduzione a Windows Server Essentials](get-started.md)
+[Introduzione a Windows Server Essentials](get-started.md) &copy;&reg;

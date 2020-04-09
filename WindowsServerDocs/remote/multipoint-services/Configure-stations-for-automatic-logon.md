@@ -1,24 +1,20 @@
 ---
 title: Configurare le stazioni per l'accesso automatico
 description: Configurare l'accesso automatico per le stazioni MultiPoint
-ms.custom: na
 ms.prod: windows-server
 ms.technology: multipoint-services
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 52fcfac9-d500-4f1d-819f-b2ffc795e435
 author: evaseydl
 manager: scottman
 ms.author: evas
 ms.date: 08/04/2016
-ms.openlocfilehash: 03e9f78bbebfb4c0d3ad8816fee7c815902f303b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 17c85bc8c1c3f42379100559cb0392cb775f9b58
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71389804"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80814634"
 ---
 # <a name="configure-stations-for-automatic-logon"></a>Configurare le stazioni per l'accesso automatico
 Se si vuole che le stazioni siano disponibili per tutti gli utenti e gli utenti non necessitano di cartelle private per archiviare i dati personali o i desktop personalizzati, è possibile configurare le stazioni per l'accesso automatico. L'accesso automatico registra automaticamente un account utente specificato nelle impostazioni di accesso automatico all'avvio di MultiPoint Services.  
@@ -37,4 +33,4 @@ Se si vuole che le stazioni siano disponibili per tutti gli utenti e gli utenti 
     > L'account utente usato per l'accesso automatico deve avere una password.  
   
 > [!NOTE]  
-> Per accedere temporaneamente a una stazione configurata per l'accesso automatico con un account utente diverso, passare il puntatore sull'angolo superiore destro della schermata per visualizzare un menu verticale, fare clic sull'accesso alle impostazioni, fare clic sull'icona di alimentazione, quindi tenere premuto il tasto MAIUSC e fare clic su **Disconnetti t**. Tenere premuto il tasto MAIUSC fino a quando non viene visualizzato un prompt di accesso.
+> Per accedere temporaneamente a una stazione configurata per l'accesso automatico con un account utente diverso, passare il puntatore sull'angolo superiore destro della schermata per visualizzare un menu verticale, fare clic sull'accesso alle impostazioni, fare clic sull'icona di alimentazione, quindi tenere premuto il tasto MAIUSC e fare clic su **Disconnetti**. Tenere premuto il tasto MAIUSC fino a quando non viene visualizzato un prompt di accesso.

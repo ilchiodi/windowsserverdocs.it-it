@@ -1,7 +1,6 @@
 ---
 ms.assetid: bd64a766-5362-4f29-b963-5465c2bb79e7
 title: Pianificazione del posizionamento del ruolo master operazioni
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: eb17ed55ba7d7ba23d21162fd41f4022821948fe
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 990f93d44189a6061653d5e190a176b049a280c4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402529"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822104"
 ---
 # <a name="planning-operations-master-role-placement"></a>Pianificazione del posizionamento del ruolo master operazioni
 
@@ -52,11 +51,11 @@ Queste assegnazioni di ruolo master operazioni automatiche possono causare un ut
 
 L'emulatore PDC elabora le modifiche della password client. Un solo controller di dominio funge da emulatore PDC in ogni dominio della foresta.  
   
-Anche se tutti i controller di dominio vengono aggiornati a Windows 2000, Windows Server 2003 e Windows Server 2008 e il dominio funziona con il livello di funzionalità nativo di Windows 2000, l'emulatore PDC riceve la replica preferenziale delle modifiche della password eseguite da altri controller di dominio nel dominio. Se una password è stata modificata di recente, tale modifica richiede tempo per la replica a ogni controller di dominio nel dominio. Se l'autenticazione di accesso ha esito negativo in un altro controller di dominio a causa di una password non valida, il controller di dominio trasmette la richiesta di autenticazione all'emulatore PDC prima di decidere se accettare o rifiutare il tentativo di accesso.  
+Anche se tutti i controller di dominio vengono aggiornati a Windows 2000, Windows Server 2003 e Windows Server 2008 e il dominio opera al livello di funzionalità nativo di Windows 2000, l'emulatore PDC riceve la replica preferenziale delle modifiche della password eseguite da altri controller di dominio nel dominio. Se una password è stata modificata di recente, tale modifica richiede tempo per la replica a ogni controller di dominio nel dominio. Se l'autenticazione di accesso ha esito negativo in un altro controller di dominio a causa di una password non valida, il controller di dominio trasmette la richiesta di autenticazione all'emulatore PDC prima di decidere se accettare o rifiutare il tentativo di accesso.  
   
 Posizionare l'emulatore PDC in un percorso che contenga un numero elevato di utenti da tale dominio per le operazioni di invio della password, se necessario. Assicurarsi inoltre che il percorso sia ben connesso ad altre posizioni per ridurre al minimo la latenza di replica.  
   
-Per un foglio di lavoro che consente di documentare le informazioni sulla posizione in cui si prevede di inserire gli emulatori PDC e il numero di utenti per ogni dominio rappresentato in ogni posizione, vedere Supporto per i processi per Windows Server 2003 Deployment Kit ([https://go.microsoft.com/fwlink/?LinkID=102558](https://go.microsoft.com/fwlink/?LinkID=102558)), scaricare il processo _Aids_Designing_and_Deploying_Directory_and_Security_Services. zip e aprire il posizionamento del controller di dominio (DSSTOPO_4. doc).  
+Per un foglio di lavoro che consente di documentare le informazioni sulla posizione in cui si prevede di inserire gli emulatori PDC e il numero di utenti per ogni dominio rappresentato in ogni posizione, vedere l'articolo relativo ai processi di supporto per Windows Server 2003 Deployment Kit ([https://go.microsoft.com/fwlink/?LinkID=102558](https://go.microsoft.com/fwlink/?LinkID=102558)), scaricare Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip e aprire la posizione dei controller di dominio (DSSTOPO_4. doc).  
   
 È necessario fare riferimento alle informazioni sui percorsi in cui è necessario inserire gli emulatori PDC quando si distribuiscono i domini regionali. Per ulteriori informazioni sulla distribuzione di domini regionali, vedere [la distribuzione di Windows Server 2008 domini regionali](https://technet.microsoft.com/library/cc755118.aspx).  
   
@@ -83,7 +82,7 @@ Anche se questa configurazione comporta una corretta replica tra tutti i siti, l
 - I controller di dominio nei siti C e D non possono aggiungere o rimuovere partizioni di directory, DNS o di applicazioni personalizzate.  
 - I controller di dominio nei siti C e D non possono apportare modifiche allo schema.  
   
-Per un foglio di lavoro che assiste l'utente nella pianificazione del posizionamento dei ruoli master operazioni, vedere l'argomento [relativo ai processi per Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558), scaricare Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip e aprire il controller di dominio Selezione host (DSSTOPO_4. doc).  
+Per un foglio di lavoro che assiste l'utente nella pianificazione del posizionamento dei ruoli di master operazioni, vedere l'argomento [relativo ai supporti per i processi per Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558), scaricare Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip e aprire la posizione dei controller di dominio (DSSTOPO_4. doc).  
   
 È necessario fare riferimento a queste informazioni quando si creano il dominio radice della foresta e i domini regionali. Per ulteriori informazioni sulla distribuzione del dominio radice della foresta, vedere Distribuzione di un [dominio radice della foresta di Windows Server 2008](https://technet.microsoft.com/library/cc731174.aspx). Per ulteriori informazioni sulla distribuzione di domini regionali, vedere [la distribuzione di Windows Server 2008 domini regionali](https://technet.microsoft.com/library/cc755118.aspx).  
 

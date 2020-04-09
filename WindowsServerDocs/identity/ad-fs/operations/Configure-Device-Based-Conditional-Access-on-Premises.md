@@ -1,7 +1,6 @@
 ---
 ms.assetid: 35de490f-c506-4b73-840c-b239b72decc2
 title: Configurare l'accesso condizionale locale basato su dispositivo
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 08/11/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 0eb0271dd27791e6f59e896e43bf79b15b89e730
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 19e139df53cd1c076f8d5597c1c68b8ffe2cfe91
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949450"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80817174"
 ---
 # <a name="configure-on-premises-conditional-access-using-registered-devices"></a>Configura On-Premise accesso condizionale utilizzando i dispositivi registrati
 
@@ -31,7 +30,7 @@ I prerequisiti seguenti sono necessari prima di iniziare con accesso condizional
 |Sottoscrizione di Azure AD con Azure AD Premium | Per consentire la scrittura di dispositivo per accesso condizionale locale - [è una versione di valutazione gratuita](https://azure.microsoft.com/trial/get-started-active-directory/)  
 |Sottoscrizione a Intune|richiesto solo per l'integrazione con MDM per scenari di conformità dispositivo -[è una versione di valutazione gratuita](https://portal.office.com/Signup/Signup.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&dl=INTUNE_A&ali=1#0)
 |Azure AD Connect|QFE novembre 2015 o versione successiva.  Ottenere la versione più recente [qui](https://www.microsoft.com/download/details.aspx?id=47594).  
-|Windows Server 2016|Compilazione 10586 o versione successiva per ADFS  
+|Windows Server 2016|Compilazione 10586 o versione successiva per ADFS  
 |Schema di Active Directory di Windows Server 2016|È richiesto il livello di schema 85 o superiore.
 |Controller di dominio di Windows Server 2016|Questa operazione è necessaria solo per le distribuzioni con attendibilità delle chiavi di Hello for business.  Altre informazioni sono reperibili [qui](https://aka.ms/whfbdocs).  
 |Client di Windows 10|Compilare 10586 o successive, unito al dominio precedente è necessario per Windows 10 aggiunta a un dominio e Microsoft Passport lavoro solo per gli scenari  
@@ -40,12 +39,12 @@ I prerequisiti seguenti sono necessari prima di iniziare con accesso condizional
 
  
 ## <a name="upgrade-your-active-directory-schema"></a>Aggiornare lo schema di Active Directory
-Per usare l'accesso condizionale locale con i dispositivi registrati, è necessario prima aggiornare lo schema di AD.  Le condizioni seguenti devono essere soddisfatte:
+Per usare l'accesso condizionale locale con i dispositivi registrati, è necessario prima aggiornare lo schema di AD.  Devono essere soddisfatte le condizioni seguenti:
     - Lo schema deve essere 85 o versione successiva
     - Questa operazione è necessaria solo per la foresta a cui AD FS viene aggiunto
 
 > [!NOTE]
-> Se è stato installato Azure AD Connect prima di eseguire l'aggiornamento alla versione dello schema (livello 85 o superiore) in Windows Server 2016, sarà necessario eseguire di nuovo l'installazione di Azure AD Connect e aggiornare lo schema di AD locale per assicurarsi che la regola di sincronizzazione per msDS-KeyCredentialLink è configurato.
+> Se è stato installato Azure AD Connect prima di eseguire l'aggiornamento alla versione dello schema (livello 85 o superiore) in Windows Server 2016, sarà necessario eseguire di nuovo l'installazione di Azure AD Connect e aggiornare lo schema di AD locale per assicurarsi che sia configurata la regola di sincronizzazione per msDS-KeyCredentialLink.
 
 ### <a name="verify-your-schema-level"></a>Verificare il livello di schema
 Per verificare il livello di schema, eseguire le operazioni seguenti:
@@ -82,13 +81,13 @@ A tale scopo, seguire i passaggi descritti nella [impostazione aggiunta ad Azure
 > Se è stato eseguito Azure AD Connect usando le impostazioni rapide, gli oggetti di Active Directory corretti sono stati creati automaticamente.  Tuttavia, nella maggior parte degli scenari di ADFS, Azure AD Connect è stato eseguito con impostazioni personalizzate per configurare ADFS, pertanto i passaggi seguenti sono necessari.  
 
 ### <a name="create-ad-objects-for-ad-fs-device-authentication"></a>Creare gli oggetti Active Directory per l'autenticazione del dispositivo AD FS  
-Se la farm di AD FS non è già configurata per l'autenticazione del dispositivo (puoi vederlo nella console di gestione di AD FS in Servizio -> Registrazione del dispositivo), attieniti alla seguente procedura per creare la configurazione e gli oggetti di dominio Active Directory corretti.  
+Se la farm di ADFS non è già configurata per l'autenticazione del dispositivo (si può vedere nella console di gestione di ADFS in servizio -> registrazione del dispositivo), attenersi alla seguente procedura per creare la configurazione e gli oggetti di dominio Active Directory corretti.  
 
 ![Registrazione del dispositivo](media/Configure-Device-Based-Conditional-Access-on-Premises/device1.png)
 
 >Nota: I comandi seguenti sono necessari strumenti di amministrazione di Active Directory, pertanto, se il server federativo non è anche un controller di dominio, innanzitutto installare gli strumenti mediante il passaggio 1 riportato di seguito.  In caso contrario è possibile ignorare il passaggio 1.  
 
-1.  Esegui la procedura guidata **Aggiungi ruoli e funzionalità** e seleziona la funzionalità **Strumenti di amministrazione server remoto** -> **Strumenti di amministrazione ruoli** -> **Strumenti per Servizi di dominio Active Directory e AD LDS** -> scegli entrambe le opzioni **Modulo di Active Directory per Windows PowerShell** e **Strumenti di Servizi di dominio Active Directory**.
+1.  Eseguire il **Aggiungi ruoli e funzionalità** procedura guidata e selezionare funzionalità **Strumenti di amministrazione remota del Server** -> **Strumenti di amministrazione ruoli** -> **di dominio Active Directory e gli strumenti di AD LDS** -> scegliere entrambi il **modulo Active Directory per Windows PowerShell** e **Strumenti di AD DS**.
 
 ![Registrazione del dispositivo](media/Configure-Device-Based-Conditional-Access-on-Premises/device2.png)
   
@@ -102,7 +101,7 @@ Se la farm di AD FS non è già configurata per l'autenticazione del dispositivo
 
 ![Registrazione del dispositivo](media/Configure-Device-Based-Conditional-Access-on-Premises/device3.png)  
 
-Il comando PSH precedente crea gli oggetti seguenti:  
+PSH precedente crea gli oggetti seguenti:  
 
 
 - Contenitore RegisteredDevices nella partizione di dominio Active Directory  
@@ -111,17 +110,17 @@ Il comando PSH precedente crea gli oggetti seguenti:
 
 ![Registrazione del dispositivo](media/Configure-Device-Based-Conditional-Access-on-Premises/device4.png)  
 
-4. Al termine, viene visualizzato un messaggio di completamento.
+4. Al termine, si verrà visualizzato un messaggio di completamento.
 
 ![Registrazione del dispositivo](media/Configure-Device-Based-Conditional-Access-on-Premises/device5.png) 
 
 ###        <a name="create-service-connection-point-scp-in-ad"></a>Creare il punto di connessione del servizio (SCP) in Active Directory  
-Se intendi utilizzare l'aggiunta al dominio Windows 10 (con la registrazione automatica in Azure AD) come descritto qui, esegui i comandi seguenti per creare un punto di connessione del servizio in AD DS  
-1.  Apri Windows PowerShell ed esegui le operazioni seguenti:
+Se si prevede di utilizzare Windows 10 aggiunta al dominio (con la registrazione automatica in Azure AD) come descritto in questo caso, eseguire i comandi seguenti per creare un punto di connessione del servizio in Active Directory  
+1.  Aprire Windows PowerShell ed eseguire le operazioni seguenti:
     
     `PS C:>Import-Module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1" ` 
 
->Nota: se necessario, copiare il file AdSyncPrep.psm1 dal server Azure AD Connect.  Questo file si trova in Programmi\Microsoft Azure Active Directory Connect\AdPrep
+>Nota: se necessario, copiare il file AdSyncPrep.psm1 dal server Azure AD Connect.  Questo file si trova nel programma c:\Programmi\Microsoft Azure Active Directory Connect\AdPrep
 
 ![Registrazione del dispositivo](media/Configure-Device-Based-Conditional-Access-on-Premises/device6.png)   
 
@@ -135,29 +134,29 @@ Se intendi utilizzare l'aggiunta al dominio Windows 10 (con la registrazione aut
 
    `PS C:>Initialize-ADSyncDomainJoinedComputerSync -AdConnectorAccount [AD connector account name] -AzureADCredentials $aadAdminCred ` 
 
-Dove il valore [nome account del connettore Active Directory] è il nome dell'account configurato in Azure AD Connect quando hai aggiunta la directory di AD DS locale.
+Dove il valore [Active Directory connector account name] è il nome dell'account è stato configurato in Azure AD Connect quando si aggiunge locale di servizi di dominio Active directory.
   
-I comandi precedenti consentono ai client Windows 10 di trovare il corretto dominio Azure AD da aggiungere creando l'oggetto serviceConnectionpoint in AD DS.  
+I comandi precedenti consentono ai client di Windows 10 trovare le impostazioni corrette dominio Azure AD a cui aggiungere creando l'oggetto serviceConnectionpoint in Active Directory.  
 
 ### <a name="prepare-ad-for-device-write-back"></a>Preparare Active Directory per la scrittura di dispositivo indietro   
-Per garantire che contenitori e oggetti di dominio AD DS siano nello stato corretto il writeback dei dispositivi da Azure AD, esegui le operazioni seguenti.
+Per garantire contenitori e oggetti di dominio Active Directory sono nello stato corretto per la scrittura posteriore di dispositivi da Azure AD, eseguire le operazioni seguenti.
 
-1.  Apri Windows PowerShell ed esegui le operazioni seguenti:  
+1.  Aprire Windows PowerShell ed eseguire le operazioni seguenti:  
 
     `PS C:>Initialize-ADSyncDeviceWriteBack -DomainName <AD DS domain name> -AdConnectorAccount [AD connector account name] ` 
 
-Dove il valore [nome account del connettore Active Directory] è il nome dell'account configurato in Azure AD Connect quando hai aggiunta la directory di AD DS locale nel formato dominio\nomeaccount  
+Dove il valore [Active Directory connector account name] è il nome dell'account è stato configurato in Azure AD Connect quando si aggiungono locale directory di Active Directory in formato domain\accountname  
 
-Il comando precedente crea gli oggetti seguenti per il writeback dei dispositivi ad AD DS, se non sono già presenti e consente l'accesso al nome dell'account del connettore Active Directory specificato  
+Il comando precedente crea gli oggetti seguenti per la scrittura di dispositivo al dominio di Active Directory, se non esistono già e consente l'accesso al nome dell'account specificato Active Directory connector  
 
 - Contenitore RegisteredDevices nella partizione di dominio Active Directory  
 - Contenitore del servizio Registrazione dispositivi e sull'oggetto configurazione--> Servizi--> Configurazione registrazione del dispositivo  
 
-### <a name="enable-device-write-back-in-azure-ad-connect"></a>Abilitare il writeback dei dispositivi in Azure AD Connect  
-Se non è mai stato fatto prima, abilita il writeback dei dispositivi in Azure AD Connect eseguendo la procedura guidata una seconda volta e scegliendo **"Personalizzare le opzioni di sincronizzazione"** , quindi selezionando la casella per il writeback dei dispositivi e la foresta in cui sono stati eseguiti i cmdlet precedenti  
+### <a name="enable-device-write-back-in-azure-ad-connect"></a>Abilitare la scrittura di dispositivo in Azure AD Connect  
+Se non è pertanto, prima di fatto, abilitare la scrittura di dispositivo in Azure AD Connect eseguendo la procedura guidata una seconda volta e scegliendo **"Personalizzare le opzioni di sincronizzazione"** , quindi selezionando la casella per la scrittura di dispositivo indietro e selezionare la foresta in cui è stato eseguito il cmdlet precedente  
 
-### <a name="configure-device-authentication-in-ad-fs"></a>Configurare l'autenticazione del dispositivo in AD FS  
-Utilizzando un prompt dei comandi PowerShell con privilegi elevato, configurare i criteri di AD FS eseguendo il comando seguente  
+### <a name="configure-device-authentication-in-ad-fs"></a>Configurare l'autenticazione del dispositivo in ADFS  
+Utilizzando un prompt dei comandi PowerShell con privilegi elevato, configurare i criteri di ADFS eseguendo il comando seguente  
 
 `PS C:>Set-AdfsGlobalAuthenticationPolicy -DeviceAuthenticationEnabled $true -DeviceAuthenticationMethod All` 
 
@@ -166,8 +165,8 @@ Per riferimento, di seguito è un elenco completo dei dispositivi, contenitori e
  
 
 
-- oggetto di tipo ms-DS-DeviceContainer in CN = RegisteredDevices, DC =&lt;dominio&gt;        
-    - accesso in lettura all'account del servizio AD FS   
+- oggetto di tipo ms-DS-DeviceContainer in CN = RegisteredDevices, DC =&lt;dominio&gt;          
+    - accesso in lettura all'account del servizio ADFS   
     - accesso in lettura/scrittura per l'account di Active Directory connector di sincronizzazione Azure AD Connect</br></br>
 
 - Contenitore CN=Configurazione registrazione dispositivi,CN=Servizi,CN=Configurazione,DC=&lt;dominio&gt;  
@@ -177,7 +176,7 @@ Per riferimento, di seguito è un elenco completo dei dispositivi, contenitori e
  
 
 
-- oggetto di tipo serviceConnectionpoint in CN=&lt;guid&gt;, CN=Registrazione del dispositivo
+- oggetto di tipo serviceConnectionpoint in CN =&lt;guid&gt;, CN = registrazione del dispositivo
 
 - Configuration, CN=Servizi,CN=Configurazione,DC=&lt;dominio&gt;  
   - accesso in lettura/scrittura per il nome di account del connettore di Active Directory specificato per il nuovo oggetto</br></br> 
@@ -222,7 +221,7 @@ Per abilitare la registrazione MDM automatica dei dispositivi registrati in modo
     4. Provare a eseguire nuovamente la registrazione del dispositivo o registrazione  
 
 ### <a name="related-articles"></a>Articoli correlati  
-* [Protezione dell'accesso a Office 365 e ad altre app connesse ad Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access/)  
+* [Protezione dell'accesso a Office 365 e ad altre app connesse a Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access/)  
 * [Criteri di accesso condizionale dei dispositivi per i servizi di Office 365](https://azure.microsoft.com/documentation/articles/active-directory-conditional-access-device-policies/)  
-* [Configurazione dell'accesso condizionale locale usando il servizio Registrazione dispositivo di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup)  
-* [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-devices-group-policy/)  
+* [Configurazione dell'accesso condizionale locale usando Registrazione dispositivo Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup)  
+* [Connetti i dispositivi aggiunti a un dominio al Azure AD per le esperienze di Windows 10](https://azure.microsoft.com/documentation/articles/active-directory-azureadjoin-devices-group-policy/)  

@@ -5,15 +5,16 @@ ms.prod: windows-server
 ms.topic: article
 author: JasonGerend
 ms.author: jgerend
+manager: lizross
 ms.technology: storage-failover-clustering
 ms.date: 06/07/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: da0f541c34c7f8687822bec365364fdd406fa3c3
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 1d275e0379b5374899437bcf1f0387b304350840
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79322693"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827744"
 ---
 # <a name="use-cluster-shared-volumes-in-a-failover-cluster"></a>Usare i volumi condivisi del cluster in un cluster di failover
 
@@ -31,7 +32,7 @@ CSV fornisce un file system cluster, per utilizzo generico, sovrapposto a NTFS (
 
 In Windows Server 2012, la funzionalità CSV è stata notevolmente migliorata. Sono state ad esempio rimosse le dipendenze da Servizi di dominio Active Directory. È stato aggiunto supporto per i miglioramenti funzionali in **chkdsk**, per l'iinteroperabilità con applicazioni antivirus e di backup e per l'integrazione con funzionalità generali di archiviazione, quali i volumi con crittografia BitLocker e Spazi di archiviazione. Per una panoramica delle funzionalità CSV introdotte in Windows Server 2012, vedere Novità relative [al clustering di failover in Windows server 2012 \[reindirizzato\]](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)>).
 
-Windows Server 2012 R2 introduce funzionalità aggiuntive, ad esempio la proprietà CSV distribuita, una maggiore resilienza tramite la disponibilità del servizio Server, una maggiore flessibilità nella quantità di memoria fisica che può essere allocata alla cache CSV, meglio funzione diagnostica e interoperabilità avanzata che include il supporto per ReFS e deduplicazione. Per ulteriori informazioni, vedere Novità [di clustering di failover](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)>).
+Windows Server 2012 R2 introduce funzionalità aggiuntive, ad esempio la proprietà CSV distribuita, una maggiore resilienza tramite la disponibilità del servizio Server, una maggiore flessibilità nella quantità di memoria fisica che può essere allocata alla cache CSV, una migliore funzione diagnostica e un'interoperabilità avanzata che include il supporto per ReFS e deduplicazione. Per ulteriori informazioni, vedere Novità [di clustering di failover](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn265972(v%3dws.11)>).
 
 > [!NOTE]
 > Per informazioni sull'uso della deduplicazione dati in CSV per scenari VDI (Virtual Desktop Infrastructure), vedere i post di blog sulla [distribuzione della deduplicazione dati per l'archiviazione VDI in Windows Server 2012 R2](https://blogs.technet.com/b/filecab/archive/2013/07/31/deploying-data-deduplication-for-vdi-storage-in-windows-server-2012-r2.aspx) e su come [estendere la deduplicazione dati a nuovi carichi di lavoro in Windows Server 2012 R2](https://blogs.technet.com/b/filecab/archive/2013/07/31/extending-data-deduplication-to-new-workloads-in-windows-server-2012-r2.aspx).
@@ -65,7 +66,7 @@ Per una panoramica dei requisiti hardware, di rete e di archiviazione per i clus
 
 #### <a name="about-io-synchronization-and-io-redirection-in-csv-communication"></a>Informazioni sulla sincronizzazione I/O e sulla modalità I/O reindirizzata nelle comunicazioni CSV
 
-- **Sincronizzazione i/O**: CSV consente a più nodi di avere accesso simultaneo in lettura/scrittura alla stessa archiviazione condivisa. Quando un nodo esegue operazioni di input/output (I/O) del disco in un volume CSV, il nodo comunica direttamente con l'archiviazione, ad esempio tramite una rete di archiviazione (SAN, Storage Area Network). Tuttavia, in qualsiasi momento, un singolo nodo, definito nodo coordinatore, è "proprietario" della risorsa Disco fisico associata al LUN. Il nodo coordinatore per un volume CSV è visualizzato in Gestione cluster di failover come **Nodo proprietario** in **Dischi**. Viene anche visualizzato nell'output del cmdlet [Get-ClusterSharedVolume](https://docs.microsoft.com/powershell/module/failoverclusters/get-clustersharedvolume?view=win10-ps) di Windows PowerShell.
+- **Sincronizzazione i/O**: CSV consente a più nodi di avere accesso simultaneo in lettura/scrittura alla stessa archiviazione condivisa. Quando un nodo esegue operazioni di input/output (I/O) del disco in un volume CSV, il nodo comunica direttamente con l'archiviazione, ad esempio tramite una rete di archiviazione (SAN, Storage Area Network). Tuttavia, in qualsiasi momento, un singolo nodo, denominato nodo coordinatore, è "proprietario" della risorsa disco fisico associata al LUN. Il nodo coordinatore per un volume CSV è visualizzato in Gestione cluster di failover come **Nodo proprietario** in **Dischi**. Viene anche visualizzato nell'output del cmdlet [Get-ClusterSharedVolume](https://docs.microsoft.com/powershell/module/failoverclusters/get-clustersharedvolume?view=win10-ps) di Windows PowerShell.
 
   >[!NOTE]
   >In Windows Server 2012 R2 la proprietà CSV è distribuita in modo uniforme tra i nodi del cluster di failover in base al numero di volumi CSV di cui è proprietario ogni nodo. La proprietà viene anche ribilanciata automaticamente in caso di condizioni quali il failover del volume CSV, il reinserimento di un nodo nel cluster, l'aggiunta di un nuovo nodo al cluster, il riavvio di un nodo del cluster o l'avvio del cluster di failover dopo l'arresto.

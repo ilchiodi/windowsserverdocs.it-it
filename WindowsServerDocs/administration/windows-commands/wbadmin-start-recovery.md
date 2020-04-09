@@ -1,24 +1,20 @@
 ---
 title: wbadmin Avvia ripristino
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento Windows Commands per Wbadmin start Recovery, che esegue un'operazione di ripristino in base ai parametri specificati.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 52381316-a0fa-459f-b6a6-01e31fb21612
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: edb287573dc76619502faf58018f48c464140629
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6b5a65e67e7a34ca5263c85c1038820e0a4fc1ed
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362355"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829614"
 ---
 # <a name="wbadmin-start-recovery"></a>wbadmin Avvia ripristino
 
@@ -48,7 +44,7 @@ wbadmin start recovery
 [-quiet]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
@@ -65,7 +61,7 @@ wbadmin start recovery
 |-noRollForward|Valido solo durante il ripristino di applicazioni. Consente di ripristino temporizzato nel precedente di un'applicazione se è selezionata la versione più recente dal backup. Per altre versioni dell'applicazione che non sono il ripristino temporizzato nel precedente più recente, viene eseguito come il valore predefinito.|
 |-quiet|Esegue il sottocomando senza alcuna richiesta visualizzata all'utente.|
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Note
 
 -   Per visualizzare un elenco di elementi che sono disponibili per il ripristino da una versione di backup specifico, utilizzare **wbadmin ottenere elementi**. Se un volume non è una lettera di unità o punto di montaggio al momento del backup, il sottocomando restituirà un nome di volume basato su GUID da utilizzare per il ripristino del volume.
 -   Quando il **- itemtype** è **App**, è possibile utilizzare un valore di **ADIFM** per **-elemento** per eseguire un'installazione da supporto operazione per recuperare tutti i dati correlati necessari per servizi di dominio Active Directory. **ADIFM** Crea una copia del database di Active Directory, Registro di sistema e lo stato SYSVOL e quindi Salva queste informazioni nella posizione specificata da **- recoveryTarget**. Utilizzare questo parametro solo quando **- recoveryTarget** specificato.
@@ -73,7 +69,7 @@ wbadmin start recovery
 >     [!NOTE]
 >     Before using **wbadmin** to perform an install from media operation, you should consider using the **ntdsutil** command because **ntdsutil** only copies the minimum amount of data needed, and it uses a more secure data transport method.
 
-## <a name="BKMK_Examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
 
 Per eseguire un ripristino del backup da 31 marzo 2013, eseguito alle 9:00, del volume d:, digitare:
 ```
@@ -97,9 +93,9 @@ Per eseguire un ripristino del backup dal 30 aprile 2013, eseguito alle ore 9:00
 wbadmin start recovery -version:04/30/2013-09:00 -backupTarget:\\servername\share -machine:server01
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
 -   [Inizio WBFileRecovery](https://technet.microsoft.com/library/jj902457.aspx) cmdlet
 -   [Inizio WBHyperVRecovery](https://technet.microsoft.com/library/jj902463.aspx) cmdlet

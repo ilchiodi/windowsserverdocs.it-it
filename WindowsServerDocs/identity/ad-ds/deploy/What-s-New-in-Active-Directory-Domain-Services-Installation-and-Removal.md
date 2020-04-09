@@ -1,7 +1,6 @@
 ---
 ms.assetid: ba7f2b9f-7351-4680-b7d8-a5f270614f1c
 title: Novità nelle procedure di installazione e rimozione di Active Directory Domain Services
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 08/09/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 1f24615491391d932609d7f80549985818ced8c1
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: b290b11487ce84b0c7cd962b272f52fea538769a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323203"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824944"
 ---
 # <a name="whats-new-in-active-directory-domain-services-installation-and-removal"></a>Novità nelle procedure di installazione e rimozione di Active Directory Domain Services
 
@@ -36,7 +35,7 @@ L'installazione di Servizi di dominio Active Directory include le funzionalità 
 - **È possibile esportare uno script di Windows PowerShell contenente tutte le opzioni specificate durante l'installazione grafica.** Al termine di un'installazione o di una rimozione, è possibile esportare le impostazioni in uno script di Windows PowerShell da usare per l'automazione della stessa operazione.  
 - **Prima del riavvio viene eseguita solo la replica della parte critica.** Nuova opzione che consente la replica dei dati non critici prima del riavvio. Per ulteriori informazioni, vedere [Argomenti del cmdlet ADDSDeployment](../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md#BKMK_Params).  
 
-## <a name="BKMK_ADConfigurationWizard"></a>Configurazione guidata di Active Directory Domain Services
+## <a name="the-active-directory-domain-services-configuration-wizard"></a><a name="BKMK_ADConfigurationWizard"></a>Configurazione guidata di Active Directory Domain Services
 
 A partire da Windows Server 2012, la configurazione guidata servizi di dominio Active Directory sostituisce il precedente dominio servizi di installazione guidata Active Directory come l'opzione DELL'interfaccia utente per specificare le impostazioni quando si installa un controller di dominio. La Configurazione guidata Servizi di dominio Active Directory viene avviata al termine dell'Aggiunta guidata ruoli.  
 
@@ -45,7 +44,7 @@ A partire da Windows Server 2012, la configurazione guidata servizi di dominio A
 
 In [installare i servizi di dominio Active Directory e 40 #; Livello 100 & #41;](../../ad-ds/deploy/Install-Active-Directory-Domain-Services--Level-100-.md), le procedure dell'interfaccia Utente viene illustrato come avviare Aggiunta guidata ruoli per installare il server di dominio Active Directory di file binari del ruolo e quindi eseguire Active Directory Domain Services configurazione guidata per completare l'installazione di controller di dominio. Gli esempi di Windows PowerShell mostrano come completare entrambi i passaggi utilizzando un cmdlet di distribuzione di Servizi di dominio Active Directory.  
   
-## <a name="BKMK_NewAdprep"></a>Integrazione di Adprep. exe
+## <a name="adprepexe-integration"></a><a name="BKMK_NewAdprep"></a>Integrazione di Adprep. exe
 
 A partire da Windows Server 2012, esiste una sola versione di Adprep. exe (non è disponibile una versione a 32 bit, Adprep32. exe). I comandi adprep vengono eseguiti automaticamente in base alle esigenze quando si installa un controller di dominio che esegue Windows Server 2012 in un dominio o in una foresta Active Directory esistente.  
   
@@ -104,7 +103,7 @@ Il comando adprep /domainprep /gpprep non viene eseguito nell'ambito dell'instal
 
 È possibile aggiungere in modo sicuro controller di dominio che eseguono Windows Server 2012 a un dominio esistente senza eseguire adprep/domainprep/gpprep, ma la modalità di pianificazione di RSOP non funzionerà correttamente.  
 
-## <a name="BKMK_PrereqCheck"></a>Convalida dei prerequisiti di installazione di servizi di dominio Active Directory
+## <a name="ad-ds-installation-prerequisite-validation"></a><a name="BKMK_PrereqCheck"></a>Convalida dei prerequisiti di installazione di servizi di dominio Active Directory
 
 La procedura guidata di installazione di Servizi di dominio Active Directory verifica che i prerequisiti seguenti siano soddisfatti prima di avviare l'installazione. Viene così concessa l'opportunità di risolvere i potenziali problemi che potrebbero ostacolare l'installazione.  
   
@@ -122,13 +121,13 @@ Di seguito sono elencate altre verifiche dei prerequisiti che sono state eredita
 - Verifica del nome del dominio figlio: assicura che il nome del dominio padre e il nome del nuovo dominio figlio sono validi e non causano conflitti con i domini esistenti.  
 - Verifica del nome del dominio albero: assicura che il nome dell'albero specificato è valido e non esiste già.  
 
-## <a name="BKMK_SystemReqs"></a>Requisiti di sistema
+## <a name="system-requirements"></a><a name="BKMK_SystemReqs"></a>Requisiti di sistema
 
 I requisiti di sistema per Windows Server 2012 sono rimasti invariati rispetto a Windows Server 2008 R2. Per ulteriori informazioni, vedere [requisiti di sistema di Windows Server 2008 R2 con SP1](https://www.microsoft.com/windowsserver2008/en/us/system-requirements.aspx) (https://www.microsoft.com/windowsserver2008/en/us/system-requirements.aspx).  
 
 Alcune funzionalità potrebbero prevedere requisiti aggiuntivi. Ad esempio, la funzionalità di clonazione del controller di dominio virtuale richiede che l'emulatore PDC esegua Windows Server 2012 e un computer che esegue Windows Server 2012 con il ruolo Hyper-V installato.  
 
-## <a name="BKMK_KnownIssues"></a>Problemi noti
+## <a name="known-issues"></a><a name="BKMK_KnownIssues"></a>Problemi noti
 
 In questa sezione sono elencati alcuni dei problemi che influiscono sull'installazione di Active Directory in Windows Server 2012. Per informazioni su altri problemi noti, vedere [Risoluzione dei problemi relativi alla distribuzione del controller di dominio](../../ad-ds/deploy/Troubleshooting-Domain-Controller-Deployment.md).  
 
@@ -230,7 +229,7 @@ Se si verifica questo problema, controllare il file dcpromo.log nella cartella %
 
    Se l'errore è causato dal fatto di aver specificato un account amministratore locale e la relativa password, per correggerlo è necessario reinstallare il sistema operativo, [eseguire la pulizia dei metadati](https://technet.microsoft.com/library/cc816907(WS.10).aspx) dell'account per il controller di dominio che non è stato in grado di completare l'installazione e quindi riprovare l'installazione di Servizi di dominio Active Directory usando credenziali di amministratore di dominio. Il riavvio del server non consente di correggere la condizione di errore, in quanto il server indicherà che Servizi di dominio Active Directory è installato anche se l'installazione non è stata completata.  
 
-### <a name="BKMK_nonnormalDNSNameWarning"></a>La configurazione guidata di Active Directory Domain Services genera un avviso quando viene specificato un nome DNS non normalizzato
+### <a name="active-directory-domain-services-configuration-wizard-warns-when-a-non-normalized-dns-name-is-specified"></a><a name="BKMK_nonnormalDNSNameWarning"></a>La configurazione guidata di Active Directory Domain Services genera un avviso quando viene specificato un nome DNS non normalizzato
 
 Se si crea un nuovo dominio o una nuova foresta e si specifica un nome di dominio DNS che include caratteri internazionali in forma non normalizzata, la Configurazione guidata Servizi di dominio Active Directory avvisa che le query DNS relative al nome potrebbero avere esito negativo. Sebbene il nome di dominio DNS venga specificato nella pagina Configurazione distribuzione, l'avviso viene visualizzato in una pagina successiva della procedura guidata: Controllo dei prerequisiti.  
 

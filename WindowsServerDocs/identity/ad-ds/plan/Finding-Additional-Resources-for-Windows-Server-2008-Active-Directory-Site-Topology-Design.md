@@ -1,24 +1,22 @@
 ---
 ms.assetid: eca5bbf0-088e-4753-bf49-4d6c1125f689
 title: Ricerca di risorse aggiuntive per la progettazione della topologia del sito di Windows Server 2008 Active Directory
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
-ms.technology: identity-adds
-ms.openlocfilehash: 1b94197e850b0bf0865c9281281ad063102c29eb
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 49709ca40c515c8fdb7df62598e9a9dc766029c8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408826"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822454"
 ---
-# <a name="finding-additional-resources-for-windows-server-2008-active-directory-site-topology-design"></a>Ricerca di risorse aggiuntive per la progettazione della topologia del sito di Windows Server 2008 Active Directory
-
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+
+# <a name="finding-additional-resources-for-windows-server-2008-active-directory-site-topology-design"></a>Ricerca di ulteriori resou # RCE per Windows Server 2008 Active Directory progettazione della topologia del sito
 
 È possibile trovare la documentazione seguente su Active Directory Domain Services (AD DS) di Windows Server 2003 e siti Web di Windows Server 2008 TechCenter:  
   
@@ -52,7 +50,7 @@ ms.locfileid: "71408826"
   
 -   Per informazioni sulla gestione della replica tramite firewall, vedere Active Directory in reti segmentate in base ai firewall ([https://go.microsoft.com/fwlink/?LinkId=37928](https://go.microsoft.com/fwlink/?LinkId=37928)).  
   
--   Per ulteriori informazioni sulle funzionalità del controller di dominio di sola lettura (RODC), vedere Servizi di dominio Active Directory: Controller di dominio di sola lettura ([https://go.microsoft.com/fwlink/?LinkID=106616](https://go.microsoft.com/fwlink/?LinkID=106616)).  
+-   Per ulteriori informazioni sulle funzionalità del controller di dominio di sola lettura (RODC), vedere Servizi di dominio Active Directory: controller di dominio di sola lettura ([https://go.microsoft.com/fwlink/?LinkID=106616](https://go.microsoft.com/fwlink/?LinkID=106616)).  
   
 -   Per informazioni su come distribuire un controller di dominio di sola lettura, vedere la guida dettagliata per i controller di dominio di sola lettura ([https://go.microsoft.com/fwlink/?LinkID=92728](https://go.microsoft.com/fwlink/?LinkID=92728)).  
   

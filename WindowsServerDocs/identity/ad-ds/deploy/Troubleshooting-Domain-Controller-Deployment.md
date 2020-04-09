@@ -1,7 +1,6 @@
 ---
 ms.assetid: 5ab76733-804d-4f30-bee6-cb672ad5075a
 title: Risoluzione dei problemi relativi alla distribuzione di controller di dominio
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 88fc0e14569c395bd1479ead338d83bffc2fd72f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 41e2740c5e11b6a54a544d5c895d6bee27232680
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369621"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824924"
 ---
 # <a name="troubleshooting-domain-controller-deployment"></a>Risoluzione dei problemi relativi alla distribuzione di controller di dominio
 
@@ -32,11 +31,11 @@ I log predefiniti rappresentano lo strumento più importante per la risoluzione 
 
 |Fase|Log|  
 |---------|-------|  
-|Operazioni di Server Manager o di ADDSDeployment per Windows PowerShell|- %systemroot%\debug\dcpromoui.log<br /><br />-%SystemRoot%\Debug\Dcpromoui *. log|  
-|Installazione/innalzamento di livello del controller di dominio|-%systemroot%\debug\dcpromo.log.<br /><br />-%systemroot%\debug\dcpromo *. log<br /><br />-Event viewer\Windows logs\System<br /><br />-Event viewer\Windows registri Windows\Applicazione<br /><br />-Servizio logs\Directory dell'evento Visualizzatore e servizi<br /><br />-Visualizzatore di eventi e servizi logs\File servizio di replica<br /><br />-Visualizzatore evento e servizi logs\DFS replica|  
-|Aggiornamento della foresta o del dominio|-%SystemRoot%\debug\adprep\\<datetime>\adprep.log<br /><br />-%SystemRoot%\debug\adprep\\<datetime>\csv.log<br /><br />-%SystemRoot%\debug\adprep\\<datetime>\dspecup.log<br /><br />-%SystemRoot%\debug\adprep\\<datetime>\ldif.log *|  
+|Operazioni di Server Manager o di ADDSDeployment per Windows PowerShell|- %systemroot%\debug\dcpromoui.log<p>-%SystemRoot%\Debug\Dcpromoui *. log|  
+|Installazione/innalzamento di livello del controller di dominio|-%systemroot%\debug\dcpromo.log.<p>-%systemroot%\debug\dcpromo *. log<p>-Event viewer\Windows logs\System<p>-Event viewer\Windows registri Windows\Applicazione<p>-Servizio logs\Directory dell'evento Visualizzatore e servizi<p>-Visualizzatore di eventi e servizi logs\File servizio di replica<p>-Visualizzatore evento e servizi logs\DFS replica|  
+|Aggiornamento della foresta o del dominio|-%SystemRoot%\debug\adprep\\<datetime>\adprep.log<p>-%SystemRoot%\debug\adprep\\<datetime>\csv.log<p>-%SystemRoot%\debug\adprep\\<datetime>\dspecup.log<p>-%SystemRoot%\debug\adprep\\<datetime>\ldif.log *|  
 |Motore di distribuzione di Server Manager o di ADDSDeployment per Windows PowerShell|-Event visualizzatore and Services logs\Microsoft\Windows\DirectoryServices-Deployment\Operational|  
-|Manutenzione pacchetti Windows|-%systemroot%\Logs\CBS\\*<br /><br />- %systemroot%\servicing\sessions\sessions.xml<br /><br />- %systemroot%\winsxs\poqexec.log<br /><br />- %systemroot%\winsxs\pending.xml|  
+|Manutenzione pacchetti Windows|-%systemroot%\Logs\CBS\\*<p>- %systemroot%\servicing\sessions\sessions.xml<p>- %systemroot%\winsxs\poqexec.log<p>- %systemroot%\winsxs\pending.xml|  
 
 ### <a name="tools-and-commands-for-troubleshooting-domain-controller-configuration"></a>Strumenti e comandi per la risoluzione dei problemi di configurazione dei controller di dominio
 
@@ -96,14 +95,14 @@ L'innalzamento e l'abbassamento di livello dei controller di dominio restituisce
 
 1. Se si usa Server Manager, esaminare i risultati dell'innalzamento nei 10 secondi prima del riavvio automatico.  
 
-2. Se si usa ADDSDeployment per Windows PowerShell, esaminare i risultati dell'innalzamento nei 10 secondi prima del riavvio automatico. In alternativa, scegliere di non riavviare automaticamente al completamento. Per rendere più leggibile l'output, aggiungere la pipeline **Format-List**. Ad esempio:  
+2. Se si usa ADDSDeployment per Windows PowerShell, esaminare i risultati dell'innalzamento nei 10 secondi prima del riavvio automatico. In alternativa, scegliere di non riavviare automaticamente al completamento. Per rendere più leggibile l'output, aggiungere la pipeline **Format-List**. Ad esempio,  
 
    ```  
    Install-addsdomaincontroller <options> -norebootoncompletion:$true | format-list  
 
    ```  
 
-   Gli errori nella convalida e nella verifica dei prerequisiti non continuano dopo il riavvio, pertanto sono visibili in tutti i casi. Ad esempio:  
+   Gli errori nella convalida e nella verifica dei prerequisiti non continuano dopo il riavvio, pertanto sono visibili in tutti i casi. Ad esempio,  
 
    ![Risoluzione dei problemi](media/Troubleshooting-Domain-Controller-Deployment/ADDS_PSPrereqError.png)  
 
@@ -114,19 +113,19 @@ L'innalzamento e l'abbassamento di livello dei controller di dominio restituisce
 
 ### <a name="promotion-and-demotion-success-codes"></a>Codici di promozione e abbassamento di pagina
 
-|Codice di errore|Spiegazione|Nota|  
+|Codice errore|Spiegazione|Nota|  
 |--------------|---------------|--------|  
 |1|Uscita, operazione riuscita|È sempre necessario riavviare, questo indica semplicemente che il flag del riavvio automatico è stato rimosso|  
 |2|Uscita, operazione riuscita, occorre riavviare||  
-|3|Uscita, operazione riuscita con errore non critico|In genere viene visualizzato quando viene restituito l'avviso relativo alla delega DNS. Se non si configura la delega DNS, usare:<br /><br />-creatednsdelegation:$false|  
-|4|Uscita, operazione riuscita con un errore non critico, occorre riavviare|In genere viene visualizzato quando viene restituito l'avviso relativo alla delega DNS. Se non si configura la delega DNS, usare:<br /><br />-creatednsdelegation:$false|  
+|3|Uscita, operazione riuscita con errore non critico|In genere viene visualizzato quando viene restituito l'avviso relativo alla delega DNS. Se non si configura la delega DNS, usare:<p>-creatednsdelegation:$false|  
+|4|Uscita, operazione riuscita con un errore non critico, occorre riavviare|In genere viene visualizzato quando viene restituito l'avviso relativo alla delega DNS. Se non si configura la delega DNS, usare:<p>-creatednsdelegation:$false|  
 
 ### <a name="promotion-and-demotion-failure-codes"></a>Codici di errore promozione e abbassamento di pagina
 
 L'innalzamento e l'abbassamento di livello restituiscono i codici di messaggio di errore seguenti. È anche possibile che vengano visualizzati messaggi di errore estesi. Leggere sempre con attenzione l'intero errore e non solo la parte numerica.  
 
 
-| Codice di errore |                                                           Spiegazione                                                            |                                                                                                                            Soluzione suggerita                                                                                                                            |
+| Codice errore |                                                           Spiegazione                                                            |                                                                                                                            Soluzione suggerita                                                                                                                            |
 |------------|----------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |     11     |                                          L'innalzamento di livello del controller di dominio è già in esecuzione                                          |                                                                                 Non eseguire contemporaneamente più di un'istanza dell'innalzamento di livello del controller di dominio per lo stesso computer di destinazione                                                                                  |
 |     12     |                                                    L'utente deve essere un amministratore                                                    |                                                                                        Eseguire l'accesso come membro del gruppo Administrators predefinito e verificare di disporre di privilegi elevati con la funzionalità Controllo dell'account utente                                                                                        |
@@ -223,7 +222,7 @@ Di seguito sono riportati gli errori comuni riscontrati durante il processo di s
 |Problema|In seguito all'abbassamento di livello del controller di dominio, il DNS viene eseguito senza zone|  
 |---------|-----------------------------------------------------------------|  
 |Sintomi|Il server risponde ancora alle richieste DNS ma non dispone di informazioni sulla zona|  
-|Risoluzione e note|Quando si rimuove il ruolo Servizi di dominio Active Directory rimuovere anche il ruolo Server DNS o disabilitare il servizio Server DNS Ricordare di indirizzare il client DNS a un server diverso da se stesso. Se si usa Windows PowerShell, dopo avere abbassato di livello il server eseguire i comandi seguenti:<br /><br />Codice-Uninstall-WindowsFeature DNS<br /><br />oppure<br /><br />Codice-set-service DNS-StartType disabilitato<br />arrestare il servizio DNS|  
+|Risoluzione e note|Quando si rimuove il ruolo Servizi di dominio Active Directory rimuovere anche il ruolo Server DNS o disabilitare il servizio Server DNS Ricordare di indirizzare il client DNS a un server diverso da se stesso. Se si usa Windows PowerShell, dopo avere abbassato di livello il server eseguire i comandi seguenti:<p>Codice-Uninstall-WindowsFeature DNS<p>oppure<p>Codice-set-service DNS-StartType disabilitato<br />arrestare il servizio DNS|  
 
 |Problema|Durante l'innalzamento di livello di un controller di dominio Windows Server 2012 a un dominio con etichetta singola esistente non viene configurato updatetopleveldomain=1 o allowsinglelabeldnsdomain=1|  
 |---------|----------------------------------------------------------------------------------------------------------------------------------------------------|  
@@ -232,7 +231,7 @@ Di seguito sono riportati gli errori comuni riscontrati durante il processo di s
 
 |Problema|L'abbassamento di livello dell'ultimo controller di dominio in un dominio ha esito negativo se sono presenti account del controller di dominio di sola lettura non occupati creati in modo preliminare|  
 |---------|------------------------------------------------------------------------------------------------------------|  
-|Sintomi|L'abbassamento di livello non riesce e viene visualizzato il messaggio seguente:<br /><br />**Dcpromo. General. 54**<br /><br />Servizi di dominio Active Directory non è riuscito a trovare un altro controller di dominio Active Directory per trasferire i dati rimanenti nella partizione di directory CN=Schema,CN=Configuration,DC=corp,DC=contoso,DC=com.<br /><br />"Il formato del nome di dominio specificato non è valido."|  
+|Sintomi|L'abbassamento di livello non riesce e viene visualizzato il messaggio seguente:<p>**Dcpromo. General. 54**<p>Servizi di dominio Active Directory non è riuscito a trovare un altro controller di dominio Active Directory per trasferire i dati rimanenti nella partizione di directory CN=Schema,CN=Configuration,DC=corp,DC=contoso,DC=com.<p>"Il formato del nome di dominio specificato non è valido."|  
 |Risoluzione e note|Rimuovere gli eventuali account del controller di dominio di sola lettura creati in modo preliminare prima di abbassare di livello un dominio usando **Dsa.msc** o **Ntdsutil.exe metadata cleanup**.|  
 
 |Problema|La preparazione automatica della foresta e del dominio non esegue GPPREP|  
@@ -242,28 +241,28 @@ Di seguito sono riportati gli errori comuni riscontrati durante il processo di s
 
 |Problema|La verifica dell'installazione non riesce quando punta a un percorso UNC|  
 |---------|------------------------------------------------------------------|  
-|Sintomi|Errore restituito:<br /><br />Codice: non è stato possibile convalidare il percorso multimediale. Eccezione durante la chiamata a "GetDatabaseInfo" con argomenti "2". La cartella non è valida.|  
+|Sintomi|Errore restituito:<p>Codice: non è stato possibile convalidare il percorso multimediale. Eccezione durante la chiamata a "GetDatabaseInfo" con argomenti "2". La cartella non è valida.|  
 |Risoluzione e note|È necessario archiviare i file IFM in un disco locale e non in un percorso UNC remoto. Questo blocco intenzionale consente di prevenire l'innalzamento di livello del server parziale a causa di un'interruzione di rete.|  
 
 |Problema|L'avviso di delega DNS viene visualizzato due volte durante l'innalzamento di livello del controller di dominio|  
 |---------|-------------------------------------------------------------------------|  
-|Sintomi|Avviso restituito *due volte* quando si promuove l'uso di AddsDeployment Windows PowerShell:<br /><br />Codice: Impossibile creare una delega per questo server DNS perché la zona padre autorevole non è stata trovata oppure non esegue il server DNS Windows. Se si esegue l'integrazione con un'infrastruttura DNS esistente, è necessario creare manualmente una delega a questo server DNS nella zona padre per garantire una risoluzione dei nomi affidabile dall'esterno del dominio. In caso contrario, non è richiesta alcuna azione. "|  
-|Risoluzione e note|Ignorarlo. ADDSDeployment per Windows PowerShell visualizza l'avviso una volta durante la verifica dei prerequisiti e una seconda durante la configurazione del controller di dominio. Se non si vuole configurare la delega DNS, usare l'argomento seguente:<br /><br />Codice--CreateDNSDelegation: $false<br /><br />*Non* ignorare le verifiche dei prerequisiti per eliminare il messaggio|  
+|Sintomi|Avviso restituito *due volte* quando si promuove l'uso di AddsDeployment Windows PowerShell:<p>Codice: Impossibile creare una delega per questo server DNS perché la zona padre autorevole non è stata trovata oppure non esegue il server DNS Windows. Se si esegue l'integrazione con un'infrastruttura DNS esistente, è necessario creare manualmente una delega a questo server DNS nella zona padre per garantire una risoluzione dei nomi affidabile dall'esterno del dominio. In caso contrario, non è richiesta alcuna azione. "|  
+|Risoluzione e note|ignorare il problema. ADDSDeployment per Windows PowerShell visualizza l'avviso una volta durante la verifica dei prerequisiti e una seconda durante la configurazione del controller di dominio. Se non si vuole configurare la delega DNS, usare l'argomento seguente:<p>Codice--CreateDNSDelegation: $false<p>*Non* ignorare le verifiche dei prerequisiti per eliminare il messaggio|  
 
 |Problema|Quando si specificano credenziali UPN o non di dominio durante la configurazione, vengono restituiti errori ingannevoli|  
 |---------|--------------------------------------------------------------------------------------------|  
-|Sintomi|Server Manager restituisce l'errore:<br /><br />Codice-eccezione che chiama "DNSOption" con argomenti "6"<br /><br />ADDSDeployment per Windows PowerShell restituisce l'errore:<br /><br />Impossibile verificare il codice delle autorizzazioni utente. È necessario fornire il nome del dominio a cui appartiene l'account utente.|  
+|Sintomi|Server Manager restituisce l'errore:<p>Codice-eccezione che chiama "DNSOption" con argomenti "6"<p>ADDSDeployment per Windows PowerShell restituisce l'errore:<p>Impossibile verificare il codice delle autorizzazioni utente. È necessario fornire il nome del dominio a cui appartiene l'account utente.|  
 |Risoluzione e note|Verificare di avere specificato credenziali di dominio valide nel formato **dominio\utente**.|  
 
 |Problema|Se si rimuove il ruolo DirectoryServices-DomainController con Dism.exe, il server risulta non avviabile|  
 |---------|---------------------------------------------------------------------------------------------------|  
-|Sintomi|Se si usa Dism.exe per rimuovere il ruolo Servizi di dominio Active Directory prima di abbassare di livello un controller di dominio normalmente, il server non si avvia più normalmente e viene visualizzato l'errore:<br /><br />Stato del codice: 0X000000000<br />Info: si è verificato un errore imprevisto.|  
+|Sintomi|Se si usa Dism.exe per rimuovere il ruolo Servizi di dominio Active Directory prima di abbassare di livello un controller di dominio normalmente, il server non si avvia più normalmente e viene visualizzato l'errore:<p>Stato del codice: 0X000000000<br />Info: si è verificato un errore imprevisto.|  
 |Risoluzione e note|Eseguire l'avvio in modalità di ripristino dei servizi directory premendo *MAIUSC+F8*. Aggiungere di nuovo il ruolo Servizi di dominio Active Directory e abbassare di livello in modo forzato il controller di dominio. In alternativa, ripristinare lo stato del sistema dal backup. Non usare Dism.exe per la rimozione del ruolo Servizi di dominio Active Directory, in quanto questa utilità non riconosce i controller di dominio.|  
 
 |Problema|L'installazione di una foresta non riesce quando ForestMode è impostato su Win2012|  
 |---------|--------------------------------------------------------------------|  
-|Sintomi|L'innalzamento di livello con ADDSDeployment per Windows PowerShell restituisce l'errore:<br /><br />Code-test. VerifyDcPromoCore. DCPromo. General. 74<br /><br />Verifica dei prerequisiti per la promozione del controller di dominio non riuscita. Il livello di funzionalità del dominio specificato non è valido|  
-|Risoluzione e note|Non specificare una modalità di funzionalità della foresta di Win2012 senza specificare *anche* una modalità di funzionalità del dominio di Win2012. Di seguito è riportato un esempio che funziona senza errori:<br /><br />Code--ForestMode Win2012-DomainMode Win2012]|  
+|Sintomi|L'innalzamento di livello con ADDSDeployment per Windows PowerShell restituisce l'errore:<p>Code-test. VerifyDcPromoCore. DCPromo. General. 74<p>Verifica dei prerequisiti per la promozione del controller di dominio non riuscita. Il livello di funzionalità del dominio specificato non è valido|  
+|Risoluzione e note|Non specificare una modalità di funzionalità della foresta di Win2012 senza specificare *anche* una modalità di funzionalità del dominio di Win2012. Di seguito è riportato un esempio che funziona senza errori:<p>Code--ForestMode Win2012-DomainMode Win2012]|  
 
 |||  
 |-|-|  
@@ -275,19 +274,19 @@ Di seguito sono riportati gli errori comuni riscontrati durante il processo di s
 |-|-|  
 |Problema|L'abbassamento di livello con Server Manager non restituisce alcun messaggio fino al termine dell'operazione.|  
 |Sintomi|Quando si usa Server Manager per rimuovere il ruolo Servizi di dominio Active Directory e abbassare di livello un controller di dominio, non vengono visualizzati messaggi fino al completamento dell'operazione, con esito positivo o negativo.|  
-|Risoluzione e note|Si tratta di una limitazione di Server Manager. Per visualizzare messaggi sullo stato dell'operazione, usare il cmdlet ADDSDeployment di Windows PowerShell:<br /><br />Codice-Uninstall-AddsDomainController|  
+|Risoluzione e note|Si tratta di una limitazione di Server Manager. Per visualizzare messaggi sullo stato dell'operazione, usare il cmdlet ADDSDeployment di Windows PowerShell:<p>Codice-Uninstall-AddsDomainController|  
 
 |||  
 |-|-|  
 |Problema|La verifica dell'installazione dal supporto non rileva il supporto del controller di dominio di sola lettura per il controller di dominio scrivibile o viceversa.|  
-|Sintomi|Quando si innalza di livello un nuovo controller di dominio tramite IFM e si specifica un supporto non corretto, ad esempio un supporto per il controller di dominio di sola lettura per un controller di dominio scrivibile o un supporto per il controller di dominio di lettura e scrittura per un controller di dominio di sola lettura, il pulsante Verifica non restituisce un errore. Successivamente, l'innalzamento di livello non riesce e viene visualizzato l'errore seguente:<br /><br />Codice: si è verificato un errore durante il tentativo di configurare il computer come controller di dominio. <br />Non è possibile avviare la promozione Install-from-media di un controller di dominio di sola lettura perché il database di origine specificato non è consentito. Solo i database di altri RODC possono essere usati per la promozione installazione da supporto di un RODC.|  
+|Sintomi|Quando si innalza di livello un nuovo controller di dominio tramite IFM e si specifica un supporto non corretto, ad esempio un supporto per il controller di dominio di sola lettura per un controller di dominio scrivibile o un supporto per il controller di dominio di lettura e scrittura per un controller di dominio di sola lettura, il pulsante Verifica non restituisce un errore. Successivamente, l'innalzamento di livello non riesce e viene visualizzato l'errore seguente:<p>Codice: si è verificato un errore durante il tentativo di configurare il computer come controller di dominio. <br />Non è possibile avviare la promozione Install-from-media di un controller di dominio di sola lettura perché il database di origine specificato non è consentito. Solo i database di altri RODC possono essere usati per la promozione installazione da supporto di un RODC.|  
 |Risoluzione e note|La verifica convalida solo l'integrità complessiva di IFM. Non specificare il tipo di IFM errato al server. Riavviare il server prima di ripetere l'operazione di innalzamento di livello con il supporto corretto.|  
 
 |||  
 |-|-|  
 |Problema|L'innalzamento di livello di un controller di dominio di sola lettura in un account computer creato in modo preliminare non riesce|  
-|Sintomi|Quando si usa ADDSDeployment di Windows PowerShell per innalzare di livello un nuovo controller di dominio di sola lettura con un account computer preconfigurato, viene restituito l'errore:<br /><br />Il set di parametri del codice non può essere risolto con i parametri denominati specificati.    <br />InvalidArgument: ParameterBindingException<br />    + FullyQualifiedErrorId: AmbiguousParameterSet, Microsoft. DirectoryServices. Deployment. PowerShell. Commands. Install|  
-|Risoluzione e note|Non fornire parametri già definiti in un account del controller di dominio di sola lettura creato in modo preliminare. tra cui:<br /><br />Codice--readonlyreplica<br />-InstallDNS<br />-donotconfigureglobalcatalog<br />-SiteName<br />-InstallDNS|  
+|Sintomi|Quando si usa ADDSDeployment di Windows PowerShell per innalzare di livello un nuovo controller di dominio di sola lettura con un account computer preconfigurato, viene restituito l'errore:<p>Il set di parametri del codice non può essere risolto con i parametri denominati specificati.    <br />InvalidArgument: ParameterBindingException<br />    + FullyQualifiedErrorId: AmbiguousParameterSet, Microsoft. DirectoryServices. Deployment. PowerShell. Commands. Install|  
+|Risoluzione e note|Non fornire parametri già definiti in un account del controller di dominio di sola lettura creato in modo preliminare. tra cui:<p>Codice--readonlyreplica<br />-InstallDNS<br />-donotconfigureglobalcatalog<br />-SiteName<br />-InstallDNS|  
 
 |||  
 |-|-|  
@@ -298,43 +297,43 @@ Di seguito sono riportati gli errori comuni riscontrati durante il processo di s
 |||  
 |-|-|  
 |Problema|Nel file Dcpromo.log viene visualizzato "[errore] l'impostazione della sicurezza sui file del server non riuscita con 2"|  
-|Sintomi|L'abbassamento di livello di un controller di dominio viene completato senza errori, ma se si esamina il registro dcpromo viene visualizzato l'errore seguente:<br /><br />Codice-[errore] impostazione della sicurezza nei file server non riuscita con 2|  
+|Sintomi|L'abbassamento di livello di un controller di dominio viene completato senza errori, ma se si esamina il registro dcpromo viene visualizzato l'errore seguente:<p>Codice-[errore] impostazione della sicurezza nei file server non riuscita con 2|  
 |Risoluzione e note|Ignorarlo, l'errore è previsto e cosmetico.|  
 
 |||  
 |-|-|  
 |Problema|La verifica dei prerequisiti con adprep non riesce e viene visualizzato l'errore "Impossibile eseguire la verifica dei conflitti dello schema di Exchange"|  
-|Sintomi|Quando si tenta di alzare di livello un controller di dominio Windows Server 2012 in una foresta di Windows Server 2003, Windows Server 2008 o Windows Server 2008 R2, la verifica dei prerequisiti non riesce e viene visualizzato l'errore:<br /><br />Verifica del codice dei prerequisiti per la preparazione di Active Directory non riuscita. Impossibile eseguire la verifica dei conflitti dello schema di Exchange per la *<domain name>* di dominio (eccezione: il server RPC non è disponibile)<br /><br />Nel file adprep.log viene visualizzato l'errore:<br /><br />Codice: adprep non è riuscito a recuperare i dati dal server *<domain controller>*<br /><br />tramite Strumentazione gestione Windows (WMI).|  
-|Risoluzione e note|Il nuovo controller di dominio non può accedere a WMI tramite i protocolli DCOM/RPC sui controller di dominio esistenti. A oggi, vi sono tre cause per questo comportamento:<br /><br />-Una regola del firewall blocca l'accesso ai controller di dominio esistenti<br /><br />-L'account servizio di rete non è presente nel privilegio "accesso come servizio" (SeServiceLogonRight) sui controller di dominio esistenti<br /><br />-NTLM è disabilitato nei controller di dominio, usando i criteri di sicurezza descritti in [Introduzione alla restrizione dell'autenticazione NTLM](https://technet.microsoft.com/library/dd560653(WS.10).aspx)|  
+|Sintomi|Quando si tenta di alzare di livello un controller di dominio Windows Server 2012 in una foresta di Windows Server 2003, Windows Server 2008 o Windows Server 2008 R2, la verifica dei prerequisiti non riesce e viene visualizzato l'errore:<p>Verifica del codice dei prerequisiti per la preparazione di Active Directory non riuscita. Impossibile eseguire la verifica dei conflitti dello schema di Exchange per la *<domain name>* di dominio (eccezione: il server RPC non è disponibile)<p>Nel file adprep.log viene visualizzato l'errore:<p>Codice: adprep non è riuscito a recuperare i dati dal server *<domain controller>*<p>tramite Strumentazione gestione Windows (WMI).|  
+|Risoluzione e note|Il nuovo controller di dominio non può accedere a WMI tramite i protocolli DCOM/RPC sui controller di dominio esistenti. A oggi, vi sono tre cause per questo comportamento:<p>-Una regola del firewall blocca l'accesso ai controller di dominio esistenti<p>-L'account servizio di rete non è presente nel privilegio "accesso come servizio" (SeServiceLogonRight) sui controller di dominio esistenti<p>-NTLM è disabilitato nei controller di dominio, usando i criteri di sicurezza descritti in [Introduzione alla restrizione dell'autenticazione NTLM](https://technet.microsoft.com/library/dd560653(WS.10).aspx)|  
 
 |||  
 |-|-|  
 |Problema|Durante la creazione di una nuova foresta di Servizi di dominio Active Directory viene sempre visualizzato un avviso relativo al DNS|  
-|Sintomi|Durante la creazione di una nuova foresta di Servizi di dominio Active Directory e della zona DNS nel nuovo controller di dominio, viene sempre visualizzato un messaggio di avviso:<br /><br />Codice: è stato rilevato un errore nella configurazione DNS. <br />Nessuno dei server DNS utilizzati dal computer ha risposto entro l'intervallo di timeout.<br />(codice errore 0x000005B4 "ERROR_TIMEOUT")|  
-|Risoluzione e note|Ignorarlo. Questo avviso è intenzionale per il primo controller di dominio nel dominio radice di una nuova foresta, nel caso in cui si intenda puntare a un server e a una zona DNS esistenti.|  
+|Sintomi|Durante la creazione di una nuova foresta di Servizi di dominio Active Directory e della zona DNS nel nuovo controller di dominio, viene sempre visualizzato un messaggio di avviso:<p>Codice: è stato rilevato un errore nella configurazione DNS. <br />Nessuno dei server DNS utilizzati dal computer ha risposto entro l'intervallo di timeout.<br />(codice errore 0x000005B4 "ERROR_TIMEOUT")|  
+|Risoluzione e note|ignorare il problema. Questo avviso è intenzionale per il primo controller di dominio nel dominio radice di una nuova foresta, nel caso in cui si intenda puntare a un server e a una zona DNS esistenti.|  
 
 |||  
 |-|-|  
 |Problema|L'argomento -whatif di Windows PowerShell restituisce informazioni sul server DNS non corrette|  
-|Sintomi|Se si usa l'argomento **-whatif** durante la configurazione di un controller di dominio con **-installdns:$true** implicito o esplicito, nell'output risultante viene visualizzato quanto segue:<br /><br />Codice-"server DNS: No"|  
-|Risoluzione e note|Ignorarlo. Il DNS è installato e configurato correttamente.|  
+|Sintomi|Se si usa l'argomento **-whatif** durante la configurazione di un controller di dominio con **-installdns:$true** implicito o esplicito, nell'output risultante viene visualizzato quanto segue:<p>Codice-"server DNS: No"|  
+|Risoluzione e note|ignorare il problema. Il DNS è installato e configurato correttamente.|  
 
 |||  
 |-|-|  
 |Problema|Dopo l'innalzamento di livello, l'accesso non riesce e viene visualizzato l'errore "Memoria insufficiente per eseguire il comando"|  
-|Sintomi|Quando si innalza di livello un nuovo controller di dominio, si esegue la disconnessione e si tenta di eseguire l'accesso in modo interattivo, viene visualizzato l'errore seguente:<br /><br />Il codice non è disponibile spazio di archiviazione sufficiente per l'elaborazione del comando|  
+|Sintomi|Quando si innalza di livello un nuovo controller di dominio, si esegue la disconnessione e si tenta di eseguire l'accesso in modo interattivo, viene visualizzato l'errore seguente:<p>Il codice non è disponibile spazio di archiviazione sufficiente per l'elaborazione del comando|  
 |Risoluzione e note|Il controller di dominio non è stato riavviato dopo l'innalzamento di livello a causa di un errore o perché è stato specificato l'argomento di ADDSDeployment per Windows PowerShell **-norebootoncompletion**. Riavviare il controller di dominio.|  
 
 |||  
 |-|-|  
 |Problema|Il pulsante Avanti non è disponibile nella pagina Opzioni Controller di dominio|  
 |Sintomi|Anche se è stata impostata una password, il pulsante **Avanti** nella pagina **Opzioni Controller di dominio** in Server Manager non è disponibile. Nel menu **Nome sito** non è elencato alcun sito.|  
-|Risoluzione e note|Sono presenti più siti di Servizi di dominio Active Directory e in almeno uno mancano le subnet. Questo futuro controller di dominio appartiene a una di queste subnet. È necessario selezionare manualmente la subnet dal menu a discesa Nome sito. È inoltre opportuno verificare tutti i siti di Active Directory tramite DSSITE.MSC o usare il comando di Windows PowerShell seguente per trovare tutti i siti in cui mancano le subnet:<br /><br />Code-get-adreplicationsite-filtrare le subnet \*-Property &#124; Where-Object {! $ _. Subnets-eq "\*"} &#124; Format-nome tabella|  
+|Risoluzione e note|Sono presenti più siti di Servizi di dominio Active Directory e in almeno uno mancano le subnet. Questo futuro controller di dominio appartiene a una di queste subnet. È necessario selezionare manualmente la subnet dal menu a discesa Nome sito. È inoltre opportuno verificare tutti i siti di Active Directory tramite DSSITE.MSC o usare il comando di Windows PowerShell seguente per trovare tutti i siti in cui mancano le subnet:<p>Code-get-adreplicationsite-filtrare le subnet \*-Property &#124; Where-Object {! $ _. Subnets-eq "\*"} &#124; Format-nome tabella|  
 
 |||  
 |-|-|  
 |Problema|L'operazione di innalzamento o abbassamento di livello non riesce e viene visualizzato il messaggio "Impossibile avviare il servizio"|  
-|Sintomi|Se si tenta di eseguire un'operazione di innalzamento di livello, abbassamento di livello o clonazione di un controller di dominio, viene visualizzato l'errore:<br /><br />Codice-Impossibile avviare il servizio perché è disabilitato o a cui non sono associati dispositivi abilitati (0x80070422)<br /><br />L'errore potrebbe essere interattivo, potrebbe trattarsi di un evento o potrebbe essere scritto in un file di registro, ad esempio dcpromoui.log o dcpromo.log|  
+|Sintomi|Se si tenta di eseguire un'operazione di innalzamento di livello, abbassamento di livello o clonazione di un controller di dominio, viene visualizzato l'errore:<p>Codice-Impossibile avviare il servizio perché è disabilitato o a cui non sono associati dispositivi abilitati (0x80070422)<p>L'errore potrebbe essere interattivo, potrebbe trattarsi di un evento o potrebbe essere scritto in un file di registro, ad esempio dcpromoui.log o dcpromo.log|  
 |Risoluzione e note|Il servizio Ruolo server DS (DsRoleSvc) è disabilitato. Per impostazione predefinita, questo servizio viene installato durante l'installazione del ruolo di Servizi di dominio Active Directory ed è impostato sul tipo di avvio manuale. Non disabilitare questo servizio. Impostarlo di nuovo su Manuale e consentire alle operazioni del ruolo DS di avviarlo e arrestarlo su richiesta. Questo comportamento è da progettazione.|  
 
 |||  
@@ -357,10 +356,10 @@ Di seguito sono riportati gli errori comuni riscontrati durante il processo di s
 
 |Problema|Dcpromo /unattend consente livelli di funzionalità non supportati|  
 |-|-|  
-|Sintomi|Se alza di livello un controller di dominio usando dcpromo /unattend con il file di risposte di esempio seguente:<br /><br />Codice:<br /><br />DCInstall<br />NewDomain = foresta<br /><br />ReplicaOrNewDomain = dominio<br /><br />NewDomainDNSName = Corp. contoso. com<br /><br />SafeModeAdminPassword =Safepassword@6<br /><br />DomainNetbiosName = Corp<br /><br />DNSOnNetwork = Sì<br /><br />AutoConfigDNS = Sì<br /><br />RebootOnSuccess = NoAndNoPromptEither<br /><br />RebootOnCompletion = No<br /><br />*DomainLevel = 0*<br /><br />*ForestLevel = 0*<br /><br />L'innalzamento di livello non riesce e nel file dcpromoui.log vengono visualizzati gli errori seguenti:<br /><br />Code-Dcpromoui EA 4.5 B8 0089 13:31:50.783 immettere CArgumentsSpec:: ValidateArgument DomainLevel<br /><br />Dcpromoui EA 4.5 B8 008A 13:31:50.783 valore per DomainLevel è 0<br /><br />Dcpromoui EA 4.5 B8 008B 13:31:50.783 codice di uscita è 77<br /><br />Dcpromoui EA 4.5 B8 008C 13:31:50.783 l'argomento specificato non è valido.<br /><br />Dcpromoui EA 4.5 B8 008D 13:31:50.783 log di chiusura<br /><br />Dcpromoui EA 4.5 B8 0032 13:31: il codice di uscita di 50.830 è 77<br /><br />Il livello 0 corrisponde a Windows 2000, che non è supportato in Windows Server 2012.|  
+|Sintomi|Se alza di livello un controller di dominio usando dcpromo /unattend con il file di risposte di esempio seguente:<p>Codice:<p>DCInstall<br />NewDomain = foresta<p>ReplicaOrNewDomain = dominio<p>NewDomainDNSName = Corp. contoso. com<p>SafeModeAdminPassword =Safepassword@6<p>DomainNetbiosName = Corp<p>DNSOnNetwork = Sì<p>AutoConfigDNS = Sì<p>RebootOnSuccess = NoAndNoPromptEither<p>RebootOnCompletion = No<p>*DomainLevel = 0*<p>*ForestLevel = 0*<p>L'innalzamento di livello non riesce e nel file dcpromoui.log vengono visualizzati gli errori seguenti:<p>Code-Dcpromoui EA 4.5 B8 0089 13:31:50.783 immettere CArgumentsSpec:: ValidateArgument DomainLevel<p>Dcpromoui EA 4.5 B8 008A 13:31:50.783 valore per DomainLevel è 0<p>Dcpromoui EA 4.5 B8 008B 13:31:50.783 codice di uscita è 77<p>Dcpromoui EA 4.5 B8 008C 13:31:50.783 l'argomento specificato non è valido.<p>Dcpromoui EA 4.5 B8 008D 13:31:50.783 log di chiusura<p>Dcpromoui EA 4.5 B8 0032 13:31: il codice di uscita di 50.830 è 77<p>Il livello 0 corrisponde a Windows 2000, che non è supportato in Windows Server 2012.|  
 |Risoluzione e note|Non usare la funzionalità dcpromo /unattend deprecata in quanto consente di specificare impostazioni non valide che successivamente avranno esito negativo. Questo comportamento è previsto e da progettazione.|  
 
 |Problema|Promozione "blocchi" durante la creazione dell'oggetto Impostazioni NTDS, non viene mai completata|  
 |-|-|  
 |Sintomi|Se si alza di livello un controller di dominio o un controller di dominio di sola lettura, l'innalzamento di livello raggiunge "creazione dell'oggetto Impostazioni NTDS" senza mai procedere o completare. Anche l'aggiornamento del registro viene interrotto.|  
-|Risoluzione e note|Si tratta di un problema noto causato dall'immissione delle credenziali dell'account amministratore locale predefinito con una password corrispondente all'account amministratore di dominio predefinito. Si genera quindi un errore nel modulo di gestione dell'installazione Core che invece di visualizzare un messaggio di errore attende in modo indefinito (quasi a ciclo continuo). Si tratta di un comportamento previsto, sebbene indesiderato.<br /><br />Per correggere l'errore nel server:<br /><br />1. riavviare il computer.<br /><br />1. in AD eliminare l'account computer membro del server (non sarà ancora un account controller di dominio)<br /><br />1. su tale server, viene disgiunto forzatamente dal dominio<br /><br />1. nel server, rimuovere il ruolo Servizi di dominio Active Directory.<br /><br />1. riavvio<br /><br />1. aggiungere di nuovo il ruolo Servizi di dominio Active Directory e ritentare l'innalzamento di livello, assicurandosi di fornire sempre le credenziali formattate di ***domain\admin*** per la promozione del controller di dominio e non solo l'account Administrator locale predefinito|  
+|Risoluzione e note|Si tratta di un problema noto causato dall'immissione delle credenziali dell'account amministratore locale predefinito con una password corrispondente all'account amministratore di dominio predefinito. Si genera quindi un errore nel modulo di gestione dell'installazione Core che invece di visualizzare un messaggio di errore attende in modo indefinito (quasi a ciclo continuo). Si tratta di un comportamento previsto, sebbene indesiderato.<p>Per correggere l'errore nel server:<p>1. riavviare il computer.<p>1. in AD eliminare l'account computer membro del server (non sarà ancora un account controller di dominio)<p>1. su tale server, viene disgiunto forzatamente dal dominio<p>1. nel server, rimuovere il ruolo Servizi di dominio Active Directory.<p>1. riavvio<p>1. aggiungere di nuovo il ruolo Servizi di dominio Active Directory e ritentare l'innalzamento di livello, assicurandosi di fornire sempre le credenziali formattate di ***domain\admin*** per la promozione del controller di dominio e non solo l'account Administrator locale predefinito|  

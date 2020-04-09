@@ -1,24 +1,20 @@
 ---
 title: wbadmin avviare il backup
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento comandi di Windows per Wbadmin start backup, che consente di creare un backup usando i parametri specificati.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 56f3e752-d99a-4c3d-8e97-10303c37dd78
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c8eb017e8bf49191c33cd2d9f0cf4a62b08ebb07
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: afce1cd70f5481410071ff48d427be73b178744a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362337"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829654"
 ---
 # <a name="wbadmin-start-backup"></a>wbadmin avviare il backup
 
@@ -63,7 +59,7 @@ Wbadmin start backup
 [-quiet]
 ```
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
@@ -78,11 +74,11 @@ Wbadmin start backup
 |-utente|Se il backup viene salvato in una cartella condivisa remota, specifica il nome utente con autorizzazione di scrittura nella cartella.|
 |-password|Specifica la password per il nome utente fornito dal parametro **-utente**.|
 |-noInheritAcl|Applica le autorizzazioni dell'elenco di controllo di accesso (ACL) che corrispondono alle credenziali fornite dai parametri **-User** e **-password** per \\\\\<nomeserver >\\\<ShareName >\\WindowsImageBackup\\\<ComputerBackedUp >\\ (la cartella che contiene il backup). Per accedere ai backup in un secondo momento, è necessario utilizzare le credenziali o essere un membro del gruppo Administrators o del gruppo Backup Operators nel computer con la cartella condivisa. Se **-noInheritAcl** non viene usato, le autorizzazioni ACL dalla cartella condivisa remota vengono applicate alla cartella \\\<ComputerBackedUp > per impostazione predefinita, in modo che chiunque disponga dell'accesso alla cartella condivisa remota possa accedere al backup.|
-|-vssFull|Esegue un backup completo mediante il servizio Copia Shadow del Volume (VSS). Tutti i file di backup, la cronologia di ogni file viene aggiornata per indicare che è stato eseguito il backup e i registri di backup precedente possono essere troncati. Se questo parametro non viene utilizzato **wbadmin start backup** consente a un backup di copia, ma la cronologia dei file non viene eseguito il backup viene aggiornato.</br>Attenzione: non utilizzare questo parametro se si utilizza un prodotto diverso da Windows Server Backup per eseguire il backup di applicazioni che si trovano sui volumi inclusi nel backup corrente. In questo modo, è possibile che si interrompa la creazione di backup incrementali, differenziali o di altro tipo, perché la cronologia su cui si basano per determinare la quantità di dati di cui eseguire il backup potrebbe non essere presente e potrebbe eseguire un backup completo inutilmente.|
-|-vssCopy|Per Windows 7 e Windows Server 2008 R2 e versioni successive, esegue un backup di copia con VSS. Tutti i file vengono sottoposti a backup, ma la cronologia dei file da eseguire il backup non viene aggiornata in modo da conservare tutte le informazioni su quali file modificati, eliminati e così via, nonché qualsiasi file di log dell'applicazione. L'utilizzo di questo tipo di backup non influisce sulla sequenza dei backup incrementali e differenziali che potrebbero verificarsi indipendentemente dal backup di copia. Rappresenta il valore predefinito.</br>Avviso: non è possibile usare un backup di copia per i backup incrementali o differenziali o i ripristini.|
+|-vssFull|Esegue un backup completo mediante il servizio Copia Shadow del Volume (VSS). Tutti i file di backup, la cronologia di ogni file viene aggiornata per indicare che è stato eseguito il backup e i registri di backup precedente possono essere troncati. Se questo parametro non viene utilizzato **wbadmin start backup** consente a un backup di copia, ma la cronologia dei file non viene eseguito il backup viene aggiornato.</br>Attenzione: non utilizzare questo parametro se si utilizza un prodotto diverso da Windows Server Backup per eseguire il backup di applicazioni che si trovano sui volumi inclusi nel backup corrente. In questo modo, è possibile che si interrompa la creazione di backup incrementali, differenziali o di altro tipo, perché la cronologia su cui si basano per determinare la quantità di dati di cui eseguire il backup potrebbe non essere necessaria e che potrebbero eseguire un backup completo inutilmente.|
+|-vssCopy|Per Windows 7 e Windows Server 2008 R2 e versioni successive, esegue un backup di copia con VSS. Tutti i file vengono sottoposti a backup, ma la cronologia dei file da eseguire il backup non viene aggiornata in modo da conservare tutte le informazioni su quali file modificati, eliminati e così via, nonché qualsiasi file di log dell'applicazione. L'utilizzo di questo tipo di backup non influisce sulla sequenza dei backup incrementali e differenziali che potrebbero verificarsi indipendentemente dal backup di copia. Questo è il valore predefinito.</br>Avviso: non è possibile usare un backup di copia per i backup incrementali o differenziali o i ripristini.|
 |-quiet|Esegue il sottocomando senza alcuna richiesta visualizzata all'utente.|
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Negli esempi seguenti viene illustrato il modo in cui il comando **Wbadmin start backup** può essere utilizzato in diversi scenari di backup:
 
@@ -107,7 +103,7 @@ Scenario #1
   wbadmin start backup –backupTarget: \\backupshare\backup1 -noinheritacl -nonrecurseinclude:d:\folder1
   ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)

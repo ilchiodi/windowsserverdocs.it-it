@@ -1,24 +1,20 @@
 ---
 title: Wbadmin delete systemstatebackup
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per Wbadmin delete systemstatebackup, che consente di eliminare i backup dello stato del sistema specificati.
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 707d37cb-448d-4542-b6ac-1fc89e749788
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1f324cba3fcdae8639009395c4df734a2db6b814
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: e184a40612024f81e1c6ab93de8cec4a63eee578
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71362519"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80829894"
 ---
 # <a name="wbadmin-delete-systemstatebackup"></a>Wbadmin delete systemstatebackup
 
@@ -46,7 +42,7 @@ wbadmin delete systemstatebackup
 > [!IMPORTANT]
 > È necessario specificare solo uno di questi parametri: **-keepVersions**, **-Version**o **-deleteOldest**.
 
-## <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 |Parametro|Descrizione|
 |---------|-----------|
@@ -57,7 +53,7 @@ wbadmin delete systemstatebackup
 |-machine|Specifica il computer di cui si desidera eliminare il backup dello stato del sistema. Utile quando è stato eseguito il backup di più computer nello stesso percorso. Deve essere utilizzato quando il **- backupTarget** parametro specificato.|
 |-quiet|Esegue il sottocomando senza alcuna richiesta visualizzata all'utente.|
 
-## <a name="BKMK_examples"></a>Esempi
+## <a name="examples"></a><a name=BKMK_examples></a>Esempi
 
 Per eliminare il backup dello stato del sistema creato il 31 marzo 2013 alle 10:00 AM, digitare:
 ```
@@ -72,7 +68,7 @@ Per eliminare il backup dello stato del sistema meno recente archiviato sul disc
 wbadmin delete systemstatebackup -backupTarget:f -deleteOldest
 ```
 
-#### <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Altre informazioni di riferimento
 
--   [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)

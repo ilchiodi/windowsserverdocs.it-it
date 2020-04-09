@@ -1,7 +1,6 @@
 ---
 ms.assetid: 5728847d-dcef-4694-9080-d63bfb1fe24b
 title: Criteri di controllo degli accessi in AD FS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 06/05/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 7ae66fd47953017652ed1e753279e344e0a6c478
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 7355ff9ed49a5e4ee8bca3a3d266a0ec1ecc0780
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949416"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80814894"
 ---
 # <a name="access-control-policies-in-windows-server-2012-r2-and-windows-server-2012-ad-fs"></a>Criteri di controllo degli accessi in Windows Server 2012 R2 e Windows Server 2012 AD FS
 
@@ -66,7 +65,7 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
 ## <a name="enabling-client-access-policy"></a>Abilitazione dei criteri di accesso client  
  Per abilitare i criteri di accesso client in AD FS in Windows Server 2012 R2, è necessario aggiornare il relying party trust della piattaforma di identità Microsoft Office 365. Scegliere uno degli scenari di esempio seguenti per configurare le regole attestazioni nella **piattaforma di identità Microsoft Office 365** relying party attendibilità che soddisfi meglio le esigenze dell'organizzazione.  
 
-###  <a name="scenario1"></a>Scenario 1: bloccare tutto l'accesso esterno a Office 365  
+###  <a name="scenario-1-block-all-external-access-to-office-365"></a><a name="scenario1"></a>Scenario 1: bloccare tutto l'accesso esterno a Office 365  
  Questo scenario di criteri di accesso client consente l'accesso da tutti i client interni e blocca tutti i client esterni in base all'indirizzo IP del client esterno. È possibile usare le procedure seguenti per aggiungere le regole di autorizzazione di rilascio corrette al trust di Office 365 relying party per lo scenario scelto.  
 
 ##### <a name="to-create-rules-to-block-all-external-access-to-office-365"></a>Per creare regole per bloccare l'accesso esterno a Office 365  
@@ -81,7 +80,7 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
 
 5.  Nella pagina **Configura regola** , in **Nome regola attestazione**, digitare il nome visualizzato per questa regola, ad esempio "se esiste un'attestazione IP al di fuori dell'intervallo desiderato, negare". In **regola personalizzata**Digitare o incollare la sintassi del linguaggio delle regole attestazioni seguente (sostituire il valore precedente per "x-ms-inoltred-client-IP" con un'espressione IP valida):  
 `c1:[Type == "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");` </br>
-6.  Fai clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco regole di autorizzazione rilascio prima della regola predefinita **Consenti accesso a tutti gli utenti** (la regola nega avrà la precedenza anche se viene visualizzata in precedenza nell'elenco).  Se non si ha la regola di accesso consentito predefinita, è possibile aggiungerne una alla fine dell'elenco usando il linguaggio delle regole attestazioni come indicato di seguito:  </br>
+6.  Fare clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco regole di autorizzazione rilascio prima della regola predefinita **Consenti accesso a tutti gli utenti** (la regola nega avrà la precedenza anche se viene visualizzata in precedenza nell'elenco).  Se non si ha la regola di accesso consentito predefinita, è possibile aggiungerne una alla fine dell'elenco usando il linguaggio delle regole attestazioni come indicato di seguito:  </br>
 
     `c:[] => issue(Type = "https://schemas.microsoft.com/authorization/claims/permit", Value = "true"); ` 
 
@@ -89,7 +88,7 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
 
      ![Regole di autorizzazione di rilascio](media/Access-Control-Policies-W2K12/clientaccess1.png "ADFS_Client_Access_1")  
 
-###  <a name="scenario2"></a>Scenario 2: bloccare l'accesso esterno a Office 365 eccetto Exchange ActiveSync  
+###  <a name="scenario-2-block-all-external-access-to-office-365-except-exchange-activesync"></a><a name="scenario2"></a>Scenario 2: bloccare l'accesso esterno a Office 365 eccetto Exchange ActiveSync  
  Nell'esempio seguente viene consentito l'accesso a tutte le applicazioni Office 365, incluso Exchange Online, da client interni, incluso Outlook. Blocca l'accesso dai client che si trovano all'esterno della rete aziendale, come indicato dall'indirizzo IP del client, ad eccezione dei client di Exchange ActiveSync, ad esempio smartphone.  
 
 ##### <a name="to-create-rules-to-block-all-external-access-to-office-365-except-exchange-activesync"></a>Per creare regole per bloccare l'accesso esterno a Office 365 eccetto Exchange ActiveSync  
@@ -106,7 +105,7 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
 
     `c1:[Type == "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`  
 
-6.  Fai clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco **regole di autorizzazione rilascio** .  
+6.  Fare clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco **regole di autorizzazione rilascio** .  
 
 7.  Quindi, nella scheda **regole di autorizzazione rilascio** della finestra di dialogo **modifica regole attestazione** fare clic su **Aggiungi regola** per avviare di nuovo la creazione guidata regola attestazione.  
 
@@ -119,7 +118,7 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
 `c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value != "Microsoft.Exchange.ActiveSync"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`  
 ~~~
 
-10. Fai clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco **regole di autorizzazione rilascio** .  
+10. Fare clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco **regole di autorizzazione rilascio** .  
 
 11. Quindi, nella scheda **regole di autorizzazione rilascio** della finestra di dialogo **modifica regole attestazione** fare clic su **Aggiungi regola** per avviare di nuovo la creazione guidata regola attestazione.  
 
@@ -131,7 +130,7 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
    NOT EXISTS([Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application"]) => add(Type = "http://custom/xmsapplication", Value = "fail");  
    ```  
 
-14. Fai clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco **regole di autorizzazione rilascio** .  
+14. Fare clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco **regole di autorizzazione rilascio** .  
 
 15. Quindi, nella scheda **regole di autorizzazione rilascio** della finestra di dialogo **modifica regole attestazione** fare clic su **Aggiungi regola** per avviare di nuovo la creazione guidata regola attestazione.  
 
@@ -140,12 +139,12 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
 17. Nella pagina **Configura regola** , in **Nome regola attestazione**, digitare il nome visualizzato per questa regola, ad esempio "nega utenti con ipoutsiderange true e applicazione non riuscita". In **regola personalizzata**Digitare o incollare la sintassi del linguaggio delle regole attestazioni seguente:  
 
 `c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://custom/xmsapplication", Value == "fail"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`</br>  
-18. Fai clic su **Fine**. Verificare che la nuova regola venga visualizzata immediatamente sotto la regola precedente e prima della regola Consenti accesso a tutti gli utenti nell'elenco regole di autorizzazione rilascio (la regola di negazione avrà la precedenza anche se viene visualizzata in precedenza nell'elenco).  </br>Se non si ha la regola di accesso consentito predefinita, è possibile aggiungerne una alla fine dell'elenco usando il linguaggio delle regole attestazioni come indicato di seguito:</br></br>      `c:[] => issue(Type = "https://schemas.microsoft.com/authorization/claims/permit", Value = "true");`</br></br>
+18. Fare clic su **Fine**. Verificare che la nuova regola venga visualizzata immediatamente sotto la regola precedente e prima della regola Consenti accesso a tutti gli utenti nell'elenco regole di autorizzazione rilascio (la regola di negazione avrà la precedenza anche se viene visualizzata in precedenza nell'elenco).  </br>Se non si ha la regola di accesso consentito predefinita, è possibile aggiungerne una alla fine dell'elenco usando il linguaggio delle regole attestazioni come indicato di seguito:</br></br>      `c:[] => issue(Type = "https://schemas.microsoft.com/authorization/claims/permit", Value = "true");`</br></br>
 19. Per salvare le nuove regole, nella finestra di dialogo **modifica regole attestazione** fare clic su OK. L'elenco risultante avrà un aspetto simile al seguente.  
 
-    ![Regole di autorizzazione di rilascio](media/Access-Control-Policies-W2K12/clientaccess2.png )  
+    ![Regole di autorizzazione rilascio](media/Access-Control-Policies-W2K12/clientaccess2.png )  
 
-###  <a name="scenario3"></a>Scenario 3: bloccare l'accesso esterno a Office 365 ad eccezione delle applicazioni basate su browser  
+###  <a name="scenario-3-block-all-external-access-to-office-365-except-browser-based-applications"></a><a name="scenario3"></a>Scenario 3: bloccare l'accesso esterno a Office 365 ad eccezione delle applicazioni basate su browser  
 
 ##### <a name="to-create-rules-to-block-all-external-access-to-office-365-except-browser-based-applications"></a>Per creare regole per bloccare l'accesso esterno a Office 365 ad eccezione delle applicazioni basate su browser  
 
@@ -159,7 +158,7 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
 
 5.  Nella pagina **Configura regola** , in **Nome regola attestazione**, digitare il nome visualizzato per questa regola, ad esempio "se esiste un'attestazione IP al di fuori dell'intervallo desiderato, emettere ipoutsiderange claim". In **regola personalizzata**Digitare o incollare la sintassi del linguaggio delle regole attestazioni seguente (sostituire il valore precedente per "x-ms-inoltred-client-IP" con un'espressione IP valida):  </br>
 `c1:[Type == "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`   
-6.  Fai clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco **regole di autorizzazione rilascio** .  
+6.  Fare clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco **regole di autorizzazione rilascio** .  
 
 7.  Quindi, nella scheda **regole di autorizzazione rilascio** della finestra di dialogo **modifica regole attestazione** fare clic su **Aggiungi regola** per avviare di nuovo la creazione guidata regola attestazione.  
 
@@ -172,7 +171,7 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
 `c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value != "/adfs/ls/"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = " DenyUsersWithClaim");`  
 ~~~
 
-10. Fai clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco regole di autorizzazione rilascio prima della regola predefinita **Consenti accesso a tutti gli utenti** (la regola nega avrà la precedenza anche se viene visualizzata in precedenza nell'elenco).  </br></br> Se non si ha la regola di accesso consentito predefinita, è possibile aggiungerne una alla fine dell'elenco usando il linguaggio delle regole attestazioni come indicato di seguito:  
+10. Fare clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco regole di autorizzazione rilascio prima della regola predefinita **Consenti accesso a tutti gli utenti** (la regola nega avrà la precedenza anche se viene visualizzata in precedenza nell'elenco).  </br></br> Se non si ha la regola di accesso consentito predefinita, è possibile aggiungerne una alla fine dell'elenco usando il linguaggio delle regole attestazioni come indicato di seguito:  
 
    `c:[] => issue(Type = "https://schemas.microsoft.com/authorization/claims/permit", Value = "true");`
 
@@ -180,7 +179,7 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
 
     ![Rilascio](media/Access-Control-Policies-W2K12/clientaccess3.png)  
 
-###  <a name="scenario4"></a>Scenario 4: bloccare tutto l'accesso esterno a Office 365 ad eccezione dei gruppi di Active Directory designati  
+###  <a name="scenario-4-block-all-external-access-to-office-365-except-for-designated-active-directory-groups"></a><a name="scenario4"></a>Scenario 4: bloccare tutto l'accesso esterno a Office 365 ad eccezione dei gruppi di Active Directory designati  
  Nell'esempio seguente viene abilitato l'accesso da client interni in base all'indirizzo IP. Blocca l'accesso dai client che si trovano all'esterno della rete aziendale che dispongono di un indirizzo IP client esterno, ad eccezione di quelli inclusi in un gruppo di Active Directory specificato. attenersi alla procedura seguente per aggiungere le regole di autorizzazione di rilascio corrette al **Microsoft Office 365 Identity Platform** relying party trust mediante la creazione guidata regola attestazione:  
 
 ##### <a name="to-create-rules-to-block-all-external-access-to-office-365-except-for-designated-active-directory-groups"></a>Per creare regole per bloccare l'accesso esterno a Office 365, ad eccezione dei gruppi di Active Directory designati  
@@ -200,7 +199,7 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
 `c1:[Type == "https://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-forwarded-client-ip", Value =~ "^(?!192\.168\.1\.77|10\.83\.118\.23)"] && c2:[Type == "https://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] => issue(Type = "http://custom/ipoutsiderange", Value = "true");`  
 ~~~
 
-6. Fai clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco **regole di autorizzazione rilascio** .  
+6. Fare clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco **regole di autorizzazione rilascio** .  
 
 7. Quindi, nella scheda **regole di autorizzazione rilascio** della finestra di dialogo **modifica regole attestazione** fare clic su **Aggiungi regola** per avviare di nuovo la creazione guidata regola attestazione.  
 
@@ -210,7 +209,7 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
 
     `NOT EXISTS([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value == "S-1-5-32-100"]) => add(Type = "http://custom/groupsid", Value = "fail");`  
 
-10. Fai clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco **regole di autorizzazione rilascio** .  
+10. Fare clic su **Fine**. Verificare che la nuova regola venga visualizzata nell'elenco **regole di autorizzazione rilascio** .  
 
 11. Quindi, nella scheda **regole di autorizzazione rilascio** della finestra di dialogo **modifica regole attestazione** fare clic su **Aggiungi regola** per avviare di nuovo la creazione guidata regola attestazione.  
 
@@ -220,7 +219,7 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
 
    `c1:[Type == "http://custom/ipoutsiderange", Value == "true"] && c2:[Type == "http://custom/groupsid", Value == "fail"] => issue(Type = "https://schemas.microsoft.com/authorization/claims/deny", Value = "DenyUsersWithClaim");`  
 
-14. Fai clic su **Fine**. Verificare che la nuova regola venga visualizzata immediatamente sotto la regola precedente e prima della regola Consenti accesso a tutti gli utenti nell'elenco regole di autorizzazione rilascio (la regola di negazione avrà la precedenza anche se viene visualizzata in precedenza nell'elenco).  </br></br>Se non si ha la regola di accesso consentito predefinita, è possibile aggiungerne una alla fine dell'elenco usando il linguaggio delle regole attestazioni come indicato di seguito:  
+14. Fare clic su **Fine**. Verificare che la nuova regola venga visualizzata immediatamente sotto la regola precedente e prima della regola Consenti accesso a tutti gli utenti nell'elenco regole di autorizzazione rilascio (la regola di negazione avrà la precedenza anche se viene visualizzata in precedenza nell'elenco).  </br></br>Se non si ha la regola di accesso consentito predefinita, è possibile aggiungerne una alla fine dell'elenco usando il linguaggio delle regole attestazioni come indicato di seguito:  
 
    `c:[] => issue(Type = "https://schemas.microsoft.com/authorization/claims/permit", Value = "true");`  
 
@@ -228,7 +227,7 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
 
      ![Rilascio](media/Access-Control-Policies-W2K12/clientaccess4.png)  
 
-##  <a name="buildingip"></a>Compilazione dell'espressione intervallo di indirizzi IP  
+##  <a name="building-the-ip-address-range-expression"></a><a name="buildingip"></a>Compilazione dell'espressione intervallo di indirizzi IP  
  L'attestazione x-ms-inoltred-client-IP viene popolata da un'intestazione HTTP attualmente impostata solo da Exchange Online, che popola l'intestazione quando passa la richiesta di autenticazione a AD FS. Il valore dell'attestazione può essere uno dei seguenti:  
 
 > [!NOTE]
@@ -240,7 +239,7 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
 > - L'indirizzo IP di un client nella rete aziendale verrà visualizzato come indirizzo IP dell'interfaccia esterna del proxy o del gateway dell'organizzazione in uscita.  
 >   -   I client connessi alla rete aziendale da una VPN o da Microsoft DirectAccess (DA) possono essere visualizzati come client aziendali interni o come client esterni, a seconda della configurazione di VPN o DA.  
 
--   Uno o più indirizzi IP: quando Exchange Online non è in grado di determinare l'indirizzo IP del client che si connette, il valore verrà impostato in base al valore dell'intestazione x-inoltred-for, un'intestazione non standard che può essere inclusa nelle richieste basate su HTTP ed è supportata da molti client, bilanciamenti del carico e proxy sul mercato.  
+-   Uno o più indirizzi IP: quando Exchange Online non è in grado di determinare l'indirizzo IP del client che si connette, il valore verrà impostato in base al valore dell'intestazione x-inoltro-for, un'intestazione non standard che può essere inclusa nelle richieste basate su HTTP ed è supportata da molti client, bilanciamenti del carico e proxy sul mercato.  
 
 > [!NOTE]
 > 1. Più indirizzi IP, che indicano l'indirizzo IP del client e l'indirizzo di ogni proxy che ha superato la richiesta, saranno separati da una virgola.  
@@ -307,7 +306,7 @@ I criteri descritti in questo articolo devono essere sempre usati con un altro m
 
 -   Uno o più indirizzi IP  
 
-    -   Se Exchange Online non è in grado di determinare l'indirizzo IP del client che si connette, il valore verrà impostato in base al valore dell'intestazione x-inoltred-for, un'intestazione non standard che può essere inclusa nelle richieste basate su HTTP ed è supportata da molti client, bilanciamenti del carico e proxy sul mercato.  
+    -   Se Exchange Online non è in grado di determinare l'indirizzo IP del client che si connette, il valore verrà impostato in base al valore dell'intestazione x-inoltro-for, un'intestazione non standard che può essere inclusa nelle richieste basate su HTTP ed è supportata da molti client, bilanciamenti del carico e proxy sul mercato.  
 
     -   Più indirizzi IP che indicano l'indirizzo IP del client e l'indirizzo di ogni proxy che ha superato la richiesta saranno separati da una virgola.  
 

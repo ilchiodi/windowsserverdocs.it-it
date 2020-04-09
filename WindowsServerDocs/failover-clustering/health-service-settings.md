@@ -5,15 +5,14 @@ manager: eldenc
 ms.author: cosdar
 ms.technology: storage-health-service
 ms.topic: article
-ms.assetid: ''
 author: cosmosdarwin
 ms.date: 08/14/2017
-ms.openlocfilehash: 1b10d7c5432b10262e8df85d427f17f402d4f64a
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7ae78137bbd4e39291cc2e307f62697876c98135
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361037"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827524"
 ---
 # <a name="health-service-settings"></a>Impostazioni Servizio integrità
 > Si applica a: Windows Server 2019, Windows Server 2016
@@ -87,7 +86,7 @@ Vedere la sezione precedente.
 "Platform.Quiescence.MaxDelaySeconds" = 420 (i.e. 7 minutes)
 ```
 
-#### <a name="metrics"></a>metrics
+#### <a name="metrics"></a>Metriche
 
 ```
 "System.Reports.ReportingPeriodSeconds" = 1

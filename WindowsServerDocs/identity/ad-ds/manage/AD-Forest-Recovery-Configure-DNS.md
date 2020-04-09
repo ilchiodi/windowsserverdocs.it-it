@@ -1,6 +1,5 @@
 ---
 title: 'Ripristino della foresta di Active Directory: configurare il servizio server DNS'
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -8,12 +7,12 @@ ms.date: 08/09/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 2c1f2f68509c9136735fb13e24c86a1da40660eb
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 144a45f2a835d9cca60b5be5aac7569809c45b7c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369255"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824174"
 ---
 # <a name="ad-forest-recovery---configuring-the-dns-server-service"></a>Ripristino della foresta di Active Directory-configurazione del servizio server DNS
 
@@ -47,7 +46,7 @@ Completare i passaggi di installazione e configurazione seguenti.
 1. Aprire Server Manager, fare clic su **strumenti** e quindi su **DNS**.
    Server DNS ![](media/AD-Forest-Recovery-Configure-DNS/dns2.png)
 2. Creare zone DNS per gli stessi nomi di dominio DNS ospitati nei server DNS prima del malfunzionamento critico. Per ulteriori informazioni, vedere la pagina relativa all'aggiunta di una zona di ricerca diretta ([https://go.microsoft.com/fwlink/?LinkId=74574](https://go.microsoft.com/fwlink/?LinkId=74574)).
-3. Configurare i dati DNS esistenti prima del malfunzionamento critico. Ad esempio:  
+3. Configurare i dati DNS esistenti prima del malfunzionamento critico. Ad esempio,  
 
    - Configurare le zone DNS da archiviare in servizi di dominio Active Directory. Per ulteriori informazioni, vedere Modificare il tipo di zona ([https://go.microsoft.com/fwlink/?LinkId=74579](https://go.microsoft.com/fwlink/?LinkId=74579)).
    - Configurare la zona DNS autorevole per i record di risorse del localizzatore controller di dominio (DC Locator) per consentire l'aggiornamento dinamico protetto. Per ulteriori informazioni, vedere Consenti solo aggiornamenti dinamici protetti ([https://go.microsoft.com/fwlink/?LinkId=74580](https://go.microsoft.com/fwlink/?LinkId=74580)).
@@ -58,7 +57,7 @@ Completare i passaggi di installazione e configurazione seguenti.
    > [!NOTE]
    > Gli aggiornamenti dinamici protetti funzionano solo quando è disponibile un server di catalogo globale. 
 
-   Al prompt dei comandi digitare il comando seguente e quindi premere INVIO:  
+   Al prompt dei comandi digitare il comando seguente, quindi premere INVIO:  
 
    **NET stop netlogon**  
 

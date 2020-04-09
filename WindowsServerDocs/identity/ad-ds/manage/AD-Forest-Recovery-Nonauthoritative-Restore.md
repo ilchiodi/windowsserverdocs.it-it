@@ -1,6 +1,5 @@
 ---
 title: Ripristino della foresta di Active Directory-ripristino non autorevole
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: e4ce1d18-d346-492a-8bca-f85513aa3ac1
 ms.technology: identity-adds
-ms.openlocfilehash: d7792cd739931d758125c8946606beb043ce19dd
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4fe4905bba944c86d168eaa46ae699ad25ba0194
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369087"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823954"
 ---
 # <a name="performing-a-nonauthoritative-restore-of-active-directory-domain-services"></a>Esecuzione di un ripristino non autorevole di Active Directory Domain Services 
 
@@ -24,7 +23,7 @@ Per eseguire un ripristino non autorevole, completare la procedura riportata di 
   
 Nelle procedure riportate di seguito viene utilizzato il comando Wbadmin. exe per eseguire un ripristino non autorevole di Active Directory o Active Directory Domain Services (AD DS). Se si usa una soluzione di backup diversa o si intende completare il ripristino autorevole di SYSVOL in un secondo momento nel processo di ripristino della foresta, è possibile eseguire un ripristino autorevole di SYSVOL usando questi metodi alternativi:  
   
-- Se si usa il servizio Replica file per replicare SYSVOL, attenersi alla procedura descritta nell' [articolo 290762](https://go.microsoft.com/fwlink/?LinkId=148443) della Microsoft Knowledge base, usando la chiave del registro di sistema **BurFlags** per reinizializzare i set di repliche FRS o, se necessario, l'articolo 315457 [ 315457](https://support.microsoft.com/kb/315457)per ricompilare l'albero SYSVOL. Per determinare se SYSVOL è replicato da FRS, vedere [determinare se la cartella SYSVOL di un controller di dominio viene replicata da DFSR o FRS](https://msdn.microsoft.com/library/windows/desktop/cc507518.aspx#determining_whether_a_domain_controller_s_sysvol_folder_is_replicated_by_dfsr_or_frs).  
+- Se si utilizza il servizio Replica file (FRS) per replicare SYSVOL, attenersi alla procedura descritta nell' [articolo 290762](https://go.microsoft.com/fwlink/?LinkId=148443) della Microsoft Knowledge base, utilizzando la chiave del registro di sistema **BurFlags** per reinizializzare i set di repliche FRS o, se necessario, l'articolo 315457 [315457](https://support.microsoft.com/kb/315457)per ricompilare l'albero SYSVOL. Per determinare se SYSVOL è replicato da FRS, vedere [determinare se la cartella SYSVOL di un controller di dominio viene replicata da DFSR o FRS](https://msdn.microsoft.com/library/windows/desktop/cc507518.aspx#determining_whether_a_domain_controller_s_sysvol_folder_is_replicated_by_dfsr_or_frs).  
 - Se si usa la replica file system distribuito (DFS) per replicare SYSVOL, vedere [eseguire una sincronizzazione autorevole di SYSVOL con replica DFSR](AD-Forest-Recovery-Authoritative-Recovery-SYSVOL.md).  
 
 ## <a name="performing-a-nonauthoritative-restore"></a>Esecuzione di un ripristino non autorevole
@@ -39,13 +38,13 @@ Utilizzare la procedura seguente per eseguire un ripristino non autorevole di se
    wbadmin start systemstaterecovery <otheroptions> -authsysvol  
    ```  
 
-   Esempio:  
+   Ad esempio,  
 
    ```  
    wbadmin start systemstaterecovery -version:11/20/2012-13:00 -authsysvol  
    ```  
   
-![Ripristinare](media/AD-Forest-Recovery-Nonauthoritative-Restore/nonauth.png)
+![Ripristina](media/AD-Forest-Recovery-Nonauthoritative-Restore/nonauth.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

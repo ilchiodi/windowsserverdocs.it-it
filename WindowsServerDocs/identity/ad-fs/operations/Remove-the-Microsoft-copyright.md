@@ -1,7 +1,6 @@
 ---
 ms.assetid: c89a977c-b09f-44ec-be42-41e76a6cf3ad
 title: Rimuovere il copyright Microsoft
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 0c24173dd03e03f9e8a19ef5981a6dc1259d62d7
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 9306950ab83ea94c1ff814ea9a404c0efeff0e40
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407510"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80816214"
 ---
 # <a name="remove-the-microsoft-copyright"></a>Rimuovere il copyright Microsoft 
 
@@ -38,9 +37,9 @@ Per impostazione predefinita, le pagine di ADFS includono il copyright Microsoft
    Export-AdfsWebTheme -Name custom -DirectoryPath C:\CustomWebTheme
    ```
 
-3. Individuare il file `Style.css` che si trova nella cartella di output. Utilizzando l'esempio precedente, il percorso sarà `C:\CustomWebTheme\Css\Style.css.`
+3. Individuare il file `Style.css` che si trova nella cartella di output. Utilizzando l'esempio precedente, il percorso è `C:\CustomWebTheme\Css\Style.css.`
   
-4. Aprire il file `Style.css` con un editor, ad esempio Blocco note.  
+4. Aprire il file di `Style.css` con un editor, ad esempio Blocco note.  
   
 5. Trovare la parte `#copyright` e modificarla come segue:  
 
@@ -48,7 +47,7 @@ Per impostazione predefinita, le pagine di ADFS includono il copyright Microsoft
    #copyright {color:#696969; display:none;}
    ```
 
-6. Creare un tema personalizzato basato sul nuovo file `Style.css`.  
+6. Creare un tema personalizzato basato sul nuovo file di `Style.css`.  
 
    ```powershell
    Set-AdfsWebTheme -TargetName custom -StyleSheet @{locale="";path="C:\customWebTheme\css\style.css"}

@@ -3,16 +3,15 @@ title: Risolvere i problemi relativi al messaggio di errore ID evento 50
 description: Viene descritto come risolvere il messaggio di errore ID evento 50
 author: Deland-Han
 manager: dcscontentpm
-audience: ITPro
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: 202e0604fc492ff72cd1794bc8197a12c1ab9163
-ms.sourcegitcommit: 8cf04db0bc44fd98f4321dca334e38c6573fae6c
+ms.openlocfilehash: 7ce3551b60450a3720c9350b5c55f396368490c1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75654382"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815234"
 ---
 # <a name="troubleshoot-the-event-id-50-error-message"></a>Risolvere i problemi relativi al messaggio di errore ID evento 50
 
@@ -48,7 +47,7 @@ Questi messaggi di ID evento indicano esattamente la stessa cosa e vengono gener
 > [!NOTE] 
 > Il dispositivo e il percorso nella descrizione e i dati esadecimali specifici possono variare. 
 
-##  <a name="more-information"></a>Ulteriori informazioni
+##  <a name="more-information"></a>Altre informazioni
 
 Un messaggio con ID evento 50 viene registrato se si verifica un errore generico quando Windows tenta di scrivere informazioni sul disco. Questo errore si verifica quando Windows tenta di eseguire il commit dei dati dal file system gestione cache (non dalla cache a livello hardware) al disco fisico. Questo comportamento fa parte della gestione della memoria di Windows. Se, ad esempio, un programma invia una richiesta di scrittura, la richiesta di scrittura viene memorizzata nella cache da Gestione cache e il programma viene informato che la scrittura è stata completata correttamente. In un momento successivo, gestione cache tenta di scrivere i dati nel disco fisico in modo lazy. Quando Gestione cache tenta di eseguire il commit dei dati su disco, si verifica un errore durante la scrittura dei dati e i dati vengono scaricati dalla cache ed eliminati. La memorizzazione nella cache write-back migliora le prestazioni del sistema, ma la perdita di dati e l'integrità del volume possono verificarsi a causa di errori di scrittura ritardata persi.
 
@@ -66,14 +65,14 @@ Quando si decodifica la sezione dati nell'esempio di un messaggio con ID evento 
 
 Nella tabella seguente viene descritto il significato di ogni offset del messaggio: 
 
-|OffsetLengthValues|Lunghezza|Valori|
+|OffsetLengthValues|Length|Valori|
 |-----------|------------|---------|
 |0x00|2|Non utilizzate|
 |0x02|2|Dimensioni dati dump = 0x0004|
 |0x04|2|Numero di stringhe = 0x0002|
 |0x06|2|Offset alle stringhe|
 |0x08|2|Categoria evento|
-|0x0c|4|Codice errore NTSTATUS = 0x80040032 = IO_LOST_DELAYED_WRITE|
+|0x0C|4|Codice errore NTSTATUS = 0x80040032 = IO_LOST_DELAYED_WRITE|
 |0x10|8|Non utilizzate|
 |0x18|8|Non utilizzate|
 |0x20|8|Non utilizzate|
@@ -83,7 +82,7 @@ Nella tabella seguente viene descritto il significato di ogni offset del messagg
 
 **Codice di errore**
 
-Nell'esempio nella sezione "Summary", il codice di errore è elencato nella seconda riga. Questa riga inizia con "0008:" e include gli ultimi quattro byte in questa riga: 0008:00 00 00 00 32 00 04 80 in questo caso, il codice di errore è 0x80040032. Il codice seguente è il codice per l'errore 50 ed è lo stesso per tutti i messaggi con ID 50: IO_LOST_DELAYED_WRITEWARNINGNote quando si convertono i dati esadecimali nel messaggio ID evento nel codice di stato, tenere presente che i valori sono rappresentati nella formato little endian.
+Nell'esempio nella sezione "Summary", il codice di errore è elencato nella seconda riga. Questa riga inizia con "0008:" e include gli ultimi quattro byte in questa riga: 0008:00 00 00 00 32 00 04 80 in questo caso, il codice di errore è 0x80040032. Il codice seguente è il codice per l'errore 50 ed è lo stesso per tutti i messaggi con ID 50: IO_LOST_DELAYED_WRITEWARNINGNote quando si convertono i dati esadecimali nel messaggio ID evento nel codice di stato, tenere presente che i valori sono rappresentati nel formato little endian.
 
 **Disco di destinazione**
 

@@ -2,22 +2,18 @@
 title: 'Guida al Lab di test: dimostrazione di DirectAccess con autenticazione OTP e RSA SecurID'
 description: 'Questo argomento fa parte della Guida al Lab di test: dimostrazione di DirectAccess con autenticazione OTP e RSA SecurID per Windows Server 2016'
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-da
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 10c7a49c-5671-4bec-b562-13fdd67f4629
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: 0de0fcf37e31b91d0fa69d61d42586524f26b92b
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: ee307804b5a03db5638775cb41d6e0a29f8a4a5d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80308511"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80814474"
 ---
 # <a name="test-lab-guide-demonstrate-directaccess-with-otp-authentication-and-rsa-securid"></a>Guida al lab di test: Dimostrazione di DirectAccess con l'autenticazione OTP e SecurID RSA
 

@@ -1,21 +1,20 @@
 ---
 title: Informazioni sul quorum di cluster e pool
 description: Informazioni sul quorum del cluster e del pool, con esempi specifici per approfondire le complessità.
-keywords: Spazi di archiviazione diretta, quorum, server di controllo del mirroring, S2D, quorum del cluster, quorum del pool, cluster, pool
 ms.prod: windows-server
 ms.author: adagashe
-ms.manager: eldenc
+manager: eldenc
 ms.technology: storage-spaces
 ms.topic: article
 author: adagashe
 ms.date: 01/18/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 8950e9d09e3bd07dc02228c295ab223ead969ea6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f13affc3ef15c3a39f4fd3839506897f7807d93a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71366006"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80820994"
 ---
 # <a name="understanding-cluster-and-pool-quorum"></a>Informazioni sul quorum di cluster e pool
 
@@ -29,8 +28,8 @@ Il quorum determina il numero di errori che il cluster può sostenere rimanendo 
 
 In Windows Server 2019 e Windows Server 2016 sono disponibili due componenti del sistema con i propri meccanismi di quorum:
 
-- **Quorum del cluster**: Questa operazione funziona a livello di cluster, ad esempio se è possibile perdere i nodi e il cluster rimane attivo
-- **Quorum pool**: Questa operazione funziona a livello di pool quando Spazi di archiviazione diretta è abilitato, ovvero è possibile perdere i nodi e le unità e fare in caso di rimanere attivi. I pool di archiviazione sono stati progettati per essere utilizzati in scenari in cluster e non in cluster ed è per questo motivo che hanno un meccanismo di quorum diverso.
+- **Quorum del cluster**: funziona a livello di cluster, ad esempio se è possibile perdere i nodi e il cluster rimane attivo
+- **Quorum del pool**: funziona a livello di pool quando spazi di archiviazione diretta è abilitato (ad esempio, è possibile perdere i nodi e le unità e fare in caso che il pool si trovi). I pool di archiviazione sono stati progettati per essere utilizzati in scenari in cluster e non in cluster ed è per questo motivo che hanno un meccanismo di quorum diverso.
 
 ## <a name="cluster-quorum-overview"></a>Panoramica del quorum del cluster
 
@@ -39,12 +38,12 @@ La tabella seguente offre una panoramica dei risultati del quorum del cluster pe
 | Nodi server | Può sopravvivere a un errore del nodo server | Può sopravvivere a un errore del nodo server e quindi a un altro | Può sopravvivere a due errori simultanei del nodo server |
 |--------------|-------------------------------------|---------------------------------------------------|----------------------------------------------------|
 | 2            | 50/50                               | No                                                | No                                                 |
-| 2 + server di controllo  | Yes                                 | No                                                | No                                                 |
-| 3            | Yes                                 | 50/50                                             | No                                                 |
-| 3 + server di controllo  | Yes                                 | Yes                                               | No                                                 |
-| 4            | Yes                                 | Yes                                               | 50/50                                              |
-| 4 + server di controllo  | Yes                                 | Yes                                               | Yes                                                |
-| 5 e versioni successive  | Yes                                 | Yes                                               | Yes                                                |
+| 2 + server di controllo  | Sì                                 | No                                                | No                                                 |
+| 3            | Sì                                 | 50/50                                             | No                                                 |
+| 3 + server di controllo  | Sì                                 | Sì                                               | No                                                 |
+| 4            | Sì                                 | Sì                                               | 50/50                                              |
+| 4 + server di controllo  | Sì                                 | Sì                                               | Sì                                                |
+| 5 e versioni successive  | Sì                                 | Sì                                               | Sì                                                |
 
 ### <a name="cluster-quorum-recommendations"></a>Raccomandazioni del quorum del cluster
 
@@ -62,7 +61,7 @@ Tuttavia, il concetto di *maggioranza* funziona solo quando il numero totale di 
 Esistono due modi in cui il cluster può rendere dispari il *numero totale di voti* :
 
 1. Per prima cosa, può *diventare uno aggiungendo* un server di controllo del *mirroring* con un voto aggiuntivo. Questa operazione richiede la configurazione dell'utente.
-2.  In alternativa, è possibile *che si verifichi uno,* azzerando il voto di un nodo sfortunato (si verifica automaticamente in base alle esigenze).
+2.    In alternativa, è possibile *che si verifichi uno,* azzerando il voto di un nodo sfortunato (si verifica automaticamente in base alle esigenze).
 
 Ogni volta che i nodi superstiti verificano la *maggior parte della maggioranza*, la definizione della *maggioranza* viene aggiornata in modo da essere tra i soli superstiti. In questo modo, il cluster può perdere un nodo, un altro, un altro e così via. Questo concetto del *numero totale di voti* che si adattano dopo errori successivi è noto come ***quorum dinamico***.  
 
@@ -99,7 +98,7 @@ Il voto di un nodo viene azzerato, quindi il voto di *maggioranza* è determinat
 ![Spiegazione del quorum nel caso di due nodi senza un server di controllo del mirroring](media/understand-quorum/2-node-no-witness.png)
 
 - Può sopravvivere a un errore del server: **50% di probabilità**.
-- Può sopravvivere a un errore del server e quindi a un altro: **No**.
+- Può sopravvivere a un errore del server, quindi a un altro: **No**.
 - Può sopravvivere a due errori del server contemporaneamente: **No**. 
 
 #### <a name="two-nodes-with-a-witness"></a>Due nodi con un server di controllo del mirroring. 
@@ -108,7 +107,7 @@ Entrambi i nodi votano, oltre ai voti del witness, quindi la *maggior parte* è 
 ![Spiegazione del quorum nel caso di due nodi con un server di controllo del mirroring](media/understand-quorum/2-node-witness.png)
 
 - Può sopravvivere a un errore del server: **Sì**.
-- Può sopravvivere a un errore del server e quindi a un altro: **No**.
+- Può sopravvivere a un errore del server, quindi a un altro: **No**.
 - Può sopravvivere a due errori del server contemporaneamente: **No**. 
 
 #### <a name="three-nodes-without-a-witness"></a>Tre nodi senza un server di controllo del mirroring.
@@ -117,7 +116,7 @@ Tutti i nodi votano, quindi la *maggior parte* è determinata da un totale di **
 ![Spiegazione del quorum nel caso di tre nodi senza un server di controllo del mirroring](media/understand-quorum/3-node-no-witness.png)
 
 - Può sopravvivere a un errore del server: **Sì**.
-- Può sopravvivere a un errore del server e quindi a un altro: **50% di probabilità**.
+- Può sopravvivere a un errore del server, a un altro: **50% di probabilità**.
 - Può sopravvivere a due errori del server contemporaneamente: **No**. 
 
 #### <a name="three-nodes-with-a-witness"></a>Tre nodi con un server di controllo del mirroring.
@@ -126,7 +125,7 @@ Tutti i nodi votano, quindi il server di controllo del mirroring non vota inizia
 ![Spiegazione del quorum nel caso di tre nodi con un server di controllo del mirroring](media/understand-quorum/3-node-witness.png)
 
 - Può sopravvivere a un errore del server: **Sì**.
-- Può sopravvivere a un errore del server e quindi a un altro: **Sì**.
+- Può sopravvivere a un errore del server, quindi a un altro: **Sì**.
 - Può sopravvivere a due errori del server contemporaneamente: **No**. 
 
 #### <a name="four-nodes-without-a-witness"></a>Quattro nodi senza un server di controllo del mirroring
@@ -135,7 +134,7 @@ Il voto di un nodo viene azzerato, quindi la *maggior parte* è determinata da u
 ![Il quorum è stato illustrato nel caso di quattro nodi senza un server di controllo del mirroring](media/understand-quorum/4-node-no-witness.png)
 
 - Può sopravvivere a un errore del server: **Sì**.
-- Può sopravvivere a un errore del server e quindi a un altro: **Sì**.
+- Può sopravvivere a un errore del server, quindi a un altro: **Sì**.
 - Può sopravvivere a due errori del server contemporaneamente: **50% di probabilità**. 
 
 #### <a name="four-nodes-with-a-witness"></a>Quattro nodi con un server di controllo del mirroring.
@@ -144,7 +143,7 @@ Tutti i nodi votano e i voti del witness, quindi la *maggior parte* è determina
 ![Spiegazione del quorum nel caso di quattro nodi con un server di controllo del mirroring](media/understand-quorum/4-node-witness.png)
 
 - Può sopravvivere a un errore del server: **Sì**.
-- Può sopravvivere a un errore del server e quindi a un altro: **Sì**.
+- Può sopravvivere a un errore del server, quindi a un altro: **Sì**.
 - Può sopravvivere a due errori del server contemporaneamente: **Sì**. 
 
 #### <a name="five-nodes-and-beyond"></a>Cinque nodi e oltre.
@@ -153,7 +152,7 @@ Tutti i nodi votano, o tutti i voti tranne uno, qualunque sia il totale dispari.
 ![Spiegazione del quorum nel caso di cinque nodi e oltre](media/understand-quorum/5-nodes.png)
 
 - Può sopravvivere a un errore del server: **Sì**.
-- Può sopravvivere a un errore del server e quindi a un altro: **Sì**.
+- Può sopravvivere a un errore del server, quindi a un altro: **Sì**.
 - Può sopravvivere a due errori del server contemporaneamente: **Sì**. 
 
 Dopo aver compreso il funzionamento del quorum, verranno esaminati i tipi di testimoni del quorum.
@@ -175,12 +174,12 @@ La tabella seguente offre una panoramica dei risultati del quorum del pool per o
 | Nodi server | Può sopravvivere a un errore del nodo server | Può sopravvivere a un errore del nodo server e quindi a un altro | Può sopravvivere a due errori simultanei del nodo server |
 |--------------|-------------------------------------|---------------------------------------------------|----------------------------------------------------|
 | 2            | No                                  | No                                                | No                                                 |
-| 2 + server di controllo  | Yes                                 | No                                                | No                                                 |
-| 3            | Yes                                 | No                                                | No                                                 |
-| 3 + server di controllo  | Yes                                 | No                                                | No                                                 |
-| 4            | Yes                                 | No                                                | No                                                 |
-| 4 + server di controllo  | Yes                                 | Yes                                               | Yes                                                |
-| 5 e versioni successive  | Yes                                 | Yes                                               | Yes                                                |
+| 2 + server di controllo  | Sì                                 | No                                                | No                                                 |
+| 3            | Sì                                 | No                                                | No                                                 |
+| 3 + server di controllo  | Sì                                 | No                                                | No                                                 |
+| 4            | Sì                                 | No                                                | No                                                 |
+| 4 + server di controllo  | Sì                                 | Sì                                               | Sì                                                |
+| 5 e versioni successive  | Sì                                 | Sì                                               | Sì                                                |
 
 ## <a name="how-pool-quorum-works"></a>Funzionamento del quorum del pool
 
@@ -200,7 +199,7 @@ Ognuna delle 16 unità ha un voto e il nodo due ha anche un voto, perché è il 
 ![Quorum pool 1](media/understand-quorum/pool-1.png)
 
 - Può sopravvivere a un errore del server: **Sì**.
-- Può sopravvivere a un errore del server e quindi a un altro: **Sì**.
+- Può sopravvivere a un errore del server, quindi a un altro: **Sì**.
 - Può sopravvivere a due errori del server contemporaneamente: **Sì**. 
 
 #### <a name="four-nodes-with-a-symmetrical-layout-and-drive-failure"></a>Quattro nodi con un layout simmetrico e un errore di unità. 
@@ -209,7 +208,7 @@ Ognuna delle 16 unità ha un voto e il nodo 2 dispone anche di un voto, dal mome
 ![Quorum del pool 2](media/understand-quorum/pool-2.png)
 
 - Può sopravvivere a un errore del server: **Sì**.
-- Può sopravvivere a un errore del server e quindi a un altro: **No**.
+- Può sopravvivere a un errore del server, quindi a un altro: **No**.
 - Può sopravvivere a due errori del server contemporaneamente: **No**. 
 
 #### <a name="four-nodes-with-a-non-symmetrical-layout"></a>Quattro nodi con layout non simmetrico. 

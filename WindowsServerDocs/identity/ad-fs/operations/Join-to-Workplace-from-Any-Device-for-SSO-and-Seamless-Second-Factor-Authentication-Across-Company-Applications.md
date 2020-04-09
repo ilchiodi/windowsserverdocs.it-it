@@ -1,7 +1,6 @@
 ---
 ms.assetid: e22d84a5-113d-4bec-b484-036ed29f0c28
 title: Accedere a una rete aziendale da qualsiasi dispositivo per SSO e l'autenticazione a due fattori trasparente per tutte le applicazioni aziendali
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 12/05/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 05a8b8bb5685c31ece29ed8eb38d37a424e478b8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 82c94adadb9241e2b7cd8d75ea1693957aaffc61
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71357944"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80816264"
 ---
 # <a name="join-to-workplace-from-any-device-for-sso-and-seamless-second-factor-authentication-across-company-applications"></a>Accedere a una rete aziendale da qualsiasi dispositivo per SSO e l'autenticazione a due fattori trasparente per tutte le applicazioni aziendali
 
@@ -31,7 +30,7 @@ Il rapido aumento del numero di dispositivi di uso personale e l'accesso univers
 ### <a name="workplace-join"></a>Aggiunta all'area di lavoro
 Consente agli Information Worker di aggiungere i dispositivi di uso personale ai computer della rete aziendale per accedere alle risorse e ai servizi aziendali. Quando si aggiunge il dispositivo di uso personale alla rete aziendale, questo diventa un dispositivo noto e consente l'autenticazione a due fattori trasparente e Single Sign-On per le applicazioni e le risorse della rete aziendale. Quando si aggiunge un dispositivo con Aggiunta alla rete aziendale, gli attributi del dispositivo possono essere recuperati dalla directory per consentire l'accesso condizionale, allo scopo di autorizzare il rilascio di token di sicurezza per le applicazioni. I dispositivi Windows 8.1 e iOS 6.0+ e i dispositivi Android 4.0+ possono essere aggiunti con Aggiunta all'area di lavoro.
 
-### <a name="BKMK_DRS"></a>Servizio Registrazione dispositivo Azure Active Directory
+### <a name="azure-active-directory-device-registration-service"></a><a name="BKMK_DRS"></a>Servizio Registrazione dispositivo Azure Active Directory
 L'aggiunta all'area di lavoro è possibile grazie al servizio Azure Active Directory Device Registration. Quando si aggiunge un dispositivo con Aggiunta alla rete aziendale, il servizio effettua il provisioning dell'oggetto dispositivo in Azure Active Directory e quindi imposta una chiave nel dispositivo locale, usato per rappresentare l'identità del dispositivo. Questa identità del dispositivo può quindi essere usata con le regole di controllo di accesso per le applicazioni ospitate nel cloud e in locale.
 
 Per informazioni dettagliate, vedere [Introduzione alla gestione dei dispositivi in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/device-management-introduction).
@@ -54,13 +53,13 @@ Nell'ambito di questa soluzione, si apprenderà come usare Aggiunta alla rete az
 
 Nelle guide alla soluzione sono illustrati i seguenti passaggi della procedura dettagliata:
 
-1.  [Scenario: Aggiungere alla rete aziendale con un dispositivo Windows](../../ad-fs/operations/Walkthrough--Workplace-Join-with-a-Windows-Device.md)
+1.  [Procedura dettagliata: Workplace Join con un dispositivo Windows](../../ad-fs/operations/Walkthrough--Workplace-Join-with-a-Windows-Device.md)
 
-2.  [Scenario: Aggiungere alla rete aziendale con un dispositivo iOS](../../ad-fs/operations/Walkthrough--Workplace-Join-with-an-iOS-Device.md)
+2.  [Procedura dettagliata: Workplace Join con un dispositivo iOS](../../ad-fs/operations/Walkthrough--Workplace-Join-with-an-iOS-Device.md)
 
-3.  [Scenario: Aggiungere alla rete aziendale con un dispositivo Android](../../ad-fs/operations/walkthrough--workplace-join-to-an-android-device.md)
+3.  [Procedura dettagliata: Workplace Join con un dispositivo Android](../../ad-fs/operations/walkthrough--workplace-join-to-an-android-device.md)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Configurare un server federativo con Device Registration Service](../deployment/configure-a-federation-server-with-device-registration-service.md)
 
 

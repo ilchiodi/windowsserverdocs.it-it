@@ -3,16 +3,15 @@ title: Velocità di trasferimento dei file SMB lenti
 description: Viene illustrato come risolvere i problemi relativi alle prestazioni di trasferimento di file SMB.
 author: Deland-Han
 manager: dcscontentpm
-audience: ITPro
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: 0e6c049404f464eba872075a8ef5060b303920c8
-ms.sourcegitcommit: 8cf04db0bc44fd98f4321dca334e38c6573fae6c
+ms.openlocfilehash: af05daa164b5b2c5eca73eff51d97d4c25ba1ca3
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75654562"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815394"
 ---
 # <a name="slow-smb-files-transfer-speed"></a>Velocità di trasferimento dei file SMB lenti
 
@@ -38,7 +37,7 @@ Se si osservano trasferimenti lenti di file di grandi dimensioni, prendere in co
 
 - Per SMBv3 e versioni successive, verificare che SMB multicanale sia abilitato e funzionante.
 
-- Nel client SMB, abilitare MTU di grandi dimensioni in SMB e disabilitare la limitazione della larghezza di banda. A tale scopo, esegui il comando seguente:  
+- Nel client SMB, abilitare MTU di grandi dimensioni in SMB e disabilitare la limitazione della larghezza di banda. A tale scopo eseguire il comando riportato di seguito:  
   
   ```PowerShell
   Set-SmbClientConfiguration -EnableBandwidthThrottling 0 -EnableLargeMtu 1
@@ -66,7 +65,7 @@ Di seguito sono riportati i dettagli tecnici relativi a questo problema:
 
 Questo problema si verifica in genere in una connessione WAN. Si tratta di una situazione comune che in genere è causata dal modo in cui le app di Office (in particolare Microsoft Excel) accedono e leggono i dati.
 
-È consigliabile assicurarsi che i file binari di Office e SMB siano aggiornati e quindi eseguire il test con il leasing disabilitato nel server SMB. A tale scopo, attieniti alla seguente procedura:
+È consigliabile assicurarsi che i file binari di Office e SMB siano aggiornati e quindi eseguire il test con il leasing disabilitato nel server SMB. A tale scopo, effettuare le operazioni seguenti:
    
 1. Eseguire il comando di PowerShell seguente in Windows 8 e Windows Server 2012 o versioni successive di Windows:
       

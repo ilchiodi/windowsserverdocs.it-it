@@ -1,23 +1,19 @@
 ---
 title: Creare il file Oobe.xml con logo ed EULA
 description: Viene descritto come usare Windows Server Essentials
-ms.custom: na
 ms.date: 10/03/2016
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8a7b3cc1-21bb-4344-8110-f5d5959b370d
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 58d98aa84b8851e3226ebc76c86cffd574400c42
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: d667c84a5fc8469429eb5cf10ceb9ee4b40d0d28
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80312052"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80818224"
 ---
 # <a name="create-the-oobexml-file-including-logo-and-eula"></a>Creare il file Oobe.xml con logo ed EULA
 

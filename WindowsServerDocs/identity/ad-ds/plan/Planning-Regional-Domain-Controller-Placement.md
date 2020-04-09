@@ -1,7 +1,6 @@
 ---
 ms.assetid: eb600904-24b8-4488-a278-c1c971dc2f2d
 title: Pianificazione del posizionamento del controller di dominio regionale
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 2508476f35462516f32877365cb15be919b5b6df
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: cb1d83d5afca92de85c4de8b3e9125e119250f66
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408731"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822114"
 ---
 # <a name="planning-regional-domain-controller-placement"></a>Pianificazione del posizionamento del controller di dominio regionale
 
@@ -80,6 +79,6 @@ Si consideri, ad esempio, una rete con succursali connesse tramite collegamenti 
   
 Se la riduzione del costo di gestione dei controller di dominio è più importante del traffico di rete, centralizzare i controller di dominio per tale dominio e non collocare controller di dominio regionali nella posizione o provare a collocare RODC nel percorso.  
   
-Per un foglio di lavoro che assiste l'utente nella documentazione del posizionamento dei controller di dominio regionali e del numero di utenti per ogni dominio rappresentato in ogni posizione, vedere la pagina relativa ai [supporti per i processi per Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558), scaricare Job_Aids_Designing_and_ Deploying_Directory_and_Security_Services. zip e aprire "posizione controller di dominio" (DSSTOPO_4. doc).  
+Per un foglio di lavoro che assiste l'utente nella documentazione del posizionamento dei controller di dominio regionali e del numero di utenti per ogni dominio rappresentato in ogni posizione, vedere l'articolo [relativo ai supporti per i processi per Windows Server 2003 Deployment Kit](https://go.microsoft.com/fwlink/?LinkID=102558), scaricare Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip e aprire "selezione host del controller di dominio" (DSSTOPO_4. doc).  
   
 È necessario fare riferimento alle informazioni sui percorsi in cui è necessario posizionare i controller di dominio regionali quando si distribuiscono i domini regionali. Per ulteriori informazioni sulla distribuzione di domini regionali, vedere [la distribuzione di Windows Server 2008 domini regionali](https://technet.microsoft.com/library/cc755118.aspx).  

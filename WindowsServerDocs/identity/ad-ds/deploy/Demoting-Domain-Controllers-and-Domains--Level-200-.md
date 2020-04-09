@@ -1,7 +1,6 @@
 ---
 ms.assetid: 65ed5956-6140-4e06-8d99-8771553637d1
 title: Abbassamento di livello dei controller di dominio e dei domini (livello 200)
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 11/14/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: e3f320b67196a2400ebedbaeaf0a5b59969400e8
-ms.sourcegitcommit: b7f55949f166554614f581c9ddcef5a82fa00625
+ms.openlocfilehash: b8c5502f50b065e8c75d0167328868ac129dfad1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72588099"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80825430"
 ---
 # <a name="demoting-domain-controllers-and-domains"></a>Domini e controller di dominio abbassamento
 
@@ -36,15 +35,15 @@ In questo argomento viene illustrato come rimuovere Servizi di dominio Active Di
 |||  
 |-|-|  
 |**Cmdlet ADDSDeployment e ServerManager**|Argomenti. Gli argomenti in **grassetto** sono obbligatori. Gli argomenti in *corsivo* possono essere specificati usando Windows PowerShell o la Configurazione guidata Servizi di dominio Active Directory.|  
-|Uninstall-ADDSDomainController|-SkipPreChecks<br /><br />*-LocalAdministratorPassword*<br /><br />-Confirm<br /><br />***-Credential***<br /><br />-DemoteOperationMasterRole<br /><br />*-DNSDelegationRemovalCredential*<br /><br />-Force<br /><br />*-ForceRemoval*<br /><br />*-IgnoreLastDCInDomainMismatch*<br /><br />*-IgnoreLastDNSServerForZone*<br /><br />*-LastDomainControllerInDomain*<br /><br />-Norebootoncompletion<br /><br />*-RemoveApplicationPartitions*<br /><br />*-RemoveDNSDelegation*<br /><br />-RetainDCMetadata|  
-|Uninstall-WindowsFeature/Remove-WindowsFeature|***-Nome***<br /><br />***-IncludeManagementTools***<br /><br />*-Riavvia*<br /><br />-Remove<br /><br />-Force<br /><br />-ComputerName<br /><br />-Credential<br /><br />-LogPath<br /><br />-Vhd|  
+|Uninstall-ADDSDomainController|-SkipPreChecks<p>*-LocalAdministratorPassword*<p>-Confirm<p>***-Credential***<p>-DemoteOperationMasterRole<p>*-DNSDelegationRemovalCredential*<p>-Force<p>*-ForceRemoval*<p>*-IgnoreLastDCInDomainMismatch*<p>*-IgnoreLastDNSServerForZone*<p>*-LastDomainControllerInDomain*<p>-Norebootoncompletion<p>*-RemoveApplicationPartitions*<p>*-RemoveDNSDelegation*<p>-RetainDCMetadata|  
+|Uninstall-WindowsFeature/Remove-WindowsFeature|***-Nome***<p>***-IncludeManagementTools***<p>*-Riavvia*<p>-Remove<p>-Force<p>-ComputerName<p>-Credential<p>-LogPath<p>-Vhd|  
   
 > [!NOTE]  
 > L'argomento **-credential** è obbligatorio solo se non si è già connessi come membro del gruppo Enterprise Admins (abbassamento di livello dell'ultimo controller di dominio di un dominio) o del gruppo Domain Admins (abbassamento di livello di un controller di dominio di replica). L'argomento **-includemanagementtools** è obbligatorio solo se si desidera rimuovere tutte le utilità di gestione di Servizi di dominio Active Directory.  
   
 ## <a name="demote"></a>Abbassa di livello  
   
-### <a name="remove-roles-and-features"></a>Rimuovere ruoli e funzionalità
+### <a name="remove-roles-and-features"></a>Rimuovi ruoli e funzionalità
 
 Server Manager offre due interfacce per la rimozione del ruolo Servizi di dominio Active Directory:  
   
@@ -118,7 +117,7 @@ Gli argomenti ADDSDeployment di Windows PowerShell equivalenti sono:
 -lastdomaincontrollerindomain <{ $true | false }>  
 ```
 
-### <a name="warnings"></a>Avvisi
+### <a name="warnings"></a>Warnings
 
 ![Configurazione guidata di Active Directory Domain Services-l'effetto dei ruoli FSMO sulle credenziali](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_RRW_TR_Warnings.png)  
 
@@ -170,7 +169,7 @@ Ad esempio, è possibile richiedere manualmente una password usando il cmdlet **
 > [!WARNING]
 > Poiché le due opzioni precedenti non confermano la password, usare estrema cautela: la password non è visibile.
 
-È inoltre possibile specificare una stringa sicura come variabile di testo in chiaro convertita, anche se questo metodo è sconsigliato. Ad esempio:
+È inoltre possibile specificare una stringa sicura come variabile di testo in chiaro convertita, anche se questo metodo è sconsigliato. Ad esempio,
 
 ```
 -localadministratorpassword (convertto-securestring "Password1" -asplaintext -force)
@@ -193,7 +192,7 @@ Uninstall-ADDSDomainController
 
 Usare l'argomento facoltativo **Whatif** con il cmdlet **Uninstall-ADDSDomainController** e il cmdlet per rivedere le informazioni sulla configurazione. In questo modo è possibile visualizzare i valori espliciti e impliciti degli argomenti di un cmdlet.
 
-Ad esempio:
+Ad esempio,
 
 ![Esempio di disinstallazione di PowerShell-ADDSDomainController](media/Demoting-Domain-Controllers-and-Domains--Level-200-/ADDS_PSUninstall.png)
 

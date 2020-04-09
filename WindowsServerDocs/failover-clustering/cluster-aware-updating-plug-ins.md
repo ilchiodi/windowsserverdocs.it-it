@@ -1,20 +1,20 @@
 ---
 ms.assetid: d44d4430-41e2-483a-9685-92610cdef32a
 title: Funzionamento del plug-in di aggiornamento compatibile con cluster
+description: Come usare i plug-in per coordinare gli aggiornamenti quando si usa l'aggiornamento compatibile con cluster in Windows Server per installare gli aggiornamenti in un cluster.
 ms.topic: article
 ms.prod: windows-server
-manager: dongill
+manager: lizross
 ms.author: jgerend
 author: JasonGerend
 ms.date: 04/28/2017
 ms.technology: storage-failover-clustering
-description: Come usare i plug-in per coordinare gli aggiornamenti quando si usa l'aggiornamento compatibile con cluster in Windows Server per installare gli aggiornamenti in un cluster.
-ms.openlocfilehash: 5fabd55f54527a2396643cea48980077891e3281
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: ac37e4e7cc18da0d837e9c078382e59415c0edaf
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948071"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828034"
 ---
 # <a name="how-cluster-aware-updating-plug-ins-work"></a>Funzionamento del plug-in di aggiornamento compatibile con cluster
 
@@ -22,7 +22,7 @@ ms.locfileid: "75948071"
 
 [Aggiornamento compatibile con cluster](cluster-aware-updating.md) usa i plug-in per coordinare l'installazione degli aggiornamenti nei nodi di un cluster di failover. Questo argomento fornisce informazioni sull'uso dei\-compilati in\-di plug-in di aggiornamento compatibile con cluster o su altri plug\-ins installati per aggiornamento compatibile con cluster.
 
-## <a name="BKMK_INSTALL"></a>Installare un plug\-in  
+## <a name="install-a-plug-in"></a><a name="BKMK_INSTALL"></a>Installare un plug\-in  
 Un\-di plug-in diverso da quello predefinito\-di plug-in installati con aggiornamento compatibile con cluster \(**Microsoft. WindowsUpdatePlugin** e **microsoft. HotfixPlugin**\) devono essere installati separatamente. Se aggiornamento compatibile con cluster viene usato in modalità di aggiornamento\-automatico, è necessario installare il\-plug in in tutti i nodi del cluster. Se aggiornamento compatibile con cluster viene usato in modalità di aggiornamento\-remoto, è necessario installare il plug\-in nel computer coordinatore dell'aggiornamento remoto. Un plug\-in installato potrebbe avere requisiti di installazione aggiuntivi per ogni nodo.  
   
 Per installare un plug\-in, seguire le istruzioni riportate nell'\-plug in Publisher. Per registrare manualmente un plug\-in con aggiornamento compatibile con cluster, eseguire il cmdlet [Register-CauPlugin](https://technet.microsoft.com/itpro/powershell/windows/cluster-aware-updating/register-cauplugin) in ogni computer in cui è installato il plug\-in.  
@@ -77,7 +77,7 @@ Per specificare il plug\-negli argomenti usando i cmdlet di PowerShell per aggio
 È anche possibile usare una tabella hash di PowerShell predefinita. Per specificare il plug\-negli argomenti per più di un plug\-in, passare più tabelle hash di argomenti, separate da virgole. Passare il\-di collegamento negli argomenti nell'\-di plug nell'ordine specificato in **CauPluginName**.  
   
 ### <a name="specify-optional-plug-in-arguments"></a>Specificare\-plug facoltativo negli argomenti  
-Il plug\-ins installato da aggiornamento compatibile con cluster \(**Microsoft. WindowsUpdatePlugin** e **microsoft. HotfixPlugin**\) fornire opzioni aggiuntive che è possibile selezionare. Nell'interfaccia utente di aggiornamento compatibile con cluster questi vengono visualizzati in una pagina di **Opzioni aggiuntive** dopo aver configurato le opzioni di aggiornamento per il plug\-in. Se si usano i cmdlet di PowerShell per aggiornamento compatibile con cluster, queste opzioni vengono configurate come plug\-facoltativo negli argomenti. Per altre informazioni, vedere [Usare Microsoft.WindowsUpdatePlugin](#BKMK_WUP) e [Usare Microsoft.HotfixPlugin](#BKMK_HFP) , più avanti in questo argomento.  
+Il plug\-ins installato da aggiornamento compatibile con cluster \(**Microsoft. WindowsUpdatePlugin** e **microsoft. HotfixPlugin**\) fornire opzioni aggiuntive che è possibile selezionare. Nell'interfaccia utente di aggiornamento compatibile con cluster questi vengono visualizzati in una pagina di **Opzioni aggiuntive** dopo aver configurato le opzioni di aggiornamento per il plug\-in. Se si usano i cmdlet di PowerShell per aggiornamento compatibile con cluster, queste opzioni vengono configurate come plug\-facoltativo negli argomenti. Per altre informazioni, vedere [Usare Microsoft.WindowsUpdatePlugin](#BKMK_WUP) e [Usare Microsoft.HotfixPlugin](#BKMK_HFP) più avanti in questo argomento.  
   
 ## <a name="manage-plug-ins-using-windows-powershell-cmdlets"></a>Gestire i plug\-in con i cmdlet di Windows PowerShell  
   
@@ -87,7 +87,7 @@ Il plug\-ins installato da aggiornamento compatibile con cluster \(**Microsoft. 
 |[Register-CauPlugin]((https://docs.microsoft.com/powershell/module/clusterawareupdating/register-cauplugin))|Registra un\-del plug-in di aggiornamento software compatibile con cluster nel computer locale.|  
 |[Unregister-CauPlugin](https://docs.microsoft.com/powershell/module/clusterawareupdating/unregister-cauplugin)|Rimuove un\-del plug-in di aggiornamento software dall'elenco di\-di plug-in che possono essere usati da aggiornamento compatibile con cluster. **Nota:** Non è possibile annullare la registrazione dei\-plug-in installati con aggiornamento compatibile con cluster \(**Microsoft. WindowsUpdatePlugin** e **microsoft. HotfixPlugin**\).|  
   
-## <a name="BKMK_WUP"></a>Utilizzo di Microsoft. WindowsUpdatePlugin  
+## <a name="using-the-microsoftwindowsupdateplugin"></a><a name="BKMK_WUP"></a>Utilizzo di Microsoft. WindowsUpdatePlugin  
 
 Il plug\-predefinito in per aggiornamento compatibile con cluster, **Microsoft. WindowsUpdatePlugin**, esegue le azioni seguenti:
 - Comunica con l'agente di Windows Update su ciascun nodo del cluster di failover per applicare gli aggiornamenti necessari per i prodotti Microsoft in esecuzione su ciascun nodo.
@@ -101,7 +101,7 @@ Il plug\-predefinito in per aggiornamento compatibile con cluster, **Microsoft. 
 
 - Il cluster di failover e il computer coordinatore dell'aggiornamento remoto \(se usati\) devono soddisfare i requisiti per aggiornamento compatibile con cluster e la configurazione necessaria per la gestione remota elencata in [requisiti e procedure consigliate per](cluster-aware-updating-requirements.md)aggiornamento compatibile con cluster.
 - Consultare [Raccomandazioni per l'applicazione di aggiornamenti Microsoft](cluster-aware-updating-requirements.md#BKMK_BP_WUA), quindi apportare le eventuali modifiche necessarie alla configurazione di Microsoft Update per i nodi del cluster di failover.
-- Per ottenere risultati ottimali, è consigliabile eseguire il Best Practices Analyzer aggiornamento compatibile con cluster \(BPA\) per assicurarsi che l'ambiente cluster e di aggiornamento siano configurati correttamente per l'applicazione di aggiornamenti tramite aggiornamento compatibile con cluster. Per altre informazioni, vedere [Test CAU updating readiness](cluster-aware-updating-requirements.md#BKMK_BPA).
+- Per ottenere risultati ottimali, è consigliabile eseguire il Best Practices Analyzer aggiornamento compatibile con cluster \(BPA\) per assicurarsi che l'ambiente cluster e di aggiornamento siano configurati correttamente per l'applicazione di aggiornamenti tramite aggiornamento compatibile con cluster. Per altre informazioni, vedere [Test di disponibilità per l'aggiornamento con Aggiornamento compatibile con cluster](cluster-aware-updating-requirements.md#BKMK_BPA).
 
 > [!NOTE]
 > Gli aggiornamenti che richiedono l'accettazione delle condizioni di licenza Microsoft o l'interazione dell'utente sono esclusi e devono essere installati manualmente.
@@ -113,12 +113,12 @@ Facoltativamente, è possibile specificare la seguente\-di plug-in argomenti per
 <br>In alternativa, configurare il\-di plug-in ' **IncludeRecommendedUpdates '\=' true '** nell'argomento.
 - Per configurare il plug\-in in modo da filtrare i tipi di aggiornamenti GDR applicati a ogni nodo del cluster, specificare una stringa di query di Windows Update Agent usando un plug\-**QueryString** nell'argomento. Per altre informazioni, vedere [Configurare la stringa di query per l'agente di Windows Update](#BKMK_QUERY).
 
-### <a name="BKMK_QUERY"></a>Configurare la stringa di query dell'agente di Windows Update  
+### <a name="configure-the-windows-update-agent-query-string"></a><a name="BKMK_QUERY"></a>Configurare la stringa di query dell'agente di Windows Update  
 È possibile configurare un plug\-nell'argomento per il\-di plug-in, **Microsoft. WindowsUpdatePlugin**, che è costituito da un agente Windows Update \(WUA\) stringa di query. Questa istruzione usa l'API agente di Windows Update (WUA) per identificare uno o più gruppi di aggiornamenti Microsoft da applicare a ogni nodo, sulla base di specifici criteri di selezione. È possibile combinare più criteri usando operatori AND od OR logici. La stringa di query WUA viene specificata in un\-plug nell'argomento, come indicato di seguito:  
   
 **QueryString\="Criterion1\=value1 e\/o Criterion2\=value2 e\/o..."**  
   
-**Microsoft.WindowsUpdatePlugin** , ad esempio, seleziona automaticamente gli aggiornamenti importanti usando un argomento **QueryString** predefinito costruito usando i criteri **IsInstalled**, **Type**, **IsHidden**e **IsAssigned** :  
+**Microsoft.WindowsUpdatePlugin**, ad esempio, seleziona automaticamente gli aggiornamenti importanti usando un argomento **QueryString** predefinito costruito usando i criteri **IsInstalled**, **Type**, **IsHidden** e **IsAssigned**:  
   
 **QueryString\="disinstalled\=0 e Type\=" software "e Hidden\=0 e Assigned\=1"**  
   
@@ -143,7 +143,7 @@ Per configurare un argomento **QueryString** che installa solo driver:
   
 Per ulteriori informazioni sulle stringhe di query per il plug\-predefinito in, **Microsoft. WindowsUpdatePlugin**, i criteri di ricerca \(ad esempio\)**disinstallati** e la sintassi che è possibile includere nelle stringhe di query, vedere la sezione relativa ai criteri di ricerca nel [riferimento all'API agente di Windows Update (WUA)](https://go.microsoft.com/fwlink/p/?LinkId=223304).  
   
-## <a name="BKMK_HFP"></a>Usare Microsoft. HotfixPlugin  
+## <a name="use-the-microsofthotfixplugin"></a><a name="BKMK_HFP"></a>Usare Microsoft. HotfixPlugin  
 Il plug\-in **Microsoft. HotfixPlugin** può essere usato per applicare la versione di distribuzione limitata Microsoft \(LDR\) gli aggiornamenti \(anche detti hotfix e in precedenza denominati QFE\) scaricati indipendentemente per risolvere problemi specifici del software Microsoft. Il plug-in installa gli aggiornamenti da una cartella radice in una condivisione file SMB e può anche essere personalizzato per applicare non\-driver Microsoft, firmware e aggiornamenti del BIOS.
 
 > [!NOTE]
@@ -153,8 +153,8 @@ Il plug\-in **Microsoft. HotfixPlugin** può essere usato per applicare la versi
 
 - Il cluster di failover e il computer coordinatore dell'aggiornamento remoto \(se usati\) devono soddisfare i requisiti per aggiornamento compatibile con cluster e la configurazione necessaria per la gestione remota elencata in [requisiti e procedure consigliate per](cluster-aware-updating-requirements.md)aggiornamento compatibile con cluster.
 - Consultare [Consigli per l'uso di Microsoft.HotfixPlugin](cluster-aware-updating-requirements.md#BKMK_BP_HF).
-- Per ottenere risultati ottimali, è consigliabile eseguire la Best Practices Analyzer aggiornamento compatibile con cluster \(modello di\) BPA per assicurarsi che l'ambiente cluster e di aggiornamento siano configurati correttamente per l'applicazione di aggiornamenti tramite aggiornamento compatibile con cluster. Per altre informazioni, vedere [Test CAU updating readiness](cluster-aware-updating-requirements.md#BKMK_BPA).
-- Ottenere gli aggiornamenti dal server di pubblicazione e copiarli o estrarli in un Server Message Block \(SMB\) condivisione file \(la cartella radice degli aggiornamenti rapidi\) che supporta almeno SMB 2,0 e accessibile da tutti i nodi del cluster e il computer coordinatore dell'aggiornamento remoto \(se aggiornamento compatibile con cluster viene usato in modalità di aggiornamento\-remoto\). Per altre informazioni, vedere [Configurare una struttura di cartella radice degli aggiornamenti rapidi](#BKMK_HF_ROOT) , più avanti in questo argomento. 
+- Per ottenere risultati ottimali, è consigliabile eseguire la Best Practices Analyzer aggiornamento compatibile con cluster \(modello di\) BPA per assicurarsi che l'ambiente cluster e di aggiornamento siano configurati correttamente per l'applicazione di aggiornamenti tramite aggiornamento compatibile con cluster. Per altre informazioni, vedere [Test di disponibilità per l'aggiornamento con Aggiornamento compatibile con cluster](cluster-aware-updating-requirements.md#BKMK_BPA).
+- Ottenere gli aggiornamenti dal server di pubblicazione e copiarli o estrarli in un Server Message Block \(SMB\) condivisione file \(la cartella radice degli aggiornamenti rapidi\) che supporta almeno SMB 2,0 e accessibile da tutti i nodi del cluster e il computer coordinatore dell'aggiornamento remoto \(se aggiornamento compatibile con cluster viene usato in modalità di aggiornamento\-remoto\). Per altre informazioni, vedere [Configurare una struttura di cartella radice dell'aggiornamento rapido](#BKMK_HF_ROOT) più avanti in questo argomento. 
 
     > [!NOTE]
     > Per impostazione predefinita, questa\-di plug-in installa solo aggiornamenti rapidi con le estensioni di file seguenti:. msu,. msi e. msp.
@@ -162,12 +162,12 @@ Il plug\-in **Microsoft. HotfixPlugin** può essere usato per applicare la versi
 - Copiare il file DefaultHotfixConfig. XML \(disponibile nella cartella **% systemroot%\\System32\\WindowsPowerShell\\v 1.0\\modules\\ClusterAwareUpdating** in un computer in cui sono installati gli strumenti di aggiornamento compatibile con cluster\) alla cartella radice degli aggiornamenti rapidi creata e in cui sono stati estratti gli aggiornamenti rapidi. Ad esempio, copiare il file di configurazione in *\\\\\\hotfix\\\\radice* . 
 
     > [!NOTE]
-    > Per installare la maggior parte degli aggiornamenti rapidi forniti da Microsoft e altri aggiornamenti, è possibile usare il file di configurazione per gli aggiornamenti rapidi predefinito senza modifiche. Se richiesto per lo scenario in uso, è possibile personalizzare il file di configurazione come attività avanzata. Il file di configurazione può includere, ad esempio, ruoli personalizzati per la gestione di file di aggiornamento rapido con estensioni specifiche oppure per definire i comportamenti per determinate condizioni di uscita. Per altre informazioni, vedere [Personalizzare il file di configurazione degli aggiornamenti rapidi](#BKMK_CONFIG_FILE) , più avanti in questo argomento.
+    > Per installare la maggior parte degli aggiornamenti rapidi forniti da Microsoft e altri aggiornamenti, è possibile usare il file di configurazione per gli aggiornamenti rapidi predefinito senza modifiche. Se richiesto per lo scenario in uso, è possibile personalizzare il file di configurazione come attività avanzata. Il file di configurazione può includere, ad esempio, ruoli personalizzati per la gestione di file di aggiornamento rapido con estensioni specifiche oppure per definire i comportamenti per determinate condizioni di uscita. Per altre informazioni, vedere [Personalizzare il file di configurazione degli aggiornamenti rapidi](#BKMK_CONFIG_FILE) più avanti in questo argomento.
 
 ### <a name="configuration"></a>Configurazione
 
 Configurare le opzioni descritte di seguito. Per altre informazioni, vedere i collegamenti alle sezioni più avanti in questo argomento.
-- Il percorso alla cartella radice degli aggiornamenti rapidi condivisa contenente gli aggiornamenti da applicare nonché il file di configurazione degli aggiornamenti rapidi. È possibile digitare questo percorso nell'interfaccia utente di aggiornamento compatibile con cluster o configurare il **percorso HotfixRootFolderPath\=\<** PowerShell plug\-nell'argomento. 
+- Il percorso alla cartella radice degli aggiornamenti rapidi condivisa contenente gli aggiornamenti da applicare nonché il file di configurazione degli aggiornamenti rapidi. È possibile digitare questo percorso nell'interfaccia utente di aggiornamento compatibile con cluster o configurare il **percorso HotfixRootFolderPath\=\<>** PowerShell plug\-nell'argomento. 
 
    > [!NOTE]
    > È possibile specificare la cartella radice degli aggiornamenti rapidi come percorso di cartella locale o come percorso UNC nel formato *\\\\nomeserver\\condivisione\\RootFolderName*. È possibile utilizzare un percorso di spazio dei nomi DFS basato su\-dominio o autonomo. Tuttavia, il plug\-in funzionalità che controllano le autorizzazioni di accesso nel file di configurazione degli aggiornamenti rapidi non sono compatibili con un percorso dello spazio dei nomi DFS, quindi se ne viene configurato uno, è necessario disabilitare il controllo delle autorizzazioni di accesso usando l'interfaccia utente di aggiornamento compatibile con cluster o configurando il\-plug-in **argomento disableaclchecks\=' true '** in argomento.
@@ -182,7 +182,7 @@ Configurare le opzioni descritte di seguito. Per altre informazioni, vedere i co
 - Facoltativamente, configurare l'argomento **argomento hotfixinstallertimeoutminutes\=<Integer>** per specificare il periodo di tempo durante il quale il plug-in di hotfix\-in attende che il processo del programma di installazione dell'hotfix restituisca. \(il valore predefinito è 30 minuti.\) ad esempio per specificare un periodo di timeout di due ore, impostare **argomento hotfixinstallertimeoutminutes\=120**.
 - Facoltativamente, configurare il **\= argomento hotfixconfigfilename <name>** plug\-in argomento per specificare un nome per il file di configurazione dell'hotfix che si trova nella cartella radice degli aggiornamenti rapidi. Se non ne viene specificato uno, verrà usato il nome predefinito DefaultHotfixConfig.xml.
   
-### <a name="BKMK_HF_ROOT"></a>Configurare una struttura di cartelle radice degli aggiornamenti rapidi
+### <a name="configure-a-hotfix-root-folder-structure"></a><a name="BKMK_HF_ROOT"></a>Configurare una struttura di cartelle radice degli aggiornamenti rapidi
 
 Per il corretto funzionamento del plug-in hotfix\-, gli hotfix devono essere archiviati in una struttura ben\-definita in una condivisione file SMB \(cartella radice degli aggiornamenti rapidi\)ed è necessario configurare il plug-in hotfix\-con il percorso della cartella radice degli aggiornamenti rapidi usando l'interfaccia utente di aggiornamento compatibile con cluster o i cmdlet di PowerShell per aggiornamento compatibile con cluster. Questo percorso viene passato al plug\-in come argomento **HotfixRootFolderPath** . In base alle esigenze di aggiornamento, è possibile scegliere tra diverse strutture per la cartella radice degli aggiornamenti rapidi, come illustrato negli esempi seguenti. File o cartelle non conformi a questa struttura verranno ignorati.  
   
@@ -241,7 +241,7 @@ Nell'esempio seguente, il\-di plug-in **HotfixRootFolderPath** in argomento è i
       ...  
 ```
 
-### <a name="BKMK_CONFIG_FILE"></a>Personalizzare il file di configurazione degli aggiornamenti rapidi  
+### <a name="customize-the-hotfix-configuration-file"></a><a name="BKMK_CONFIG_FILE"></a>Personalizzare il file di configurazione degli aggiornamenti rapidi  
 Il file di configurazione degli aggiornamenti rapidi controlla il modo in cui **Microsoft.HotfixPlugin** installa tipi di file degli aggiornamenti rapidi specifici in un cluster di failover. Lo schema XML per il file di configurazione è definito in HotfixConfigSchema.xsd, che si trova nella cartella seguente in un computer in cui sono installati gli strumenti di Aggiornamento compatibile con cluster:  
   
 **% SystemRoot%\\system32\\WindowsPowerShell\\v 1.0\\Modules\\cartella ClusterAwareUpdating**  
@@ -255,7 +255,7 @@ Per impostazione predefinita, il file XML di configurazione degli aggiornamenti 
   
 -   File di hotfix con estensioni che il plug\-in può installare per impostazione predefinita \(file. msu,. msi e. msp\).  
   
-    Questi vengono definiti elementi `<ExtensionRules>` nell'elemento `<DefaultRules>` . È presente un elemento `<Extension>` per ognuno dei tipi di file predefiniti supportati. La struttura generale XML è la seguente:  
+    Questi vengono definiti elementi `<ExtensionRules>` nell'elemento `<DefaultRules>`. È presente un elemento `<Extension>` per ognuno dei tipi di file predefiniti supportati. La struttura generale XML è la seguente:  
   
     ```xml  
     <DefaultRules>  
@@ -281,7 +281,7 @@ Per impostazione predefinita, il file XML di configurazione degli aggiornamenti 
   
 -   Aggiornamenti rapidi o altri file di aggiornamento che non sono file. msi,. msu o. msp, ad esempio, non\-driver Microsoft, firmware e aggiornamenti del BIOS.  
   
-    Ogni tipo di file predefinito non\-viene configurato come elemento `<Folder>` nell'elemento `<FolderRules>`. L'attributo del nome dell'elemento `<Folder>` deve essere identico al nome di una cartella all'interno della cartella degli aggiornamenti rapidi che conterrà gli aggiornamenti del tipo corrispondente. La cartella può trovarsi nella cartella **CAUHotfix\_all** o in un nodo\-cartella specifica. Se *FolderRule1* , ad esempio, è configurato nella cartella radice degli aggiornamenti rapidi, configurare l'elemento seguente nel file XML per definire un modello di installazione e delle condizioni di uscita per gli aggiornamenti in quella cartella:  
+    Ogni tipo di file predefinito non\-viene configurato come elemento `<Folder>` nell'elemento `<FolderRules>`. L'attributo del nome dell'elemento `<Folder>` deve essere identico al nome di una cartella all'interno della cartella degli aggiornamenti rapidi che conterrà gli aggiornamenti del tipo corrispondente. La cartella può trovarsi nella cartella **CAUHotfix\_all** o in un nodo\-cartella specifica. Se *FolderRule1*, ad esempio, è configurato nella cartella radice degli aggiornamenti rapidi, configurare l'elemento seguente nel file XML per definire un modello di installazione e delle condizioni di uscita per gli aggiornamenti in quella cartella:  
   
     ```xml  
     <FolderRules>  
@@ -297,8 +297,8 @@ Nelle tabelle seguenti sono descritti gli attributi `<Template>` e i possibili s
   
 |Attributo `<Template>`|Descrizione|  
 |--------------------------|---------------|  
-|`path`|Percorso completo del programma di installazione per il tipo di file definito nell'attributo `<Extension name>` .<br /><br />Per specificare il percorso a un file di aggiornamento nella struttura della cartella radice degli aggiornamenti rapidi, usare `$update$`.|  
-|`parameters`|Stringa di parametri obbligatori o facoltativi per il programma specificato in `path`.<br /><br />Per specificare un parametro corrispondente al percorso a un file di aggiornamento nella struttura della cartella radice degli aggiornamenti rapidi, usare `$update$`.|  
+|`path`|Percorso completo del programma di installazione per il tipo di file definito nell'attributo `<Extension name>` .<p>Per specificare il percorso a un file di aggiornamento nella struttura della cartella radice degli aggiornamenti rapidi, usare `$update$`.|  
+|`parameters`|Stringa di parametri obbligatori o facoltativi per il programma specificato in `path`.<p>Per specificare un parametro corrispondente al percorso a un file di aggiornamento nella struttura della cartella radice degli aggiornamenti rapidi, usare `$update$`.|  
   
 |Sottoelemento `<ExitConditions>`|Descrizione|  
 |---------------------------------|---------------|  
@@ -311,10 +311,10 @@ Nelle tabelle seguenti sono descritti gli attributi `<Template>` e i possibili s
 > [!IMPORTANT]  
 > Qualsiasi codice di uscita non esplicitamente definito in `<ExitConditions>` viene interpretato come aggiornamento non riuscito e il nodo non viene riavviato.  
   
-### <a name="BKMK_ACL"></a>Limita l'accesso alla cartella radice degli aggiornamenti rapidi  
+### <a name="restrict-access-to-the-hotfix-root-folder"></a><a name="BKMK_ACL"></a>Limita l'accesso alla cartella radice degli aggiornamenti rapidi  
 Per configurare il file server e la condivisione file SMB per garantire accesso alla cartella radice e al file di configurazione degli aggiornamenti rapidi esclusivamente nel contesto di **Microsoft.HotfixPlugin**, è necessario eseguire diversi passaggi. Tali passaggi consentono di abilitare varie funzionalità che aiutano a prevenire possibili manomissioni dei file di aggiornamento rapido che potrebbero compromettere il cluster di failover.  
   
-In generale, i passaggi sono i seguenti:  
+I passaggi principali sono i seguenti:  
   
 1.  Identificare l'account utente usato per le esecuzioni di aggiornamento usando il plug\-in  
   
@@ -355,7 +355,7 @@ L'account usato in aggiornamento compatibile con cluster per verificare le impos
   
 5.  Fare clic su **CIMV2**, quindi su **Sicurezza**.  
   
-6.  Aggiungere l'account usato per le operazioni di aggiornamento all'elenco **Utenti e gruppi** .  
+6.  Aggiungere l'account usato per le operazioni di aggiornamento all'elenco **Utenti e gruppi**.  
   
 7.  Concedere le autorizzazioni **Esegui metodi** e **Abilita remoto** all'account usato per le operazioni di aggiornamento.  
   
@@ -371,7 +371,7 @@ Se si usa la configurazione predefinita del plug-in hotfix\-in, assicurarsi che 
   
 -   Sono consentite solo determinate entità di sicurezza \(ma non sono necessarie\) disporre dell'autorizzazione di scrittura o modifica. Le entità di sicurezza ammesse sono il gruppo Administrators locale, SYSTEM, CREATOR OWNER e TrustedInstaller. Nessun altro account o gruppo può disporre di autorizzazioni di scrittura o modifica per la cartella radice degli aggiornamenti rapidi.  
   
-Facoltativamente, è possibile disabilitare i controlli precedenti che il plug\-in esegue per impostazione predefinita. È possibile effettuare questa operazione in uno dei due modi seguenti:  
+Facoltativamente, è possibile disabilitare i controlli precedenti che il plug\-in esegue per impostazione predefinita. Puoi eseguire questa operazione in due modi:  
   
 -   Se si usano i cmdlet di PowerShell per aggiornamento compatibile con cluster, configurare l'argomento **argomento disableaclchecks\=' true '** nel parametro **CauPluginArguments** per il plug-in hotfix\-in.  
   
@@ -402,7 +402,7 @@ Facoltativamente, per imporre l'uso della crittografia SMB nelle connessioni al 
   
 È necessario abilitare la **gestione remota file Server \(smb\-in\)** regola Windows Firewall nel file server SMB. Questa funzionalità è abilitata per impostazione predefinita in Windows Server 2016, Windows Server 2012 R2 e Windows Server 2012.  
   
-## <a name="see-also"></a>Vedi anche  
+## <a name="see-also"></a>Vedere anche  
   
 -   [Panoramica di aggiornamento compatibile con cluster](cluster-aware-updating.md)
   

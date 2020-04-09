@@ -1,7 +1,6 @@
 ---
 ms.assetid: 8b900c2b-35b1-4c95-a73d-e5f2e9cf0adb
 title: Ricerca di risorse aggiuntive per la progettazione di una struttura logica
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 257e78b58962b5a91d1c3845efdd1452a93efdfb
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 562f29bb36f5ff0cc0b2260e29cc31189a1dfa36
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402572"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822474"
 ---
 # <a name="finding-additional-resources-for-logical-structure-design"></a>Ricerca di risorse aggiuntive per la progettazione di una struttura logica
 
@@ -24,7 +23,7 @@ Per ulteriori risorse per la progettazione di strutture logiche, vedere la docum
   
 - Per ulteriori informazioni sulla progettazione della topologia del sito, vedere [progettazione della topologia del sito per servizi di dominio Active Directory di Windows Server 2008](Designing-the-Site-Topology.md).  
 
-- Per i fogli di lavoro che facilitano la documentazione dell'infrastruttura di foresta, dominio, Domain Name System (DNS) proposta e della progettazione di unità organizzative (OU), scaricare Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip da supporti per i processi Windows Server 2003 Deployment Kit ([https://go.microsoft.com/fwlink/?LinkID=102558](https://go.microsoft.com/fwlink/?LinkID=102558)).  
+- Per i fogli di lavoro che facilitano la documentazione dell'infrastruttura di foresta, dominio, Domain Name System (DNS) e della progettazione di unità organizzative, scaricare Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip da supporti per i processi per Windows Server 2003 Deployment Kit ([https://go.microsoft.com/fwlink/?LinkID=102558](https://go.microsoft.com/fwlink/?LinkID=102558)).  
   
 - Per ulteriori informazioni sull'autenticazione delegata e la delega vincolata, vedere Delega dell'autenticazione ([https://go.microsoft.com/fwlink/?LinkID=106614](https://go.microsoft.com/fwlink/?LinkID=106614)).  
   
@@ -32,7 +31,7 @@ Per ulteriori risorse per la progettazione di strutture logiche, vedere la docum
   
 - Per ulteriori informazioni sull'aggiornamento dei domini Active Directory a Windows Server 2008, vedere [aggiornamento di domini Active Directory a domini di servizi di dominio Active Directory di Windows server 2008 e Windows server 2008 R2](https://technet.microsoft.com/library/cc731188.aspx).  
   
-- Per ulteriori informazioni sulla ristrutturazione dei domini di servizi di dominio Active Directory all'interno e tra foreste, vedere la guida alla migrazione Active Directory strumento di migrazione versione 3,1 ([https://go.microsoft.com/fwlink/?LinkId=93678](https://go.microsoft.com/fwlink/?LinkId=93678)).  
+- Per ulteriori informazioni sulla ristrutturazione dei domini di servizi di dominio Active Directory all'interno e tra foreste, vedere la guida alla migrazione di Active Directory strumento di migrazione versione 3,1 ([https://go.microsoft.com/fwlink/?LinkId=93678](https://go.microsoft.com/fwlink/?LinkId=93678)).  
   
 - Per ulteriori informazioni sulla distribuzione di un dominio radice della foresta, vedere [distribuzione di un dominio radice della foresta di Windows Server 2008](https://technet.microsoft.com/library/cc731174.aspx).  
   
@@ -50,11 +49,11 @@ Per ulteriori risorse per la progettazione di strutture logiche, vedere la docum
   
 - Per ulteriori informazioni sui requisiti dei certificati del controller di dominio, vedere l'articolo 321051 della Microsoft Knowledge base ([https://go.microsoft.com/fwlink/?LinkId=102307](https://go.microsoft.com/fwlink/?LinkId=102307)).  
   
-- Per ulteriori informazioni sull'autenticazione LDAP (Lightweight Directory Access Protocol) su Secure Sockets Layer (SSL) e su un aggiornamento correlato per Windows Server 2003, vedere l'articolo 932834 della Microsoft Knowledge base ([https://go.microsoft.com/fwlink/?LinkId=102308](https://go.microsoft.com/fwlink/?LinkId=102308)).  
+- Per ulteriori informazioni sull'autenticazione LDAP (Lightweight Directory Access Protocol) su Secure Sockets Layer (SSL) e un aggiornamento correlato per Windows Server 2003, vedere l'articolo 932834 della Microsoft Knowledge base ([https://go.microsoft.com/fwlink/?LinkId=102308](https://go.microsoft.com/fwlink/?LinkId=102308)).  
   
 - Per ulteriori informazioni sull'infrastruttura di Criteri di gruppo, vedere Progettazione di un'infrastruttura di Criteri di gruppo ([https://go.microsoft.com/fwlink/?LinkID=106655](https://go.microsoft.com/fwlink/?LinkID=106655)).  
   
-- Per ulteriori informazioni sui controller di dominio di sola lettura (RODC), vedere Servizi di dominio Active Directory: Controller di dominio di sola lettura ([https://go.microsoft.com/fwlink/?LinkID=106616](https://go.microsoft.com/fwlink/?LinkID=106616)).  
+- Per ulteriori informazioni sui controller di dominio di sola lettura (RODC), vedere Servizi di dominio Active Directory: controller di dominio di sola lettura ([https://go.microsoft.com/fwlink/?LinkID=106616](https://go.microsoft.com/fwlink/?LinkID=106616)).  
   
 - Per ulteriori informazioni sui criteri specifici per le password e il blocco degli account, vedere la guida dettagliata alla configurazione dei criteri specifici per le password e il blocco degli account ([https://go.microsoft.com/fwlink/?LinkID=91477](https://go.microsoft.com/fwlink/?LinkID=91477)).  
   

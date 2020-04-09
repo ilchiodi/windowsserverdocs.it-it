@@ -1,6 +1,5 @@
 ---
 title: Ripristino della foresta di Active Directory-generazione di pool di RID
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.assetid: c37bc129-a5e0-4219-9ba7-b4cf3a9fc9a4
 ms.technology: identity-adds
-ms.openlocfilehash: aa1f5e8b40aa43fa2601bc6f11efe2fcd4ccd05e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 308dce9be53194eb7db91944964ae5de03345ab6
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369064"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80823854"
 ---
 # <a name="ad-forest-recovery---raising-the-value-of-available-rid-pools"></a>Ripristino della foresta di Active Directory: generazione del valore dei pool di RID disponibili 
 
@@ -55,7 +54,7 @@ Quando si aumenta il valore dell'Integer grande, si aumenta il valore della part
   
 ### <a name="to-raise-the-value-of-available-rid-pools-using-ldp"></a>Per aumentare il valore dei pool di RID disponibili mediante LDP  
   
-1. Al prompt dei comandi digitare il comando seguente e quindi premere INVIO:  
+1. Al prompt dei comandi digitare il comando seguente, quindi premere INVIO:  
    **LDP**  
 2. Fare clic su **connessione**, fare clic su **Connetti**, digitare il nome di gestione rid, quindi fare clic su **OK**. 
    ![LDP](media/AD-Forest-Recovery-Raise-RID-Pool/ldp1.png)

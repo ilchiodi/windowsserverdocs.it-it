@@ -2,22 +2,18 @@
 title: PASSAGGIO 2 configurare EDGE1
 description: 'Questo argomento fa parte della Guida al Lab di test: dimostrazione di DirectAccess in un cluster con bilanciamento carico di servizio di Windows per Windows Server 2016'
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-da
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 84457351-1ca7-4e7c-8e2c-53d55b1fcdc0
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: eea83bd9788ffd704b6169c140adc68465f9325d
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 8705e69debec2f0a19f5cc010ed5ca254cc56741
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80310845"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80819314"
 ---
 # <a name="step-2-configure-edge1"></a>PASSAGGIO 2 configurare EDGE1
 

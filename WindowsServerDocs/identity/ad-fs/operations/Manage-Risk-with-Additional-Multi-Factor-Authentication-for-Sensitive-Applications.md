@@ -1,7 +1,6 @@
 ---
 ms.assetid: 934ac796-e2ee-490d-8265-6a818be5ee79
 title: Gestire i rischi con l'autenticazione a più fattori aggiuntiva per le applicazioni con esigenze particolari
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 79319f54ceb14195dffd56b5a4dfe1b17f048df9
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: dc6608713ddd60d20b0b717d4133d93d23fc7b25
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407526"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80816254"
 ---
 # <a name="manage-risk-with-additional-multi-factor-authentication-for-sensitive-applications"></a>Gestire i rischi con l'autenticazione a più fattori aggiuntiva per le applicazioni con esigenze particolari
 
@@ -27,7 +26,7 @@ ms.locfileid: "71407526"
 
 -   [Configurare metodi di autenticazione aggiuntivi per AD FS](../../ad-fs/operations/Configure-Additional-Authentication-Methods-for-AD-FS.md)
 
-## <a name="in-this-guide"></a>Contenuto della guida
+## <a name="in-this-guide"></a>In questa guida
 In questa guida sono disponibili le informazioni seguenti:
 
 -   [Meccanismi di autenticazione in ad FS](../../ad-fs/operations/Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md#BKMK_1) Descrizione dei meccanismi di autenticazione disponibili in Active Directory Federation Services (ad FS) in Windows Server 2012 R2
@@ -39,10 +38,10 @@ In questa guida sono disponibili le informazioni seguenti:
 
     Per istruzioni dettagliate per la configurazione e la verifica di questo scenario, vedere Guida alla procedura dettagliata [: gestire i rischi con ulteriori multi-factor authentication per le applicazioni riservate](../../ad-fs/operations/Manage-Risk-with-Additional-Multi-Factor-Authentication-for-Sensitive-Applications.md).
 
-## <a name="BKMK_1"></a>Concetti chiave: meccanismi di autenticazione in AD FS
+## <a name="key-concepts---authentication-mechanisms-in-ad-fs"></a><a name="BKMK_1"></a>Concetti chiave: meccanismi di autenticazione in AD FS
 
 ### <a name="benefits-of-authentication-mechanisms-in-ad---fs"></a>Vantaggi dei meccanismi di autenticazione in ADFS
-Active Directory Federation Services (AD FS) in Windows Server 2012 R2 offre agli amministratori IT un set di strumenti più completo e flessibile per l'autenticazione degli utenti che desiderano accedere alle risorse aziendali. Consente agli amministratori di ottenere un controllo flessibile sui metodi di autenticazione primari e aggiuntivi, offre un'esperienza di gestione completa per la configurazione dei criteri di autenticazione (sia tramite l'interfaccia utente che con Windows PowerShell) e migliora esperienza per gli utenti finali che accedono alle applicazioni e ai servizi protetti da AD FS. Di seguito sono riportati alcuni dei vantaggi della protezione di applicazioni e servizi con AD FS in Windows Server 2012 R2:
+Active Directory Federation Services (AD FS) in Windows Server 2012 R2 offre agli amministratori IT un set di strumenti più completo e flessibile per l'autenticazione degli utenti che desiderano accedere alle risorse aziendali. Consente agli amministratori di ottenere un controllo flessibile sui metodi di autenticazione primari e aggiuntivi, offre un'esperienza di gestione completa per la configurazione dei criteri di autenticazione (sia tramite l'interfaccia utente che con Windows PowerShell) e migliora l'esperienza degli utenti finali che accedono alle applicazioni e ai servizi protetti da AD FS. Di seguito sono riportati alcuni dei vantaggi della protezione di applicazioni e servizi con AD FS in Windows Server 2012 R2:
 
 -   Criteri di autenticazione globali: una funzionalità di gestione centrale dalla quale un amministratore IT può scegliere i metodi di autenticazione usati per autenticare gli utenti in base al percorso di rete da cui accedono alle risorse protette. Ciò consente agli amministratori di:
 
@@ -118,7 +117,7 @@ Per le impostazioni dell'autenticazione a più fattori sono disponibili le opzio
 
 -   È possibile richiedere l'autenticazione a più fattori quando la richiesta di accesso per le risorse protette proviene dall'Extranet o dall'Intranet.
 
-## <a name="BKMK_2"></a>Panoramica dello scenario
+## <a name="scenario-overview"></a><a name="BKMK_2"></a>Panoramica dello scenario
 In questo scenario si Abilita l'autenticazione a più fattori in base ai dati di appartenenza a gruppi dell'utente per un'applicazione specifica. In altri termini, verranno configurati i criteri di autenticazione nel server federativo in modo da richiedere l'autenticazione a più fattori quando gli utenti che appartengono a un determinato gruppo accedono a un'applicazione specifica ospitata in un server Web.
 
 Più in dettaglio, nello scenario verranno abilitati criteri di autenticazione per un'applicazione di test basata su attestazioni denominata **claimapp**, in base ai quali l'utente di Active Directory **Robert Hatley** dovrà eseguire l'autenticazione a più fattori dato che appartiene al gruppo di Active Directory **Finance**.

@@ -1,7 +1,6 @@
 ---
 ms.assetid: 39c0126d-af5e-4dcb-88c1-aa38f888e973
 title: Zone DNS integrate in Active Directory
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 858dbc539d48dc3d024ceb871fa9f2d1f80cce0d
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5e9047fced5c89c1f2c9d5edaf1ff02536c2a709
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402662"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822894"
 ---
 # <a name="active-directory-integrated-dns-zones"></a>Zone DNS integrate in Active Directory
 

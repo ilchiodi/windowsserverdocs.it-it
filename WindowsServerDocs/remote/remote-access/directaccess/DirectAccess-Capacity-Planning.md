@@ -2,22 +2,18 @@
 title: Pianificazione della capacità di DirectAccess
 description: È possibile utilizzare questo argomento per un report sulle prestazioni del server DirectAccess di Windows Server 2012 per facilitare la pianificazione della capacità per DirectAccess in Windows Server 2016.
 manager: brianlic
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-da
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 456e5971-3aa7-4a24-bc5d-0c21fec7687e
 ms.author: lizross
 author: eross-msft
-ms.openlocfilehash: e63b4c4f266d286b766c89b61676493328aa8652
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 413dc88ce9ec551a318b63f3df44ed256f289219
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80310987"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815794"
 ---
 # <a name="directaccess-capacity-planning"></a>Pianificazione della capacità di DirectAccess
 
@@ -37,7 +33,7 @@ Il grafico seguente illustra i risultati dell'ambiente di test delle prestazioni
 ||||  
 |-|-|-|  
 |Configurazione - Hardware|Hardware di fascia bassa (4 GB di ram, 4 core)|Hardware di fascia alta (8 GB, 8 core)|  
-|Tunnel doppio<br /><br />-PKI<br /><br />-Con DNS64/NAT64|750 connessioni simultanee al 50% della CPU, 50% della memoria con velocità effettiva di Corpnet NIC pari a 75 Mbps. Il target esteso è di 1000 utenti al 50% della CPU.|1500 connessioni simultanee al 50% della CPU, 50% della memoria con velocità effettiva di Corpnet NIC 150 Mbps.|  
+|Tunnel doppio<p>-PKI<p>-Con DNS64/NAT64|750 connessioni simultanee al 50% della CPU, 50% della memoria con velocità effettiva di Corpnet NIC pari a 75 Mbps. Il target esteso è di 1000 utenti al 50% della CPU.|1500 connessioni simultanee al 50% della CPU, 50% della memoria con velocità effettiva di Corpnet NIC 150 Mbps.|  
 ## <a name="test-environment"></a>Ambiente di test
 
 **Topologia del banco delle prestazioni**  

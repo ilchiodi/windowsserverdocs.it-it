@@ -5,15 +5,14 @@ manager: eldenc
 ms.author: cosdar
 ms.technology: storage-health-service
 ms.topic: article
-ms.assetid: ''
 author: cosmosdarwin
 ms.date: 10/05/2017
-ms.openlocfilehash: 11af69d1c6f32205b87ad4605edebacb59b0b710
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 913a596a46720718a165295345cb02e3e2baa1de
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71369715"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827564"
 ---
 # <a name="health-service-faults"></a>Errori Servizio integrità
 > Si applica a: Windows Server 2019, Windows Server 2016
@@ -24,7 +23,7 @@ Il Servizio integrità monitora costantemente il cluster Spazi di archiviazione 
 
 Ogni errore contiene cinque campi importanti:  
 
--   Gravità
+-   Severity
 -   Descrizione del problema
 -   Passaggi successivi consigliati per risolvere il problema
 -   Informazioni di identificazione per l'entità che ha generato l’errore
@@ -102,7 +101,7 @@ Il nome utente specificato deve essere un amministratore locale del computer di 
 
 È consigliabile costruire la password **SecureString** direttamente dall'input dell'utente in tempo reale, quindi la password non viene mai archiviata in memoria in testo non crittografato. Questo consente di attenuare una serie di problemi di sicurezza. In pratica, tuttavia, la creazione di questo approccio è comune a scopo di creazione di prototipi.
 
-### <a name="discover-objects"></a>Oggetti Discover
+### <a name="discover-objects"></a>Individuazione oggetti
 
 Con la **CimSession** stabilita, è possibile eseguire una query Strumentazione gestione Windows (WMI) nel cluster.
 
@@ -326,49 +325,49 @@ Si noti l'oggetto **ChangeType**, che indica se viene creato, rimosso o aggiorna
 
 **ChangeType** ChangeType = {0, 1, 2} = {"create", "Remove", "Update"}.
 
-## <a name="coverage"></a>Ambito del servizio
+## <a name="coverage"></a>Coverage
 
 In Windows Server 2016, il Servizio integrità fornisce la copertura degli errori seguente:  
 
 ### <a name="physicaldisk-8"></a>**PhysicalDisk (8)**
 
 #### <a name="faulttype-microsofthealthfaulttypephysicaldiskfailedmedia"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. PhysicalDisk. FailedMedia
-* Gravità: avviso
+* Gravità: Avviso
 * Motivo: *"il disco fisico non è riuscito".*
 * RecommendedAction: *"sostituire il disco fisico".*
 
 #### <a name="faulttype-microsofthealthfaulttypephysicaldisklostcommunication"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. PhysicalDisk. LostCommunication
-* Gravità: avviso
+* Gravità: Avviso
 * Motivo: *"la connettività è stata persa sul disco fisico".*
 * RecommendedAction: *"verificare che il disco fisico sia funzionante e connesso correttamente".*
 
 #### <a name="faulttype-microsofthealthfaulttypephysicaldiskunresponsive"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. PhysicalDisk. non risponde
-* Gravità: avviso
+* Gravità: Avviso
 * Motivo: *"il disco fisico sta mostrando una ricorrenza di non risposta".*
 * RecommendedAction: *"sostituire il disco fisico".*
 
 #### <a name="faulttype-microsofthealthfaulttypephysicaldiskpredictivefailure"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. PhysicalDisk. PredictiveFailure
-* Gravità: avviso
+* Gravità: Avviso
 * Motivo: *"si è verificato un errore del disco fisico a breve."*
 * RecommendedAction: *"sostituire il disco fisico".*
 
 #### <a name="faulttype-microsofthealthfaulttypephysicaldiskunsupportedhardware"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. PhysicalDisk. UnsupportedHardware
-* Gravità: avviso
+* Gravità: Avviso
 * Motivo: *"il disco fisico è in quarantena perché non è supportato dal fornitore della soluzione."*
 * RecommendedAction: *"sostituire il disco fisico con hardware supportato".*
 
 #### <a name="faulttype-microsofthealthfaulttypephysicaldiskunsupportedfirmware"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. PhysicalDisk. UnsupportedFirmware
-* Gravità: avviso
+* Gravità: Avviso
 * Motivo: *"il disco fisico è in quarantena perché la versione del firmware non è supportata dal fornitore della soluzione."*
 * RecommendedAction: *"aggiornare il firmware del disco fisico alla versione di destinazione".*
 
 #### <a name="faulttype-microsofthealthfaulttypephysicaldiskunrecognizedmetadata"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. PhysicalDisk. UnrecognizedMetadata
-* Gravità: avviso
+* Gravità: Avviso
 * Motivo: *"il disco fisico contiene metadati non riconosciuti".*
 * RecommendedAction: *"questo disco può contenere dati da un pool di archiviazione sconosciuto. Assicurarsi prima di tutto che non vi siano dati utili su questo disco, quindi reimpostare il disco ".*
 
 #### <a name="faulttype-microsofthealthfaulttypephysicaldiskfailedfirmwareupdate"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. PhysicalDisk. FailedFirmwareUpdate
-* Gravità: avviso
+* Gravità: Avviso
 * Motivo: *"Impossibile eseguire l'aggiornamento del firmware sul disco fisico".*
 * RecommendedAction: *"provare a usare un altro binario del firmware".*
 
@@ -387,14 +386,14 @@ In Windows Server 2016, il Servizio integrità fornisce la copertura degli error
 ### <a name="pool-capacity-1"></a>**Capacità pool (1)**
 
 #### <a name="faulttype-microsofthealthfaulttypestoragepoolinsufficientreservecapacityfault"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. StoragePool. InsufficientReserveCapacityFault
-* Gravità: avviso
+* Gravità: Avviso
 * Motivo: *"il pool di archiviazione non dispone della capacità minima di riserva consigliata. Questo potrebbe limitare la capacità di ripristinare la resilienza dei dati in caso di errori dell'unità. "*
 * RecommendedAction: *"aggiungere capacità aggiuntiva al pool di archiviazione o liberare capacità. La riserva consigliata minima varia a seconda della distribuzione, ma è di circa 2 unità di capacità ".*
 
 ### <a name="volume-capacity-2sup1sup"></a>**Capacità volume (2)** <sup>1</sup>
 
 #### <a name="faulttype-microsofthealthfaulttypevolumecapacity"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. volume. Capacity
-* Gravità: avviso
+* Gravità: Avviso
 * Motivo: *"lo spazio disponibile nel volume è esaurito."*
 * RecommendedAction: *"espandere il volume o eseguire la migrazione dei carichi di lavoro ad altri volumi".*
 
@@ -430,88 +429,88 @@ In Windows Server 2016, il Servizio integrità fornisce la copertura degli error
 ### <a name="network-adapterinterface-4"></a>**Interfaccia/scheda di rete (4)**
 
 #### <a name="faulttype-microsofthealthfaulttypenetworkadapterdisconnected"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. NetworkAdapter. disconnected
-* Gravità: avviso
+* Gravità: Avviso
 * Motivo: *"l'interfaccia di rete è stata disconnessa".*
 * RecommendedAction: *"riconnettere il cavo di rete".*
 
 #### <a name="faulttype-microsofthealthfaulttypenetworkinterfacemissing"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. interfaccia. Missing
-* Gravità: avviso
+* Gravità: Avviso
 * Motivo: *"nel server {server} mancano le schede di rete connesse alla rete cluster {cluster network}".*
 * RecommendedAction: *"connettere il server alla rete cluster mancante".*
 
 #### <a name="faulttype-microsofthealthfaulttypenetworkadapterhardware"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. NetworkAdapter. hardware
-* Gravità: avviso
+* Gravità: Avviso
 * Motivo: *"l'interfaccia di rete ha riscontrato un errore hardware".*
 * RecommendedAction: *"sostituire la scheda di interfaccia di rete".*
 
 #### <a name="faulttype-microsofthealthfaulttypenetworkadapterdisabled"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. NetworkAdapter. disabled
-* Gravità: avviso
+* Gravità: Avviso
 * Motivo: *"l'interfaccia di rete {Network Interface} non è abilitata e non è in uso".*
 * RecommendedAction: *"Abilita l'interfaccia di rete."*
 
 ### <a name="enclosure-6"></a>**Enclosure (6)**
 
 #### <a name="faulttype-microsofthealthfaulttypestorageenclosurelostcommunication"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. StorageEnclosure. LostCommunication
-* Gravità: avviso
+* Gravità: Avviso
 * Motivo: *"la comunicazione è stata persa nell'enclosure di archiviazione".*
 * RecommendedAction: *"avvia o Sostituisci l'enclosure di archiviazione".*
 
 #### <a name="faulttype-microsofthealthfaulttypestorageenclosurefanerror"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. StorageEnclosure. FanError
-* Gravità: avviso
+* Gravità: Avviso
 * Motivo: *"la ventola alla posizione {position} dell'enclosure di archiviazione non è riuscita."*
 * RecommendedAction: *"sostituire la ventola nell'enclosure di archiviazione".*
 
 #### <a name="faulttype-microsofthealthfaulttypestorageenclosurecurrentsensorerror"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. StorageEnclosure. CurrentSensorError
-* Gravità: avviso
+* Gravità: Avviso
 * Motivo: *"il sensore corrente alla posizione {position} dell'enclosure di archiviazione non è riuscito."*
 * RecommendedAction: *"sostituire un sensore corrente nell'enclosure di archiviazione".*
 
 #### <a name="faulttype-microsofthealthfaulttypestorageenclosurevoltagesensorerror"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. StorageEnclosure. VoltageSensorError
-* Gravità: avviso
+* Gravità: Avviso
 * Motivo: *"il sensore di tensione alla posizione {position} dell'enclosure di archiviazione non è riuscito".*
 * RecommendedAction: *"sostituire un sensore di tensione nell'enclosure di archiviazione".*
 
 #### <a name="faulttype-microsofthealthfaulttypestorageenclosureiocontrollererror"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. StorageEnclosure. IoControllerError
-* Gravità: avviso
+* Gravità: Avviso
 * Motivo: *"il controller io nella posizione {position} dell'enclosure di archiviazione non è riuscito".*
 * RecommendedAction: *"sostituire un controller di io nello chassis di archiviazione".*
 
 #### <a name="faulttype-microsofthealthfaulttypestorageenclosuretemperaturesensorerror"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. StorageEnclosure. TemperatureSensorError
-* Gravità: avviso
+* Gravità: Avviso
 * Motivo: *"il sensore di temperatura alla posizione {position} dell'enclosure di archiviazione non è riuscito."*
 * RecommendedAction: *"sostituire un sensore di temperatura nell'enclosure di archiviazione".*
 
 ### <a name="firmware-rollout-3"></a>**Implementazione del firmware (3)**
 
 #### <a name="faulttype-microsofthealthfaulttypefaultdomainfailedmaintenancemode"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. FaultDomain. FailedMaintenanceMode
-* Gravità: avviso
+* Gravità: Avviso
 * Motivo: *"attualmente non è in grado di eseguire lo stato di avanzamento del firmware".*
 * RecommendedAction: *"verificare che tutti gli spazi di archiviazione siano integri e che nessun dominio di errore sia attualmente in modalità di manutenzione".*
 
 #### <a name="faulttype-microsofthealthfaulttypefaultdomainfirmwareverifyversionfaile"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. FaultDomain. FirmwareVerifyVersionFaile
-* Gravità: avviso
+* Gravità: Avviso
 * Motivo: *"la distribuzione del firmware è stata annullata a causa di informazioni illeggibili o impreviste sulla versione del firmware dopo l'applicazione di un aggiornamento del firmware".*
 * RecommendedAction: *"riavvio del firmware dopo la risoluzione del problema del firmware".*
 
 #### <a name="faulttype-microsofthealthfaulttypefaultdomaintoomanyfailedupdates"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. FaultDomain. TooManyFailedUpdates
-* Gravità: avviso
+* Gravità: Avviso
 * Motivo: *"implementazione del firmware annullata a causa di un numero eccessivo di dischi fisici che non riescono a eseguire un tentativo di aggiornamento del firmware"*
 * RecommendedAction: *"riavvio del firmware dopo la risoluzione del problema del firmware".*
 
 ### <a name="storage-qos-3sup2sup"></a>**QoS di archiviazione (3)** <sup>2</sup>
 
 #### <a name="faulttype-microsofthealthfaulttypestorqosinsufficientthroughput"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. StorQos. InsufficientThroughput
-* Gravità: avviso
+* Gravità: Avviso
 * Motivo: *"la velocità effettiva di archiviazione è insufficiente per soddisfare le riservate".*
 * RecommendedAction: *"riconfigurare i criteri QoS di archiviazione".*
 
 #### <a name="faulttype-microsofthealthfaulttypestorqoslostcommunication"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. StorQos. LostCommunication
-* Gravità: avviso
+* Gravità: Avviso
 * Motivo: *"Gestione criteri QoS di archiviazione ha perso la comunicazione con il volume".*
 * RecommendedAction: *"riavviare i nodi {Nodes}"*
 
 #### <a name="faulttype-microsofthealthfaulttypestorqosmisconfiguredflow"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. StorQos. MisconfiguredFlow
-* Gravità: avviso
+* Gravità: Avviso
 * Motivo: *"uno o più consumer di archiviazione (in genere macchine virtuali) usano un criterio non esistente con ID {ID}."*
 * RecommendedAction: *"ricreare i criteri QoS di archiviazione mancanti".*
 
@@ -521,6 +520,6 @@ In Windows Server 2016, il Servizio integrità fornisce la copertura degli error
 >[!NOTE]
 > L'integrità dei componenti dell’alloggiamento di archiviazione, ad esempio ventole, alimentatori e sensori deriva da servizi SES (SCSI Enclosure Services). Se il fornitore non specifica queste informazioni, Servizio integrità non può visualizzarlo.  
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 - [Servizio integrità in Windows Server 2016](health-service-overview.md)

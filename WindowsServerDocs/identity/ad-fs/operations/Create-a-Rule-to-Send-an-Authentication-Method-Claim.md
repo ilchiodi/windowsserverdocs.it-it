@@ -1,7 +1,6 @@
 ---
 ms.assetid: 96b9f4e6-f01c-4517-8299-017d187d447e
 title: Creare una regola per l'invio di un'attestazione di metodo di autenticazione
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 4efcae02b96904c9f869a5ed9e14eba161892b74
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 2c011c3b15f6223a6cea2f9c7226d9319641a693
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71358164"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80816577"
 ---
 # <a name="create-a-rule-to-send-an-authentication-method-claim"></a>Creare una regola per l'invio di un'attestazione di metodo di autenticazione
 
@@ -290,9 +289,9 @@ A seconda dei requisiti dell'organizzazione, utilizzare una delle seguenti proce
 ## <a name="additional-references"></a>Altri riferimenti 
 [Configurare le regole delle attestazioni](Configure-Claim-Rules.md)  
 
-[Elenco di controllo: Creazione di regole delle attestazioni per un'istanza di attendibilità del componente](https://technet.microsoft.com/library/ee913578.aspx)  
+[Elenco di controllo: creazione di regole attestazione per un trust della relying party](https://technet.microsoft.com/library/ee913578.aspx)  
 
-[Elenco di controllo: Creazione di regole delle attestazioni per un'istanza di attendibilità del provider di attestazioni](https://technet.microsoft.com/library/ee913564.aspx)  
+[Elenco di controllo: creazione di regole attestazione per un trust del provider di attestazioni](https://technet.microsoft.com/library/ee913564.aspx)  
 
 [Quando usare una regola attestazioni di autorizzazione](../../ad-fs/technical-reference/When-to-Use-an-Authorization-Claim-Rule.md)  
 

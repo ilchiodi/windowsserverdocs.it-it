@@ -1,7 +1,6 @@
 ---
 ms.assetid: 231158d8-5e81-4630-b8d5-93fee16e0cd3
 title: Identificazione dell'aggiornamento del livello funzionale
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,18 +8,18 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: e43bec8a8d61cd0f6fd82982d5e3a0f01984fc65
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 920f051ef188670f81233098ba38370900e015ae
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71408782"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822354"
 ---
 # <a name="identifying-your-functional-level-upgrade"></a>Identificazione dell'aggiornamento del livello funzionale
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Prima di poter aumentare i livelli di funzionalità di domini e foreste, è necessario valutare l'ambiente corrente e identificare il requisito del livello di funzionalità che meglio soddisfa le esigenze dell'organizzazione. Valutare l'ambiente corrente identificando i domini nella foresta, i controller di dominio che si trovano in ogni dominio, il sistema operativo e i Service Pack in esecuzione in ogni controller di dominio e la data in cui si intende aggiornare il dominio controller. Se si prevede di ritirare un controller di dominio, assicurarsi di comprendere l'impatto completo che avrà sull'ambiente in uso.  
+Prima di poter aumentare i livelli di funzionalità di domini e foreste, è necessario valutare l'ambiente corrente e identificare il requisito del livello di funzionalità che meglio soddisfa le esigenze dell'organizzazione. Valutare l'ambiente corrente identificando i domini nella foresta, i controller di dominio che si trovano in ogni dominio, il sistema operativo e i Service Pack in esecuzione in ogni controller di dominio e la data in cui si intende aggiornare i controller di dominio. Se si prevede di ritirare un controller di dominio, assicurarsi di comprendere l'impatto completo che avrà sull'ambiente in uso.  
   
 Le circostanze seguenti potrebbero impedire l'aggiornamento di una versione precedente del sistema operativo Windows Server al livello di funzionalità di Windows Server 2008 o Windows Server 2008 R2:  
   
@@ -85,7 +84,7 @@ Per utilizzare tutte le funzionalità a livello di foresta e di dominio in Windo
 > [!IMPORTANT]  
 >  Windows Server 2008 R2 è un sistema operativo basato su x64. Se nel server è in esecuzione una versione basata su x64 di Windows Server 2003, è possibile eseguire correttamente un aggiornamento sul posto del sistema operativo del computer a Windows Server 2008 R2. Se nel server è in esecuzione una versione x86 di Windows Server 2003, non è possibile aggiornare questo computer per eseguire Windows Server 2008 R2.  
   
-Per usare tutte le funzionalità a livello di dominio di Windows Server 2008 o Windows Server 2008 R2 senza aggiornare l'intera foresta di Windows Server 2003 a Windows Server 2008 o Windows Server 2008 R2, elevare solo il livello di funzionalità del dominio a Windows Server 2008 o Windows S erver 2008 R2.  
+Per usare tutte le funzionalità a livello di dominio di Windows Server 2008 o Windows Server 2008 R2 senza aggiornare l'intera foresta di Windows Server 2003 a Windows Server 2008 o Windows Server 2008 R2, elevare solo il livello di funzionalità del dominio a Windows Server 2008 o Windows Server 2008 R2.  
   
 > [!NOTE]  
 > Prima di aumentare il livello di funzionalità del dominio, è necessario aggiornare tutti i controller di dominio basati su Windows Server 2003 in tale dominio a Windows Server 2008 o Windows Server 2008 R2.  
@@ -101,7 +100,7 @@ Quando si installa il primo controller di dominio in una nuova foresta Windows S
   
 -   Livello di funzionalità della foresta di Windows 2000  
   
-I livelli di funzionalità sono impostati su questi livelli predefiniti per offrire la possibilità di aggiungere controller di dominio basati su Windows 2000 o Windows Server 2003 alla nuova foresta Windows Server 2008. Dopo aver creato un dominio radice della foresta, il livello di funzionalità del dominio per ogni dominio aggiunto alla foresta Windows Server 2008 viene impostato su Windows 2000 native. Tuttavia, se si desidera che tutti i controller di dominio nel nuovo ambiente Windows Server 2008 eseguano Windows Server 2008, impostare il livello di funzionalità della foresta e quindi il livello di funzionalità del dominio su Windows Server 2008 quando si installa il primo controller di dominio in primo piano t. Questa operazione consente di risparmiare tempo e di abilitare tutte le funzionalità a livello di foresta e di dominio in Windows Server 2008.  
+I livelli di funzionalità sono impostati su questi livelli predefiniti per offrire la possibilità di aggiungere controller di dominio basati su Windows 2000 o Windows Server 2003 alla nuova foresta Windows Server 2008. Dopo aver creato un dominio radice della foresta, il livello di funzionalità del dominio per ogni dominio aggiunto alla foresta Windows Server 2008 viene impostato su Windows 2000 native. Tuttavia, se si desidera che tutti i controller di dominio nel nuovo ambiente Windows Server 2008 eseguano Windows Server 2008, impostare il livello di funzionalità della foresta e quindi il livello di funzionalità del dominio su Windows Server 2008 quando si installa il primo controller di dominio nella foresta. Questa operazione consente di risparmiare tempo e di abilitare tutte le funzionalità a livello di foresta e di dominio in Windows Server 2008.  
   
 > [!IMPORTANT]  
 > Se la foresta opera a livello di funzionalità di Windows Server 2008 e si tenta di installare Active Directory in un server membro basato su Windows Server 2003 o in un server membro basato su Windows 2000, l'installazione non riesce.  
@@ -115,7 +114,7 @@ Quando si installa il primo controller di dominio in una nuova foresta di Window
   
 -   Livello di funzionalità della foresta di Windows Server 2003  
   
-I livelli di funzionalità sono impostati su questi livelli predefiniti per offrire la possibilità di aggiungere controller di dominio basati su Windows Server 2003 alla nuova foresta Windows Server 2008 R2. Dopo aver creato un dominio radice della foresta, il livello di funzionalità del dominio per ogni dominio aggiunto alla foresta Windows Server 2008 R2 è impostato su Windows Server 2003. Tuttavia, se si desidera che tutti i controller di dominio nel nuovo ambiente Windows Server 2008 R2 eseguano Windows Server 2008 R2, impostare il livello di funzionalità della foresta e quindi il livello di funzionalità del dominio su Windows Server 2008 R2 quando si installa il primo controller di dominio in yo insieme di strutture. Questa operazione consente di risparmiare tempo e di abilitare tutte le funzionalità a livello di foresta e di dominio in Windows Server 2008 R2.  
+I livelli di funzionalità sono impostati su questi livelli predefiniti per offrire la possibilità di aggiungere controller di dominio basati su Windows Server 2003 alla nuova foresta Windows Server 2008 R2. Dopo aver creato un dominio radice della foresta, il livello di funzionalità del dominio per ogni dominio aggiunto alla foresta Windows Server 2008 R2 è impostato su Windows Server 2003. Tuttavia, se si desidera che tutti i controller di dominio nel nuovo ambiente Windows Server 2008 R2 eseguano Windows Server 2008 R2, impostare il livello di funzionalità della foresta e quindi il livello di funzionalità del dominio su Windows Server 2008 R2 quando si installa il primo controller di dominio nella foresta. Questa operazione consente di risparmiare tempo e di abilitare tutte le funzionalità a livello di foresta e di dominio in Windows Server 2008 R2.  
   
 > [!IMPORTANT]  
 > Se la foresta opera al livello di funzionalità di Windows Server 2008 R2 e si tenta di installare Active Directory in un server membro basato su Windows Server 2008 o Windows Server 2003 oppure su un server membro basato su Windows 2000, l'installazione non riesce.  

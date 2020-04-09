@@ -1,7 +1,6 @@
 ---
 ms.assetid: 399a8bbe-3375-4bb0-b55b-5f46e7050028
 title: Errore di replica 1396 Errore di accesso. Il nome dell'account di destinazione non è corretto
-description: ''
 author: MicrosoftGuyJFlo
 ms.author: joflore
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: a8af10fd54f557e4f4a2127dbd1cc178d53d93a4
-ms.sourcegitcommit: 214847318401cebdcb7f1924a731b4439c9d8a24
+ms.openlocfilehash: b608066f3fd9d2f6c2bd86194e816f4c9665d6c1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "71402485"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80822074"
 ---
 # <a name="replication-error-1396-logon-failure-the-target-account-name-is-incorrect"></a>Errore di replica 1396 Errore di accesso. Il nome dell'account di destinazione non è corretto
 
@@ -116,7 +115,7 @@ Dcdiag genera inoltre un errore che indica che non è possibile aggiornare l'acc
         <listItem>
           <para>Cercare il nome SPN individuato nel passaggio 1 nel catalogo globale individuato nel passaggio 2.</para>
           <code>C:&gt;repadmin /showattr Server_Name DC=corp,DC=contoso,dc=com &lt;GC used by KDC&gt; &lt;DN path of forest root domain&gt; /filter:&quot;(serviceprincipalname=&lt;SPN cited in the NTDS Replication event 1645&gt;)&quot; /gc /subtree /atts:cn,serviceprincipalname</code>
-          <para>O</para>
+          <para>OPPURE</para>
           <code>C:&gt;dsquery * forestroot -scope subtree -filter &quot;(serviceprincipalname=E3514235-4B06-11D1-AB04-00C04FC2DCD2/65cead9f-4949-46a3-a49a-f1fbfe13d2b3*)&quot; -attr * -s Server_Name.europe.corp.contoso.com</code>
           <para>Verificare che l'oggetto host per il nome SPN esista.</para>
           <para>Verificare il percorso DN per l'oggetto host, incluso il fatto che l'oggetto sia stato modificato da CNF/conflitto o che si trovi nel contenitore Lost and found.</para>

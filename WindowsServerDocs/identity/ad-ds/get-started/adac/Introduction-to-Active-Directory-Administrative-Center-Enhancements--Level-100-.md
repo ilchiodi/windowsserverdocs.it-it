@@ -1,7 +1,6 @@
 ---
 ms.assetid: 074e63e9-976c-49da-8cba-9ae0b3325e34
 title: Introduction to Active Directory Administrative Center Enhancements (Level 100)
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -9,12 +8,12 @@ ms.date: 08/07/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: a3bd82feb3a0caf827091bd0cb10edf991921b3c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: f3f33673d254b66688aa6623837d990e17d7181a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71390621"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80824664"
 ---
 # <a name="introduction-to-active-directory-administrative-center-enhancements-level-100"></a>Introduction to Active Directory Administrative Center Enhancements (Level 100)
 
@@ -26,7 +25,7 @@ Il Centro di amministrazione di Active Directory in Windows Server include funzi
 - [Criteri granulari per le password](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#fine_grained_pswd_policy_mgmt)
 - [Visualizzatore della cronologia di Windows PowerShell](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#windows_powershell_history_viewer)
 
-## <a name="ad_recycle_bin_mgmt"></a>Cestino Active Directory
+## <a name="active-directory-recycle-bin"></a><a name="ad_recycle_bin_mgmt"></a>Cestino Active Directory
 
 L'eliminazione accidentale di oggetti Active Directory è un problema comune per gli utenti di Servizi di dominio Active Directory e Active Directory Lightweight Directory Services. Nelle versioni precedenti di Windows Server, prima di Windows Server 2008 R2, è possibile ripristinare gli oggetti eliminati accidentalmente in Active Directory, ma le soluzioni presentano svantaggi.
 
@@ -63,7 +62,7 @@ Nei passaggi seguenti si userà centro di attività per eseguire le seguenti att
 > [!NOTE]
 > Per eseguire i passaggi seguenti, è necessario essere membri del gruppo Enterprise Admins o disporre di autorizzazioni equivalenti.
 
-### <a name="bkmk_raise_ffl"></a>Passaggio 1: aumentare il livello di funzionalità della foresta
+### <a name="step-1-raise-the-forest-functional-level"></a><a name="bkmk_raise_ffl"></a>Passaggio 1: aumentare il livello di funzionalità della foresta
 
 In questo passaggio si aumenterà il livello di funzionalità della foresta. Prima di abilitare Active Directory Cestino, è necessario aumentare il livello di funzionalità della foresta di destinazione in modo che sia Windows Server 2008 R2 almeno.
 
@@ -71,13 +70,13 @@ In questo passaggio si aumenterà il livello di funzionalità della foresta. Pri
 
 1. Fare clic con il pulsante destro del mouse sull'icona di Windows PowerShell, scegliere **Esegui come amministratore** e digitare **dsac. exe** per aprire ADAC.
 
-2. Fare clic su **Gestisci**e su **Aggiungi nodi di spostamento** . Selezionare il dominio di destinazione appropriato nella finestra di dialogo **Aggiungi nodi di spostamento** e quindi fare clic su **OK**.
+2. Fare clic su **Gestione** e su **Aggiungi nodi di spostamento**. Selezionare il dominio di destinazione appropriato nella finestra di dialogo **Aggiungi nodi di spostamento** e quindi fare clic su **OK**.
 
 3. Fare clic sul dominio di destinazione nel riquadro di spostamento a sinistra e nel riquadro **Attività** fare clic su **Aumenta livello di funzionalità foresta**. Selezionare un livello di funzionalità della foresta almeno Windows Server 2008 R2 o versione successiva, quindi fare clic su **OK**.
 
 ![Introduzione ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
 
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.
 
 ```powershell
 Set-ADForestMode -Identity contoso.com -ForestMode Windows2008R2Forest -Confirm:$false
@@ -85,7 +84,7 @@ Set-ADForestMode -Identity contoso.com -ForestMode Windows2008R2Forest -Confirm:
 
 Per l'argomento **-Identity** specificare il nome di dominio DNS completo.
 
-### <a name="bkmk_enable_recycle_bin"></a>Passaggio 2: abilitare il cestino
+### <a name="step-2-enable-recycle-bin"></a><a name="bkmk_enable_recycle_bin"></a>Passaggio 2: abilitare il cestino
 
 In questo passaggio si abiliterà il Cestino per ripristinare oggetti eliminati in Servizi di directory Active Directory.
 
@@ -93,7 +92,7 @@ In questo passaggio si abiliterà il Cestino per ripristinare oggetti eliminati 
 
 1. Fare clic con il pulsante destro del mouse sull'icona di Windows PowerShell, scegliere **Esegui come amministratore** e digitare **dsac. exe** per aprire ADAC.
 
-2. Fare clic su **Gestisci**e su **Aggiungi nodi di spostamento** . Selezionare il dominio di destinazione appropriato nella finestra di dialogo **Aggiungi nodi di spostamento** e quindi fare clic su **OK**.
+2. Fare clic su **Gestione** e su **Aggiungi nodi di spostamento**. Selezionare il dominio di destinazione appropriato nella finestra di dialogo **Aggiungi nodi di spostamento** e quindi fare clic su **OK**.
 
 3. Nel riquadro **Attività** fare clic su **Abilita Cestino ...** nel riquadro **Attività**, fare clic su **OK** nel riquadro del messaggio di avviso e quindi **OK** nel messaggio di aggiornamento di Centro di amministrazione di Active Directory.
 
@@ -101,13 +100,13 @@ In questo passaggio si abiliterà il Cestino per ripristinare oggetti eliminati 
 
 ![Introduzione ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
 
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.
 
 ```powershell
 Enable-ADOptionalFeature -Identity 'CN=Recycle Bin Feature,CN=Optional Features,CN=Directory Service,CN=Windows NT,CN=Services,CN=Configuration,DC=contoso,DC=com' -Scope ForestOrConfigurationSet -Target 'contoso.com'
 ```
 
-### <a name="bkmk_create_test_env"></a>Passaggio 3: creare utenti, gruppo e unità organizzativa di prova
+### <a name="step-3-create-test-users-group-and-organizational-unit"></a><a name="bkmk_create_test_env"></a>Passaggio 3: creare utenti, gruppo e unità organizzativa di prova
 
 Nelle procedure seguenti si creeranno due utenti di prova. Si creerà quindi un gruppo di prova al quale aggiungere gli utenti di prova. Si creerà infine un'unità organizzativa.
 
@@ -115,7 +114,7 @@ Nelle procedure seguenti si creeranno due utenti di prova. Si creerà quindi un 
 
 1. Fare clic con il pulsante destro del mouse sull'icona di Windows PowerShell, scegliere **Esegui come amministratore** e digitare **dsac. exe** per aprire ADAC.
 
-2. Fare clic su **Gestisci**e su **Aggiungi nodi di spostamento** . Selezionare il dominio di destinazione appropriato nella finestra di dialogo **Aggiungi nodi di spostamento** e quindi fare clic su **OK**.
+2. Fare clic su **Gestione** e su **Aggiungi nodi di spostamento**. Selezionare il dominio di destinazione appropriato nella finestra di dialogo **Aggiungi nodi di spostamento** e quindi fare clic su **OK**.
 
 3. Nel riquadro **Attività** fare clic su **Nuovo** e quindi su **Utente**.
 
@@ -133,18 +132,18 @@ Nelle procedure seguenti si creeranno due utenti di prova. Si creerà quindi un 
 #### <a name="to-create-a-test-group-and-add-users-to-the-group"></a>Per creare un gruppo di prova al quale aggiungere utenti
 
 1. Fare clic con il pulsante destro del mouse sull'icona di Windows PowerShell, scegliere **Esegui come amministratore** e digitare **dsac. exe** per aprire ADAC.
-2. Fare clic su **Gestisci**e su **Aggiungi nodi di spostamento** . Selezionare il dominio di destinazione appropriato nella finestra di dialogo **Aggiungi nodi di spostamento** e quindi fare clic su **OK**.
-3. Nel riquadro **Attività** fare clic su **Nuovo** e quindi su **Gruppo**.
+2. Fare clic su **Gestione** e su **Aggiungi nodi di spostamento**. Selezionare il dominio di destinazione appropriato nella finestra di dialogo **Aggiungi nodi di spostamento** e quindi fare clic su **OK**.
+3. Nel riquadro **Attività** fare clic su **Nuovo** e quindi su **Raggruppa.** .
 4. Immettere le informazioni seguenti in **Gruppo** e fare clic su **OK**:
 
     -   **Nome gruppo: group1**
 
-5. Fare clic su **group1**e quindi nel riquadro **Attività** fare clic su **Proprietà**.
-6. Fare clic su **Membri**e su **Aggiungi**, digitare **test1;test2**e quindi fare clic su **OK**.
+5. Fare clic su **group1** e quindi nel riquadro **Attività** fare clic su **Proprietà**.
+6. Fare clic su **Membri** e su **Aggiungi**, digitare **test1;test2** e quindi fare clic su **OK**.
 
 ![Introduzione ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
 
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.
 
 ```powershell
 Add-ADGroupMember -Identity group1 -Member test1
@@ -161,7 +160,7 @@ Add-ADGroupMember -Identity group1 -Member test1
 
 ![Introduzione ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
 
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.
 
 ```powershell
 1..2 | ForEach-Object {New-ADUser -SamAccountName test$_ -Name "test$_" -Path "DC=fabrikam,DC=com" -AccountPassword (ConvertTo-SecureString -AsPlainText "p@ssword1" -Force) -Enabled $true}
@@ -169,34 +168,34 @@ New-ADGroup -Name "group1" -SamAccountName group1 -GroupCategory Security -Group
 New-ADOrganizationalUnit -Name OU1 -Path "DC=fabrikam,DC=com"
 ```
 
-### <a name="bkmk_restore_del_obj"></a>Passaggio 4: ripristinare gli oggetti eliminati
+### <a name="step-4-restore-deleted-objects"></a><a name="bkmk_restore_del_obj"></a>Passaggio 4: ripristinare gli oggetti eliminati
 
-Nelle procedure seguenti gli oggetti eliminati presenti nel contenitore **Oggetti eliminati** verranno ripristinati nel percorso originale e in un percorso diverso.
+Nelle procedure seguenti gli oggetti eliminati presenti nel contenitore **Deleted Objects** verranno ripristinati nel percorso originale e in un percorso diverso.
 
 #### <a name="to-restore-deleted-objects-to-their-original-location"></a>Per ripristinare oggetti eliminati nel percorso originale
 
 1. Fare clic con il pulsante destro del mouse sull'icona di Windows PowerShell, scegliere **Esegui come amministratore** e digitare **dsac. exe** per aprire ADAC.
 
-2. Fare clic su **Gestisci**e su **Aggiungi nodi di spostamento** . Selezionare il dominio di destinazione appropriato nella finestra di dialogo **Aggiungi nodi di spostamento** e quindi fare clic su **OK**.
+2. Fare clic su **Gestione** e su **Aggiungi nodi di spostamento**. Selezionare il dominio di destinazione appropriato nella finestra di dialogo **Aggiungi nodi di spostamento** e quindi fare clic su **OK**.
 
 3. Selezionare gli utenti **test1** e **test2**, fare clic su **Elimina** nel riquadro **Attività** e quindi fare clic su **Sì** per confermare l'eliminazione.
 
     ![Introduzione ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
 
-    Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
+    Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.
 
     ```powershell
     Get-ADUser -Filter 'Name -Like "*test*"'|Remove-ADUser -Confirm:$false
     ```
 
-4. Passare al contenitore **Oggetti eliminati** , selezionare **test2** e **test1** e quindi fare clic su **Ripristina** nel riquadro **Attività** .
+4. Passare al contenitore **Deleted Objects**, selezionare **test2** e **test1** e quindi fare clic su **Ripristina** nel riquadro **Attività**.
 
 5. Per confermare che gli oggetti sono stati ripristinati nel percorso originale, passare al dominio di destinazione e verificare che gli account utente sono inclusi nell'elenco.
 
     > [!NOTE]
     > Se si passa a **Proprietà** degli account utente **test1** e **test2** e quindi si fa clic su **Membro di**, si noterà che è stata ripristinata anche l'appartenenza ai gruppi.
 
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.
 
 ![Introduzione ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
 
@@ -208,11 +207,11 @@ Get-ADObject -Filter 'Name -Like "*test*"' -IncludeDeletedObjects | Restore-ADOb
 
 1. Fare clic con il pulsante destro del mouse sull'icona di Windows PowerShell, scegliere **Esegui come amministratore** e digitare **dsac. exe** per aprire ADAC.
 
-2. Fare clic su **Gestisci**e su **Aggiungi nodi di spostamento** . Selezionare il dominio di destinazione appropriato nella finestra di dialogo **Aggiungi nodi di spostamento** e quindi fare clic su **OK**.
+2. Fare clic su **Gestione** e su **Aggiungi nodi di spostamento**. Selezionare il dominio di destinazione appropriato nella finestra di dialogo **Aggiungi nodi di spostamento** e quindi fare clic su **OK**.
 
 3. Selezionare gli utenti **test1** e **test2**, fare clic su **Elimina** nel riquadro **Attività** e quindi fare clic su **Sì** per confermare l'eliminazione.
 
-4. Passare al contenitore **Oggetti eliminati** , selezionare **test2** e **test1** e quindi fare clic su **Ripristina in** nel riquadro **Attività** .
+4. Passare al contenitore **Deleted Objects**, selezionare **test2** e **test1** e quindi fare clic su **Ripristina in** nel riquadro **Attività**.
 
 5. Selezionare **OU1** e quindi fare clic su **OK**.
 
@@ -220,13 +219,13 @@ Get-ADObject -Filter 'Name -Like "*test*"' -IncludeDeletedObjects | Restore-ADOb
 
 ![Introduzione ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
 
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.
 
 ```powershell
 Get-ADObject -Filter 'Name -Like "*test*"' -IncludeDeletedObjects | Restore-ADObject -TargetPath "OU=OU1,DC=contoso,DC=com"
 ```
 
-## <a name="fine_grained_pswd_policy_mgmt"></a>Criteri granulari per le password
+## <a name="fine-grained-password-policy"></a><a name="fine_grained_pswd_policy_mgmt"></a>Criteri granulari per le password
 
 Il sistema operativo Windows Server 2008 consente alle organizzazioni di definire criteri password e di blocco account diversi a seconda del gruppo di utenti di un dominio. Nei domini di Active Directory di versioni precedenti a Windows Server 2008 è possibile applicare un solo criterio password e di blocco account a tutti gli utenti del dominio. Tali criteri vengono specificati nei criteri di dominio predefiniti del dominio. Di conseguenza, per definire impostazioni diverse per le password e il blocco degli account a seconda dei gruppi di utenti, le organizzazioni devono creare un filtro password o distribuire più domini, opzioni entrambe onerose.
 
@@ -261,7 +260,7 @@ Nei passaggi seguenti si utilizzerà Centro di amministrazione di Active Directo
 > [!NOTE]
 > Per eseguire i passaggi seguenti, è necessario essere membri del gruppo Domain Admins o disporre di autorizzazioni equivalenti.
 
-#### <a name="bkmk_raise_dfl"></a>Passaggio 1: aumentare il livello di funzionalità del dominio
+#### <a name="step-1-raise-the-domain-functional-level"></a><a name="bkmk_raise_dfl"></a>Passaggio 1: aumentare il livello di funzionalità del dominio
 
 Nella procedura seguente si aumenterà il livello di funzionalità del dominio di destinazione a Windows Server 2008 o versione successiva. Per abilitare i criteri granulari per le password, è necessario un livello di funzionalità del dominio di Windows Server 2008 o versione successiva.
 
@@ -269,23 +268,23 @@ Nella procedura seguente si aumenterà il livello di funzionalità del dominio d
 
 1. Fare clic con il pulsante destro del mouse sull'icona di Windows PowerShell, scegliere **Esegui come amministratore** e digitare **dsac. exe** per aprire ADAC.
 
-2. Fare clic su **Gestisci**e su **Aggiungi nodi di spostamento** . Selezionare il dominio di destinazione appropriato nella finestra di dialogo **Aggiungi nodi di spostamento** e quindi fare clic su **OK**.
+2. Fare clic su **Gestione** e su **Aggiungi nodi di spostamento**. Selezionare il dominio di destinazione appropriato nella finestra di dialogo **Aggiungi nodi di spostamento** e quindi fare clic su **OK**.
 
 3. Fare clic sul dominio di destinazione nel riquadro di spostamento a sinistra, quindi nel riquadro **Attività** fare clic su **Aumenta livello di funzionalità dominio**. Selezionare un livello di funzionalità della foresta almeno Windows Server 2008 o versione successiva, quindi fare clic su **OK**.
 
 ![Introduzione ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
 
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.
 
 ```powershell
 Set-ADDomainMode -Identity contoso.com -DomainMode 3
 ```
 
-#### <a name="bkmk2_test_fgpp"></a>Passaggio 2: creare utenti, gruppo e unità organizzativa di prova
+#### <a name="step-2-create-test-users-group-and-organizational-unit"></a><a name="bkmk2_test_fgpp"></a>Passaggio 2: creare utenti, gruppo e unità organizzativa di prova
 
 Per creare gli utenti e il gruppo di test necessari per questo passaggio, seguire le procedure riportate di seguito: [Step 3: Create Test Users, Group and Organizational Unit](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_test_env) (non è necessario creare l'unità organizzativa per dimostrare i criteri granulari per le password).
 
-#### <a name="bkmk_create_fgpp"></a>Passaggio 3: creare nuovi criteri granulari per le password
+#### <a name="step-3-create-a-new-fine-grained-password-policy"></a><a name="bkmk_create_fgpp"></a>Passaggio 3: creare nuovi criteri granulari per le password
 
 Nella procedura seguente si creerà un nuovo criterio granulare per le password utilizzando l'interfaccia utente di Centro di amministrazione di Active Directory.
 
@@ -293,13 +292,13 @@ Nella procedura seguente si creerà un nuovo criterio granulare per le password 
 
 1. Fare clic con il pulsante destro del mouse sull'icona di Windows PowerShell, scegliere **Esegui come amministratore** e digitare **dsac. exe** per aprire ADAC.
 
-2. Fare clic su **Gestisci**e su **Aggiungi nodi di spostamento** . Selezionare il dominio di destinazione appropriato nella finestra di dialogo **Aggiungi nodi di spostamento** e quindi fare clic su **OK**.
+2. Fare clic su **Gestione** e su **Aggiungi nodi di spostamento**. Selezionare il dominio di destinazione appropriato nella finestra di dialogo **Aggiungi nodi di spostamento** e quindi fare clic su **OK**.
 
 3. Nel riquadro di spostamento di Centro di amministrazione di Active Directory aprire il contenitore **System** e fare clic sul contenitore **Password Settings Container**.
 
-4. Nel riquadro **Attività** fare clic su **Nuovo** e quindi su **Impostazioni password**.
+4. Nel riquadro **Attività** fare clic su **Nuovo** e quindi su **Impostazioni di password**.
 
-    Compilare o modificare i campi nella pagina delle proprietà per creare un nuovo oggetto **Impostazioni password**. I campi **Nome** e **Precedenza** sono obbligatori.
+    Compilare o modificare i campi nella pagina delle proprietà per creare un nuovo oggetto **Impostazioni di password**. I campi **Nome** e **Precedenza** sono obbligatori.
 
     ![Introduzione all'interfaccia di amministrazione di Active Directory](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/ADDS_ADACNewFGPP.gif)
 
@@ -311,38 +310,38 @@ Nella procedura seguente si creerà un nuovo criterio granulare per le password 
 
 ![Introduzione ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
 
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.
 
 ```powershell
 New-ADFineGrainedPasswordPolicy TestPswd -ComplexityEnabled:$true -LockoutDuration:"00:30:00" -LockoutObservationWindow:"00:30:00" -LockoutThreshold:"0" -MaxPasswordAge:"42.00:00:00" -MinPasswordAge:"1.00:00:00" -MinPasswordLength:"7" -PasswordHistoryCount:"24" -Precedence:"1" -ReversibleEncryptionEnabled:$false -ProtectedFromAccidentalDeletion:$true
 Add-ADFineGrainedPasswordPolicySubject TestPswd -Subjects group1
 ```
 
-#### <a name="bkmk_view_resultant_fgpp"></a>Passaggio 4: visualizzare un set di criteri risultante per un utente
+#### <a name="step-4-view-a-resultant-set-of-policies-for-a-user"></a><a name="bkmk_view_resultant_fgpp"></a>Passaggio 4: visualizzare un set di criteri risultante per un utente
 
-Nella procedura seguente si visualizzeranno le impostazioni password risultanti per un utente membro del gruppo a cui è stato assegnato un criterio granulare per le password in [Step 3: Create a new fine-grained password policy](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp).
+Nella procedura seguente si visualizzeranno le Impostazioni di password risultanti per un utente membro del gruppo a cui è stato assegnato un criterio granulare per le password in [Passaggio 3: Creare nuovi criteri granulari per le password](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp).
 
 ##### <a name="to-view-a-resultant-set-of-policies-for-a-user"></a>Per visualizzare un insieme risultante di criteri per un utente
 
 1. Fare clic con il pulsante destro del mouse sull'icona di Windows PowerShell, scegliere **Esegui come amministratore** e digitare **dsac. exe** per aprire ADAC.
 
-2. Fare clic su **Gestisci**e su **Aggiungi nodi di spostamento** . Selezionare il dominio di destinazione appropriato nella finestra di dialogo **Aggiungi nodi di spostamento** e quindi fare clic su **OK**.
+2. Fare clic su **Gestione** e su **Aggiungi nodi di spostamento**. Selezionare il dominio di destinazione appropriato nella finestra di dialogo **Aggiungi nodi di spostamento** e quindi fare clic su **OK**.
 
 3. Selezionare un utente **test1** appartenente al gruppo **group1** a cui è stato associato un criterio granulare per le password in [Passaggio 3: Creare nuovi criteri granulari per le password](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp).
 
-4. Fare clic su **Visualizza impostazioni password risultanti** nel riquadro **Attività**.
+4. Fare clic su **Visualizza Impostazioni di password risultanti** nel riquadro **Attività**.
 
 5. Esaminare i criteri di impostazione password e quindi fare clic su **Annulla**.
 
 ![Introduzione ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
 
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.
 
 ```powershell
 Get-ADUserResultantPasswordPolicy test1
 ```
 
-#### <a name="bkmk_edit_fgpp"></a>Passaggio 5: modificare i criteri granulari per le password
+#### <a name="step-5-edit-a-fine-grained-password-policy"></a><a name="bkmk_edit_fgpp"></a>Passaggio 5: modificare i criteri granulari per le password
 
 Nella procedura seguente si modificherà il criterio granulare per le password creato in [Passaggio 3: Creare nuovi criteri granulari per le password](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp).
 
@@ -350,35 +349,35 @@ Nella procedura seguente si modificherà il criterio granulare per le password c
 
 1. Fare clic con il pulsante destro del mouse sull'icona di Windows PowerShell, scegliere **Esegui come amministratore** e digitare **dsac. exe** per aprire ADAC.
 
-2. Fare clic su **Gestisci**e su **Aggiungi nodi di spostamento** . Selezionare il dominio di destinazione appropriato nella finestra di dialogo **Aggiungi nodi di spostamento** e quindi fare clic su **OK**.
+2. Fare clic su **Gestione** e su **Aggiungi nodi di spostamento**. Selezionare il dominio di destinazione appropriato nella finestra di dialogo **Aggiungi nodi di spostamento** e quindi fare clic su **OK**.
 
 3. Nel **riquadro di spostamento** di Centro di amministrazione di Active Directory espandere **Sistema** e fare clic su **Contenitore Impostazioni password**.
 
-4. Selezionare i criteri granulari per le password creati in [Step 3: Create a new fine-grained password policy](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp) e fare clic su **Proprietà** nel riquadro **Attività** .
+4. Selezionare i criteri granulari per le password creati in [Passaggio 3: Creare nuovi criteri granulari per le password](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp) e fare clic su **Proprietà** nel riquadro **Attività**.
 
 5. In **Imponi cronologia delle password** modificare il valore di **Numero di password memorizzate** in **30**.
 
-6. Fai clic su **OK**.
+6. Fare clic su **OK**.
 
 ![Introduzione ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
 
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.
 
 ```powershell
 Set-ADFineGrainedPasswordPolicy TestPswd -PasswordHistoryCount:"30"
 ```
 
-#### <a name="bkmk_delete_fgpp"></a>Passaggio 6: eliminare i criteri granulari per le password
+#### <a name="step-6-delete-a-fine-grained-password-policy"></a><a name="bkmk_delete_fgpp"></a>Passaggio 6: eliminare i criteri granulari per le password
 
 ##### <a name="to-delete-a-fine-grained-password-policy"></a>Per eliminare criteri granulari per le password
 
 1. Fare clic con il pulsante destro del mouse sull'icona di Windows PowerShell, scegliere **Esegui come amministratore** e digitare **dsac. exe** per aprire ADAC.
 
-2. Fare clic su **Gestisci**e su **Aggiungi nodi di spostamento** . Selezionare il dominio di destinazione appropriato nella finestra di dialogo **Aggiungi nodi di spostamento** e quindi fare clic su **OK**.
+2. Fare clic su **Gestione** e su **Aggiungi nodi di spostamento**. Selezionare il dominio di destinazione appropriato nella finestra di dialogo **Aggiungi nodi di spostamento** e quindi fare clic su **OK**.
 
-3. Nel riquadro di spostamento di Centro di amministrazione di Active Directory espandere **Sistema** e fare clic sul contenitore **Impostazioni password**.
+3. Nel riquadro di spostamento di Centro di amministrazione di Active Directory espandere **System** e fare clic sul contenitore **Password Settings Container**.
 
-4. Selezionare i criteri granulari per le password creati in [Step 3: Create a new fine-grained password policy](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp) e fare clic su **Proprietà** nel riquadro **Attività**.
+4. Selezionare i criteri granulari per le password creati in [Passaggio 3: Creare nuovi criteri granulari per le password](../../../ad-ds/get-started/adac/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-.md#bkmk_create_fgpp) e fare clic su **Proprietà** nel riquadro **Attività**.
 
 5. Deselezionare la casella di controllo **Proteggi da eliminazioni accidentali** e fare clic su **OK**.
 
@@ -388,14 +387,14 @@ Set-ADFineGrainedPasswordPolicy TestPswd -PasswordHistoryCount:"30"
 
 ![Introduzione ai](media/Introduction-to-Active-Directory-Administrative-Center-Enhancements--Level-100-/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em> per il centro di amministrazione di Active Directory***
 
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.
 
 ```powershell
 Set-ADFineGrainedPasswordPolicy -Identity TestPswd -ProtectedFromAccidentalDeletion $False
 Remove-ADFineGrainedPasswordPolicy TestPswd -Confirm
 ```
 
-## <a name="windows_powershell_history_viewer"></a>Visualizzatore della cronologia di Windows PowerShell
+## <a name="windows-powershell-history-viewer"></a><a name="windows_powershell_history_viewer"></a>Visualizzatore della cronologia di Windows PowerShell
 
 Centro di amministrazione di Active Directory è uno strumento di interfaccia utente basato su Windows PowerShell. In Windows Server 2012 e versioni successive, gli amministratori IT possono sfruttare l'uso di ADAC per apprendere Windows PowerShell per Active Directory cmdlet tramite il Visualizzatore della cronologia di Windows PowerShell. Poiché le azioni vengono eseguite nell'interfaccia utente, il comando di Windows PowerShell equivalente viene visualizzato nel Visualizzatore della cronologia di Windows PowerShell. In tal modo gli amministratori possono creare script automatizzati e ridurre le attività ripetitive, incrementando la produttività. Questa funzionalità consente inoltre di ridurre il tempo necessario per apprendere Windows PowerShell per Active Directory e accrescere la confidenza degli utenti nella correttezza degli script di automazione.
 
@@ -418,9 +417,9 @@ Nella procedura seguente si utilizzerà il Visualizzatore della cronologia di Wi
 
 1. Fare clic con il pulsante destro del mouse sull'icona di Windows PowerShell, scegliere **Esegui come amministratore** e digitare **dsac. exe** per aprire ADAC.
 
-2. Fare clic su **Gestisci**e su **Aggiungi nodi di spostamento** . Selezionare il dominio di destinazione appropriato nella finestra di dialogo **Aggiungi nodi di spostamento** e quindi fare clic su **OK**.
+2. Fare clic su **Gestione** e su **Aggiungi nodi di spostamento**. Selezionare il dominio di destinazione appropriato nella finestra di dialogo **Aggiungi nodi di spostamento** e quindi fare clic su **OK**.
 
-3. Espandere il riquadro **Visualizzatore della cronologia di Windows PowerShell** nella parte inferiore della schermata di Centro di amministrazione di Active Directory.
+3. Espandere il riquadro **Cronologia di Windows PowerShell** nella parte inferiore della schermata di Centro di amministrazione di Active Directory.
 
 4. Selezionare l'utente **test1**.
 

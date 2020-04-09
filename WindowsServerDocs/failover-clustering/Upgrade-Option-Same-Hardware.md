@@ -1,25 +1,26 @@
 ---
 title: Aggiornamento dei cluster di failover con lo stesso hardware
+description: Questo articolo descrive l'aggiornamento di un cluster di failover a 2 nodi con lo stesso hardware
 ms.prod: windows-server
-ms.manager: eldenc
+manager: eldenc
 ms.technology: failover-clustering
 ms.topic: article
 author: johnmarlin-msft
+ms.author: johnmar
 ms.date: 02/28/2019
-description: Questo articolo descrive l'aggiornamento di un cluster di failover a 2 nodi con lo stesso hardware
 ms.localizationpriority: medium
-ms.openlocfilehash: 5fe93f1d43e0c3a1bc4269b585cb9d021d3461aa
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: b2d9866417908b3979a4ee17b25dd0d3a404bb1c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361405"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828184"
 ---
 # <a name="upgrading-failover-clusters-on-the-same-hardware"></a>Aggiornamento dei cluster di failover nello stesso hardware
 
 > Si applica a: Windows Server 2019, Windows Server 2016
 
-Un cluster di failover è costituito da un gruppo di computer indipendenti che interagiscono tra di loro per migliorare la disponibilità di servizi e applicazioni. I server inclusi nel cluster (detti nodi) sono connessi mediante cavi fisici e software. Se in uno dei nodi si verifica un errore, il servizio verrà garantito da un altro nodo tramite un processo denominato failover. Per gli utenti l'interruzione del servizio risulterà minima.
+Un cluster di failover è costituito da un gruppo di computer indipendenti che interagiscono tra di loro per migliorare la disponibilità di servizi e applicazioni. I server inclusi nel cluster (denominati nodi) sono connessi mediante cavi fisici e software. Se in uno dei nodi si verifica un errore, il servizio verrà garantito da un altro nodo tramite un processo denominato failover. Per gli utenti l'interruzione del servizio risulterà minima.
 
 Questa guida descrive i passaggi per l'aggiornamento dei nodi del cluster a Windows Server 2019 o Windows Server 2016 da una versione precedente con lo stesso hardware.
 
@@ -37,7 +38,7 @@ Prima di avviare qualsiasi aggiornamento, verificare che sia stato eseguito un b
 
 Nell'esempio seguente il nome del cluster di failover è CLUSTER e i nomi dei nodi sono NODE1 e NODE2.
 
-## <a name="step-1-evict-first-node-and-upgrade-to-windows-server-2016"></a>Passaggio 1: Rimuovere il primo nodo ed eseguire l'aggiornamento a Windows Server 2016
+## <a name="step-1-evict-first-node-and-upgrade-to-windows-server-2016"></a>Passaggio 1: rimuovere il primo nodo ed eseguire l'aggiornamento a Windows Server 2016
 
 1. In Gestione cluster di failover, svuotare tutte le risorse da NODE1 a NODE2 facendo clic con il pulsante destro del mouse sul nodo e selezionando **Sospendi** e **Svuota ruoli**.  In alternativa, è possibile usare il comando di PowerShell [Suspend-clusternode](https://docs.microsoft.com/powershell/module/failoverclusters/suspend-clusternode).
 
@@ -61,7 +62,7 @@ Nell'esempio seguente il nome del cluster di failover è CLUSTER e i nomi dei no
 
 7.  Una volta eseguita la migrazione di tutte le risorse, spegnere NODE2 (cluster originale) e disconnettere lo spazio di archiviazione in modo da non causare alcuna interferenza.  Connettere lo spazio di archiviazione a NODE1.  Al termine della connessione, portare tutte le risorse online e verificare che funzionino come previsto.
 
-## <a name="step-2-rebuild-second-node-to-windows-server-2019"></a>Passaggio 2: Ricompilare il secondo nodo in Windows Server 2019
+## <a name="step-2-rebuild-second-node-to-windows-server-2019"></a>Passaggio 2: ricompilare il secondo nodo in Windows Server 2019
 
 Dopo aver verificato che tutto funzioni come previsto, NODE2 può essere ricompilato in Windows Server 2019 e aggiunto al cluster.
 
@@ -85,7 +86,7 @@ Dopo aver verificato che tutto funzioni come previsto, NODE2 può essere ricompi
 
 5. Svuotare tutte le risorse da NODE1 a NODE2 facendo clic con il pulsante destro del mouse sul nodo e selezionando **Sospendi** e **Svuota ruoli**.  In alternativa, è possibile usare il comando di PowerShell [Suspend-clusternode](https://docs.microsoft.com/powershell/module/failoverclusters/suspend-clusternode).  Verificare che tutte le risorse siano online e funzionino come previsto.
 
-## <a name="step-3-rebuild-first-node-to-windows-server-2019"></a>Passaggio 3: Ricompilare il primo nodo in Windows Server 2019
+## <a name="step-3-rebuild-first-node-to-windows-server-2019"></a>Passaggio 3: ricompilare il primo nodo in Windows Server 2019
 
 1. Rimuovere NODE1 dal cluster e disconnettere l'archiviazione dal nodo nel modo in cui è stato eseguito in precedenza.
 

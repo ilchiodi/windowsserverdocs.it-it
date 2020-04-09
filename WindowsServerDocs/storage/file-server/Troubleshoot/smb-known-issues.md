@@ -3,16 +3,15 @@ title: Problemi noti di SMB
 description: Elenco dei problemi noti di SMB.
 author: Deland-Han
 manager: dcscontentpm
-audience: ITPro
 ms.topic: article
 ms.author: delhan
 ms.date: 12/25/2019
-ms.openlocfilehash: 13e79dc5bd2d84bbcb9efd8f5548f65a9ecba47b
-ms.sourcegitcommit: 8cf04db0bc44fd98f4321dca334e38c6573fae6c
+ms.openlocfilehash: 9dac6468689c89aa565e6c675bb0b1005630e48d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75654522"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815364"
 ---
 # <a name="smb-known-issues"></a>Problemi noti di SMB
 
@@ -22,7 +21,7 @@ Negli argomenti seguenti vengono descritti alcuni problemi comuni di risoluzione
 
 - [Errori di negoziazione, configurazione della sessione e connessione ad albero](negotiate-session-setup-tree-connect-fails.md)
 
-- [Connessione TCP interrotta durante la negoziazione della convalida](abort-during-validate-negotiate.md)
+- [Connessione TCP interrotta durante la convalida della negoziazione](abort-during-validate-negotiate.md)
 
 - [Velocità di trasferimento dei file lenti](slow-file-transfer.md)
 
