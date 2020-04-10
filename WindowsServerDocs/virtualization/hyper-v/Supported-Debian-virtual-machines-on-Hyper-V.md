@@ -8,17 +8,17 @@ ms.topic: article
 ms.assetid: 3cc62c10-02a3-4633-960c-23bf91a45bd5
 author: shirgall
 ms.author: kathydav
-ms.date: 10/03/2016
-ms.openlocfilehash: db4d29ce2fa54c2a6d9006cbd0af909c92d36590
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.date: 04/07/2020
+ms.openlocfilehash: e5483b9547e67414bd66b3daad1a4b07c3cb7cfc
+ms.sourcegitcommit: 7b1ebc4934998af2472962ca8cce1c872f39946f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80855964"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80994509"
 ---
 # <a name="supported-debian-virtual-machines-on-hyper-v"></a>Macchine virtuali Debian supportate in Hyper-V
 
->Si applica a: Windows Server 2016, Hyper-V Server 2016, Windows Server 2012 R2, Hyper-V Server 2012 R2, Windows Server 2012, Hyper-V Server 2012, Windows Server 2008 R2, Windows 10, Windows 8.1, Windows 8, Windows 7,1, Windows 7
+>Si applica a: Windows Server 2019, Hyper-V Server 2019, Windows Server 2016, Hyper-V Server 2016, Windows Server 2012 R2, Hyper-V Server 2012 R2, Windows 10, Windows 8.1
 
 La mappa di distribuzione di funzionalità seguente indica le funzionalità presenti in ogni versione. Dopo la tabella sono elencate i problemi noti e soluzioni alternative per ogni distribuzione.
 
@@ -32,66 +32,59 @@ La mappa di distribuzione di funzionalità seguente indica le funzionalità pres
 
 | **Funzionalità**                                                                                                                                  | **Versione del sistema operativo Windows Server** | **10.0-10.3 (Buster)** | **9.0-9.12 (stretch)** | **8.0-8.11 (Jessie)** | **7.0-7.11 (wheezy)** |
 |----------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------|-----------------------|-----------------------|-----------------------|-----------------------|
-| **Disponibilità**                                                                                                                             |                                             | Incorporata              | Incorporata              | Incorporata              | Compilato (nota 6)     |
-| **[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**                                                   | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              |
-| Ora esatta di Windows Server 2016                                                                                                            | 2019, 2016                                  | &#10004; Note 8       | &#10004; Note 8       |                       |                       |
+| **Disponibilità**                                                                                                                             |                                             | Incorporata              | Incorporata              | Incorporata              | Incorporato (nota 5)     |
+| **[Core](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#core)**                                                   | 2019, 2016, 2012 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              |
+| Ora esatta di Windows Server 2016                                                                                                            | 2019, 2016                                  | & #10004; Nota 4       | & #10004; Nota 4       |                       |                       |
 | **[Rete](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#networking)**                                       |                                             |                       |                       |                       |                       |
-| Frame jumbo                                                                                                                                 | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              |
-| Assegnazione di tag e trunking VLAN                                                                                                                    | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              |
-| Migrazione in tempo reale                                                                                                                               | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              |
-| Inserimento IP statico                                                                                                                          | 2019, 2016, 2012 R2, 2012                   |                       |                       |                       |                       |
-| RSS virtuale                                                                                                                                         | 2019, 2016, 2012 R2                         | &#10004; Note 8       | &#10004; Note 8       |                       |                       |
-| Offload di segmentazione e checksum TCP                                                                                                       | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004; Note 8       | &#10004; Note 8       |                       |                       |
-| SR-IOV                                                                                                                                       | 2019, 2016                                  | &#10004; Note 8       | &#10004; Note 8       |                       |                       |
+| Frame jumbo                                                                                                                                 | 2019, 2016, 2012 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              |
+| Assegnazione di tag e trunking VLAN                                                                                                                    | 2019, 2016, 2012 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              |
+| Migrazione in tempo reale                                                                                                                               | 2019, 2016, 2012 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              |
+| Inserimento IP statico                                                                                                                          | 2019, 2016, 2012 R2                   |                       |                       |                       |                       |
+| RSS virtuale                                                                                                                                         | 2019, 2016, 2012 R2                         | & #10004; Nota 4       | & #10004; Nota 4       |                       |                       |
+| Offload di segmentazione e checksum TCP                                                                                                       | 2019, 2016, 2012 R2          | & #10004; Nota 4       | & #10004; Nota 4       |                       |                       |
+| SR-IOV                                                                                                                                       | 2019, 2016                                  | & #10004; Nota 4       | & #10004; Nota 4       |                       |                       |
 | **[Archiviazione](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#storage)**                                             |                                             |                       |                       |                       |                       |
 | Ridimensionamento VHDX                                                                                                                                  | 2019, 2016, 2012 R2                         | & #10004; Nota 1       | & #10004; Nota 1       | & #10004; Nota 1       | & #10004; Nota 1       |
 | Fibre Channel virtuale                                                                                                                        | 2019, 2016, 2012 R2                         |                       |                       |                       |                       |
-| Backup della macchina virtuale in tempo reale                                                                                                                  | 2019, 2016, 2012 R2                         | & #10004; Nota 4,5     | & #10004; Nota 4,5     | & #10004; Nota 4,5     | & #10004; Nota 4       |
-| Supporto TRIM                                                                                                                                 | 2019, 2016, 2012 R2                         | &#10004; Note 8       | &#10004; Note 8       |                       |                       |
-| WWN SCSI                                                                                                                                     | 2019, 2016, 2012 R2                         | &#10004; Note 8       | &#10004; Note 8       |                       |                       |
+| Backup della macchina virtuale in tempo reale                                                                                                                  | 2019, 2016, 2012 R2                         | &#10004;Nota2 | &#10004;Nota2 | &#10004;Nota2 | &#10004;Nota2 |
+| Supporto TRIM                                                                                                                                 | 2019, 2016, 2012 R2                         | & #10004; Nota 4       | & #10004; Nota 4       |                       |                       |
+| WWN SCSI                                                                                                                                     | 2019, 2016, 2012 R2                         | & #10004; Nota 4       | & #10004; Nota 4       |                       |                       |
 | **[Memoria](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#memory)**                                               |                                             |                       |                       |                       |                       |
-| Supporto del kernel PAE                                                                                                                           | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              |
+| Supporto del kernel PAE                                                                                                                           | 2019, 2016, 2012 R2          | &#10004;              | &#10004;              | &#10004;              | &#10004;              |
 | Configurazione di MMIO Gap                                                                                                                    | 2019, 2016, 2012 R2                         | &#10004;              | &#10004;              | &#10004;              | &#10004;              |
-| Memoria dinamica - aggiunta a caldo                                                                                                                     | 2019, 2016, 2012 R2, 2012                   | &#10004; Note 8       | &#10004; Note 8       |                       |                       |
-| Memoria dinamica - Ballooning                                                                                                                  | 2019, 2016, 2012 R2, 2012                   | &#10004; Note 8       | &#10004; Note 8       |                       |                       |
-| Ridimensionamento della memoria di runtime                                                                                                                        | 2019, 2016                                  | &#10004; Note 8       | &#10004; Note 8       |                       |                       |
+| Memoria dinamica - aggiunta a caldo                                                                                                                     | 2019, 2016, 2012 R2                   | & #10004; Nota 4       | & #10004; Nota 4       |                       |                       |
+| Memoria dinamica - Ballooning                                                                                                                  | 2019, 2016, 2012 R2                   | & #10004; Nota 4       | & #10004; Nota 4       |                       |                       |
+| Ridimensionamento della memoria di runtime                                                                                                                        | 2019, 2016                                  | & #10004; Nota 4       | & #10004; Nota 4       |                       |                       |
 | **[Video](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#video)**                                                 |                                             |                       |                       |                       |                       |
-| Dispositivo video specifico di Hyper-V                                                                                                                | 2019, 2016, 2012 R2, 2012, 2008 R2          | &#10004;              | &#10004;              | &#10004;              |                       |
+| Dispositivo video specifico di Hyper-V                                                                                                                | 2019, 2016, 2012 R2          | &#10004;              | &#10004;              | &#10004;              |                       |
 | **[Varie](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#miscellaneous)**                                 |                                             |                       |                       |                       |                       |
-| Coppia chiave-valore                                                                                                                               | 2019, 2016, 2012 R2, 2012, 2008 R2          | & #10004; Nota 4       | & #10004; Nota 4       | & #10004; Nota 4       |                       |
+| Coppia chiave-valore                                                                                                                               | 2019, 2016, 2012 R2          | & #10004; Nota 2       | & #10004; Nota 2       | & #10004; Nota 2       |                       |
 | Interrupt non mascherabile                                                                                                                       | 2019, 2016, 2012 R2                         | &#10004;              | &#10004;              | &#10004;              |                       |
-| Copia di file da host a Guest                                                                                                                 | 2019, 2016, 2012 R2                         | & #10004; Nota 4       | & #10004; Nota 4       | & #10004; Nota 4       |                       |
-| comando lsvmbus                                                                                                                              | 2019, 2016, 2012 R2, 2012, 2008 R2          |                       |                       |                       |                       |
-| Socket di Hyper-V                                                                                                                              | 2019, 2016                                  | &#10004; Note 8       | &#10004; Note 8       |                       |                       |
-| Pass-through/DDA PCI                                                                                                                          | 2019, 2016                                  | &#10004; Note 8       | &#10004; Note 8       |                       |                       |
+| Copia di file da host a Guest                                                                                                                 | 2019, 2016, 2012 R2                         | & #10004; Nota 2       | & #10004; Nota 2       | & #10004; Nota 2       |                       |
+| comando lsvmbus                                                                                                                              | 2019, 2016, 2012 R2          |                       |                       |                       |                       |
+| Socket di Hyper-V                                                                                                                              | 2019, 2016                                  | & #10004; Nota 4       | & #10004; Nota 4       |                       |                       |
+| Pass-through/DDA PCI                                                                                                                          | 2019, 2016                                  | & #10004; Nota 4       | & #10004; Nota 4       |                       |                       |
 | **[Macchine virtuali di seconda generazione](Feature-Descriptions-for-Linux-and-FreeBSD-virtual-machines-on-Hyper-V.md#generation-2-virtual-machines)** |                                             |                       |                       |                       |                       |
-| Avvio tramite UEFI                                                                                                                              | 2019, 2016, 2012 R2                         | & #10004; Nota 7       | & #10004; Nota 7       | & #10004; Nota 7       |                       |
+| Avvio tramite UEFI                                                                                                                              | 2019, 2016, 2012 R2                         | & #10004; Nota 3       | & #10004; Nota 3       | & #10004; Nota 3       |                       |
 | Avvio protetto                                                                                                                                  | 2019, 2016                                  | &#10004;              |                       |                       |                       |
 
 
-## <a name="notes"></a><a name="BKMK_notes"></a>Note
+## <a name="notes"></a>Note
 
 1. Creazione di file System in dischi rigidi virtuali superiori a 2TB non è supportata.
 
-2. In Windows Server 2008 R2 SCSI dischi creare 8 voci diverse in dev/sd *.
+2. A partire da 8.3 Debian installati manualmente pacchetto Debian "Hyper-v-daemon" contiene la coppia chiave-valore, fcopy e il daemon VSS. 7\. x Debian e 8.0 8.2 il pacchetto di Hyper-v-daemon deve provenire da [backports Debian](https://wiki.debian.org/Backports).
 
-3. Windows Server 2012 R2 una macchina Virtuale con 8 core o più avranno tutti gli interrupt indirizzati a una singola CPU virtuale.
-
-4. A partire da 8.3 Debian installati manualmente pacchetto Debian "Hyper-v-daemon" contiene la coppia chiave-valore, fcopy e il daemon VSS. 7\. x Debian e 8.0 8.2 il pacchetto di Hyper-v-daemon deve provenire da [backports Debian](https://wiki.debian.org/Backports).
-
-5. Backup di macchina virtuale non funzionerà con ext2 file System. Il layout predefinito creato dal programma di installazione Debian include file system ext2, quindi è necessario personalizzare il layout in modo da non creare questo tipo di file System.
-
-6. Sebbene Debian 7. x non sia più supportato e usi un kernel precedente, il kernel incluso nei [backport Debian](https://wiki.debian.org/Backports) per Debian 7. x ha migliorato le funzionalità di Hyper-V.
-
-7. Nelle macchine virtuali Windows Server 2012 R2 di seconda generazione l'avvio protetto è abilitato per impostazione predefinita e alcune macchine virtuali Linux non vengono avviate a meno che l'opzione di avvio protetto non sia disabilitata. È possibile disabilitare l'avvio protetto nel **Firmware** sezione delle impostazioni per la macchina virtuale in **di gestione di Hyper-V** o è possibile disabilitarlo con Powershell:
+3. Nelle macchine virtuali Windows Server 2012 R2 di seconda generazione l'avvio protetto è abilitato per impostazione predefinita e alcune macchine virtuali Linux non vengono avviate a meno che l'opzione di avvio protetto non sia disabilitata. È possibile disabilitare l'avvio protetto nel **Firmware** sezione delle impostazioni per la macchina virtuale in **di gestione di Hyper-V** o è possibile disabilitarlo con Powershell:
 
    ```Powershell
    Set-VMFirmware -VMName "VMname" -EnableSecureBoot Off
-
    ```
-8. Le funzionalità del kernel upstream più recenti sono disponibili solo tramite il kernel che include i [backport Debian](https://wiki.debian.org/Backports).
+4. Le funzionalità del kernel upstream più recenti sono disponibili solo tramite il kernel che include i [backport Debian](https://wiki.debian.org/Backports).
 
-Vedi anche
+5. Sebbene Debian 7. x non sia più supportato e usi un kernel precedente, il kernel incluso nei backport Debian per Debian 7. x ha migliorato le funzionalità di Hyper-V.
+
+Vedere anche
 
 * [Macchine virtuali CentOS e Red Hat Enterprise Linux supportate in Hyper-V](Supported-CentOS-and-Red-Hat-Enterprise-Linux-virtual-machines-on-Hyper-V.md)
 
