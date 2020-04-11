@@ -1,12 +1,8 @@
 ---
 title: Introduzione al client Windows Store
 description: Passaggi di installazione di base per il client Desktop remoto per Windows Store.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 64f038e1-40ec-4c67-938b-72edea49e5d8
 author: lizap
@@ -14,12 +10,12 @@ manager: dongill
 ms.author: elizapo
 ms.date: 08/27/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 13fbe22ef33ea7861ae4c8677792b5758f37ad0f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 64362c6f6da77ee15a95ddcbaf33c6cb9ecd5cf4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387609"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861434"
 ---
 # <a name="get-started-with-the-windows-store-client"></a>Introduzione al client Windows Store
 
@@ -27,7 +23,7 @@ ms.locfileid: "71387609"
 
 Il client Desktop remoto per Windows consente di usare desktop e app di Windows in remoto da un altro dispositivo Windows.
 
-Attieniti alle informazioni riportate di seguito per iniziare. In caso di dubbi, vedi le [domande frequenti](remote-desktop-client-faq.md).
+Segui le informazioni riportate di seguito per iniziare. In caso di dubbi, vedi le [domande frequenti](remote-desktop-client-faq.md).
 
 > [!NOTE]
 > - Se vuoi conoscere le nuove versioni per il client Windows Store, vedi [Novità del client Windows Store](windows-whatsnew.md).

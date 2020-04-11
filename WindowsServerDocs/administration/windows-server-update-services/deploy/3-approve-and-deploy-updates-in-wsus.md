@@ -2,7 +2,6 @@
 title: Passaggio 3 - approvare e distribuire gli aggiornamenti in Windows Server Update SERVICES
 description: 'Argomento di Windows Server Update Services (WSUS): Approvare e distribuire gli aggiornamenti in WSUS è il terzo passaggio di un processo in quattro passaggi per la distribuzione di WSUS'
 ms.prod: windows-server
-ms.reviewer: na
 ms.technology: manage-wsus
 ms.topic: article
 ms.assetid: 8d728ff9-170f-47e6-aefe-52be93315a75
@@ -10,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7731cc84f946bfab7f53a3446ed90d1be92cae75
-ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
+ms.openlocfilehash: d8758c4f957d2d9abb156652a568b23634cb1bf0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80639802"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828854"
 ---
 # <a name="step-3-approve-and-deploy-updates-in-wsus"></a>Passaggio 3: Approvare e distribuire gli aggiornamenti in WSUS
 
@@ -29,7 +28,7 @@ I computer inclusi in un gruppo di computer contattano automaticamente il server
 |[3.2. Configurare le regole di approvazione automatica](3-approve-and-deploy-updates-in-wsus.md#BKM_3.2.a.)|Configurare WSUS in modo da approvare automaticamente l'installazione degli aggiornamenti per i gruppi selezionati e come approvare le revisioni degli aggiornamenti esistenti.|
 |[3.3. Esaminare gli aggiornamenti installati con i rapporti WSUS](3-approve-and-deploy-updates-in-wsus.md#BKM_3.3.)|Esaminare gli aggiornamenti che sono stati installati, i computer che li hanno ricevuti e altre informazioni utilizzando la funzionalità di generazione rapporti di WSUS.|
 
-## <a name="31-approve-and-deploy-wsus-updates"></a><a name="BKM_3.1."></a>3.1. Approvare e distribuire gli aggiornamenti di WSUS
+## <a name="31-approve-and-deploy-wsus-updates"></a><a name=BKM_3.1.></a>3.1. Approvare e distribuire gli aggiornamenti di WSUS
 Utilizzare la procedura seguente per approvare e distribuire gli aggiornamenti.
 
 #### <a name="to-approve-and-deploy-wsus-updates"></a>Per approvare e distribuire gli aggiornamenti di WSUS
@@ -48,7 +47,7 @@ Utilizzare la procedura seguente per approvare e distribuire gli aggiornamenti.
 
 7.  Viene visualizzata la finestra **Stato approvazione** , in cui è visualizzato lo stato delle attività relative all'approvazione degli aggiornamenti. Al termine del processo di approvazione fare clic su **Chiudi**.
 
-## <a name="32-configure-auto-approval-rules"></a><a name="BKM_3.2.a."></a>3.2. Configurare le regole di approvazione automatica
+## <a name="32-configure-auto-approval-rules"></a><a name=BKM_3.2.a.></a>3.2. Configurare le regole di approvazione automatica
 Le approvazioni automatiche consentono di specificare come approvare automaticamente l'installazione degli aggiornamenti per i gruppi selezionati e come approvare le revisioni degli aggiornamenti esistenti.
 
 #### <a name="to-configure-automatic-approvals"></a>Per configurare le approvazioni automatiche
@@ -73,7 +72,7 @@ Le approvazioni automatiche consentono di specificare come approvare automaticam
 
 7.  Fare clic su **OK** per chiudere la finestra di dialogo Approvazioni automatiche.
 
-## <a name="33-review-installed-updates-with-wsus-reports"></a><a name="BKM_3.3."></a>3.3. Esaminare gli aggiornamenti installati con i rapporti WSUS
+## <a name="33-review-installed-updates-with-wsus-reports"></a><a name=BKM_3.3.></a>3.3. Esaminare gli aggiornamenti installati con i rapporti WSUS
 24 ore dopo aver approvato gli aggiornamenti è possibile utilizzare la funzionalità di generazione rapporti di WSUS per determinare se gli aggiornamenti sono stati distribuiti nei computer di test. Per verificare lo stato di un aggiornamento è possibile utilizzare la funzionalità di generazione rapporti di WSUS come illustrato di seguito.
 
 #### <a name="to-review-updates"></a>Per esaminare gli aggiornamenti

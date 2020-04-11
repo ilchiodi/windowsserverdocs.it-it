@@ -1,24 +1,20 @@
 ---
 title: Servizi Desktop remoto - Partner per l'hosting di desktop e app
 description: Elenco di partner che possono ospitare desktop e app con Servizi Desktop remoto.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: elizapo
 ms.date: 04/27/2017
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9a3cb426-fb39-40c5-ae07-26dbe9e3aed9
 author: lizap
 manager: dongill
-ms.openlocfilehash: 4d9a6d4885566204bf9fc29cd9513d25d1b39deb
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 503a9917e271c69a78e5f26db6556d788254c823
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949851"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861364"
 ---
 # <a name="remote-desktop-services-hosting-partners-and-assessment"></a>Partner di hosting di Servizi Desktop remoto e valutazione
 
@@ -36,7 +32,7 @@ Se sei già un partner Microsoft e hai domande, contatta il team di Desktop remo
 
 ## <a name="partners-who-have-passed-the-learning-path-assessment"></a>Partner che hanno superato la valutazione del percorso di apprendimento 
 
-Se sei un cliente alla ricerca di un partner per l'hosting di desktop e applicazioni Windows in Azure per gli utenti, abbiamo compilato un elenco di partner che hanno superato la valutazione. Ecco un [elenco di questi partner](https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/WindowsServerDocs/remote/remote-desktop-services/RDS-Hosting-Partners.pdf) disponibile per il download aggiornato al 28 marzo 2017.
+Se sei un cliente alla ricerca di un partner per l'hosting di desktop e applicazioni Windows in Azure per gli utenti, abbiamo compilato un elenco di partner che hanno superato la valutazione. Ecco un [elenco di questi partner](rds-hosting-partners.md) disponibile per il download aggiornato al 28 marzo 2017.
 
 Per trovare altre informazioni su ogni partner, segui questa procedura:
 

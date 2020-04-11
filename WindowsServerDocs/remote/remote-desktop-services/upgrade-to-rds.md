@@ -1,25 +1,20 @@
 ---
 title: L'aggiornamento delle distribuzioni di Servizi Desktop remoto a Windows Server 2016
 description: In questo articolo viene descritto come aggiornare le distribuzioni di Servizi Desktop remoto esistente a Windows Server 2016.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: spatnaik
 ms.date: 03/20/2018
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f7b1f1f6-57c8-40ab-a235-e36240dcc1f8
 author: spatnaik
 manager: scottman
-notes: https://social.technet.microsoft.com/wiki/contents/articles/22069.remote-desktop-services-upgrade-guidelines-for-windows-server-2012-r2.aspx
-ms.openlocfilehash: 29648db89b61a9d22aad6d5aa814cfe7f425a970
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 8980f7941a997e24ea5c5a9c1f39b4588b234b75
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323363"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857134"
 ---
 # <a name="upgrading-your-remote-desktop-services-deployments-to-windows-server-2016"></a>L'aggiornamento delle distribuzioni di Servizi Desktop remoto a Windows Server 2016
 

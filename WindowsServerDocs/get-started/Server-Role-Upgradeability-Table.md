@@ -1,25 +1,21 @@
 ---
 title: Matrice di aggiornamento e migrazione dei ruoli server per Windows Server 2016
 description: Vengono indicati i ruoli di cui è possibile eseguire l'aggiornamento o la migrazione a Windows Server 2016.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.date: 10/05/2016
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7e031a64-b1e6-4cf6-994a-e7c575835f6a
 author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 84500d3012eda99ff3b3c857fc4b5c154d0d0fe5
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 4e1b783c43eb435e61c7caaccaf842a0137b5eec
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360183"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826524"
 ---
 # <a name="server-role-upgrade-and-migration-matrix-for-windows-server-2016"></a>Matrice di aggiornamento e migrazione dei ruoli server per Windows Server 2016
 
@@ -29,20 +25,20 @@ La griglia riportata in questa pagina illustra l'aggiornamento del ruolo server 
 
 |Ruolo server|Aggiornamento da Windows Server 2012 R2|Aggiornamento da Windows Server 2012|Supporto della migrazione|Completamento della migrazione senza tempi di inattività|  
 |-------------------|----------|--------------|--------------|----------|  
-|Servizi certificati Active Directory| Sì|    Sì|    Sì|    No|
-|Servizi di dominio di Active Directory|  Sì|    Sì|    Sì|    Sì|
-|Active Directory Federation Services|  No| No| Sì|    No (è necessario aggiungere nuovi nodi alla farm)|
-|Active Directory Lightweight Directory Services|   Sì|    Sì|    Sì|    Sì|
-|Active Directory Rights Management Services|   Sì|    Sì|    Sì|    No|
-|Server DHCP|   Sì|    Sì|    Sì|    Sì|
+|Servizi certificati Active Directory|    Sì|    Sì|    Sì|    No|
+|Active Directory Domain Services|    Sì|    Sì|    Sì|    Sì|
+|Active Directory Federation Services|    No|    No|    Sì|    No (è necessario aggiungere nuovi nodi alla farm)|
+|Active Directory Lightweight Directory Services|    Sì|    Sì|    Sì|    Sì|
+|Active Directory Rights Management Services|    Sì|    Sì|    Sì|    No|
+|Server DHCP|    Sì|    Sì|    Sì|    Sì|
 |Server DNS|    Sì|    Sì|    Sì|    No|
-|Cluster di failover|Sì con il processo di [aggiornamento in sequenza del sistema operativo del cluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade) che include le operazioni di sospensione-svuotamento, rimozione e aggiornamento dei nodi a Windows Server 2016 e la ricostituzione del cluster originale. Sì, quando il server viene rimosso dal cluster per l'aggiornamento e quindi aggiunto a un cluster diverso.|Non mentre il server fa parte di un cluster. Sì, quando il server viene rimosso dal cluster per l'aggiornamento e quindi aggiunto a un cluster diverso.  |Sì|No per i cluster di failover di Windows Server 2012. Sì per i cluster di failover di Windows Server 2012 R2 con macchine virtuali Hyper-V o per i cluster di failover di Windows Server 2012 R2 che eseguono il ruolo File server di scalabilità orizzontale. Vedere [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade) (Aggiornamento in sequenza del sistema operativo del cluster).|
-|Servizi file e archiviazione| Sì|    Sì|    Varia in base alla funzionalità secondaria|  No|
+|Cluster di failover|Sì con il processo di [aggiornamento in sequenza del sistema operativo del cluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade) che include le operazioni di sospensione-svuotamento, rimozione e aggiornamento dei nodi a Windows Server 2016 e la ricostituzione del cluster originale. Sì, quando il server viene rimosso dal cluster per l'aggiornamento e quindi aggiunto a un cluster diverso.|Non mentre il server fa parte di un cluster. Sì, quando il server viene rimosso dal cluster per l'aggiornamento e quindi aggiunto a un cluster diverso.    |Sì|No per i cluster di failover di Windows Server 2012. Sì per i cluster di failover di Windows Server 2012 R2 con macchine virtuali Hyper-V o per i cluster di failover di Windows Server 2012 R2 che eseguono il ruolo File server di scalabilità orizzontale. Vedere [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade) (Aggiornamento in sequenza del sistema operativo del cluster).|
+|Servizi file e archiviazione|    Sì|    Sì|    Varia in base alla funzionalità secondaria|    No|
 |Hyper-V| Sì. Quando l'host è parte di un cluster con processo di aggiornamento in sequenza del sistema operativo del cluster che include le operazioni di sospensione-svuotamento, rimozione e aggiornamento dei nodi a Windows Server 2016 e la ricostituzione del cluster originale.|  No|   Sì|  No per i cluster di failover di Windows Server 2012. Sì per i cluster di failover di Windows Server 2012 R2 con macchine virtuali Hyper-V o per i cluster di failover di Windows Server 2012 R2 che eseguono il ruolo File server di scalabilità orizzontale. Vedere [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade) (Aggiornamento in sequenza del sistema operativo del cluster).| 
-|Servizi di stampa e fax|    No| No| Sì (Printbrm.exe)| No|
-|Servizi Desktop remoto|   Sì, per tutti i ruoli secondari, ma la farm in modalità mista non è supportata.|   Sì, per tutti i ruoli secondari, ma la farm in modalità mista non è supportata.|   Sì|    No|
-|Server Web (IIS)|  Sì|    Sì|    Sì|    No|
-|Esperienza Windows Server Essentials|  Sì|    N/D, nuove funzionalità|  Sì|    No|
+|Servizi di stampa e fax|    No|    No|    Sì (Printbrm.exe)|    No|
+|Servizi Desktop remoto|    Sì, per tutti i ruoli secondari, ma la farm in modalità mista non è supportata.|    Sì, per tutti i ruoli secondari, ma la farm in modalità mista non è supportata.|    Sì|    No|
+|Server Web (IIS)|    Sì|    Sì|    Sì|    No|
+|Esperienza Windows Server Essentials|    Sì|    N/D, nuove funzionalità|    Sì|    No|
 |Windows Server Update Services|    Sì|    Sì|    Sì|    No|
-|Cartelle di lavoro|  Sì|    Sì|    Sì|    Sì da WS 2012 R2 durante l'uso di [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade) (Aggiornamento in sequenza del sistema operativo del cluster).|
+|Cartelle di lavoro|    Sì|    Sì|    Sì|    Sì da WS 2012 R2 durante l'uso di [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade) (Aggiornamento in sequenza del sistema operativo del cluster).|
 

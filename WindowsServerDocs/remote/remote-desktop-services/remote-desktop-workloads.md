@@ -1,23 +1,19 @@
 ---
 title: Carichi di lavoro di Desktop remoto
 description: Breve panoramica dei diversi tipi di carichi di lavoro per le macchine virtuali gestite da Desktop remoto.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: helohr
 ms.date: 12/02/2019
-ms.tgt_pltfrm: na
 ms.topic: article
 author: Heidilohr
 manager: lizross
-ms.openlocfilehash: 693d1abd91fbfa2d44a6af42dd9f5338bd461927
-ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
+ms.openlocfilehash: 53c120be0ca91f0a9331a0585be8b4335f863a56
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75919946"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857244"
 ---
 # <a name="remote-desktop-workloads"></a>Carichi di lavoro di Desktop remoto
 

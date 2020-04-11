@@ -9,12 +9,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
-ms.openlocfilehash: 16d711a288843163b134b0226ed4b8513d7070eb
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 00335fb2ca7a54031430c6c606fb6ffa23a8f7a2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950050"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855134"
 ---
 # <a name="active-directory-administrative-tier-model"></a>Modello a livelli dell'amministrazione di Active Directory
 
@@ -592,7 +592,7 @@ Per l'autenticazione Web, usare il riferimento dalla tabella riportata di seguit
 
 |Metodo di connessione|Tipo di accesso|Credenziali riusabili nella destinazione|Commenti|
 |-----------|-------|--------------------|------|
-|"Autenticazione di base" di IIS|NetworkClearText<br />(IIS 6.0+)<br /><br />Interactive (Interattivo)<br />(precedente a IIS 6.0)|v||
+|"Autenticazione di base" di IIS|NetworkClearText<br />(IIS 6.0+)<p>Interactive (Interattivo)<br />(precedente a IIS 6.0)|v||
 |"Autenticazione integrata di Windows" di IIS|Rete|-|Provider Kerberos e NTLM.|
 
 Definizioni delle colonne:

@@ -1,24 +1,20 @@
 ---
 title: Gestire gli utenti nella raccolta di Servizi Desktop remoto
 description: Di seguito viene descritto come gestire gli utenti in Servizi Desktop remoto.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2727e1ab-69b8-46f3-9f6d-2540324fe596
 author: christianmontoya
 ms.author: chrimo
 ms.date: 03/27/2018
 manager: scottman
-ms.openlocfilehash: 870a6360f685c2de31485135202b0f1415c90d85
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 430c38f98dd9aec3034e023d737952e3015622eb
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403853"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858684"
 ---
 # <a name="manage-users-in-your-rds-collection"></a>Gestire gli utenti nella raccolta di Servizi Desktop remoto
 
@@ -26,8 +22,8 @@ ms.locfileid: "71403853"
 
 Gli amministratori possono gestire direttamente a quali utenti concedere l'accesso a raccolte specifiche. In questo modo, è possibile creare una raccolta con le applicazioni standard per gli information worker, creando però in seguito una raccolta separata per tecnici con applicazioni di modellazione a uso intensivo di grafica. Esistono due passaggi principali per la gestione dell'accesso degli utenti in una distribuzione di Servizi Desktop remoto (RDS):
 
-1.  [Creare utenti e gruppi in Active Directory](#create-your-users-and-groups-in-active-directory)
-2.  [Assegnare utenti e gruppi alle raccolte](#assign-users-and-groups-to-collections)
+1.    [Creare utenti e gruppi in Active Directory](#create-your-users-and-groups-in-active-directory)
+2.    [Assegnare utenti e gruppi alle raccolte](#assign-users-and-groups-to-collections)
 
 
 ## <a name="create-your-users-and-groups-in-active-directory"></a>Creare utenti e gruppi in Active Directory

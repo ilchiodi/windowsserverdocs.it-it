@@ -1,24 +1,20 @@
 ---
 title: Preparare le macchine virtuali per Desktop remoto
 description: Prepara le macchine virtuali per i componenti di Desktop remoto
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: elizapo
 ms.date: 07/21/2017
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2fc39dff-61ca-4eba-81ab-52289081bead
 author: lizap
 manager: dongill
-ms.openlocfilehash: 6a1f0bfef21351894d3b9c2cfd8d044491834f6c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5aec90275db1e09906e051419929086a40a34800
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387253"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858134"
 ---
 # <a name="create-virtual-machines-for-remote-desktop"></a>Creare macchine virtuali per Desktop remoto
 

@@ -1,20 +1,19 @@
 ---
 ms.assetid: d1953097-63ea-4a0e-b860-2f3b7c175c41
 title: Funzionamento del servizio Ora di Windows
-description: ''
-author: eross-msft
-ms.author: lizross
+author: dcuomo
+ms.author: dacuo
 manager: dougkim
 ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: d8532dedb6473a34591a1f160a94a785cc4ba367
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: b8b30893abe4cdfe8d7e8c5a95ede651f85643a9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80315178"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861664"
 ---
 # <a name="how-the-windows-time-service-works"></a>Funzionamento del servizio Ora di Windows
 
@@ -207,10 +206,10 @@ Nella tabella seguente elenca le query eseguite da un controller di dominio a tr
 |----------------|---------------------|------------|------------------------------|  
 |1|Controller di dominio principale|Nel sito|Preferisce affidabili origine ora ma è possibile sincronizzare con un'origine ora non è affidabile se questo è tutto ciò che è disponibile.|  
 |2|Controller di dominio locale|Nel sito|Sincronizza solo con un'origine ora affidabile.|  
-|3|Emulatore PDC|Nel sito|Non è valida.<br /><br />Un controller di dominio non tenta di sincronizzarsi con se stesso.|  
+|3|Emulatore PDC|Nel sito|Non è valida.<p>Un controller di dominio non tenta di sincronizzarsi con se stesso.|  
 |4|Controller di dominio principale|Al sito|Preferisce affidabili origine ora ma è possibile sincronizzare con un'origine ora non è affidabile se questo è tutto ciò che è disponibile.|  
 |5|Controller di dominio locale|Al sito|Sincronizza solo con un'origine ora affidabile.|  
-|6|Emulatore PDC|Al sito|Non è valida.<br /><br />Un controller di dominio non tenta di sincronizzarsi con se stesso.| 
+|6|Emulatore PDC|Al sito|Non è valida.<p>Un controller di dominio non tenta di sincronizzarsi con se stesso.| 
   
 **Nota**  
   

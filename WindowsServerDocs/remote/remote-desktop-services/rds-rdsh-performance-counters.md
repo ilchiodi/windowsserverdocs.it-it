@@ -5,17 +5,16 @@ ms.prod: windows-server
 ms.technology: remote-desktop-services
 ms.author: elizapo
 ms.date: 07/11/2019
-ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: 7b222104abd5b0b964bac748c3be15049075191d
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: c33e5c6309c41e39aeda3a2bdff1a0caf72b2675
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950421"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860334"
 ---
 # <a name="use-performance-counters-to-diagnose-app-performance-problems-on-remote-desktop-session-hosts"></a>Usare i contatori delle prestazioni per diagnosticare i problemi di prestazioni dell'applicazione su host sessione Desktop remoto
 
@@ -84,13 +83,13 @@ Questa tabella mostra un esempio visivo di queste istanze. (È possibile ottener
 
 |Tipo di contatore|Nome istanza|Ritardo segnalata (ms)|
 |---------------|-------------|-------------------|
-|Ritardo dell'input dell'utente per processo|1:4232 <Calculator.exe>|  200|
-|Ritardo dell'input dell'utente per processo|2:1000 <Calculator.exe>|  16|
-|Ritardo dell'input dell'utente per processo|1:2000 <Calculator.exe>|  32|
+|Ritardo dell'input dell'utente per processo|1:4232 <Calculator.exe>|    200|
+|Ritardo dell'input dell'utente per processo|2:1000 <Calculator.exe>|    16|
+|Ritardo dell'input dell'utente per processo|1:2000 <Calculator.exe>|    32|
 |Ritardo dell'input dell'utente per sessione|1|    200|
 |Ritardo dell'input dell'utente per sessione|2|    16|
-|Ritardo dell'input dell'utente per sessione|Media|  108|
-|Ritardo dell'input dell'utente per sessione|Max|  200|
+|Ritardo dell'input dell'utente per sessione|Media|     108|
+|Ritardo dell'input dell'utente per sessione|Max|     200|
 
 ## <a name="counters-used-in-an-overloaded-system"></a>Contatori utilizzati in un sistema sovraccarico
 

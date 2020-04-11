@@ -1,23 +1,19 @@
 ---
 title: Installare licenze CAL di Servizi Desktop remoto
 description: Informazioni su come installare le licenze CAL per i client Desktop remoto.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 ms.author: elizapo
 ms.date: 09/20/2016
 manager: dongill
-ms.openlocfilehash: 4ee26a0d9ba5ee3a94a4c569a639454e064d0a90
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3a9f73418bd4da67c97db30a3272588afc287b95
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387418"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80860444"
 ---
 # <a name="install-rds-client-access-licenses-on-the-remote-desktop-license-server"></a>Installare licenze CAL di Servizi Desktop remoto nel server licenze Desktop remoto
 

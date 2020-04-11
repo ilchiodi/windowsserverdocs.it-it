@@ -1,18 +1,18 @@
 ---
 title: Eseguire l'aggiornamento da Windows Server 2012 R2 a Windows Server 2019 | Microsoft Docs
 description: Informazioni su come eseguire un aggiornamento sul posto per passare da Windows Server 2012 R2 a Windows Server 2019.
-ms.prod: windows server
+ms.prod: windows-server
 ms.technology: server-general
 ms.topic: upgrade
 author: RobHindman
 ms.author: robhind
 ms.date: 09/16/2019
-ms.openlocfilehash: 173e066e6e68322d279561aca07b29ed0b9cbd9d
-ms.sourcegitcommit: 27f0caf74e88781054250455c3c1adf06deb6234
+ms.openlocfilehash: 02d6dd21b798346245f209174902b6f4fdf24ff8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71125061"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80853344"
 ---
 # <a name="upgrade-windows-server-2012-r2-to-windows-server-2019"></a>Eseguire l'aggiornamento da Windows Server 2012 R2 a Windows Server 2019
 
@@ -20,19 +20,19 @@ Se vuoi mantenere lo stesso hardware e tutti i ruoli del server che hai già con
 
 ## <a name="before-you-begin-your-in-place-upgrade"></a>Prima di iniziare l'aggiornamento sul posto
 
-Prima di iniziare l'aggiornamento di Windows Server, consigliamo di raccogliere alcune informazioni dai dispositivi, a scopo di diagnostica e risoluzione dei problemi. Poiché queste informazioni sono utili solo se l'aggiornamento ha esito negativo, devi assicurarti di archiviarle in un punto accessibile dal dispositivo.
+Prima di iniziare l'aggiornamento di Windows Server, è consigliabile raccogliere alcune informazioni dai dispositivi, ai fini della diagnostica e della risoluzione dei problemi. Poiché queste informazioni sono utili solo se l'aggiornamento ha esito negativo, devi assicurarti di conservarle in un punto accessibile al di fuori del dispositivo.
 
 ### <a name="to-collect-your-info"></a>Per raccogliere le informazioni
 
 1. Apri un prompt dei comandi, passa a `c:\Windows\system32` e quindi digita **systeminfo.exe**.
 
-2. Copia, incolla e archivia le informazioni di sistema risultanti in un punto qualsiasi del dispositivo.
+2. Copia, incolla e conserva le informazioni di sistema risultanti in un punto qualsiasi al di fuori del dispositivo.
 
-3. Digita **ipconfig /all** al prompt dei comandi e quindi copia e incolla le informazioni di configurazione risultanti nello stesso percorso indicato in precedenza.
+3. Al prompt dei comandi digita **ipconfig /all** e quindi copia e incolla le informazioni di configurazione risultanti nello stesso percorso indicato in precedenza.
 
-4. Apri l'editor del Registro di sistema, passa all'hive HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsNT\CurrentVersion e quindi copia e incolla Windows Server **BuildLabEx** (versione) e **EditionID** (edizione) nello stesso percorso indicato in precedenza.
+4. Apri l'editor del Registro di sistema, passa all'hive HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsNT\CurrentVersion e quindi copia e incolla i valori **BuildLabEx** (versione) ed **EditionID** (edizione) di Windows Server nello stesso percorso indicato in precedenza.
 
-Dopo aver raccolto tutte le informazioni relative a Windows Server, consigliamo vivamente di eseguire il backup del sistema operativo, delle app e delle macchine virtuali. Devi anche **arrestare** ed eseguire una **migrazione rapida** o **in tempo reale** di eventuali macchine virtuali attualmente in esecuzione nel server. Durante l'aggiornamento sul posto le macchine virtuali non devono essere in esecuzione.
+Dopo aver raccolto tutte le informazioni relative a Windows Server, è consigliabile eseguire il backup del sistema operativo, delle app e delle macchine virtuali. Devi anche **arrestare il sistema** ed eseguire una **migrazione rapida** o una **migrazione in tempo reale** delle eventuali macchine virtuali attualmente in esecuzione nel server. Durante l'aggiornamento sul posto le macchine virtuali non devono essere in esecuzione.
 
 ## <a name="to-perform-the-upgrade"></a>Per eseguire l'aggiornamento
 
@@ -42,7 +42,7 @@ Dopo aver raccolto tutte le informazioni relative a Windows Server, consigliamo 
 
     ![Esplora risorse che visualizza il file setup.exe](media/upgrade-2012r2-2019/setup-2019.png)
 
-3. Seleziona **Sì** per avviare il processo di installazione.
+3. Scegli **Sì** per avviare il processo di installazione.
 
     ![Controllo dell'account utente che richiede l'autorizzazione per avviare l'installazione](media/upgrade-2012r2-2019/start-setup-uac-box.png)
 

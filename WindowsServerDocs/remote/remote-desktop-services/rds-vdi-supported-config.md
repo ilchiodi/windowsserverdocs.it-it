@@ -1,24 +1,20 @@
 ---
 title: Configurazioni di sicurezza di Windows 10 supportate per l'infrastruttura VDI di Servizi Desktop remoto
 description: Fornisce informazioni sulle configurazioni supportate per l'infrastruttura VDI di Windows 10 con Servizi Desktop remoto in Windows Server 2016.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: elizapo
 ms.date: 10/27/2016
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8f164f5d-a498-4f91-a12f-3e01d554f810
 author: lizap
 manager: dongill
-ms.openlocfilehash: 08941c49469dcf9b9e3e42c7ab799186380bab35
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 914e6f4507e0fd997a31866b10e3c48e0cd4cbd7
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71387033"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857264"
 ---
 # <a name="supported-windows-10-security-configurations-for-remote-desktop-services-vdi"></a>Configurazioni di sicurezza di Windows 10 supportate per l'infrastruttura VDI di Servizi Desktop remoto
 

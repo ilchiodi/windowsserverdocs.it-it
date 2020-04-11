@@ -1,24 +1,20 @@
 ---
 title: Componenti tenant locali
 description: Descrive i componenti locali della distribuzione RDS.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: elizapo
 ms.date: 08/01/2016
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b3eebb38-a835-4fa6-9e41-1966014bf2cb
 author: lizap
 manager: dongill
-ms.openlocfilehash: 5ae0a711d146de5b7eff272916cc7f06568848e6
-ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
+ms.openlocfilehash: 849b0e3eb751c4e45a7c23da4230c7c4eb6bfcb1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72812258"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854704"
 ---
 # <a name="tenant-on-premises-components"></a>Componenti tenant locali
 
@@ -37,7 +33,7 @@ Altre informazioni:
 [Mac App Store - Desktop remoto Microsoft](https://itunes.apple.com/app/microsoft-remote-desktop/id715768417?mt=12)  
 [Desktop remoto Microsoft nell'App Store](https://itunes.apple.com/app/microsoft-remote-desktop/id714464092?mt=8)  
   
-##  <a name="active-directory-domain-services"></a>Servizi di dominio di Active Directory  
+##  <a name="active-directory-domain-services"></a>Active Directory Domain Services  
 Alcuni tenant più grandi e più sofisticati potrebbero scegliere di ospitare un server di Active Directory Domain Services (AD DS) in locale. In questo caso, il server di Active Directory Domain Services nell'ambiente del tenant in genere sarà una replica del server Active Directory Domain Services che si trova nella sede del tenant. Questa replica è supportata tramite la creazione di una rete virtuale nell'ambiente del tenant e l'uso della VPN di Azure per creare una connessione da sito a sito dalla rete locale del tenant alla rete virtuale del tenant nel data center di Azure.  
   
 Altre informazioni:  

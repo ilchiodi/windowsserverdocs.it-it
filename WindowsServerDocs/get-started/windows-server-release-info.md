@@ -3,18 +3,17 @@ title: Informazioni sulle versioni di Windows Server
 description: Informazioni sulle versioni di Windows Server
 ms.prod: windows-server
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/12/2019
 author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: high
-ms.openlocfilehash: c27fd6652e86211449c1db0e69e88a604d659498
-ms.sourcegitcommit: b9ec35416a06854c1bc875a2b731d42a436fe313
+ms.openlocfilehash: 19911ceb52587a0897e7fde34bd4b95d375c13a8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73956049"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80825844"
 ---
 # <a name="windows-server-release-information"></a>Informazioni sulle versioni di Windows Server
 
@@ -24,7 +23,7 @@ Canale semestrale offre ai clienti che vogliono attuare innovazioni l'opportunit
 
 ## <a name="windows-server-current-versions-by-servicing-option"></a>Versioni correnti di Windows Server per opzione di manutenzione
 
-| Rilascio di Windows Server | Versione | Build sistema operativo | Disponibilità | Data di fine del supporto Mainstream|Data di fine del supporto Extended |
+| Rilascio di Windows Server | Version | Build sistema operativo | Disponibilità | Data di fine del supporto Mainstream|Data di fine del supporto Extended |
 |----------------|---------|----------|----------|---------|----------|
 | Windows Server, versione 1909 (Canale semestrale) (Datacenter Core, Standard Core) | 1909  | 18363.418.191007-0143 | 12/11/2019 | 11/05/2021 | Vedi nota |
 | Windows Server, versione 1903 (Canale semestrale) (Datacenter Core, Standard Core) | 1903  | 18362.30.190401-1528 | 21/05/2019 | 08/12/2020 | Vedi nota |

@@ -1,23 +1,19 @@
 ---
 title: Usare desktop sessione personali con Servizi Desktop remoto
 description: Informazioni su come condividere tramite Servizi Desktop remoto desktop personalizzati assegnati.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 author: lizap
 ms.author: elizapo
 ms.date: 10/22/2019
 manager: dongill
-ms.openlocfilehash: 9386733911ca81ad60d038854bd68e5603aae4cf
-ms.sourcegitcommit: 3262c5c7cece9f2adf2b56f06b7ead38754a451c
+ms.openlocfilehash: c0c36793d08391ad98fa797004ed6dec9883e9f1
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72812279"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857404"
 ---
 # <a name="use-personal-session-desktops-with-remote-desktop-services"></a>Usare desktop sessione personali con Servizi Desktop remoto
 
@@ -99,4 +95,4 @@ Il cmdlet **Export-RDPersonalPersonalDesktopAssignment** esporta le associazioni
 -Path \<string\>
 
 
-Tutti i nuovi cmdlet supportano i parametri comuni -Verbose, -Debug, -ErrorAction, -ErrorVariable, -OutBuffer e -OutVariable. Per altre informazioni, vedere [about_CommonParameters](https://go.microsoft.com/fwlink/p/?LinkID=113216).
+Tutti i nuovi cmdlet supportano i parametri comuni -Verbose, -Debug, -ErrorAction, -ErrorVariable, -OutBuffer e -OutVariable. Per altre informazioni, vedi [about_CommonParameters](https://go.microsoft.com/fwlink/p/?LinkID=113216).

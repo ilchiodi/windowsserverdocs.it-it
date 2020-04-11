@@ -1,24 +1,20 @@
 ---
 title: Concedere licenze CAL (Client Access License) per la distribuzione di Servizi Desktop remoto
 description: Panoramica delle licenze CAL in Servizi Desktop remoto.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5be6546b-df16-4475-bcba-aa75aabef3e3
 author: lizap
 ms.author: elizapo
 ms.date: 02/12/2020
 manager: dongill
-ms.openlocfilehash: 391f9e7569abd3c3496bfcc9b52d3ddf8abdebbb
-ms.sourcegitcommit: 5797a2e67211651070404a5893f5c0a91c63e960
+ms.openlocfilehash: 295536afc77d0559fd7d2d4a22f555231a1aab75
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77173433"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858074"
 ---
 # <a name="license-your-rds-deployment-with-client-access-licenses-cals"></a>Concedere licenze CAL (Client Access License) per la distribuzione di Servizi Desktop remoto
 

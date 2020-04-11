@@ -1,7 +1,6 @@
 ---
 ms.assetid: 8a64545b-16bd-4c13-a664-cdf4c6ff6ea0
 title: Flussi e scenari di applicazione di OpenID Connect/OAuth in AD FS
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 875edcf191596d181ec0d70a83f9f3c20f5d5f4a
-ms.sourcegitcommit: a6ec589a39ef104ec2be958cd09d2f679816a5ab
+ms.openlocfilehash: b0b7fef9c74ba5da1b94772cb5f6ff3d717a5359
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78261940"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855974"
 ---
 # <a name="ad-fs-openid-connectoauth-flows-and-application-scenarios"></a>Flussi e scenari di applicazione di OpenID Connect/OAuth in AD FS
 Si applica ad AD FS 2016 e versioni successive
