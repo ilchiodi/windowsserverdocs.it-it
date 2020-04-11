@@ -1,6 +1,6 @@
 ---
 title: util e versione di Bitsadmin
-description: Windows Commands Topic for Bitsadmin util and Version, che visualizza la versione del servizio BITS.
+description: Windows Commands Topic for **Bitsadmin util and Version**, che visualizza la versione del servizio BITS.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,37 +9,38 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 087cc1033166ab93e7496caaa7335433cafd6249
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 2c2518eb7a8f15d9a592ed9a77dd67a6f8d8afac
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80848834"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81122462"
 ---
 # <a name="bitsadmin-util-and-version"></a>util e versione di Bitsadmin
 
 Visualizza la versione del servizio BITS (ad esempio, 2,0).
 
-**BITSAdmin 1,5 e versioni precedenti**: non supportato.
+> [!NOTE]
+> Questo comando non è supportato da BITS 1,5 e versioni precedenti.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-bitsadmin /Util /Version [/Verbose]
+bitsadmin /util /version [/verbose]
 ```
 
-## <a name="remarks"></a>Note
+### <a name="parameters"></a>Parametri
 
-L'opzione **verbose** esegue le operazioni seguenti:
--   Visualizza la versione del file per ogni DLL correlate a BITS
--   Verifica che può essere avviato il servizio BITS
--   Visualizza i valori dei criteri di gruppo BITS (solo Windows Vista)
+| Parametro | Descrizione |
+| --------- | ----------- |
+| /verbose | Usare questa opzione per visualizzare la versione del file per ogni DLL correlata a BITS e per verificare se il servizio BITS è in grado di avviarsi.|
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Nell'esempio seguente la versione del servizio BITS.
+
 ```
-C:\>bitsadmin /Util /Version
+C:\>bitsadmin /util /version
 ```
 
 ## <a name="additional-references"></a>Altre informazioni di riferimento

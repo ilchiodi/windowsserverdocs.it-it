@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 55ff7e2a813c7cc6b60e04d55ef63804a2aed796
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 1dbb25f0b0a19358b83a610c4684a3eb647c8232
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80849844"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81123092"
 ---
 # <a name="bitsadmin-removecredentials"></a>bitsadmin removecredentials
 
@@ -35,14 +35,14 @@ bitsadmin /removecredentials <job> <target> <scheme>
 | -------------- | -------------- |
 | lavoro | Nome visualizzato o GUID del processo. |
 | target | Utilizzare il **Server** o il **proxy**. |
-| scheme | Usare uno dei seguenti elementi:<ul><li>**Basic.** Schema di autenticazione in cui il nome utente e la password vengono inviati in testo non crittografato al server o al proxy.</li><li>**digest.** Uno schema di autenticazione di richiesta-risposta che usa una stringa di dati specificata dal server per la richiesta di verifica.</li><li>**NTLM.** Uno schema di autenticazione di richiesta-risposta che usa le credenziali dell'utente per l'autenticazione in un ambiente di rete Windows.</li><li>**Negotiate (noto anche come protocollo di negoziazione semplice e protetto).** Uno schema di autenticazione di richiesta-risposta che negozia con il server o il proxy per determinare lo schema da usare per l'autenticazione. Alcuni esempi sono il protocollo Kerberos e NTLM.</li><li>**Passport.** Servizio di autenticazione centralizzato fornito da Microsoft che offre un unico accesso per i siti membri.</li></ul> |
+| scheme | Usare uno dei seguenti elementi:<ul><li>**Basic.** Schema di autenticazione in cui il nome utente e la password vengono inviati in testo non crittografato al server o al proxy.</li><li>**DIGEST.** Uno schema di autenticazione di richiesta-risposta che usa una stringa di dati specificata dal server per la richiesta di verifica.</li><li>**NTLM.** Uno schema di autenticazione di richiesta-risposta che usa le credenziali dell'utente per l'autenticazione in un ambiente di rete Windows.</li><li>**NEGOTIATe (noto anche come protocollo di negoziazione semplice e protetto).** Uno schema di autenticazione di richiesta-risposta che negozia con il server o il proxy per determinare lo schema da usare per l'autenticazione. Alcuni esempi sono il protocollo Kerberos e NTLM.</li><li>**Passport.** Servizio di autenticazione centralizzato fornito da Microsoft che offre un unico accesso per i siti membri.</li></ul> |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Nell'esempio seguente rimuove le credenziali dal processo denominato *myDownloadJob*.
 
 ```
-C:\>bitsadmin /removecredentials myDownloadJob server basic
+C:\>bitsadmin /removecredentials myDownloadJob SERVER BASIC
 ```
 
 ## <a name="additional-references"></a>Altre informazioni di riferimento

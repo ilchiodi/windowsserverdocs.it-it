@@ -1,6 +1,6 @@
 ---
 title: setcustomheaders Bitsadmin
-description: Windows Commands Topic for Bitsadmin setcustomheaders, che aggiunge un'intestazione HTTP personalizzata a una richiesta GET.
+description: Windows Commands Topic for **BITSAdmin setcustomheaders**, che aggiunge un'intestazione HTTP personalizzata a una richiesta GET.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,39 +9,36 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e5d97fae5f84637c80c3d1ef00aa36f09049bb17
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b5b1a28f03815a22a3f8d10b2c3d1d4a3a2ae635
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80849614"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81123022"
 ---
 # <a name="bitsadmin-setcustomheaders"></a>setcustomheaders Bitsadmin
 
-Aggiungere un'intestazione HTTP personalizzata a una richiesta GET.
+Aggiungere un'intestazione HTTP personalizzata a una richiesta GET inviata a un server HTTP.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-bitsadmin /SetCustomHeaders <Job> <Header1> <Header2> <. . .>
+bitsadmin /setcustomheaders <job> <header1> <header2> <...>
 ```
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|Job|Nome visualizzato o il GUID del processo|
-|Header2 Header1. . .|Le intestazioni personalizzate per il processo|
+| Parametro | Descrizione |
+| --------- | ----------- |
+| lavoro | Nome visualizzato o GUID del processo. |
+| `<header1> <header2>` e così via | Intestazioni personalizzate per il processo. |
 
-## <a name="remarks"></a>Note
+## <a name="examples"></a>Esempi
 
--   Questa opzione consente di aggiungere un'intestazione HTTP personalizzata a una richiesta GET inviata a un server HTTP.
+Nell'esempio seguente aggiunge un'intestazione HTTP personalizzata per il processo denominato *myDownloadJob*. Per altre informazioni sulle richieste GET, vedere definizioni di [Metodo](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.3) e [definizioni dei campi di intestazione](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
-
-Nell'esempio seguente aggiunge un'intestazione HTTP personalizzata per il processo denominato *myDownloadJob*.
 ```
-C:\>bitsadmin / SetCustomHeaders myDownloadJob Accept-encoding:deflate/gzip
+C:\>bitsadmin /setcustomheaders myDownloadJob accept-encoding:deflate/gzip
 ```
 
 ## <a name="additional-references"></a>Altre informazioni di riferimento

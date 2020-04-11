@@ -1,6 +1,6 @@
 ---
 title: setsecurityflags Bitsadmin
-description: Argomento dei comandi di Windows per Bitsadmin setsecurityflags, che imposta i flag per HTTP che determinano se i bit devono controllare l'elenco di revoche di certificati, ignorare determinati errori del certificato e definire i criteri da usare quando un server reindirizza la richiesta HTTP.
+description: Argomento dei comandi di Windows per **BITSAdmin setsecurityflags**, che imposta i flag di sicurezza per http per determinare se i bit devono controllare l'elenco di revoche di certificati, ignorare determinati errori del certificato e definire i criteri da usare quando un server reindirizza la richiesta HTTP.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,49 +9,36 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8a7b857bb398e3061a3435a730bf9a751ee2c5e3
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 8d73361bceda8c0eb24992bdee176b47bf82a878
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80849144"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81122720"
 ---
 # <a name="bitsadmin-setsecurityflags"></a>setsecurityflags Bitsadmin
 
-Imposta i flag per HTTP che determinano se i bit devono controllare l'elenco di revoche di certificati, ignorare determinati errori del certificato e definire i criteri da usare quando un server reindirizza la richiesta HTTP. Il valore è un Unsigned Integer.
+Imposta i flag di sicurezza per HTTP per determinare se i bit devono controllare l'elenco di revoche di certificati, ignorare determinati errori del certificato e definire i criteri da usare quando un server reindirizza la richiesta HTTP. Il valore è un Unsigned Integer.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-bitsadmin /SetSecurityFlags <Job> <Value>
+bitsadmin /setsecurityflags <job> <value>
 ```
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|Job|Nome visualizzato o il GUID del processo|
-|Valore|Vedere la sezione Osservazioni|
+| Parametro | Descrizione |
+| -------------- | -------------- |
+| lavoro | Nome visualizzato o GUID del processo. |
+| value | Può includere uno o più dei flag di notifica seguenti, tra cui:<ul><li>Impostare il bit meno significativo per abilitare il controllo CRL.</li><li>Impostare il secondo bit da destra per ignorare i nomi comuni non corretti nel certificato del server.</li><li>Impostare il terzo bit da destra per ignorare le date non corrette nel certificato del server.</li><li>Impostare il quarto bit da destra per ignorare le autorità di certificazione non corrette nel certificato del server.</li><li>Impostare il quinto bit da destra per ignorare l'utilizzo non corretto del certificato del server.</li><li>Impostare il nono per l'undicesimo bit da destra per implementare i criteri di reindirizzamento specificati, tra cui:<ul><li>**0, 0, 0.** I reindirizzamenti sono consentiti automaticamente.</li><li>**0, 0, 1.** Il nome remoto nell'interfaccia **IBackgroundCopyFile** viene aggiornato se si verifica un reindirizzamento.</li><li>**0, 1, 0.** BITS genera un errore nel processo se si verifica un reindirizzamento.</li></ul></li><li>Impostare il dodicesimo bit da destra per consentire il Reindirizzamento da HTTPS a HTTP.</li></ul> |
 
-## <a name="remarks"></a>Note
+## <a name="examples"></a>Esempi
 
-Il parametro **value** può contenere uno o più dei flag di notifica seguenti.
+Nell'esempio seguente vengono impostati i flag di sicurezza per abilitare un controllo CRL per il processo denominato *myDownloadJob*.
 
-|Azione|Rappresentazione binaria|
-|------|---------------------|
-|Abilita controllo CRL|Imposta il bit meno significativo|
-|Ignora nome comune non valido nel certificato del server|Imposta il secondo bit da destra|
-|Ignora data non valida nel certificato del server|Imposta il terzo bit da destra|
-|Ignora autorità di certificazione non valida nel certificato del server|Imposta il quarto bit da destra|
-|Ignora utilizzo non valido del certificato|Imposta il quinto bit da destra|
-|Criteri di Reindirizzamento|Controllato da 9 a 11 bit a destra</br>0, 0, 0: i reindirizzamenti verranno consentiti automaticamente.</br>0, 0, 1: il nome remoto nell'interfaccia IBackgroundCopyFile verrà aggiornato se si verifica un reindirizzamento.</br>0, 1, 0-BITS non riuscirà a eseguire il processo se si verifica un reindirizzamento.|
-|Consenti Reindirizzamento da HTTPS a HTTP|Imposta il dodicesimo bit da destra|
-
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
-
-Nell'esempio seguente vengono impostati i flag di sicurezza per abilitare un controllo CRL per il processo denominato *il mio lavoro*.
 ```
-C:\>bitsadmin /SetSecurityFlags myJob 0x0001
+C:\>bitsadmin /setsecurityflags myDownloadJob 0x0001
 ```
 
 ## <a name="additional-references"></a>Altre informazioni di riferimento

@@ -1,6 +1,6 @@
 ---
 title: Bitsadmin util e SETIEPROXY
-description: Windows Commands Topic for Bitsadmin util and SETIEPROXY, che consente di impostare le impostazioni proxy da utilizzare durante il trasferimento di file utilizzando un account del servizio.
+description: Windows Commands Topic for **Bitsadmin util and SETIEPROXY**, che consente di impostare le impostazioni proxy da utilizzare durante il trasferimento di file utilizzando un account del servizio.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,39 +9,38 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4e7d8a9ff4e2388b61ee5ae00ae7afe421de68e6
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 2ebb33ff917ddd43bbc62413755ca28478ad5a95
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80848884"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81122522"
 ---
 # <a name="bitsadmin-util-and-setieproxy"></a>Bitsadmin util e SETIEPROXY
 
-Consente di impostare le impostazioni proxy da utilizzare durante il trasferimento di file utilizzando un account del servizio.
+Consente di impostare le impostazioni proxy da utilizzare durante il trasferimento di file utilizzando un account del servizio. È necessario eseguire questo comando da un prompt dei comandi con privilegi elevati venga completata correttamente.
 
-**BITSAdmin 1,5 e versioni precedenti**: non supportato.
+> [!NOTE]
+> Questo comando non è supportato da BITS 1,5 e versioni precedenti.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-bitsadmin /Util /SetIEProxy <Account> <Usage>[/Conn <ConnectionName>]
+bitsadmin /util /setieproxy <account> <usage> [/conn <connectionname>]
 ```
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|Account|Specifica il tipo di account del servizio di cui si desidera definire le impostazioni proxy. I valori possibili sono:</br>-LOCALSYSTEM</br>-SERVIZIO DI RETE</br>-LOCALSERVICE|
-|Utilizzo|Specifica il modulo di rilevamento del proxy da utilizzare. I valori possibili sono:</br>-NO_PROXY-non usare un server proxy.</br>-Autodetect: rileva automaticamente le impostazioni del proxy.</br>-MANUAL_PROXY: usare un elenco di proxy esplicito e un elenco di bypass. Specificare l'elenco di proxy e ignorare l'elenco che segue immediatamente il tag di utilizzo. Ad esempio, MANUAL_PROXY, proxy1 proxy2 NULL.</br>    -L'elenco dei proxy è un elenco delimitato da virgole di server proxy da usare.</br>    -L'elenco di bypass è un elenco delimitato da spazi di nomi host o indirizzi IP, o entrambi, per i quali i trasferimenti non devono essere instradati tramite un proxy. Questo può essere \<> locale per fare riferimento a tutti i server nella stessa LAN. I valori NULL o possono essere usati per un elenco di bypass proxy vuoto.</br>-Autoscript, uguale al rilevamento automatico, con la differenza che viene eseguito anche uno script. Specificare l'URL di script immediatamente dopo il tag di utilizzo. Ad esempio, Autoscript http://server/proxy.js.</br>-RESET: uguale a NO_PROXY, ad eccezione del fatto che rimuove gli URL del proxy manuali (se specificati) e gli URL individuati con il rilevamento automatico.|
-|ConnectionName|Facoltativo: usato con il parametro **/conn** per specificare la connessione modem da usare. Se non si specifica il parametro **/conn** , BITS utilizzerà la connessione LAN. Specificare il nome della connessione modem immediatamente dopo il **/conn** parametro.|
+
+| Parametro | Descrizione |
+| --------- | ---------- |
+| autorizzato | Specifica l'account del servizio di cui si desidera definire le impostazioni del proxy. I valori possibili sono:<ul><li>LOCALSYSTEM</li><li>   NETWORKSERVICE</li><li>LocalService.</li></ul> |
+| usage | Specifica il modulo di rilevamento del proxy da utilizzare. I valori possibili sono:<ul><li>**NO_PROXY.** Non usare un server proxy.</li><li>**Rilevamento automatico.** Rilevare automaticamente le impostazioni del proxy.</li><li>**MANUAL_PROXY.** Usare un elenco di proxy e un elenco di bypass specificati. È necessario specificare gli elenchi subito dopo il tag Usage. Ad esempio, `MANUAL_PROXY proxy1,proxy2 NULL`<ul><li>**Elenco proxy.** Elenco delimitato da virgole di server proxy da usare.</li><li>**Elenco di bypass.** Elenco delimitato da spazi di nomi host o indirizzi IP, o entrambi, per cui i trasferimenti non devono essere instradati tramite un proxy. Questo può essere \<> locale per fare riferimento a tutti i server nella stessa LAN. I valori NULL o possono essere usati per un elenco di bypass proxy vuoto.</li></ul><li>**AUTOSCRIPT.** Uguale al **rilevamento automatico**, con la differenza che viene eseguito anche uno script. È necessario specificare l'URL dello script subito dopo il tag Usage. Ad esempio, `AUTOSCRIPT http://server/proxy.js`</li><li>**Reimpostazione.** Come **no_proxy**, ad eccezione del fatto che rimuove gli URL proxy manuali (se specificati) ed eventuali URL individuati con il rilevamento automatico.</li></ul> |
+| ConnectionName | Facoltativa. Usato con il parametro **/conn** per specificare quale connessione modem usare. Se non si specifica il parametro **/conn** , BITS usa la connessione LAN. |
 
 ## <a name="remarks"></a>Note
 
-Ogni chiamata successiva che usa questa opzione sostituisce l'utilizzo specificato in precedenza ma non i parametri dell'utilizzo definito in precedenza. Ad esempio, se si specifica NO_PROXY, rilevamento AUTOMATICO e MANUAL_PROXY in chiamate separate, BITS utilizza l'ultimo utilizzo fornito ma mantiene i parametri dall'utilizzo definito in precedenza.
-
-> [!IMPORTANT]
-> È necessario eseguire questo comando da un prompt dei comandi con privilegi elevati venga completata correttamente.
+Ogni chiamata successiva che usa questa opzione sostituisce l'utilizzo specificato in precedenza, ma non i parametri dell'utilizzo definito in precedenza. Se, ad esempio, si specifica **no_proxy**, **rileva automaticamente**e **MANUAL_PROXY** su chiamate separate, BITS usa l'ultimo utilizzo fornito, ma mantiene i parametri dall'utilizzo definito in precedenza.
 
 ## <a name="examples"></a>Esempi
 
@@ -55,7 +54,10 @@ Di seguito sono riportati altri esempi.
 
 ```
 bitsadmin /util /setieproxy localsystem MANUAL_PROXY proxy1,proxy2,proxy3 NULL
-bitsadmin /util /setieproxy localsystem MANUAL_PROXY proxy1:80 
+```
+
+```
+bitsadmin /util /setieproxy localsystem MANUAL_PROXY proxy1:80
 ```
 
 ## <a name="additional-references"></a>Altre informazioni di riferimento

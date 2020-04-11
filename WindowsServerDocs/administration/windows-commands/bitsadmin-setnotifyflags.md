@@ -1,6 +1,6 @@
 ---
 title: bitsadmin setnotifyflags
-description: Windows Commands Topic for Bitsadmin setnotifyflags, che imposta i flag di notifica degli eventi per il processo specificato.
+description: Windows Commands Topic for **BITSAdmin setnotifyflags**, che imposta i flag di notifica degli eventi per il processo specificato.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fd3001fa4ae7f51cab92556f4f2f498511cca5ae
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 73c088ce2bae8d2ad99b313417c14449ddd822b5
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80849284"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81122796"
 ---
 # <a name="bitsadmin-setnotifyflags"></a>bitsadmin setnotifyflags
 
@@ -23,27 +23,22 @@ Imposta l'evento di flag di notifica per il processo specificato.
 ## <a name="syntax"></a>Sintassi
 
 ```
-bitsadmin /SetNotifyFlags <Job> <NotifyFlags>
+bitsadmin /setnotifyflags <job> <notifyflags>
 ```
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|Job|Nome visualizzato o il GUID del processo|
-|NotifyFlags|Vedere la sezione Osservazioni|
+| Parametro | Descrizione |
+| --------- | ----------- |
+| lavoro | Nome visualizzato o GUID del processo. |
+| notifyflags | Può includere uno o più dei flag di notifica seguenti, tra cui:<ul><li>**1.** genera un evento quando tutti i file del processo sono stati trasferiti.</li><li>**2.** genera un evento quando si verifica un errore.</li><li>**3.** genera un evento quando tutti i file hanno completato il trasferimento o quando si verifica un errore.</li><li>**4.** Disabilita le notifiche.</li></ul> |
 
-## <a name="remarks"></a>Note
+## <a name="examples"></a>Esempi
 
-Il parametro **NotifyFlags** può contenere uno o più dei flag di notifica seguenti.
+Nell'esempio seguente vengono impostati i flag di notifica per generare un evento quando si verifica un errore, per un processo denominato *myDownloadJob*.
 
-|-----|-----| | 1 | Genera un evento quando tutti i file del processo sono stati trasferiti. | | 2 | Genera un evento quando si verifica un errore. | | 4 | Disabilitare le notifiche. |
-
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
-
-Nell'esempio seguente imposta i flag di notifica per trasferiti e gli eventi di errore di processo per il processo denominato *myDownloadJob*.
 ```
-C:\>bitsadmin /SetNotifyFlags myDownloadJob 3
+C:\>bitsadmin /setnotifyflags myDownloadJob 2
 ```
 
 ## <a name="additional-references"></a>Altre informazioni di riferimento

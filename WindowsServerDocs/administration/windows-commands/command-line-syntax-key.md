@@ -1,5 +1,5 @@
 ---
-title: Indicazioni generali sulla sintassi della riga di comando
+title: Chiave sintassi della riga di comando
 description: Argomento dei comandi di Windows per la chiave della sintassi della riga di comando, che descrive la notazione utilizzata per indicare la sintassi della riga di comando.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
@@ -9,22 +9,22 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2e1d7d8601614adbd77d38ce43c0760acb7f7b0a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 81fdd24a5810f1ead3ef27201f1ab4cfdff020e4
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80847474"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81123145"
 ---
-# <a name="command-line-syntax-key"></a>Indicazioni generali sulla sintassi della riga di comando
+# <a name="command-line-syntax-key"></a>Chiave sintassi della riga di comando
 
 Nella tabella seguente vengono descritti la notazione utilizzata per indicare la sintassi della riga di comando.
 
-|Notation|Descrizione|
-|--------|-----------|
-|Testo senza parentesi quadre o parentesi graffe|Elementi che devono essere digitati come illustrato|
-|\<testo racchiuso tra parentesi angolari >|Segnaposto per il quale è necessario fornire un valore|
-|[Testo racchiuso tra parentesi quadre]|Elementi facoltativi|
-|{Testo racchiuso tra parentesi graffe}|Set di elementi obbligatori; scegliere una|
-|Barra verticale (\|)|Separatore per gli elementi che si escludono a vicenda; scegliere una|
-|Ellissi (…)|Elementi che possono essere ripetuti|
+| Notation | Descrizione |
+| -------- | ----------- |
+| Testo senza parentesi quadre o parentesi graffe | Gli elementi devono essere digitati come illustrato. |
+| `<Text inside angle brackets>` | Segnaposto per il quale è necessario fornire un valore. |
+| `[Text inside square brackets]` | Elementi facoltativi |
+| `{Text inside braces}` | Set di elementi obbligatori. È necessario sceglierne una. |
+| Barra verticale `(|)`| Separatore per gli elementi che si escludono a vicenda. È necessario sceglierne una. |
+| Puntini di sospensione `(…)` | Elementi che possono essere ripetuti e usati più volte. |

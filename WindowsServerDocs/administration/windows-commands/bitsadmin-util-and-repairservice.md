@@ -1,6 +1,6 @@
 ---
 title: Bitsadmin util e REPAIRSERVICE
-description: Windows Commands Topic for Bitsadmin util and REPAIRSERVICE, che corregge i problemi noti in varie versioni del servizio BITS.
+description: Windows Commands Topic for **Bitsadmin util and REPAIRSERVICE**, che corregge i problemi noti in varie versioni del servizio BITS.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,46 +9,41 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: aaaa6edab22031dc53d266984bb669634e3bb362
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 164a402e7cbfc0a9223a97f4246eac84f0797aed
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80848894"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81122511"
 ---
 # <a name="bitsadmin-util-and-repairservice"></a>Bitsadmin util e REPAIRSERVICE
 
-Se non è possibile avviare BITS, usare questa opzione per correggere i problemi noti in diverse versioni di BITS.
+Se non è possibile avviare BITS, questa opzione tenta di risolvere gli errori correlati alla configurazione e alle dipendenze non corrette dei servizi Windows (ad esempio LANManworkstation) e alla directory di rete. Questa opzione genera anche un output che indica se i problemi sono stati risolti.
 
-**BITSAdmin 1,5 e versioni precedenti:**  non supportato.
+> [!NOTE]
+> Questo comando non è supportato da BITS 1,5 e versioni precedenti.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-bitsadmin /Util /RepairService [/Force]
+bitsadmin /util /repairservice [/force]
 ```
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|Force|Facoltativo: Elimina e ricrea il servizio.|
-
-## <a name="remarks"></a>Note
-
-Questa opzione risolve gli errori correlati alla configurazione e alle dipendenze del servizio non corrette nei servizi Windows (ad esempio LANManworkstation) e nella directory di rete. Questa opzione genera un output che indica se i problemi sono stati risolti.
+| Parametro | Descrizione |
+| --------- | ----------- |
+| /Force | Facoltativa. Elimina e crea nuovamente il servizio.|
 
 > [!NOTE]
-> Se BITS ricrea il servizio, la stringa di descrizione del servizio può essere impostata su inglese in un sistema localizzato.
+> Se BITS crea nuovamente il servizio, la stringa di descrizione del servizio potrebbe essere impostata su inglese anche in un sistema localizzato.
 
-> [!IMPORTANT]
-> Questo comando non è supportato in Windows Vista.
+## <a name="examples"></a>Esempi
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+Nell'esempio seguente viene ripristinata la configurazione del servizio BITS.
 
-Nell'esempio seguente consente di ripristinare la configurazione del servizio BITS.
 ```
-C:\>bitsadmin /Util /RepairService
+C:\>bitsadmin /util /repairservice
 ```
 
 ## <a name="additional-references"></a>Altre informazioni di riferimento

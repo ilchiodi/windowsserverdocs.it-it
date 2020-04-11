@@ -1,27 +1,27 @@
 ---
 title: DiskPart
-description: Windows Commands Topic for DiskPart, che consente di gestire le unità del computer.
+description: Windows Commands Topic for **DiskPart**, che consente di gestire le unità del computer.
 ms.prod: windows-server
 ms.technology: storage
 author: jasongerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: 45fe66e4843b96db8e4593c0e963e4a80dbd22c2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: eb2921d8da4a4a29c4f700107ef5b6d7bfb41481
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80845474"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81122539"
 ---
 # <a name="diskpart"></a>DiskPart
 
 >Si applica a: Windows 10, Windows 8.1, Windows 8, Windows 7, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 e Windows Server 2008 R2, Windows Server 2008
 
-I comandi DiskPart consentono di gestire le unità del computer (dischi, partizioni, volumi o dischi rigidi virtuali). 
+I comandi DiskPart consentono di gestire le unità del computer (dischi, partizioni, volumi o dischi rigidi virtuali).
 
 Prima di poter utilizzare i comandi DiskPart, è necessario innanzitutto elencare, quindi selezionare un oggetto per assegnargli lo stato attivo. Quando un oggetto ha lo stato attivo, qualsiasi comando DiskPart digitato agirà su tale oggetto.
 
-## <a name="list-the-available-objects"></a>Elencare gli oggetti disponibili
+## <a name="list-available-objects"></a>Elenca oggetti disponibili
 
 È possibile elencare gli oggetti disponibili e determinare il numero o la lettera di unità di un oggetto utilizzando:
 
@@ -33,7 +33,7 @@ Prima di poter utilizzare i comandi DiskPart, è necessario innanzitutto elencar
 
 - `list vdisk`: Visualizza tutti i dischi virtuali nel computer.
 
-Quando si usano i comandi **List** , viene visualizzato un asterisco (\*) accanto all'oggetto con lo stato attivo.
+Quando si usano i comandi **List** , viene visualizzato un asterisco (*) accanto all'oggetto con lo stato attivo.
 
 ## <a name="determine-focus"></a>Determinare lo stato attivo
 
@@ -52,9 +52,9 @@ diskpart
 ```
 
 > [!IMPORTANT]
-> Per eseguire DiskPart, è necessario appartenere al gruppo **Administrators** locale o a un gruppo con autorizzazioni simili. 
+> Per eseguire DiskPart, è necessario appartenere al gruppo **Administrators** locale o a un gruppo con autorizzazioni simili.
 
-È possibile eseguire i comandi seguenti nell'interprete dei comandi DiskPart:
+È possibile eseguire i comandi seguenti dall'interprete dei comandi DiskPart:
 
 | Comando | Descrizione |
 | ------- | ----------- |
@@ -73,33 +73,33 @@ diskpart
 | [Scollega vdisk](detach-vdisk.md) | Arresta la visualizzazione del disco rigido virtuale (VHD) selezionato come unità disco rigido locale nel computer host. |
 | [Dettaglio](detail.md) | Visualizza le informazioni relative al disco, alla partizione, al volume o al disco rigido virtuale (VHD) selezionato. |
 | [Azioni uscita](exit.md) | Chiude l'interprete dei comandi DiskPart. |
-| [Espandi vdisk](expand-vdisk.md) | 
-| [Estendere](extend.md) | 
-| [Filesystem](filesystems.md) | 
-| [Formato](format.md) | 
-| [GPT](gpt.md) | 
-| [?](help.md) | 
-| [Importa](import.md) | 
-| [Inattivo](inactive.md) | 
-| [Elenco](list.md) | 
-| [Unisci vdisk](merge-vdisk.md) | 
-| [Offline](offline.md) | 
-| [Online](online.md) | 
-| [Ripristinare](recover.md) | 
-| [REM](rem.md) | 
-| [Rimuovi](remove.md) | 
-| [Ripristinare](repair.md) | 
-| [Ripeti analisi](rescan.md) | 
-| [Mantenere](retain.md) | 
-| [San](san.md) | 
-| [Selezionare](select.md) | 
-| [Imposta ID](set-id.md) | 
-| [Strizzacervelli](shrink.md) | 
-| [UniqueId](uniqueid.md) | 
+| [Espandi vdisk](expand-vdisk.md) | Espande un disco rigido virtuale (VHD) per le dimensioni specificate. |
+| [Estendere](extend.md) | Estende il volume o la partizione con lo stato attivo, insieme al relativo file system, nello spazio libero (non allocato) su un disco. |
+| [Filesystem](filesystems.md) | Visualizza informazioni sul file system corrente del volume con lo stato attivo e vengono elencati i sistemi di file supportati per la formattazione del volume. |
+| [Formato](format.md) | Formatta un disco per accettare i file di Windows. |
+| [GPT](gpt.md) | Assegna gli attributi GPT alla partizione con lo stato attivo sui dischi di base della tabella di partizione GUID (GPT). |
+| [?](help.md) | Visualizza un elenco di comandi disponibili o le informazioni della Guida dettagliate su un comando specificato. |
+| [Importa](import.md) | Importa un gruppo di dischi esterni nel gruppo di dischi del computer locale. |
+| [Inattivo](inactive.md) | Contrassegna la partizione di sistema o la partizione di avvio con lo stato attivo come inattivo sui dischi MBR (master boot record) di base. |
+| [Elenco](list.md) | Visualizza un elenco di dischi, di partizioni in un disco, di volumi in un disco o di dischi rigidi virtuali (VHD). |
+| [Unisci vdisk](merge-vdisk.md) | Unisce un disco rigido virtuale differenze (VHD) con il VHD padre corrispondente. |
+| [Offline](offline.md) | Accetta un volume o il disco online sullo stato offline. |
+| [Online](online.md) | Accetta un volume o il disco non in linea allo stato online. |
+| [Ripristinare](recover.md) | Aggiorna lo stato di tutti i dischi in un gruppo di dischi, tenta di ripristinare i dischi in un gruppo di dischi non valido e risincronizza i volumi con mirroring e i volumi RAID-5 con dati non aggiornati. |
+| [REM](rem.md) | Consente di aggiungere commenti a uno script. |
+| [Rimuovi](remove.md) | Rimuove un punto di montaggio o lettera di unità da un volume. |
+| [Ripristinare](repair.md) | Ripristina il volume RAID-5 con lo stato attivo sostituendo l'area del disco non riuscita con il disco dinamico specificato. |
+| [Ripeti analisi](rescan.md) | Individua i nuovi dischi aggiunti al computer. |
+| [Mantenere](retain.md) | Prepara un volume semplice dinamico esistente da utilizzare come un avvio o il volume di sistema. |
+| [San](san.md) | Visualizza o imposta i criteri San (Storage Area Network) per il sistema operativo. |
+| [Selezionare](select.md) | Sposta lo stato attivo su un disco, una partizione, un volume o disco rigido virtuale (VHD). |
+| [Imposta ID](set-id.md) | Modifica il campo del tipo di partizione per la partizione con lo stato attivo. |
+| [Strizzacervelli](shrink.md) | Riduce la dimensione del volume selezionato in base al valore specificato. |
+| [UniqueId](uniqueid.md) | Visualizza o imposta il GUID partizione GPT (tabella) identificatore firma o del master avvio MBR (record) per il disco con lo stato attivo. |
 
 ## <a name="additional-references"></a>Altre informazioni di riferimento
 
-- [Chiave sintassi della riga di comando] (command-line-syntax-key.md
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 
 - [Panoramica di gestione disco](https://docs.microsoft.com/windows-server/storage/disk-management/overview-of-disk-management)
 

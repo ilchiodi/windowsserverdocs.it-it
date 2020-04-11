@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0a3f464ba00c5cc233c42a40c063372dc0d584e9
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: e81bd80232cd4ec8fbba70c86cd97bb9695680f8
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80849754"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81123076"
 ---
 # <a name="bitsadmin-resume"></a>bitsadmin resume
 
@@ -32,7 +32,7 @@ bitsadmin /resume <job>
 | -------------- | -------------- |
 | lavoro | Nome visualizzato o GUID del processo. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Nell'esempio seguente riprende il processo denominato *myDownloadJob*.
 

@@ -1,6 +1,6 @@
 ---
 title: SetHttpMethod Bitsadmin
-description: Windows Commands Topic for Bitsadmin SetHttpMethod, che imposta il verbo HTTP da usare.
+description: Windows Commands Topic for **BITSAdmin SetHttpMethod**, che imposta il verbo HTTP da usare.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -8,12 +8,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/01/2019
-ms.openlocfilehash: 49064395e39b79657249ab3931c6bcc982bd64b4
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: d349dcad7bdf6a6fc566ed961c3160836d7f49da
+ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80849474"
+ms.lasthandoff: 04/11/2020
+ms.locfileid: "81122961"
 ---
 # <a name="bitsadmin-sethttpmethod"></a>SetHttpMethod Bitsadmin
 
@@ -22,15 +22,15 @@ Imposta il verbo HTTP da usare.
 ## <a name="syntax"></a>Sintassi
 
 ```
-bitsadmin /GetHttpMethod <Job> <HTTPMethod>
+bitsadmin /sethttpmethod <job> <httpmethod>
 ```
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|Job|Nome visualizzato o il GUID del processo|
-|HTTPMethod|Verbo HTTP da usare|
+| Parametro | Descrizione |
+| --------- | ----------- |
+| lavoro | Nome visualizzato o GUID del processo. |
+| HttpMethod | Verbo HTTP da usare. Per informazioni sui verbi disponibili, vedere [definizioni dei metodi](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). |
 
 ## <a name="additional-references"></a>Altre informazioni di riferimento
 

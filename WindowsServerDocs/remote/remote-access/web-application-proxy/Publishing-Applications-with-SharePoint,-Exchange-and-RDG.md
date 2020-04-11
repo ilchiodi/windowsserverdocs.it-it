@@ -8,12 +8,12 @@ ms.date: 04/30/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: web-app-proxy
-ms.openlocfilehash: 18851463b82afc1dc34615e6faaa14622c80224a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f859d40ed04cc25285212968e6cd186cffe760ae
+ms.sourcegitcommit: 5c93c685dca3cafeea916cedcc0f915c528484ca
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80818684"
+ms.lasthandoff: 04/10/2020
+ms.locfileid: "81119245"
 ---
 # <a name="publishing-applications-with-sharepoint-exchange-and-rdg"></a>Pubblicazione delle applicazioni con SharePoint, Exchange e RDG
 
@@ -112,7 +112,7 @@ Se si vuole limitare l'accesso al gateway di accesso remoto e aggiungere la pre-
 5.  Se gli FQDN esterni e interni sono diversi, non è consigliabile disabilitare la conversione dell'intestazione della richiesta nella regola di pubblicazione RDWeb. Questa operazione può essere eseguita eseguendo lo script di PowerShell seguente nel server proxy applicazione Web, ma deve essere abilitata per impostazione predefinita:
 
     ```PowerShell
-    Get-WebApplicationProxyApplication applicationname | Set-WebApplicationProxyApplication -DisableTranslateUrlInRequestHeaders:$false
+    Get-WebApplicationProxyApplication applicationname | Set-WebApplicationProxyApplication -DisableTranslateUrlInRequestHeaders:$true
     ```
 
 6.  Disabilitare la proprietà cookie HttpOnly in proxy applicazione Web nell'applicazione pubblicata RDG. Per consentire al controllo ActiveX RDG di accedere al cookie di autenticazione del proxy dell'applicazione Web, è necessario disabilitare la proprietà HttpOnly nel cookie del proxy dell'applicazione Web.
