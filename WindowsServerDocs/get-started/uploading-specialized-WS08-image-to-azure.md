@@ -7,15 +7,14 @@ ms.sitesec: library
 author: mikeblodge
 ms.author: mikeblodge
 ms.date: 07/11/2018
-ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.localizationpriority: high
-ms.openlocfilehash: 19e4abf1573b8d3ee99b8e8828c1674f24d27695
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: de9233e31c5530abd207a1bbba0e1e16a07d1561
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391499"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826124"
 ---
 # <a name="upload-a-windows-server-20082008-r2-specialized-image-to-azure"></a>Caricare un'immagine specializzata di Windows Server 2008/2008 R2 su Azure 
 
@@ -41,7 +40,7 @@ Prima di caricare un'immagine, apporta le modifiche seguenti:
   4. Seleziona Consenti connessioni dai computer che eseguono qualsiasi versione di Desktop remoto (meno sicuro).   
   5. Fai clic su **Applica** e su **OK**.
 - Configura le impostazioni di Windows Firewall.   
-   1. Nel prompt dei comandi in Modalità amministratore, immetti "**wf.msc**" per Windows Firewall e le impostazioni avanzate di sicurezza.   
+   1. Al prompt dei comandi in Modalità amministratore, immetti "**wf.msc**" per Windows Firewall e le impostazioni avanzate di sicurezza.   
    2. Ordina i risultati per **Porte** e seleziona **porta 3389**.   
      ![Screenshot delle regole in entrata delle impostazioni Windows Firewall.](media/3b_inboundrules.png)   
    3. Abilita Desktop remoto (TCP-IN) per i profili: **Dominio**, **Privato** e **Pubblico** (mostrati sopra).
@@ -86,26 +85,26 @@ In questa sezione verrà distribuito il VHD dell'immagine in Azure.
 > [!IMPORTANT]
 > Non usare le immagini utente predefinite in Azure.
 
-1.  Crea un nuovo [gruppo di risorse](https://docs.microsoft.com/rest/api/resources/resourcegroups/createorupdate). 
-2.  Crea un nuovo [blob di archiviazione](https://docs.microsoft.com/rest/api/storageservices/put-blob) all'interno del gruppo di risorse.
-3.  Crea un [contenitore](https://docs.microsoft.com/rest/api/storageservices/create-container) all'interno del BLOB di archiviazione.
-4.  Copia l'URL dell'archiviazione BLOB dalle proprietà.
-5.  Usa lo script sopra riportato per caricare l'immagine nel nuovo BLOB di archiviazione.
-6.  Crea un [disco](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image) per il VHD.   
-     a. Vai a Dischi e fai clic su **Aggiungi**.  
-     b. Immetti un nome per il disco. Seleziona l'abbonamento da usare, imposta la regione e scegli il tipo di account.   
+1.    Crea un nuovo [gruppo di risorse](https://docs.microsoft.com/rest/api/resources/resourcegroups/createorupdate). 
+2.    Crea un nuovo [blob di archiviazione](https://docs.microsoft.com/rest/api/storageservices/put-blob) all'interno del gruppo di risorse.
+3.    Crea un [contenitore](https://docs.microsoft.com/rest/api/storageservices/create-container) all'interno del BLOB di archiviazione.
+4.    Copia l'URL dell'archiviazione BLOB dalle proprietà.
+5.    Usa lo script sopra riportato per caricare l'immagine nel nuovo BLOB di archiviazione.
+6.    Crea un [disco](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image) per il VHD.   
+     a.    Vai a Dischi e fai clic su **Aggiungi**.  
+     b.    Immetti un nome per il disco. Seleziona l'abbonamento da usare, imposta la regione e scegli il tipo di account.   
      c. Per il tipo di origine, seleziona "archiviazione". Individua il percorso del VHD del BLOB creato con lo script.  
      d. Seleziona il tipo del sistema operativo Windows e la dimensione (predefinita: 1023).   
      e. Fare clic su **Crea**.   
 
-7.  Vai a Disco creato e fai clic su **Crea macchina virtuale**.   
-     a. Assegnare un nome alla macchina virtuale.   
-     b. Seleziona il gruppo esistente creato nel passaggio 5 durante la creazione del disco.   
-     c. Seleziona una dimensione e un piano di SKU per la macchina virtuale.   
-     d. Seleziona un'interfaccia di rete nella pagina delle impostazioni. Assicurati che l'interfaccia di rete abbia le seguenti regole specificate:
+7.    Vai a Disco creato e fai clic su **Crea macchina virtuale**.   
+     a.    Assegnare un nome alla macchina virtuale.   
+     b.    Seleziona il gruppo esistente creato nel passaggio 5 durante la creazione del disco.   
+     c.    Seleziona una dimensione e un piano di SKU per la macchina virtuale.   
+     d.    Seleziona un'interfaccia di rete nella pagina delle impostazioni. Assicurati che l'interfaccia di rete abbia le seguenti regole specificate:
  
-        PORT:3389 Protocol: TCP Action: Allow Priority: 1000 Name: ‘RDP-Rule'.   
-     e. Fare clic su **Crea**.
+        PORTA: 3389 Protocollo: TCP Azione: Consenti Priorità: 1000 Nome: 'Regola-RDP'.   
+     e.    Fare clic su **Crea**.
 
 
 
