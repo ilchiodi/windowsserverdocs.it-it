@@ -1,25 +1,24 @@
 ---
 ms.assetid: 5f733510-c96e-4d3a-85d2-4407de95926e
 title: Pubblicazione delle applicazioni con la preautenticazione di AD FS
-description: ''
-author: kgremban
-manager: femila
+ms.author: kgremban
+author: eross-msft
 ms.date: 07/13/2016
 ms.topic: article
 ms.prod: windows-server
 ms.technology: web-app-proxy
-ms.openlocfilehash: bd5c4c97e01942e7c5ab8ed1aba3fcf92030ac59
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 97bfae42c873ecf7196138920a21d96714239da9
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71404265"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80818704"
 ---
 # <a name="publishing-applications-using-ad-fs-preauthentication"></a>Pubblicazione delle applicazioni con la preautenticazione di AD FS
 
 >Si applica a: Windows Server 2016
 
-il contenuto **Stanziamento è pertinente per la versione locale del proxy applicazione Web. Per abilitare l'accesso sicuro alle applicazioni locali tramite il cloud, vedere il [Azure ad contenuto del proxy dell'applicazione](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/).**  
+**Questo contenuto è pertinente per la versione locale del proxy applicazione Web. Per abilitare l'accesso sicuro alle applicazioni locali tramite il cloud, vedere il [Azure ad contenuto del proxy di applicazione](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/).**  
   
 Questo argomento descrive come pubblicare applicazioni tramite il proxy di applicazione Web usando la preautenticazione Active Directory Federation Services (AD FS).  
   
@@ -70,9 +69,9 @@ Il flusso di preautenticazione AD FS generale è il seguente:
 > Quando si configura l'URL esterno e l'URL del server back-end, assicurarsi di includere il nome di dominio completo e non un indirizzo IP.  
   
 > [!NOTE]  
-> Questo argomento include cmdlet di esempio di Windows PowerShell che è possibile usare per automatizzare alcune delle procedure descritte. Per ulteriori informazioni, vedere [mediante i cmdlet](https://go.microsoft.com/fwlink/p/?linkid=230693).  
+> In questo argomento sono inclusi cmdlet di Windows PowerShell di esempio che possono essere usati per automatizzare alcune delle procedure descritte. Per ulteriori informazioni, vedere [mediante i cmdlet](https://go.microsoft.com/fwlink/p/?linkid=230693).  
   
-## <a name="BKMK_1.1"></a>Pubblicare un'applicazione basata sulle attestazioni per i client del Web browser  
+## <a name="publish-a-claims-based-application-for-web-browser-clients"></a><a name="BKMK_1.1"></a>Pubblicare un'applicazione basata sulle attestazioni per i client del Web browser  
 Per pubblicare un'applicazione che utilizza le attestazioni per l'autenticazione, è necessario aggiungere al servizio federativo un trust della relying party per l'applicazione.  
   
 Quando si pubblicano applicazioni basate sulle attestazioni e si accede alle applicazioni da un browser, il flusso di autenticazione generale è il seguente:  
@@ -105,7 +104,7 @@ Questa procedura descrive come pubblicare un'applicazione basata su attestazioni
   
 3.  Nella pagina **preautenticazione** fare clic su **Active Directory Federation Services (ad FS)** , quindi fare clic su **Avanti**.  
   
-4.  Nella pagina dei **client supportati** selezionare **Web e MSOFBA**e quindi fare clic su **Avanti**.  
+4.  Nella pagina dei **client supportati** selezionare **Web e MSOFBA** e quindi fare clic su **Avanti**.  
   
 5.  Nell'elenco di relying party della pagina **Relying party** selezionare la relying party per l'applicazione che si desidera pubblicare e quindi fare clic su **Avanti**.  
   
@@ -128,9 +127,9 @@ Questa procedura descrive come pubblicare un'applicazione basata su attestazioni
   
 8.  Nella pagina **Risultati** verificare che l'applicazione sia stata pubblicata correttamente e quindi fare clic su **Chiudi**.  
   
-***<em>comandi equivalenti di Windows PowerShell</em> ![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)***  
+![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif) ***<em>comandi equivalenti di Windows PowerShell</em>***  
   
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.  
   
 ```  
 Add-WebApplicationProxyApplication  
@@ -142,7 +141,7 @@ Add-WebApplicationProxyApplication
     -ADFSRelyingPartyName 'SP_Relying_Party'  
 ```  
   
-## <a name="BKMK_1.2"></a>Pubblicare un'applicazione basata sull'autenticazione integrata di Windows per i client del Web browser  
+## <a name="publish-an-integrated-windows-authenticated-based-application-for-web-browser-clients"></a><a name="BKMK_1.2"></a>Pubblicare un'applicazione basata sull'autenticazione integrata di Windows per i client del Web browser  
 Il proxy dell'applicazione Web può essere utilizzato per pubblicare applicazioni che utilizzano l'autenticazione integrata di Windows. Questo significa che proxy applicazione Web esegue la preautenticazione come richiesto e può quindi eseguire l'accesso SSO all'applicazione pubblicata che utilizza l'autenticazione integrata di Windows. Per pubblicare un'applicazione che utilizza l'autenticazione integrata di Windows, è necessario aggiungere al servizio federativo un trust della relying party non in grado di riconoscere attestazioni per l'applicazione.  
   
 Per consentire al proxy applicazione Web di eseguire Single Sign-On (SSO) e di eseguire la delega delle credenziali utilizzando la delega vincolata Kerberos, il server proxy applicazione Web deve essere aggiunto a un dominio. Vedere [pianificare Active Directory](https://technet.microsoft.com/library/dn383648.aspx#BKMK_AD).  
@@ -185,7 +184,7 @@ Questa procedura descrive come pubblicare un'applicazione che utilizza l'autenti
   
 3.  Nella pagina **preautenticazione** fare clic su **Active Directory Federation Services (ad FS)** , quindi fare clic su **Avanti**.  
   
-4.  Nella pagina dei **client supportati** selezionare **Web e MSOFBA**e quindi fare clic su **Avanti**.  
+4.  Nella pagina dei **client supportati** selezionare **Web e MSOFBA** e quindi fare clic su **Avanti**.  
   
 5.  Nell'elenco di relying party della pagina **Relying party** selezionare la relying party per l'applicazione che si desidera pubblicare e quindi fare clic su **Avanti**.  
   
@@ -210,9 +209,9 @@ Questa procedura descrive come pubblicare un'applicazione che utilizza l'autenti
   
 8.  Nella pagina **Risultati** verificare che l'applicazione sia stata pubblicata correttamente e quindi fare clic su **Chiudi**.  
   
-***<em>comandi equivalenti di Windows PowerShell</em> ![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)***  
+![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif) ***<em>comandi equivalenti di Windows PowerShell</em>***  
   
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.  
   
 ```  
 Add-WebApplicationProxyApplication  
@@ -225,7 +224,7 @@ Add-WebApplicationProxyApplication
     -ADFSRelyingPartyName 'Non-Claims_Relying_Party'  
 ```  
   
-## <a name="BKMK_1.3"></a>Pubblicare un'applicazione che usa MS-OFBA  
+## <a name="publish-an-application-that-uses-ms-ofba"></a><a name="BKMK_1.3"></a>Pubblicare un'applicazione che usa MS-OFBA  
 Proxy applicazione Web supporta l'accesso da client di Microsoft Office, ad esempio Microsoft Word, che accedono a documenti e dati nei server back-end. L'unica differenza tra queste applicazioni e un browser standard consiste nel fatto che il reindirizzamento al servizio token di servizio viene eseguito non tramite il normale reindirizzamento HTTP ma con intestazioni MS-OFBA speciali come specificato in: [https://msdn.microsoft.com/library/dd773463(v=office.12).aspx](https://msdn.microsoft.com/library/dd773463(v=office.12).aspx). L'applicazione back-end può essere basata sulle attestazioni o sull'autenticazione integrata di Windows.   
 Per pubblicare un'applicazione per i client che utilizzano MS-OFBA, è necessario aggiungere al Servizio federativo un trust di relying party per l'applicazione. A seconda dell'applicazione, è possibile utilizzare l'autenticazione basata sulle attestazioni oppure l'autenticazione integrata di Windows. È pertanto necessario aggiungere il trust della relying party pertinente in base all'applicazione.  
   
@@ -310,9 +309,9 @@ Nella procedura seguente viene illustrato come pubblicare applicazioni di base H
   
 8.  Nella pagina **Risultati** verificare che l'applicazione sia stata pubblicata correttamente e quindi fare clic su **Chiudi**.  
   
-***<em>comandi equivalenti di Windows PowerShell</em> ![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif)***  
+![](../../media/Publishing-Applications-using-AD-FS-Preauthentication/PowerShellLogoSmall.gif) ***<em>comandi equivalenti di Windows PowerShell</em>***  
   
-Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
+Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.  
   
 Questo script di Windows PowerShell Abilita la preautenticazione per tutti i dispositivi, non solo per i dispositivi aggiunti all'area di lavoro.  
   
@@ -339,7 +338,7 @@ Add-WebApplicationProxyApplication
      -ADFSRelyingPartyName 'EAS_Relying_Party'  
 ```  
   
-## <a name="BKMK_1.4"></a>Pubblicare un'applicazione che usa OAuth2, ad esempio un'app Microsoft Store  
+## <a name="publish-an-application-that-uses-oauth2-such-as-a-microsoft-store-app"></a><a name="BKMK_1.4"></a>Pubblicare un'applicazione che usa OAuth2, ad esempio un'app Microsoft Store  
 Per pubblicare un'applicazione per Microsoft Store app, è necessario aggiungere una relying party attendibilità per l'applicazione al Servizio federativo.  
   
 Per consentire al proxy applicazione Web di eseguire Single Sign-On (SSO) e di eseguire la delega delle credenziali utilizzando la delega vincolata Kerberos, il server proxy applicazione Web deve essere aggiunto a un dominio. Vedere [pianificare Active Directory](https://technet.microsoft.com/library/dn383648.aspx#BKMK_AD).  
@@ -347,7 +346,7 @@ Per consentire al proxy applicazione Web di eseguire Single Sign-On (SSO) e di e
 > [!NOTE]  
 > Il proxy dell'applicazione Web supporta la pubblicazione solo per Microsoft Store app che usano il protocollo OAuth 2,0.  
   
-Nella console di gestione AD FS è necessario assicurarsi che l'endpoint OAuth sia abilitato per il proxy. A tale scopo, aprire la console di gestione di ADFS, espandere **Servizio**e fare clic su **Endpoint**. Nell'elenco **Endpoint** individuare l'endpoint OAuth e verificare che il valore nella colonna **Proxy abilitato** sia **Sì**.  
+Nella console di gestione AD FS è necessario assicurarsi che l'endpoint OAuth sia abilitato per il proxy. A tale scopo, aprire la console di gestione di ADFS, espandere **Servizio** e fare clic su **Endpoint**. Nell'elenco **Endpoint** trovare l'endpoint OAuth e verificare che il valore nella colonna **Proxy abilitato** sia **Sì**.  
   
 Il flusso di autenticazione per i client che usano Microsoft Store app è descritto di seguito:  
   
@@ -418,7 +417,7 @@ Questa procedura descrive come pubblicare un'applicazione per OAuth2. Questo tip
   
 8.  Nella pagina **Risultati** verificare che l'applicazione sia stata pubblicata correttamente e quindi fare clic su **Chiudi**.  
   
-Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
+Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.  
   
 Per impostare l'URL di autenticazione OAuth per un indirizzo server federativo di fs.contoso.com e il percorso URL di/ADFS/OAuth2/:  
   
@@ -439,7 +438,7 @@ Add-WebApplicationProxyApplication
     -UseOAuthAuthentication  
 ```  
   
-## <a name="BKMK_Links"></a>Vedere anche  
+## <a name="see-also"></a><a name="BKMK_Links"></a>Vedere anche  
   
 -   [Risoluzione dei problemi relativi a Proxy applicazione Web](https://technet.microsoft.com/library/dn770156.aspx)  
   

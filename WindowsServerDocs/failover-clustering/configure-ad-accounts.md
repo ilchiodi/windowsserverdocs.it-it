@@ -4,14 +4,14 @@ ms.date: 11/12/2012
 ms.prod: windows-server
 ms.technology: storage-failover-clustering
 author: JasonGerend
-manager: elizapo
+manager: lizross
 ms.author: jgerend
-ms.openlocfilehash: 47f3a515379eb79f628a0ee97ef2c7965c4d8d50
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: c087b3f86dcb70c07221a5436d921b09fb5a917f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948150"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827894"
 ---
 # <a name="configuring-cluster-accounts-in-active-directory"></a>Configurazione di account di cluster in Active Directory
 
@@ -28,7 +28,7 @@ In questa sezione vengono descritti gli account computer Active Directory, detti
       
   - **Account del nome del cluster.** (l'account computer del cluster stesso, denominato anche oggetto nome cluster o oggetto nome cluster). Questo account viene creato automaticamente dalla creazione guidata cluster e ha lo stesso nome del cluster. L'account del nome del cluster è molto importante, perché tramite questo account vengono creati automaticamente altri account durante la configurazione di nuovi servizi e applicazioni nel cluster. Se l'account del nome del cluster viene eliminato o le autorizzazioni vengono sottratte, non è possibile creare altri account come richiesto dal cluster, fino a quando non viene ripristinato l'account del nome del cluster o quando vengono ripristinate le autorizzazioni corrette.  
       
-    Ad esempio, se si crea un cluster denominato cluster1 e quindi si prova a configurare un server di stampa in cluster denominato PrintServer1 nel cluster, l'account CLUSTER1 in Active Directory dovrà mantenere le autorizzazioni corrette in modo che possa essere usato per creare un computer account denominato PrintServer1.  
+    Ad esempio, se si crea un cluster denominato cluster1 e quindi si prova a configurare un server di stampa in cluster denominato PrintServer1 nel cluster, l'account CLUSTER1 in Active Directory dovrà mantenere le autorizzazioni corrette in modo che possa essere usato per creare un account computer denominato PrintServer1.  
       
     L'account del nome del cluster viene creato nel contenitore predefinito per gli account computer in Active Directory. Per impostazione predefinita, si tratta del contenitore "computer", ma l'amministratore di dominio può scegliere di reindirizzarlo a un altro contenitore o unità organizzativa (OU).  
       
@@ -47,7 +47,7 @@ Nella tabella seguente vengono descritte le autorizzazioni necessarie per questi
 </colgroup>
 <thead>
 <tr class="header">
-<th>Account,</th>
+<th>Account</th>
 <th>Dettagli sulle autorizzazioni</th>
 </tr>
 </thead>
@@ -91,7 +91,7 @@ Il diagramma seguente illustra il modo in cui i problemi possono verificarsi se 
 
 Se il tipo di problema illustrato nel diagramma si verifica, viene registrato un determinato evento (1193, 1194, 1206 o 1207) in Visualizzatore eventi. Per ulteriori informazioni su questi eventi, vedere [https://go.microsoft.com/fwlink/?LinkId=118271](https://go.microsoft.com/fwlink/?linkid=118271).
 
-Si noti che un problema simile alla creazione di un account per un servizio o un'applicazione in cluster può verificarsi se è stata raggiunta la quota a livello di dominio per la creazione di oggetti computer (per impostazione predefinita, 10). In caso affermativo, potrebbe essere opportuno rivolgersi all'amministratore di dominio per aumentare la quota, anche se si tratta di un'impostazione a livello di dominio e deve essere modificata solo dopo un'attenta considerazione e solo dopo la conferma che il diagramma precedente non descrivere la situazione. Per ulteriori informazioni, vedere la [sezione relativa ai passaggi per la risoluzione dei problemi causati da modifiche negli account di Active Directory correlati ai cluster](#steps-for-troubleshooting-problems-caused-by-changes-in-cluster-related-active-directory-accounts), più avanti in questa guida.
+Si noti che un problema simile alla creazione di un account per un servizio o un'applicazione in cluster può verificarsi se è stata raggiunta la quota a livello di dominio per la creazione di oggetti computer (per impostazione predefinita, 10). In caso affermativo, potrebbe essere opportuno rivolgersi all'amministratore di dominio per aumentare la quota, anche se si tratta di un'impostazione a livello di dominio e deve essere modificata solo dopo un'attenta considerazione e solo dopo aver confermato che il diagramma precedente non descrive la situazione. Per ulteriori informazioni, vedere la [sezione relativa ai passaggi per la risoluzione dei problemi causati da modifiche negli account di Active Directory correlati ai cluster](#steps-for-troubleshooting-problems-caused-by-changes-in-cluster-related-active-directory-accounts), più avanti in questa guida.
 
 ## <a name="requirements-related-to-failover-clusters-active-directory-domains-and-accounts"></a>Requisiti correlati a cluster di failover, domini Active Directory e account
 
@@ -126,13 +126,13 @@ L'appartenenza al gruppo minima richiesta per completare la procedura seguente v
 
 2.  Se l'account creato o ottenuto nel passaggio 1 non è incluso automaticamente nel gruppo **Administrators** locale nei computer del dominio, aggiungere l'account al gruppo **Administrators** locale nei server che saranno nodi del cluster di failover:
     
-    1.  Fare clic sul pulsante **Start**, scegliere **Strumenti di amministrazione**e quindi **Server Manager**.  
+    1.  Fare clic sul pulsante **Start**, scegliere **Strumenti di amministrazione** e quindi **Server Manager**.  
           
     2.  Nell'albero della console espandere **configurazione**, espandere **utenti e gruppi locali**, quindi espandere **gruppi**.  
           
     3.  Nel riquadro centrale fare clic con il pulsante destro del mouse su **Administrators**, scegliere **Aggiungi al gruppo**e quindi fare clic su **Aggiungi**.  
           
-    4.  In **immettere i nomi degli oggetti da selezionare**Digitare il nome dell'account utente creato o ottenuto nel passaggio 1. Se richiesto, immettere un nome account e una password con autorizzazioni sufficienti per questa azione. Fare quindi clic su **OK**.  
+    4.  In **immettere i nomi degli oggetti da selezionare**Digitare il nome dell'account utente creato o ottenuto nel passaggio 1. Se richiesto, immettere un nome account e una password con autorizzazioni sufficienti per questa azione. Fare quindi clic su **OK**,  
           
     5.  Ripetere questi passaggi in ogni server che sarà un nodo nel cluster di failover.  
 
@@ -143,7 +143,7 @@ L'appartenenza al gruppo minima richiesta per completare la procedura seguente v
 
 3. Se l'account creato o ottenuto nel passaggio 1 è un account di amministratore di dominio, ignorare il resto di questa procedura. In caso contrario, assegnare all'account le autorizzazioni **Crea oggetti computer** e **Leggi tutte le proprietà** nel contenitore usato per gli account computer nel dominio:
     
-   1.  In un controller di dominio fare clic sul pulsante **Start**, scegliere **strumenti di amministrazione**e quindi fare clic su **Active Directory utenti e computer**. Se viene visualizzata la finestra di dialogo **Controllo account utente** , confermare che l'azione visualizzata è quella desiderata e scegliere **Continua**.  
+   1.  In un controller di dominio fare clic sul pulsante **Start**, scegliere **strumenti di amministrazione**e quindi fare clic su **Active Directory utenti e computer**. Se viene visualizzata la finestra di dialogo **Controllo account utente**, confermare che l'azione visualizzata è quella desiderata e scegliere **Continua**.  
           
    2.  Nel menu **Visualizza** verificare che sia selezionata l'opzione **funzionalità avanzate** .  
           
@@ -169,7 +169,7 @@ L'appartenenza al gruppo **Domain Admins** oppure a un gruppo equivalente è il 
 
 1.  Assicurarsi di conoscere il nome che avrà il cluster e il nome dell'account utente che verrà usato dalla persona che ha creato il cluster. Si noti che è possibile utilizzare tale account per eseguire questa procedura.
 
-2.  In un controller di dominio fare clic sul pulsante **Start**, scegliere **strumenti di amministrazione**e quindi fare clic su **Active Directory utenti e computer**. Se viene visualizzata la finestra di dialogo **Controllo account utente** , confermare che l'azione visualizzata è quella desiderata e scegliere **Continua**.
+2.  In un controller di dominio fare clic sul pulsante **Start**, scegliere **strumenti di amministrazione**e quindi fare clic su **Active Directory utenti e computer**. Se viene visualizzata la finestra di dialogo **Controllo account utente**, confermare che l'azione visualizzata è quella desiderata e scegliere **Continua**.
 
 3.  Nell'albero della console fare clic con il pulsante destro del mouse su **computer** o sul contenitore predefinito in cui vengono creati gli account computer nel dominio. I **computer** si trovano in <b>Active Directory utenti e computer/</b><i>nodo di dominio</i><b>/Computers</b>.
 
@@ -203,9 +203,9 @@ L'appartenenza al gruppo **Domain Admins** oppure a un gruppo equivalente è il 
           
     2.  Fare clic con il pulsante destro del mouse sull'account computer appena creato e quindi scegliere **Proprietà**.  
           
-    3.  Nella scheda **Sicurezza** fare clic su **Aggiungi**. Se viene visualizzata la finestra di dialogo **Controllo account utente** , confermare che l'azione visualizzata è quella desiderata e scegliere **Continua**.  
+    3.  Nella scheda **Sicurezza** fare clic su **Aggiungi**. Se viene visualizzata la finestra di dialogo **Controllo account utente**, confermare che l'azione visualizzata è quella desiderata e scegliere **Continua**.  
           
-    4.  Utilizzare la finestra di dialogo **Seleziona utenti, computer o gruppi** per specificare l'account utente che verrà utilizzato durante la creazione del cluster. Fare quindi clic su **OK**.  
+    4.  Utilizzare la finestra di dialogo **Seleziona utenti, computer o gruppi** per specificare l'account utente che verrà utilizzato durante la creazione del cluster. Fare quindi clic su **OK**,  
           
     5.  Assicurarsi che l'account utente appena aggiunto sia selezionato, quindi selezionare la casella di controllo **Consenti** accanto a **controllo completo**.  
           
@@ -221,7 +221,7 @@ Per completare questa procedura, è necessaria almeno l'appartenenza al gruppo *
 
 1.  Assicurarsi di aver conosciuto il nome del cluster e il nome del servizio o dell'applicazione in cluster.
 
-2.  In un controller di dominio fare clic sul pulsante **Start**, scegliere **strumenti di amministrazione**e quindi fare clic su **Active Directory utenti e computer**. Se viene visualizzata la finestra di dialogo **Controllo account utente** , confermare che l'azione visualizzata è quella desiderata e scegliere **Continua**.
+2.  In un controller di dominio fare clic sul pulsante **Start**, scegliere **strumenti di amministrazione**e quindi fare clic su **Active Directory utenti e computer**. Se viene visualizzata la finestra di dialogo **Controllo account utente**, confermare che l'azione visualizzata è quella desiderata e scegliere **Continua**.
 
 3.  Nell'albero della console fare clic con il pulsante destro del mouse su **computer** o sul contenitore predefinito in cui vengono creati gli account computer nel dominio. I **computer** si trovano in <b>Active Directory utenti e computer/</b><i>nodo di dominio</i><b>/Computers</b>.
 
@@ -262,7 +262,7 @@ I messaggi di evento che soddisfano la descrizione precedente indicano che la pa
 
 Per informazioni su come verificare che gli amministratori del cluster dispongano delle autorizzazioni corrette per eseguire la procedura seguente, in base alle esigenze, vedere Pianificazione in anticipo per la reimpostazione della password e altre operazioni di manutenzione degli account più indietro in questa guida.
 
-Appartenenza al gruppo locale **amministratori** o gruppo equivalente, è il requisito minimo necessario per completare questa procedura. Inoltre, all'account deve essere assegnata l'autorizzazione **Reimposta password** per l'account del nome del cluster, a meno che l'account non sia un account **Domain Admins** o il proprietario dell'autore dell'account del nome del cluster. L'account usato dalla persona che ha installato il cluster può essere usato per questa procedura. Per informazioni dettagliate sull'uso degli account appropriati e delle appartenenze ai gruppi, vedere [https://go.microsoft.com/fwlink/?LinkId=83477](https://go.microsoft.com/fwlink/?linkid=83477).
+L'appartenenza al gruppo **Administrators** locale, o equivalente, è il requisito minimo per completare questa procedura. Inoltre, all'account deve essere assegnata l'autorizzazione **Reimposta password** per l'account del nome del cluster, a meno che l'account non sia un account **Domain Admins** o il proprietario dell'autore dell'account del nome del cluster. L'account usato dalla persona che ha installato il cluster può essere usato per questa procedura. Per informazioni dettagliate sull'uso degli account appropriati e delle appartenenze ai gruppi, vedere [https://go.microsoft.com/fwlink/?LinkId=83477](https://go.microsoft.com/fwlink/?linkid=83477).
 
 #### <a name="to-troubleshoot-password-problems-with-the-cluster-name-account"></a>Per risolvere i problemi relativi alle password con l'account nome cluster
 
@@ -282,7 +282,7 @@ L'appartenenza al gruppo **Domain Admins** oppure a un gruppo equivalente è il 
 
 #### <a name="to-troubleshoot-problems-caused-by-changes-in-cluster-related-active-directory-accounts"></a>Per risolvere i problemi causati da modifiche negli account di Active Directory correlati al cluster
 
-1.  In un controller di dominio fare clic sul pulsante **Start**, scegliere **strumenti di amministrazione**e quindi fare clic su **Active Directory utenti e computer**. Se viene visualizzata la finestra di dialogo **Controllo account utente** , confermare che l'azione visualizzata è quella desiderata e scegliere **Continua**.
+1.  In un controller di dominio fare clic sul pulsante **Start**, scegliere **strumenti di amministrazione**e quindi fare clic su **Active Directory utenti e computer**. Se viene visualizzata la finestra di dialogo **Controllo account utente**, confermare che l'azione visualizzata è quella desiderata e scegliere **Continua**.
 
 2.  Espandere il contenitore **computer** predefinito o la cartella in cui si trova l'account del nome del cluster (l'account computer per il cluster). I **computer** si trovano in <b>Active Directory utenti e computer/</b><i>nodo di dominio</i><b>/Computers</b>.
 
@@ -294,7 +294,7 @@ L'appartenenza al gruppo **Domain Admins** oppure a un gruppo equivalente è il 
 
 5.  Fare clic con il pulsante destro del mouse sul contenitore **computer** predefinito o sulla cartella in cui si trova l'account del nome del cluster.
 
-6.  Fai clic su **Proprietà**.
+6.  Fare clic su **Proprietà**.
 
 7.  Nella scheda **Sicurezza** fare clic su **Avanzate**.
 
