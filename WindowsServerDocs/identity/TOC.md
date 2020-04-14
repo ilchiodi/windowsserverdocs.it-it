@@ -268,6 +268,7 @@
 #### [Procedure consigliate per la protezione di AD FS](ad-fs/deployment/Best-Practices-Securing-AD-FS.md)
 #### [Pianificare l'accesso condizionale locale basato su dispositivo](ad-fs/deployment/Plan-Device-based-Conditional-Access-on-Premises.md)
 #### [Aggiornamenti necessari per AD FS e WAP](ad-fs/deployment/Updates-for-Active-Directory-Federation-Services-AD-FS.md)
+#### [Creare una farm AD FS senza privilegi di amministratore di dominio](ad-fs/deployment/Install-AD-FS-Delegated-Admin.md)
 #### [Impostare la ridondanza geografica con la replica di SQL Server](ad-fs/deployment/Set-up-Geographic-Redundancy-with-SQL-Server-Replication.md)
 #### [Configurare l'ambiente lab per AD FS in Windows Server 2012 R2](ad-fs/deployment/Set-up-the-lab-environment-for-AD-FS-in-Windows-Server-2012-R2.md)
 #### [Aggiornamento ad AD FS in Windows Server 2016 con un database interno di Windows](ad-fs/deployment/Upgrading-to-AD-FS-in-Windows-Server.md)
