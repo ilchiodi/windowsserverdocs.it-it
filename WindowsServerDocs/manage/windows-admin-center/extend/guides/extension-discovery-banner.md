@@ -8,18 +8,18 @@ ms.author: jol
 ms.date: 06/06/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: d761ba61ae5680373c334889799e82e5d092a0d4
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: f51070abfeed3a790055b12f733fc61be383472c
+ms.sourcegitcommit: 20d07170c7f3094c2fb4455f54b13ec4b102f2d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950103"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81269258"
 ---
 # <a name="enabling-the-extension-discovery-banner"></a>Abilitazione del banner di individuazione delle estensioni
 
 >Si applica a: Windows Admin Center, Windows Admin Center Preview
 
-Una nuova funzionalità disponibile in Windows Admin Center Preview 1903 è il banner di individuazione delle estensioni. Questa funzionalità consente a un'estensione di dichiarare il produttore dell'hardware del server e i modelli che supporta e quando un utente si connette a un server o a un cluster per cui è disponibile un'estensione, viene visualizzato un banner di notifica per installare facilmente l'estensione. Gli sviluppatori di estensioni saranno in grado di ottenere una maggiore visibilità per le estensioni e gli utenti saranno in grado di individuare facilmente più funzionalità di gestione per i server.
+La funzionalità banner di individuazione delle estensioni è stata introdotta nella versione Preview 1903 dell'interfaccia di amministrazione di Windows. Questa funzionalità consente a un'estensione di dichiarare il produttore dell'hardware del server e i modelli che supporta e quando un utente si connette a un server o a un cluster per cui è disponibile un'estensione, viene visualizzato un banner di notifica per installare facilmente l'estensione. Gli sviluppatori di estensioni saranno in grado di ottenere una maggiore visibilità per le estensioni e gli utenti saranno in grado di individuare facilmente più funzionalità di gestione per i server.
 
 ![Banner di individuazione delle estensioni](../../media/extend-guides-extension-discovery-banner/extension-discovery-banner.png)
 
@@ -36,7 +36,7 @@ I metadati "Tags" nel file con estensione NuSpec vengono usati per dichiarare il
 Supponiamo di aver sviluppato un'estensione che supporta I server di una società denominata Contoso Inc., con il nome del modello R3xx e R4xx.
 
 1. Il tag per il produttore verrebbe ``"Manufacturer_/Contoso Inc./"``. Il tag per i modelli potrebbe essere ``"Model_/^R[34][0-9]{2}$/"``. A seconda del modo in cui si desidera definire la condizione di corrispondenza, sono disponibili diversi modi per definire l'espressione regolare. È anche possibile separare i tag del produttore o del modello in più tag. ad esempio, il tag del modello potrebbe essere ``"Model_/R3../ Model_/R4../"``.
-2. È possibile testare l'espressione regolare con la console DevTools del Web browser. In Microsoft Edge o Chrome premere F12 per aprire la finestra DevTools e nella scheda console digitare quanto segue e premere INVIO:
+2. È possibile testare l'espressione regolare con la console DevTools del Web browser. In Edge o Chrome premere F12 per aprire la finestra DevTools e nella scheda console digitare quanto segue e premere INVIO:
 
    ```javascript
    var regex = /^R[34][0-9]{2}$/

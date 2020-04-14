@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.date: 09/18/2018
 ms.prod: windows-server
-ms.openlocfilehash: 67bd2a476cedd6d522daeaae54081b02fd893fbd
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 136107210d2a8a4b336c9e4eb809e2ca096bfba2
+ms.sourcegitcommit: 20d07170c7f3094c2fb4455f54b13ec4b102f2d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75949971"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81269218"
 ---
 # <a name="prepare-your-development-environment"></a>Preparare l'ambiente di sviluppo
 
@@ -32,11 +32,12 @@ Per iniziare a sviluppare con l'SDK, scarica e installa i prerequisiti seguenti:
 
 * Interfaccia di [amministrazione di Windows](https://aka.ms/WACDownloadPage) (versione GA o versione di anteprima)
 * Visual Studio o [Visual Studio Code](https://code.visualstudio.com)
+* [Node. js](https://nodejs.org/en/download/releases/) (versione 10.3.0)
 * [Gestione pacchetti di nodi](https://npmjs.com/get-npm) (8.12.0 o versione successiva)
 * [NuGet](https://www.nuget.org/downloads) (per la pubblicazione delle estensioni)
 
 > [!NOTE]
-> È necessario installare ed eseguire Windows Admin Center in modalità sviluppatore per effettuare i passaggi seguenti. La modalità sviluppatore consente a Windows Admin Center di caricare pacchetti di estensioni non firmati.
+> È necessario installare ed eseguire Windows Admin Center in modalità sviluppatore per effettuare i passaggi seguenti. La modalità sviluppatore consente a Windows Admin Center di caricare pacchetti di estensioni non firmati. L'interfaccia di amministrazione di Windows può essere installata solo in modalità di sviluppo in un computer Windows 10. 
 >
 >  Per abilitare la modalità sviluppatore, installa Windows Admin Center dalla riga di comando con il parametro DEV_MODE=1. Nell'esempio seguente, sostituisci ```<version>``` con la versione che stai installando, ad esempio ```WindowsAdminCenter1809.msi```.
 >
@@ -49,7 +50,7 @@ Successivamente, installare o aggiornare le dipendenze necessarie per i progetti
 ```
 npm install -g npm
 
-npm install -g @angular/cli@1.6.5
+npm install -g @angular/cli@7.1.2
 
 npm install -g gulp
 npm install -g typescript
@@ -58,7 +59,7 @@ npm install -g windows-admin-center-cli
 ```
 
 >[!NOTE]
->È possibile installare una versione più recente di @angular/cli, tuttavia tenere presente che se si installa una versione maggiore di 1.6.5, si riceverà un avviso durante il passaggio di compilazione Gulp che la versione dell'interfaccia della riga di comando locale non corrisponde alla versione installata.
+>È possibile installare una versione più recente di @angular/cli, tuttavia tenere presente che se si installa una versione maggiore di 7.1.2, si riceverà un avviso durante il passaggio di compilazione Gulp che la versione dell'interfaccia della riga di comando locale non corrisponde alla versione installata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

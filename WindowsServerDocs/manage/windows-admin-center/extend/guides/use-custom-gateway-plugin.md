@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 09/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 829cbf6df8cc2738bf4066b36210b860595774ed
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5bcaaa452a2b42a54cbc3b1d8f9a296504054e34
+ms.sourcegitcommit: 20d07170c7f3094c2fb4455f54b13ec4b102f2d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71385234"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81269228"
 ---
 # <a name="use-a-custom-gateway-plugin-in-your-tool-extension"></a>Utilizzare un plug-in del gateway personalizzato nell'estensione dello strumento
 
@@ -61,14 +61,14 @@ export class PluginService {
 }
 ```
 
-Modificare i riferimenti a ```Sample Uno``` e ```Sample%20Uno``` nel nome della funzionalità, in base alle esigenze.
+Modificare i riferimenti a ```Sample Uno``` e ```Sample%20Uno``` al nome della funzionalità nel modo appropriato.
 
-[!WARNING]
-> Si consiglia di usare il predefinito ```this.appContextService.node``` per chiamare qualsiasi API definita nel plug-in del gateway personalizzato. In questo modo, se le credenziali sono necessarie all'interno del plug-in del gateway, verranno gestite correttamente.
+> [!WARNING]
+> È consigliabile usare il ```this.appContextService.node``` incorporato per chiamare qualsiasi API definita nel plug-in del gateway personalizzato. In questo modo, se le credenziali sono necessarie all'interno del plug-in del gateway, verranno gestite correttamente.
 
 ### <a name="modify-modulets"></a>Modificare Module. TS
 
-Aprire il file ```module.ts``` del nuovo modulo creato in precedenza (ad esempio ```{!Module-Name}.module.ts```):
+Aprire il file di ```module.ts``` del nuovo modulo creato in precedenza (ad esempio ```{!Module-Name}.module.ts```):
 
 Aggiungere le istruzioni Import seguenti:
 
@@ -91,7 +91,7 @@ Aggiungere i seguenti provider (dopo le dichiarazioni):
 
 ### <a name="modify-componentts"></a>Modificare Component. TS
 
-Aprire il file ```component.ts``` del nuovo modulo creato in precedenza (ad esempio ```{!Module-Name}.component.ts```):
+Aprire il file di ```component.ts``` del nuovo modulo creato in precedenza (ad esempio ```{!Module-Name}.component.ts```):
 
 Aggiungere le istruzioni Import seguenti:
 
@@ -135,7 +135,7 @@ Modificare il costruttore e modificare/aggiungere le funzioni seguenti:
 
 ### <a name="modify-componenthtml"></a>Modificare Component. html ###
 
-Aprire il file ```component.html``` del nuovo modulo creato in precedenza (ad esempio ```{!Module-Name}.component.html```):
+Aprire il file di ```component.html``` del nuovo modulo creato in precedenza (ad esempio ```{!Module-Name}.component.html```):
 
 Aggiungere il contenuto seguente al file HTML:
 ``` html

@@ -8,22 +8,22 @@ ms.author: niwashbu
 ms.date: 11/21/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: ddc8eea67cde9d6677836af1201e169c911e77e0
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: cbcb5c2357a60d6d12551a7d08055cacecd515b7
+ms.sourcegitcommit: 20d07170c7f3094c2fb4455f54b13ec4b102f2d7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950485"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81269238"
 ---
 # <a name="manage-servers-with-windows-admin-center"></a>Gestire i server con l'interfaccia di amministrazione di Windows
 
 >Si applica a: Windows Admin Center, Windows Admin Center Preview
 
 > [!Tip]
-> Novità di Windows Admin Center
+> Se non hai esperienza con Windows Admin Center,
 > [Scarica o Scopri di più sull'interfaccia di amministrazione di Windows](../overview.md).
 
-## <a name="managing-windows-server-machines"></a>Gestione delle macchine di Windows Server
+## <a name="managing-windows-server-machines"></a>Gestione di computer Windows Server
 
 È possibile aggiungere singoli server che eseguono Windows Server 2012 o versioni successive all'interfaccia di amministrazione di Windows per gestire il server con un set completo di strumenti, tra cui certificati, dispositivi, eventi, processi, ruoli e funzionalità, aggiornamenti, macchine virtuali e altro ancora.
 
@@ -49,7 +49,7 @@ Per le connessioni server sono disponibili gli strumenti seguenti:
 
 | Strumento | Descrizione |
 | ---- | ----------- |
-| [Informazioni generali](#overview) | Visualizza i dettagli del server e controlla lo stato del server |
+| [Panoramica](#overview) | Visualizza i dettagli del server e controlla lo stato del server |
 | [Active Directory](#active-directory-preview) | Gestisci Active Directory |
 | [Backup](#backup) | Visualizzare e configurare backup di Azure |  
 | [Certificati](#certificates) | Visualizzare e modificare i certificati |
@@ -67,7 +67,7 @@ Per le connessioni server sono disponibili gli strumenti seguenti:
 | [Performance Monitor](https://aka.ms/perfmon-blog) | Visualizzare i contatori delle prestazioni e i report |
 | [PowerShell](#powershell) | Interagire con il server tramite PowerShell |
 | [Processi](#processes) | Visualizzare e modificare i processi in esecuzione |
-| [Registry](#registry) | Visualizzare e modificare le voci del registro di sistema |
+| [Del registro](#registry) | Visualizzare e modificare le voci del registro di sistema |
 | [Desktop remoto](#remote-desktop) | Interagire con il server tramite Desktop remoto |
 | [Ruoli e funzionalità](#roles-and-features) | Visualizzazione e modifica di ruoli e funzionalità |
 | [Attività pianificate](#scheduled-tasks) | Visualizzare e modificare le attività pianificate |
@@ -93,7 +93,7 @@ In Server Manager panoramica sono supportate le funzionalità seguenti:
 - Visualizza attività CPU
 - Visualizza attività memoria
 - Visualizzare l'attività di rete
-- Riavviare il server
+- Riavvia server
 - Arresta server
 - Abilita metrica disco nel server
 - Modifica ID computer nel server
@@ -110,11 +110,11 @@ In Server Manager panoramica sono supportate le funzionalità seguenti:
 Sono disponibili le seguenti Active Directory gestione:
 
 - Creazione di un utente
-- Creazione di un gruppo
+- Crea gruppo
 - Ricerca di utenti, computer e gruppi
 - Riquadro dei dettagli per utenti, computer e gruppi se selezionato nella griglia
 - Azioni griglia globale utenti, computer e gruppi (Disabilita/Abilita, Rimuovi)
-- Reimpostazione delle password utente
+- Reimpostare la password utente
 - Oggetti utente: configurare le proprietà di base & le appartenenze ai gruppi
 - Oggetti computer: configurare la delega in un singolo computer
 - Oggetti gruppo: Gestisci appartenenza (Aggiungi/Rimuovi 1 utente alla volta)  
@@ -149,8 +149,8 @@ Nei certificati sono supportate le funzionalità seguenti:
 
 - Esplorare e cercare i certificati esistenti
 - Visualizza i dettagli del certificato
-- Esportare i certificati
-- Rinnovare i certificati
+- Esporta certificati
+- Rinnova certificati
 - Richiedi nuovi certificati
 - Elimina certificati
 
@@ -171,7 +171,7 @@ I **dispositivi** consentono di gestire i dispositivi connessi in un computer o 
 Nei dispositivi sono supportate le funzionalità seguenti:
 
 - Esplorare e cercare i dispositivi
-- Visualizzazione dei dettagli del dispositivo
+- Visualizza i dettagli del dispositivo
 - Disabilitare un dispositivo
 - Aggiornare il driver in un dispositivo
 
@@ -219,7 +219,7 @@ Negli eventi sono supportate le funzionalità seguenti:
 
 [**Visualizza commenti e suggerimenti e funzionalità proposte per gli eventi**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BEvents%5D).
 
-## <a name="files"></a>File
+## <a name="files"></a>Files
 
 **File** consente di gestire file e cartelle in un computer o un server.
 
@@ -229,12 +229,13 @@ Nei file sono supportate le funzionalità seguenti:
 
 - Sfogliare file e cartelle
 - Ricerca di un file o di una cartella
-- Creare una nuova cartella
+- Crea una nuova cartella
 - Eliminare un file o una cartella
 - Scaricare un file o una cartella
 - Caricare un file o una cartella
 - Rinominare un file o una cartella
 - Estrarre un file zip
+- Copiare e spostare file e cartelle
 - Visualizza proprietà file o cartella
 - Aggiungere, modificare o rimuovere condivisioni file
 - Modificare le autorizzazioni di utenti e gruppi per le condivisioni file
@@ -388,7 +389,7 @@ Le funzionalità seguenti sono supportate nelle attività pianificate:
 
 [**Visualizza commenti e suggerimenti e funzionalità proposte per le attività pianificate**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BScheduled%20Tasks%5D).
 
-## <a name="services"></a>Servizi,
+## <a name="services"></a>Servizi
 
 I **Servizi** consentono di gestire i servizi in un computer o in un server.
 
@@ -400,6 +401,7 @@ Nei servizi sono supportate le funzionalità seguenti:
 - Visualizzare i dettagli di un servizio
 - Avviare un servizio
 - Sospendere un servizio
+- Riavviare un servizio
 - Modificare le proprietà di un servizio
 
 [**Visualizza commenti e suggerimenti e funzionalità proposte per i servizi**](https://windowsserver.uservoice.com/forums/295071/filters/top?category_id=319162&query=%5BServices%5D).
@@ -417,7 +419,7 @@ Nei servizi sono supportate le funzionalità seguenti:
 - Visualizzare e modificare le impostazioni di controllo degli accessi in base al ruolo
 - Visualizzare e modificare le impostazioni dell'host Hyper-V, se applicabile
 
-## <a name="storage"></a>Archiviazione:
+## <a name="storage"></a>Archiviazione
 
 **Archiviazione** consente di gestire i dispositivi di archiviazione in un computer o un server.
 
@@ -471,7 +473,7 @@ Negli aggiornamenti sono supportate le funzionalità seguenti:
 
 - Visualizzare gli aggiornamenti di Windows o Microsoft disponibili
 - Visualizza un elenco di cronologia aggiornamenti
-- Installa aggiornamenti
+- Installare gli aggiornamenti
 - Verificare la disponibilità di aggiornamenti online da Microsoft Update
 - Gestire l'integrazione di [Azure Gestione aggiornamenti](https://docs.microsoft.com/azure/automation/automation-update-management)
 
@@ -481,7 +483,7 @@ Negli aggiornamenti sono supportate le funzionalità seguenti:
 
 Vedere [gestione delle macchine virtuali con l'interfaccia di amministrazione di Windows](manage-virtual-machines.md)
 
-## <a name="virtual-switches"></a>Switch virtuali
+## <a name="virtual-switches"></a>Commutatori virtuali
 
 **Commutatori virtuali** consente di gestire i commutatori virtuali Hyper-V in un computer o un server.
 
