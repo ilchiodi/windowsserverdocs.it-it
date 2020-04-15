@@ -2,22 +2,20 @@
 title: Distribuire Nano Server
 description: Illustra la creazione e la distribuzione di immagini, pacchetti, driver, domini, ruoli e funzionalità personalizzati
 ms.prod: windows-server
-ms.service: na
 manager: DonGill
 ms.technology: server-nano
 ms.date: 09/06/2017
-ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 9f109c91-7c2e-4065-856c-ce9e2e9ce558
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 8b0276b70f3899fe1f3e56aebd87ea087ea91fee
-ms.sourcegitcommit: 2a15de216edde8b8e240a4aa679dc6d470e4159e
+ms.openlocfilehash: 9eceb92c239ce222f9f1498dfdeb8a21220af86f
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465485"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80827114"
 ---
 # <a name="deploy-nano-server"></a>Distribuire Nano Server
 
@@ -57,12 +55,12 @@ Nano Server Image Builder crea immagini personalizzate di Nano Server in formato
 
 Se non si ha familiarità con i concetti appena elencati, leggere la parte rimanente dell'argomento e gli altri argomenti relativi a Nano Server per prepararsi adeguatamente a immettere nello strumento tutte le informazioni necessarie.
 
-## <a name="BKMK_CreateImage"></a>Creazione di un'immagine personalizzata di Nano Server  
+## <a name="creating-a-custom-nano-server-image"></a><a name=BKMK_CreateImage></a>Creazione di un'immagine personalizzata di Nano Server  
 In Windows Server 2016, Nano Server viene distribuito su un supporto fisico contenente una cartella **NanoServer** in cui sono disponibili un'immagine WIM e una sottocartella denominata **Packages**. Si tratta dei file di pacchetto necessari per aggiungere funzionalità e ruoli server all'immagine del disco rigido virtuale da cui si eseguirà l'avvio.  
 
-Puoi trovare e installare questi pacchetti anche con il provider NanoServerPackage del modulo PackageManagement (OneGet) di PowerShell. Vedere la sezione "Installazione di ruoli e funzionalità online" in questo argomento.  
+Puoi trovare e installare questi pacchetti anche con il provider NanoServerPackage del modulo PackageManagement (OneGet) di PowerShell. Vedi la sezione Installazione di ruoli e funzionalità online in questo argomento.  
 
-La tabella seguente mostra i ruoli e funzionalità disponibili in questa versione di Nano Server, insieme alle opzioni di Windows PowerShell che installeranno i pacchetti necessari. Alcuni pacchetti vengono installati direttamente con i rispettivi parametri di Windows PowerShell (ad esempio -Compute), mentre altri vengono installati passando al parametro -Package i nomi dei pacchetti, che puoi combinare in un elenco delimitato da virgole. Puoi elencare in modo dinamico i pacchetti disponibili tramite il cmdlet Get-NanoServerPackage.  
+La tabella seguente mostra i ruoli e funzionalità disponibili in questa versione di Nano Server, insieme alle opzioni di Windows PowerShell che installeranno i pacchetti necessari. Alcuni pacchetti vengono installati direttamente con i rispettivi parametri di Windows PowerShell (ad esempio -Compute), mentre altri vengono installati passando al parametro -Package i nomi dei pacchetti desiderati, combinati in un elenco delimitato da virgole. Puoi elencare in modo dinamico i pacchetti disponibili tramite il cmdlet Get-NanoServerPackage.  
 
 
 |                                                                             Ruolo o funzionalità                                                                             |                                                                                                                                                                                                          Opzione                                                                                                                                                                                                           |
@@ -81,7 +79,7 @@ La tabella seguente mostra i ruoli e funzionalità disponibili in questa version
 |                                                                 Agente System Center Operations Manager                                                                  |                                                                                                                 Installato separatamente. Per altre informazioni, vedi la documentazione di System Center Operations Manager all'indirizzo https://technet.microsoft.com/system-center-docs/om/manage/install-agent-on-nano-server.                                                                                                                 |
 |                                                                 Data Center Bridging (incluso DCBQoS)                                                                 |                                                                                                                                                                                         -Package Microsoft-NanoServer-DCB-Package                                                                                                                                                                                         |
 |                                                                     Distribuzione in una macchina virtuale                                                                      |                                                                                                                                                                                        -Package Microsoft-NanoServer-Guest-Package                                                                                                                                                                                        |
-|                                                                     Distribuzione in un computer fisico                                                                     |                                                                                                                                                                                        - Package Microsoft-NanoServer-Host-Package                                                                                                                                                                                        |
+|                                                                     Distribuzione in una macchina fisica                                                                     |                                                                                                                                                                                        - Package Microsoft-NanoServer-Host-Package                                                                                                                                                                                        |
 |     BitLocker, Trusted Platform Module (TPM), crittografia dei volumi, identificazione della piattaforma, provider di crittografia e altre funzionalità correlate all'avvio sicuro     |                                                                                                                                                                                    -Package Microsoft-NanoServer-SecureStartup-Package                                                                                                                                                                                    |
 |                                                                    Supporto Hyper-V per macchine virtuali schermate                                                                     |                                                                                                                                         -Package Microsoft-NanoServer-ShieldedVM-Package<br />**Nota:** questo pacchetto è disponibile solo per l'edizione Datacenter di Nano Server.                                                                                                                                         |
 |                                                             Agente Simple Network Management Protocol (SNMP)                                                             |                                   -Package Microsoft-NanoServer-SNMP-Agent-Package.cab<br />**Nota:** non incluso con il supporto di installazione di Windows Server 2016. Disponibile solo online. Per informazioni dettagliate, vedi [Installazione di ruoli e funzionalità online](https://technet.microsoft.com/windows-server-docs/get-started/deploy-nano-server#a-namebkmkonlineainstalling-roles-and-features-online).                                    |
@@ -185,7 +183,7 @@ All'avvio di WinPE usare Diskpart.exe per preparare il disco rigido del computer
 > [!WARNING]  
 > Questi comandi elimineranno tutti i dati presenti sul disco rigido.  
 
-**Diskpart.exe Select disk 0 Clean Convert GPT Create partition efi size=100 Format quick FS=FAT32 label="System" Assign letter="s" Create partition msr size=128 Create partition primary Format quick FS=NTFS label="NanoServer" Assign letter="n" List volume Exit**  
+**Diskpart.exe Select disk 0 Clean Convert GPT Create partition efi size=100 Format quick FS=FAT32 label=System Assign letter=s Create partition msr size=128 Create partition primary Format quick FS=NTFS label=NanoServer Assign letter=n List volume Exit**  
 
 Applicare l'immagine di Nano Server (modificare il percorso del file con estensione wim):  
 
@@ -200,15 +198,15 @@ Rimuovi il supporto DVD o l'unità USB e riavvia il sistema con il comando **Wpe
  Dopo essersi connessi a Nano Server è possibile modificare un file che risiede nel computer locale passando il percorso relativo o assoluto del file al comando psEdit, ad esempio:   
 `psEdit C:\Windows\Logs\DISM\dism.log` o `psEdit .\myScript.ps1`  
 
-Modificare un file che risiede in Nano Server remoto avviando una sessione remota con `Enter-PSSession -ComputerName "192.168.0.100" -Credential ~\Administrator` e quindi passando il percorso relativo o assoluto al comando psEdit, come descritto di seguito:   
+Modificare un file che risiede in Nano Server remoto avviando una sessione remota con `Enter-PSSession -ComputerName 192.168.0.100 -Credential ~\Administrator` e quindi passando il percorso relativo o assoluto al comando psEdit, come descritto di seguito:   
 `psEdit C:\Windows\Logs\DISM\dism.log`  
 
-## <a name="BKMK_online"></a>Installazione di ruoli e funzionalità online  
+## <a name="installing-roles-and-features-online"></a><a name=BKMK_online></a>Installazione di ruoli e funzionalità online  
 > [!NOTE]
 > Se installi un pacchetto di Nano Server facoltativo da un supporto o un repository online, le correzioni recenti per la sicurezza non saranno incluse. Per evitare una mancata corrispondenza della versione tra i pacchetti facoltativi e il sistema operativo di base, devi installare l'[aggiornamento cumulativo più recente](https://technet.microsoft.com/windows-server-docs/get-started/update-nano-server) immediatamente dopo l'installazione di qualsiasi pacchetto facoltativo e **prima** del riavvio del server.
 
 ### <a name="installing-roles-and-features-from-a-package-repository"></a>Installazione di ruoli e funzionalità da un repository di pacchetti  
-Puoi trovare e installare pacchetti di Nano Server dal repository di pacchetti online tramite il provider NanoServerPackage del modulo PackageManagement di PowerShell. Per installare il provider, usa questi cmdlet:
+Puoi trovare e installare pacchetti di Nano Server dal repository di pacchetti online tramite il provider NanoServerPackage del modulo PackageManagement di PowerShell. Per installare il provider, usare questi cmdlet:
 
 ```powershell
 Install-PackageProvider NanoServerPackage
@@ -219,7 +217,7 @@ Import-PackageProvider NanoServerPackage
 >Se riscontri errori durante l'esecuzione di Install-PackageProvider, verifica di avere installato l'[aggiornamento cumulativo più recente](https://technet.microsoft.com/windows-server-docs/get-started/update-nano-server) ([KB3206632](https://support.microsoft.com/kb/3206632) o versione successiva) o usa Save-Module, come indicato di seguito: 
 
 ```powershell
-Save-Module -Path "$Env:ProgramFiles\WindowsPowerShell\Modules\" -Name NanoServerPackage -MinimumVersion 1.0.1.0
+Save-Module -Path $Env:ProgramFiles\WindowsPowerShell\Modules\ -Name NanoServerPackage -MinimumVersion 1.0.1.0
 Import-PackageProvider NanoServerPackage
 ```
 
@@ -251,12 +249,12 @@ Find-NanoServerPackage
 
 Se esegui `Find-Package -ProviderName NanoServerPackage -DisplayCulture`, vengono visualizzate tutte le impostazioni cultura disponibili.
 
-Se hai bisogno di una versione specifica di impostazioni locali, ad esempio Inglese (Stati Uniti), puoi usare `Find-NanoServerPackage -Culture en-us` o  
+Se è necessaria una versione specifica di impostazioni locali, ad esempio inglese americano, è possibile usare `Find-NanoServerPackage -Culture en-us` o  
 `Find-Package -ProviderName NanoServerPackage -Culture en-us` o `Find-Package -Culture en-us -DisplayCulture`.
 
 Per trovare un pacchetto specifico in base al nome di pacchetto, usa il parametro -Name. Questo parametro accetta anche i caratteri jolly. Ad esempio, per trovare tutti i pacchetti il cui nome contiene VMM, usa `Find-NanoServerPackage -Name *VMM*` o `Find-Package -ProviderName NanoServerPackage -Name *VMM*`.
 
-Puoi trovare una determinata versione con i parametri -RequiredVersion, -MinimumVersion e -MaximumVersion. Per trovare tutte le versioni disponibili, usa -AllVersions. In caso contrario, viene restituita solo la versione più recente. Ad esempio: `Find-NanoServerPackage -Name *VMM* -RequiredVersion 10.0.14393.0`. In alternativa, per tutte le versioni: `Find-Package -ProviderName NanoServerPackage -Name *VMM* -AllVersions`
+Puoi trovare una determinata versione con i parametri -RequiredVersion, -MinimumVersion e -MaximumVersion. Per trovare tutte le versioni disponibili, usare -AllVersions. In caso contrario, viene restituita solo la versione più recente. Ad esempio: `Find-NanoServerPackage -Name *VMM* -RequiredVersion 10.0.14393.0`. In alternativa, per tutte le versioni: `Find-Package -ProviderName NanoServerPackage -Name *VMM* -AllVersions`
 
 ### <a name="installing-nano-server-packages"></a>Installazione di pacchetti di Nano Server  
 Puoi installare un pacchetto di Nano Server (inclusi i relativi pacchetti di dipendenza, se previsti) in Nano Server a livello locale o in un'immagine offline con `Install-NanoServerPackage` o `Install-Package -ProviderName NanoServerPackage`. Entrambi i parametri accettano input dalla pipeline.
@@ -273,13 +271,13 @@ oppure:
 
 Di seguito sono riportati alcuni esempi di canalizzazione dei risultati della ricerca di pacchetti nel cmdlet di installazione:  
 
-`Find-NanoServerPackage *dcb* | Install-NanoServerPackage` trova tutti i pacchetti il cui nome contiene "dcb" e li installa.
+`Find-NanoServerPackage *dcb* | Install-NanoServerPackage` trova tutti i pacchetti il cui nome contiene dcb e li installa.
 
-`Find-Package *nanoserver-compute-* | Install-Package` trova i pacchetti il cui nome contiene "nanoserver-compute-" e li installa.
+`Find-Package *nanoserver-compute-* | Install-Package` trova i pacchetti il cui nome contiene nanoserver-compute- e li installa.
 
-`Find-NanoServerPackage -Name *nanoserver-compute* | Install-NanoServerPackage -ToVhd C:\MyNanoVhd.vhd` trova i pacchetti il cui nome contiene "compute" e li installa in un'immagine offline.
+`Find-NanoServerPackage -Name *nanoserver-compute* | Install-NanoServerPackage -ToVhd C:\MyNanoVhd.vhd` trova i pacchetti il cui nome contiene compute e li installa in un'immagine offline.
 
-`Find-Package -ProviderName NanoserverPackage *nanoserver-compute-* | Install-Package -ToVhd C:\MyNanoVhd.vhd` esegue la stessa operazione con tutti i pacchetti il cui nome contiene "nanoserver-compute-".
+`Find-Package -ProviderName NanoserverPackage *nanoserver-compute-* | Install-Package -ToVhd C:\MyNanoVhd.vhd` esegue la stessa operazione con tutti i pacchetti il cui nome contiene nanoserver-compute-.
 
 ### <a name="downloading-nano-server-packages"></a>Download di pacchetti di Nano Server  
 
@@ -297,8 +295,8 @@ oppure
 
 `Find-Package -ProviderName NanoServerPackage -Name *shield* -Culture es-ES | Save-Package -Path`
 
-### <a name="inventory-installed-packages"></a>Fare l'inventario dei pacchetti installati
-Con `Get-Package` puoi scoprire quali pacchetti di Nano Server sono installati. Per vedere quali pacchetti sono presenti in Nano Server, ad esempio, puoi usare `Get-Package -ProviderName NanoserverPackage`.
+### <a name="inventory-installed-packages"></a>Pacchetti di inventario installati
+Con `Get-Package` puoi scoprire quali pacchetti di Nano Server sono installati. Per vedere quali pacchetti sono presenti in Nano Server, ad esempio, è possibile usare `Get-Package -ProviderName NanoserverPackage`.
 
 Per verificare quali pacchetti di Nano Server sono installati in un'immagine offline, esegui invece `Get-Package -ProviderName NanoserverPackage -FromVhd C:\MyNanoVhd.vhd`.
 
@@ -313,19 +311,19 @@ Anche se l'installazione offline dei ruoli server e di altri pacchetti è l'opzi
 
 
 ```  
-<?xml version="1.0" encoding="utf-8"?>
-    <unattend xmlns="urn:schemas-microsoft-com:unattend">  
+<?xml version=1.0 encoding=utf-8?>
+    <unattend xmlns=urn:schemas-microsoft-com:unattend>  
     <servicing>  
-        <package action="install">  
-            <assemblyIdentity name="Microsoft-NanoServer-IIS-Feature-Package" version="10.0.14393.0" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" />  
-            <source location="c:\packages\Microsoft-NanoServer-IIS-Package.cab" />  
+        <package action=install>  
+            <assemblyIdentity name=Microsoft-NanoServer-IIS-Feature-Package version=10.0.14393.0 processorArchitecture=amd64 publicKeyToken=31bf3856ad364e35 language=neutral />  
+            <source location=c:\packages\Microsoft-NanoServer-IIS-Package.cab />  
         </package>  
-        <package action="install">  
-            <assemblyIdentity name="Microsoft-NanoServer-IIS-Feature-Package" version="10.0.14393.0" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="en-US" />  
-            <source location="c:\packages\en-us\Microsoft-NanoServer-IIS-Package_en-us.cab" />  
+        <package action=install>  
+            <assemblyIdentity name=Microsoft-NanoServer-IIS-Feature-Package version=10.0.14393.0 processorArchitecture=amd64 publicKeyToken=31bf3856ad364e35 language=en-US />  
+            <source location=c:\packages\en-us\Microsoft-NanoServer-IIS-Package_en-us.cab />  
         </package>  
     </servicing>  
-    <cpi:offlineImage cpi:source="" xmlns:cpi="urn:schemas-microsoft-com:cpi" />  
+    <cpi:offlineImage cpi:source= xmlns:cpi=urn:schemas-microsoft-com:cpi />  
 </unattend>  
 ```  
 
@@ -344,7 +342,7 @@ Anche se l'installazione offline dei ruoli server e di altri pacchetti è l'opzi
 
    **dism /online /get-packages**  
 
-   "Package Identity: Microsoft-NanoServer-IIS-Package~31bf3856ad364e35~amd64~en-US~10.0.10586.0" sarà elencato due volte, una per Release Type: Language Pack e una per Release Type: Feature Pack.  
+   Package Identity: Microsoft-NanoServer-IIS-Package~31bf3856ad364e35~amd64~en-US~10.0.10586.0 sarà elencato due volte, una per Release Type: Language Pack e una per Release Type: Feature Pack.  
 
 ## <a name="customizing-an-existing-nano-server-vhd"></a>Personalizzazione di un disco rigido virtuale di Nano Server esistente  
 È possibile modificare i dettagli di un disco rigido virtuale esistente usando il cmdlet Edit-NanoServerImage, come nell'esempio seguente:  
@@ -360,7 +358,7 @@ New-NanoServerImage offre due metodi di aggiunta a un dominio: entrambi si basan
 
 `New-NanoServerImage -Edition Standard -DeploymentType Host -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\JoinDomHarvest.vhdx -ComputerName JoinDomHarvest -DomainName Contoso`  
 
-Al termine dell'esecuzione di questo cmdlet, è necessario trovare un computer denominato "JoinDomHarvest" nell'elenco dei computer di Active Directory.  
+Al termine dell'esecuzione di questo cmdlet, dovresti trovare un computer denominato JoinDomHarvest nell'elenco dei computer di Active Directory.  
 
 È possibile usare questo cmdlet anche in un computer non appartenente a un dominio. In questo caso, è necessario raccogliere un BLOB da un computer appartenente al dominio e quindi fornire il BLOB al cmdlet. Tenere presente che, quando si raccoglie un BLOB di questo tipo da un altro computer, il BLOB include già il nome computer. Pertanto, se si tenta di aggiungere il parametro *-ComputerName*, viene restituito un errore.  
 
@@ -407,7 +405,7 @@ Nano Server offre un pacchetto contenente un set di driver di base per un'ampia 
 `New-NanoServerImage -DeploymentType Host -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\InjectingDrivers.vhdx -DriverPath .\Extra\Drivers`  
 
 > [!NOTE]
-> Nella cartella in cui sono contenuti i driver devono essere presenti sia i file SYS sia i file INF corrispondenti. Inoltre, Nano Server supporta solo driver a 64 bit firmati.
+> Nella cartella in cui sono contenuti i driver devono essere presenti sia i file SYS sia i file INF corrispondenti. Nano Server supporta solo driver a 64 bit firmati.
 
 Con il parametro -DriverPath puoi anche passare una matrice di percorsi di file INF di driver:
 
@@ -436,17 +434,17 @@ Per incorporare i file binari o script nell'immagine di Nano Server, usa il para
 ### <a name="running-custom-commands-after-the-first-boot"></a>Esecuzione di comandi personalizzati dopo il primo avvio
 Per eseguire comandi personalizzati nell'ambito di setupcomplete.cmd, usa il parametro -SetupCompleteCommand per passare una matrice di comandi:
 
-`New-NanoServerImage -DeploymentType Host -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -SetupCompleteCommand @("echo foo", "echo bar")`
+`New-NanoServerImage -DeploymentType Host -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -SetupCompleteCommand @(echo foo, echo bar)`
 
 
 ### <a name="running-custom-powershell-scripts-as-part-of-image-creation"></a>Esecuzione di script PowerShell personalizzati durante la creazione dell'immagine
 Per eseguire script PowerShell personalizzati durante il processo di creazione dell'immagine, usa il parametro -OfflineScriptPath per passare una matrice di percorsi di script con estensione ps1. Se gli script accettano argomenti, usa -OfflineScriptArgument per passare una tabella hash di argomenti aggiuntivi agli script.
 
-`New-NanoServerImage -DeploymentType Host -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -OfflineScriptPath C:\MyScripts\custom.ps1 -OfflineScriptArgument @{Param1="Value1"; Param2="Value2"}`
+`New-NanoServerImage -DeploymentType Host -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -OfflineScriptPath C:\MyScripts\custom.ps1 -OfflineScriptArgument @{Param1=Value1; Param2=Value2}`
 
 
 ### <a name="support-for-development-scenarios"></a>Supporto per scenari di sviluppo
-Se vuoi eseguire attività di sviluppo e test in Nano server, puoi usare il parametro -Development. Questo accorgimento consente infatti di abilitare PowerShell come shell locale predefinita, abilitare l'installazione di driver senza firma, copiare i file binari del debugger, aprire una porta per il debug, abilitare la firma di test e consentire l'installazione di pacchetti AppX senza una licenza per sviluppatori:
+Se si vuole eseguire attività di sviluppo e test in Nano server, è possibile usare il parametro -Development. Questo accorgimento consente infatti di abilitare PowerShell come shell locale predefinita, abilitare l'installazione di driver senza firma, copiare i file binari del debugger, aprire una porta per il debug, abilitare la firma di test e consentire l'installazione di pacchetti AppX senza una licenza per sviluppatori:
 
 `New-NanoServerImage -DeploymentType Guest -Edition Standard -MediaPath \\Path\To\Media\en_us -BasePath .\Base -TargetPath .\NanoServer.wim -Development`
 
@@ -488,7 +486,7 @@ L'editore del pacchetto deve completare le operazioni seguenti:
 
 Successivamente, l'utente del pacchetto deve seguire questa procedura:
 
-1. Eseguire il cmdlet di PowerShell [*Import-Certificate*](https://technet.microsoft.com/library/hh848630) per importare in Nano Server il certificato dell'editore creato al precedente passaggio 4 con certStoreLocation in "Cert:\LocalMachine\TrustedPeople". Ad esempio: `Import-Certificate -FilePath ".\xyz.cer" -CertStoreLocation "Cert:\LocalMachine\TrustedPeople"`
+1. Esegui il cmdlet di PowerShell [*Import-Certificate*](https://technet.microsoft.com/library/hh848630) per importare in Nano Server il certificato dell'editore creato al precedente passaggio 4 con certStoreLocation in Cert:\LocalMachine\TrustedPeople. Ad esempio: `Import-Certificate -FilePath .\xyz.cer -CertStoreLocation Cert:\LocalMachine\TrustedPeople`
 2. Installare l'app in Nano Server eseguendo il cmdlet di PowerShell [**Add-AppxPackage**](https://technet.microsoft.com/library/mt575516(v=wps.620).aspx) per installare un pacchetto WSA in Nano Server. Ad esempio: `Add-AppxPackage wsaSample.appx`
 
 #### <a name="additional-resources-for-creating-apps"></a>Risorse aggiuntive per la creazione di app
@@ -522,7 +520,7 @@ I pacchetti di driver PnP possono essere installati in Nano Server in modalità 
 --------------------------------------------------  
 
 
-## <a name="BKMK_JoinDomain"></a>Aggiunta di Nano Server a un dominio  
+## <a name="joining-nano-server-to-a-domain"></a><a name=BKMK_JoinDomain></a>Aggiunta di Nano Server a un dominio  
 
 ### <a name="to-add-nano-server-to-a-domain-online"></a>Per aggiungere Nano Server a un dominio in modalità online  
 
@@ -530,26 +528,26 @@ I pacchetti di driver PnP possono essere installati in Nano Server in modalità 
 
     `djoin.exe /provision /domain <domain-name> /machine <machine-name> /savefile .\odjblob`  
 
-    Il BLOB di dati viene salvato in un file denominato "odjblob".  
+    Il BLOB di dati viene salvato in un file denominato odjblob.  
 
-2.  Copiare il file "odjblob" nel computer Nano Server con i comandi seguenti:  
+2.  Copia il file odjblob nel computer Nano Server con i comandi seguenti:  
 
     **net use z: \\\\\<indirizzo IP di Nano Server>\c$**  
 
     > [!NOTE]  
     > Se il comando net use non riesce , è probabile che sia necessario modificare le regole del firewall di Windows. A questo scopo, aprire un prompt dei comandi con privilegi elevati, avviare Windows PowerShell e quindi connettersi al computer Nano Server che esegue Comunicazione remota di Windows PowerShell con i comandi seguenti:  
     >   
-    > `Set-Item WSMan:\localhost\Client\TrustedHosts "<IP address of Nano Server>"`  
+    > `Set-Item WSMan:\localhost\Client\TrustedHosts <IP address of Nano Server>`  
     >   
-    > `$ip = "<ip address of Nano Server>"`  
+    > `$ip = <ip address of Nano Server>`  
     >   
     > `Enter-PSSession -ComputerName $ip -Credential $ip\Administrator`  
     >   
     > Specificare la password amministratore, se richiesto, e quindi eseguire questo comando per impostare la regola del firewall appropriata:  
     >   
-    > **netsh advfirewall firewall set rule group="Condivisione file e stampanti" new enable=yes**  
+    > **netsh advfirewall firewall set rule group=Condivisione file e stampanti new enable=yes**  
     >   
-    > Uscire da Windows PowerShell con `Exit-PSSession` e quindi ripetere il comando net use. Se ha esito positivo, continuare a copiare il contenuto del file "odjblob" in Nano Server.  
+    > Uscire da Windows PowerShell con `Exit-PSSession` e quindi ripetere il comando net use. Se ha esito positivo, continua a copiare il contenuto del file odjblob in Nano Server.  
 
     **md z:\Temp**  
 
@@ -557,9 +555,9 @@ I pacchetti di driver PnP possono essere installati in Nano Server in modalità 
 
 3.  Verificare che nel dominio a cui si vuole aggiungere Nano Server sia configurato il DNS. Verificare inoltre il corretto funzionamento della risoluzione dei nomi del dominio o di un controller del dominio. A questo scopo, aprire un prompt dei comandi con privilegi elevati, avviare Windows PowerShell e quindi connettersi al computer Nano Server che esegue Comunicazione remota di Windows PowerShell con i comandi seguenti:  
 
-    `Set-Item WSMan:\localhost\Client\TrustedHosts "<IP address of Nano Server>"`  
+    `Set-Item WSMan:\localhost\Client\TrustedHosts <IP address of Nano Server>`  
 
-    `$ip = "<ip address of Nano Server>"`  
+    `$ip = <ip address of Nano Server>`  
 
     `Enter-PSSession -ComputerName $ip -Credential $ip\Administrator`  
 
@@ -577,7 +575,7 @@ I pacchetti di driver PnP possono essere installati in Nano Server in modalità 
 
 6.  Dopo aver aggiunto Nano Server a un dominio, aggiungere l'account utente del dominio al gruppo Administrators di Nano Server.
 
-7. Per sicurezza, rimuovi il computer Nano Server dall'elenco degli host attendibili con questo comando: `Set-Item WSMan:\localhost\client\TrustedHosts ""` 
+7. Per sicurezza, rimuovi il computer Nano Server dall'elenco degli host attendibili con questo comando: `Set-Item WSMan:\localhost\client\TrustedHosts ` 
 
 **Metodo alternativo per l'aggiunta a un dominio in un solo passaggio**  
 
@@ -585,7 +583,7 @@ Raccogliere il BLOB di dati da un computer del dominio che esegue già Windows T
 
 `djoin.exe /provision /domain <domain-name> /machine <machine-name> /savefile .\odjblob`  
 
-Aprire il file "odjblob" (ad esempio in Blocco note), copiarne il contenuto e incollarlo nella sezione \<AccountData> del file Unattend.xml seguente.  
+Apri il file odjblob (ad esempio nel Blocco note), copiane il contenuto e incollalo nella sezione \<AccountData> del file Unattend.xml seguente.  
 
 Inserire il file Unattend.xml nella cartella C:\NanoServer e quindi usare i comandi seguenti per montare il disco rigido virtuale e applicare le impostazioni nella sezione `offlineServicing`:  
 
@@ -593,7 +591,7 @@ Inserire il file Unattend.xml nella cartella C:\NanoServer e quindi usare i coma
 
 **dism\dismmedia:.\mountdir /Apply-Unattend:.\unattend.xml**  
 
-Creare una cartella "Panther" (usata dai sistemi Windows per l'archiviazione dei file durante l'installazione; vedere eventualmente [Percorsi di file registro installazione Windows 7, Windows Server 2008 R2 e Windows Vista](https://support.microsoft.com/kb/927521)), copiare il file Unattend.xml nella cartella e quindi smontare il disco rigido virtuale con i comandi seguenti:  
+Crea una cartella Panther, che viene usata dai sistemi Windows per l'archiviazione dei file durante l'installazione. Vedi eventualmente [Percorsi di file registro di installazione di Windows 7, Windows Server 2008 R2 e Windows Vista](https://support.microsoft.com/kb/927521). Copia il file Unattend.xml nella cartella e quindi smonta il disco rigido virtuale con i comandi seguenti:  
 
 **md .\mountdir\windows\panther**  
 
@@ -639,11 +637,11 @@ La delega vincolata non ha subito variazioni rispetto alle versioni precedenti. 
 
 **CredSSP**  
 
-In primo luogo, fare riferimento alla sezione "Uso della comunicazione remota di Windows PowerShell" in questo argomento per abilitare e testare CredSSP. Quindi, nel computer di gestione, usare la console di gestione di Hyper-V per selezionare l'opzione "Connetti come altro utente". La console di gestione di Hyper-V userà CredSSP. È necessario eseguire questa operazione anche se si sta usando l'account corrente.  
+In primo luogo, fai riferimento alla sezione relativa all'uso della comunicazione remota di Windows PowerShell in questo argomento per attivare e testare CredSSP. Quindi, nel computer di gestione usa la console di gestione di Hyper-V e seleziona l'opzione Connetti come altro utente. La console di gestione di Hyper-V userà CredSSP. È necessario eseguire questa operazione anche se si sta usando l'account corrente.  
 
 I cmdlet di Windows PowerShell per Hyper-V possono usare il parametro CimSession o Credential, poiché sono entrambi compatibili con CredSSP.  
 
-### <a name="BKMK_Failover"></a>Uso del clustering di failover in Nano Server  
+### <a name="using-failover-clustering-on-nano-server"></a><a name=BKMK_Failover></a>Uso del clustering di failover in Nano Server  
 Il clustering di failover funziona in Nano Server come nella modalità Server Core di Windows Server. È tuttavia necessario tenere sempre presente quanto segue:  
 
 -   I cluster devono essere gestiti in remoto con Gestione cluster di failover o Windows PowerShell.  
@@ -674,31 +672,31 @@ Puoi creare un file server di scalabilità orizzontale con `Add-ClusterScaleoutF
 
 È possibile trovare altri cmdlet per il clustering di failover in [Microsoft.FailoverClusters.PowerShell](https://technet.microsoft.com/library/ee461009.aspx).  
 
-### <a name="BKMK_DNS"></a>Uso del server DNS in Nano Server  
-Per aggiungere in Nano Server il ruolo Server DNS, aggiungere Microsoft-NanoServer-DNS-Package all'immagine (vedere la sezione "Creazione di un'immagine personalizzata di Nano Server" in questo argomento). Mentre Nano Server è in esecuzione, connettersi all'immagine ed eseguire questo comando da una console di Windows PowerShell con privilegi elevati per abilitare la funzionalità desiderata:  
+### <a name="using-dns-server-on-nano-server"></a><a name=BKMK_DNS></a>Uso del server DNS in Nano Server  
+Per aggiungere in Nano Server il ruolo Server DNS, aggiungi Microsoft-NanoServer-DNS-Package all'immagine (vedi la sezione Creazione di un'immagine personalizzata di Nano Server in questo argomento). Mentre Nano Server è in esecuzione, connettersi all'immagine ed eseguire questo comando da una console di Windows PowerShell con privilegi elevati per abilitare la funzionalità desiderata:  
 
 `Enable-WindowsOptionalFeature -Online -FeatureName DNS-Server-Full-Role`  
 
-### <a name="BKMK_IIS"></a>Uso di IIS in Nano Server  
+### <a name="using-iis-on-nano-server"></a><a name=BKMK_IIS></a>Uso di IIS in Nano Server  
 Per la procedura da seguire per usare il ruolo Internet Information Services (IIS), vedere [IIS in Nano Server](IIS-on-Nano-Server.md). 
 
 ### <a name="using-mpio-on-nano-server"></a>Uso di MPIO in Nano Server
 Per la procedura da seguire per usare MPIO, vedere [MPIO in Nano Server](MPIO-on-Nano-Server.md) 
 
-### <a name="BKMK_SSH"></a>Uso di SSH in Nano Server
+### <a name="using-ssh-on-nano-server"></a><a name=BKMK_SSH></a>Uso di SSH in Nano Server
 Per istruzioni su come installare e usare SSH in Nano Server con il progetto OpenSSH, vedere l'articolo [wiki Win32-OpenSSH](https://github.com/PowerShell/Win32-OpenSSH/wiki).
 
 ## <a name="appendix-sample-unattendxml-file-that-joins-nano-server-to-a-domain"></a>Appendice: Esempio di file Unattend.xml che aggiunge Nano Server a un dominio  
 
 > [!NOTE]  
-> Assicurarsi di eliminare lo spazio finale nel contenuto copiato da "odjblob" dopo averlo incollato nel file di installazione automatica.  
+> Assicurati di eliminare lo spazio finale nel contenuto copiato da odjblob dopo averlo incollato nel file di installazione automatica.  
 
 ```  
 <?xml version='1.0' encoding='utf-8'?>  
-<unattend xmlns="urn:schemas-microsoft-com:unattend" xmlns:wcm="https://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">  
+<unattend xmlns=urn:schemas-microsoft-com:unattend xmlns:wcm=https://schemas.microsoft.com/WMIConfig/2002/State xmlns:xsi=http://www.w3.org/2001/XMLSchema-instance>  
 
-  <settings pass="offlineServicing">  
-    <component name="Microsoft-Windows-UnattendedJoin" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">  
+  <settings pass=offlineServicing>  
+    <component name=Microsoft-Windows-UnattendedJoin processorArchitecture=amd64 publicKeyToken=31bf3856ad364e35 language=neutral versionScope=nonSxS>  
         <OfflineIdentification>                
            <Provisioning>    
              <AccountData> AAAAAAARUABLEABLEABAoAAAAAAAMABSUABLEABLEABAwAAAAAAAAABbMAAdYABc8ABYkABLAABbMAAEAAAAMAAA0ABY4ABZ8ABbIABa0AAcIABY4ABb8ABZUABAsAAAAAAAQAAZoABNUABOYABZYAANQABMoAAOEAAMIAAOkAANoAAMAAAXwAAJAAAAYAAA0ABY4ABZ8ABbIABa0AAcIABY4ABb8ABZUABLEAALMABLQABU0AATMABXAAAAAAAKdf/mhfXoAAUAAAQAAAAb8ABLQABbMABcMABb4ABc8ABAIAAAAAAb8ABLQABbMABcMABb4ABc8ABLQABb0ABZIAAGAAAAsAAR4ABTQABUAAAAAAACAAAQwABZMAAZcAAUgABVcAAegAARcABKkABVIAASwAAY4ABbcABW8ABQoAAT0ABN8AAO8ABekAAJMAAVkAAZUABckABXEABJUAAQ8AAJ4AAIsABZMABdoAAOsABIsABKkABQEABUEABIwABKoAAaAABXgABNwAAegAAAkAAAAABAMABLIABdIABc8ABY4AADAAAA4AAZ4ABbQABcAAAAAAACAAkKBW0ID8nJDWYAHnBAXE77j7BAEWEkl+lKB98XC2G0/9+Wd1DJQW4IYAkKBAADhAnKBWEwhiDAAAM2zzDCEAM6IAAAgAAAAAAAQAAAAAAAAAAAABwzzAAA  
@@ -708,8 +706,8 @@ Per istruzioni su come installare e usare SSH in Nano Server con il progetto Ope
     </component>  
   </settings>  
 
-  <settings pass="oobeSystem">  
-    <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">  
+  <settings pass=oobeSystem>  
+    <component name=Microsoft-Windows-Shell-Setup processorArchitecture=amd64 publicKeyToken=31bf3856ad364e35 language=neutral versionScope=nonSxS>  
       <UserAccounts>  
         <AdministratorPassword>  
            <Value>Tuva</Value>  
@@ -720,8 +718,8 @@ Per istruzioni su come installare e usare SSH in Nano Server con il progetto Ope
     </component>  
   </settings>  
 
-  <settings pass="specialize">  
-    <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">  
+  <settings pass=specialize>  
+    <component name=Microsoft-Windows-Shell-Setup processorArchitecture=amd64 publicKeyToken=31bf3856ad364e35 language=neutral versionScope=nonSxS>  
       <RegisteredOwner>My Team</RegisteredOwner>  
       <RegisteredOrganization>My Corporation</RegisteredOrganization>  
     </component>  

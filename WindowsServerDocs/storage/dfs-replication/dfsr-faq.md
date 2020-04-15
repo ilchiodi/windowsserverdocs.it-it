@@ -6,12 +6,12 @@ ms.technology: storage
 author: JasonGerend
 manager: elizapo
 ms.author: jgerend
-ms.openlocfilehash: e92ada07140b88ef4178a5aecdb263b825380c2d
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 1e11f6c596d7e5eb0bdf379adcf47d21e74e9f6b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950287"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815624"
 ---
 # <a name="dfs-replication-frequently-asked-questions-faq"></a>Replica DFS: Domande frequenti
 
@@ -74,7 +74,7 @@ Sì. Il servizio Replica DFS è supportato nei volumi del Servizio Copia Shadow 
 
 No. L'uso di Windows Backup (Ntbackup.exe) in un computer con Windows Server 2003 o versioni precedenti per il backup del contenuto di una cartella replicata in un computer con Windows Server 2012, Windows Server 2008 R2 o Windows Server 2008 non è supportato.
 
-Per eseguire il backup dei file archiviati in una cartella replicata, usa Windows Server Backup o Microsoft® System Center Data Protection Manager. Per informazioni sulla funzionalità Backup e ripristino in Windows Server 2008 R2 e Windows Server 2008, vedi [Backup e ripristino](https://technet.microsoft.com/library/Cc754097). Per altre informazioni, vedi [System Center Data Protection Manager](https://go.microsoft.com/fwlink/?linkid=182261) (https://go.microsoft.com/fwlink/?LinkId=182261).
+Per eseguire il backup dei file archiviati in una cartella replicata, usa Windows Server Backup o Microsoft&reg; System Center Data Protection Manager. Per informazioni sulla funzionalità Backup e ripristino in Windows Server 2008 R2 e Windows Server 2008, vedi [Backup e ripristino](https://technet.microsoft.com/library/Cc754097). Per altre informazioni, vedi [System Center Data Protection Manager](https://go.microsoft.com/fwlink/?linkid=182261) (https://go.microsoft.com/fwlink/?LinkId=182261).
 
 ### <a name="do-file-system-policies-impact-dfs-replication"></a>I criteri del file system influiscono su Replica DFS?
 
@@ -129,7 +129,7 @@ Le applicazioni antivirus possono causare un numero eccessivo di processi di rep
 
 ### <a name="what-are-the-benefits-of-using-dfs-replication-instead-of-windows-sharepoint-services"></a>Quali vantaggi offre l'uso di Replica DFS in sostituzione di Windows SharePoint Services?
 
-Windows® SharePoint® Services assicura una coerenza rigorosa in termini di estrazione dei file che il servizio Replica DFS non è in grado di offrire. Se nel tuo ambiente è importante che più persone possano modificare lo stesso file, ti consigliamo di usare Windows SharePoint Services. Windows SharePoint Services 2.0 con Service Pack 2 è disponibile come componente di Windows Server 2003 R2. Windows SharePoint Services può essere scaricato dal sito Web Microsoft, ma non è incluso nelle versioni più recenti di Windows Server. Se tuttavia esegui la replica dei dati tra più siti e prevedi che gli utenti non debbano modificare contemporaneamente gli stessi file, Replica DFS garantisce una maggiore larghezza di banda e una gestione più semplice.
+Windows&reg; SharePoint&reg; Services assicura una coerenza rigorosa in termini di estrazione dei file che il servizio Replica DFS non è in grado di offrire. Se nel tuo ambiente è importante che più persone possano modificare lo stesso file, ti consigliamo di usare Windows SharePoint Services. Windows SharePoint Services 2.0 con Service Pack 2 è disponibile come componente di Windows Server 2003 R2. Windows SharePoint Services può essere scaricato dal sito Web Microsoft, ma non è incluso nelle versioni più recenti di Windows Server. Se tuttavia esegui la replica dei dati tra più siti e prevedi che gli utenti non debbano modificare contemporaneamente gli stessi file, Replica DFS garantisce una maggiore larghezza di banda e una gestione più semplice.
 
 ## <a name="limitations-and-requirements"></a>Limitazioni e requisiti
 
@@ -152,7 +152,7 @@ Replica DFS può eseguire in modo sicuro la replica dei file delle cartelle pers
 
 ### <a name="can-i-use-dfs-replication-in-a-workgroup"></a>Posso usare Replica DFS in un gruppo di lavoro?
 
-No. Replica DFS si basa su Active Directory® Domain Services per la configurazione. Funziona solo all'interno di un dominio.
+No. Replica DFS si basa su Active Directory&reg; Domain Services per la configurazione. Funziona solo all'interno di un dominio.
 
 ### <a name="can-more-than-one-folder-be-replicated-on-a-single-server"></a>È possibile replicare più cartelle in un singolo server?
 
@@ -343,7 +343,7 @@ Replica DFS in Windows Server 2008 include diversi miglioramenti delle prestazi
 
 ### <a name="how-does-dfs-replication-performance-compare-with-frs"></a>Qual è la differenza tra le prestazioni di Replica DFS e quelle del servizio Replica file?
 
-Replica DFS è molto più veloce rispetto al servizio Replica file, in particolare quando vengono apportate piccole modifiche a file di grandi dimensioni e la tecnologia RDC è abilitata. Con RDC, ad esempio, una piccola modifica a una presentazione di PowerPoint® da 2 MB può determinare il trasferimento di soli 60 kilobyte (kB) attraverso la rete, con un risparmio del 97% in termini di byte trasferiti.
+Replica DFS è molto più veloce rispetto al servizio Replica file, in particolare quando vengono apportate piccole modifiche a file di grandi dimensioni e la tecnologia RDC è abilitata. Con RDC, ad esempio, una piccola modifica a una presentazione di PowerPoint&reg; da 2 MB può determinare il trasferimento di soli 60 kilobyte (KB) attraverso la rete, con un risparmio del 97% in termini di byte trasferiti.
 
 La tecnologia RDC non viene usata su file di dimensioni inferiori a 64 kB e potrebbe non essere vantaggiosa sulle reti LAN ad alta velocità in cui non si verificano problemi di contesa della larghezza di banda della rete. RDC può essere disabilitata in base alla connessione tramite Gestione DFS.
 

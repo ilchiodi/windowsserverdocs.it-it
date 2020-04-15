@@ -2,22 +2,19 @@
 title: 'Passaggio 4: configurare le impostazioni di criteri di gruppo per gli aggiornamenti automatici'
 description: 'Argomento di Windows Server Update Services (WSUS): Configurare le impostazioni di Criteri di gruppo per gli aggiornamenti automatici è il quarto passaggio di un processo in quattro passaggi per la distribuzione di WSUS'
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-wsus
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 62177d05-d832-4ea8-bca4-47a8cd34a19c
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f8ebe1f82cd6f616d42521729c5efc14821c20fa
-ms.sourcegitcommit: 9687d3eb221b89061a48bf1e73fb3b25bee69f9a
+ms.openlocfilehash: d678c139ae2327eeecdff2731f1edb57d358a28a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78169581"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828844"
 ---
 # <a name="step-4-configure-group-policy-settings-for-automatic-updates"></a>Passaggio 4: Configurare le impostazioni di Criteri di gruppo per gli aggiornamenti automatici
 
@@ -97,7 +94,7 @@ Specifica se aggiornamenti automatici installerà automaticamente gli aggiorname
 |Sistemi operativi Windows che si trovano all'interno vengono loro [prodotti di Microsoft Support Lifecycle](https://support.microsoft.com/gp/lifeselect).|null|
 
 > [!NOTE]
-> Se l'impostazione di criteri "Configura Aggiornamenti automatici" è impostata su **Disabilitato**, questo criterio non ha alcun effetto.
+> Se l'impostazione di criteri Configura Aggiornamenti automatici è impostata su **Disabilitato**, questo criterio non ha alcun effetto.
 
 |||
 |-|-|
@@ -116,7 +113,7 @@ Specifica se gli utenti non amministratori riceveranno le notifiche di aggiornam
 |Sistemi operativi Windows che si trovano all'interno vengono loro [prodotti di Microsoft Support Lifecycle](https://support.microsoft.com/gp/lifeselect).|Visualizzare i dettagli nella tabella seguente.|
 
 > [!NOTE]
-> Se l'impostazione di criteri "Configura Aggiornamenti automatici" è disabilitata o non è configurata, questa impostazione di criteri non ha alcun effetto.
+> Se l'impostazione di criteri Configura Aggiornamenti automatici è disabilitata o non è configurata, questa impostazione di criteri non ha alcun effetto.
 
 > [!IMPORTANT]
 > A partire da Windows 8 e Windows RT, questa impostazione di criteri è abilitata per impostazione predefinita. In tutte le versioni precedenti di Windows, è disabilitato per impostazione predefinita.
@@ -125,7 +122,7 @@ Specifica se gli utenti non amministratori riceveranno le notifiche di aggiornam
 |-|-|
 |**Stato impostazione di criteri**|**Comportamento**|
 |**Non configurato**|Specifica che gli utenti verranno sempre visualizzata una finestra di controllo dell'Account e richiedono autorizzazioni elevate per eseguire queste attività. Un amministratore locale può modificare questa impostazione usando l'Editor Criteri di gruppo locali.|
-|**Attivata**|Specifica che aggiornamenti automatici Windows e Microsoft Update includerà utenti non amministratori per determinare quale utente connesso riceverà le notifiche di aggiornamento. Gli utenti non amministratori potranno installare tutto il contenuto degli aggiornamenti facoltativo, consigliato e IMPORTANTE per il quale hanno ricevuto una notifica. Non sarà possibile visualizzare una finestra di controllo dell'Account utente e non necessitano di autorizzazioni con privilegi elevate per installare questi aggiornamenti, tranne nel caso di aggiornamenti che contengono modifiche alle impostazioni dell'interfaccia utente, contratto di licenza o Windows Update.<br /><br />Esistono due casi in cui l'effetto di questa impostazione dipende dal computer operativo:<br /><br />1.  **Nascondere** o **ripristinare** aggiornamenti<br />2.  **Annulla** installazione di un aggiornamento<br /><br />In Windows Vista o Windows XP, se questa impostazione è abilitata, non sarà possibile visualizzare una finestra di controllo dell'Account utente e non necessitano di autorizzazioni con privilegi elevate per nascondere, ripristinare o annullare gli aggiornamenti.<br /><br />In Windows Vista, se questa impostazione è abilitata, non sarà possibile visualizzare una finestra di controllo dell'Account utente e non necessitano di autorizzazioni con privilegi elevate per nascondere, ripristinare o annullare gli aggiornamenti. Se questa impostazione non è abilitata, agli utenti verranno sempre visualizzato una finestra del controllo dell'Account e richiedono autorizzazioni elevate per nascondere, ripristinare o annullare gli aggiornamenti.<br /><br />In Windows 7, questa impostazione ha effetto. Gli utenti verranno sempre visualizzate una finestra del controllo dell'Account e richiedono autorizzazioni elevate per eseguire queste attività.<br /><br />In Windows 8 e Windows RT, questa impostazione ha effetto.|
+|**Attivata**|Specifica che aggiornamenti automatici Windows e Microsoft Update includerà utenti non amministratori per determinare quale utente connesso riceverà le notifiche di aggiornamento. Gli utenti non amministratori potranno installare tutto il contenuto degli aggiornamenti facoltativo, consigliato e IMPORTANTE per il quale hanno ricevuto una notifica. Non sarà possibile visualizzare una finestra di controllo dell'Account utente e non necessitano di autorizzazioni con privilegi elevate per installare questi aggiornamenti, tranne nel caso di aggiornamenti che contengono modifiche alle impostazioni dell'interfaccia utente, contratto di licenza o Windows Update.<p>Esistono due casi in cui l'effetto di questa impostazione dipende dal computer operativo:<p>1.  **Nascondere** o **ripristinare** aggiornamenti<br />2.  **Annulla** installazione di un aggiornamento<p>In Windows Vista o Windows XP, se questa impostazione è abilitata, non sarà possibile visualizzare una finestra di controllo dell'Account utente e non necessitano di autorizzazioni con privilegi elevate per nascondere, ripristinare o annullare gli aggiornamenti.<p>In Windows Vista, se questa impostazione è abilitata, non sarà possibile visualizzare una finestra di controllo dell'Account utente e non necessitano di autorizzazioni con privilegi elevate per nascondere, ripristinare o annullare gli aggiornamenti. Se questa impostazione non è abilitata, agli utenti verranno sempre visualizzato una finestra del controllo dell'Account e richiedono autorizzazioni elevate per nascondere, ripristinare o annullare gli aggiornamenti.<p>In Windows 7, questa impostazione ha effetto. Gli utenti verranno sempre visualizzate una finestra del controllo dell'Account e richiedono autorizzazioni elevate per eseguire queste attività.<p>In Windows 8 e Windows RT, questa impostazione ha effetto.|
 |**Disattivata**|Specifica che ha effettuato l'accesso solo gli amministratori ricevono le notifiche di aggiornamento. **Nota:** in Windows 8 e Windows RT questa impostazione di criteri è abilitata per impostazione predefinita. In tutte le versioni precedenti di Windows, è disabilitato per impostazione predefinita.|
 
 **Opzioni:** non sono disponibili opzioni per questa impostazione.
@@ -149,12 +146,12 @@ Specifica se aggiornamenti automatici accetta gli aggiornamenti che sono firmati
 |-|-|
 |**Stato impostazione di criteri**|**Comportamento**|
 |**Non configurato**|Specifica che gli aggiornamenti da un percorso del servizio Microsoft update intranet devono essere firmati da Microsoft.|
-|**Attivata**|Specifica che gli aggiornamenti automatici accetta aggiornamenti ricevuti tramite una rete intranet percorso del servizio Microsoft update se sono firmati da un certificato nell'archivio certificati "Autori attendibili" del computer locale.|
+|**Attivata**|Specifica che aggiornamenti automatici accetta aggiornamenti ricevuti tramite un percorso del servizio Microsoft update sulla rete Intranet se sono firmati da un certificato nell'archivio certificati Autori attendibili del computer locale.|
 |**Disattivata**|Specifica che gli aggiornamenti da un percorso del servizio Microsoft update intranet devono essere firmati da Microsoft.|
 
 **Opzioni:** non sono disponibili opzioni per questa impostazione.
 
-#### <a name="always-automatically-restart-at-the-scheduled-time"></a>Esegui sempre riavvio automatico nel momento pianificato
+#### <a name="always-automatically-restart-at-the-scheduled-time"></a>Riavvia sempre automaticamente all'ora pianificata
 Specifica se un timer di riavvio immediatamente viene sempre avviato dopo che Windows Update ha installato gli aggiornamenti IMPORTANTI, invece di inviare prima agli utenti una notifica nella schermata di accesso per almeno due giorni.
 
 |Supportato in:|Esclusione:|
@@ -162,13 +159,13 @@ Specifica se un timer di riavvio immediatamente viene sempre avviato dopo che Wi
 |Sistemi operativi Windows che si trovano all'interno vengono loro [prodotti di Microsoft Support Lifecycle](https://support.microsoft.com/gp/lifeselect).|null|
 
 > [!NOTE]
-> Se l'impostazione di criteri "Escludi riavvio automatico per installazioni pianificate di Aggiornamenti automatici con gli utenti non connessi" è abilitata, questo criterio non ha alcun effetto.
+> Se l'impostazione di criteri Escludi riavvio automatico per installazioni pianificate di Aggiornamenti automatici con gli utenti non connessi è abilitata, questo criterio non ha alcun effetto.
 
 |||
 |-|-|
 |**Stato impostazione di criteri**|**Comportamento**|
 |**Non configurato**|Specifica che Windows Update non modificherà il comportamento di riavvio del computer.|
-|**Attivata**|Specifica che un timer di riavvio viene sempre avviato immediatamente dopo che Windows Update ha installato gli aggiornamenti IMPORTANTI, invece di inviare prima agli utenti una notifica nella schermata di accesso per almeno due giorni.<br /><br />Il timer di riavvio può essere configurato per avviarsi con qualsiasi valore da 15 a 180 minuti. Quando il timer scade, il riavvio viene continuato anche se il computer disponga di accesso di utenti.|
+|**Attivata**|Specifica che un timer di riavvio viene sempre avviato immediatamente dopo che Windows Update ha installato gli aggiornamenti IMPORTANTI, invece di inviare prima agli utenti una notifica nella schermata di accesso per almeno due giorni.<p>Il timer di riavvio può essere configurato per avviarsi con qualsiasi valore da 15 a 180 minuti. Quando il timer scade, il riavvio viene continuato anche se il computer disponga di accesso di utenti.|
 |**Disattivata**|Specifica che Windows Update non modificherà il comportamento di riavvio del computer.|
 
 **Opzioni:** se questa impostazione è abilitata, è possibile specificare l'intervallo di tempo che deve trascorrere dopo l'installazione degli aggiornamenti prima che si verifichi un riavvio forzato del computer.
@@ -181,9 +178,9 @@ Specifica le ore di Windows viene utilizzato per determinare il tempo di attesa 
 |Sistemi operativi Windows che si trovano all'interno vengono loro [prodotti di Microsoft Support Lifecycle](https://support.microsoft.com/gp/lifeselect).|Windows RT|
 
 > [!NOTE]
-> L'impostazione "Specificare percorso servizio di aggiornamento Microsoft nella rete intranet" deve essere abilitata per questo criterio abbia effetto.
+> L'impostazione Specifica il percorso del servizio di aggiornamento Microsoft nella rete Intranet deve essere abilitata perché questo criterio abbia effetto.
 >
-> Se l'impostazione di criteri "Configura Aggiornamenti automatici" è disabilitata, questo criterio non ha alcun effetto.
+> Se l'impostazione di criteri Configura Aggiornamenti automatici è disabilitata, questo criterio non ha alcun effetto.
 
 > [!NOTE]
 > Questo criterio non è supportato in Windows RT. Abilita questo criterio non avrà alcun effetto nei computer che eseguono Windows RT.
@@ -212,7 +209,7 @@ Per utilizzare questa impostazione, selezionare **Enabled**, quindi nella **Opzi
 |-|-|
 |**Stato impostazione di criteri**|**Comportamento**|
 |**Non configurato**|Specifica che l'utilizzo di aggiornamenti automatici non è specificata a livello di criteri di gruppo. Tuttavia, un amministratore del computer può comunque configurare Aggiornamenti automatici nel Pannello di controllo.|
-|**Attivata**|Specifica che Windows riconosce quando il computer è online e utilizza la connessione Internet per cercare eventuali aggiornamenti di Windows Update.<br /><br />Quando abilitata, gli amministratori locali saranno possibile utilizzare il pannello di controllo di Windows Update per selezionare un'opzione di configurazione di propria scelta. Tuttavia, gli amministratori locali non potrà essere per disabilitare la configurazione per gli aggiornamenti automatici.<br /><br />-   **2 - Avviso per download e installazione**<br />    Quando Windows Update rileva gli aggiornamenti applicabili al computer, gli utenti verranno informati che gli aggiornamenti sono pronti per il download. Gli utenti possono quindi eseguire Windows Update per scaricare e installare eventuali aggiornamenti disponibili.<br />-   **3 - Download automatico e avviso per l'installazione** (impostazione predefinita)<br />    Windows Update rileva che gli aggiornamenti e li scarica in background. l'utente non è una notifica o interrotta durante il processo. Dopo aver completato il download, gli utenti vengono informati pronto per l'installazione di aggiornamenti. Gli utenti possono quindi eseguire Windows Update per installare gli aggiornamenti scaricati.<br />-   **4 - Download automatico e pianificazione dell'installazione**<br />    È possibile specificare la pianificazione utilizzando le opzioni in questa impostazione di criteri di gruppo. Se viene specificata alcuna pianificazione, la pianificazione predefinita per tutte le installazioni sarà ogni giorno alle 3:00. Se tutti gli aggiornamenti richiedono il riavvio per completare l'installazione, Windows verrà riavviato automaticamente il computer. Se un utente è connesso al computer quando è pronto il riavvio di Windows, a tale verrà inviata una notifica e offerta la possibilità di ritardare il riavvio. **Nota:** all'avvio di Windows 8, è possibile impostare gli aggiornamenti da installare durante la manutenzione automatica invece di usare una pianificazione specifica collegata a Windows Update. Manutenzione automatica verrà installare gli aggiornamenti quando il computer non è in uso ed evitare l'installazione degli aggiornamenti quando il computer è alimentato a batteria. Se non è in grado di installare gli aggiornamenti entro manutenzione automatica, Windows Update installerà gli aggiornamenti immediatamente. Gli utenti verranno quindi informati un riavvio in sospeso. Un riavvio in sospeso verrà eseguita solo se è presente alcun potenziale di perdita accidentale dei dati.    È possibile specificare le opzioni di pianificazione nelle impostazioni dell'utilità di pianificazione della manutenzione dell'Editor Gestione Criteri di gruppo, che si trovano nel percorso seguente: *NomeCriterio* > **Configurazione computer** > **Criteri** > **Modelli amministrativi** > **Componenti di Windows** > **Utilità di pianificazione della manutenzione** > **Limite dell'attivazione di Manutenzione automatica**. Vedere la sezione di questa documentazione di riferimento intitolata [Impostazioni dell'utilità di pianificazione della manutenzione](#computer-configuration--maintenance-scheduler-policy-settings) per i dettagli dell'impostazione.    **5 - Consenti scelta impostazioni all'amministratore locale**<br />-Specifica se gli amministratori locali possono utilizzare il pannello di controllo degli aggiornamenti automatici per selezionare un'opzione di configurazione di propria scelta, ad esempio, se gli amministratori locali possono scegliere ora di installazione pianificata.<br />    Gli amministratori locali non saranno possibile disabilitare la configurazione per gli aggiornamenti automatici.|
+|**Attivata**|Specifica che Windows riconosce quando il computer è online e utilizza la connessione Internet per cercare eventuali aggiornamenti di Windows Update.<p>Quando abilitata, gli amministratori locali saranno possibile utilizzare il pannello di controllo di Windows Update per selezionare un'opzione di configurazione di propria scelta. Tuttavia, gli amministratori locali non potrà essere per disabilitare la configurazione per gli aggiornamenti automatici.<p>-   **2 - Avviso per download e installazione**<br />    Quando Windows Update rileva gli aggiornamenti applicabili al computer, gli utenti verranno informati che gli aggiornamenti sono pronti per il download. Gli utenti possono quindi eseguire Windows Update per scaricare e installare eventuali aggiornamenti disponibili.<br />-   **3 - Download automatico e avviso per l'installazione** (impostazione predefinita)<br />    Windows Update rileva che gli aggiornamenti e li scarica in background. l'utente non è una notifica o interrotta durante il processo. Dopo aver completato il download, gli utenti vengono informati pronto per l'installazione di aggiornamenti. Gli utenti possono quindi eseguire Windows Update per installare gli aggiornamenti scaricati.<br />-   **4 - Download automatico e pianificazione dell'installazione**<br />    È possibile specificare la pianificazione utilizzando le opzioni in questa impostazione di criteri di gruppo. Se viene specificata alcuna pianificazione, la pianificazione predefinita per tutte le installazioni sarà ogni giorno alle 3:00. Se tutti gli aggiornamenti richiedono il riavvio per completare l'installazione, Windows verrà riavviato automaticamente il computer. Se un utente è connesso al computer quando è pronto il riavvio di Windows, a tale verrà inviata una notifica e offerta la possibilità di ritardare il riavvio. **Nota:** all'avvio di Windows 8, è possibile impostare gli aggiornamenti da installare durante la manutenzione automatica invece di usare una pianificazione specifica collegata a Windows Update. Manutenzione automatica verrà installare gli aggiornamenti quando il computer non è in uso ed evitare l'installazione degli aggiornamenti quando il computer è alimentato a batteria. Se non è in grado di installare gli aggiornamenti entro manutenzione automatica, Windows Update installerà gli aggiornamenti immediatamente. Gli utenti verranno quindi informati un riavvio in sospeso. Un riavvio in sospeso verrà eseguita solo se è presente alcun potenziale di perdita accidentale dei dati.    È possibile specificare le opzioni di pianificazione nelle impostazioni dell'utilità di pianificazione della manutenzione dell'Editor Gestione Criteri di gruppo, che si trovano nel percorso seguente: *NomeCriterio* > **Configurazione computer** > **Criteri** > **Modelli amministrativi** > **Componenti di Windows** > **Utilità di pianificazione della manutenzione** > **Limite dell'attivazione di Manutenzione automatica**. Vedere la sezione di questa documentazione di riferimento intitolata [Impostazioni dell'utilità di pianificazione della manutenzione](#computer-configuration--maintenance-scheduler-policy-settings) per i dettagli dell'impostazione.    **5 - Consenti scelta impostazioni all'amministratore locale**<br />-Specifica se gli amministratori locali possono utilizzare il pannello di controllo degli aggiornamenti automatici per selezionare un'opzione di configurazione di propria scelta, ad esempio, se gli amministratori locali possono scegliere ora di installazione pianificata.<br />    Gli amministratori locali non saranno possibile disabilitare la configurazione per gli aggiornamenti automatici.|
 |**Disattivata**|Specifica che gli aggiornamenti client che sono disponibili dal servizio Windows Update pubblico devono essere scaricati da Internet e installati manualmente.|
 
 #### <a name="delay-restart-for-scheduled-installations"></a>Rimanda riavvio per installazioni pianificate
@@ -223,7 +220,7 @@ Specifica la quantità di tempo di che attesa prima di procedere con il riavvio 
 |Sistemi operativi Windows che si trovano all'interno vengono loro [prodotti di Microsoft Support Lifecycle](https://support.microsoft.com/gp/lifeselect).|null|
 
 > [!NOTE]
-> Questo criterio si applica solo quando aggiornamenti automatici è configurato per eseguire installazioni pianificate degli aggiornamenti. Se l'impostazione dei criteri "Configura Aggiornamenti automatici" è disabilitato, questo criterio non ha alcun effetto.
+> Questo criterio si applica solo quando aggiornamenti automatici è configurato per eseguire installazioni pianificate degli aggiornamenti. Se l'impostazione di criteri Configura Aggiornamenti automatici è disabilitata, questo criterio non ha alcun effetto.
 
 |||
 |-|-|
@@ -242,7 +239,7 @@ Questa impostazione di criteri consente di specificare se il **Installa aggiorna
 |Sistemi operativi Windows che si trovano all'interno vengono loro [prodotti di Microsoft Support Lifecycle](https://support.microsoft.com/gp/lifeselect).|null|
 
 > [!NOTE]
-> Questa impostazione di criteri non ha effetto se l'impostazione di criteri in *NomeCriterio* > **Configurazione computer** > **Criteri** > **Modelli amministrativi** > **Componenti di Windows** > **Windows Update** > **Non visualizzare l'opzione Installa aggiornamenti e spegni nella finestra di dialogo Fine della sessione di lavoro** è abilitata.
+> Questa impostazione di criteri non ha effetto se l'impostazione di criteri in *PolicyName* > **Configurazione computer** > **Criteri** > **Modelli amministrativi** > **Componenti di Windows** > **Windows Update** > **Non visualizzare l'opzione Installa aggiornamenti e spegni nella finestra di dialogo Fine della sessione di lavoro** è abilitata.
 
 |||
 |-|-|
@@ -263,7 +260,7 @@ L'abilitazione di questo criterio disabilita la funzionalità di recupero period
 |A partire da Windows Server 2012 R2, Windows 8.1 o Windows RT 8.1, sistemi operativi Windows che si trovano ancora nel [ciclo di vita del supporto tecnico Microsoft](https://support.microsoft.com/gp/lifeselect).|null|
 
 > [!NOTE]
-> Questo criterio si applica solo quando il computer è configurato per connettersi a un servizio di aggiornamento di intranet utilizzando l'impostazione dei criteri "Specificare intranet aggiornamento percorso del servizio Microsoft".
+> Questo criterio si applica solo quando il computer è configurato per connettersi a un servizio di aggiornamento Intranet usando l'impostazione di criteri Specifica il percorso del servizio di aggiornamento Microsoft nella rete Intranet.
 
 |||
 |-|-|
@@ -298,7 +295,7 @@ Specifica il nome del gruppo di destinazione o i nomi configurati nella console 
 |Sistemi operativi Windows che si trovano all'interno vengono loro [prodotti di Microsoft Support Lifecycle](https://support.microsoft.com/gp/lifeselect).|Windows RT|
 
 > [!NOTE]
-> Questo criterio si applica solo quando il computer è configurato per supportare i nomi dei gruppi di destinazione specificata in WSUS. Se il nome del gruppo di destinazione non esiste in WSUS, verrà ignorata fino a quando non viene creato. Se l'impostazione dei criteri "Specificare percorso servizio di aggiornamento Microsoft nella rete intranet" è disabilitato o non configurato, questo criterio non ha alcun effetto.
+> Questo criterio si applica solo quando il computer è configurato per supportare i nomi dei gruppi di destinazione specificata in WSUS. Se il nome del gruppo di destinazione non esiste in WSUS, verrà ignorata fino a quando non viene creato. Se l'impostazione di criteri Specifica il percorso del servizio di aggiornamento Microsoft nella rete Intranet è disabilitata o non configurata, questo criterio non ha alcun effetto.
 
 > [!NOTE]
 > Questo criterio non è supportato in Windows RT. Abilita questo criterio non avrà alcun effetto nei computer che eseguono Windows RT.
@@ -332,7 +329,7 @@ Il computer non attivano a meno che non sono disponibili aggiornamenti da instal
 
 **Opzioni:** non sono disponibili opzioni per questa impostazione.
 
-#### <a name="no-auto-restart-with-logged-on-users-for-scheduled-automatic-updates-installations"></a>Escludi riavvio automatico per installazioni pianificate di Aggiornamenti automatici con gli utenti non connessi
+#### <a name="no-auto-restart-with-logged-on-users-for-scheduled-automatic-updates-installations"></a>Nessun riavvio automatico agli utenti automatica pianificata Aggiorna installazioni
 Specifica che per completare un'installazione pianificata, aggiornamenti automatici attenderà che il computer venga riavviato da qualsiasi utente che ha effettuato l'accesso, anziché il computer venga riavviato automaticamente.
 
 |Supportato in:|Esclusione:|
@@ -340,7 +337,7 @@ Specifica che per completare un'installazione pianificata, aggiornamenti automat
 |Sistemi operativi Windows che si trovano all'interno vengono loro [prodotti di Microsoft Support Lifecycle](https://support.microsoft.com/gp/lifeselect).|null|
 
 > [!NOTE]
-> Questo criterio si applica solo quando aggiornamenti automatici è configurato per eseguire installazioni pianificate degli aggiornamenti. Se l'impostazione dei criteri "Configura Aggiornamenti automatici" è disabilitato, questo criterio non ha alcun effetto.
+> Questo criterio si applica solo quando aggiornamenti automatici è configurato per eseguire installazioni pianificate degli aggiornamenti. Se l'impostazione di criteri Configura Aggiornamenti automatici è disabilitata, questo criterio non ha alcun effetto.
 
 |||
 |-|-|
@@ -359,7 +356,7 @@ Specifica la quantità di tempo per gli aggiornamenti automatici di attesa prima
 |Sistemi operativi Windows che si trovano all'interno vengono loro [prodotti di Microsoft Support Lifecycle](https://support.microsoft.com/gp/lifeselect).|Windows RT|
 
 > [!IMPORTANT]
-> Questo criterio si applica solo quando aggiornamenti automatici è configurato per eseguire installazioni pianificate degli aggiornamenti. Se l'impostazione dei criteri "Configura Aggiornamenti automatici" è disabilitato, questo criterio non ha alcun effetto.
+> Questo criterio si applica solo quando aggiornamenti automatici è configurato per eseguire installazioni pianificate degli aggiornamenti. Se l'impostazione di criteri Configura Aggiornamenti automatici è disabilitata, questo criterio non ha alcun effetto.
 
 > [!NOTE]
 > Questo criterio non ha alcun effetto nei computer che eseguono Windows RT.
@@ -383,7 +380,7 @@ Se lo stato è impostato su **Non configurato**, un'installazione pianificata no
 |Sistemi operativi Windows che si trovano all'interno vengono loro [prodotti di Microsoft Support Lifecycle](https://support.microsoft.com/gp/lifeselect).|null|
 
 > [!NOTE]
-> Questo criterio si applica solo quando aggiornamenti automatici è configurato per eseguire installazioni pianificate degli aggiornamenti. Se l'impostazione dei criteri "Configura Aggiornamenti automatici" è disabilitato, questo criterio non ha alcun effetto.
+> Questo criterio si applica solo quando aggiornamenti automatici è configurato per eseguire installazioni pianificate degli aggiornamenti. Se l'impostazione di criteri Configura Aggiornamenti automatici è disabilitata, questo criterio non ha alcun effetto.
 
 |||
 |-|-|
@@ -406,7 +403,7 @@ Questa impostazione consente di specificare un server WSUS nella rete che verrà
 Per utilizzare questa impostazione, è necessario impostare due valori di nome server: il server da cui il client rileva e scarica gli aggiornamenti e il server in cui le workstation aggiornate caricheranno le statistiche. I valori non devono essere diversi se entrambi i servizi sono configurati nello stesso server.
 
 > [!NOTE]
-> Se l'impostazione di criteri "Configura Aggiornamenti automatici" è disabilitata, questo criterio non ha alcun effetto.
+> Se l'impostazione di criteri Configura Aggiornamenti automatici è disabilitata, questo criterio non ha alcun effetto.
 
 > [!NOTE]
 > Questo criterio non è supportato in Windows RT. Abilita questo criterio non avrà alcun effetto nei computer che eseguono Windows RT.
@@ -445,9 +442,9 @@ Specifica se Aggiornamenti automatici distribuirà aggiornamenti IMPORTANTI e co
 #### <a name="turn-on-software-notifications"></a>Abilitazione delle notifiche del Software
 Questa impostazione di criteri consente di controllare se gli utenti visualizzano i messaggi di notifica avanzata dettagliate sul software disponibile dal servizio Microsoft Update. I messaggi di notifica avanzata comunicare il valore e promuovono l'installazione e utilizzo di software opzionale. Questa impostazione deve essere utilizzato in ambienti gestititi in cui consentire l'accesso dell'utente finale per il servizio Microsoft Update.
 
-Se non si usa il servizio Microsoft Update, l'impostazione di criteri "Notifiche software" non ha alcun effetto.
+Se non usi il servizio Microsoft Update, l'impostazione di criteri Notifiche software non ha alcun effetto.
 
-Se l'impostazione di criteri "Configura Aggiornamenti automatici" è disabilitata o non è configurata, l'impostazione di criteri "Notifiche software" non ha alcun effetto.
+Se l'impostazione di criteri Configura Aggiornamenti automatici è disabilitata o non è configurata, l'impostazione di criteri Notifiche software non ha alcun effetto.
 
 |Supportato in:|Esclusione:|
 |---------|-------|
@@ -460,13 +457,13 @@ Se l'impostazione di criteri "Configura Aggiornamenti automatici" è disabilitat
 |-|-|
 |**Stato impostazione di criteri**|**Comportamento**|
 |**Non configurato**|Gli utenti dei computer che eseguono Windows 7 non sono disponibili messaggi per le applicazioni facoltative. Gli utenti dei computer che eseguono Windows Vista non sono disponibili messaggi per le applicazioni facoltative o aggiornamenti. Un amministratore locale è possibile modificare questa impostazione tramite Pannello di controllo o un criterio locale.|
-|**Attivata**|Se si abilita questa impostazione di criteri, verrà visualizzato un messaggio di notifica nel computer dell'utente quando è disponibile software in primo piano. L'utente può fare clic sulla notifica per aprire Windows Update e ottenere ulteriori informazioni sul software o installarlo. L'utente può inoltre fare clic su **chiudere il messaggio** o **Mostra successivamente** per rinviare la notifica come appropriato.<br /><br />In Windows 7, questa impostazione di criteri consente di controllare solo notifiche dettagliate per le applicazioni facoltative. In Windows Vista, questa impostazione controlla le notifiche dettagliate per gli aggiornamenti e applicazioni facoltative.|
+|**Attivata**|Se si abilita questa impostazione di criteri, verrà visualizzato un messaggio di notifica nel computer dell'utente quando è disponibile software in primo piano. L'utente può fare clic sulla notifica per aprire Windows Update e ottenere ulteriori informazioni sul software o installarlo. L'utente può inoltre fare clic su **chiudere il messaggio** o **Mostra successivamente** per rinviare la notifica come appropriato.<p>In Windows 7, questa impostazione di criteri consente di controllare solo notifiche dettagliate per le applicazioni facoltative. In Windows Vista, questa impostazione controlla le notifiche dettagliate per gli aggiornamenti e applicazioni facoltative.|
 |**Disattivata**|Specifica che gli utenti che eseguono Windows 7 non verrà proposto messaggi di notifica dettagliate per le applicazioni facoltative e gli utenti che eseguono Windows Vista non verrà proposto i messaggi di notifica dettagliate per le applicazioni facoltative o aggiornamenti facoltativi.|
 
 **Opzioni:** non sono disponibili opzioni per questa impostazione.
 
 ### <a name="computer-configuration--maintenance-scheduler-policy-settings"></a>Configurazione computer > impostazioni dei criteri dell'utilità di pianificazione di manutenzione
-Nell'impostazione Configura Aggiornamenti automatici, è stata selezionata l'opzione **4 - download automatico e pianificazione dell'installazione**, è possibile pianificare le impostazioni dell'utilità di pianificazione di manutenzione nella console GPMC per computer che eseguono Windows 8 e Windows RT. Se non è stata selezionata l'opzione 4 nell'impostazione "Configura Aggiornamenti automatici", non è necessario configurare queste impostazioni per gli aggiornamenti automatici. Le impostazioni dell'utilità di pianificazione della manutenzione si trovano nel percorso seguente: *NomeCriterio* > **Configurazione computer** > **Criteri** > **Modelli amministrativi** > **Componenti di Windows** > **Utilità di pianificazione della manutenzione**. L'estensione dell'utilità di pianificazione di manutenzione dei criteri di gruppo contiene le seguenti impostazioni:
+Nell'impostazione Configura Aggiornamenti automatici, è stata selezionata l'opzione **4 - download automatico e pianificazione dell'installazione**, è possibile pianificare le impostazioni dell'utilità di pianificazione di manutenzione nella console GPMC per computer che eseguono Windows 8 e Windows RT. Se non è stata selezionata l'opzione 4 nell'impostazione Configura Aggiornamenti automatici, non è necessario configurare queste impostazioni per gli aggiornamenti automatici. Le impostazioni dell'utilità di pianificazione della manutenzione si trovano nel percorso seguente: *NomeCriterio* > **Configurazione computer** > **Criteri** > **Modelli amministrativi** > **Componenti di Windows** > **Utilità di pianificazione della manutenzione**. L'estensione dell'utilità di pianificazione di manutenzione dei criteri di gruppo contiene le seguenti impostazioni:
 
 -   [Limite dell'attivazione di Manutenzione automatica](#automatic-maintenance-activation-boundary)
 
@@ -475,7 +472,7 @@ Nell'impostazione Configura Aggiornamenti automatici, è stata selezionata l'opz
 -   [Criterio di attivazione di Manutenzione automatica](#automatic-wakeup-policy)
 
 #### <a name="automatic-maintenance-activation-boundary"></a>Limite di attivazione di manutenzione automatica
-Questo criterio consente di configurare l'impostazione "Limite di attivazione manutenzione automatica".
+Questo criterio consente di configurare l'impostazione Limite dell'attivazione di Manutenzione automatica.
 
 Il limite di attivazione di manutenzione è l'orario pianificato giornaliero in cui inizia la manutenzione automatica.
 
@@ -569,7 +566,7 @@ Specifica se il **Installa aggiornamenti e spegni** opzione viene visualizzata n
 
 **Opzioni:** non sono disponibili opzioni per questa impostazione.
 
-#### <a name="do-not-adjust-default-option-to-install-updates-and-shut-down-in-shut-down-windows-dialog-box"></a>Non impostare l'opzione predefinita per "Installa gli aggiornamenti e spegni" nella finestra di dialogo arresto di Windows
+#### <a name="do-not-adjust-default-option-to-install-updates-and-shut-down-in-shut-down-windows-dialog-box"></a>Non impostare Installa aggiornamenti e spegni come opzione predefinita nella finestra di dialogo Fine della sessione di lavoro
 Specifica se il **Installa aggiornamenti e spegni** l'opzione è consentita come scelta predefinita nel **Spegni** la finestra di dialogo.
 
 |Supportato in:|Esclusione:|
@@ -577,7 +574,7 @@ Specifica se il **Installa aggiornamenti e spegni** l'opzione è consentita come
 |Sistemi operativi Windows che si trovano all'interno vengono loro [prodotti di Microsoft Support Lifecycle](https://support.microsoft.com/gp/lifeselect).|null|
 
 > [!NOTE]
-> Questa impostazione di criteri non ha effetto se l'impostazione in *NomeCriterio* > **Configurazione utente** > **Criteri** > **Modelli amministrativi** > **Componenti di Windows** > **Windows Update** > **Non visualizzare l'opzione Installa aggiornamenti e spegni nella finestra di dialogo Fine della sessione di lavoro** è abilitata.
+> Questa impostazione di criteri non ha effetto se l'impostazione in *PolicyName* > **Configurazione utente** > **Criteri** > **Modelli amministrativi** > **Componenti di Windows** > **Windows Update** > **Non visualizzare l'opzione Installa aggiornamenti e spegni nella finestra di dialogo Fine della sessione di lavoro** è abilitata.
 
 |||
 |-|-|
@@ -599,7 +596,7 @@ Questa impostazione consente di rimuovere l'accesso client di Windows Server Upd
 |-|-|
 |**Stato impostazione di criteri**|**Comportamento**|
 |**Non configurato**|Gli utenti sono in grado di connettersi al sito Web Windows Update.|
-|**Attivata**|**IMPORTANTE:** se abilitata, tutte le funzionalità di Windows Update vengono rimosse, incluso il blocco dell'accesso al sito Web Windows Update all'indirizzo https://windowsupdate.microsoft.com, dal collegamento ipertestuale di Windows Update nel menu Start o nella schermata di avvio nonché dal menu **Strumenti** di Internet Explorer. Aggiornamenti automatici di Windows è anche disabilitato. l'utente verrà alcuna notifica né ricevere gli aggiornamenti critici da Windows Update. Questa impostazione impedisce inoltre Device Manager installa automaticamente gli aggiornamenti dei driver dal sito Web Windows Update.<br /><br />Quando abilitato, è possibile configurare una delle seguenti opzioni di notifica:<br /><br />-   **0 - Non visualizzare alcuna notifica**<br />    Questa impostazione verrà rimossi tutti gli accessi alle funzionalità di Windows Update e nessuna notifica verrà visualizzata.<br />-   **1 - Visualizza le notifiche di riavvio necessario**<br />    Questa impostazione verrà Mostra notifiche sui riavvii necessari per completare un'installazione. **Nota:** nei computer che eseguono Windows 8 e Windows RT, se questo criterio è abilitato, verranno visualizzate solo le notifiche relative ai riavvii e il messaggio indicante l'impossibilità di rilevamento degli aggiornamenti. Le opzioni di notifica non sono supportate. Le notifiche nella schermata di accesso vengono sempre visualizzate.|
+|**Attivata**|**IMPORTANTE:** se abilitata, tutte le funzionalità di Windows Update vengono rimosse, incluso il blocco dell'accesso al sito Web Windows Update all'indirizzo https://windowsupdate.microsoft.com, dal collegamento ipertestuale di Windows Update nel menu Start o nella schermata di avvio nonché dal menu **Strumenti** di Internet Explorer. Aggiornamenti automatici di Windows è anche disabilitato. l'utente verrà alcuna notifica né ricevere gli aggiornamenti critici da Windows Update. Questa impostazione impedisce inoltre Device Manager installa automaticamente gli aggiornamenti dei driver dal sito Web Windows Update.<p>Quando abilitato, è possibile configurare una delle seguenti opzioni di notifica:<p>-   **0 - Non visualizzare alcuna notifica**<br />    Questa impostazione verrà rimossi tutti gli accessi alle funzionalità di Windows Update e nessuna notifica verrà visualizzata.<br />-   **1 - Visualizza le notifiche di riavvio necessario**<br />    Questa impostazione verrà Mostra notifiche sui riavvii necessari per completare un'installazione. **Nota:** nei computer che eseguono Windows 8 e Windows RT, se questo criterio è abilitato, verranno visualizzate solo le notifiche relative ai riavvii e il messaggio indicante l'impossibilità di rilevamento degli aggiornamenti. Le opzioni di notifica non sono supportate. Le notifiche nella schermata di accesso vengono sempre visualizzate.|
 |**Disattivata**|Gli utenti sono in grado di connettersi al sito Web Windows Update.|
 
 **Opzioni:** per informazioni su questa impostazione, vedere **Abilitato** nella tabella.
@@ -621,7 +618,7 @@ La procedura descritta di seguito viene descritto come aprire la console GPMC su
 
 3.  Nel riquadro a sinistra, fare doppio clic su **domini**, quindi fare doppio clic sul dominio per il quale si desidera gestire un oggetto Criteri di gruppo. Ad esempio, fare doppio clic su **example.com**.
 
-4.  Effettua una delle seguenti operazioni:
+4.  Eseguire una delle operazioni seguenti:
 
     -  **Per aprire un oggetto Criteri di gruppo esistente a livello di dominio per la modifica**, fare doppio clic sul dominio contente l'oggetto Criteri di gruppo da gestire, fare clic con il pulsante destro del mouse sui criteri di dominio da gestire e quindi scegliere **Modifica**. Verrà visualizzato l'Editor Gestione Criteri di gruppo.
 
@@ -661,7 +658,7 @@ Per ulteriori informazioni sui criteri di gruppo, vedere [Cenni preliminari sui 
 
 3.  In **Opzioni**, se sono elencate le opzioni, mantenere i valori predefiniti o modificarli in base alle esigenze.
 
-4.  Effettua una delle seguenti operazioni:
+4.  Eseguire una delle operazioni seguenti:
 
     -   Per salvare le modifiche e continuare a quella successiva, fare clic su **Applica**, quindi fare clic su **impostazione successiva**.
 
@@ -672,7 +669,7 @@ Per ulteriori informazioni sui criteri di gruppo, vedere [Cenni preliminari sui 
 ### <a name="changes-to-wsus-relevant-to-this-guide"></a>Modifiche apportate a WSUS pertinente per questa Guida
 Nella tabella seguente sono riepilogate le differenze principali tra le versioni correnti e precedenti di Windows Server Update SERVICES che sono rilevanti per questa Guida.
 
-|Versioni di Windows Server e Windows Server Update SERVICES|Descrizione|
+|Versioni di Windows Server e Windows Server Update SERVICES|Description|
 |------------------|--------|
 | Windows Server 2012 R2 con Windows Server Update SERVICES 6.0 e versioni successive|A partire da Windows Server 2012, il ruolo server WSUS è integrato con il sistema operativo e le impostazioni di Criteri di gruppo associate per i client WSUS sono incluse in Criteri di gruppo per impostazione predefinita.|
 | Windows Server 2008 (e versioni precedenti di Windows Server) con WSUS 3.2 e versioni precedenti|In Windows Server 2008 e versioni precedenti di Windows Server tramite WSUS 3.2 (e versioni precedenti), le impostazioni di criteri di gruppo che controllano i client WSUS non sono inclusi in questi sistemi operativi Windows Server. Le impostazioni dei criteri sono nel modello di amministrazione di WSUS, **Wuau. adm**. In queste versioni di server, il modello amministrativo di WSUS deve essere prima aggiunto nella Console di gestione di criteri di gruppo (GPMC) prima che possano essere configurate le impostazioni del client WSUS.|
@@ -682,10 +679,10 @@ Seguito è riportato un elenco dei termini utilizzati in questa Guida.
 
 |Termine|Definizione|
 |----|-------|
-|Aggiornamenti automatici|**Servizio eseguito nei computer Windows** (Aggiornamenti automatici): si riferisce al componente del computer client integrato nei sistemi operativi Microsoft Windows Vista, Windows Server 2003, Windows XP e Windows 2000 con SP3 che consente di ottenere gli aggiornamenti da Microsoft Update o Windows Update.<br /><br />**Riferimento occasionale** (aggiornamenti automatici): termine usato per descrivere quando l'agente di Windows Update pianifica e scarica automaticamente gli aggiornamenti.|
+|Aggiornamenti automatici|**Servizio eseguito nei computer Windows** (Aggiornamenti automatici): si riferisce al componente del computer client integrato nei sistemi operativi Microsoft Windows Vista, Windows Server 2003, Windows XP e Windows 2000 con SP3 che consente di ottenere gli aggiornamenti da Microsoft Update o Windows Update.<p>**Riferimento occasionale** (aggiornamenti automatici): termine usato per descrivere quando l'agente di Windows Update pianifica e scarica automaticamente gli aggiornamenti.|
 |server autonomi|Utilizzare per fare riferimento a un server downstream di Windows Server Update Services (WSUS) in cui gli amministratori possono gestire i componenti di Windows Server Update SERVICES.|
 |server downstream|Utilizzare per fare riferimento a un server Windows Server Update Services (WSUS) che ottiene gli aggiornamenti da un altro server WSUS piuttosto che da Microsoft Update o Windows Update.|
-|Estensione criteri di gruppo (e: estensione di criteri di gruppo|Una raccolta di impostazioni in Criteri di gruppo che vengono utilizzati per controllare come utenti e computer (a cui i criteri vengono applicati) possono configurare e utilizzare i vari servizi di Windows e funzionalità. Gli amministratori possono utilizzare WSUS con criteri di gruppo per la configurazione lato client del client di aggiornamenti automatici, al fine di garantire che gli utenti finali non possono disattivare o aggirare i criteri di aggiornamento aziendale.<br /><br />Per WSUS non è richiesto l'uso di Active Directory o Criteri di gruppo. Configurazione del client può essere applicata anche tramite criteri di gruppo locali o modificando il Registro di sistema di Windows.|
+|Estensione criteri di gruppo (e: estensione di criteri di gruppo|Una raccolta di impostazioni in Criteri di gruppo che vengono utilizzati per controllare come utenti e computer (a cui i criteri vengono applicati) possono configurare e utilizzare i vari servizi di Windows e funzionalità. Gli amministratori possono utilizzare WSUS con criteri di gruppo per la configurazione lato client del client di aggiornamenti automatici, al fine di garantire che gli utenti finali non possono disattivare o aggirare i criteri di aggiornamento aziendale.<p>Per WSUS non è richiesto l'uso di Active Directory o Criteri di gruppo. Configurazione del client può essere applicata anche tramite criteri di gruppo locali o modificando il Registro di sistema di Windows.|
 |servizio di aggiornamento interno|Riferimento casuale a un'infrastruttura di rete che utilizza uno o più server WSUS per distribuire gli aggiornamenti.|
 |server di replica|Utilizzare per fare riferimento a un server Windows Server Update Services (WSUS) a valle che rispecchia le approvazioni e le impostazioni del server padre a cui è connesso. È possibile gestire WSUS in un server di replica.|
 |Microsoft Update|**Sito di download Microsoft basato su Internet:** sito Internet Microsoft per l'archiviazione e la distribuzione degli aggiornamenti per computer Windows (driver di dispositivo), sistemi operativi Windows e altri prodotti software Microsoft.|
@@ -695,6 +692,6 @@ Seguito è riportato un elenco dei termini utilizzati in questa Guida.
 |informazioni sugli aggiornamenti (noto anche come i metadati dell'aggiornamento)|Informazioni su un aggiornamento, anziché i file binari di aggiornamento in un pacchetto di aggiornamento. Ad esempio, i metadati forniscono informazioni per le proprietà di un aggiornamento, consentendo di individuare per quali l'aggiornamento è utile. Inoltre, i metadati includono condizioni di licenza Software Microsoft. Il pacchetto di metadati scaricato per un aggiornamento è in genere molto inferiore rispetto al pacchetto di file di aggiornamento effettivo.|
 |aggiornare l'origine|Il percorso in cui un server Windows Server Update Services (WSUS) viene sincronizzato per ottenere i file di aggiornamento. Questo percorso può essere Microsoft Update o un server WSUS upstream.|
 |server upstream|Un server Windows Server Update Services (WSUS) che fornisce i file di aggiornamento a un altro server WSUS, che a sua volta viene considerato come un server downstream.|
-|Windows Server Update Services (WSUS)|Un programma di ruolo del Server che viene eseguito in uno o più computer Windows Server in una rete aziendale. Un'infrastruttura WSUS consente di gestire gli aggiornamenti per computer sulla rete per l'installazione.<br /><br />È possibile utilizzare WSUS per approvare o rifiutare gli aggiornamenti prima del rilascio, per forzare gli aggiornamenti per l'installazione da una determinata data, e per ottenere report estesi su quali aggiornamenti ogni computer della rete richiede. È possibile configurare WSUS per approvare automaticamente determinate classi di aggiornamenti (gli aggiornamenti critici, aggiornamenti della protezione, service pack, driver e così via). WSUS consente inoltre di approvare gli aggiornamenti per "rilevamento" solo, in modo che è possibile visualizzare i computer che richiederanno un aggiornamento specificato senza dover installare gli aggiornamenti.<br /><br />In un'implementazione di WSUS, almeno un server WSUS nella rete deve essere in grado di connettersi a Microsoft Update per ottenere gli aggiornamenti disponibili. In base alla configurazione e sicurezza di rete, l'amministratore può stabilire quanti altri server possono connettersi direttamente a Microsoft Update.<br /><br />È possibile configurare un server WSUS per ottenere gli aggiornamenti su Internet da tali posizioni come:<br /><br />-il pubblico di Microsoft Update<br />-il pubblico di Windows Update<br />-   Microsoft Store|
-|Windows Update|**Sito di download Microsoft basato su Internet:** sito Internet Microsoft per l'archiviazione e la distribuzione degli aggiornamenti per computer Windows (driver di dispositivo) e sistemi operativi Windows.<br /><br />**Servizio computer:** nome del servizio Windows Update eseguito nei computer. Windows Update rileva, scarica e installa gli aggiornamenti nei computer Windows.<br /><br />A seconda del computer e configurazioni di criteri, l'agente Windows Update possono scaricare gli aggiornamenti da:<br /><br />-Microsoft Update<br />-Windows Update<br />-   Microsoft Store<br />-Un servizio di aggiornamento di Internet (rete) (WSUS)<br /><br />I computer che non vengono gestiti in un ambiente basato su WSUS usano in genere Windows Update per connettersi direttamente, tramite Internet, a Windows Update, Microsoft Update o Microsoft Store per ottenere gli aggiornamenti.|
-|Client WSUS|Un computer che riceve gli aggiornamenti da un servizio di aggiornamento WSUS intranet.<br /><br />Nel caso di impostazioni di criteri di gruppo che controllano l'interazione dell'utente finale con aggiornamenti automatici: un utente di un computer in un ambiente Windows Server Update SERVICES.|
+|Windows Server Update Services (WSUS)|Un programma di ruolo del Server che viene eseguito in uno o più computer Windows Server in una rete aziendale. Un'infrastruttura WSUS consente di gestire gli aggiornamenti per computer sulla rete per l'installazione.<p>È possibile utilizzare WSUS per approvare o rifiutare gli aggiornamenti prima del rilascio, per forzare gli aggiornamenti per l'installazione da una determinata data, e per ottenere report estesi su quali aggiornamenti ogni computer della rete richiede. È possibile configurare WSUS per approvare automaticamente determinate classi di aggiornamenti (gli aggiornamenti critici, aggiornamenti della protezione, service pack, driver e così via). WSUS consente inoltre di approvare gli aggiornamenti solo per rilevamento, in modo che sia possibile visualizzare quali computer richiederanno un aggiornamento specifico senza dover installare gli aggiornamenti.<p>In un'implementazione di WSUS, almeno un server WSUS nella rete deve essere in grado di connettersi a Microsoft Update per ottenere gli aggiornamenti disponibili. In base alla configurazione e sicurezza di rete, l'amministratore può stabilire quanti altri server possono connettersi direttamente a Microsoft Update.<p>È possibile configurare un server WSUS per ottenere gli aggiornamenti su Internet da tali posizioni come:<p>-il pubblico di Microsoft Update<br />-il pubblico di Windows Update<br />-   Microsoft Store|
+|Windows Update|**Sito di download Microsoft basato su Internet:** sito Internet Microsoft per l'archiviazione e la distribuzione degli aggiornamenti per computer Windows (driver di dispositivo) e sistemi operativi Windows.<p>**Servizio computer:** nome del servizio Windows Update eseguito nei computer. Windows Update rileva, scarica e installa gli aggiornamenti nei computer Windows.<p>A seconda del computer e configurazioni di criteri, l'agente Windows Update possono scaricare gli aggiornamenti da:<p>-Microsoft Update<br />-Windows Update<br />-   Microsoft Store<br />-Un servizio di aggiornamento di Internet (rete) (WSUS)<p>I computer che non vengono gestiti in un ambiente basato su WSUS usano in genere Windows Update per connettersi direttamente, tramite Internet, a Windows Update, Microsoft Update o Microsoft Store per ottenere gli aggiornamenti.|
+|Client WSUS|Un computer che riceve gli aggiornamenti da un servizio di aggiornamento WSUS intranet.<p>Nel caso di impostazioni di criteri di gruppo che controllano l'interazione dell'utente finale con aggiornamenti automatici: un utente di un computer in un ambiente Windows Server Update SERVICES.|

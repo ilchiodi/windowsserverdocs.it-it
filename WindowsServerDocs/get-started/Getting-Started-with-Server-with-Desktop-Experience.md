@@ -1,39 +1,35 @@
 ---
 title: Installare Server con Esperienza desktop
-description: "Illustra come ottenere e installare un'installazione di Server con Esperienza desktop "
-ms.custom: na
+description: Illustra come ottenere e installare un'installazione di Server con Esperienza desktop
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.date: 01/18/2017
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5b38b8a0-4dfc-4130-be00-fc58bba99595
 author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 2d92ae9e0013d622c1e0a6b8b6a1662dc82360f2
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 18c454d9ef4deb8c9ea681a486e85f356ad5c9cd
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391794"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826944"
 ---
-# <a name="install-server-with-desktop-experience"></a>Installare la versione Server con Esperienza desktop
+# <a name="install-server-with-desktop-experience"></a>Installare Server con Esperienza Desktop
 > Si applica a: Windows Server 2016
   
 
 Quando si installa Windows Server 2016 tramite l'Installazione guidata, è possibile scegliere tra **Windows Server 2016** e **Windows Server (Server con Esperienza desktop)** . L'opzione Server con Esperienza desktop è l'equivalente in Windows Server 2016 dell'opzione Installazione completa disponibile in Windows Server 2012 R2, con la funzionalità Esperienza desktop installata. Se non si sceglie alcuna opzione nell'Installazione guidata, viene installato **Windows Server 2016**, ovvero l'opzione di installazione **Server Core**.
 
-L'opzione Server con Esperienza desktop installa l'interfaccia utente standard e tutti gli strumenti, comprese le funzionalità client che richiedevano un'installazione separata in Windows Server 2012 R2. I ruoli server e le funzionalità vengono installato con Server Manager o per mezzo di altri metodi. Rispetto all'opzione Server Core, questa richiede più spazio su disco e ha requisiti di manutenzione maggiori, è quindi consigliabile scegliere questo tipo di installazione a meno che non occorrano elementi aggiuntivi dell'interfaccia utente e strumenti di gestione grafica inclusi nell'opzione Server con Esperienza desktop. Se si ritiene di poter fare a meno degli elementi aggiuntivi, vedere [Installare Server Core](Getting-Started-with-Server-Core.md). Per altre opzioni lightweight, vedere [Installare Nano Server](Getting-Started-with-Nano-Server.md).
+L'opzione Server con Esperienza desktop installa l'interfaccia utente standard e tutti gli strumenti, comprese le funzionalità client che richiedevano un'installazione separata in Windows Server 2012 R2. I ruoli server e le funzionalità vengono installato con Server Manager o per mezzo di altri metodi. Rispetto all'opzione Server Core, questa richiede più spazio su disco e ha requisiti di manutenzione maggiori, è quindi consigliabile scegliere questo tipo di installazione a meno che non occorrano elementi aggiuntivi dell'interfaccia utente e strumenti di gestione grafica inclusi nell'opzione Server con Esperienza desktop. Se si ritiene di poter fare a meno degli elementi aggiuntivi, vedere [Installare Server Core](Getting-Started-with-Server-Core.md). Per un'opzione ancora più leggera, vedere [Installare Nano Server](Getting-Started-with-Nano-Server.md).
 
 > [!NOTE]
 >
 > Diversamente da alcune versioni precedenti di Windows Server, non puoi eseguire la conversione tra Server Core e la versione Server con Esperienza desktop dopo l'installazione. Se installi la versione Server con Esperienza desktop e successivamente decidi di usare Server Core, devi eseguire un'installazione pulita.
 
-**Interfaccia utente:** interfaccia utente grafica standard ("Shell grafica Server"). Shell grafica Server include la nuova shell di Windows 10. Le funzionalità specifiche di Windows installate per impostazione predefinita con questa opzione sono User-Interfaces-Infra, Server-GUI-Shell, Server-GUI-Mgmt-Infra, InkAndHandwritingServices, ServerMediaFoundation ed Esperienza desktop. Anche se queste funzionalità sono presenti in questa versione di Server Manager, la loro disinstallazione non è supportata e non saranno disponibili nelle versioni future.
+**Interfaccia utente:** interfaccia utente grafica standard (Shell grafica Server). Shell grafica Server include la nuova shell di Windows 10. Le funzionalità specifiche di Windows installate per impostazione predefinita con questa opzione sono User-Interfaces-Infra, Server-GUI-Shell, Server-GUI-Mgmt-Infra, InkAndHandwritingServices, ServerMediaFoundation ed Esperienza desktop. Anche se queste funzionalità sono presenti in questa versione di Server Manager, la loro disinstallazione non è supportata e non saranno disponibili nelle versioni future.
 
 **Installare, configurare, disinstallare ruoli server in locale:** con Server Manager o con Windows PowerShell.
 
@@ -77,7 +73,7 @@ Se nella colonna a destra sono presenti più edizioni, è supportato l'aggiornam
 |Windows Server 2012 Standard|Windows Server 2016 Standard o Datacenter|
 |Windows Server 2012 Datacenter|Windows Server 2016 Datacenter|
 |Windows Server 2012 R2 Standard|Windows Server 2016 Standard o Datacenter|
-|Windows Server 2012 R2 Datacenter|Windows Server 2016 Datacenter|
+|Windows Server 2012 R2 Datacenter|Windows Server 2016 Datacenter|
 |Windows Server 2012 R2 Essentials|Windows Server 2016 Essentials|
 |Windows Storage Server 2012 Standard|Windows Storage Server 2016 Standard|
 |Windows Storage Server 2012 Workgroup|Windows Storage Server 2016 Workgroup|
@@ -93,19 +89,19 @@ La possibilità di eseguire la migrazione varia a seconda dei ruoli server. La g
 
 |Ruolo server|Aggiornamento da Windows Server 2012 R2|Aggiornamento da Windows Server 2012|Supporto della migrazione|Completamento della migrazione senza tempi di inattività|  
 |-------------------|----------|--------------|--------------|----------|  
-|Servizi certificati Active Directory| Sì|    Sì|    Sì|    No|
-|Servizi di dominio di Active Directory|  Sì|    Sì|    Sì|    Sì|
-|Active Directory Federation Services|  No| No| Sì|    No (è necessario aggiungere nuovi nodi alla farm)|
-|Active Directory Lightweight Directory Services|   Sì|    Sì|    Sì|    Sì|
-|Active Directory Rights Management Services|   Sì|    Sì|    Sì|    No|
-|Cluster di failover|Sì con il processo di [aggiornamento in sequenza del sistema operativo del cluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade) che include le operazioni di sospensione-svuotamento, rimozione e aggiornamento dei nodi a Windows Server 2016 e la ricostituzione del cluster originale. Sì, quando il server viene rimosso dal cluster per l'aggiornamento e quindi aggiunto a un cluster diverso.|Non mentre il server fa parte di un cluster. Sì, quando il server viene rimosso dal cluster per l'aggiornamento e quindi aggiunto a un cluster diverso.  |Sì|No per i cluster di failover di Windows Server 2012. Sì per i cluster di failover di Windows Server 2012 R2 con macchine virtuali Hyper-V o per i cluster di failover di Windows Server 2012 R2 che eseguono il ruolo File server di scalabilità orizzontale. Vedere [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade) (Aggiornamento in sequenza del sistema operativo del cluster).|
-|Servizi file e archiviazione| Sì|    Sì|    Varia in base alla funzionalità secondaria|  No|
-|Servizi di stampa e fax|    No| No| Sì (Printbrm.exe)| No|
-|Servizi Desktop remoto|   Sì, per tutti i ruoli secondari, ma la farm in modalità mista non è supportata.|   Sì, per tutti i ruoli secondari, ma la farm in modalità mista non è supportata.|   Sì|    No|
-|Server Web (IIS)|  Sì|    Sì|    Sì|    No|
-|Esperienza Windows Server Essentials|  Sì|    N/D, nuove funzionalità|  Sì|    No|
+|Servizi certificati Active Directory|    Sì|    Sì|    Sì|    No|
+|Active Directory Domain Services|    Sì|    Sì|    Sì|    Sì|
+|Active Directory Federation Services|    No|    No|    Sì|    No (è necessario aggiungere nuovi nodi alla farm)|
+|Active Directory Lightweight Directory Services|    Sì|    Sì|    Sì|    Sì|
+|Active Directory Rights Management Services|    Sì|    Sì|    Sì|    No|
+|Cluster di failover|Sì con il processo di [aggiornamento in sequenza del sistema operativo del cluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade) che include le operazioni di sospensione-svuotamento, rimozione e aggiornamento dei nodi a Windows Server 2016 e la ricostituzione del cluster originale. Sì, quando il server viene rimosso dal cluster per l'aggiornamento e quindi aggiunto a un cluster diverso.|Non mentre il server fa parte di un cluster. Sì, quando il server viene rimosso dal cluster per l'aggiornamento e quindi aggiunto a un cluster diverso.    |Sì|No per i cluster di failover di Windows Server 2012. Sì per i cluster di failover di Windows Server 2012 R2 con macchine virtuali Hyper-V o per i cluster di failover di Windows Server 2012 R2 che eseguono il ruolo File server di scalabilità orizzontale. Vedere [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade) (Aggiornamento in sequenza del sistema operativo del cluster).|
+|Servizi file e archiviazione|    Sì|    Sì|    Varia in base alla funzionalità secondaria|    No|
+|Servizi di stampa e fax|    No|    No|    Sì (Printbrm.exe)|    No|
+|Servizi Desktop remoto|    Sì, per tutti i ruoli secondari, ma la farm in modalità mista non è supportata.|    Sì, per tutti i ruoli secondari, ma la farm in modalità mista non è supportata.|    Sì|    No|
+|Server Web (IIS)|    Sì|    Sì|    Sì|    No|
+|Esperienza Windows Server Essentials|    Sì|    N/D, nuove funzionalità|    Sì|    No|
 |Windows Server Update Services|    Sì|    Sì|    Sì|    No|
-|Cartelle di lavoro|  Sì|    Sì|    Sì|    Sì da WS 2012 R2 durante l'uso di [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade) (Aggiornamento in sequenza del sistema operativo del cluster).|
+|Cartelle di lavoro|    Sì|    Sì|    Sì|    Sì da WS 2012 R2 durante l'uso di [Cluster OS Rolling Upgrade](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade) (Aggiornamento in sequenza del sistema operativo del cluster).|
 
 > [!IMPORTANT]  
 > Al termine dell'installazione e immediatamente dopo aver installato tutti i ruoli del server e le funzionalità necessarie, cercare e installare gli aggiornamenti disponibili per Windows Server 2016 tramite Windows Update o altri metodi di aggiornamento.

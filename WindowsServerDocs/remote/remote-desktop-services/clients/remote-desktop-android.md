@@ -1,12 +1,8 @@
 ---
 title: Introduzione al client Android
 description: Informazioni generali sul client Android.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 64f038e1-40ec-4c67-938b-72edea49e5d8
 author: heidilohr
@@ -14,12 +10,12 @@ manager: lizross
 ms.author: helohr
 ms.date: 03/12/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: d4ef08107c816aebf6563e57e5e76b12b793d472
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: a9cb49f2570b297c81f41412ad041215090538d0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323423"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80856234"
 ---
 # <a name="get-started-with-the-android-client"></a>Introduzione al client Android
 
@@ -72,7 +68,7 @@ Per creare una connessione Desktop remoto:
 Vuoi rimuovere la connessione? Tocca di nuovo il menu **Altre opzioni** ( **...** ) e quindi **Rimuovi**.
 
 >[!TIP]
-> Se viene visualizzato l'errore 0xf07 relativo a una password errata ("La connessione al PC remoto non è riuscita perché la password associata all'account utente è scaduta"), modifica la password e riprova.
+> Se visualizzi l'errore 0xf07 relativo a una password errata (La connessione al PC remoto non è riuscita perché la password associata all'account utente è scaduta), cambia la password e riprova.
 
 ### <a name="add-remote-resources"></a>Aggiungere risorse remote
 
@@ -103,7 +99,7 @@ Il client Desktop remoto supporta l'aggiunta di connessioni alla schermata inizi
 
 1. Tocca **App** per avviare il menu delle app.
 2. Tocca **Widget**.
-3. Scorri tra i widget e cerca l'icona Desktop remoto con la descrizione seguente: "Pin Remote Desktop" (Aggiungi Desktop remoto).
+3. Scorri tra i widget e cerca l'icona Desktop remoto con la descrizione seguente: Pin Remote Desktop (Aggiungi Desktop remoto).
 4. Tenendo premuta widget Desktop remoto e spostarlo sullo schermo principale.
 5. Rilasciando l'icona, visualizzerai i desktop remoti salvati. Scegliere la connessione che si desidera salvare nella schermata iniziale.
 

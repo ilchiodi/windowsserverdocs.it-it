@@ -2,7 +2,6 @@
 title: Pianificare la distribuzione di WSUS
 description: 'Argomento di Windows Server Update Services (WSUS): Panoramica del processo di pianificazione della distribuzione con collegamenti agli argomenti correlati'
 ms.prod: windows-server
-ms.reviewer: na
 ms.technology: manage-wsus
 ms.topic: article
 ms.assetid: 35865398-b011-447a-b781-1c52bc0c9e3a
@@ -10,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/24/2018
-ms.openlocfilehash: 8d284c51bfa1e04a38c32adf5dce2b6f5d948b0a
-ms.sourcegitcommit: 3c3dfee8ada0083f97a58997d22d218a5d73b9c4
+ms.openlocfilehash: 68825c6bc4d24bca41c04a238fbf4d6291a6625b
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80639928"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828194"
 ---
 # <a name="plan-your-wsus-deployment"></a>Pianificare la distribuzione di WSUS
 
@@ -218,7 +217,7 @@ Windows Server Update Services (WSUS) utilizza due tipi di sistemi di archiviazi
 Gli aggiornamenti si compongono di due parti: i metadati che descrivono l'aggiornamento e i file necessari per installare l'aggiornamento. I metadati degli aggiornamenti sono generalmente molto più piccoli degli aggiornamenti effettivi e vengono archiviati nel database WSUS. I file degli aggiornamenti sono archiviati in un server WSUS locale o in un server Web di Microsoft Update.
 
 ### <a name="wsus-database"></a>Database WSUS
-WSUS richiede un database per ogni server WSUS. WSUS supporta l'utilizzo di database residenti su computer diversi dal server WSUS con alcune restrizioni. Per un elenco dei database supportati e delle limitazioni per i database remoti, vedere la sezione "1.1 Rivedere le considerazioni e i requisiti di sistema" in questa guida.
+WSUS richiede un database per ogni server WSUS. WSUS supporta l'utilizzo di database residenti su computer diversi dal server WSUS con alcune restrizioni. Per un elenco dei database supportati e delle limitazioni per i database remoti, vedi la sezione 1.1 Rivedere le considerazioni e i requisiti di sistema in questa guida.
 
 Nel database WSUS vengono archiviate le informazioni seguenti:
 

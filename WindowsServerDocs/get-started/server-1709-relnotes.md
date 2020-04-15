@@ -1,25 +1,21 @@
 ---
 title: 'Note sulla versione: problemi importanti di Windows Server versione 1709'
 description: Riepilogano i problemi critici che richiedono soluzioni alternative per evitare l'arresto anomalo del sistema, i blocchi, gli errori di installazione o la perdita di dati.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.date: 04/23/2018
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 134aab85-664f-4d44-87ef-9e5fd389071f
 author: jaimeo
 ms.author: jaimeo
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: dcd50b287ad0f3dd49a0df3c1fe531379bd4078e
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: fea4b259986d1ca6e2f992168f7b0c2e1a177916
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948231"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826104"
 ---
 # <a name="release-notes-important-issues-in-windows-server-version-1709"></a>Note sulla versione: problemi importanti di Windows Server versione 1709
 
@@ -31,7 +27,7 @@ Questo documento viene continuamente aggiornato. Non appena vengono rilevati pro
   
 ## <a name="storage-spaces-direct"></a>Spazi di archiviazione diretta
 [comment]: # (ID: sconosciuto; mittente: stevenek; stato: approvato)  
-La funzionalità Spazi di archiviazione diretta non è inclusa in Windows Server versione 1709. Se chiami *Enable-ClusterStorageSpacesDirect* o il relativo alias *Enable-ClusterS2D*, in un server che esegue Windows Server versione 1709, riceverai un errore con il messaggio "Operazione richiesta non supportata".
+La funzionalità Spazi di archiviazione diretta non è inclusa in Windows Server versione 1709. Se chiami *Enable-ClusterStorageSpacesDirect* o il relativo alias *Enable-ClusterS2D*, in un server che esegue Windows Server versione 1709 riceverai un errore con il messaggio Operazione richiesta non supportata.
 
 Non è inoltre supportata per introdurre i server che eseguono Windows Server versione 1709 in una distribuzione di Spazi di archiviazione diretta di Windows Server 2016.
 

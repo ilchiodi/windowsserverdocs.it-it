@@ -8,18 +8,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: medium
 ms.date: 06/03/2019
-ms.openlocfilehash: 5dbbdc19707f2eadfa3b2c919af95b58645de441
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 07479bc5bd2fdf661db8a30e3a9f20c7cce0513e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391370"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80825994"
 ---
 # <a name="whats-new-in-windows-server-version-1709"></a>Novità di Windows Server, versione 1709
 
 >Si applica a: Windows Server (Canale semestrale)
 
-<img src="../media/landing-icons/new.png" style='float:left; padding:.5em;' alt="Icon showing a newspaper">&nbsp;Per informazioni sulle funzionalità più recenti di Windows, vedi [Novità di Windows Server](whats-new-in-windows-server.md). Questa sezione illustra le funzionalità nuove e modificate di Windows Server, versione 1709. Le nuove funzionalità e modifiche elencate di seguito sono quelle che più probabilmente avranno il massimo impatto sull'uso di questa versione. Vedere anche [Windows Server, versione 1709](https://blogs.technet.microsoft.com/windowsserver/2017/08/24/sneak-peek-1-windows-server-version-1709/).
+<img src=../media/landing-icons/new.png style='float:left; padding:.5em;' alt=Icon showing a newspaper>&nbsp;Per informazioni sulle funzionalità più recenti di Windows, vedi [Novità di Windows Server](whats-new-in-windows-server.md). Questa sezione illustra le funzionalità nuove e modificate di Windows Server, versione 1709. Le nuove funzionalità e modifiche elencate di seguito sono quelle che più probabilmente avranno il massimo impatto sull'uso di questa versione. Vedere anche [Windows Server, versione 1709](https://blogs.technet.microsoft.com/windowsserver/2017/08/24/sneak-peek-1-windows-server-version-1709/).
 
 > [!IMPORTANT]
 > Windows Server, versione 1709 non è più supportata a partire dal 9 aprile 2019.
@@ -88,7 +88,7 @@ Per altre informazioni, vedere la [panoramica dell'infrastruttura sorvegliata e 
 
 **Vulnerabilità SMBLoris**: è stato risolto il problema noto come "SMBLoris", che potrebbe causare un attacco Denial of Service.
 
-## <a name="storage"></a>Archiviazione
+## <a name="storage"></a>Archiviazione:
 
 **Replica archiviazione**: la protezione del ripristino di emergenza aggiunta tramite Replica di archiviazione in Windows Server 2016 è ora estesa per includere:
 - **Failover di test**: l'opzione per montare l'archiviazione di destinazione è ora possibile tramite la funzionalità di failover di test. È possibile montare temporaneamente uno snapshot dell'archiviazione replicata nei nodi di destinazione a scopo di test o backup.  Per altre informazioni, vedi [Domande frequenti su Replica di archiviazione](https://aka.ms/srfaq). 
@@ -110,7 +110,7 @@ Per altre informazioni, vedere la [panoramica dell'infrastruttura sorvegliata e 
 >[!TIP]
 >Per dare un'occhiata in anteprima alle altre straordinarie modifiche in arrivo per Servizi Desktop remoto, vedere [Servizi Desktop remoto: aggiornamenti e innovazioni future](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/20/first-look-at-updates-coming-to-remote-desktop-services/)
 
-## <a name="networking"></a>Rete
+## <a name="networking"></a>Funzionalità di rete
 
 La **mesh di routing di Docker** è supportata. La mesh di routing in ingresso fa parte della [modalità Swarm](https://docs.docker.com/engine/swarm/), soluzione di orchestrazione incorporata di Docker per i contenitori. Per altre informazioni, vedere la pagina relativa alla [disponibilità della mesh di routing in Windows Server versione 1709](https://blogs.technet.microsoft.com/virtualization/2017/09/26/dockers-ingress-routing-mesh-available-with-windows-server-version-1709/).
 
@@ -149,7 +149,7 @@ La **mesh di routing di Docker** è supportata. La mesh di routing in ingresso f
 
 **SDN (Software Defined Networking)**
 
-- **Codifica di rete virtuale** è una nuova funzionalità che offre la possibilità di codificare il traffico di rete virtuale tra le macchine virtuali che comunicano tra loro all'interno di subnet contrassegnate come "Crittografia abilitata". Questa funzionalità usa Datagram Transport Layer Security (DTLS) nella subnet virtuale per codificare i pacchetti.  DTLS fornisce protezione contro intercettazione, manomissione e contraffazione da chiunque abbia accesso alla rete fisica.
+- La **crittografia di rete virtuale** è una nuova funzionalità che offre la possibilità di crittografare il traffico di rete virtuale tra le macchine virtuali che comunicano tra loro all'interno di subnet contrassegnate come Crittografia abilitata. Questa funzionalità usa Datagram Transport Layer Security (DTLS) nella subnet virtuale per codificare i pacchetti.  DTLS fornisce protezione contro intercettazione, manomissione e contraffazione da chiunque abbia accesso alla rete fisica.
  
 **Windows 10 VPN**
 

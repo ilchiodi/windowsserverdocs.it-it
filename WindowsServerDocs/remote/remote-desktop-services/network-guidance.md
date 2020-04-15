@@ -1,27 +1,23 @@
 ---
 title: Linee guida relative alla rete
 description: Consigli sulla larghezza di banda per le distribuzioni Desktop remoto.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: helohr
 ms.date: 12/12/2019
-ms.tgt_pltfrm: na
 ms.topic: article
 author: Heidilohr
 manager: lizross
-ms.openlocfilehash: 4e3a9bb66389c00bbac04db34d5d2a5b1d1933e1
-ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
+ms.openlocfilehash: 79db56d467ae0913446faebffc5a9598aae0b767
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75919912"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852994"
 ---
 # <a name="network-guidance"></a>Linee guida relative alla rete
 
-Quando usi una sessione remota di Windows, la larghezza di banda disponibile per la rete influisce significativamente sulla qualità dell'esperienza utente. Diverse applicazioni e risoluzioni dello schermo richiedono configurazioni di rete differenti, è quindi importante assicurarsi che la rete sia configurata in maniera conforme alle esigenze.
+Quando usi una sessione remota di Windows, la larghezza di banda disponibile della rete influisce significativamente sulla qualità dell'esperienza utente. Diverse applicazioni e risoluzioni dello schermo richiedono configurazioni di rete differenti ed è quindi importante assicurarsi che la rete sia configurata in maniera conforme alle esigenze.
 
 >[!NOTE]
 >I consigli seguenti si applicano alle reti con una perdita inferiore allo 0,1%. Questi consigli si applicano indipendentemente dal numero di sessioni ospitate nelle macchine virtuali (VM).

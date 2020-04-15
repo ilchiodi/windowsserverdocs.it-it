@@ -1,41 +1,40 @@
 ---
-title: Installare la versione Server Core
+title: Installare Server Core
 description: Come ottenere e ed eseguire l'installazione dei componenti di base del server su Windows Server 2019, Windows Server 2016 o Windows Server (Canale semestrale).
 ms.prod: windows-server
 ms.date: 05/21/2019
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2d22818c-fbb7-487a-bb82-81ef0a3f7ede
 author: jasongerend
 ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: e6264a59a837003e49e82529750cfb153cc37b92
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 13d36c233094511216483f0fb37dc6a004212a50
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71360344"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826974"
 ---
-# <a name="install-server-core"></a>Installare la versione Server Core
+# <a name="install-server-core"></a>Installare Server Core
 
 > Si applica a: Windows Server 2019, Windows Server 2016, Windows Server (Canale semestrale)
   
 Quando installi Windows Server per la prima volta, hai a disposizione le opzioni di installazione seguenti:
 
 >[!NOTE]
-> Nell'elenco seguente le edizioni senza "Esperienza desktop" sono le opzioni di installazione dei componenti di base del server
+> Nell'elenco seguente le edizioni senza "Esperienza desktop" sono le opzioni di installazione Server Core
 
--   Windows Server Standard
--   Windows Server Standard con Esperienza desktop
--   Windows Server Datacenter
--   Windows Server Datacenter con Esperienza desktop
+-    Windows Server Standard
+-    Windows Server Standard con Esperienza desktop
+-    Windows Server Datacenter
+-    Windows Server Datacenter con Esperienza desktop
 
 Quando installi Windows Server (Canale semestrale), hai a disposizione le opzioni di installazione seguenti:
 
--   Windows Server Standard 
--   Windows Server Datacenter
+-    Windows Server Standard 
+-    Windows Server Datacenter
 
 Poiché l'opzione di installazione dei componenti di base del server riduce lo spazio richiesto sul disco e la superficie soggetta a possibili attacchi, ti consigliamo di scegliere questo tipo di installazione a meno che non ti servano gli elementi aggiuntivi dell'interfaccia utente e gli strumenti di gestione grafica inclusi nell'opzione Server con Esperienza desktop. Se credi di aver bisogno degli elementi aggiuntivi dell'interfaccia utente, vedi [Installare la versione Server con Esperienza desktop](Getting-Started-with-Server-with-Desktop-Experience.md). 
 
@@ -59,7 +58,7 @@ Con l'opzione di installazione dei componenti di base del server, l'interfaccia 
 **Ruoli del server di esempio disponibili:**
 
 - Servizi certificati Active Directory
-- Servizi di dominio di Active Directory
+- Active Directory Domain Services
 - Server DHCP
 - Server DNS
 - Servizi file (incluso Gestione risorse file server)

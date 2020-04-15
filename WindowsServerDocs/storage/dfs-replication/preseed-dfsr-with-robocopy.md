@@ -8,14 +8,14 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 05/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: ea5cd954dde6d4fa8fcaa7874f75cb9588115ab1
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 8ff800fc2a0885cec39ca104607d7207f0bd8ce0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71402124"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80815604"
 ---
-# <a name="use-robocopy-to-preseed-files-for-dfs-replication"></a>Usare Robocopy per eseguire il preseeding dei file per Replica DFS
+# <a name="use-robocopy-to-pre-seed-files-for-dfs-replication"></a>Usare Robocopy per eseguire il preseeding dei file per Replica DFS
 
 >Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 
@@ -49,7 +49,7 @@ Poiché il preseeding non interessa direttamente Replica DFS, devi soddisfare so
 
 ## <a name="step-1-download-and-install-the-latest-version-of-robocopy"></a>Passaggio 1: Scaricare e installare la versione più recente di Robocopy
 
-Prima di usare Robocopy per il preseeding dei file, devi scaricare e installare la versione più recente di **Robocopy.exe**. Ciò garantisce che Replica DFS non ignori i file a causa di problemi nelle versioni di Robocopy.
+Prima di usare Robocopy per il preseeding dei file, devi scaricare e installare la versione di **Robocopy.exe** più recente. Ciò garantisce che Replica DFS non ignori i file a causa di problemi nelle versioni di Robocopy.
 
 Il codice sorgente per la versione compatibile più recente di Robocopy dipende dalla versione di Windows Server in esecuzione nel server. Per informazioni sul download dell'hotfix con la versione più recente di Robocopy per Windows Server 2008 R2 o Windows Server 2008, vedi [Elenco degli aggiornamenti rapidi attualmente disponibili per le tecnologie di File System distribuito (DFS) in Windows Server 2008 e Windows Server 2008 R2](https://support.microsoft.com/help/968429/list-of-currently-available-hotfixes-for-distributed-file-system-dfs-t).
 
@@ -85,7 +85,7 @@ Dopo aver ridotto al minimo i blocchi sui file che verranno replicati, puoi eseg
 >[!NOTE]
 >Puoi eseguire Robocopy nel computer di origine oppure di destinazione. La procedura riportata di seguito descrive l'esecuzione di Robocopy nel server di destinazione, che in genere esegue un sistema operativo più recente, per sfruttare le eventuali funzionalità aggiuntive di Robocopy che potrebbero essere fornite dal sistema operativo più recente.
 
-### <a name="preseed-the-replicated-files-onto-the-destination-server-with-robocopy"></a>Eseguire il preseeding dei file replicati nel server di destinazione con Robocopy
+### <a name="pre-seed-the-replicated-files-onto-the-destination-server-with-robocopy"></a>Eseguire il preseeding dei file replicati nel server di destinazione con Robocopy
 
 1. Accedi al server di destinazione con un account membro del gruppo Administrators locale sia nel server di origine che in quello di destinazione.
 
@@ -117,7 +117,7 @@ Dopo aver ridotto al minimo i blocchi sui file che verranno replicati, puoi eseg
     Ad esempio, il comando seguente replica i file dalla cartella replicata di origine, E:\\RF01, all'unità dati D nel server di destinazione:
     
     ```PowerShell
-    robocopy.exe "\\srv01\e$\rf01" "d:\rf01" /e /b /copyall /r:6 /w:5 /MT:64 /xd DfsrPrivate /tee /log:c:\temp\preseedsrv02.log
+    robocopy.exe "\\srv01\e$\rf01" "d:\rf01" /e /b /copyall /r:6 /w:5 /MT:64 /xd DfsrPrivate /tee /log:c:\temp\pre-seedsrv02.log
     ```
     
     >[!NOTE]

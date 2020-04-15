@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 6d8f6bf0df67b76028945403352bd135e6641a5a
-ms.sourcegitcommit: ab3967d71dcbb962079af194875de58e7c32c4e2
+ms.openlocfilehash: e8e6e5a29c75c117f6faa3c1d1b3f288582d81a2
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76967422"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80855884"
 ---
 # <a name="deploy-folder-redirection-with-offline-files"></a>Distribuire Reindirizzamento cartelle con File offline
 
@@ -30,7 +30,7 @@ Per un elenco delle modifiche apportate di recente a questo argomento, vedi [Cro
 
 ### <a name="hardware-requirements"></a>Requisiti hardware
 
-La funzionalità Reindirizzamento cartelle richiede un computer basato su x64 o su x86 e non è supportata da Windows® RT.
+La funzionalità Reindirizzamento cartelle richiede un computer basato su x64 o su x86 e non è supportata da Windows&reg; RT.
 
 ### <a name="software-requirements"></a>Requisiti software
 
@@ -99,7 +99,7 @@ Ecco come creare una condivisione file in Windows Server 2019, Windows Server 20
 | System     | Controllo completo        |    Questa cartella, le sottocartelle e i file     |
 | Administrators     | Controllo completo       | Solo questa cartella        |
 | Autore/proprietario     |   Controllo completo      |   Solo sottocartelle e file      |
-| Gruppo di utenti di sicurezza con l'esigenza di inserire dati nella condivisione (Utenti di Reindirizzamento cartelle)     |   Visualizzazione contenuto cartella/Lettura dati *(Autorizzazioni avanzate)* <br /><br />Creazione cartelle/Aggiunta dati *(Autorizzazioni avanzate)* <br /><br />Lettura attributi *(Autorizzazioni avanzate)* <br /><br />Lettura attributi estesi *(Autorizzazioni avanzate)* <br /><br />Autorizzazioni di lettura *(Autorizzazioni avanzate)*      |  Solo questa cartella       |
+| Gruppo di utenti di sicurezza con l'esigenza di inserire dati nella condivisione (Utenti di Reindirizzamento cartelle)     |   Visualizzazione contenuto cartella/Lettura dati *(Autorizzazioni avanzate)* <p>Creazione cartelle/Aggiunta dati *(Autorizzazioni avanzate)* <p>Lettura attributi *(Autorizzazioni avanzate)* <p>Lettura attributi estesi *(Autorizzazioni avanzate)* <p>Autorizzazioni di lettura *(Autorizzazioni avanzate)*      |  Solo questa cartella       |
 | Altri gruppi e account     |  Nessuno (rimuovere)       |         |
 
 ## <a name="step-3-create-a-gpo-for-folder-redirection"></a>Passaggio 3: Creare un oggetto Criteri di gruppo per Reindirizzamento cartelle

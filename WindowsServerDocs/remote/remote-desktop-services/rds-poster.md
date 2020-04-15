@@ -1,31 +1,27 @@
 ---
 title: Poster di pianificazione per Servizi Desktop remoto
 description: Viene fornita una panoramica della pianificazione, della distribuzione e dell'esecuzione di Servizi Desktop remoto
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: elizapo
 author: lizap
 manager: dongill
 ms.date: 11/06/2018
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a8c6d5fa-399b-4823-8f10-affec1bbfe65
 ms.localizationpriority: medium
-ms.openlocfilehash: d549909dd5edd472caed4ee6afe4146fcc7bc83e
-ms.sourcegitcommit: 69c218aa6dcaf23193e06a4bbc00d7294a098627
+ms.openlocfilehash: 068599b63a000566db86f29a93bfa91a4b4cd72e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73713651"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80858164"
 ---
 # <a name="remote-desktop-services---planning-poster"></a>Poster di pianificazione per Servizi Desktop remoto
 
 ## <a name="windows-virtual-desktop"></a>Desktop virtuale Windows
 
-Abbiamo già parlato di "infrastruttura moderna" per il Desktop remoto. Forse si è sentito parlare di "RDmi". La frase che è necessario conoscere è "Desktop virtuale Windows". Per altre informazioni, vedi la [pagina della documentazione di Desktop virtuale Windows](https://docs.microsoft.com/azure/virtual-desktop/).
+Si è già parlato di "infrastruttura moderna" per Desktop remoto. Forse hai sentito parlare di "RDmi". La frase che devi conoscere è "Desktop virtuale Windows". Per altre informazioni, vedi la [pagina della documentazione di Desktop virtuale Windows](https://docs.microsoft.com/azure/virtual-desktop/).
 
 Il team di Servizi Desktop remoto ha creato un poster per aiutare a pianificare, compilare ed eseguire l'ambiente di Desktop virtuale Windows.
 

@@ -1,17 +1,16 @@
 ---
 ms.date: 09/27/2018
 ms.topic: conceptual
-keywords: OpenSSH, SSH, SSHD, installazione, configurazione
 contributor: maertendMSFT
-author: maertendMSFT
+author: maertendmsft
 title: Configurazione del server OpenSSH per Windows
-ms.product: w10
-ms.openlocfilehash: 5b2fbc974223a6e4e611f92ce2a0c32bc77eca5d
-ms.sourcegitcommit: d46f3a1b238ab773900089b0de7279326789a327
+ms.product: windows-server
+ms.openlocfilehash: defb8875ca73c0d08fb0fa0764ed3ddf9003e09c
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78214922"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852044"
 ---
 # <a name="openssh-key-management"></a>Gestione delle chiavi OpenSSH
 

@@ -1,24 +1,20 @@
 ---
 title: Aggiornamento dell'Host di virtualizzazione Desktop remoto a Windows Server 2016
 description: In questo articolo viene descritto come aggiornare le distribuzioni di Servizi Desktop remoto esistente a Windows Server 2016.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
 ms.author: spatnaik
 ms.date: 08/01/2016
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5aed8ba7-f541-4416-b01c-4d3b1712e2b1
 author: spatnaik
 manager: scottman
-ms.openlocfilehash: 319074987ae161e2b567c15e9e56cce0e2106a1f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7bbf5f6a81a18303d4f9f4b02a1b8dead3c9a53a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71403785"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857114"
 ---
 # <a name="upgrading-your-remote-desktop-virtualization-host-to-windows-server-2016"></a>Aggiornamento dell'Host di virtualizzazione Desktop remoto a Windows Server 2016
 
@@ -38,7 +34,7 @@ Questi server devono essere aggiornati contemporaneamente. Per eseguire l'aggior
 ## <a name="rd-virtualization-host-servers-in-the-deployment-where-vms-are-stored-in-cluster-shared-volumes-csv"></a>Server Host di virtualizzazione Desktop remoto nella distribuzione di macchine virtuali archiviate in Volumi condivisi di cluster (CSV) 
 
 1. Determinare una strategia di aggiornamento in cui alcuni server Host di virtualizzazione Desktop remoto (RDVH) verranno aggiornati e altri continueranno a ospitare le macchine virtuali su Windows Server 2012 R2.  
-2. Isola uno o più server RDVH, destinati alla fase iniziale di aggiornamento, eseguendo la migrazione di tutte le macchine virtuali verso altri server RDVH "non ancora da aggiornare" che continueranno a far parte del cluster 2012 R2 originale.
+2. Isola uno o più server RDVH, destinati alla fase iniziale di aggiornamento, eseguendo la migrazione di tutte le macchine virtuali ad altri server RDVH "non ancora da aggiornare" che continueranno a far parte del cluster 2012 R2 originale.
     1. Aprire Gestione cluster di failover. 
     1. Fare clic su **Ruoli**. 
     1. Selezionare una o più macchine virtuali. Fare clic con il pulsante destro del mouse per aprire il menu di scelta rapida. 
@@ -67,7 +63,7 @@ Questi server devono essere aggiornati contemporaneamente. Per eseguire l'aggior
        > [!NOTE]
        > Come accennato, è necessario aver già creato una nuova sottocartella di destinazione prima di questo passaggio. La finestra di dialogo Seleziona cartella non consentirà di creare una sottocartella in questo passaggio. 
     
-       Fare clic su **Avanti** e quindi su **Fine**. 
+       Fare clic su **Avanti**e quindi su **Fine**. 
 11. Dopo aver spostato le macchine virtuali, aggiungerle come oggetti cluster a **Disponibilità elevata**:
      1. Aprire Gestione cluster di failover in un server Host di virtualizzazione Desktop remoto aggiornato. 
      1. Fare clic con il pulsante destro del mouse sul nodo **Ruoli** e quindi scegliere **Configura ruolo**. Nella pagina **Inizia** della configurazione guidata disponibilità elevata fare clic su **Avanti**. 

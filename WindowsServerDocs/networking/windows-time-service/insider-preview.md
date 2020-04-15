@@ -1,19 +1,18 @@
 ---
-ms.assetid: ''
 title: Anteprima Insider per le funzionalità del Servizio Ora di Windows in Windows Server 2019
 description: Nuove funzionalità del Servizio Ora di Windows in Windows Server 2019
-author: eross-msft
-ms.author: lizross
+author: dcuomo
+ms.author: dacuo
 ms.date: 09/05/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 3c61b1ca7a11e01d2d8234cb505998946a774691
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: f26822d52b55191ad7096135a2757e9f72b7e772
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80315012"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861644"
 ---
 # <a name="insider-preview"></a>Anteprima Insider 
 
@@ -57,7 +56,7 @@ Quando si riceve un pacchetto temporizzato in rete da un server di riferimento d
 
 ![timestamp del software](../media/Windows-Time-Service/software-timestamping.png)
 
-Per risolvere questo problema, il timestamp del software consente di eseguire il timestamp dei pacchetti prima e dopo i "componenti di rete di Windows" indicati in precedenza per poter tenere conto del ritardo nel sistema operativo.
+Per risolvere questo problema, il timestamp del software consente di eseguire il timestamp dei pacchetti prima e dopo i componenti di rete di Windows indicati in precedenza per poter tenere conto del ritardo nel sistema operativo.
 
 Per altre informazioni, vedere:
 

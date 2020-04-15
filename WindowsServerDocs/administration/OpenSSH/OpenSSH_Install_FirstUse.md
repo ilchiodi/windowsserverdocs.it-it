@@ -1,16 +1,15 @@
 ---
 ms.date: 09/27/2019
 ms.topic: conceptual
-keywords: OpenSSH, SSH, SSHD, installare, configurare
 contributor: maertendMSFT
-author: maertendMSFT
+author: maertendmsft
 title: Installazione di OpenSSH per Windows
-ms.openlocfilehash: 9cf87229f5ebde6f0ff52a4e9b1b11b6e3ed4f0a
-ms.sourcegitcommit: 8771a9f5b37b685e49e2dd03c107a975bf174683
+ms.openlocfilehash: b9889a9057a1ddd5181f4ea4aab35680d524eabf
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76145917"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80852054"
 ---
 # <a name="installation-of-openssh-for-windows-server-2019-and-windows-10"></a>Installazione di OpenSSH per Windows Server 2019 e Windows 10 #
 
@@ -117,7 +116,7 @@ ECDSA key fingerprint is SHA256:(<a large string>).
 Are you sure you want to continue connecting (yes/no)?
 ```
 
-La risposta deve essere "Sì" o "No". Se rispondi Sì, il server viene aggiunto all'elenco di host SSH noti del sistema locale.
+La risposta deve essere Sì o No. Se rispondi Sì, il server viene aggiunto all'elenco di host SSH noti del sistema locale.
 
 A questo punto viene richiesta la password. Per motivi di sicurezza, la password non verrà visualizzata durante la digitazione. 
 

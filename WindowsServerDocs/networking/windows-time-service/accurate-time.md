@@ -2,18 +2,18 @@
 ms.assetid: 72a90d00-56ee-48a9-9fae-64cbad29556c
 title: Ora esatta per Windows Server 2016
 description: Accuratezza sincronizzazione ora in Windows Server 2016 è stata migliorata sostanzialmente, garantendo contemporaneamente all'indietro NTP la compatibilità con le versioni precedenti di Windows.
-author: eross-msft
+author: dcuomo
 ms.author: dacuo
 ms.date: 05/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: 3320c67d52978f0e9abaae7d5bec9b4fcb727fd6
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 0486033ee52432191cb35f2ce38c44d5b7728a2e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80315085"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861684"
 ---
 # <a name="accurate-time-for-windows-server-2016"></a>Ora esatta per Windows Server 2016
 
@@ -46,7 +46,7 @@ Le configurazioni di dominio e autonoma funzionano in modo diverso.
 Poiché gli utenti guest Hyper-V disporrà di almeno due provider ora di Windows tra cui scegliere l'host ora NTP, è possibile visualizzare diversi comportamenti con dominio o autonomo durante l'esecuzione come guest.
 
 > [!NOTE] 
-> Per altre informazioni sulla gerarchia di dominio e sul sistema di punteggio, vedi il post di blog ["What is Windows Time Service?"](https://blogs.msdn.microsoft.com/w32time/2007/07/07/what-is-windows-time-service/) (Che cos'è il servizio Ora di Windows?) .
+> Per altre informazioni sulla gerarchia di domini e sul sistema di punteggio, vedi il post di blog ["What is Windows Time Service?"](https://blogs.msdn.microsoft.com/w32time/2007/07/07/what-is-windows-time-service/) (Che cos'è il servizio Ora di Windows?) .
 
 > [!NOTE]
 > Strato è un concetto utilizzato nel provider di NTP e Hyper-V e il relativo valore indica la posizione di orologi nella gerarchia.  Il livello Strato 1 è riservato all'orologio di livello più elevato, mentre lo strato 0 è riservato all'hardware, presupponendo che ad esso sia associato un ritardo minimo o non sia associato alcun ritardo.  2 strato di comunicare con server strato 1, strato 3 per strato 2 e così via.  Mentre un strato inferiore indica spesso un orologio più accurato, è possibile trovare le discrepanze.  Inoltre, W32time accetta solo ora dalla strato 15 o di sotto.  Per visualizzare lo strato di un client, utilizzare *w32tm /query /status*.

@@ -2,21 +2,18 @@
 title: Supporto ISV per il recapito degli aggiornamenti Express
 description: 'Argomento di Windows Server Update Service (WSUS): Configurazione del recapito degli aggiornamenti Express da parte dei fornitori di software indipendenti (ISV) tramite WSUS'
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-wsus
-ms.tgt_pltfrm: na
 ms.topic: get-started article
 author: sakitong
 ms.author: coreyp
 manager: lizapo
 ms.date: 10/16/2017
-ms.openlocfilehash: 13568bb320a3d70bfd6a70d2b9731b460be6f346
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 60d01ef425ed96160cd76afdd7c27c081c778add
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948496"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828774"
 ---
 # <a name="express-update-delivery-isv-support"></a>Supporto ISV per il recapito degli aggiornamenti Express
 
@@ -58,11 +55,11 @@ Gli ISV possono usare WSUS e il client WU per supportare il recapito di aggiorna
    - L'agente client ISV determina quali aggiornamenti approvare e quando eseguire il download e installare gli aggiornamenti
    - Il client WU determina gli intervalli di byte da scaricare e avvia la richiesta di download
 
-### <a name="BKMK_1"></a>Passaggio 1: Configurare WSUS
+### <a name="step-1-configure-wsus"></a><a name=BKMK_1></a>Passaggio 1: Configurare WSUS
 
 WSUS funge da interfaccia per Windows Update e gestisce tutti i metadati che descrivono i pacchetti Express da scaricare. Se devi eseguire la distribuzione, vedi [**Panoramica di Windows Server Update Services 3.0 SP2**](https://technet.microsoft.com/library/dd939931(v=ws.10).aspx). Dopo aver distribuito WSUS, è necessario in primo luogo considerare se archiviare o meno il contenuto degli aggiornamenti localmente nel server WSUS. Quando si configura WSUS, è consigliabile non archiviare gli aggiornamenti in locale. Questa operazione presuppone che tu abbia già installato il software per la distribuzione di questi pacchetti nell'ambiente in uso. Per altre informazioni su come configurare l'archiviazione locale di WSUS, vedi [**Determinare dove archiviare gli aggiornamenti**](https://technet.microsoft.com/library/cc720494(v=ws.10).aspx).
 
-### <a name="BKMK_2"></a>Passaggio 2: Specificare e popolare la cache dei file ISV 
+### <a name="step-2-specify-and-populate-the-isv-file-cache"></a><a name=BKMK_2></a>Passaggio 2: Specificare e popolare la cache dei file ISV 
 
 #### <a name="specify-the-isv-file-cache"></a>Specificare la cache dei file ISV
 
@@ -85,7 +82,7 @@ Quando si configura il percorso di download alternativo per la cache dei file IS
 > [!IMPORTANT]
 > Per la cache dei file ISV è necessario quanto segue:                                                          
 > - Il server deve essere conforme a HTTP 1.1 in base alla specifica RFC: <http://www.w3.org/Protocols/rfc2616/rfc2616.html>                                                                                                                                                                
-> In particolare, il server Web deve supportare                                                                                                                                                                                                                                       le richieste [**HEAD**](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) e [**GET**](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.htm)<br>                                                                                                                                                                                                                                                                                                  - Richieste di intervallo parziale<br>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   - Keep-alive<br>                                                                                                                                                                                                                                                                                                                                                                                                                            - Non usare "Transfer-Encoding:chunked"                                                                                                 
+> In particolare, il server Web deve supportare                                                                                                                                                                                                                                       le richieste [**HEAD**](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) e [**GET**](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.htm)<br>                                                                                                                                                                                                                                                                                                  - Richieste di intervallo parziale<br>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   - Keep-alive<br>                                                                                                                                                                                                                                                                                                                                                                                                                            - Non usare Transfer-Encoding:chunked                                                                                                 
 
 #### <a name="populate-the-isv-file-cache"></a>Popolare la cache dei file ISV
 
@@ -105,7 +102,7 @@ La cache dei file ISV deve essere popolata con i file associati agli aggiornamen
 
      Fai in modo che il server HTTP (o localhost) reindirizzi le richieste **GET HTTP**, che fanno riferimento al percorso e al nome file della cartella MU, al percorso dei file ISV.
 
-### <a name="BKMK_3"></a>Passaggio 3: Configurare un agente client ISV per indirizzare le operazioni del client WU
+### <a name="step-3-set-up-an-isv-client-agent-to-direct-wu-client-operations"></a><a name=BKMK_3></a>Passaggio 3: Configurare un agente client ISV per indirizzare le operazioni del client WU
 
 L'agente client ISV orchestra il download e l'installazione degli aggiornamenti approvati usando il flusso di lavoro consigliato seguente:
 

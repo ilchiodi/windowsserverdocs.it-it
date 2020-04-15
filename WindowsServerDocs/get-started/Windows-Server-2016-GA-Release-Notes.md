@@ -1,23 +1,19 @@
 ---
 title: 'Note sulla versione: problemi importanti di Windows Server 2016'
 description: Riepilogano i problemi critici che richiedono soluzioni alternative per evitare l'arresto anomalo del sistema, i blocchi, gli errori di installazione o la perdita di dati.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.date: 11/13/2018
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 134aab85-664f-4d44-87ef-9e5fd389071f
 author: jaimeo
 ms.author: jaimeo
-ms.openlocfilehash: f4568e1781dbe385d8abe8a96f07841391506738
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.openlocfilehash: 8ceff837c2b85466f5583eed03f39e73f32fd4a4
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76822164"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826384"
 ---
 # <a name="release-notes-important-issues-in-windows-server-2016"></a>Note sulla versione: problemi importanti di Windows Server 2016
 
@@ -42,7 +38,7 @@ Per evitare questo problema, dopo il primo avvio, disabilitare lo spooler di sta
 ## <a name="containers"></a>Contenitori
 
 [comment]: # (ID: 371; mittente: taylorb; stato: approvato)
-- Prima di usare i contenitori, installa l'[aggiornamento dello stack di manutenzione per Windows 10 versione 1607: 23 agosto 2016](https://support.microsoft.com/kb/3176936) o eventuali aggiornamenti successivi disponibili. Se non esegui questa installazione, può verificarsi una serie di problemi, inclusi errori durante la creazione, l'avvio o l'esecuzione di contenitori ed errori simili al seguente: "CreateProcess non riuscito in Win32: server RPC non disponibile".
+- Prima di usare i contenitori, installa l'[aggiornamento dello stack di manutenzione per Windows 10 versione 1607: 23 agosto 2016](https://support.microsoft.com/kb/3176936) o eventuali aggiornamenti successivi disponibili. Se non esegui questa installazione, può verificarsi una serie di problemi, inclusi errori durante la creazione, l'avvio o l'esecuzione di contenitori ed errori simili al seguente: CreateProcess non riuscito in Win32: Server RPC non disponibile.
 
 [comment]: # (ID: 373; mittente: plang; stato: approvato)
 - Il provider OneGet NanoServerPackage non funziona nei contenitori di Windows. Per risolvere il problema, usare Find-NanoServerPackage e Save-NanoServerPackage in un altro computer (non un contenitore) per scaricare il pacchetto necessario. Copiare quindi i pacchetti nel contenitore e installarli.
@@ -86,7 +82,7 @@ Alcuni sistemi possono presentare prestazioni della memoria ridotte durante l'es
 
 ## <a name="copyright"></a>Copyright
 
-Questo documento viene fornito "così com'è". Le informazioni e le opinioni espresse nel presente documento, inclusi gli URL e altri riferimenti a siti Web Internet, sono soggette a modifiche senza preavviso.  
+Questo documento viene fornito così com'è. Le informazioni e le opinioni espresse nel presente documento, inclusi gli URL e altri riferimenti a siti Web Internet, sono soggette a modifiche senza preavviso.  
 
 Il presente documento non implica la concessione di alcun diritto di proprietà intellettuale in relazione ai prodotti Microsoft. È possibile copiare e usare questo documento per fini di riferimento interno.  
 

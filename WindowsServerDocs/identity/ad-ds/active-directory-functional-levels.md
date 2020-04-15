@@ -1,7 +1,6 @@
 ---
 ms.assetid: f964d056-11bf-4d9b-b5ab-dceaad8bfbc3
 title: Livelli di funzionalità di Windows Server 2016
-description: ''
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -11,12 +10,12 @@ ms.prod: windows-server
 ms.custom: it-pro
 ms.reviewer: maheshu
 ms.technology: identity-adds
-ms.openlocfilehash: 53793fc62b1bc1444c567f92c9f18642245fded9
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: 5f7a8f08ff10102fbc04b6f8272320bd3b77785d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75948180"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80825494"
 ---
 # <a name="forest-and-domain-functional-levels"></a>Livelli di funzionalità del dominio e della foresta
 

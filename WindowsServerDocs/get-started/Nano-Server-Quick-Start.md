@@ -2,21 +2,19 @@
 title: Avvio rapido di Nano Server
 description: Passaggi per distribuire rapidamente un'istanza di base di Nano Server in macchine virtuali o fisiche
 ms.prod: windows-server
-ms.service: na
 manager: DonGill
 ms.technology: server-nano
 ms.date: 09/05/2017
-ms.tgt_pltfrm: na
 ms.topic: get-started-article
 author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
-ms.openlocfilehash: 5de589d9da1c7d4fc9eb116e6ea1f6a326d1ad7c
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 7729b853f2e54c7f99d428fcb821a68d7a22aef0
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391725"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826814"
 ---
 # <a name="nano-server-quick-start"></a>Avvio rapido di Nano Server
 
@@ -64,7 +62,7 @@ Per creare un VHD Nano Server che verrà eseguito in una macchina virtuale, segu
   
 5. La macchina virtuale e la console di gestione di Hyper-V si connettono entrambe alla macchina virtuale.  
   
-6. Accedere alla Console di ripristino di emergenza (vedere la sezione "Nano Server Recovery Console" (Console di ripristino di emergenza di Nano Server) di questa Guida) usando la password amministratore specificata per l'esecuzione dello script riportato al Passaggio 3.  
+6. Accedi alla Console di ripristino di emergenza (vedi la sezione relativa alla Console di ripristino di emergenza di Nano Server di questa Guida) usando la password amministratore specificata durante l'esecuzione dello script nel Passaggio 3.  
    > [!NOTE]  
    > La Console di ripristino di emergenza supporta solo le funzioni di base della tastiera. I LED della tastiera, le sezioni a 10 tasti e la commutazione del layout di tastiera, ad esempio BLOC MAIUSC e BLOC NUM, non sono supportati.
   
@@ -72,7 +70,7 @@ Per creare un VHD Nano Server che verrà eseguito in una macchina virtuale, segu
   
 **Nano Server in un computer fisico**  
   
-È anche possibile creare un VHD che eseguirà Nano Server in un computer fisico usando i driver di dispositivo preinstallati. Se per l'avvio o la connessione a una rete l'hardware richiede un driver non ancora disponibile, seguire la procedura riportata nella sezione "Integrazione di driver aggiuntivi" di questa Guida.  
+È anche possibile creare un VHD che eseguirà Nano Server in un computer fisico usando i driver di dispositivo preinstallati. Se per l'avvio o la connessione a una rete l'hardware richiede un driver non ancora disponibile, segui la procedura riportata nella sezione relativa all'aggiunta di driver aggiuntivi di questa Guida.  
   
 ## <a name="to-quickly-deploy-nano-server-on-a-physical-computer"></a>Per distribuire rapidamente Nano Server in un computer fisico  
   
@@ -111,7 +109,7 @@ Per creare un VHD Nano Server che verrà eseguito in una macchina virtuale, segu
   
 6. Avviare il computer fisico nel VHD Nano Server.  
   
-7. Accedere alla Console di ripristino di emergenza (vedere la sezione "Nano Server Recovery Console" (Console di ripristino di emergenza di Nano Server) di questa Guida) usando la password amministratore specificata per l'esecuzione dello script riportato al Passaggio 3.
+7. Accedi alla Console di ripristino di emergenza (vedi la sezione relativa alla Console di ripristino di emergenza di Nano Server di questa Guida) usando la password amministratore specificata durante l'esecuzione dello script nel Passaggio 3.
    > [!NOTE]  
    > La Console di ripristino di emergenza supporta solo le funzioni di base della tastiera. I LED della tastiera, le sezioni a 10 tasti e la commutazione del layout di tastiera, ad esempio BLOC MAIUSC e BLOC NUM, non sono supportati. 
   

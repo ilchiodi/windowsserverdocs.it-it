@@ -7,15 +7,14 @@ ms.author: billmath
 manager: mtillman
 ms.date: 04/17/2019
 ms.topic: article
-ms.custom: it-pro
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 48d93f515a5f3e5f8ce2c3ff9a1b40f300ca57ed
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.openlocfilehash: a1041bdc189238c7da32896e6f867f730e392d24
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265743"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80814431"
 ---
 # <a name="ad-fs-frequently-asked-questions-faq"></a>Domande frequenti su AD FS
 
@@ -105,8 +104,8 @@ Per assicurarti che i server AD FS e WAP negozino solo pacchetti di crittografia
 
 ## <a name="developer"></a>Sviluppo
 
-### <a name="when-generating-an-id_token-with-adfs-for-a-user-authenticated-against-ad-how-is-the-sub-claim-generated-in-the-id_token"></a>Quando viene generato un id_token con ADFS per un utente autenticato in Active Directory, come viene generata l'attestazione "sub" nell'id_token?
-Il valore dell'attestazione "sub" è l'hash dell'ID client + il valore attestazione di ancoraggio.
+### <a name="when-generating-an-id_token-with-adfs-for-a-user-authenticated-against-ad-how-is-the-sub-claim-generated-in-the-id_token"></a>Quando viene generato un id_token con AD FS per un utente autenticato in Active Directory, come viene generata l'attestazione sub nell'id_token?
+Il valore dell'attestazione sub è l'hash dell'ID client + il valore attestazione di ancoraggio.
 
 ### <a name="what-is-the-lifetime-of-the-refresh-tokenaccess-token-when-the-user-logs-in-via-a-remote-claims-provider-trust-over-ws-fedsaml-p"></a>Qual è la durata del token di aggiornamento e del token di accesso quando l'utente accede tramite un trust del provider di attestazioni remoto su WS-Fed/SAML-P?
 La durata del token di aggiornamento sarà la durata del token che ADFS ha ottenuto dal trust del provider di attestazioni remoto. La durata del token di accesso sarà la durata del token della relying party per cui viene emesso il token di accesso.
@@ -126,7 +125,7 @@ Attestazione rilasciata nel token di accesso:
     "array_in_json":{"Items":[{"Name":"Apple","Price":12.3},{"Name":"Grape","Price":3.21}],"Date":"21/11/2010"}
 
 ### <a name="can-i-pass-resource-value-as-part-of-the-scope-value-like-how-requests-are-done-against-azure-ad"></a>Posso passare il valore della risorsa come parte del valore dell'ambito nello stesso modo in cui le richieste vengono eseguite su Azure AD?
-Con AD FS in Server 2019, ora puoi passare il valore della risorsa incorporato nel parametro relativo all'ambito (scope). Tale parametro ora può essere organizzato come un elenco con valori separati da spazi in cui ogni voce è strutturata come risorsa/ambito. Ad esempio  
+Con AD FS in Server 2019, ora puoi passare il valore della risorsa incorporato nel parametro relativo all'ambito (scope). Il parametro di ambito ora può essere organizzato come un elenco con valori separati da spazi in cui ogni voce è strutturata come risorsa/ambito. Ad esempio  
 **<crea una richiesta di esempio valida>**
 
 ### <a name="does-ad-fs-support-pkce-extension"></a>AD FS supporta l'estensione PKCE?
@@ -181,7 +180,7 @@ Se non disponi di criteri di controllo di accesso basati sul dispositivo in ADFS
 
 ### <a name="how-long-are-ad-fs-tokens-valid"></a>Per quanto tempo sono validi i token AD FS?
 
-Spesso questa domanda significa "per quanto tempo gli utenti ottengono l'accesso Single Sign-On (SSO) senza dover immettere nuove credenziali e come posso controllare questa situazione come amministratore?".  Questo comportamento e le impostazioni di configurazione che lo controllano sono descritte nell'articolo [Impostazioni di Single Sign-on AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/ad-fs-2016-single-sign-on-settings).
+Spesso questa domanda significa "per quanto tempo gli utenti ottengono l'accesso Single Sign-On (SSO) senza dover immettere nuove credenziali e come posso controllare questa situazione come amministratore?"  Questo comportamento e le impostazioni di configurazione che lo controllano sono descritte nell'articolo [Impostazioni di Single Sign-on AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/ad-fs-2016-single-sign-on-settings).
 
 Di seguito sono elencate le durate predefinite dei diversi cookie e token, oltre ai parametri che controllano la durata:
 
@@ -232,14 +231,14 @@ Questo evento in genere viene registrato per un accesso non valido in AD FS per 
 
 ### <a name="why-am-i-seeing-a-warning-for-failure-to-add-the-ad-fs-service-account-to-the-enterprise-key-admins-group"></a>Perché viene visualizzato un avviso quando è impossibile aggiungere l'account del servizio AD FS al gruppo Enterprise Key Admins?
 Questo gruppo viene creato solo quando nel dominio è presente un controller di dominio Windows 2016 con il ruolo PDC FSMO. Per correggere l'errore, puoi creare manualmente il gruppo e seguire la procedura descritta sotto per concedere l'autorizzazione necessaria dopo aver aggiunto l'account del servizio come membro del gruppo.
-1.  Aprire **Utenti e computer di Active Directory**.
-2.  Nel riquadro di spostamento **fai clic con il pulsante destro del mouse** sul nome del dominio e **scegli** Proprietà.
-3.  **Fai clic** su Sicurezza (se la scheda Sicurezza non è visualizzata, attiva Funzionalità avanzate nel menu Visualizza).
-4.  **Fai clic** su Avanzate. **Fai clic** su Aggiungi. **Fai clic** su Seleziona un'entità.
-5.  Viene visualizzata la finestra di dialogo Seleziona utente, computer, account di servizio o gruppo.  Nella casella di testo Immettere il nome dell'oggetto da selezionare digita Key Admin Group.  Fare clic su OK.
-6.  Nella casella di riepilogo Si applica a seleziona **Oggetti utente discendenti**.
-7.  Usando la barra di scorrimento, scorri fino alla fine della pagina e **fai clic** su Cancella tutto.
-8.  Nella sezione **Proprietà** seleziona **Lettura msDS-KeyCredentialLink** e **Scrittura msDS-KeyCredentialLink**.
+1.    Aprire **Utenti e computer di Active Directory**.
+2.    Nel riquadro di spostamento **fai clic con il pulsante destro del mouse** sul nome del dominio e **scegli** Proprietà.
+3.    **Fai clic** su Sicurezza (se la scheda Sicurezza non è visualizzata, attiva Funzionalità avanzate nel menu Visualizza).
+4.    **Fai clic** su Avanzate. **Fai clic** su Aggiungi. **Fai clic** su Seleziona un'entità.
+5.    Viene visualizzata la finestra di dialogo Seleziona utente, computer, account di servizio o gruppo.  Nella casella di testo Immettere il nome dell'oggetto da selezionare digita Key Admin Group.  Fare clic su OK.
+6.    Nella casella di riepilogo Si applica a seleziona **Oggetti utente discendenti**.
+7.    Usando la barra di scorrimento, scorri fino alla fine della pagina e **fai clic** su Cancella tutto.
+8.    Nella sezione **Proprietà** seleziona **Lettura msDS-KeyCredentialLink** e **Scrittura msDS-KeyCredentialLink**.
 
 ### <a name="why-does-modern-authentication-from-android-devices-fail-if-the-server-does-not-send-all-the-intermediate-certificates-in-the-chain-with-the-ssl-cert"></a>Perché l'autenticazione moderna offerta dai dispositivi Android ha esito negativo se il server non invia tutti i certificati intermedi della catena con il certificato SSL?
 

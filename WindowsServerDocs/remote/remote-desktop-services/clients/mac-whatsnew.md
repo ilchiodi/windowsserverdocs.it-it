@@ -1,24 +1,20 @@
 ---
 title: Novità del client macOS
 description: Informazioni sulle modifiche recenti apportate al client Desktop remoto per Mac
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: remote-desktop-services
-ms.tgt_pltfrm: na
 ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 01/06/2020
+ms.date: 04/08/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: ef2a9966da7046a14fb1d9d4562f0ef9b1a09a45
-ms.sourcegitcommit: 76469d1b7465800315eaca3e0c7f0438fc3939ed
+ms.openlocfilehash: c378d8c4a87b6aa0cf4f6b4f30f3bd5524dbb7a9
+ms.sourcegitcommit: f95d0e6904b103fc30dcae13e9199e138c287e2b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75919852"
+ms.lasthandoff: 04/09/2020
+ms.locfileid: "80980853"
 ---
 # <a name="whats-new-in-the-macos-client"></a>Novità del client macOS
 
@@ -26,11 +22,41 @@ Il [client Desktop remoto per macOS](remote-desktop-mac.md) viene aggiornato reg
 
 In caso di problemi, puoi sempre contattarci passando a **Guida** > **Segnala un problema**.
 
+## <a name="updates-for-version-1039"></a>Aggiornamenti per la versione 10.3.9
+
+*Data di pubblicazione: 6/4/2020*
+
+In questa versione sono state apportate alcune modifiche per migliorare l'interoperabilità con il [servizio Desktop virtuale Windows](https://azure.microsoft.com/services/virtual-desktop/). Sono stati inoltre inclusi gli aggiornamenti seguenti:
+
+- CTRL+OPZIONE+CANC attiva ora la sequenza CTRL+ALT+CANC (in precedenza era necessario premere il tasto Fn).
+- È stata corretta la combinazione di colori per la notifica in modalità tastiera per la modalità chiara.
+- Sono stati risolti scenari in cui le connessioni avviate tramite la proprietà del file RDP GatewayAccessToken non funzionavano.
+
+>[!NOTE]
+>Questa è l'ultima versione compatibile con macOS 10.12.
+
+## <a name="updates-for-version-1038"></a>Aggiornamenti per la versione 10.3.8
+
+*Data di pubblicazione: 12/2/2020*
+
+È il momento del primo rilascio del 2020.
+
+Con questo aggiornamento puoi alternare le modalità Scancode (CTRL+COMANDO+K) e Unicode (CTRL+COMANDO+U) quando attivi l'input da tastiera. La modalità Unicode consente la digitazione di caratteri estesi usando il tasto OPZIONE su una tastiera Mac. Ad esempio, su una tastiera Mac USA premendo OPZIONE+2 viene immesso il simbolo di marchio registrato (&trade;). Nella modalità Unicode puoi immettere anche caratteri accentati. Ad esempio, su una tastiera Mac USA premendo contemporaneamente OPZIONE+E e il tasto "A", viene immesso il carattere "á" nella sessione remota.
+
+Tra gli altri aggiornamenti disponibili in questa versione sono inclusi i seguenti:
+
+- È stata eseguita la pulizia dell'interfaccia utente e dell'esperienza e di aggiornamento dell'area di lavoro.
+- È stato risolto un problema di reindirizzamento delle smart card per cui la sessione remota si bloccava nella schermata di accesso con la visualizzazione del messaggio di verifica dello stato.
+- È stato ridotto il tempo di creazione di file temporanei usati per copiare e incollare file basati sugli Appunti.
+- I file temporanei usati per copiare e incollare file degli Appunti vengono ora eliminati automaticamente all'uscita dall'app e non deve più essere macOS a eliminarli.
+- Le azioni di segnalibro PC vengono ora visualizzate nell'angolo superiore destro delle anteprime.
+- Sono state apportate correzioni per risolvere i problemi segnalati tramite la telemetria degli arresti anomali del sistema.
+
 ## <a name="updates-for-version-1037"></a>Aggiornamenti per la versione 10.3.7
 
 *Data di pubblicazione: 06/01/2020*
 
-Nell'ultimo aggiornamento dell'anno, abbiamo ottimizzato il codice e abbiamo corretto i comportamenti seguenti:
+Nell'ultimo aggiornamento dell'anno è stato ottimizzato il codice e sono stati corretti i comportamenti seguenti:
 
 - La copia di elementi dalla sessione remota alla condivisione di rete o all'unità USB non crea più file vuoti.
 - La specifica di una password vuota in un account utente non comporta più l'invio di una doppia richiesta di certificato.
@@ -310,7 +336,7 @@ Sono trascorse alcune settimane dall'ultimo aggiornamento, ma il team ha lavorat
 - È ora possibile avviare una connessione premendo INVIO in un riquadro del desktop.
 - Quando viene usata la visualizzazione a schermo intero, CMD+M viene ora correttamente mappato a WIN+M.
 - Le finestre relative a centro connessioni, preferenze e informazioni rispondono ora a CMD+M.
-- È ora possibile avviare l'individuazione dei feed premendo INVIO nella pagina **Adding Remote Resources** (Aggiunta risorse remote).
+- Puoi ora avviare l'individuazione dei feed premendo INVIO nella pagina **Adding Remote Resources*- (Aggiunta risorse remote).
 - Correzione di un problema a causa del quale un nuovo feed delle risorse remote veniva visualizzato vuoto nel centro connessioni fino a quando non veniva aggiornato.
 
 ## <a name="updates-for-version-1016"></a>Aggiornamenti alla versione 10.1.6

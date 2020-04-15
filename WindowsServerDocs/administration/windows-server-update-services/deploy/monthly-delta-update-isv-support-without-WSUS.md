@@ -2,21 +2,18 @@
 title: Supporto ISV per l'aggiornamento delta mensile senza WSUS
 description: "Argomento di Windows Server Update Services (WSUS): Informazioni su come i fornitori di software indipendente possono usare temporaneamente l'aggiornamento delta mensile anziché il recapito dell'aggiornamento rapido di WSUS per ridurre le dimensioni del pacchetto"
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-wsus
-ms.tgt_pltfrm: na
 ms.topic: get-started article
 author: sakitong
 ms.author: coreyp
 manager: dougkim
 ms.date: 10/16/2017
-ms.openlocfilehash: 4607827d73c34f50f721a2774fa498eb95f9dbb8
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 3ccddd3bfd55ae340dc5273905bb475e7d2cb98a
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71361735"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80828744"
 ---
 # <a name="monthly-delta-update-isv-support-without-wsus"></a>Supporto ISV per l'aggiornamento delta mensile senza WSUS
 
@@ -39,7 +36,7 @@ L'aggiornamento delta mensile è una novità e rappresenta una soluzione provvis
 >[!IMPORTANT]
 >**L'aggiornamento delta è disponibile per la manutenzione di Windows 10, versione 1607 (Aggiornamento dell'anniversario), versione 1703 (Creators Update) e versione 1709 (Fall Creators Update).** Per le versioni successive alla 1709, dovrai implementare un'infrastruttura di distribuzione che supporti il [recapito dell'aggiornamento rapido](express-update-delivery-ISV-support.md), in modo da continuare a sfruttare i vantaggi degli aggiornamenti incrementali.
 
-Con l'aggiornamento delta mensile, i pacchetti conterranno solo gli aggiornamenti relativi a un mese. L'aggiornamento cumulativo mensile contiene tutti gli aggiornamenti fino alla versione di aggiornamento corrente. Si tratta quindi di un file di grandi dimensioni che cresce ogni mese. Sia gli aggiornamenti delta che quelli mensili vengono rilasciati il secondo martedì di ogni mese, servizio noto anche come "Patch Tuesday". La tabella seguente confronta gli aggiornamenti delta e cumulativi:
+Con l'aggiornamento delta mensile, i pacchetti conterranno solo gli aggiornamenti relativi a un mese. L'aggiornamento cumulativo mensile contiene tutti gli aggiornamenti fino alla versione di aggiornamento corrente. Si tratta quindi di un file di grandi dimensioni che cresce ogni mese. Sia gli aggiornamenti delta che quelli mensili vengono rilasciati il secondo martedì di ogni mese, servizio noto anche come Patch Tuesday. La tabella seguente confronta gli aggiornamenti delta e cumulativi:
 
 |                    | Aggiornamento **delta** mensile                                                                                                                                                                                                       | Aggiornamento **cumulativo** mensile                                                                                                                                                                                             |
 |--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

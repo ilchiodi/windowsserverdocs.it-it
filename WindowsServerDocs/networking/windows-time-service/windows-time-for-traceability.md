@@ -1,20 +1,19 @@
 ---
-ms.assetid: ''
 title: Ora di Windows per la tracciabilità
 description: Le normative di molti settori richiedono che i sistemi siano tracciabili per l'ora UTC.  Ciò significa che l'offset di un sistema può essere attestato rispetto all'ora UTC.
-author: eross-msft
+author: dcuomo
 ms.author: dacuo
 manager: dougkim
 ms.date: 10/17/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
-ms.openlocfilehash: e7f7a68d61729813583255d64afbf172475969e3
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 30952c7a15109ccdd8bcbb09d7c8dda44f716d5d
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80314929"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80859814"
 ---
 # <a name="windows-time-for-traceability"></a>Ora di Windows per la tracciabilità
 >Si applica a: Windows Server 2016 versione 1709 o successive e Windows 10 versione 1703 o successive
