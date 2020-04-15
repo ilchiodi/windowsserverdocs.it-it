@@ -1,31 +1,27 @@
 ---
 title: Opzioni di aggiornamento e conversione per Windows Server 2016
 description: Illustra tutti i percorsi di aggiornamento a Windows Server 2016 supportati.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.date: 01/18/2017
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 74aa1da3-7076-4a1f-ad5b-9e17bd46dba2
 author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 2484363db661620844993d52914700cb8b6cdf56
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 05e891d4170458018577b39bc83e952bf18d420e
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71391589"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826504"
 ---
 # <a name="upgrade-and-conversion-options-for-windows-server-2016"></a>Opzioni di aggiornamento e conversione per Windows Server 2016
 
 >Si applica a: Windows Server 2019, Windows Server 2016
 
-Questo argomento include informazioni sull'aggiornamento a Windows Server® 2016 da una vasta gamma di sistemi operativi precedenti mediante metodi diversi.
+Questo argomento include informazioni sull'aggiornamento a Windows Server&reg; 2016 da una vasta gamma di sistemi operativi precedenti mediante metodi diversi.
 
 Il processo di transizione a Windows Server 2016 può variare notevolmente a seconda del sistema operativo di partenza e del percorso scelto. Per distinguere le diverse azioni, ognuna delle quali potrebbe essere richiesta per una nuova distribuzione di Windows Server 2016, vengono usati i termini seguenti.
 
@@ -35,9 +31,9 @@ Il processo di transizione a Windows Server 2016 può variare notevolmente a sec
 
 - L'**aggiornamento in sequenza del sistema operativo del cluster** è una nuova funzionalità di Windows Server 2016 che consente a un amministratore di aggiornare il sistema operativo dei nodi del cluster da Windows Server 2012 R2 a Windows Server 2016 senza interrompere i carichi di lavoro del file server di scalabilità orizzontale o di Hyper-V. Questa funzionalità consente di evitare tempi di inattività che potrebbero influire sui contratti di servizio. La nuova funzionalità è illustrata in modo più dettagliato in [Aggiornamento in sequenza del sistema operativo del cluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/cluster-operating-system-rolling-upgrade).
 
-- La **conversione delle licenze** in alcune versioni di sistemi operativi consente di convertire una particolare edizione della versione in un'altra edizione della stessa versione con un'unica operazione, usando un semplice comando e il codice di licenza appropriato. Questo processo è definito come "conversione delle licenze". Se ad esempio si esegue Windows Server 2016 Standard, è possibile convertirlo in Windows Server 2016 Datacenter.
+- La **conversione delle licenze** in alcune versioni di sistemi operativi consente di convertire una particolare edizione della versione in un'altra edizione della stessa versione con un'unica operazione, usando un semplice comando e il codice di licenza appropriato. Questo processo è definito come conversione delle licenze. Se ad esempio si esegue Windows Server 2016 Standard, è possibile convertirlo in Windows Server 2016 Datacenter.
 
-- Il termine **aggiornamento** indica il passaggio dalla versione del sistema operativo esistente a una versione più recente, sempre nello stesso hardware. È talvolta definito aggiornamento "sul posto". Ad esempio, un server su cui è in esecuzione Windows Server 2012 o Windows Server 2012 R2 può essere aggiornato a Windows Server 2016. È possibile effettuare l'aggiornamento da una versione di valutazione del sistema operativo a una versione definitiva, da una versione definitiva precedente a una più recente oppure, in alcuni casi, da un'edizione del sistema operativo con contratto multilicenza a una normale edizione definitiva.
+- Il termine **aggiornamento** indica il passaggio dalla versione del sistema operativo esistente a una versione più recente, sempre nello stesso hardware. È talvolta definito aggiornamento sul posto. Ad esempio, un server su cui è in esecuzione Windows Server 2012 o Windows Server 2012 R2 può essere aggiornato a Windows Server 2016. È possibile effettuare l'aggiornamento da una versione di valutazione del sistema operativo a una versione definitiva, da una versione definitiva precedente a una più recente oppure, in alcuni casi, da un'edizione del sistema operativo con contratto multilicenza a una normale edizione definitiva.
 
 > [!IMPORTANT]  
 > L'aggiornamento funziona meglio in macchine virtuali in cui non sono necessari specifici driver hardware originali per l'aggiornamento.  
@@ -70,7 +66,7 @@ Se nella colonna a destra sono presenti più edizioni, è supportato l'aggiornam
 |Windows Server 2012 Standard|Windows Server 2016 Standard o Datacenter|
 |Windows Server 2012 Datacenter|Windows Server 2016 Datacenter|
 |Windows Server 2012 R2 Standard|Windows Server 2016 Standard o Datacenter|
-|Windows Server 2012 R2 Datacenter|Windows Server 2016 Datacenter|
+|Windows Server 2012 R2 Datacenter|Windows Server 2016 Datacenter|
 |Windows Server 2012 R2 Essentials|Windows Server 2016 Essentials|
 |Windows Storage Server 2012 Standard|Windows Storage Server 2016 Standard|
 |Windows Storage Server 2012 Workgroup|Windows Storage Server 2016 Workgroup|
@@ -91,21 +87,21 @@ Anche nei percorsi di aggiornamento supportati da versioni definitive precedenti
 
 Prima di tentare di eseguire la conversione dalla versione di valutazione a quella definitiva, verificare che nel server sia effettivamente in esecuzione una versione di valutazione. A tale scopo, eseguire una delle operazioni seguenti:
 
-- Da un prompt dei comandi con privilegi elevati eseguire **slmgr.vbs /dlv**. Per le versioni di valutazione nell'output è indicato "EVAL".
+- Da un prompt dei comandi con privilegi elevati esegui **slmgr.vbs /dlv**. Per le versioni di valutazione nell'output è indicato EVAL.
 
 - Dalla schermata Start aprire il **Pannello di controllo**. Aprire **Sistema e sicurezza**e quindi **Sistema**. Visualizzare lo stato di attivazione di Windows nella relativa area della pagina **Sistema**. Fare clic su **Visualizza dettagli in attivazione di Windows** per altre informazioni sullo stato di attivazione di Windows.
 
 Se Windows è già stato attivato, sul desktop viene visualizzato il tempo rimanente per il periodo di valutazione.
 
-Se sul server è in esecuzione una versione definitiva anziché una versione di valutazione, vedere la sezione "Aggiornamento delle versioni definitive precedenti di Windows Server a Windows Server 2016" in questo documento per informazioni sull'aggiornamento a Windows Server 2016.
+Se sul server è in esecuzione una versione definitiva anziché una versione di valutazione, vedi la sezione Aggiornamento delle versioni definitive precedenti di Windows Server a Windows Server 2016 in questo documento per informazioni sull'aggiornamento a Windows Server 2016.
 
 Per **Windows Server 2016 Essentials:** è possibile eseguire la conversione alla versione definitiva completa immettendo un codice Product Key per attivazione singola, per contratti multilicenza oppure OEM nel comando **slmgr.vbs**.
 
 Se nel server è in esecuzione una versione di valutazione di Windows Server 2016 Standard o Windows Server 2016 Datacenter, è possibile convertirla in una versione definitiva come indicato di seguito:
 
-1.  Se il server è un **controller di dominio**, non è possibile eseguire la conversione a una versione definitiva. In questo caso, installare un controller di dominio aggiuntivo in un server che esegue una versione definitiva e rimuovere Servizi di dominio Active Directory dal controller di dominio in esecuzione nella versione di valutazione. Per altre informazioni, vedere [Aggiornare controller di dominio a Windows Server 2012 R2 e Windows Server 2012](https://technet.microsoft.com/library/hh994618.aspx).
-2.  Leggere le condizioni di licenza.
-3.  Da un prompt dei comandi con privilegi elevati determinare il nome dell'edizione corrente tramite il comando **DISM /online /Get-CurrentEdition**. Prendere nota dell'ID dell'edizione, che corrisponde a una forma abbreviata del nome. Eseguire quindi **DISM /online /Set-Edition:\<ID edizione\> /ProductKey:XXXXX-XXXXX-XXXXX-XXXXX-XXXXX /AcceptEula** specificando l'ID dell'edizione e un codice Product Key per attivazione singola. Il server verrà riavviato due volte.
+1.    Se il server è un **controller di dominio**, non è possibile eseguire la conversione a una versione definitiva. In questo caso, installare un controller di dominio aggiuntivo in un server che esegue una versione definitiva e rimuovere Servizi di dominio Active Directory dal controller di dominio in esecuzione nella versione di valutazione. Per altre informazioni, vedere [Aggiornare controller di dominio a Windows Server 2012 R2 e Windows Server 2012](https://technet.microsoft.com/library/hh994618.aspx).
+2.    Leggere le condizioni di licenza.
+3.    Da un prompt dei comandi con privilegi elevati determinare il nome dell'edizione corrente tramite il comando **DISM /online /Get-CurrentEdition**. Prendere nota dell'ID dell'edizione, che corrisponde a una forma abbreviata del nome. Eseguire quindi **DISM /online /Set-Edition:\<ID edizione\> /ProductKey:XXXXX-XXXXX-XXXXX-XXXXX-XXXXX /AcceptEula** specificando l'ID dell'edizione e un codice Product Key per attivazione singola. Il server verrà riavviato due volte.
 
 Per la versione di valutazione di Windows Server 2016 Standard, è anche possibile eseguire la conversione alla versione definitiva di Windows Server 2016 Datacenter in un unico passaggio usando lo stesso comando e il codice Product Key appropriato.
 
@@ -114,8 +110,8 @@ Per la versione di valutazione di Windows Server 2016 Standard, è anche possibi
 
 ## <a name="converting-a-current-retail-edition-to-a-different-current-retail-edition"></a>Conversione da una versione definitiva corrente a un'altra versione definitiva corrente
 
-In qualsiasi momento dopo l'installazione di Windows Server 2016 è possibile eseguire il programma di installazione per ripristinare l'installazione (operazione talvolta denominata "ripristino sul posto") oppure, in determinati casi, per eseguire la conversione a un'edizione diversa.
-È possibile eseguire il programma di installazione per eseguire un "ripristino sul posto" in qualsiasi edizione di Windows Server 2016. Il risultato sarà la stessa edizione di partenza.
+In qualsiasi momento dopo l'installazione di Windows Server 2016 puoi eseguire il programma di installazione per ripristinare l'installazione (operazione talvolta denominata ripristino sul posto) oppure, in determinati casi, per eseguire la conversione a un'edizione diversa.
+Puoi eseguire il programma di installazione per effettuare un ripristino sul posto in qualsiasi edizione di Windows Server 2016. Il risultato sarà la stessa edizione di partenza.
 
 Per Windows Server 2016 Standard, è possibile convertire il sistema in Windows Server 2016 Datacenter in questo modo: Da un prompt dei comandi con privilegi elevati determinare il nome dell'edizione corrente tramite il comando **DISM /online /Get-CurrentEdition**. Per Windows Server 2016 Standard sarà `ServerStandard`. Eseguire il comando **DISM /online /Get-TargetEditions** per ottenere l'ID dell'edizione alla quale è possibile eseguire l'aggiornamento. Prendere nota dell'ID dell'edizione, che corrisponde a una forma abbreviata del nome. Eseguire quindi **DISM /online /Set-Edition:\<ID edizione\> /ProductKey:XXXXX-XXXXX-XXXXX-XXXXX-XXXXX /AcceptEula**, specificando l'ID dell'edizione della destinazione e il relativo codice Product Key per attivazione singola. Il server verrà riavviato due volte.
 

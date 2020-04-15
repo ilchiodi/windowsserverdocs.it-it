@@ -1,25 +1,21 @@
 ---
 title: Requisiti di sistema
 description: Requisiti minimi per archiviazione, CPU, rete, memoria e RAM in un'installazione pulita di ogni opzione di installazione.
-ms.custom: na
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.date: 10/17/2017
 ms.technology: server-general
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4a8b42d7-9fe5-4efe-9ea1-ace2131fe068
 author: jaimeo
 ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
-ms.openlocfilehash: 9e8b0c04137ff3b11cdaa7aba3c7899ca6300848
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: cd4666f9ac0677ce8893041ae4e937cca41e8164
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75947746"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80826494"
 ---
 # <a name="system-requirements"></a>Requisiti di sistema
 
@@ -31,16 +27,16 @@ Questo argomento illustra i requisiti minimi di sistema per l'esecuzione di Wind
 > In questa versione è consigliabile eseguire installazioni pulite.  
 
 > [!NOTE]  
-> Se al momento dell'installazione si sceglie di procedere con l'opzione Server Core è necessario essere consapevoli che nessun componente GUI è installato e che non sarà possibile installare o disinstallare tali elementi con Server Manager. Se sono necessarie funzionalità GUI, quando si installa Windows Server 2016 assicurarsi di scegliere l'opzione "Server con Esperienza desktop". Per altre informazioni, vedere [Installare Nano Server](Getting-Started-with-Nano-Server.md)  
+> Se al momento dell'installazione si sceglie di procedere con l'opzione Server Core è necessario essere consapevoli che nessun componente GUI è installato e che non sarà possibile installare o disinstallare tali elementi con Server Manager. Se sono necessarie funzionalità GUI, quando installi Windows Server 2016 assicurati di scegliere l'opzione server con Esperienza desktop. Per altre informazioni, vedere [Installare Nano Server](Getting-Started-with-Nano-Server.md)  
 
 
 ## <a name="review-system-requirements"></a>Verificare i requisiti di sistema  
-Di seguito sono indicati i requisiti di sistema stimati per Windows Server 2016. Se le risorse del computer sono inferiori ai requisiti minimi indicati, non sarà possibile installare il prodotto in modo corretto. I requisiti effettivi possono variare in base alla configurazione del sistema, nonché in base alle applicazioni e alle funzionalità selezionate per l'installazione.
+Di seguito sono indicati i requisiti di sistema stimati per Windows Server 2016. Se il computer non soddisfa i requisiti minimi, il prodotto non sarà possibile installare il prodotto in modo corretto. I requisiti effettivi possono variare in base alla configurazione del sistema, nonché in base alle applicazioni e alle funzionalità selezionate per l'installazione.
 
 Se non diversamente specificato, i requisiti minimi di sistema si applicano a tutte le opzioni di installazione (Server Core, Server con Esperienza desktop e Nano Server) e a entrambe le edizioni Standard e Datacenter.  
 
 > [!IMPORTANT]  
-> La gamma estremamente diversificata delle potenziali distribuzioni rende poco realistico dichiarare i requisiti di sistema applicabili a livello generale come "consigliati". Consultare la documentazione relativa a ogni ruolo del server che si prevede di distribuire per ulteriori dettagli sulle esigenze a livello di risorse per gli specifici ruoli del server. Per ottenere risultati ottimali, eseguire distribuzioni di prova per stabilire i requisiti di sistema appropriati per ogni scenario di distribuzione specifico.  
+> La gamma estremamente diversificata delle potenziali distribuzioni rende poco realistico dichiarare requisiti di sistema consigliati applicabili a livello generale. Consultare la documentazione relativa a ogni ruolo del server che si prevede di distribuire per ulteriori dettagli sulle esigenze a livello di risorse per gli specifici ruoli del server. Per ottenere risultati ottimali, eseguire distribuzioni di prova per stabilire i requisiti di sistema appropriati per ogni scenario di distribuzione specifico.  
 
 
 ## <a name="processor"></a>Processore  

@@ -1,24 +1,19 @@
 ---
 title: L'utente non riesce ad autenticarsi o deve autenticarsi due volte
 description: Risoluzione di un problema per cui l'utente non riesce a eseguire l'autenticazione o deve eseguirla due volte all'avvio di una connessione Desktop remoto.
-audience: itpro
-ms.custom: na
 ms.reviewer: rklemen
-ms.suite: na
-ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.assetid: ''
 author: kaushika-msft
 manager: dcscontentpm
 ms.author: delhan
 ms.date: 07/24/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 7dbb037e335af52dacbc56c920b1776be995e753
-ms.sourcegitcommit: c5709021aa98abd075d7a8f912d4fd2263db8803
+ms.openlocfilehash: 8fd7cfda8814347f8bab9dc7b3f7632e3b992ecb
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2020
-ms.locfileid: "76265933"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80857234"
 ---
 # <a name="user-cant-authenticate-or-must-authenticate-twice"></a>L'utente non riesce ad autenticarsi o deve autenticarsi due volte
 
@@ -100,7 +95,7 @@ Per risolvere questo problema, aggiorna il computer Windows Server con il nuovo 
 
 ### <a name="cant-stay-signed-in-with-a-smart-card-and-remote-desktop-services-service-hangs"></a>Impossibilità di restare connessi con una smart card e blocco di Servizi Desktop remoto
 
-Questo problema si verifica quando gli utenti accedono a un computer Windows o Windows Server aggiornato con KB 4056446. L'utente inizialmente può riuscire ad accedere al sistema mediante una smart card, ma successivamente riceve il messaggio di errore "SCARD\_E\_NO\_SERVICE". Il computer remoto potrebbe smettere di rispondere.
+Questo problema si verifica quando gli utenti accedono a un computer Windows o Windows Server aggiornato con KB 4056446. L'utente inizialmente può riuscire ad accedere al sistema tramite una smart card, ma successivamente riceve un messaggio di errore di tipo "SCARD\_E\_NO\_SERVICE". Il computer remoto potrebbe smettere di rispondere.
 
 Per ovviare a questo problema, riavvia il computer remoto.
 
@@ -116,7 +111,7 @@ Questo problema può verificarsi quando un utente prova a connettersi a un deskt
 
 Per risolvere questo problema, aggiorna il computer Windows 10 versione 1709 con KB 4343893, [30 agosto 2018 - KB4343893 (build sistema operativo 16299.637)](https://support.microsoft.com/help/4343893/windows-10-update-kb4343893).
 
-## <a name="user-cant-sign-in-and-receives-authentication-error-and-credssp-encryption-oracle-remediation-messages"></a>Un utente non riesce ad accedere e riceve messaggi che indicano un "errore di autenticazione" e la "correzione oracolo di crittografia CredSSP"
+## <a name="user-cant-sign-in-and-receives-authentication-error-and-credssp-encryption-oracle-remediation-messages"></a>Un utente non riesce ad accedere e riceve messaggi che indicano un "errore di autenticazione" e la "correzione Oracle di crittografia CredSSP"
 
 Quando gli utenti provano ad accedere usando una versione qualsiasi di Windows, da Windows Vista SP2 e versioni successive a Windows Server 2008 SP2 e versioni successive, viene loro negato l'accesso e vengono visualizzati messaggi simili ai seguenti:
 
@@ -127,7 +122,7 @@ This could be due to CredSSP encryption oracle remediation
 ...
 ```
 
-"Correzione oracolo di crittografia CredSSP" indica un set di aggiornamenti di sicurezza rilasciati a marzo, aprile e maggio 2018. CredSSP è un provider di autenticazione che elabora le richieste di autenticazione per altre applicazioni. L'aggiornamento "3B" del 13 marzo 2018 e gli aggiornamenti successivi hanno riguardato un exploit in cui l'autore di un attacco poteva inoltrare le credenziali utente per eseguire codice sul sistema di destinazione.
+"Correzione Oracle di crittografia CredSSP" indica un set di aggiornamenti di sicurezza rilasciati a marzo, aprile e maggio 2018. CredSSP è un provider di autenticazione che elabora le richieste di autenticazione per altre applicazioni. L'aggiornamento "3B" del 13 marzo 2018 e gli aggiornamenti successivi hanno riguardato un exploit in cui l'autore di un attacco poteva inoltrare le credenziali utente per eseguire codice sul sistema di destinazione.
 
 Gli aggiornamenti iniziali hanno aggiunto il supporto per un nuovo oggetto Criteri di gruppo, ovvero Correzione oracolo di crittografia, che può avere le impostazioni seguenti:
 
