@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/12/2016
-ms.openlocfilehash: 7609ebb0fdcb6d429cd40d99399eaaedb732df08
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: c0fdb5c1d7c4b03610a173c6cd0575d39646a7d0
+ms.sourcegitcommit: af1cf89632d62a94943d3ad9f6b5234b88499278
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80855094"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81524906"
 ---
 # <a name="determine-allow-deny-list-and-application-inventory-for-software-restriction-policies"></a>Determinare l'elenco Consenti-Nega e l'inventario delle applicazioni per i criteri di restrizione software
 
@@ -48,9 +48,9 @@ Per usare in modo efficace la regola Consenti impostazioni predefinite, è neces
 
 2.  Creare il seguente valore del registro di sistema per abilitare la funzionalità di registrazione avanzata e impostare il percorso in cui deve essere scritto il file di log.
 
-    **"HKEY_LOCAL_MACHINE identificatori code\software\policies\microsoft\windows\safer\"**
+    **"HKEY_LOCAL_MACHINE \SOFTWARE\Policies\Microsoft\Windows\Safer\CodeIdentifiers"**
 
-    Valore stringa: *NameLogFile percorso NameLogFile*
+    Valore stringa: *LogFileName percorso di LogFileName*
 
     Poiché il SRP sta valutando tutte le applicazioni quando vengono eseguite, una voce viene scritta nel file di log *NameLogFile* ogni volta che viene eseguita l'applicazione.
 
@@ -69,5 +69,4 @@ Per usare in modo efficace la regola Consenti impostazioni predefinite, è neces
     Esempio di output scritto in un file di log:
 
 **Explorer. exe (PID = 4728) identifiedC: \ Windows\system32\onenote.exe come regola usingpath senza restrizioni, Guid = {320bd852-aa7c-4674-82C5-9a80321670a3}**    Nel file di log verranno indicate tutte le applicazioni e il codice associato che le verifiche del rollup e l'impostazione del blocco verranno riportate nel file di log, che sarà quindi possibile utilizzare per determinare quali file eseguibili devono essere presi in considerazione per l'elenco degli
-
 
