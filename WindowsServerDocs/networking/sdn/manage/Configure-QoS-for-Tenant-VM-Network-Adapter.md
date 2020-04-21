@@ -1,24 +1,20 @@
 ---
 title: Configurare la qualità del servizio (QoS) per una scheda di rete della macchina virtuale tenant
 description: Quando si configura QoS per una scheda di rete della macchina virtuale tenant, è possibile scegliere tra Data Center Bridging \(DCB\)o Software Defined Networking \(SDN\) QoS.
-manager: dougkim
-ms.custom: na
+manager: grcusanz
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: networking-sdn
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6d783ff6-7dd5-496c-9ed9-5c36612c6859
-ms.author: lizross
-author: eross-msft
+ms.author: anpaul
+author: AnirbanPaul
 ms.date: 08/23/2018
-ms.openlocfilehash: 61f790898d2a6068afb1436957e64861f4c0ebe8
-ms.sourcegitcommit: da7b9bce1eba369bcd156639276f6899714e279f
+ms.openlocfilehash: 76a37bde8ca89fe6808a12aff51185d179f5d523
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80309936"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80854554"
 ---
 # <a name="configure-quality-of-service-qos-for-a-tenant-vm-network-adapter"></a>Configurare la qualità del servizio (QoS) per una scheda di rete della macchina virtuale tenant
 
@@ -26,13 +22,13 @@ ms.locfileid: "80309936"
 
 Quando si configura QoS per una scheda di rete della macchina virtuale tenant, è possibile scegliere tra Data Center Bridging \(DCB\)o Software Defined Networking \(SDN\) QoS.
 
-1.  **DCB**. È possibile configurare DCB usando i cmdlet di Windows PowerShell NetQoS. Per un esempio, vedere la sezione "abilitare il Data Center Bridging" nell'argomento [accesso diretto a memoria remota (RDMA) e switch Embedded Teaming (set)](../../../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).
+1.    **DCB**. È possibile configurare DCB usando i cmdlet di Windows PowerShell NetQoS. Per un esempio, vedere la sezione "abilitare il Data Center Bridging" nell'argomento [accesso diretto a memoria remota (RDMA) e switch Embedded Teaming (set)](../../../virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming.md).
 
-2.  **QoS Sdn**. È possibile abilitare la QoS SDN usando il controller di rete, che può essere impostato per limitare la larghezza di banda in un'interfaccia virtuale per impedire a una VM con traffico elevato di bloccare altri utenti.  È anche possibile configurare SDN QoS per riservare una quantità di larghezza di banda specifica per una macchina virtuale per garantire che la macchina virtuale sia accessibile indipendentemente dalla quantità di traffico di rete.  
+2.    **QoS Sdn**. È possibile abilitare la QoS SDN usando il controller di rete, che può essere impostato per limitare la larghezza di banda in un'interfaccia virtuale per impedire a una VM con traffico elevato di bloccare altri utenti.  È anche possibile configurare SDN QoS per riservare una quantità di larghezza di banda specifica per una macchina virtuale per garantire che la macchina virtuale sia accessibile indipendentemente dalla quantità di traffico di rete.  
 
 Applicare tutte le impostazioni QoS SDN tramite le impostazioni della porta delle proprietà dell'interfaccia di rete. Per ulteriori informazioni, fare riferimento alla tabella riportata di seguito.
 
-|Nome elemento|Descrizione|
+|Nome elemento|Description|
 |------------|-----------| 
 |macSpoofing| Consente alle macchine virtuali di modificare l'origine Media Access Control \(indirizzo MAC\) nei pacchetti in uscita a un indirizzo MAC non assegnato alla macchina virtuale.<p>Valori consentiti:<ul><li>Abilitato: usare un indirizzo MAC diverso.</li><li>Disabilitato: usare solo l'indirizzo MAC assegnato.</li></ul>|
 |arpGuard| Consente di passare attraverso la porta solo gli indirizzi ARP Guard specificati in ArpFilter.<p>Valori consentiti:<ul><li>Abilitato-consentito</li><li>Disabled-non consentito</li></ul>|
