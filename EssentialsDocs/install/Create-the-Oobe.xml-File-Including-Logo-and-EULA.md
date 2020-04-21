@@ -57,7 +57,7 @@ ms.locfileid: "80818224"
    |-----------------------|----------------------------------------|  
    |%WINDIR%\System32\Oobe\Info\|il server viene fornito in un unico paese/area geografica e in un unico sistema di linguaggio.|  
    |%WINDIR%\system32\oobe\info\default\\< Language\>|Il server è destinato ad un unico paese/area geografica o a un sistema multilingua.|  
-   |%WINDIR%\System32\Oobe\Info\\< paese/area geografica > \ e%WINDIR%\System32\Oobe\Info\\< paese/area >\\< lingua\>\|il server è destinato a più di un paese/area geografica e le impostazioni devono essere personalizzate in base al paese/area geografica, ognuna con una sola lingua. Dove < paese/regione > è la versione decimale dell'identificatore della posizione geografica (GeoID) del paese o dell'area geografica in cui viene distribuito il server e < lingua\> è la versione decimale dell'identificatore delle impostazioni locali (LCID).|  
+   |%WINDIR%\System32\Oobe\Info\\< paese/area geografica > \ e%WINDIR%\System32\Oobe\Info\\< paese/area >\\< lingua\>\|il server è destinato a più di un paese/area geografica e le impostazioni devono essere personalizzate in base al paese/area geografica, ognuna con una sola lingua. Dove < paese/area > è la versione decimale dell'identificatore della posizione geografica (GeoID) del paese o dell'area geografica in cui viene distribuito il server e < lingua\> è la versione decimale dell'identificatore delle impostazioni locali (LCID).|  
   
    Se si dispone di un logo aziendale alternativo con del testo bianco, la visualizzazione durante la procedura di installazione potrebbe essere migliore in virtù dello sfondo di colore blu.  È possibile specificare questo logo impostando un chiave del Registro di sistema con relativo valore.  
   

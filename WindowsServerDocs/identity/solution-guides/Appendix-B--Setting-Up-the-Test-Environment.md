@@ -1,7 +1,6 @@
 ---
 ms.assetid: 82918181-525d-4e93-af96-957dac6aedb6
 title: Appendice B configurazione dell'ambiente di test
-description: ''
 author: billmath
 ms.author: billmath
 manager: femila
@@ -9,12 +8,12 @@ ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: af045545826269630af9327480cda59093d219df
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 5f529e6b0176b7ad416a728163b4ae9671040bf8
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71407148"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80861284"
 ---
 # <a name="appendix-b-setting-up-the-test-environment"></a>Appendice B: Configurazione dell'ambiente di testing
 
@@ -64,7 +63,7 @@ Le password per le macchine virtuali devono essere le seguenti:
 
 ##### <a name="to-install-the-hyper-v-role"></a>Per installare il ruolo Hyper-V  
 
-1.  Fare clic sul pulsante **Start**e quindi scegliere Server Manager.  
+1.  Fare clic sul pulsante **Start** e quindi scegliere Server Manager.  
 
 2.  Nell'area Riepilogo ruoli della finestra principale di Server Manager fare clic su **Aggiungi ruoli**.  
 
@@ -72,9 +71,9 @@ Le password per le macchine virtuali devono essere le seguenti:
 
 4.  Nella pagina **Crea reti virtuali** fare clic su una o più schede di rete per rendere la connessione di rete corrispondente disponibile per le macchine virtuali.  
 
-5.  Nella pagina **Conferma selezioni per la rimozione** fare clic su **Rimuovi**.  
+5.  Nella pagina **Conferma selezioni per l'installazione** fare clic su **Installa**.  
 
-6.  Per completare il processo di installazione è necessario riavviare il computer. Fare clic su **Chiudi** per terminare la procedura guidata e quindi su **Sì** per riavviare il computer.  
+6.  Per completare l'installazione è necessario riavviare il computer. Fare clic su **Chiudi** per terminare la procedura guidata e quindi su **Sì** per riavviare il computer.  
 
 7.  Dopo avere ravviato il computer, accedere con lo stesso account usato per installare il ruolo. Dopo il completamento dell'installazione, fare clic su **Chiudi** per terminare la Ripresa guidata configurazione.  
 
@@ -87,9 +86,9 @@ A questo punto si creerà una rete virtuale interna denominata ID_AD_Network.
 
 2.  Scegliere **Gestione reti virtuali** dal menu **Azioni**.  
 
-3.  In **Crea rete virtuale**selezionare **Interna**.  
+3.  In **Crea rete virtuale** selezionare **Interna**.  
 
-4.  Fai clic su **Aggiungi**. Verrà visualizzata la pagina **Nuova rete virtuale** .  
+4.  Fare clic su **Add**. Verrà visualizzata la pagina **Nuova rete virtuale**.  
 
 5.  Digitare **ID_AD_Network** come nome della nuova rete. Verificare le altre proprietà e modificarle se necessario.  
 
@@ -104,15 +103,15 @@ Creare una macchina virtuale da usare come controller di dominio (DC1). Installa
 
 2. In Server Manager fare clic su **Gestione**e quindi su **Aggiungi ruoli e funzionalità**.  
 
-3. Nella pagina **Prima di iniziare**, fare clic su **Avanti**.  
+3. Nella pagina **Prima di iniziare** fare clic su **Avanti**.  
 
-4. Nella pagina **Selezione tipo di installazione** selezionare **Installazione basata su ruoli o basata su funzionalità**e quindi fare clic su **Avanti**.  
+4. Nella pagina **Selezione tipo di installazione** selezionare **Installazione basata su ruoli o basata su funzionalità** e quindi fare clic su **Avanti**.  
 
 5. Nella pagina **Selezione server di destinazione** fare clic su **Avanti**.  
 
 6. Nella pagina **Selezione ruoli server** fare clic su **Servizi di dominio Active Directory**. Nella finestra di dialogo **Aggiunta guidata ruoli e funzionalità** fare clic su **Aggiungi funzionalità** e quindi su **Avanti**.  
 
-7. Nella pagina **Selezione funzionalità** fare clic sul pulsante **Avanti**.  
+7. Nella pagina **Selezione funzionalità** fare clic su **Avanti**.  
 
 8. Nella pagina **Servizi di dominio Active Directory** verificare le informazioni e fare clic su **Avanti**.  
 
@@ -164,13 +163,13 @@ Creare gli utenti seguenti mediante Centro di amministrazione di Active Director
 4. Creare gli utenti seguenti con gli attributi indicati:  
 
 
-   |       Utente       |  Nome utente  |     Indirizzo e-mail      | Reparto |      Gruppo       | Paese/area geografica |
+   |       Utente       |  Nome utente  |     Indirizzo e-mail      | Reparto |      Gruppo       | Country/Region |
    |------------------|------------|------------------------|------------|------------------|----------------|
-   | Myriam Delesalle | MDelesalle | MDelesalle@contoso.com |  Finanza   |                  |       Stati Uniti       |
-   |    Miles Reid    |   MReid    |   MReid@contoso.com    |  Finanza   |   FinanceAdmin   |       Stati Uniti       |
-   |   Esther Valle   |   EValle   |   EValle@contoso.com   | Operazioni | FinanceException |       Stati Uniti       |
-   |   Maira Wenzel   |  MWenzel   |  MWenzel@contoso.com   |     RU     |                  |       Stati Uniti       |
-   |     Jeff Low     |    JLow    |    JLow@contoso.com    |     RU     |                  |       Stati Uniti       |
+   | Myriam Delesalle | MDelesalle | MDelesalle@contoso.com |  Finance   |                  |       US       |
+   |    Miles Reid    |   MReid    |   MReid@contoso.com    |  Finance   |   FinanceAdmin   |       US       |
+   |   Esther Valle   |   EValle   |   EValle@contoso.com   | Operazioni | FinanceException |       US       |
+   |   Maira Wenzel   |  MWenzel   |  MWenzel@contoso.com   |     RU     |                  |       US       |
+   |     Jeff Low     |    JLow    |    JLow@contoso.com    |     RU     |                  |       US       |
    |    RMS Server    |    rms     |    rms@contoso.com     |            |                  |                |
 
    Per altre informazioni sulla creazione di gruppi di sicurezza, vedere [Creare un nuovo gruppo](https://technet.microsoft.com/library/dd861305.aspx) sul sito Web di Windows Server.  
@@ -179,7 +178,7 @@ Creare gli utenti seguenti mediante Centro di amministrazione di Active Director
 
 1.  Passare il cursore sull'angolo superiore destro dello schermo e fare clic sull'icona di ricerca. Nella casella di ricerca digitare **gestione criteri di gruppo** e fare clic su **Gestione criteri di gruppo**.  
 
-2.  Espandere **Foresta: contoso.com**e quindi espandere **Domini**, passare a **contoso.com**, espandere **(contoso.com)** e quindi selezionare **FileServerOU**. Fare clic con il pulsante destro del mouse su **Crea un oggetto Criteri di gruppo nel dominio e collegarlo qui**
+2.  Espandere **Foresta: contoso.com** e quindi espandere **Domini**, passare a **contoso.com**, espandere **(contoso.com)** e quindi selezionare **FileServerOU**. Fare clic con il pulsante destro del mouse su **Crea un oggetto Criteri di gruppo nel dominio e collegarlo qui**
 
 3.  Digitare un nome descrittivo per l'oggetto Criteri di gruppo, ad esempio **FlexibleAccessGPO**, e quindi fare clic su **OK**.  
 
@@ -187,7 +186,7 @@ Creare gli utenti seguenti mediante Centro di amministrazione di Active Director
 
 1.  Aprire la Console Gestione Criteri di gruppo, fare clic su **contoso.com** e quindi fare doppio clic su **Controller di dominio**.  
 
-2.  Fare clic con il pulsante destro del mouse su **Criterio Controller di domini predefiniti**e scegliere **Modifica**.  
+2.  Fare clic con il pulsante destro del mouse su **Criterio Controller di domini predefiniti** e scegliere **Modifica**.  
 
 3.  Nella finestra Editor Gestione Criteri di gruppo fare doppio clic su **Configurazione computer**, quindi su **Criteri**, **Modelli amministrativi**, **Sistema** e infine su **KDC**.  
 
@@ -213,7 +212,7 @@ Creare gli utenti seguenti mediante Centro di amministrazione di Active Director
 
 1.  In Server Manager fare clic su **Aggiungi ruoli e funzionalità**.  
 
-2.  Nella pagina **Prima di iniziare**, fare clic su **Avanti**.  
+2.  Nella pagina **Prima di iniziare** fare clic su **Avanti**.  
 
 3.  Nella pagina **Selezione tipo di installazione** fare clic su **Avanti**.  
 
@@ -221,9 +220,9 @@ Creare gli utenti seguenti mediante Centro di amministrazione di Active Director
 
 5.  Nella pagina **Selezione ruoli server** espandere **Servizi file e archiviazione**, selezionare la casella di controllo accanto a **Servizi file e iSCSI**, espandere e infine selezionare **Gestione risorse file server**.  
 
-    Nell'Aggiunta guidata ruoli e funzionalità fare clic su **Aggiungi funzionalità**e quindi su **Avanti**.  
+    Nell'Aggiunta guidata ruoli e funzionalità fare clic su **Aggiungi funzionalità** e quindi su **Avanti**.  
 
-6.  Nella pagina **Selezione funzionalità** fare clic sul pulsante **Avanti**.  
+6.  Nella pagina **Selezione funzionalità** fare clic su **Avanti**.  
 
 7.  Nella pagina **Conferma selezioni per l'installazione** fare clic su **Installa**.  
 
@@ -239,11 +238,11 @@ Quando si creano quote e screening dei file, è possibile inviare notifiche tram
 
 ###### <a name="to-configure-email-options-in-file-server-resource-manager"></a>Per configurare le opzioni di posta elettronica in Gestione risorse file server  
 
-1. Aprire Gestione risorse file server. Per aprire Gestione risorse file server, fare clic su **Start**, digitare **gestione risorse file server**e quindi fare clic su **Gestione risorse file server**.  
+1. Aprire Gestione risorse file server. Per aprire Gestione risorse file server, fare clic su **Start**, digitare **gestione risorse file server** e quindi fare clic su **Gestione risorse file server**.  
 
 2. Nell'interfaccia di Gestione risorse file server fare clic con il pulsante destro del mouse su **Gestione risorse file server** e quindi scegliere **Configura opzioni**. Verrà visualizzata la finestra di dialogo **Gestione risorse file server**.  
 
-3. Nella scheda **Notifiche posta elettronica** , in Nome server SMTP o indirizzo IP, digitare il nome host o l'indirizzo IP del server SMTP che inoltrerà le notifiche tramite posta elettronica.  
+3. Nella scheda **Notifiche posta elettronica**, in Nome server SMTP o indirizzo IP, digitare il nome host o l'indirizzo IP del server SMTP che inoltrerà le notifiche tramite posta elettronica.  
 
 4. Se si desidera notificare periodicamente a determinati amministratori gli eventi di quota o di screening dei file, in **destinatari amministratori predefiniti**Digitare ogni indirizzo di posta elettronica, ad esempio fileadmin@contoso.com. Usare il formato account@domaine usare i punti e virgola per separare più account.  
 
@@ -296,7 +295,7 @@ Aggiungere Active Directory Rights Management Services (AD RMS) e tutte le funzi
 
 3. Nella schermata **Prima di iniziare** fare clic su **Avanti**.  
 
-4. Nella schermata **Selezione tipo di installazione** fare clic su **Installazione basata su ruoli o basata su funzionalità**e quindi su **Avanti**.  
+4. Nella schermata **Selezione tipo di installazione** fare clic su **Installazione basata su ruoli o basata su funzionalità** e quindi su **Avanti**.  
 
 5. Nella schermata **Selezione server di destinazione** fare clic su **Avanti**.  
 
@@ -343,7 +342,7 @@ Aggiungere Active Directory Rights Management Services (AD RMS) e tutte le funzi
 
 25. Nella schermata **Nome certificato concessore di licenze** accettare il nome predefinito (**FILE1**) nella casella di testo e fare clic su **Avanti**.  
 
-26. Nella schermata **Registrazione SCP** selezionare **Registra SCP**e quindi fare clic su **Avanti**.  
+26. Nella schermata **Registrazione SCP** selezionare **Registra SCP** e quindi fare clic su **Avanti**.  
 
 27. Nella schermata **Conferma** fare clic su **Installa**.  
 
@@ -351,9 +350,9 @@ Aggiungere Active Directory Rights Management Services (AD RMS) e tutte le funzi
 
 29. Avviare la console AD RMS e passare a **Modelli di criteri per i diritti di utilizzo**.  
 
-    Per aprire la console AD RMS, in Server Manager fare clic su **Server locale** nell'albero della console, quindi fare clic su **Strumenti**e infine su **Active Directory Rights Management Services**.  
+    Per aprire la console AD RMS, in Server Manager fare clic su **Server locale** nell'albero della console, quindi fare clic su **Strumenti** e infine su **Active Directory Rights Management Services**.  
 
-30. Fare clic su **Crea modello di criteri per i diritti di utilizzo distribuito** nel riquadro destro, fare clic su **Aggiungi**e selezionare le informazioni seguenti:  
+30. Fare clic su **Crea modello di criteri per i diritti di utilizzo distribuito** nel riquadro destro, fare clic su **Aggiungi** e selezionare le informazioni seguenti:  
 
     -   Language: Inglese (Stati Uniti)  
 
@@ -365,7 +364,7 @@ Aggiungere Active Directory Rights Management Services (AD RMS) e tutte le funzi
 
 31. Nella sezione utenti e diritti fare clic su **utenti e diritti**, fare clic su **aggiungi**, digitare <strong>financeadmin@contoso.com</strong>e fare clic su **OK**.  
 
-32. Selezionare **Controllo completo**e lasciare l'opzione **Concedi al proprietario (autore) il diritto di controllo completo senza scadenza** selezionata.  
+32. Selezionare **Controllo completo** e lasciare l'opzione **Concedi al proprietario (autore) il diritto di controllo completo senza scadenza** selezionata.  
 
 33. Fare clic sulle schede rimanenti senza apportare modifiche e quindi fare clic su **Fine**. Eseguire l'accesso come CONTOSO\Administrator.  
 
@@ -575,9 +574,9 @@ Configurare Microsoft Exchange Server in questo computer. Per altre informazioni
 
 2. In Server Manager fare clic su **Gestione**e quindi su **Aggiungi ruoli e funzionalità**.  
 
-3. Nella pagina **Prima di iniziare**, fare clic su **Avanti**.  
+3. Nella pagina **Prima di iniziare** fare clic su **Avanti**.  
 
-4. Nella pagina **Selezione tipo di installazione** selezionare **Installazione basata su ruoli o basata su funzionalità**e quindi fare clic su **Avanti**.  
+4. Nella pagina **Selezione tipo di installazione** selezionare **Installazione basata su ruoli o basata su funzionalità** e quindi fare clic su **Avanti**.  
 
 5. Nella pagina **Selezione server di destinazione** fare clic su **Selezionare un server dal pool di server**, fare clic sul nome del server in cui si vuole installare Servizi di dominio Active Directory e quindi fare clic su **Avanti**.  
 
@@ -616,7 +615,7 @@ Configurare Microsoft Exchange Server in questo computer. Per altre informazioni
 > Per verificare che la rete sia configurata correttamente, dopo aver configurato entrambe le foreste eseguire le operazioni seguenti:  
 >   
 > -   Accedere ad adatum.com come adatum\administrator. Aprire una finestra del prompt dei comandi, digitare **nslookup contoso.com** e premere INVIO.  
-> -   Accedere a contoso.com come contoso\administrator. Aprire una finestra del prompt dei comandi, digitare **nslookup adatum.com**e premere INVIO.  
+> -   Accedere a contoso.com come contoso\administrator. Aprire una finestra del prompt dei comandi, digitare **nslookup adatum.com** e premere INVIO.  
 >   
 > Se questi comandi vengono eseguiti senza errori, significa che le foreste possono comunicare tra loro. Per altre informazioni sugli errori nslookup, vedere la sezione relativa alla risoluzione dei problemi nell'argomento [Uso di NSlookup.exe](https://support.microsoft.com/kb/200525)  
 
@@ -629,15 +628,15 @@ In questo passaggio si creerà una relazione di trust tra il sito Adatum Corpora
 
 2.  Nell'albero della console fare clic con il pulsante destro del mouse su adatum.com e scegliere Proprietà.  
 
-3.  Nella scheda **Trust** fare clic su **Nuova relazione di trust**e quindi su **Avanti**.  
+3.  Nella scheda **Trust** fare clic su **Nuova relazione di trust** e quindi su **Avanti**.  
 
-4.  Nella pagina **Nome trust** digitare **contoso.com**nel campo del nome DNS (Domain Name System) e quindi fare clic su **Avanti**.  
+4.  Nella pagina **Nome trust** digitare **contoso.com** nel campo del nome DNS (Domain Name System) e quindi fare clic su **Avanti**.  
 
 5.  Nella pagina **Tipo di trust** fare clic su **Trust tra foreste** e quindi su **Avanti**.  
 
 6.  Nella pagina **Direzione del trust** fare clic su **Bidirezionale**.  
 
-7.  Nella pagina **Parti del trust** fare clic su **Questo dominio e il dominio specificato**e quindi su **Avanti**.  
+7.  Nella pagina **Parti del trust** fare clic su **Questo dominio e il dominio specificato** e quindi su **Avanti**.  
 
 8.  Continuare a seguire le istruzioni della procedura guidata.  
 
@@ -693,7 +692,7 @@ Creare l'utente Jeff low con la password <strong>pass@word1</strong>e assegnare 
 
 3.  Nel riquadro sinistro del Centro di amministrazione di Active Directory fare clic su **Visualizzazione albero**. Nel riquadro sinistro fare clic su **Controllo di accesso dinamico** e quindi fare doppio clic su **Proprietà risorse**.  
 
-4.  Selezionare **Company** nell'elenco **Proprietà risorse** , fare clic con il pulsante destro del mouse e scegliere **Proprietà**. Nella sezione **Valori suggeriti** fare clic su **Aggiungi** per aggiungere i valori suggeriti: Contoso e Adatum, quindi fare clic su **OK** due volte.  
+4.  Selezionare **Company** nell'elenco **Proprietà risorse**, fare clic con il pulsante destro del mouse e scegliere **Proprietà**. Nella sezione **Valori suggeriti** fare clic su **Aggiungi** per aggiungere i valori suggeriti: Contoso e Adatum, quindi fare clic su **OK** due volte.  
 
 5.  Selezionare **Company** nell'elenco **Proprietà risorse**, fare clic con il pulsante destro del mouse e scegliere **Abilita**.  
 
@@ -705,7 +704,7 @@ Creare l'utente Jeff low con la password <strong>pass@word1</strong>e assegnare 
 
 2.  Aprire la Console Gestione Criteri di gruppo, fare clic su **adatum.com** e quindi fare doppio clic su **Controller di dominio**.  
 
-3.  Fare clic con il pulsante destro del mouse su **Criterio Controller di domini predefiniti**e scegliere **Modifica**.  
+3.  Fare clic con il pulsante destro del mouse su **Criterio Controller di domini predefiniti** e scegliere **Modifica**.  
 
 4.  Nella finestra Editor Gestione Criteri di gruppo fare doppio clic su **Configurazione computer**, quindi su **Criteri**, **Modelli amministrativi**, **Sistema** e infine su **KDC**.  
 
@@ -740,21 +739,21 @@ Creare l'utente Jeff low con la password <strong>pass@word1</strong>e assegnare 
 
 1. Nel riquadro sinistro del Centro di amministrazione di Active Directory fare clic su **Visualizzazione albero**. Nel riquadro sinistro fare clic su **Controllo di accesso dinamico** e quindi su **Regole di accesso centrale**.  
 
-2. Fare clic con il pulsante destro del mouse su **Regole di accesso centrale**, scegliere **Nuova**e quindi **Regola di accesso centrale**.  
+2. Fare clic con il pulsante destro del mouse su **Regole di accesso centrale**, scegliere **Nuova** e quindi **Regola di accesso centrale**.  
 
 3. Nel campo **Nome** digitare **AdatumEmployeeAccessRule**.  
 
-4. Nella sezione **Autorizzazioni** selezionare l'opzione **Usa queste autorizzazioni come correnti**, fare clic su **Modifica** e quindi su **Aggiungi**. Fare clic sul collegamento **Seleziona un'entità** , digitare **Authenticated Users**e fare clic su **OK**.  
+4. Nella sezione **Autorizzazioni** selezionare l'opzione **Usa queste autorizzazioni come correnti**, fare clic su **Modifica** e quindi su **Aggiungi**. Fare clic sul collegamento **Seleziona un'entità**, digitare **Authenticated Users** e fare clic su **OK**.  
 
 5. Nella finestra di dialogo **Voce autorizzazione per Autorizzazioni** fare clic su **Aggiungi condizione**, quindi immettere le condizioni seguenti: [**User**] [**Company**] [**Equals**] [**Value**] [**Adatum**]. Le autorizzazioni devono essere **Modifica, Lettura/esecuzione, Lettura, Scrittura**.  
 
-6. Fai clic su **OK**.  
+6. Fare clic su **OK**.  
 
 7. Fare tre volte clic su **OK** per completare la procedura, quindi tornare al Centro di amministrazione di Active Directory.  
 
    ![la soluzione guida i](media/Appendix-B--Setting-Up-the-Test-Environment/PowerShellLogoSmall.gif)***<em>comandi equivalenti di Windows PowerShell</em>***  
 
-   Il cmdlet o i cmdlet di Windows PowerShell seguenti eseguono la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se qui può sembrare che siano divisi su più righe a causa di vincoli di formattazione.  
+   Tramite i cmdlet di Windows PowerShell seguenti viene eseguita la stessa funzione della procedura precedente. Immettere ogni cmdlet in una singola riga, anche se è possibile il ritorno a capo automatico in diverse righe a causa di limiti di formattazione.  
 
    ```  
    New-ADCentralAccessRule `  
@@ -783,7 +782,7 @@ Creare l'utente Jeff low con la password <strong>pass@word1</strong>e assegnare 
 
 ##### <a name="to-apply-the-central-access-policy-across-file-servers-through-group-policy"></a>Per applicare i criteri di accesso centrale nei file server mediante Criteri di gruppo  
 
-1.  Nella schermata **Start** digitare **Strumenti di amministrazione**e nella barra **Cerca** fare clic su **Impostazioni**. Nei risultati di **Impostazioni** fare clic su **Strumenti di amministrazione**. Aprire la Console Gestione Criteri di gruppo dalla cartella **Strumenti di amministrazione** .  
+1.  Nella schermata **Start** digitare **Strumenti di amministrazione** e nella barra **Cerca** fare clic su **Impostazioni**. Nei risultati di **Impostazioni** fare clic su **Strumenti di amministrazione**. Aprire la Console Gestione Criteri di gruppo dalla cartella **Strumenti di amministrazione**.  
 
     > [!TIP]  
     > Se l'impostazione **Mostra strumenti di amministrazione** è disabilitata, la cartella Strumenti di amministrazione e il relativo contenuto non verranno visualizzati nei risultati di **Impostazioni**.  
@@ -803,11 +802,11 @@ Creare l'utente Jeff low con la password <strong>pass@word1</strong>e assegnare 
 
 3.  Fare clic con il pulsante destro del mouse sul criterio **AdatumAccessGPO** e scegliere **Modifica**.  
 
-4.  Nell'Editor Gestione Criteri di gruppo fare clic su **Configurazione computer**, espandere **Criteri**, espandere **Impostazioni di Windows**e quindi fare clic su **Impostazioni sicurezza**.  
+4.  Nell'Editor Gestione Criteri di gruppo fare clic su **Configurazione computer**, espandere **Criteri**, espandere **Impostazioni di Windows** e quindi fare clic su **Impostazioni sicurezza**.  
 
 5.  Espandere **File system**, fare clic con il pulsante destro del mouse su **Central Access Policy** e quindi scegliere **Gestisci criteri di accesso centrale**.  
 
-6.  Nella finestra di dialogo **Configurazione criteri di accesso centrale** fare clic su **Aggiungi**, selezionare **Adatum Only Access Policy**e quindi fare clic su **OK**.  
+6.  Nella finestra di dialogo **Configurazione criteri di accesso centrale** fare clic su **Aggiungi**, selezionare **Adatum Only Access Policy** e quindi fare clic su **OK**.  
 
 7.  Chiudi l'Editor Gestione Criteri di gruppo. I criteri di accesso centrale sono stati aggiunti in Criteri di gruppo.  
 

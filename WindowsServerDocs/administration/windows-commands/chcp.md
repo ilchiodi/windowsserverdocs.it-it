@@ -35,7 +35,7 @@ chcp [<NNN>]
 |\<NNN >|Specifica la tabella codici.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-La tabella seguente elenca ogni codice supportate pagina e il paese/regione o lingua:
+La tabella seguente elenca le tabelle codici supportate e il paese/area geografica o la lingua:
 
 |Tabella codici|Paese/regione o lingua|
 |---------|--------------------------|

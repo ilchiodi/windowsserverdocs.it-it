@@ -1,24 +1,20 @@
 ---
 title: nfsadmin
-description: 'Argomento dei comandi di Windows per * * * *- '
-ms.custom: na
+description: Argomento dei comandi di Windows per * * * *-
 ms.prod: windows-server
-ms.reviewer: na
-ms.suite: na
 ms.technology: manage-windows-commands
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7375b2cf-c6b8-45b5-abf6-6c10e462defd
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2658cf610e4328d382b9224f4230d68a022d1cc3
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: 6134ac7737cd761e752082b336e851dead23bd14
+ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71373227"
+ms.lasthandoff: 04/08/2020
+ms.locfileid: "80838984"
 ---
 # <a name="nfsadmin"></a>nfsadmin
 
@@ -53,7 +49,7 @@ ms.locfileid: "71373227"
   
 **nfsadmin client** `[`*computername*`] [`\-u *UserName* `[`\-p *password*`]]` *opzione* config`[...]`  
   
-## <a name="description"></a>Descrizione  
+## <a name="description"></a>Description  
 Il comando **nfsadmin**\-line utility amministra server per NFS o client for NFS nel computer locale o remoto che esegue i servizi Microsoft per il file System di rete \(NFS\). Se si è connessi con un account che non dispone dei privilegi necessari, è possibile specificare un nome utente e una password di un account che lo esegue. L'azione eseguita da **nfsadmin** dipende dagli argomenti del comando forniti.  
   
 Oltre al servizio\-gli argomenti e le opzioni di comando specifici, **nfsadmin** accetta quanto segue:  
@@ -109,7 +105,7 @@ Imposta il file specificato da *file* come file di controllo. Il valore predefin
 *dimensioni*\= **\=fsize**  
 Imposta *size* come dimensione massima in megabyte del file di controllo. La dimensione massima predefinita è 7 MB.  
   
-**audit\=** \[ **\+** | **\-** \]**Mount** \[ **\+** | **\-** \] **\[\+|** **\-\]** \[**Write** **\+|** **\-\]** **\[** **\+|** **\-\]** **Delete** \[ **\+** | **\-** \]**blocco** \[ **\+** | **\-** **tutti**\]  
+**audit\=** \[ **\+** | **\-** \]**mount** \[ **\+** | **\-** \]**Read** \[ **\+|\-** \]**Write** **\[\+** **|\-** **\]\[** **\+|** **\-\]** **\[\+** **|\-** **\]\[** **\+|** **\-\]** **\-** **\+** **all**  
 Specifica gli eventi da registrare. Per avviare la registrazione di un evento, digitare un segno più \( **\+** \) prima del nome dell'evento; per arrestare la registrazione di un evento, digitare un segno meno \( **\-** \) prima del nome dell'evento. Se il segno viene omesso, viene utilizzato il segno più. Non utilizzare **All** con nessun altro nome di evento.  
   
 **lockperiod\=** <em>secondi</em>  
@@ -163,13 +159,13 @@ ObCaseInsensitive DWOrd
 **ntfscase\=** {**lower** | **Upper** | **Preserve**}  
 Specifica se la distinzione tra maiuscole e minuscole nei nomi dei file del file system NTFS verrà restituita in lettere minuscole, maiuscole o nel formato archiviato nella directory. L'impostazione predefinita è **Preserve**. Questa impostazione non può essere modificata se **casesensitivelookups** è impostata su **Sì**.  
   
-*nome* CreateGroup  
+**creategroup** *nome* CreateGroup  
 Crea un nuovo gruppo di client, assegnando il *nome*specificato.  
   
 **listgroups**  
 Visualizza i nomi di tutti i gruppi di client.  
   
-*nome* DeleteGroup  
+**deletegroup** *nome* DeleteGroup  
 rimuove il gruppo di client specificato in base al *nome*.  
   
 **RENAMEGROUP** *OldName NewName*  
@@ -178,7 +174,7 @@ modifica il nome del gruppo di client specificato da *OldName* in *newname*
 **AddMembers** *nome host*\[...\]  
 aggiunge l' *host* al gruppo di client specificato in base al *nome*.  
   
-*nome* ListMembers  
+**listmembers** *nome* ListMembers  
 elenca i computer host nel gruppo client specificato in base al *nome*.  
   
 \[*host del gruppo* **deletemembers** ...\]  
@@ -199,7 +195,7 @@ Arresta il client per il servizio NFS.
 Specifica le impostazioni generali per client per NFS. Con l'argomento del comando **config** è necessario specificare almeno una delle opzioni seguenti:  
   
 <em>modalità</em> **\=FileAccess**  
--   Specifica la modalità di autorizzazione predefinita per i file creati in Network File System \(NFS\) server. L'argomento *mode* è costituito da un numero di tre cifre compreso tra 0 e 7 \(inclusi\) che rappresentano le autorizzazioni predefinite concesse rispettivamente a utenti, gruppi e altri \(\). Le cifre vengono convertite in UNIX\-stile le autorizzazioni come segue: 0\=None, 1\=x, 2\=w, 3\=WX, 4\=r, 5\=RX, 6\=RW e 7\=rwx. Ad esempio, **fileaccess\=750** concede a rwx l'autorizzazione per il proprietario, l'autorizzazione RX per il gruppo e nessuna autorizzazione di accesso ad altri utenti.  
+-   Specifica la modalità di autorizzazione predefinita per i file creati in Network File System \(NFS\) server. L'argomento *mode* è costituito da un numero di tre cifre compreso tra 0 e 7 \(inclusi\) che rappresentano le autorizzazioni predefinite concesse rispettivamente a utenti, gruppi e altri \(\). Le cifre vengono convertite in\-le autorizzazioni dello stile UNIX, come indicato di seguito: 0\=None, 1\=x, 2\=w, 3\=WX, 4\=r, 5\=RX, 6\=RW e 7\=rwx. Ad esempio, **fileaccess\=750** concede a rwx l'autorizzazione per il proprietario, l'autorizzazione RX per il gruppo e nessuna autorizzazione di accesso ad altri utenti.  
   
 <em>server</em> **\=mapsvr**  
 Imposta il *Server* come server di mapping dei nomi utente per client per NFS. Anche se questa opzione continua a essere supportata per la compatibilità con le versioni precedenti, è consigliabile usare invece l'utilità **sfuadmin** .  
@@ -236,7 +232,7 @@ Ripristina i valori predefiniti delle impostazioni relative alle prestazioni seg
 -   **wsize**  
   
 <em>modalità</em> **\=FileAccess**  
-Specifica la modalità di autorizzazione predefinita per i file creati in Network File System \(NFS\) server. L'argomento *mode* è costituito da un numero di tre cifre compreso tra 0 e 7 \(inclusi\) che rappresentano le autorizzazioni predefinite concesse rispettivamente a utenti, gruppi e altri \(\). Le cifre vengono convertite in UNIX\-stile le autorizzazioni come segue: 0\=None, 1\=x, 2\=w, 3\=WX, 4\=r, 5\=RX, 6\=RW e 7\=rwx. Ad esempio, **fileaccess\=750** concede a rwx l'autorizzazione per il proprietario, l'autorizzazione RX per il gruppo e nessuna autorizzazione di accesso ad altri utenti.  
+Specifica la modalità di autorizzazione predefinita per i file creati in Network File System \(NFS\) server. L'argomento *mode* è costituito da un numero di tre cifre compreso tra 0 e 7 \(inclusi\) che rappresentano le autorizzazioni predefinite concesse rispettivamente a utenti, gruppi e altri \(\). Le cifre vengono convertite in\-le autorizzazioni dello stile UNIX, come indicato di seguito: 0\=None, 1\=x, 2\=w, 3\=WX, 4\=r, 5\=RX, 6\=RW e 7\=rwx. Ad esempio, **fileaccess\=750** concede a rwx l'autorizzazione per il proprietario, l'autorizzazione RX per il gruppo e nessuna autorizzazione di accesso ad altri utenti.  
   
 Se non si specifica un'opzione o un argomento di comando, il **client nfsadmin** Visualizza le impostazioni di configurazione del client corrente per NFS.  
   
