@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 06/07/2019
-ms.openlocfilehash: 110e1442b6660c24dc1e3fd9649138390117ffd6
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: cb4e3ab2bf98a0c2d51483642fe5388e468dbbb4
+ms.sourcegitcommit: 20d07170c7f3094c2fb4455f54b13ec4b102f2d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71406816"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81269268"
 ---
 # <a name="what-is-windows-admin-center"></a>Che cos'è Windows Admin Center?
 
@@ -27,7 +27,7 @@ Windows Admin Center è l'evoluzione moderna degli strumenti di gestione "inclus
 
 ## <a name="how-does-windows-admin-center-work"></a>Come funziona Windows Admin Center?
 
-Windows Admin Center viene eseguito in un Web browser e gestisce Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows 10 e altro tramite il **gateway di Windows Admin Center** installato in Windows Server o Windows 10. Il gateway gestisce i server tramite la sessione remota di PowerShell e WMI su WinRM. Il gateway è incluso in Windows Admin Center in un unico pacchetto con estensione msi leggero che è possibile [scaricare](https://aka.ms/windowsadmincenter).
+Windows Admin Center viene eseguito in un Web browser e gestisce Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows 10 e altri sistemi tramite il **gateway di Windows Admin Center** installato in Windows Server o in Windows 10 aggiunto a un dominio. Il gateway gestisce i server tramite la sessione remota di PowerShell e WMI su WinRM. Il gateway è incluso in Windows Admin Center in un unico pacchetto con estensione msi leggero che è possibile [scaricare](https://aka.ms/windowsadmincenter).
 
 Il gateway di Windows Admin Center, quando viene pubblicato su DNS e ottiene l'accesso tramite i firewall aziendali corrispondenti, ti consente di connetterti e gestire i server in modo sicuro da qualsiasi luogo con Microsoft Edge o Google Chrome.
 

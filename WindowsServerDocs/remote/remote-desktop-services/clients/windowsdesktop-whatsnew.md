@@ -7,14 +7,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 03/24/2020
+ms.date: 04/14/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 34f5fdb5a2826173edf471fd65248008761863dd
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 016a88999b93d686faff73134a660014fd602765
+ms.sourcegitcommit: 20d07170c7f3094c2fb4455f54b13ec4b102f2d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80861414"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "81279697"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Novità del client desktop di Windows
 
@@ -27,7 +27,26 @@ Il client può essere configurato per [gruppi di utenti](windowsdesktop-admin.md
 |Gruppo utenti |Version  |
 |-----------|---------|
 |Pubblico     |1.2.790  |
-|Insider    |1.2.790  |
+|Insider    |1.2.940  |
+
+## <a name="updates-for-version-12940"></a>Aggiornamenti per la versione 1.2.940
+
+*Data di pubblicazione: 14/04/2020*
+
+Scarica: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4txZU), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4txZV), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4tM6I)
+
+- Sono state aggiunte nuove impostazioni di visualizzazione per le connessioni desktop disponibili quando si fa clic con il pulsante destro del mouse sull'icona di un desktop in Connection Center (Centro connessioni).
+  - Sono ora disponibili tre opzioni di configurazione per la visualizzazione: **All displays** (Tutte le visualizzazioni), **Single display** (Visualizzazione singola) e **Select displays** (Alcune visualizzazioni).
+  - Le impostazioni disponibili vengono ora visualizzate solo quando si seleziona una configurazione di visualizzazione.
+  - In modalità Select displays (Alcune visualizzazioni) la nuova opzione **Maximize to current displays** (Ingrandisci a visualizzazioni correnti) consente di modificare in modo dinamico le visualizzazioni usate per la sessione senza riconnettersi. Quando l'opzione è abilitata, l'ingrandimento determina la visualizzazione della sessione a schermo intero in tutte le visualizzazioni interessate dalla finestra di sessione.
+  - È stata aggiunta la nuova opzione **Single display when windowed** (Visualizzazione singola in modalità finestra) per le modalità All displays (Tutte le visualizzazioni) e Select displays (Alcune visualizzazioni). Questa opzione converte automaticamente la sessione in una visualizzazione singola quando si esce dalla modalità schermo intero e ripristina automaticamente più visualizzazioni quando si ingrandisce la finestra.
+- È stato aggiunto il nuovo gruppo **Impostazioni di visualizzazione** al menu di sistema che viene visualizzato quando si fa clic con il pulsante destro del mouse sulla barra del titolo di una sessione desktop in modalità finestra. In questo modo potrai modificare alcune impostazioni in modo dinamico durante una sessione. Potrai ad esempio modificare le nuove impostazioni **Single display mode when windowed** (Visualizzazione singola in modalità finestra) e **Maximize to current displays** (Ingrandisci a visualizzazioni correnti).
+- Quando si esce dalla visualizzazione a schermo intero, la finestra della sessione tornerà nella posizione in cui si trovava la prima volta che è stata attivata la visualizzazione a schermo intero.
+- Al termine della reimpostazione dei dati utente nella pagina Informazioni su, il client non viene chiuso ma viene eseguito il reindirizzamento a Connection Center (Centro connessioni).
+- Sono stati risolti alcuni problemi di accessibilità con lo spostamento tramite tabulazione e le utilità per la lettura dello schermo.
+- È stato corretto un problema di sfarfallio e compattazione che si verificava durante il trascinamento di una finestra di sessione desktop tra visualizzazioni con fattori di scala diversi.
+- È stato corretto un errore che si verificava durante il reindirizzamento delle fotocamere.
+- Sono stati corretti diversi arresti anomali per migliorare l'affidabilità.
 
 ## <a name="updates-for-version-12790"></a>Aggiornamenti per la versione 1.2.790
 

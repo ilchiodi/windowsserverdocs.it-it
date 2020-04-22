@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 12/02/2019
-ms.openlocfilehash: 503cd64cac0673829fe21bc15e8ad9d6a83bbb15
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.openlocfilehash: bd7ec8a5a072cbda99b036718d24ec1908fb8b53
+ms.sourcegitcommit: 20d07170c7f3094c2fb4455f54b13ec4b102f2d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75950510"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81269248"
 ---
 # <a name="what-type-of-installation-is-right-for-you"></a>Che tipo di installazione è più adatto alle tue esigenze?
 
@@ -64,10 +64,9 @@ Puoi **gestire** i sistemi operativi Windows seguenti tramite Windows Admin Cent
 | Windows Server 2012 R2 | Sì | Sì |
 | Microsoft Hyper-V Server 2012 R2 | Sì | Sì |
 | Windows Server 2012 | Sì | Sì |
-| Windows Server 2008 R2 | Sì, funzionalità limitata | N/D |
 
 > [!NOTE]
-> Windows Admin Center richiede funzionalità PowerShell non incluse in Windows Server 2008 R2, 2012 e 2012 R2. Se deciderai di gestirli con Windows Admin Center dovrai installare Windows Management Framework (WMF) 5.1 o versione successiva in tali server.
+> Windows Admin Center richiede funzionalità PowerShell non incluse in Windows Server 2012 e 2012 R2. Se deciderai di gestirli con Windows Admin Center dovrai installare Windows Management Framework (WMF) 5.1 o versione successiva in tali server.
 > 
 > Per verificare che WMF 5.1 o versione successiva sia installato, digita `$PSVersiontable` in PowerShell. 
 > 

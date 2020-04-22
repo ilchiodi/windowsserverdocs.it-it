@@ -6,12 +6,12 @@ ms.technology: server-general
 author: Teresa-Motiv
 ms.author: v-tea
 ms.localizationpriority: medium
-ms.openlocfilehash: 6cd94e997deaaf358c72793e6ff35d51a9ab3df6
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 76665d91cc1e2997a837721ffbc51b0513dd7c1a
+ms.sourcegitcommit: af1cf89632d62a94943d3ad9f6b5234b88499278
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80826185"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81524936"
 ---
 # <a name="guidelines-for-troubleshooting-dns-related-activation-issues"></a>Linee guida per la risoluzione dei problemi di attivazione correlati al DNS
 

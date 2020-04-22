@@ -7,12 +7,12 @@ author: daniellee-msft
 ms.author: jol
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 7c1a70e36dfac9b23ded8f920ffcc8cccbfff023
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 2b8a9f5ebab22891b8b97c9c56bba3837cbb9371
+ms.sourcegitcommit: 20d07170c7f3094c2fb4455f54b13ec4b102f2d7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323583"
+ms.lasthandoff: 04/13/2020
+ms.locfileid: "81269298"
 ---
 # <a name="install-and-manage-extensions"></a>Installare e gestire le estensioni
 
@@ -36,7 +36,7 @@ Windows Admin Center supporta più feed e puoi visualizzare e gestire i pacchett
 1. Fai clic sul pulsante **Impostazioni** in alto a destra e nel riquadro a sinistra fai clic su **Estensioni**.
 2. Nel riquadro a destra fai clic sulla scheda **Feed**.
 3. Fai clic sul pulsante **Aggiungi** per aggiungere un altro feed. Per un feed NuGet, immetti l'URL del feed NuGet V2. Il provider di feed NuGet o l'amministratore deve essere in grado di fornire le informazioni sull'URL. Per una condivisione file, immetti il percorso completo della condivisione in cui sono archiviati i file di pacchetto dell'estensione (NUPKG).
-4. Fare clic su **Aggiungi**. Se per apportare questa modifica il gateway deve essere eseguito con privilegi elevati, verrà visualizzata una richiesta di elevazione dei privilegi di Controllo account utente.
+4. Fare clic su **Aggiungi**. Se per apportare questa modifica il gateway deve essere eseguito con privilegi elevati, verrà visualizzata una richiesta di elevazione dei privilegi di Controllo account utente. Questa richiesta verrà visualizzata solo se Windows Admin Center è in esecuzione in modalità desktop.
 
 L'elenco **Estensioni disponibili** visualizzerà le estensioni presenti in tutti i feed registrati. Puoi verificare il feed da cui proviene ogni estensione usando la colonna **Feed del pacchetto**.
 
