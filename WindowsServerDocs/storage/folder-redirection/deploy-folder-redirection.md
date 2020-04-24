@@ -9,10 +9,10 @@ ms.technology: storage
 ms.date: 06/06/2019
 ms.localizationpriority: medium
 ms.openlocfilehash: e8e6e5a29c75c117f6faa3c1d1b3f288582d81a2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80855884"
 ---
 # <a name="deploy-folder-redirection-with-offline-files"></a>Distribuire Reindirizzamento cartelle con File offline
@@ -190,11 +190,11 @@ Ecco come testare Reindirizzamento cartelle:
 
 La tabella seguente include un riepilogo di alcune delle più importanti modifiche apportate a questo argomento.
 
-| Data | Description | Motivo|
+| Data | Descrizione | Motivo|
 | --- | --- | --- |
 | 18 gennaio 2017 | Aggiunta di un passaggio alla sezione [Passaggio 3: Creare un oggetto Criteri di gruppo per Reindirizzamento cartelle](#step-3-create-a-gpo-for-folder-redirection) per delegare le autorizzazioni di lettura agli utenti autenticati, operazione ora necessaria a seguito di un aggiornamento di sicurezza di Criteri di gruppo. | Feedback dei clienti |
 
-## <a name="more-information"></a>Ulteriori informazioni
+## <a name="more-information"></a>Altre informazioni
 
 * [Reindirizzamento cartelle, File offline e Profili utente mobili](folder-redirection-rup-overview.md)
 * [Distribuire computer primari per Reindirizzamento cartelle e Profili utente mobili](deploy-primary-computers.md)

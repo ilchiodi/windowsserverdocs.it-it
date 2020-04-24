@@ -10,10 +10,10 @@ author: kbdazure
 ms.author: kathydav
 ms.date: 10/04/2016
 ms.openlocfilehash: 8de3fe607eb9dc0d140fe9f494991cb917b8994f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80854014"
 ---
 # <a name="hyper-v-virtual-machine-connection"></a>Connessione macchina virtuale Hyper-V
@@ -52,7 +52,7 @@ Le informazioni riportate di seguito possono risultare utili per l'uso di VMConn
 ## <a name="keyboard-shortcuts"></a>Tasti di scelta rapida  
 Per impostazione predefinita, i clic del mouse e l'input da tastiera vengono inviati alla macchina virtuale. Quindi, potrebbe essere necessario premere CTRL+ALT+freccia SINISTRA prima di usare i tasti di scelta rapida seguenti. 
 
-|Combinazione di tasti|Description|  
+|Combinazione di tasti|Descrizione|  
 |-------------------|---------------|  
 |CTRL\+ALT\+freccia SINISTRA|Rilascio del mouse|  
 |CTRL\+ALT\+FINE|Equivalente di CTRL\+ALT\+CANC nella macchina virtuale|  
@@ -63,7 +63,7 @@ Per impostazione predefinita, i clic del mouse e l'input da tastiera vengono inv
 |CTRL\+E|Ripristino di un checkpoint|  
 |CTRL\+C|Acquisizione dello schermo|  
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 -   [Usare le risorse locali nella macchina virtuale Hyper-V con VMConnect](Use-local-resources-on-Hyper-V-virtual-machine-with-VMConnect.md)  
 -   [Hyper-V in Windows Server2016](../Hyper-V-on-Windows-Server.md)  
 -   [Hyper-V in Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/windows_welcome)  

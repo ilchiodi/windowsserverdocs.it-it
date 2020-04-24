@@ -11,10 +11,10 @@ metadata:
   ms.date: 06/06/2019
   ms.author: lizross
   ms.openlocfilehash: 91a9a648c5b51f098a94300ffb1dd3f7ce76bdd8
-  ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+  ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 04/11/2020
+  ms.lasthandoff: 04/23/2020
   ms.locfileid: "81123160"
 highlightedContent:
   items:
@@ -89,7 +89,7 @@ conceptualContent:
     footerLink:
       url: /windows-server/failover-clustering/failover-clustering-overview
       text: Altre risorse
-  - title: 'Gestione:'
+  - title: Management
     links:
     - url: /windows-server/manage/windows-admin-center/overview
       itemType: overview
@@ -103,7 +103,7 @@ conceptualContent:
     footerLink:
       url: /windows-server/administration/manage-windows-server
       text: Altre risorse
-  - title: Funzionalità di rete
+  - title: Rete
     links:
     - url: /windows-server/networking/what-s-new-in-networking
       itemType: whats-new
@@ -145,7 +145,7 @@ conceptualContent:
     footerLink:
       url: /windows-server/security/security-and-assurance
       text: Altre risorse
-  - title: 'Archiviazione:'
+  - title: Archiviazione
     links:
     - url: /windows-server/storage/whats-new-in-storage
       itemType: whats-new
@@ -159,7 +159,7 @@ conceptualContent:
     footerLink:
       url: /windows-server/storage/storage
       text: Altre risorse
-  - title: Risolvere i problemi
+  - title: Risoluzione dei problemi
     links:
     - url: /windows-server/manage/windows-admin-center/support/troubleshooting
       itemType: how-to-guide

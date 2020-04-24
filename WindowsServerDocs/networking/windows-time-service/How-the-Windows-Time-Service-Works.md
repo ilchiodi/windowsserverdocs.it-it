@@ -9,10 +9,10 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
 ms.openlocfilehash: b8b30893abe4cdfe8d7e8c5a95ede651f85643a9
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80861664"
 ---
 # <a name="how-the-windows-time-service-works"></a>Funzionamento del servizio Ora di Windows
@@ -202,7 +202,7 @@ Nella tabella seguente elenca le query eseguite da un controller di dominio a tr
   
 **Query dell'origine ora del Controller di dominio**  
   
-|Numero di query|Controller di dominio|Posizione|Affidabilità dell'origine dell'ora|  
+|Numero di query|Controller di dominio|Location|Affidabilità dell'origine dell'ora|  
 |----------------|---------------------|------------|------------------------------|  
 |1|Controller di dominio principale|Nel sito|Preferisce affidabili origine ora ma è possibile sincronizzare con un'origine ora non è affidabile se questo è tutto ciò che è disponibile.|  
 |2|Controller di dominio locale|Nel sito|Sincronizza solo con un'origine ora affidabile.|  
@@ -261,7 +261,7 @@ Il servizio ora di Windows comunica in una rete per identificare le origini di o
 |NTP|123|N/D|  
 |SNTP|123|N/D|  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Documentazione tecnica del servizio Ora di Windows.](windows-time-service-tech-ref.md)
 [Strumenti e impostazioni del servizio Ora di Windows](Windows-Time-Service-Tools-and-Settings.md)
 [Articolo 902229 della Microsoft Knowledge Base](https://go.microsoft.com/fwlink/?LinkId=186066)

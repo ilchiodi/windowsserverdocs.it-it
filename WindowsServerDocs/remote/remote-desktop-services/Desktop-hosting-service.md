@@ -9,10 +9,10 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.openlocfilehash: 64e433ed379ca322996bcfe2d0ddd513e074b85e
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80854714"
 ---
 # <a name="desktop-hosting-service"></a>Servizio di hosting del desktop
@@ -27,7 +27,7 @@ Come descritto in [Ruoli di Servizi Desktop remoto](rds-roles.md), ogni ruolo sv
 
 Il servizio di hosting desktop del provider viene implementato come un gruppo di ambienti tenant isolati. L'ambiente di ogni tenant è costituito da un contenitore di archiviazione, un gruppo di macchine virtuali e una combinazione di servizi di Azure. Tutte le comunicazioni avvengono su una rete virtuale isolata. Ogni macchina virtuale contiene uno o più dei componenti che costituiscono l'ambiente desktop ospitato del tenant. Le sottosezioni seguenti descrivono i componenti che costituiscono l'ambiente desktop ospitato di ogni tenant.
 
-## <a name="active-directory-domain-services"></a>Active Directory Domain Services
+## <a name="active-directory-domain-services"></a>Servizi di dominio di Active Directory
 
 Active Directory Domain Services fornisce le informazioni relative al dominio e alla foresta, in modo che gli utenti del tenant possano accedere ai desktop e alle applicazioni per eseguire i carichi di lavoro. In questo modo puoi configurare o connetterti alle condivisioni file e ai database necessari per le applicazioni di Windows.
 

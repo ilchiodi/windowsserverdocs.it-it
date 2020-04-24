@@ -10,10 +10,10 @@ ms.topic: landing-page
 ms.author: billmath
 ms.localizationpriority: high
 ms.openlocfilehash: ecc943878c18525ec10b03d870b8825269628101
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80825684"
 ---
 # <a name="identity--access"></a>Identità | Accesso
@@ -38,7 +38,7 @@ Le tecnologie di identità e di accesso consentono di proteggere ambienti Active
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h2>Novità</h2>
+                                            <h2>Quali sono le novità?</h2>
                                             <p>Scopri le novità in Active Directory Federation Services</p>
                                         </div>
                                     </div>
@@ -98,7 +98,7 @@ Le tecnologie di identità e di accesso consentono di proteggere ambienti Active
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Active Directory Domain Services</h3><hr />
+                        <h3>Servizi di dominio di Active Directory</h3><hr />
                         <p>Documentazione dettagliata su tutte le funzionalità disponibili per Active Directory Domain Services in Windows Server.</p>
                     </div>
                 </div>

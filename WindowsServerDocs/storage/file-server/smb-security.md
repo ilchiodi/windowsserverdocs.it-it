@@ -9,10 +9,10 @@ ms.technology: storage
 ms.date: 07/09/2018
 ms.localizationpriority: medium
 ms.openlocfilehash: d7b96574dcfc2a4417aa36780d7bd87c2556f61f
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "75950266"
 ---
 # <a name="smb-security-enhancements"></a>Miglioramenti della sicurezza SMB
@@ -117,7 +117,7 @@ Set-SmbServerConfiguration –EnableSMB1Protocol $false
 >[!NOTE]
 >Se una connessione client SMB viene negata perché il server che esegue SMB 1.0 è stato disabilitato, l'ID evento 1001 verrà registrato nel registro eventi Microsoft-Windows-SmbServer/Operational.
 
-## <a name="more-information"></a>Ulteriori informazioni
+## <a name="more-information"></a>Altre informazioni
 
 Di seguito sono riportate alcune risorse aggiuntive su SMB e su tecnologie correlate in Windows Server 2012.
 

@@ -13,10 +13,10 @@ appliesto:
 - Windows 10
 - Windows 8.1
 ms.openlocfilehash: e3e4b4d236672ce310c8a0eb038d0e19f936a5d2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80826344"
 ---
 # <a name="slmgrvbs-options-for-obtaining-volume-activation-information"></a>Opzioni di Slmgr.vbs per ottenere informazioni sull'attivazione dei contratti multilicenza
@@ -46,7 +46,7 @@ Per gestire i client remoti usare lo Strumento di gestione dell'attivazione dei 
 
 ## <a name="general-slmgrvbs-options"></a>Opzioni generali di Slmgr.vbs
 
-|Opzione |Description |
+|Opzione |Descrizione |
 | - | - |
 |\[\<NomeComputer\>] |Nome di un computer remoto (il nome predefinito è computer locale) |
 |\[\<Utente\>] |Account con il privilegio necessario sul computer remoto |
@@ -54,7 +54,7 @@ Per gestire i client remoti usare lo Strumento di gestione dell'attivazione dei 
 
 ## <a name="global-options"></a>Opzioni globali
 
-|Opzione |Description |
+|Opzione |Descrizione |
 | - | - |
 |\/ipk&nbsp;&lt;CodiceProductKey&gt; |Prova a installare un codice Product Key 5x5. Viene confermata la validità del codice Product Key fornito dal parametro, che è dunque applicabile al sistema operativo installato.<br />In caso contrario, verrà restituito un errore.<br />Se ritenuto valido e applicabile, il codice verrà installato. Se il codice è già installato verrà sostituito automaticamente.<br />Per prevenire l'instabilità nel servizio licenze, è consigliabile riavviare il sistema oppure il servizio di protezione software.<br />Questa operazione deve essere eseguita da una finestra del prompt dei comandi con privilegi elevati oppure il valore del Registro di sistema relativo alle operazioni per utente standard deve essere impostato in modo da consentire agli utenti non privilegiati un ulteriore accesso al servizio di protezione software. |
 |/ato&nbsp;\[\<ID&nbsp;attivazione\>] |Per le edizioni definitive e i sistemi di contratti multilicenza con un codice Product Key dell'host del Servizio di gestione delle chiavi o un codice ad attivazione multipla (MAK) installato, **/ato** chiede a Windows di provare a eseguire l'attivazione online.<br />Per i sistemi con un codice Product Key per contratti multilicenza generico (GVLK, Generic Volume License Key) installato, viene effettuato un tentativo di attivazione con il Servizio di gestione delle chiavi. I sistemi impostati in modo da sospendere i tentativi di attivazione con il Servizio di gestione delle chiavi ( **/stao**) provano comunque ad eseguire l'attivazione con tale servizio quando viene usata l'opzione **/ato**.<br />**Nota:** a partire da Windows 8 (e Windows Server 2012), l'opzione **/stao** è deprecata. In alternativa è disponibile l'opzione **/act-type**.<br />Il parametro \<**ID attivazione**\> consente di espandere il supporto di **/ato** in modo da identificare un'edizione di Windows installata nel computer. L'impostazione del parametro \<**ID attivazione**\> consente di isolare gli effetti dell'opzione all'edizione associata all'ID di attivazione. Esegui **slmgr.vbs /dlv all** per ottenere gli ID di attivazione per la versione installata di Windows. Se devono essere supportate altre applicazioni, vedi le indicazioni fornite dall'applicazione specifica per altre istruzioni.<br />L'attivazione con il servizio di gestione delle chiavi non richiede privilegi elevati. Tuttavia, l'attivazione online richiede privilegi elevati, altrimenti sarà necessario impostare il valore del registro di sistema relativo alle operazioni per utente standard in modo da consentire agli utenti non privilegiati un ulteriore accesso al servizio di protezione software. |
@@ -64,7 +64,7 @@ Per gestire i client remoti usare lo Strumento di gestione dell'attivazione dei 
 
 ## <a name="advanced-options"></a>Opzioni avanzate
 
-|Opzione |Description |
+|Opzione |Descrizione |
 | - | - |
 |\/cpky |Alcune operazioni di manutenzione richiedono la disponibilità del codice Product Key nel Registro di sistema durante le operazioni di Configurazione guidata. L'opzione **/cpky** consente di rimuovere il codice Product Key dal Registro di sistema per prevenirne il furto da parte del malware.<br />Per le installazioni definitive che distribuiscono i codici, è consigliabile eseguire questa opzione. L'opzione non è obbligatoria per MAK e i codici Product Key host del servizio di gestione delle chiavi, perché è il comportamento predefinito per quei codici. Questa opzione è necessaria solo per altri tipi di codici il cui comportamento predefinito non è quello di cancellare il codice dal Registro di sistema.<br />Questa operazione deve essere eseguita in una finestra del prompt dei comandi con privilegi elevati. |
 |\/ilc&nbsp;&lt;file_licenza&gt; |L'opzione consente di installare il file di licenza specificato dal parametro obbligatorio. È possibile installare queste licenze come misura di risoluzione dei problemi, per supportare l'attivazione basata su token oppure come parte di un'installazione manuale di un'applicazione on-boarded.<br />Le licenze non vengono convalidate durante questo processo: La convalida delle licenze esula dall'ambito di Slmgr.vbs, ma viene invece gestita dal servizio di protezione software al runtime.<br />Questa operazione deve essere eseguita da una finestra del prompt dei comandi con privilegi elevati oppure il valore del Registro di sistema relativo alle **operazioni per utente standard** deve essere impostato in modo da consentire agli utenti non privilegiati un ulteriore accesso al servizio di protezione software. |
@@ -78,7 +78,7 @@ Per gestire i client remoti usare lo Strumento di gestione dell'attivazione dei 
 
 ## <a name="kms-client-options"></a>opzioni del client KMS
 
-|Opzione |Description |
+|Opzione |Descrizione |
 | - | - |
 |\/skms \<Nome\[:Port]&nbsp;\|&nbsp;\:&nbsp;porta\> \[\<ID&nbsp;attivazione\>] |Questa opzione consente di specificare il nome e, facoltativamente, la porta del computer host del servizio di gestione delle chiavi da contattare. L'impostazione di questo valore consente di disabilitare il rilevamento automatico dell'host del servizio di gestione delle chiavi.<br />Se l'host del Servizio di gestione delle chiavi usa solo la versione del protocollo IP 6 (IPv6), l'indirizzo deve essere specificato nel formato \<nomehost\>:\<porta\>. Gli indirizzi IPv6 contengono il carattere dei due punti (:), che non viene analizzato in maniera corretta dallo script Slmgr.vbs.<br />Questa operazione deve essere eseguita in una finestra del prompt dei comandi con privilegi elevati. |
 |\/skms-domain&nbsp;&lt;FQDN&gt; \[\<ID&nbsp;attivazione\>] |Consente di impostare il dominio DNS specifico in cui è possibile trovare tutti i record SRV del Servizio di gestione delle chiavi. Questa impostazione non ha alcun effetto se lo specifico host del Servizio di gestione delle chiavi è impostato con l'opzione **/skms**. Usare questa opzione, in special modo negli ambienti degli spazi dei nomi indipendenti, per forzare il Servizio di gestione delle chiavi a ignorare l'elenco di ricerca dei suffissi DNS e cercare invece i record degli host del servizio di gestione delle chiavi nel dominio DNS specificato. |
@@ -88,7 +88,7 @@ Per gestire i client remoti usare lo Strumento di gestione dell'attivazione dei 
 
 ## <a name="kms-host-configuration-options"></a>Opzioni di configurazione dell'host del Servizio di gestione delle chiavi
 
-|Opzione |Description |
+|Opzione |Descrizione |
 | - | - |
 |\/sai&nbsp;&lt;Intervallo&gt; |Questa opzione consente di impostare l'intervallo in minuti tra i tentativi di connessione al Servizio di gestione delle chiavi per i client disattivati. L'intervallo di attivazione deve essere compreso tra 15 minuti e 30 giorni, anche se è consigliabile usare il valore predefinito (due ore).<br />Il client del Servizio di gestione delle chiavi seleziona inizialmente questo intervallo dal Registro di sistema, ma passa all'impostazione del Servizio di gestione delle chiavi dopo aver ricevuto la prima risposta del servizio.<br />Questa operazione deve essere eseguita in una finestra del prompt dei comandi con privilegi elevati. |
 |\/sri &lt;Intervallo&gt; |Questa opzione consente di impostare l'intervallo di rinnovo in minuti tra i tentativi di connessione al Servizio di gestione delle chiavi per i client attivati. L'intervallo di rinnovo deve essere compreso tra 15 minuti e 30 giorni. Questa opzione viene impostata inizialmente sia sul lato server che sul lato client del Servizio di gestione delle chiavi. Il valore predefinito è 10.080 minuti (7 giorni).<br />Il client del Servizio di gestione delle chiavi seleziona inizialmente questo intervallo dal Registro di sistema, ma passa all'impostazione del Servizio di gestione delle chiavi dopo aver ricevuto la prima risposta del servizio.<br />Questa operazione deve essere eseguita in una finestra del prompt dei comandi con privilegi elevati. |
@@ -101,7 +101,7 @@ Per gestire i client remoti usare lo Strumento di gestione dell'attivazione dei 
 
 ## <a name="token-based-activation-configuration-options"></a>Opzioni di configurazione dell'attivazione basata su token
 
-|Opzione |Description |
+|Opzione |Descrizione |
 | - | - |
 |/lil |Consente di elencare le licenze di pubblicazione basate su token installate. |
 |\/ril&nbsp;&lt;ILID&gt;&nbsp;&lt;ILvID&gt; |Consente di rimuovere una licenza di pubblicazione basata su token installata.<br />Questa operazione deve essere eseguita da una finestra del prompt dei comandi con privilegi elevati. |
@@ -112,7 +112,7 @@ Per gestire i client remoti usare lo Strumento di gestione dell'attivazione dei 
 
 ## <a name="active-directory-based-activation-configuration-options"></a>Opzioni di configurazione dell'attivazione basata su Active Directory
 
-|Opzione |Description |
+|Opzione |Descrizione |
 | - | - |
 |\/ad-activation-online &lt;Codice Product&nbsp;Key&gt; \[\<Nome&nbsp;oggetto&nbsp;attivazione\>] |Consente di raccogliere i dati di Active Directory e avvia l'attivazione della foresta di Active Directory usando le credenziali eseguite dal prompt dei comandi. Non è richiesto l'accesso di amministratore locale, ma è obbligatorio l'accesso in lettura/scrittura al contenitore dell'oggetto attivazione nel dominio radice della foresta. |
 |\/ad-activation-get-IID &lt;Codice Product&nbsp;Key&gt; |Questa opzione consente di avviare l'attivazione della foresta di Active Directory in modalità di rete. L'output è l'ID di installazione (IID) che può essere usato per attivare la foresta con linea telefonica se la connettività Internet non è disponibile. Dopo aver fornito l'IID nella chiamata telefonica di attivazione, viene restituito un CID che verrà usato per completare l'attivazione. |
@@ -121,7 +121,7 @@ Per gestire i client remoti usare lo Strumento di gestione dell'attivazione dei 
 |\/ao-list |Consente di visualizzare tutti gli oggetti attivazione disponibili sul computer locale. |
 |\/del-ao &lt;DN_AO&gt;<br />\/del-ao &lt;RDN_AO&gt; |Consente di eliminare l'oggetto attivazione specificato dalla foresta. |
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Guida di riferimento tecnico per l'attivazione dei contratti multilicenza](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn502529%28v%3dws.11%29)
 - [Panoramica dell'attivazione di contratti multilicenza](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831612%28v%3dws.11%29)

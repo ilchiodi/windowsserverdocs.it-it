@@ -9,10 +9,10 @@ ms.technology: storage
 ms.date: 04/05/2018
 ms.localizationpriority: medium
 ms.openlocfilehash: 9e927a77627e786015a928d798aafee13a2cc34b
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "71394376"
 ---
 # <a name="troubleshoot-user-profiles-with-events"></a>Risolvere i problemi relativi ai profili utente con eventi
@@ -91,6 +91,6 @@ Di seguito viene illustrato come creare e decodificare una traccia per il serviz
     ```
 8. Apri i file **Summary.txt** e **Dumpfile.xml** (puoi aprirli in Microsoft Excel per visualizzare più facilmente i dettagli completi del log). Cerca gli eventi che includono **fail** o **failed**. Puoi ignorare tranquillamente le righe che contengono il nome evento **Unknown**.
 
-## <a name="more-information"></a>Ulteriori informazioni
+## <a name="more-information"></a>Altre informazioni
 
 * [Distribuire profili utente mobili](deploy-roaming-user-profiles.md)

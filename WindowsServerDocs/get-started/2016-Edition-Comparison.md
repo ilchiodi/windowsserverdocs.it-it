@@ -11,10 +11,10 @@ ms.author: jgerend
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: ce4c35f0b65d0461e9dc2e23404d2637aecff415
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80827104"
 ---
 # <a name="comparison-of-standard-and-datacenter-editions-of-windows-server-2016"></a>Confronto tra le edizioni Standard e Datacenter di Windows Server 2016
@@ -23,15 +23,15 @@ ms.locfileid: "80827104"
   
 ## <a name="locks-and-limits"></a>Blocchi e limiti
 
-| Blocchi e limiti | Windows Server 2016 Standard | Windows Server 2016 Datacenter |
+| Blocchi e limiti | Windows Server 2016 Standard | Windows Server 2016 Datacenter |
 | ------------------- |---------- | --------------------------- |  
 | Numero massimo di utenti | Basato su licenze CAL   | Basato su licenze CAL     |
 | Numero massimo di connessioni SMB | 16.777.216      | 16.777.216          |
-| Numero massimo di connessioni RRAS| Illimitati       | Illimitati         |
+| Numero massimo di connessioni RRAS| Nessun limite       | Nessun limite         |
 | Numero massimo di connessioni IAS | 2\.147.483.647   | 2\.147.483.647        |
 | Numero massimo di connessioni RDS | 65535           | 65535             |
 | Numero massimo di socket a 64 bit | 64     | 64                |
-| Numero massimo di core | Illimitati       | Illimitati      |
+| Numero massimo di core | Nessun limite       | Nessun limite      |
 | RAM massima             | 24 TB           | 24 TB             |
 | Utilizzabile come guest di virtualizzazione | Sì; due macchine virtuali, più un host Hyper-V per licenza | Sì; <strong>macchine virtuali illimitate</strong>, più un host Hyper-V per licenza |
 | Il server può essere aggiunto a un dominio | sì            | sì                |
@@ -41,14 +41,14 @@ ms.locfileid: "80827104"
 
 ## <a name="server-roles"></a>Ruoli server
 
-| Ruoli Windows Server disponibili     | Servizi ruolo | Windows Server 2016 Standard | Windows Server 2016 Datacenter |  
+| Ruoli Windows Server disponibili     | Servizi ruolo | Windows Server 2016 Standard | Windows Server 2016 Datacenter |  
 | -------------------                | ----------    | ----------                   | ---------------------------    |  
 | Servizi certificati Active Directory|              | Sì                          | Sì                            |
-| Active Directory Domain Services    |               | Sì                          | Sì                            |
+| Servizi di dominio di Active Directory    |               | Sì                          | Sì                            |
 | Active Directory Federation Services|               | Sì                          | Sì                            |
 | AD Lightweight Directory Services| |Sì|Sì|
 | AD Rights Management Services| |Sì|Sì|
-| Attestazione di integrità del dispositivo| |Sì|Sì|
+| Attestazione dell'integrità dei dispositivi| |Sì|Sì|
 | Server DHCP| |Sì|Sì|
 | Server DNS| |Sì|Sì|
 | Server fax| |Sì|Sì|
@@ -58,8 +58,8 @@ ms.locfileid: "80827104"
 | Servizi file e archiviazione|Spazi dei nomi DFS|Sì|Sì|
 | Servizi file e archiviazione|Replica DFS|Sì|Sì|
 | Servizi file e archiviazione|Gestione risorse file server|Sì|Sì|
-| Servizi file e archiviazione|Servizio File Server VSS Agent|Sì|Sì|
-| Servizi file e archiviazione|iSCSI Target Server|Sì|Sì|
+| Servizi file e archiviazione|Servizio agente File Server VSS|Sì|Sì|
+| Servizi file e archiviazione|Server di destinazione iSCSI|Sì|Sì|
 | Servizi file e archiviazione|Provider di archiviazione destinazioni iSCSI|Sì|Sì|
 | Servizi file e archiviazione|Server per NFS|Sì|Sì|
 | Servizi file e archiviazione|Cartelle di lavoro|Sì|Sì|
@@ -74,17 +74,17 @@ ms.locfileid: "80827104"
 | Servizi Desktop remoto| |Sì|Sì|
 | Servizi di attivazione contratti multilicenza| |Sì|Sì|
 | Servizi Web (IIS)| |Sì|Sì|
-| Windows Deployment Services| |Sì, quando installato come Server con Esperienza desktop|Sì, quando installato come Server con Esperienza desktop|
+| Servizi di distribuzione Windows| |Sì, quando installato come Server con Esperienza desktop|Sì, quando installato come Server con Esperienza desktop|
 | Esperienza Windows Server Essentials| |Sì|Sì|
 | Windows Server Update Services| |Sì|Sì|
 
 ## <a name="features"></a>Caratteristiche
 
-|Funzionalità Windows Server installabili con Server Manager (o PowerShell)|Windows Server 2016 Standard|Windows Server 2016 Datacenter|  
+|Funzionalità Windows Server installabili con Server Manager (o PowerShell)|Windows Server 2016 Standard|Windows Server 2016 Datacenter|  
 |-------------------|----------|---------------------------|  
 |.NET Framework 3.5|Sì|Sì|
 |.NET framework 4.6|Sì|Sì|
-|BITS (Servizio trasferimento intelligente in background)|Sì|Sì|
+|Servizio trasferimento intelligente in background (BITS)|Sì|Sì|
 |Crittografia unità BitLocker|Sì|Sì|
 |Sblocco di rete via BitLocker|Sì, quando installato come Server con Esperienza desktop|Sì, quando installato come Server con Esperienza desktop|
 |BranchCache|Sì|Sì|
@@ -107,15 +107,15 @@ ms.locfileid: "80827104"
 |Accodamento messaggi|Sì|Sì|
 |Multipath I/O|Sì|Sì|
 |MultiPoint Connector|Sì|Sì|
-|Network Load Balancing|Sì|Sì|
+|Bilanciamento carico di rete|Sì|Sì|
 |Protocollo PNRP (Peer Name Resolution Protocol)|Sì|Sì|
 |Servizio audio/video Windows di qualità|Sì|Sì|
 |Connection Manager Administration Kit RAS|Sì, quando installato come Server con Esperienza desktop|Sì, quando installato come Server con Esperienza desktop|
 |Assistenza remota|Sì, quando installato come Server con Esperienza desktop|Sì, quando installato come Server con Esperienza desktop|
-|RDC (Remote Differential Compression)|Sì|Sì|
+|Compressione differenziale remota|Sì|Sì|
 |Strumenti di amministrazione remota del server|Sì|Sì|
 |Proxy RPC su HTTP|Sì|Sì|
-|Il programma di installazione e la raccolta degli eventi di avvio|Sì|Sì|
+|Raccolta eventi di configurazione e avvio|Sì|Sì|
 |Servizi TCP/IP semplificati|Sì, quando installato come Server con Esperienza desktop|Sì, quando installato come Server con Esperienza desktop|
 |Supporto condivisione di file SMB 1.0/CIFS|Installato|Installato|
 |Limite larghezza di banda SMB|Sì|Sì|
@@ -132,7 +132,7 @@ ms.locfileid: "80827104"
 |Windows Identity Foundation 3.5|Sì, quando installato come Server con Esperienza desktop|Sì, quando installato come Server con Esperienza desktop|
 |Database interno di Windows|Sì|Sì|
 |Windows PowerShell|Installato|Installato|
-|Servizio Attivazione processo Windows|Sì|Sì|
+|Servizio Attivazione dei processi Windows|Sì|Sì|
 |Servizio Windows Search|Sì, quando installato come Server con Esperienza desktop|Sì, quando installato come Server con Esperienza desktop|
 |Windows Server Backup|Sì|Sì|
 |Strumenti di migrazione per Windows Server|Sì|Sì|
@@ -144,15 +144,15 @@ ms.locfileid: "80827104"
 |Supporto di WoW64|Installato|Installato|
 |XPS Viewer|Sì, quando installato come Server con Esperienza desktop|Sì, quando installato come Server con Esperienza desktop|
 
-|Funzionalità disponibili in generale|Windows Server 2016 Standard|Windows Server 2016 Datacenter|  
+|Funzionalità disponibili in generale|Windows Server 2016 Standard|Windows Server 2016 Datacenter|  
 |-------------------|----------|---------------------------|  
 |Best Practices Analyzer|Sì|Sì|
-|DirectAccess|Sì|Sì|
+|Direct Access|Sì|Sì|
 |Memoria dinamica (in virtualizzazione)|Sì|Sì|
 |Aggiunta/Sostituzione RAM a caldo|Sì|Sì|
 |Microsoft Management Console|Sì|Sì|
 |Interfaccia server minima|Sì|Sì|
-|Network Load Balancing|Sì|Sì|
+|Bilanciamento carico di rete|Sì|Sì|
 |Windows PowerShell|Sì|Sì|
 |Opzione di installazione dei componenti di base del server|Sì|Sì|
 |Opzione di installazione Nano Server|Sì|Sì|

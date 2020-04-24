@@ -9,10 +9,10 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.openlocfilehash: b0b7fef9c74ba5da1b94772cb5f6ff3d717a5359
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80855974"
 ---
 # <a name="ad-fs-openid-connectoauth-flows-and-application-scenarios"></a>Flussi e scenari di applicazione di OpenID Connect/OAuth in AD FS
@@ -21,9 +21,9 @@ Si applica ad AD FS 2016 e versioni successive
 
 |Scenario|Procedura dettagliata per lo scenario con esempi|Flusso/concessione OAuth 2.0|Tipo di client|
 |-----|-----|-----|-----|
-|App a singola pagina</br> | &bull; [Esempio di utilizzo di ADAL](../development/Single-Page-Application-with-AD-FS.md)|[Implicito](#implicit-grant-flow)|Pubblico| 
+|App a singola pagina</br> | &bull; [Esempio di utilizzo di ADAL](../development/Single-Page-Application-with-AD-FS.md)|[Implicito](#implicit-grant-flow)|Public| 
 |App Web che esegue l'accesso degli utenti</br> | &bull; [Esempio di utilizzo di OWIN](../development/enabling-openid-connect-with-ad-fs.md)|[Codice di autorizzazione](#authorization-code-grant-flow)|Pubblico, riservato|  
-|App nativa che chiama l'API Web</br>|&bull; [Esempio di utilizzo di MSAL](../development/msal/adfs-msal-native-app-web-api.md)</br>&bull; [Esempio di utilizzo di ADAL](../development/native-client-with-ad-fs.md)|[Codice di autorizzazione](#authorization-code-grant-flow)|Pubblico|   
+|App nativa che chiama l'API Web</br>|&bull; [Esempio di utilizzo di MSAL](../development/msal/adfs-msal-native-app-web-api.md)</br>&bull; [Esempio di utilizzo di ADAL](../development/native-client-with-ad-fs.md)|[Codice di autorizzazione](#authorization-code-grant-flow)|Public|   
 |App Web che chiama l'API Web</br>|&bull; [Esempio di utilizzo di MSAL](../development/msal/adfs-msal-web-app-web-api.md)</br>&bull; [Esempio di utilizzo di ADAL](../development/enabling-oauth-confidential-clients-with-ad-fs.md)|[Codice di autorizzazione](#authorization-code-grant-flow)|Riservato| 
 |API Web che chiama un'altra API Web per conto  dell'utente (OBO)</br>|&bull; [Esempio di utilizzo di MSAL](../development/msal/adfs-msal-web-api-web-api.md)</br>&bull; [Esempio di utilizzo di ADAL](../development/ad-fs-on-behalf-of-authentication-in-windows-server.md)|[On-behalf-of](#on-behalf-of-flow)|L'app Web funziona come riservata| 
 |App daemon che chiama l'API Web||[Credenziali del client](#client-credentials-grant-flow)|Riservato| 
@@ -59,7 +59,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 
-|Parametro|Obbligatorio/facoltativo|Description| 
+|Parametro|Obbligatorio/facoltativo|Descrizione| 
 |-----|-----|-----|
 |client_id|necessarie|ID dell'applicazione (client) assegnato da AD FS all'app.| 
 |response_type|necessarie|Deve includere `id_token` per l'accesso OpenID Connect. Può includere anche response_type `token`. L'uso del token consente all'app di ricevere immediatamente un token di accesso dall'endpoint di autorizzazione senza dover effettuare una seconda richiesta all'endpoint del token.| 
@@ -92,7 +92,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZEstZnl0aEV...
 ```
 
 
-|Parametro|Description| 
+|Parametro|Descrizione| 
 |-----|-----|
 |access_token|Parametro incluso se response_type include `token`.|
 |token_type|Parametro incluso se response_type include `token`. Sarà sempre Bearer.| 
@@ -131,7 +131,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &state=12345 
 ```
 
-|Parametro|Obbligatorio/facoltativo|Description|
+|Parametro|Obbligatorio/facoltativo|Descrizione|
 |-----|-----|-----| 
 |client_id|necessarie|ID dell'applicazione (client) assegnato da AD FS all'app.|  
 |response_type|necessarie| Deve includere il codice per il flusso del codice di autorizzazione.| 
@@ -159,9 +159,9 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 ```
 
 
-|Parametro|Description|
+|Parametro|Descrizione|
 |-----|-----|
-|codice|`authorization_code` richiesto dall'app. L'app può usare il codice di autorizzazione per richiedere un token di accesso per la risorsa di destinazione. I parametri authorization_code hanno breve durata, in genere scadono dopo circa 10 minuti.|
+|code|`authorization_code` richiesto dall'app. L'app può usare il codice di autorizzazione per richiedere un token di accesso per la risorsa di destinazione. I parametri authorization_code hanno breve durata, in genere scadono dopo circa 10 minuti.|
 |state|Se nella richiesta è incluso un parametro `state`, lo stesso valore deve essere visualizzato nella risposta. L'app deve verificare che i valori del parametro state siano identici nella richiesta e nella risposta.|
 
 ### <a name="request-an-access-token"></a>Richiedere un token di accesso 
@@ -182,11 +182,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for confidential clients (web apps)  
 ```
 
-|Parametro|Obbligatoria/facoltativa|Description|
+|Parametro|Obbligatorio/facoltativo|Descrizione|
 |-----|-----|-----| 
 |client_id|necessarie|ID dell'applicazione (client) assegnato da AD FS all'app.| 
 |grant_type|necessarie|Deve essere  `authorization_code`  per il flusso del codice di autorizzazione.| 
-|codice|necessarie|`authorization_code` acquisito nella prima parte del flusso.| 
+|code|necessarie|`authorization_code` acquisito nella prima parte del flusso.| 
 |redirect_uri|necessarie|Lo stesso valore `redirect_uri` usato per acquisire `authorization_code`.| 
 |client_secret|obbligatorio per le app Web|Segreto dell'applicazione creato durante la registrazione dell'app in AD FS. Non è consigliabile usare il segreto dell'applicazione in un'app nativa perché i parametri client_secret non possono essere archiviati in modo affidabile nei dispositivi. Questo parametro è obbligatorio per le app Web e le API Web, che hanno la possibilità di archiviare il parametro client_secret in modo sicuro sul lato server. Il segreto client deve essere codificato nell'URL prima dell'invio. Queste app possono anche usare un'autenticazione basata su chiave firmando un token JWT e aggiungendolo come parametro client_assertion.| 
 |code_verifier|facoltative|Lo stesso `code_verifier` usato per ottenere il valore authorization_code. Obbligatorio se è stato usato PKCE nella richiesta di concessione del codice di autorizzazione. Per altre informazioni, vedi l' [RFC PKCE](https://tools.ietf.org/html/rfc7636).</br>Nota: si applica ad AD FS 2019 e versioni successive| 
@@ -207,7 +207,7 @@ Una risposta di token di esito positivo sarà simile alla seguente:
 ```
 
 
-|Parametro|Description| 
+|Parametro|Descrizione| 
 |-----|-----|
 |access_token|Token di accesso richiesto. L'app può usare questo token per eseguire l'autenticazione nella risorsa protetta (API Web).| 
 |token_type|Indica il valore del tipo di token. L'unico tipo supportato da AD FS è Bearer.
@@ -246,7 +246,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 
-|Parametro|Obbligatorio/facoltativo|Description| 
+|Parametro|Obbligatorio/facoltativo|Descrizione| 
 |-----|-----|-----|
 |client_id|necessarie|ID dell'applicazione (client) assegnato da AD FS all'app.| 
 |grant_type|necessarie|Deve essere `refresh_token` per questa parte del flusso del codice di autorizzazione.| 
@@ -268,7 +268,7 @@ Una risposta di token di esito positivo sarà simile alla seguente:
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...", 
 }  
 ```
-|Parametro|Description| 
+|Parametro|Descrizione| 
 |-----|-----|
 |access_token|Token di accesso richiesto. L'app può usare questo token per eseguire l'autenticazione nella risorsa protetta, ad esempio un'API Web.| 
 |token_type|Indica il valore del tipo di token. L'unico tipo supportato da AD FS è Bearer|
@@ -306,7 +306,7 @@ Per richiedere un token di accesso, effettua una richiesta HTTP POST all'endpoin
 Quando viene usato un segreto condiviso, una richiesta di token di accesso da servizio a servizio contiene i parametri seguenti: 
 
 
-|Parametro|Obbligatorio/facoltativo|Description|
+|Parametro|Obbligatorio/facoltativo|Descrizione|
 |-----|-----|-----| 
 |grant_type|necessarie|Tipo della richiesta di token. Per una richiesta che usa un token JWT, il valore deve essere urn:ietf:params:oauth:grant-type:jwt-bearer.|  
 |client_id|necessarie|ID client configurato per la registrazione della prima API Web come app server (app di livello intermedio). Deve corrispondere all'ID risorsa usato nella prima parte, ovvero all'URL della prima API Web.| 
@@ -341,7 +341,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 Una richiesta di token di accesso da servizio a servizio con un certificato contiene i parametri seguenti: 
 
 
-|Parametro|Obbligatorio/facoltativo|Description|
+|Parametro|Obbligatorio/facoltativo|Descrizione|
 |-----|-----|-----| 
 |grant_type|necessarie|Tipo della richiesta di token. Per una richiesta che usa un token JWT, il valore deve essere urn:ietf:params:oauth:grant-type:jwt-bearer. |
 |client_id|necessarie|ID client configurato per la registrazione della prima API Web come app server (app di livello intermedio). Deve corrispondere all'ID risorsa usato nella prima parte, ovvero all'URL della prima API Web.|  
@@ -379,7 +379,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 Una risposta di esito positivo è una risposta OAuth 2.0 JSON con i parametri seguenti. 
 
 
-|Parametro|Description|
+|Parametro|Descrizione|
 |-----|-----| 
 |token_type|Indica il valore del tipo di token. L'unico tipo supportato da AD FS è Bearer. | 
 |ambito|Ambito di accesso concesso nel token.| 
@@ -445,7 +445,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 &grant_type=client_credentials 
 ```
 
-|Parametro|Obbligatorio/facoltativo|Description|
+|Parametro|Obbligatorio/facoltativo|Descrizione|
 |-----|-----|-----| 
 |client_id|necessarie|ID dell'applicazione (client) assegnato da AD FS all'app.| 
 |ambito|facoltative|Elenco di ambiti separato da spazi per cui l'utente deve fornire il consenso.| 
@@ -468,7 +468,7 @@ Content-Type: application/x-www-form-urlencoded
 &grant_type=client_credentials  
 ```
 
-|Parametro|Obbligatorio/facoltativo|Description| 
+|Parametro|Obbligatorio/facoltativo|Descrizione| 
 |-----|-----|-----|
 |client_assertion_type|necessarie|Il valore deve essere impostato su urn:ietf:params:oauth:client-assertion-type:jwt-bearer.| 
 |client_assertion|necessarie|Asserzione (token Web JSON) che devi creare e firmare con il certificato registrato come credenziali per l'applicazione.|  
@@ -514,7 +514,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 
-|Parametro|Obbligatorio/facoltativo|Description| 
+|Parametro|Obbligatorio/facoltativo|Descrizione| 
 |-----|-----|-----|
 |client_id|necessarie|ID client| 
 |grant_type|necessarie|Questo parametro deve essere impostato su password.| 
@@ -538,7 +538,7 @@ Nell'esempio seguente viene illustrata una risposta di token di esito positivo:
 ```
 
 
-|Parametro|Description| 
+|Parametro|Descrizione| 
 |-----|-----|
 |token_type|Questo parametro deve essere sempre impostato su Bearer.| 
 |ambito|Se è stato restituito un token di accesso, questo parametro elenca gli ambiti per i quali è valido il token di accesso.| 
@@ -574,7 +574,7 @@ scope=openid
 ```
 
 
-|Parametro|Condizione|Description|
+|Parametro|Condizione|Descrizione|
 |-----|-----|-----| 
 |client_id|necessarie|ID dell'applicazione (client) assegnato da AD FS all'app.| 
 |ambito|facoltative|Elenco di ambiti separato da spazi.|
@@ -583,7 +583,7 @@ scope=openid
 Una risposta di esito positivo sarà un oggetto JSON contenente le informazioni necessarie per consentire all'utente di eseguire l'accesso. 
 
 
-|Parametro|Description|
+|Parametro|Descrizione|
 |-----|-----| 
 |device_code|Stringa lunga usata per verificare la sessione tra il client e il server di autorizzazione. Il client usa questo parametro per richiedere al server di autorizzazione il token di accesso.| 
 |user_code|Stringa breve mostrata all'utente e usata per identificare la sessione in un dispositivo secondario.| 
@@ -606,17 +606,17 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 ```
 
 
-|Parametro|necessarie|Description|
+|Parametro|necessarie|Descrizione|
 |-----|-----|-----| 
 |grant_type|necessarie|Deve essere urn:ietf:params:oauth:grant-type:device_code| 
 |client_id|necessarie|Deve corrispondere al valore client_id usato nella richiesta iniziale.| 
-|codice|necessarie|Valore device_code restituito nella richiesta di autorizzazione per il dispositivo.|
+|code|necessarie|Valore device_code restituito nella richiesta di autorizzazione per il dispositivo.|
 
 ### <a name="successful-authentication-response"></a>Risposta di autenticazione di esito positivo 
 Una risposta di token di esito positivo sarà simile alla seguente:  
 
 
-|Parametro|Description|
+|Parametro|Descrizione|
 |-----|-----| 
 |token_type|Sempre "Bearer.| 
 |ambito|Se è stato restituito un token di accesso, questo parametro elenca gli ambiti per i quali è valido il token di accesso.| 

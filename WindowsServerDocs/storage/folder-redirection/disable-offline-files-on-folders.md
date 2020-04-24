@@ -9,10 +9,10 @@ ms.technology: storage
 ms.date: 09/10/2018
 ms.localizationpriority: medium
 ms.openlocfilehash: c2614c0180b32a0215454f2d725d6a962986ef1f
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "71394400"
 ---
 # <a name="disable-offline-files-on-individual-redirected-folders"></a>Disabilitare File offline su singole cartelle reindirizzate
@@ -46,7 +46,7 @@ Per disabilitare il caching di File offline per specifiche cartelle reindirizzat
 3. Nell'albero della console fai clic con il pulsante destro del mouse sull'oggetto Criteri di gruppo per cui vuoi configurare le impostazioni di Reindirizzamento cartelle e quindi seleziona **Modifica**. Viene visualizzato l'Editor Gestione Criteri di gruppo.
 4. Nell'albero della console, in **Configurazione utente**, espandi **Criteri**, **Modelli amministrativi**, **Sistema** e **Reindirizzamento cartelle**.
 5. Fai clic con il pulsante destro del mouse su **Non rendere automaticamente disponibili offline specifiche cartelle reindirizzate** e quindi seleziona **Modifica**. Viene visualizzata la finestra **Non rendere automaticamente disponibili offline specifiche cartelle reindirizzate**.
-6. Selezionare **Abilitato**. Nel riquadro **Opzioni** seleziona le cartelle che non devono essere rese disponibili offline selezionando le caselle di controllo appropriate. Fare clic su **OK**.
+6. Seleziona **Attivata**. Nel riquadro **Opzioni** seleziona le cartelle che non devono essere rese disponibili offline selezionando le caselle di controllo appropriate. Seleziona **OK**.
 
 ### <a name="windows-powershell-equivalent-commands"></a>Comandi equivalenti di Windows PowerShell
 
@@ -79,7 +79,7 @@ Per un elenco dei nomi delle chiavi del Registro di sistema (GUID della cartella
 |Ricerche|{7D1D3A04-DEBB-4115-95CF-2F29DA2920DA}|
 |Partite salvate|{4C5C32FF-BB9D-43B0-B5B4-2D72E54EAAA4}|
 
-## <a name="more-information"></a>Ulteriori informazioni
+## <a name="more-information"></a>Altre informazioni
 
 - [Panoramica di reindirizzamento cartelle, file offline e profili utente mobili](folder-redirection-rup-overview.md)
 - [Distribuire il reindirizzamento cartelle con File offline](deploy-folder-redirection.md)

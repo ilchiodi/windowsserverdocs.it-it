@@ -9,10 +9,10 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 8ad14225592d627b6ff88b9e2286b686aa549392
-ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "75351947"
 ---
 # <a name="change-a-dynamic-disk-back-to-a-basic-disk"></a>Riconvertire un disco dinamico in disco di base
@@ -54,7 +54,7 @@ Questo argomento descrive come eliminare tutti i dati su un disco dinamico e qui
 
 8.  Al prompt **DISKPART** digita `convert basic`.
 
-| Value  | Description |
+| Valore  | Descrizione |
 | --- | --- |
 | **list disk**                         | Visualizza un elenco di dischi e le relative informazioni, tra cui dimensioni, quantità di spazio libero, se il disco è un disco di base o dinamico e se il disco usa lo stile di partizione MBR (Master Boot Record, record di avvio principale) o GPT (GUID Partition Table, tabella delle partizioni GUID). Il disco contrassegnato con un asterisco (*) ha lo stato attivo. |
 | **select disk** <em>disknumber</em>   | Seleziona il disco specificato, dove <em>disknumber</em> è il numero del disco, assegnando lo stato attivo a questo disco.  |
@@ -63,11 +63,11 @@ Questo argomento descrive come eliminare tutti i dati su un disco dinamico e qui
 | **delete volume**                     | Elimina il volume selezionato. Non puoi eliminare il volume di sistema, il volume di avvio o qualsiasi volume che contiene il file di paging attivo o il dump di arresto anomalo del sistema (immagine della memoria). |
 | **convert basic** | Converte un disco dinamico vuoto in disco di base.  |
 
-## <a name="additional-considerations"></a>Altre considerazioni
+## <a name="additional-considerations"></a>Considerazioni aggiuntive
 
 -   Il disco non deve contenere volumi o dati prima di poterlo riconvertire in disco di base. Se vuoi conservare i dati, eseguine il backup o spostali su un altro volume prima di convertire il disco in disco di base.
 -   Dopo aver riconvertito un disco dinamico in disco di base, puoi creare solo unità logiche e partizioni su questo disco.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 -   [Notazione della sintassi della riga di comando](https://technet.microsoft.com/library/cc742449(v=ws.11).aspx)

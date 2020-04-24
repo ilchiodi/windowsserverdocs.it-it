@@ -10,10 +10,10 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.openlocfilehash: a2f4c9ac05e72083fab3e3a926dbdd2876214a7b
-ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "77517536"
 ---
 # <a name="ad-fs-requirements"></a>Requisiti per ADFS
@@ -38,7 +38,7 @@ Di seguito sono indicati i requisiti per la distribuzione di ADFS:
   
 -   [Requisiti di autorizzazione](ad-fs-requirements.md#BKMK_13)  
   
-## <a name="BKMK_1"></a>Requisiti del certificato  
+## <a name="certificate-requirements"></a><a name="BKMK_1"></a>Requisiti del certificato  
   
 ### <a name="ssl-certificates"></a>Certificati SSL
 
@@ -90,7 +90,7 @@ Questo certificato viene utilizzato dai provider di attestazioni che crittografa
 ### <a name="user-certificates"></a>Certificati utente
 - Quando si utilizza l'autenticazione del certificato utente con AD FS, tutti i certificati utente deve essere concatenato a un'autorità di certificazione radice considerata attendibile dal server ADFS e Proxy applicazione Web x509.
 
-## <a name="BKMK_2"></a>Requisiti hardware  
+## <a name="hardware-requirements"></a><a name="BKMK_2"></a>Requisiti hardware  
 Requisiti hardware ADFS e Proxy applicazione Web (fisici o virtuali) sono gestiti su CPU, pertanto è necessario adattare le dimensioni della farm per la capacità di elaborazione.  
 - Utilizzare il [foglio di calcolo pianificazione delle capacità di ADFS 2016](http://adfsdocs.blob.core.windows.net/adfs/ADFSCapacity2016.xlsx) per determinare il numero di server ADFS e Proxy applicazione Web, è necessario.
 
@@ -106,7 +106,7 @@ I requisiti di memoria e disco per ADFS sono abbastanza statici, vedere la tabel
 
 Se si utilizza SQL Server per il database di configurazione di ADFS, le dimensioni di SQL Server in base alle raccomandazioni di base di SQL Server.  Le dimensioni del database di ADFS sono molto piccola e ADFS non impone un notevole carico di elaborazione all'istanza del database.  AD FS, tuttavia, connettersi al database più volte durante l'autenticazione, pertanto la connessione di rete deve essere affidabile.  Sfortunatamente, SQL Azure non è supportato per il database di configurazione di ADFS.
   
-## <a name="BKMK_3"></a>Requisiti del proxy  
+## <a name="proxy-requirements"></a><a name="BKMK_3"></a>Requisiti del proxy  
   
 -   Per l'accesso extranet, è necessario distribuire il servizio ruolo Proxy applicazione Web \- fa parte del ruolo del server di accesso remoto. 
 
@@ -116,7 +116,7 @@ Se si utilizza SQL Server per il database di configurazione di ADFS, le dimensio
   
 -   Impossibile installare un server federativo e il servizio ruolo Proxy applicazione Web nello stesso computer.  
   
-## <a name="BKMK_4"></a>Requisiti di Active Directory Domain Services  
+## <a name="ad-ds-requirements"></a><a name="BKMK_4"></a>Requisiti di Active Directory Domain Services  
 **Requisiti del controller di dominio**  
   
 - ADFS richiede che i controller di dominio che esegue Windows Server 2008 o versione successiva.
@@ -165,7 +165,7 @@ Se si utilizza SQL Server per il database di configurazione di ADFS, le dimensio
   
 -   L'account del servizio ADFS deve disporre delle autorizzazioni per leggere gli attributi utente in ogni dominio che contiene gli utenti l'autenticazione per il servizio ADFS.  
   
-## <a name="BKMK_5"></a>Requisiti del database di configurazione  
+## <a name="configuration-database-requirements"></a><a name="BKMK_5"></a>Requisiti del database di configurazione  
 In questa sezione vengono descritti i requisiti e restrizioni per le farm di ADFS che utilizza rispettivamente la Database interno di Windows (WID) o SQL Server del database:  
   
 **Database interno di Windows**  
@@ -188,7 +188,7 @@ Nella tabella seguente viene fornito un riepilogo di quanti server ADFS sono sup
 
 - Risoluzione artefatto SAML sia il rilevamento riproduzione token sono supportati in una farm di SQL Server.  
   
-## <a name="BKMK_6"></a>Requisiti del browser  
+## <a name="browser-requirements"></a><a name="BKMK_6"></a>Requisiti del browser  
 Quando viene eseguita l'autenticazione di ADFS tramite un browser o un controllo browser, il browser deve essere conforme ai requisiti seguenti:  
   
 - È necessario abilitare JavaScript  
@@ -200,7 +200,7 @@ Quando viene eseguita l'autenticazione di ADFS tramite un browser o un controllo
 - Per certificato & dispositivo autenticazione dei certificati utente, il browser deve supportare l'autenticazione del certificato client SSL  
 
 - Per l'accesso trasparente tramite l'autenticazione integrata di Windows, il nome del servizio federativo (ad esempio https:\/\/fs.contoso.com) deve essere configurato nella zona Intranet locale o in siti attendibili.
-  ## <a name="BKMK_7"></a>Requisiti di rete  
+  ## <a name="network-requirements"></a><a name="BKMK_7"></a>Requisiti di rete  
  
 **Requisiti del firewall**  
   
@@ -237,7 +237,7 @@ Per altre informazioni, vedi [Procedure consigliate per la protezione di Active 
 - NON è consigliabile usare il round robin DNS come metodo per il bilanciamento del carico. L'uso di questo tipo di bilanciamento del carico non fornisce un modo automatico per rimuovere un nodo dal bilanciamento del carico usando i probe di integrità. 
 - NON è consigliabile usare l'affinità di sessione basata su IP o le sessioni permanenti per il traffico di autenticazione ad AD FS all'interno del bilanciamento del carico. Questa opzione può causare un sovraccarico di determinati nodi quando si usa il protocollo di autenticazione legacy per i client di posta elettronica per la connessione ai servizi di posta elettronica di Office 365 (Exchange Online). 
 
-## <a name="BKMK_13"></a>Requisiti di autorizzazione  
+## <a name="permissions-requirements"></a><a name="BKMK_13"></a>Requisiti di autorizzazione  
 L'amministratore che esegue l'installazione e la configurazione iniziale di ADFS deve disporre delle autorizzazioni di amministratore locale sul server ADFS.  Se l'amministratore locale non dispone delle autorizzazioni per creare oggetti in Active Directory, è necessario innanzitutto disporre di un amministratore di dominio creare gli oggetti di Active Directory necessari, quindi configurare la farm di ADFS tramite il parametro AdminConfiguration.  
   
   

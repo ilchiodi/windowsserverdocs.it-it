@@ -9,10 +9,10 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
 ms.openlocfilehash: 2723868251f90429fb0ad5e966c9222a6a22ab0c
-ms.sourcegitcommit: 1c75e4b3f5895f9fa33efffd06822dca301d4835
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "77520640"
 ---
 # <a name="windows-server-2016-improvements"></a>Miglioramenti di Windows Server 2016
@@ -321,7 +321,7 @@ Per garantire la conformità alle normative traccia ora è possibile archiviare 
 ### <a name="event-logging"></a>Registrazione degli eventi
 Per ottenere la storia completa, è necessario anche informazioni del registro eventi. Raccogliendo il registro eventi di sistema e filtrando i dati in base a Time-Server, Microsoft-Windows-Kernel-Boot, Microsoft-Windows-Kernel-General, potresti riuscire a scoprire se esistono altri fattori che hanno modificato l'ora, ad esempio terze parti. Questi registri potrebbero essere necessari per escludere interferenze esterne. Criteri di gruppo possono influire sulle quali registri eventi vengono scritti nel log. Per ulteriori informazioni, vedere la sezione precedente su mediante criteri di gruppo.
 
-### <a name="W32Logging"></a>Registrazione di debug W32time
+### <a name="w32time-debug-logging"></a><a name="W32Logging"></a>Registrazione di debug W32time
 Per abilitare w32tm per scopi di controllo, il comando seguente consente di abilitare una registrazione che visualizza gli aggiornamenti periodici del clock e indica il clock di origine. Riavviare il servizio per abilitare la registrazione di nuovi. 
 
 Per ulteriori informazioni, vedere [come attivare la registrazione nel servizio ora di Windows di debug](https://support.microsoft.com/kb/816043).

@@ -8,10 +8,10 @@ ms.author: timwi; chrisrob; herbertm; kenbrumf;  mleary; shawnrab; v-tea
 author: phstee
 ms.date: 10/16/2017
 ms.openlocfilehash: 643a603e89adeb0c1f3c70b0b0cabbf6bcb54731
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80851904"
 ---
 # <a name="performance-tuning-active-directory-servers"></a>Ottimizzazione delle prestazioni per server Active Directory
@@ -44,7 +44,7 @@ Poiché tuttavia queste operazioni richiedono tempo e molti ambienti sono in ese
 
 È consigliabile mantenersi aggiornati sulle novità, le indicazioni e le procedure consigliate più recenti per la gestione di Active Directory Domain Services seguendo il blog del team ["Ask the Directory Services Team"](https://techcommunity.microsoft.com/t5/Ask-the-Directory-Services-Team/bg-p/AskDS).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Pianificazione della capacità per Active Directory Domain Services](capacity-planning-for-active-directory-domain-services.md)
 - [Considerazioni relative ai requisiti hardware](hardware-considerations.md)

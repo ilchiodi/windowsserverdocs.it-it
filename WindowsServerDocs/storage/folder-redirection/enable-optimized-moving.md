@@ -9,10 +9,10 @@ ms.technology: storage
 ms.date: 09/10/2018
 ms.localizationpriority: medium
 ms.openlocfilehash: edf714bc0d6b39dbe7c5e800e953d7820fe9abc5
-ms.sourcegitcommit: bfe9c5f7141f4f2343a4edf432856f07db1410aa
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "75352604"
 ---
 # <a name="enable-optimized-moves-of-redirected-folders"></a>Abilitare spostamenti ottimizzati di cartelle reindirizzate
@@ -72,7 +72,7 @@ Quando sposti la condivisione file che contiene le cartelle reindirizzate degli 
 
     Gli utenti devono accedere a tutti i computer almeno una volta per assicurarsi che i dati vengano rilocati correttamente in ogni cache File offline.
 
-## <a name="more-information"></a>Ulteriori informazioni
+## <a name="more-information"></a>Altre informazioni
 
 * [Distribuire Reindirizzamento cartelle con File offline](deploy-folder-redirection.md)
 * [Distribuire profili utente mobili](deploy-roaming-user-profiles.md)

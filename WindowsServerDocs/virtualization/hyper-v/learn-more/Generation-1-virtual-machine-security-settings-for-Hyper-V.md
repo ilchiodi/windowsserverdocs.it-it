@@ -10,10 +10,10 @@ author: larsiwer
 ms.author: kathydav
 ms.date: 10/04/2016
 ms.openlocfilehash: f86c4fe9222f08b3ef3719080deeb4fbda6edd33
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80860814"
 ---
 # <a name="generation-1-virtual-machine-security-settings"></a>Impostazioni di sicurezza di generazione 1 macchina virtuale
@@ -43,7 +43,7 @@ Per ulteriori informazioni sulle infrastrutture protetta, vedere la sezione Intr
 
 È possibile aggiungere un'unità di archiviazione delle chiavi in uno slot vuoto in uno dei controller IDE della macchina virtuale. A tale scopo, fare clic su **aggiungere unità di archiviazione chiave** per aggiungere un'unità di archiviazione chiavi per il primo slot di controller IDE gratuito di questa macchina virtuale.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Impostazioni di sicurezza di macchine virtuali di seconda generazione nella console di gestione di Hyper-V](Generation-2-virtual-machine-security-settings-for-hyper-v.md)
 - [Sicurezza e controllo](../../../security/Security-and-Assurance.md)

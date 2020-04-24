@@ -9,10 +9,10 @@ ms.topic: article
 author: Heidilohr
 manager: lizross
 ms.openlocfilehash: 79db56d467ae0913446faebffc5a9598aae0b767
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80852994"
 ---
 # <a name="network-guidance"></a>Linee guida relative alla rete
@@ -28,7 +28,7 @@ La tabella seguente elenca le larghezze di banda minime consigliate per un'esper
 
 | Tipo di carico di lavoro   | Larghezza di banda consigliata |
 |-----------------|-----------------------|
-| Leggero           | 1,5 Mbps              |
+| Chiaro           | 1,5 Mbps              |
 | Medio          | 3 Mbps                |
 | Pesante           | 5 Mbps                |
 | Potenza           | 15 Mbps               |

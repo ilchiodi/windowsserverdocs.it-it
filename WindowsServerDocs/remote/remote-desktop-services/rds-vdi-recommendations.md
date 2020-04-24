@@ -10,10 +10,10 @@ ms.assetid: 2a44dc9f-c221-4bf7-89c3-fb4c86a90f8c
 author: jaimeo
 manager: dougkim
 ms.openlocfilehash: 2ab78ccbc4e49bd95a74fe1e17d5ea14891eb1b8
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80857274"
 ---
 # <a name="recommended-settings-for-vdi-desktops"></a>Impostazioni consigliate per i desktop VDI
@@ -48,20 +48,20 @@ Se si è scelto **Personalizza**, è possibile modificare queste impostazioni du
 |Impostazione|Valore predefinito|Valore consigliato per l'uso di VDI|
 |-------------------|----------|--------------|
 |**Personalizzazione**| | |
-|Personalizza i comandi vocali, la digitazione e gli input penna, inviando i dati di input a Microsoft.|    Attivato| Off|
-|Invia i dati della digitazione e di input penna a Microsoft per migliorare la piattaforma di riconoscimento e suggerimenti.|  Attivato| Off|
-|Consenti alle app di usare il proprio ID pubblicità per un'esperienza tra app.|  Attivato| Off|
-|Consenti a Skype (se installato) di connettersi con gli amici nella rubrica dell'utente e verificare il numero di cellulare. Potrebbero essere applicate tariffe SMS e dati.|    Attivato| Off|
+|Personalizza i comandi vocali, la digitazione e gli input penna, inviando i dati di input a Microsoft.|    Attivato| Disattivato|
+|Invia i dati della digitazione e di input penna a Microsoft per migliorare la piattaforma di riconoscimento e suggerimenti.|  Attivato| Disattivato|
+|Consenti alle app di usare il proprio ID pubblicità per un'esperienza tra app.|  Attivato| Disattivato|
+|Consenti a Skype (se installato) di connettersi con gli amici nella rubrica dell'utente e verificare il numero di cellulare. Potrebbero essere applicate tariffe SMS e dati.|    Attivato| Disattivato|
 |**Posizione**| | |
-|Attiva Trova il mio dispositivo e consenti a Windows e alle app di accedere alla posizione, inclusa la cronologia delle posizioni| Attivato| Off|
+|Attiva Trova il mio dispositivo e consenti a Windows e alle app di accedere alla posizione, inclusa la cronologia delle posizioni| Attivato| Disattivato|
 |Connettività e segnalazione di errori| | |
-|Connettiti automaticamente agli hotspot aperti suggeriti. Non tutte le reti sono sicure.|    Attivato| Off|
-|Connetti automaticamente e temporaneamente a hotspot per verificare se sono disponibili servizi di rete a pagamento.| Attivato| Off|
-|Invia i dati di utilizzo e diagnostica completa a Microsoft. Disattivando questa opzione si inviano solo i dati di base.| Attivato| Off|
+|Connettiti automaticamente agli hotspot aperti suggeriti. Non tutte le reti sono sicure.|    Attivato| Disattivato|
+|Connetti automaticamente e temporaneamente a hotspot per verificare se sono disponibili servizi di rete a pagamento.| Attivato| Disattivato|
+|Invia i dati di utilizzo e diagnostica completa a Microsoft. Disattivando questa opzione si inviano solo i dati di base.| Attivato| Disattivato|
 |**Browser, protezione e aggiornamenti**| | |
 |Usa i servizi online di SmartScreen per proteggere da contenuti e download dannosi nei siti caricati dalle app Store e i browser di Windows|    Attivato| Attivato (se non è disponibile l'accesso a Internet, allora è impostato su Disattivato.)
-|Usa la previsione della pagina per migliorare la lettura, velocizzare l'esplorazione e migliorare l'esperienza complessiva nei browser di Windows. I dati vengono inviati a Microsoft.| Attivato| Off|
-|Ricevi aggiornamenti e invia aggiornamenti ad altri computer nella rete Internet per velocizzare l'app e i download di Windows Update|   Attivato| Off|
+|Usa la previsione della pagina per migliorare la lettura, velocizzare l'esplorazione e migliorare l'esperienza complessiva nei browser di Windows. I dati vengono inviati a Microsoft.| Attivato| Disattivato|
+|Ricevi aggiornamenti e invia aggiornamenti ad altri computer nella rete Internet per velocizzare l'app e i download di Windows Update|   Attivato| Disattivato|
 
 Al termine dell'installazione, è possibile continuare la modifica delle impostazioni a partire dalle **impostazioni di Windows**.
 
@@ -93,10 +93,10 @@ Questi valori consigliati riducono le notifiche e le attività di rete in backgr
 
 |Impostazione|Valore predefinito|Valore consigliato per l'uso di VDI|
 |-------------------|----------|--------------|
-|Ricevi notifiche dalle app e altri mittenti| Attivato| Off|
-|Mostra le notifiche nella schermata di blocco.|    Attivato| Off|
-|Mostra le sveglie, i promemoria e le chiamate VoIP in entrata nella schermata di blocco.|   Attivato| Off|
-|Mostra suggerimenti, trucchi e consigli quando si utilizza Windows.|    Attivato| Off|
+|Ricevi notifiche dalle app e altri mittenti| Attivato| Disattivato|
+|Mostra le notifiche nella schermata di blocco.|    Attivato| Disattivato|
+|Mostra le sveglie, i promemoria e le chiamate VoIP in entrata nella schermata di blocco.|   Attivato| Disattivato|
+|Mostra suggerimenti, trucchi e consigli quando si utilizza Windows.|    Attivato| Disattivato|
 
 
 #### <a name="offline-maps"></a>Mappe offline
@@ -109,7 +109,7 @@ Questa impostazione è disponibile solo se è installata l'app Mappe. Il valore 
 |-------------------|----------|--------------|
 |Quando si accede|    Usa la modalità appropriata per l'hardware in uso|   Usa la modalità desktop|
 |Quando il dispositivo passa automaticamente in modalità attiva o disattiva|    Chiedi sempre prima di eseguire la passaggio| Non chiedere più e non eseguire il passaggio|
-|Nascondi le icone delle app sulla barra delle applicazioni in modalità tablet|  Attivato| Off|
+|Nascondi le icone delle app sulla barra delle applicazioni in modalità tablet|  Attivato| Disattivato|
 
 
 ### <a name="in-the-devices-area-of-windows-settings"></a>Nell'area "Dispositivi" delle impostazioni di Windows
@@ -119,26 +119,26 @@ Nell'area delle impostazioni di Windows, facendo clic sull'icona **Dispositivi**
 
 |Impostazione|Valore predefinito|Valore consigliato per l'uso di VDI|
 |-------------------|----------|--------------|
-|Usa la funzionalità Riproduzione automatica per tutti i dispositivi e supporti|    Attivato| Off|
+|Usa la funzionalità Riproduzione automatica per tutti i dispositivi e supporti|    Attivato| Disattivato|
 |Unità rimovibile:|Scegliere i valori predefiniti per|Non eseguire alcuna azione|
 |Scheda di memoria|Scegliere i valori predefiniti per|Non eseguire alcuna azione|
 
 ### <a name="in-the-personalization-area-of-windows-settings"></a>Nell'area "Personalizzazione" delle impostazioni di Windows
 Nell'area delle impostazioni di Windows, facendo clic sull'icona **Personalizzazione** è possibile accedere a una serie di impostazioni relative al sistema. Non è necessario modificare tutte le impostazioni per un uso ottimale di VDI, queste impostazioni sono quelle più importanti:
 
-#### <a name="background"></a>Background
+#### <a name="background"></a>Informazioni
 In alcuni casi, lo sfondo nero predefinito potrebbe far pensare agli utenti che il computer non risponde. Modificare il colore dello sfondo può risultare utile per evitare questo inconveniente. A tale scopo, effettuare le operazioni seguenti:
 1. Nell'area **Sfondo** fare clic sul menu a discesa.
 2. Per modificare il colore dello sfondo, fare clic su **Colore a tinta unita**, quindi fare clic su uno qualsiasi dei colori diversi da nero. In alternativa, è possibile fare clic su **Immagine** e quindi selezionare un'immagine da utilizzare come sfondo.
 
-#### <a name="start"></a>Avviare
+#### <a name="start"></a>Inizio
 
 |Impostazione|Valore predefinito|Valore consigliato per l'uso di VDI|
 |-------------------|----------|--------------|
-|Mostra occasionalmente suggerimenti in Start|    Attivato| Off|
-|Mostra le app più usate|Attivato|Off|
-|Mostra le app aggiunte di recente|Attivato|Off|
-|Mostra gli elementi aperti di recente in Jump List in Start o nella barra delle applicazioni|Attivato|Off|
+|Mostra occasionalmente suggerimenti in Start|    Attivato| Disattivato|
+|Mostra le app più usate|Attivato|Disattivato|
+|Mostra le app aggiunte di recente|Attivato|Disattivato|
+|Mostra gli elementi aperti di recente in Jump List in Start o nella barra delle applicazioni|Attivato|Disattivato|
 
 #### <a name="taskbar"></a>Barra delle applicazioni
 L'impostazione predefinita prevede i pulsanti della barra delle applicazioni di grandi dimensioni (ovvero con valore "Disattivato" per **Usa i pulsanti della barra delle applicazioni piccoli**). Questa impostazione comporta l'utilizzo di una grande area della barra delle applicazioni da parte di Cortana. Per evitare questo problema, impostare **Usa i pulsanti della barra delle applicazioni piccoli** su "Attivato." Se si preferisce che gli elementi della barra delle applicazioni siano più grandi, ma non si vuole che Cortana occupi molto spazio, fare clic sulla barra delle applicazioni con il pulsante destro del mouse, scegliere **Cortana**e nel menu a comparsa, selezionare **Nascosto**.
@@ -151,9 +151,9 @@ Alcune di queste impostazioni vengono impostate anche dalla finestra "Personaliz
 
 |Impostazione|Valore predefinito|Valore consigliato per l'uso di VDI|
 |-------------------|----------|--------------|
-|Consenti alle app di usare il mio ID annunci per le esperienze tra app (se si disattiva questa opzione l'ID verrà reimpostato)|  Attivato| Off|
-|Permetti ai siti Web di accedere all'elenco delle lingue per fornire contenuti pertinenti per la mia specifica area geografica|Attivato|Off|
-|Consenti alle app negli altri miei dispositivi di aprire app e continuare le esperienze in questo dispositivo|Attivato|Off|
+|Consenti alle app di usare il mio ID annunci per le esperienze tra app (se si disattiva questa opzione l'ID verrà reimpostato)|  Attivato| Disattivato|
+|Permetti ai siti Web di accedere all'elenco delle lingue per fornire contenuti pertinenti per la mia specifica area geografica|Attivato|Disattivato|
+|Consenti alle app negli altri miei dispositivi di aprire app e continuare le esperienze in questo dispositivo|Attivato|Disattivato|
 
 #### <a name="camera"></a>Fotocamera
 
@@ -164,7 +164,7 @@ Il valore predefinito per "Consenti alle app di usare la fotocamera" è **Attiva
 
 Il valore predefinito per "Consenti alle app di usare il microfono" è **Attivato**; per l'uso di VDI il valore consigliato è **Disattivato**.
 
-#### <a name="notifications"></a>Notifiche
+#### <a name="notifications"></a>Notifications
 
 Il valore predefinito per "Consenti alle app di accedere alle notifiche" è **Attivato**; per l'uso di VDI il valore consigliato è **Disattivato**.
 
@@ -229,38 +229,38 @@ Il modo più rapido per aprire Utilità di pianificazione è premere il pulsante
 |Raccolta di attività|Nome attività|Stato predefinito|Stato consigliato per l'uso di VDI|
 |-------------------|-------------|----------|--------------|
 |Analisi utilizzo software||||
-||Consolidamento|Abilitato|Disabilitata|
-||KernelCeipTask|Abilitato|Disabilitata|
-||UsbCeip|Abilitato|Disabilitata|
+||Consolidamento|Enabled|Disabled|
+||KernelCeipTask|Enabled|Disabled|
+||UsbCeip|Enabled|Disabled|
 |Deframmentazione||||
-||ScheduledDefrag|Abilitato|Disabilitata|
-|Posizione||||
-||Notifiche|Abilitato|Disabilitata|
-||WindowsActionDialog|Abilitato|Disabilitata|
+||ScheduledDefrag|Enabled|Disabled|
+|Location||||
+||Notifications|Enabled|Disabled|
+||WindowsActionDialog|Enabled|Disabled|
 |Manutenzione||||
-||Strumento Valutazione sistema Windows|Abilitato|Disabilitata|
+||Strumento Valutazione sistema Windows|Enabled|Disabled|
 |Mappe||||
-||MapsToastTask|Abilitato|Disabilitata|
-||MapsUpdateTask|Abilitato|Disabilitata|
+||MapsToastTask|Enabled|Disabled|
+||MapsUpdateTask|Enabled|Disabled|
 |Account Mobile Broadband||||
-||Parser dei metadati MNO|Abilitato|Disabilitata|
+||Parser dei metadati MNO|Enabled|Disabled|
 |Diagnostica efficienza energetica||||
-||Analisi sistema|Abilitato|Disabilitata|
+||Analisi sistema|Enabled|Disabled|
 |Ambiente di ripristino||||
-||VerifyWinRE|Abilitato|Disabilitata|
+||VerifyWinRE|Enabled|Disabled|
 |Demo negozio||||
-||CleanupOfflineContent|Abilitato|Disabilitata|
+||CleanupOfflineContent|Enabled|Disabled|
 |Shell||||
-||FamilySafetyMonitor|Abilitato|Disabilitata|
-||FamilySafetyRefreshTask|Abilitato|Disabilitata|
+||FamilySafetyMonitor|Enabled|Disabled|
+||FamilySafetyRefreshTask|Enabled|Disabled|
 |Segnalazione errori Windows||||
-||QueueReporting|Abilitato|Disabilitata|
+||QueueReporting|Enabled|Disabled|
 |Condivisione dei file multimediali di Windows||||
-||UpdateLibrary|Abilitato|Disabilitata|
+||UpdateLibrary|Enabled|Disabled|
 
 Fare clic su **Windows** nuovamente per comprimerlo, quindi fare clic su **XblGameSave**. Ciò consente di accedere alle attività **XBLGameSaveTask** e **XBLGameSaveTaskLogon**; entrambe possono essere impostate su **Disattivato**.
 
-### <a name="performance-monitor"></a>Monitoraggio prestazioni
+### <a name="performance-monitor"></a>Performance Monitor
 Il modo più rapido per aprire Performance Monitor è premere il pulsante Windows e digitare *Performance Monitor i* oppure *perfmon.msc*. Nei risultati che restituiti, fare clic su **Performance Monitor**. In Performance Monitor fare clic su **Insieme agenti di raccolta dati** quindi fare doppio clic su **Sessioni di traccia eventi**. Fare clic con il pulsante destro del mouse su **WiFiSession**; se si trova nello stato predefinito **In esecuzione**, fare clic su **Arresta**.
 
 Fare clic su **StartupEventTraceSessions**, quindi fare clic con il pulsante destro del mouse su **ReadyBoot**; se è in esecuzione, fare clic su **Arresta**. Fare clic su **Sessioni di traccia eventi**, fare clic con il pulsante destro del mouse su **ReadyBoot**, quindi fare clic su **Proprietà**. Nella finestra di dialogo visualizzata, fare clic sulla scheda **Sessione di traccia**. Deselezionare la casella di controllo **Abilitato** .
@@ -294,7 +294,7 @@ Nell'area **Cronologia esplorazioni**, selezionare la casella di controllo **Eli
 ### <a name="power-options"></a>Opzioni risparmio energia
 Premere il pulsante Windows e digitare *Pannello di controllo*. Nei risultati restituiti, fare clic su **Pannello di controllo**. Nel Pannello di controllo, fare clic su **Opzioni di risparmio energia** per aprire il pannello di controllo delle opzioni di risparmio energia. Nell'area **Scegliere o personalizzare una combinazione per il risparmio di energia**, fare clic sulla freccia verso il basso per **Mostra le combinazioni aggiuntive** e quindi seleziona il pulsante di opzione per **Alte prestazioni**. Questa impostazione ha un impatto minimo sull'host VDI.
 
-### <a name="system"></a>System
+### <a name="system"></a>Sistema
 Premere il pulsante Windows e digitare *Pannello di controllo*. Nei risultati restituiti, fare clic su **Pannello di controllo**. Nel Pannello di controllo, fare clic su **Sistema** per aprire il pannello di controllo di sistema. Nel riquadro sinistro, fare clic su **Impostazioni di sistema avanzate**. Nella finestra di dialogo visualizzata, fare clic sulla scheda **Avanzate**. Nell'area **Prestazioni**, fare clic sul pulsante **Impostazioni**, quindi nella scheda **Effetti visivi** nella finestra di dialogo che si apre selezionare il pulsante di opzione **Regola per ottimizzare le prestazioni**. Fare clic su **OK** per salvare e uscire.
 
 ## <a name="group-policy-settings"></a>Impostazioni di Criteri di gruppo
@@ -310,30 +310,30 @@ Comprimere le **Impostazioni di Windows**, quindi espandere **Modelli amministra
 
 |Area delle impostazioni|Impostazione|Valore consigliato per l'uso di VDI|
 |-------------------|-------|----------|
-|BITS (Servizio trasferimento intelligente in background)|||
-||Non consentire al client BITS di utilizzare Windows BranchCache|Abilitato|
-||Non consentire al computer di agire come un client Peer caching BITS|Abilitato|
-||Non consentire al computer di agire come un server Peer caching BITS|Abilitato|
-||Consenti il Peer caching BITS|Disabilitata|
+|Servizio trasferimento intelligente in background (BITS)|||
+||Non consentire al client BITS di utilizzare Windows BranchCache|Enabled|
+||Non consentire al computer di agire come un client Peer caching BITS|Enabled|
+||Non consentire al computer di agire come un server Peer caching BITS|Enabled|
+||Consenti il Peer caching BITS|Disabled|
 |BranchCache||
-||Attiva BranchCache|Disabilitata|
+||Attiva BranchCache|Disabled|
 |Autenticazione hotspot||
-||Attiva l'autenticazione hotspot|Disabilitata|
+||Attiva l'autenticazione hotspot|Disabled|
 |Servizi di rete peer-to-peer Microsoft||
-||Disattiva i servizi di rete peer-to-peer Microsoft|Abilitato|
+||Disattiva i servizi di rete peer-to-peer Microsoft|Enabled|
 |File offline||
-||Consenti o non consentire l'uso di funzionalità file Offline|Disabilitata|
+||Consenti o non consentire l'uso di funzionalità file Offline|Disabled|
 
 Comprimere **Rete**, quindi espandere **Sistema**. Modificare ogni impostazione come indicato di seguito facendo doppio clic sull'impostazione stessa, quindi selezionando il pulsante di opzione per il valore indicato e facendo clic sul pulsante **OK**:
 
 |Area delle impostazioni|Impostazione|Valore consigliato per l'uso di VDI|
 |-------------------|----------|--------------|
 |Installazione di dispositivi||
-||Non inviare una segnalazione errore di Windows quando si installa un driver generico per un dispositivo|Abilitato|
-||Impedisci la creazione di un punto di ripristino del sistema durante l'attività del dispositivo che normalmente richiederebbe la creazione di un punto di ripristino|Abilitato|
-||Impedisci il recupero dei metadati del dispositivo da Internet|Abilitato|
-||Impedisci a Windows di inviare una segnalazione errore quando un driver di dispositivo richiede software aggiuntivo durante l'installazione|Abilitato|
-||Disattiva il fumetto "Trovato nuovo hardware" durante l'installazione del dispositivo|Abilitato|
+||Non inviare una segnalazione errore di Windows quando si installa un driver generico per un dispositivo|Enabled|
+||Impedisci la creazione di un punto di ripristino del sistema durante l'attività del dispositivo che normalmente richiederebbe la creazione di un punto di ripristino|Enabled|
+||Impedisci il recupero dei metadati del dispositivo da Internet|Enabled|
+||Impedisci a Windows di inviare una segnalazione errore quando un driver di dispositivo richiede software aggiuntivo durante l'installazione|Enabled|
+||Disattiva il fumetto "Trovato nuovo hardware" durante l'installazione del dispositivo|Enabled|
 
 Espandere **Filesystem**, fare doppio clic su **NTFS** e su **Opzioni di creazione nomi brevi**, selezionare il pulsante di opzione **Abilitato** e quindi usare il menu a discesa **Opzioni** per selezionare **Abilita in tutti i volumi**. Fare clic sul pulsante **OK** per salvare.
 
@@ -375,46 +375,46 @@ Comprimere **Sistema** quindi espandere **Componenti Windows**. Modificare ogni 
 |Area delle impostazioni|Impostazione|Valore consigliato per l'uso di VDI|
 |-------------------|-------|----------|
 |Aggiungi funzionalità a Windows 10|||
-||Impedisci l'esecuzione della procedura guidata|Abilitato|
+||Impedisci l'esecuzione della procedura guidata|Enabled|
 |Criteri di riproduzione automatica|||
 ||Imposta il comportamento predefinito per l'esecuzione automatica|Abilitato, quindi usare il menu a discesa **Opzioni** per selezionare **Non eseguire comandi di esecuzione automatica**|
 |Contenuto cloud|||
-||Non mostrare i suggerimenti di Windows|Abilitato|
-||Disattiva le esperienze per gli utenti consumer Microsoft|Abilitato|
+||Non mostrare i suggerimenti di Windows|Enabled|
+||Disattiva le esperienze per gli utenti consumer Microsoft|Enabled|
 |Raccolta dei dati e versioni di anteprima|||
 ||Consenti telemetria|Abilitato, quindi usare il menu a discesa **Opzioni** per selezionare **1 - Dati di base**|
-||Disabilita funzionalità o impostazioni non definitive|     Disabilitata|
-||Non mostrare notifiche feedback|       Abilitato|
-||Attiva/disattiva controllo utente per build Insider|      Disabilitata|
+||Disabilita funzionalità o impostazioni non definitive|     Disabled|
+||Non mostrare notifiche feedback|       Enabled|
+||Attiva/disattiva controllo utente per build Insider|      Disabled|
 |Gestione finestre desktop|||
-||Non consentire chiamata Flip3D|       Abilitato|
-||Non consentire animazioni delle finestre|       Abilitato|
-||Usa tinta unita come sfondo di Start|     Abilitato|
+||Non consentire chiamata Flip3D|       Enabled|
+||Non consentire animazioni delle finestre|       Enabled|
+||Usa tinta unita come sfondo di Start|     Enabled|
 |Interfaccia utente basata su bordi|||
-||Consenti di scorrere verso il bordo|     Disabilitata|
-||Disattiva i suggerimenti della Guida|        Abilitato|
+||Consenti di scorrere verso il bordo|     Disabled|
+||Disattiva i suggerimenti della Guida|        Enabled|
 |Esplora file|||
-||Non visualizzare la notifica "nuova applicazione installata"|     Abilitato|
+||Non visualizzare la notifica "nuova applicazione installata"|     Enabled|
 |Esplora giochi|||
-||Disattiva il download delle informazioni sui giochi|     Abilitato|
-||Disattiva gli aggiornamenti dei giochi|        Abilitato|
-||Disattiva il tracciamento dell'ultimo tempo di gioco nella cartella Giochi|     Abilitato|
+||Disattiva il download delle informazioni sui giochi|     Enabled|
+||Disattiva gli aggiornamenti dei giochi|        Enabled|
+||Disattiva il tracciamento dell'ultimo tempo di gioco nella cartella Giochi|     Enabled|
 |Gruppo Home|||
-||Impedisci al computer di partecipare a un gruppo home|        Abilitato|
+||Impedisci al computer di partecipare a un gruppo home|        Enabled|
 |Internet Explorer|||
-||Consenti ai servizi Microsoft di fornire suggerimenti più pertinenti mentre l'utente digita nella barra degli indirizzi|        Disabilitata|
-||Disabilita controllo periodico per aggiornamenti software di Internet Explorer|        Abilitato|
-||Disabilita la visualizzazione della schermata iniziale|        Abilitato|
-||Installa automaticamente nuove versioni di Internet Explorer|      Disabilitata|
-||Impedisci la partecipazione al programma Analisi utilizzo software|     Abilitato|
+||Consenti ai servizi Microsoft di fornire suggerimenti avanzati quando l'utente digita nella barra degli indirizzi|        Disabled|
+||Disabilita controllo periodico per aggiornamenti software di Internet Explorer|        Enabled|
+||Disabilita la visualizzazione della schermata iniziale|        Enabled|
+||Installa automaticamente nuove versioni di Internet Explorer|      Disabled|
+||Impedisci la partecipazione al programma Analisi utilizzo software|     Enabled|
 ||Impedisci l'esecuzione del primo avvio guidato Vai direttamente alla home page|   Abilitato, quindi usare il menu a discesa **Opzioni** per selezionare **Vai direttamente alla pagina iniziale**|
 ||Imposta la crescita del processo della scheda|Abilitato, quindi digitare il comando seguente nella casella **Crescita processo scheda**: *Bassa*.|
 ||Specificare il comportamento predefinito per una nuova scheda|Abilitato, quindi usare il menu a discesa **Opzioni** per selezionare **Nuova scheda**|
-||Disattiva le notifiche sulle prestazioni dei componenti aggiuntivi|        Abilitato|
-||Disattiva georilevazione nel browser|     Abilitato|
-||Disattiva Riapri ultima sessione di esplorazione|        Abilitato|
-||Disattiva i suggerimenti per tutti i provider installati dall'utente|        Abilitato|
-||Attiva Siti suggeriti|       Disabilitata|
+||Disattiva le notifiche sulle prestazioni dei componenti aggiuntivi|        Enabled|
+||Disattiva georilevazione nel browser|     Enabled|
+||Disattiva Riapri ultima sessione di esplorazione|        Enabled|
+||Disattiva i suggerimenti per tutti i provider installati dall'utente|        Enabled|
+||Attiva Siti suggeriti|       Disabled|
 
 Allo stesso livello di **Internet Explorer** le impostazioni sono state modificate solo nella tabella precedente, notare un ulteriore livello di cartelle compreso tra **Acceleratori** e **Barre degli strumenti**. In altre parole, ora si è in Criteri del computer locale > Configurazione computer > Modelli amministrativi > Componenti di Windows > Internet Explorer.
 
@@ -425,9 +425,9 @@ Utilizzare la freccia indietro nella parte superiore sinistra dell'Editor dei cr
 |Cartella delle impostazioni sotto **Impostazioni avanzate**|Impostazione|Valore consigliato per l'uso di VDI|
 |-------------------|-------|----------|
 |**Esplorazione**|||
-||Disattiva rilevamento numeri di telefono|Abilitato|
+||Disattiva rilevamento numeri di telefono|Enabled|
 |**Contenuti multimediali**|||
-||Consenti a Internet Explorer di riprodurre file multimediali che usano codec alternativi|Disabilitata|
+||Consenti a Internet Explorer di riprodurre file multimediali che usano codec alternativi|Disabled|
 
 Tornare al livello di **Internet Explorer**, quindi fare doppio clic su **Impostazioni Internet**. In questa cartella, impostare queste due impostazioni sotto **Completamento automatico** su **Abilitato**:
 
@@ -452,38 +452,38 @@ Usando il riquadro a sinistra, immettere tutte le sottocartelle delle impostazio
 |Cartella di impostazioni sotto **Componenti di Windows**|Impostazione|Valore consigliato per l'uso di VDI|
 |-------------------|-------|----------|
 |**OneDrive**|||
-||Impedisci uso di OneDrive per archiviazione file|Abilitato|
-||Salva i documenti su OneDrive per impostazione predefinita|Disabilitata|
+||Impedisci uso di OneDrive per archiviazione file|Enabled|
+||Salva i documenti su OneDrive per impostazione predefinita|Disabled|
 |**Feed RSS**|||
-||Impedisci l'individuazione automatica di feed e Web Slice|Abilitato|
+||Impedisci l'individuazione automatica di feed e Web Slice|Enabled|
 |**Ricerca**|||
-||Consenti Cortana|        Disabilitata|
-||Consenti Cortana sulla schermata di blocco|      Disabilitata|
-||Consenti l'uso della posizione per la ricerca e Cortana|     Disabilitata|
-||Non consentire la ricerca nel Web|      Abilitato|
-||Non cercare nel Web o visualizzare risultati Web per la ricerca|        Abilitato|
-||Impedisci l'aggiunta di posizioni UNC da indicizzare dal Pannello di controllo|     Abilitato|
-||Impedisci l'indicizzazione di file nella cache di file offline|        Abilitato|
+||Consenti Cortana|        Disabled|
+||Consenti Cortana sulla schermata di blocco|      Disabled|
+||Consenti l'uso della posizione per la ricerca e Cortana|     Disabled|
+||Non consentire la ricerca nel Web|      Enabled|
+||Non cercare nel Web o visualizzare risultati Web per la ricerca|        Enabled|
+||Impedisci l'aggiunta di posizioni UNC da indicizzare dal Pannello di controllo|     Enabled|
+||Impedisci l'indicizzazione di file nella cache di file offline|        Enabled|
 |**Store**|||
-||Disattiva l'offerta di aggiornamento all'ultima versione di Windows|Abilitato|
+||Disattiva l'offerta di aggiornamento all'ultima versione di Windows|Enabled|
 |**Segnalazione errori Windows**|||
-||Invia automaticamente i file di backup della memoria per i report di errore generati dal sistema operativo|       Disabilitata|
-||Disattivare Segnalazione errori Windows|      Abilitato|
+||Invia automaticamente i file di backup della memoria per i report di errore generati dal sistema operativo|       Disabled|
+||Disattivare Segnalazione errori Windows|      Enabled|
 |**Windows Installer**|||
 ||Dimensione massima del controllo della cache dei file di base|  Abilitato, quindi usare la casella di selezione nell'area **Opzioni** per impostare **Dimensione massima cache file di base** su *5*.|
-||Disattiva la creazione di punti di controllo di ripristino configurazione di sistema|      Abilitato|
+||Disattiva la creazione di punti di controllo di ripristino configurazione di sistema|      Enabled|
 |**Windows Mail**|||
-||Disattiva la funzionalità di community|Abilitato|
+||Disattiva la funzionalità di community|Enabled|
 |**Windows Media Player**|||
-||Non visualizzare le finestre di dialogo del primo utilizzo|       Abilitato|
-||Impedisci la condivisione dei file multimediali|        Abilitato|
+||Non visualizzare le finestre di dialogo del primo utilizzo|       Enabled|
+||Impedisci la condivisione dei file multimediali|        Enabled|
 |**Centro PC portatile Windows**|||
-||Disattiva Centro PC portatile Windows|Abilitato|
+||Disattiva Centro PC portatile Windows|Enabled|
 |**Analisi di affidabilità di Windows**|||
-||Configura i provider WMI di affidabilità|Disabilitata|
+||Configura i provider WMI di affidabilità|Disabled|
 |**Windows Update**|||
-||Consenti installazione immediata aggiornamenti automatici|       Abilitato|
-||Rimuovi l'accesso a tutte le funzionalità di Windows Update|     Abilitato|
+||Consenti installazione immediata aggiornamenti automatici|       Enabled|
+||Rimuovi l'accesso a tutte le funzionalità di Windows Update|     Enabled|
 |Nella cartella**Windows Update**, aprire **Rinvia aggiornamento di Windows**|||
 ||Seleziona quando vengono ricevuti gli aggiornamenti delle funzionalità|Abilitato, quindi nell'area **Opzioni** usare il menu a discesa **Seleziona il livello di disponibilità del ramo per gli aggiornamenti delle funzionalità che vuoi ricevere** per selezionare **Current Branch for Business**. Impostare la casella di selezione **Dopo il rilascio di un aggiornamento delle funzionalità, rimandane la ricezione per il numero di giorni seguente** su *180 giorni*.
 ||Seleziona quando vengono ricevuti gli aggiornamenti qualitativi|Abilitato, quindi nell'area **Opzioni** impostare la casella di selezione **Dopo il rilascio di un aggiornamento qualitativo, rimandane la ricezione per il numero di giorni seguente** su *30 giorni* e selezionare la casella di controllo **Sospendi gli aggiornamenti qualitativi**.
@@ -493,23 +493,23 @@ Nel riquadro sinistro dell'Editor dei criteri di gruppo locali, fare clic su **C
 |Cartella di impostazioni sotto **Modelli amministrativi**|Impostazione|Valore consigliato per l'uso di VDI|
 |-------------------|-------|----------|
 |**Desktop**|||
-||Non aggiungere condivisioni dei documenti aperti recentemente ai percorsi di rete|Abilitato|
+||Non aggiungere condivisioni dei documenti aperti recentemente ai percorsi di rete|Enabled|
 |Nella cartella**Desktop**, aprire **Active Directory**|||
 ||Dimensioni massime delle ricerche di Active Directory|Abilitato, quindi nell'area **Opzioni** usare la casella di selezione per impostare **Numero di oggetti restituiti** su *5000*.|
 |**Menu Start e barra delle applicazioni**|||
-||Cancella l'elenco di programmi recenti per i nuovi utenti|     Abilitato|
-||Non visualizzare o rilevare gli elementi nelle Jump List da posizioni remote|        Abilitato|
-||Disattiva le notifiche a fumetto degli annunci delle funzionalità|     Abilitato|
-||Disattiva il monitoraggio dell'utente|       Abilitato|
+||Cancella l'elenco di programmi recenti per i nuovi utenti|     Enabled|
+||Non visualizzare o rilevare gli elementi nelle Jump List da posizioni remote|        Enabled|
+||Disattiva le notifiche a fumetto degli annunci delle funzionalità|     Enabled|
+||Disattiva il monitoraggio dell'utente|       Enabled|
 |Nella cartella **Menu Start e barra delle applicazioni**, aprire **Notifiche**|||
-||Disattiva notifiche di tipo avviso popup|Abilitato|
+||Disattiva notifiche di tipo avviso popup|Enabled|
 |Nella cartella **Componenti di Windows** aprire:|||
 |**Contenuti cloud**|||
-||Disattiva tutte le funzionalità di Contenuti in evidenza di Windows|Abilitato|
+||Disattiva tutte le funzionalità di Contenuti in evidenza di Windows|Enabled|
 |**Esplora file**|||
-||Disattiva la memorizzazione nella cache delle miniature|       Abilitato|
-||Disattiva la visualizzazione di voci delle ricerca recenti nella casella di ricerca di Esplora File|        Abilitato|
-||Disattiva la memorizzazione nella cache delle miniature nel file nascosto thumbs.db|      Abilitato|
+||Disattiva la memorizzazione nella cache delle miniature|       Enabled|
+||Disattiva la visualizzazione di voci delle ricerca recenti nella casella di ricerca di Esplora File|        Enabled|
+||Disattiva la memorizzazione nella cache delle miniature nel file nascosto thumbs.db|      Enabled|
 
 ## <a name="microsoft-store-apps"></a>App del Microsoft Store
 Alcune app di Microsoft Store possono essere rimosse dall'immagine VDI. La loro rimozione riduce l'utilizzo della CPU e risparmia spazio su disco. Di seguito sono riportati i possibili candidati per la rimozione:

@@ -1,4 +1,4 @@
-# Operazioni preliminari
+# Inizia subito
 ## [Introduzione a Windows Server 2016](Server-Basics.md)
 ## [Novità di Windows Server](whats-new-in-windows-server.md)
 ### [Novità di Windows Server 2019](../get-started-19/whats-new-19.md)

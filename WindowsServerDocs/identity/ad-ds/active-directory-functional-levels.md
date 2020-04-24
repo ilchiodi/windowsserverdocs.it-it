@@ -11,10 +11,10 @@ ms.custom: it-pro
 ms.reviewer: maheshu
 ms.technology: identity-adds
 ms.openlocfilehash: 5f7a8f08ff10102fbc04b6f8272320bd3b77785d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80825494"
 ---
 # <a name="forest-and-domain-functional-levels"></a>Livelli di funzionalità del dominio e della foresta
@@ -174,7 +174,7 @@ Sistemi operativi supportati per i controller di dominio:
 
 * Tutte le funzionalità predefinite di Active Directory Domain Services, più le funzionalità seguenti:
    * Trust tra foreste
-   * Ridenominazione dei domini.
+   * Ridenominazione dei domini
    * Replica valore collegato
       - La replica valore collegato ti consente di modificare l'appartenenza ai gruppi per archiviare e replicare i valori dei singoli membri anziché replicare l'intera appartenenza come singola unità. Usando una larghezza di banda di rete inferiore e un minor numero di cicli del processore durante la replica, l'archiviazione e la replica dei valori dei singoli membri ti impediscono di perdere aggiornamenti quando aggiungi o rimuovi più membri simultaneamente in controller di dominio diversi.
    * Possibilità di distribuire un controller di dominio di sola lettura
@@ -192,7 +192,7 @@ Sistemi operativi supportati per i controller di dominio:
 * Tutte le funzionalità predefinite di Active Directory Domain Services, tutte le funzionalità disponibili per il livello di funzionalità del dominio nativo di Windows 2000, più le funzionalità seguenti:
    * Strumento di gestione del dominio, Netdom. exe, che ti consente di rinominare i controller di dominio
    * Aggiornamenti dell'indicatore data e ora di accesso
-      * L'attributo **lastLogonTimestamp** viene aggiornato con l'ora dell'ultimo accesso da parte dell'utente o del computer. Questo attributo viene replicato sul dominio.
+      * L'attributo **lastLogonTimestamp** viene aggiornato con l'ora dell'ultimo accesso da parte dell'utente o del computer. Questo attributo viene replicato all'interno del dominio.
    * Possibilità di impostare l'attributo **userPassword** come password valida per gli oggetti **inetOrgPerson** e User
    * Possibilità di reindirizzare i contenitori Utenti e Computer
       * Per impostazione predefinita, per l'inserimento di account computer e account utente sono disponibili due contenitori conosciuti, ovvero cn=Computers,<domain root> e cn=Users,<domain root>. Questa funzionalità consente di definire un nuovo percorso conosciuto per questi account.

@@ -9,10 +9,10 @@ ms.topic: article
 author: Heidilohr
 manager: lizross
 ms.openlocfilehash: 53c120be0ca91f0a9331a0585be8b4335f863a56
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80857244"
 ---
 # <a name="remote-desktop-workloads"></a>Carichi di lavoro di Desktop remoto
@@ -23,9 +23,9 @@ La tabella seguente descrive ogni carico di lavoro. "Utenti di esempio" sono i t
 
 | Tipo di carico di lavoro | Utenti di esempio | App di esempio |
 | --- | --- | --- |
-| Leggero | Utenti che svolgono attività di base di immissione di dati | Applicazioni di immissione in database, interfacce della riga di comando |
+| Chiaro | Utenti che svolgono attività di base di immissione di dati | Applicazioni di immissione in database, interfacce della riga di comando |
 | Medio | Consulenti ed esperti in ricerche di mercato | Applicazioni di immissione in database, interfacce della riga di comando, Microsoft Word, pagine Web statiche |
 | Pesante | Ingegneri informatici, creatori di contenuti | Applicazioni di immissione in database, interfacce della riga di comando, Microsoft Word, pagine Web statiche, Microsoft Outlook, Microsoft PowerPoint, pagine Web dinamiche |
-| Potenza | Grafici, creatori di modelli 3D, ricercatori di Machine Learning | Applicazioni di immissione in database, interfacce della riga di comando, Microsoft Word, pagine Web statiche, Microsoft Outlook, Microsoft PowerPoint, pagine Web dinamiche, Adobe Photoshop, Adobe Illustrator, CAD, CAM |
+| Alimentazione | Grafici, creatori di modelli 3D, ricercatori di Machine Learning | Applicazioni di immissione in database, interfacce della riga di comando, Microsoft Word, pagine Web statiche, Microsoft Outlook, Microsoft PowerPoint, pagine Web dinamiche, Adobe Photoshop, Adobe Illustrator, CAD, CAM |
 
 Per informazioni sulle indicazioni relative al dimensionamento, vedi [Linee guida relative al dimensionamento delle macchine virtuali](virtual-machine-recs.md).

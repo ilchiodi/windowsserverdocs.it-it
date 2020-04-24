@@ -8,10 +8,10 @@ ms.author: phstee
 author: phstee
 ms.date: 10/16/2017
 ms.openlocfilehash: f684a87b091ffd95bb65c0b5f3aa0dfc9f405825
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "71355043"
 ---
 # <a name="performance-tuning-guidelines-for-windows-server-2016"></a>Linee guida di ottimizzazione delle prestazioni per Windows Server 2016

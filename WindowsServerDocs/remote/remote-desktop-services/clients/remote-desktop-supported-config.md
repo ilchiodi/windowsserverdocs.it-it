@@ -11,26 +11,26 @@ ms.author: elizapo
 ms.date: 06/05/2018
 ms.localizationpriority: medium
 ms.openlocfilehash: 1480a2a14a1c3fc23c4e5122e366741d37d9091f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80856014"
 ---
 # <a name="remote-desktop-client---supported-configuration"></a>Client Desktop remoto - configurazione supportata
 
 ## <a name="supported-pcs"></a>PC supportati
 È possibile connettersi ai computer che eseguono sistemi operativi Windows seguenti:
-- Windows 10 Pro
+- Windows 10 Pro
 - Windows 10 Enterprise
 - Windows 8 Enterprise
 - Windows 8 Professional
-- Windows 7 Professional
-- Windows 7 Enterprise
-- Windows 7 Ultimate
-- Windows 7 Ultimate
+- Windows 7 Professional
+- Windows 7 Enterprise
+- Windows 7 Ultimate
+- Windows 7 Ultimate
 - Windows Server 2008
-- Windows Server 2008 R2
+- Windows Server 2008 R2
 - Windows Server 2012
 - Windows Server 2012 R2
 - Windows Server 2016
@@ -42,14 +42,14 @@ ms.locfileid: "80856014"
 I seguenti computer possono eseguire il gateway Desktop remoto:
 
 - Windows Server 2008
-- Windows Server 2008 R2
+- Windows Server 2008 R2
 - Windows Server 2012
 - Windows Server 2012 R2
 - Windows Server 2016
 - Windows Small Business Server 2011
 
 I sistemi operativi seguenti può essere utilizzato come server Accesso Web desktop remoto o RemoteApp:
-- Windows Server 2008 R2
+- Windows Server 2008 R2
 - Windows Server 2012
 - Windows Server 2012 R2
 - Windows Server 2016

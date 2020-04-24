@@ -10,10 +10,10 @@ ms.author: helohr
 ms.date: 05/20/2019
 ms.localizationpriority: medium
 ms.openlocfilehash: 6af7559f1d74f2af38579ee357507bd1207f63b2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80855914"
 ---
 # <a name="supported-remote-desktop-rdp-file-settings"></a>Impostazioni supportate dei file RDP di Desktop remoto
@@ -22,7 +22,7 @@ La tabella seguente include l'elenco di impostazioni dei file RDP supportate che
 
 Per informazioni su come usare PowerShell per personalizzare le proprietà di RDP per un pool di host, fare riferimento a [questa documentazione](https://go.microsoft.com/fwlink/?linkid=2098243&clcid=0x409).
 
-| Impostazione RDP                        | Description            | Valori                 | Valore predefinito          | Desktop virtuale Windows | Windows | HTML5   |
+| Impostazione RDP                        | Descrizione            | Valori                 | Valore predefinito          | Desktop virtuale Windows | Windows | HTML5   |
 |------------------------------------|------------------------|------------------------|:----------------------:|:-----------------------:|:-------:|:-------:|
 | alternate full address:s:value | Specifica un indirizzo IP o un nome alternativo del computer remoto. | Qualsiasi nome o indirizzo IP valido del computer remoto, ad esempio "10.10.15.15" | | x | x | x |
 | alternate shell:s:value        | Determina se un programma si avvia automaticamente quando viene stabilita la connessione con RDP. Per specificare una shell alternativa, immetti un percorso valido di un file eseguibile per il valore, ad esempio "C:\Programmi\Office\word.exe". Questa impostazione determina anche il percorso o l'alias dell'applicazione remota da avviare in fase di connessione se l'opzione RemoteApplicationMode è abilitata. | "C:\Programmi\Office\word.exe" || x | x | x |

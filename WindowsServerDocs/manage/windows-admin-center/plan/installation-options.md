@@ -9,10 +9,10 @@ ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 12/02/2019
 ms.openlocfilehash: bd7ec8a5a072cbda99b036718d24ec1908fb8b53
-ms.sourcegitcommit: 20d07170c7f3094c2fb4455f54b13ec4b102f2d7
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "81269248"
 ---
 # <a name="what-type-of-installation-is-right-for-you"></a>Che tipo di installazione è più adatto alle tue esigenze?
@@ -34,7 +34,7 @@ Puoi **installare** Windows Admin Center sui sistemi operativi Windows seguenti:
 | **Piattaforma**                       | **Modalità di installazione** |
 | -----------------------------------| --------------------- |
 | Windows 10                         | Client locale |
-| Windows Server, Canale semestrale | Server gateway, server gestito, cluster di failover |
+| Canale semestrale Windows Server | Server gateway, server gestito, cluster di failover |
 | Windows Server 2016                | Server gateway, server gestito, cluster di failover |
 | Windows Server 2019                | Server gateway, server gestito, cluster di failover |
 
@@ -54,10 +54,10 @@ Microsoft Edge (incluso [Microsoft Edge Insider](https://microsoftedgeinsider.co
 
 Puoi **gestire** i sistemi operativi Windows seguenti tramite Windows Admin Center:
 
-| Version | Gestisci il *nodo* tramite *Server Manager* | Gestisci tramite *Cluster Manager* |
+| Versione | Gestisci il *nodo* tramite *Server Manager* | Gestisci tramite *Cluster Manager* |
 | ------------------------- |--------------- | ----- |
 | Windows 10 | Sì (tramite Gestione computer) | N/D |
-| Windows Server, Canale semestrale | Sì | Sì |
+| Canale semestrale Windows Server | Sì | Sì |
 | Windows Server 2019 | Sì | Sì |
 | Windows Server 2016 | Sì | Sì, con l'[aggiornamento cumulativo più recente](../use/manage-hyper-converged.md#prepare-your-windows-server-2016-cluster-for-windows-admin-center) |
 | Microsoft Hyper-V Server 2016 | Sì | Sì |
@@ -72,7 +72,7 @@ Puoi **gestire** i sistemi operativi Windows seguenti tramite Windows Admin Cent
 > 
 > In caso contrario, puoi [scaricare WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616).
 
-## <a name="high-availability"></a>Elevata disponibilità
+## <a name="high-availability"></a>Disponibilità elevata
 
 Puoi abilitare la disponibilità elevata del servizio gateway distribuendo Windows Admin Center in un modello attivo-passivo in un cluster di failover. Se si verifica un errore in uno dei nodi del cluster, Windows Admin Center esegue correttamente il failover su un altro nodo, consentendo di continuare a gestire i server nell'ambiente in modo uniforme.
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
 ms.openlocfilehash: 25472e4ba4837bd68c9b6914e22c2219c91d3ac0
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80861654"
 ---
 # <a name="configuring-systems-for-high-accuracy"></a>Configurazione dei sistemi per l'accuratezza elevata
@@ -53,7 +53,7 @@ Di conseguenza, la **configurazione predefinita** ha lo scopo di soddisfare gli 
 >
 >Per questo motivo nell'articolo [Limiti di supporto per configurare il servizio Ora di Windows per gli ambienti con accuratezza elevata](support-boundary.md) sono stati illustrati i requisiti ambientali aggiuntivi che devono essere soddisfatti per raggiungere obiettivi di accuratezza elevata.
 
-### <a name="operating-system-requirements"></a>Requisiti per il sistema operativo
+### <a name="operating-system-requirements"></a>Requisiti del sistema operativo
 
 Le configurazioni con accuratezza elevata richiedono Windows 10 o Windows Server 2016.  Tutti i dispositivi Windows nella topologia temporale devono soddisfare questo requisito, inclusi i server di riferimento ora di Windows di strato superiore e, negli scenari virtualizzati, gli host Hyper-V che eseguono macchine virtuali dipendenti dall'ora. Tutti questi dispositivi devono eseguire almeno Windows 10 o Windows Server 2016.
 
@@ -90,7 +90,7 @@ Ad esempio: considera una gerarchia di sincronizzazione dell'ora con un'origine 
 - Il server di riferimento ora B e il server di riferimento ora A
 - Il server di riferimento ora A e l'origine
 
-Questa misurazione può essere ottenuta usando lo strumento w32tm.exe incorporato.  A tale scopo:
+Questa misurazione può essere ottenuta usando lo strumento w32tm.exe incorporato.  A tale scopo, effettuare le seguenti operazioni:
 
 1. Esegui il calcolo dalla destinazione e dal server di riferimento ora B.
     

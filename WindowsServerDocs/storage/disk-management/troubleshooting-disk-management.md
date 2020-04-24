@@ -9,10 +9,10 @@ author: JasonGerend
 manager: brianlic
 ms.author: jgerend
 ms.openlocfilehash: 7eeb462d31391a228ec0e89afb09673ef14b51cf
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "79323443"
 ---
 # <a name="troubleshooting-disk-management"></a>Risoluzione dei problemi relativi a Gestione disco
@@ -195,6 +195,6 @@ Quando lo stato del volume è **Integro (a rischio)** , lo stato di un disco sot
 > [!NOTE]
 > Le connessioni remote in gruppi di lavoro non sono supportate. Il computer locale e il computer remoto devono essere entrambi membri di un dominio.
 
-Vedere anche
+Vedi anche
 
 - [Liberare spazio sull'unità in Windows 10](https://support.microsoft.com/help/12425/windows-10-free-up-drive-space)

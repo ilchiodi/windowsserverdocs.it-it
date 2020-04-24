@@ -8,10 +8,10 @@ manager: dougkim
 ms.author: lizross
 author: eross-msft
 ms.openlocfilehash: 81053e71040d2a0cd125af9fb7f3802dfd535781
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80853754"
 ---
 # <a name="netsh-http-commands"></a>Comandi netsh per HTTP
@@ -57,7 +57,7 @@ add iplisten [ ipaddress= ] IPAddress
 
 |               |                                                                                                                                                                                                                          |          |
 |---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
-| **ipaddress** | Indirizzo IPv4 o IPv6 da aggiungere all'elenco di ascolto IP. Questo elenco viene usato per definire l'ambito dell'elenco di indirizzi a cui viene eseguito il binding del servizio HTTP. "0.0.0.0" indica qualsiasi indirizzo IPv4 e "::" indica qualsiasi indirizzo IPv6. | Obbligatoria |
+| **ipaddress** | Indirizzo IPv4 o IPv6 da aggiungere all'elenco di ascolto IP. Questo elenco viene usato per definire l'ambito dell'elenco di indirizzi a cui viene eseguito il binding del servizio HTTP. "0.0.0.0" indica qualsiasi indirizzo IPv4 e "::" indica qualsiasi indirizzo IPv6. | Obbligatorio |
 
 ---
 
@@ -87,9 +87,9 @@ add sslcert [ ipport= ] IPAddress:port [ certhash= ] CertHash [ appid= ] GUID [ 
 
 |                                              |                                                                                                                                                                                          |          |
 |----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
-|                  **ipport**                  |                       Specifica l'indirizzo IP e la porta per il binding. Vengono usati i due punti (:) come carattere delimitatore tra l'indirizzo IP e il numero di porta.                        | Obbligatoria |
-|                 **certhash**                 |                                     Specifica l'hash SHA del certificato. Questo hash ha una lunghezza di 20 byte e viene specificato come stringa esadecimale.                                      | Obbligatoria |
-|                  **appid**                   |                                                                  Specifica il GUID per identificare l'applicazione proprietaria.                                                                  | Obbligatoria |
+|                  **ipport**                  |                       Specifica l'indirizzo IP e la porta per il binding. Vengono usati i due punti (:) come carattere delimitatore tra l'indirizzo IP e il numero di porta.                        | Obbligatorio |
+|                 **certhash**                 |                                     Specifica l'hash SHA del certificato. Questo hash ha una lunghezza di 20 byte e viene specificato come stringa esadecimale.                                      | Obbligatorio |
+|                  **appid**                   |                                                                  Specifica il GUID per identificare l'applicazione proprietaria.                                                                  | Obbligatorio |
 |              **certstorename**               |                                  Specifica il nome dell'archivio per il certificato. L'impostazione predefinita è MY. Il certificato deve essere archiviato nel contesto del computer locale.                                  | Facoltativo |
 |        **verifyclientcertrevocation**        |                                                      Specifica l'attivazione/disattivazione della verifica della revoca dei certificati client.                                                       | Facoltativo |
 | **verifyrevocationwithcachedclientcertonly** |                                      Specifica se l'uso del solo certificato client memorizzato nella cache per la verifica della revoca è abilitato o disabilitato.                                       | Facoltativo |
@@ -153,8 +153,8 @@ add urlacl [ url= ] URL [ [user=] User [ [ listen= ] yes | no [ delegate= ] yes 
 
 |              |                                                                                                                                                  |          |
 |--------------|--------------------------------------------------------------------------------------------------------------------------------------------------|----------|
-|   **url**    |                                          Specifica l'URL (Uniform Resource Locator) completo.                                           | Obbligatoria |
-|   **user**   |                                                      Specifica il nome dell'utente o del gruppo di utenti.                                                       | Obbligatoria |
+|   **url**    |                                          Specifica l'URL (Uniform Resource Locator) completo.                                           | Obbligatorio |
+|   **user**   |                                                      Specifica il nome dell'utente o del gruppo di utenti.                                                       | Obbligatorio |
 |  **listen**  | Specifica uno dei valori seguenti. yes: consente all'utente di registrare gli URL. Questo è il valore predefinito. no: impedisce all'utente di registrare gli URL. | Facoltativo |
 | **delegate** |  Specifica uno dei valori seguenti. yes: consente all'utente di delegare gli URL. no: impedisce all'utente di delegare gli URL. Questo è il valore predefinito.  | Facoltativo |
 |   **sddl**   |                                                Specifica una stringa SDDL che descrive il DACL.                                                 | Facoltativo |
@@ -214,7 +214,7 @@ delete iplisten [ ipaddress= ] IPAddress
 
 |               |                                                                                                                                                                                                                                                                     |          |
 |---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
-| **ipaddress** | Indirizzo IPv4 o IPv6 da eliminare dall'elenco di ascolto IP. Questo elenco viene usato per definire l'ambito dell'elenco di indirizzi a cui viene eseguito il binding del servizio HTTP. "0.0.0.0" indica qualsiasi indirizzo IPv4 e "::" indica qualsiasi indirizzo IPv6. Il numero di porta non è incluso. | Obbligatoria |
+| **ipaddress** | Indirizzo IPv4 o IPv6 da eliminare dall'elenco di ascolto IP. Questo elenco viene usato per definire l'ambito dell'elenco di indirizzi a cui viene eseguito il binding del servizio HTTP. "0.0.0.0" indica qualsiasi indirizzo IPv4 e "::" indica qualsiasi indirizzo IPv6. Il numero di porta non è incluso. | Obbligatorio |
 
 ---
 
@@ -245,7 +245,7 @@ delete sslcert [ ipport= ] IPAddress:port
 
 |            |                                                                                                                                                                                          |          |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
-| **ipport** | Specifica l'indirizzo IPv4 o IPv6 e la porta per cui vengono eliminati i binding dei certificati SSL. Vengono usati i due punti (:) come carattere delimitatore tra l'indirizzo IP e il numero di porta. | Obbligatoria |
+| **ipport** | Specifica l'indirizzo IPv4 o IPv6 e la porta per cui vengono eliminati i binding dei certificati SSL. Vengono usati i due punti (:) come carattere delimitatore tra l'indirizzo IP e il numero di porta. | Obbligatorio |
 
 ---
 
@@ -274,7 +274,7 @@ delete timeout [ timeouttype= ] idleconnectiontimeout | headerwaittimeout
 
 |                 |                                        |          |
 |-----------------|----------------------------------------|----------|
-| **timeouttype** | Specifica il tipo di impostazione di timeout. | Obbligatoria |
+| **timeouttype** | Specifica il tipo di impostazione di timeout. | Obbligatorio |
 
 ---
 
@@ -302,7 +302,7 @@ delete urlacl [ url= ] URL
 
 |         |                                                                                       |          |
 |---------|---------------------------------------------------------------------------------------|----------|
-| **url** | Specifica l'URL (Uniform Resource Locator) completo da eliminare. | Obbligatoria |
+| **url** | Specifica l'URL (Uniform Resource Locator) completo da eliminare. | Obbligatorio |
 
 ---
 
@@ -409,7 +409,7 @@ show sslcert [ ipport= ] IPAddress:port
 
 |            |                                                                                                                                                                                                                                                |          |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
-| **ipport** | Specifica l'indirizzo IPv4 o IPv6 e la porta per cui vengono visualizzati i binding dei certificati SSL. Vengono usati i due punti (:) come carattere delimitatore tra l'indirizzo IP e il numero di porta. Se non specifichi ipport, vengono visualizzati tutti i binding. | Obbligatoria |
+| **ipport** | Specifica l'indirizzo IPv4 o IPv6 e la porta per cui vengono visualizzati i binding dei certificati SSL. Vengono usati i due punti (:) come carattere delimitatore tra l'indirizzo IP e il numero di porta. Se non specifichi ipport, vengono visualizzati tutti i binding. | Obbligatorio |
 
 ---
 

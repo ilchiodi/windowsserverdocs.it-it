@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.localizationpriority: medium
 ms.date: 12/02/2019
 ms.prod: windows-server
-ms.openlocfilehash: 4ce42420430e9a12dd6123ec18c9ded25abc97bb
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.openlocfilehash: 185902d332e2036eace5b0b332eabd2803b5eb00
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79323543"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "81650110"
 ---
 # <a name="windows-admin-center-frequently-asked-questions"></a>Domande frequenti su Windows Admin Center
 
@@ -150,7 +150,7 @@ Esistono due versioni di Windows Admin Center disponibili per il download:
 ### <a name="windows-admin-center-preview"></a>Windows Admin Center Preview
 
 * Questa è la versione adatta per gli amministratori IT che vogliono ottenere le funzionalità più recenti e importanti a cadenza regolare. Il nostro obiettivo è fornire successive versioni di aggiornamento circa ogni mese. La piattaforma di base è sempre pronta per la produzione e la licenza fornisce diritti di utilizzo di produzione. Tuttavia, verranno continuamente introdotti nuovi strumenti e funzionalità chiaramente contrassegnati come PREVIEW e adatti per la valutazione e i test.
-* Per ottenere l'ultima versione Insider Preview, i partecipanti al Programma Insider registrati possono scaricare Windows Admin Center Preview direttamente dalla [pagina di download Windows Server Insider Preview](https://www.microsoft.com/software-download/windowsinsiderpreviewserver), sotto l'elenco a discesa relativo ai download aggiuntivi. Se non hai ancora effettuato la registrazione come partecipante al programma Insider, vedi [Introduzione a Windows Server](https://insider.windows.com/en-us/for-business-getting-started-server/) nel portale dei partecipanti al Programma Windows Insider per le aziende.
+* Per ottenere l'ultima versione Insider Preview, i partecipanti al Programma Insider registrati possono scaricare Windows Admin Center Preview direttamente dalla [pagina di download Windows Server Insider Preview](https://microsoft.com/en-us/software-download/windowsinsiderpreviewserver), sotto l'elenco a discesa relativo ai download aggiuntivi. Se non hai ancora effettuato la registrazione come partecipante al programma Insider, vedi [Introduzione a Windows Server](https://insider.windows.com/en-us/for-business-getting-started-server/) nel portale dei partecipanti al Programma Windows Insider per le aziende.
 
 ## <a name="why-was-windows-admin-center-chosen-as-the-final-name-for-project-honolulu"></a>Perché è stato scelto "Windows Admin Center" come nome finale per "Project Honolulu"?
 

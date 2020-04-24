@@ -10,10 +10,10 @@ author: larsiwer
 ms.author: kathydav
 ms.date: 10/04/2016
 ms.openlocfilehash: 7eb867529d38ab21ee21c19f92c89ed4128b0ea4
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80860804"
 ---
 # <a name="generation-2-virtual-machine-security-settings-for-hyper-v"></a>Impostazioni di sicurezza di generazione 2 macchina virtuale per Hyper-V
@@ -37,7 +37,7 @@ Avvio protetto è una funzionalità disponibile in macchine virtuali di generazi
 
 I modelli descritti nella tabella riportata di seguito fanno riferimento ai certificati che è necessario verificare l'integrità del processo di avvio.  
 
-|Nome del modello|Description|  
+|Nome del modello|Descrizione|  
 |-----------------|---------------|  
 |Microsoft Windows|Selezionare questa opzione per avvio protetto la macchina virtuale per un sistema operativo Windows.|  
 |Autorità di certificazione Microsoft UEFI|Selezionare questa opzione per attivare l'avvio protetto della macchina virtuale per un sistema operativo di distribuzione Linux.|  

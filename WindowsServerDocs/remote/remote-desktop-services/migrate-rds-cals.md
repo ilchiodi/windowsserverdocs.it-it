@@ -10,10 +10,10 @@ ms.assetid: 91bdedce-6145-469f-b72e-7e113c4391e9
 author: christianmontoya
 manager: scottman
 ms.openlocfilehash: 5d95c2bc3a92a8cdcba4b308c88d94cb9af6d2a5
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80855994"
 ---
 # <a name="migrate-your-remote-desktop-services-client-access-licenses-rds-cals"></a>Eseguire la migrazione delle licenze CAL Servizi Desktop remoto
@@ -76,7 +76,7 @@ Esistono tre meccanismi per eseguire la migrazione delle licenze sul server lice
    - Cognome
    - Nome
    - Nome della società
-   - Paese
+   - Paese/area geografica
 
      È anche possibile fornire le informazioni facoltative, ad esempio indirizzo della società, indirizzo di posta elettronica e numero di telefono. Nel campo unità organizzativa, è possibile descrivere l'unità all'interno dell'organizzazione in cui viene utilizzato questo server licenze.
 

@@ -1,10 +1,10 @@
 ---
 redirect_url: /windows-server/windows-server
 ms.openlocfilehash: 9ef5565af748b4dd592e71ec4bd34a2be58003d9
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "75947289"
 ---
 # <a name="windows-server-2016"></a>Windows Server 2016
@@ -24,7 +24,7 @@ Questa raccolta include informazioni destinate ai professionisti IT per valutare
     </td>
     <td align='center' style="width:25%; border:0;">
       <a href="/windows-server/get-started/server-basics"> &lt;img height=145 src=&quot;media/1-getstarted.png&quot; alt=&quot;Icona Informazioni di base&quot; title=&quot;Informazioni di base su Windows Server 16&quot; /&gt;</a>
-      <br/>Operazioni preliminari </td>
+      <br/>Inizia subito </td>
     <td align='center' style="width:25%; border:0;">
       <a href="/windows-server/administration/index"> &lt;img height=145 src=&quot;media/8-management.png&quot; alt=&quot;Icona Amministrare&quot; title=&quot;Amministrare Windows Server&quot; /&gt;</a>
       <br/>Amministrare </td>
@@ -38,7 +38,7 @@ Questa raccolta include informazioni destinate ai professionisti IT per valutare
       <br>Identità e accesso </td>
     <td align='center' style="width:25%; border:0;"><br/>
       <a href="/windows-server/networking/networking"> &lt;img height=145 src=&quot;media/6-networking.png&quot; alt=&quot;Icona Funzionalità di rete&quot; title=&quot;Funzionalità di rete in Windows Server&quot; /&gt; </a>
-      <br/>Funzionalità di rete </td>
+      <br/>Rete </td>
     <td align='center' style="width:25%; border:0;"><br/>
       <a href="/windows-server/remote/index"> &lt;img height=145 src=&quot;media/remote.png&quot; alt=&quot;Icona Remoto&quot; title=&quot;Gestione di accesso remoto e server&quot; /&gt; </a>
       <br/>Accesso remoto </td>
@@ -50,18 +50,18 @@ Questa raccolta include informazioni destinate ai professionisti IT per valutare
     <td align='center' style="width:25%; border:0;">&nbsp;</td>
     <td align='center' style="width:25%; border:0;"><br>
       <a href="/windows-server/storage/storage"> &lt;img height=145 src=&quot;media/7-storage.png&quot; alt=&quot;Icona Archiviazione&quot; title=&quot;Archiviazione in Windows Server&quot; /&gt; </a>
-      <br/>Archiviazione: </td>
+      <br/>Archiviazione </td>
    <td align='center' style="width:25%; border:0;"><br/>
       <a href="/windows-server/virtualization/virtualization"> &lt;img height=145 src=&quot;media/virtualization.png&quot; alt=&quot;Icona Virtualizzazione&quot; title=&quot;Virtualizzazione di Windows Server&quot; /&gt;</a>
       <br/>Virtualizzazione </td>
-    <td align='center' style="width:25%; border:0;">[https://blogs.technet.microsoft.com/askperf/2008/11/18/disabling-unnecessary-services-a-word-to-the-wise/](&nbsp;) </td>
+    <td align='center' style="width:25%; border:0;">&nbsp; </td>
   </tr>
 </table>
 
 <br/>
 
 > [!Note] 
-> Per sperimentare di prima mano le nuove caratteristiche e le nuove funzionalità disponibili in Windows Server 2016, è possibile scaricare una versione di valutazione visitando [Windows Server Valutazioni](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016). 
+> Per sperimentare le nuove caratteristiche e funzionalità disponibili in Windows Server 2016, è possibile scaricare una versione di valutazione visitando il sito delle [versioni di valutazione di Windows Server](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016). 
 
 
 ## <a name="windows-server-2016-editions"></a>Edizioni di Windows Server 2016
@@ -71,8 +71,8 @@ Windows Server 2016 è disponibile nelle edizioni Standard, Datacenter ed Essent
 |Funzionalità|Datacenter|Standard|  
 |-------------------|----------|-----------------------|  
 |Funzionalità principali di Windows Server| sì| sì|
-|Contenitori OSE/Hyper-V|Illimitati|   2|
-|Contenitori di Windows Server|Illimitati|   Illimitati|
+|Contenitori OSE/Hyper-V|Nessun limite|   2|
+|Contenitori di Windows Server|Nessun limite|   Illimitati|
 |Servizio Sorveglianza host| sì| sì|
 |Opzione di installazione Nano Server| sì| sì|
 |Funzionalità di archiviazione inclusi Spazi di archiviazione diretta e Replica di archiviazione| sì| no|

@@ -1,5 +1,5 @@
 # [Comandi di Windows](windows-commands.md)
-## - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+## [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 ## [Comandi in base al ruolo del server](commands-by-server-role.md)
 ### [Informazioni di riferimento sui comandi di stampa](print-command-reference.md)
 ### [Informazioni di riferimento sui comandi di Servizi per NFS](services-for-network-file-system-command-reference.md)

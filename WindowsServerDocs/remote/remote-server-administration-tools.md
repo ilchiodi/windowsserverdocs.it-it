@@ -9,10 +9,10 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dansimp
 ms.openlocfilehash: 510ad2cb1449f161658684eeceec4dbbb7ce6699
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80857094"
 ---
 # <a name="remote-server-administration-tools"></a>Strumenti di amministrazione server remoto
@@ -93,9 +93,9 @@ Se disponi di una versione di Windows 10 precedente all'aggiornamento di ottobre
         
 ##### <a name="to-uninstall-remote-server-administration-tools-for-windows-10-----aft----r-rsat-package-install"></a>Per disinstallare Strumenti di amministrazione remota del server per Windows 10 (dopo l'installazione del pacchetto Strumenti di amministrazione remota del server)
         
-1. Sul desktop fare clic su **Start**, quindi su **Tutte le app**, **Sistema Windows**e infine su **Pannello di controllo**.
+1. Sul desktop fare clic su **Start**, quindi su **Tutte le app**, **Sistema Windows** e infine su **Pannello di controllo**.
 
-2. In **Programmi**fare clic su **Disinstalla un programma**.
+2. In **Programmi** fai clic su **Disinstalla un programma**.
 
 3. Fare clic su **Visualizza aggiornamenti installati**.
 
@@ -124,8 +124,8 @@ Se disponi di una versione di Windows 10 precedente all'aggiornamento di ottobre
 > Dopo l'installazione di Remote Server Administration Tools per Windows 10, il **Strumenti di amministrazione** viene visualizzata nella cartella di **avviare** menu. È possibile accedere agli strumenti dai percorsi seguenti.
 >
 > -   Il **strumenti** menu nella console di Server Manager.
-> -   **Pannello di controllo\Sistema e sicurezza\Strumenti di amministrazione**.
-> -   Collegamento salvato sul desktop dalla cartella **Strumenti di amministrazione** . A questo scopo, fare clic con il pulsante destro del mouse sul collegamento **Pannello di controllo\Sistema e sicurezza\Strumenti di amministrazione** , quindi fare clic su **Crea collegamento**.
+> -   Da **Pannello di controllo\Sistema e sicurezza\Strumenti di amministrazione**.
+> -   Collegamento salvato sul desktop dalla cartella **Strumenti di amministrazione**. A questo scopo, fare clic con il pulsante destro del mouse sul collegamento **Pannello di controllo\Sistema e sicurezza\Strumenti di amministrazione**, quindi fare clic su **Crea collegamento**.
 
 Gli strumenti installati come parte di Strumenti di amministrazione remota del server per Windows 10 possono essere usati per gestire il computer client locale. Indipendentemente dallo strumento eseguito, devi specificare uno o più server remoti in cui eseguire lo strumento. Poiché la maggior parte degli strumenti sono integrati con Server Manager, aggiungere i server remoti che si desidera gestire per il pool di server di gestione Server prima di gestire il server utilizzando gli strumenti di **strumenti** menu. Per altre informazioni su come aggiungere server al pool di server e creare gruppi di server personalizzati, vedere [Aggiungere server a Server Manager](https://go.microsoft.com/fwlink/p/?LinkId=241353) e [Creare e gestire gruppi di server](https://go.microsoft.com/fwlink/?LinkId=247328).
 
@@ -133,7 +133,7 @@ In Strumenti di amministrazione remota del server per Windows 10 tutti gli strum
 
 ##### <a name="to-start-server-manager-on-a-clien-----co----puter"></a>Per avviare Server Manager in un computer client
 
-1.  Nel menu **Start** fare clic su **Tutte le app**e quindi su **Strumenti di amministrazione**.
+1.  Nel menu **Start** fare clic su **Tutte le app** e quindi su **Strumenti di amministrazione**.
 
 2.  Nella cartella **Strumenti di amministrazione** fare clic su **Server Manager**.
 
@@ -141,7 +141,7 @@ Anche se non sono elencati nel menu **Strumenti** della console di Server Manage
 
 ##### <a name="to-start-windows-powershell-with-elevated-user-rights-run-as-administrator"></a>Per avviare Windows PowerShell con diritti utente elevati (Esegui come amministratore)
 
-1.  Nel menu **Start** fare clic su **Tutte le app**, quindi su **Sistema Windows**e infine su **Windows PowerShell**.
+1.  Nel menu **Start** fare clic su **Tutte le app**, quindi su **Sistema Windows** e infine su **Windows PowerShell**.
 
 2.  Per eseguire Windows PowerShell come amministratore dal desktop, fare doppio clic sui **Windows PowerShell** scelta rapida e quindi fare clic su **Esegui come amministratore**.
 
@@ -189,6 +189,6 @@ Anche se non sono elencati nel menu **Strumenti** della console di Server Manage
 > 
 > **Soluzione**: non è possibile salvare in modo permanente un'installazione di Strumenti di amministrazione remota del server da un aggiornamento all'altro del sistema operativo perché il file MSU viene fornito come pacchetto di Windows Update. Installa di nuovo la funzionalità Strumenti di amministrazione remota del server dopo aver aggiornato Windows 10. Tieni presente che questa limitazione è uno dei motivi per cui sono state rese disponibili le funzionalità su richiesta a partire da Windows 10 1809. Le funzionalità su richiesta di Strumenti di amministrazione remota del server verranno mantenute in tutti i prossimi aggiornamenti di versione di Windows 10.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 >- [Strumenti di amministrazione remota del server per Windows 10](https://go.microsoft.com/fwlink/?LinkID=404281)
 >- [Strumenti di amministrazione remota del server per Windows Vista, Windows 7, Windows 8, Windows Server 2008, Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2](https://go.microsoft.com/fwlink/p/?LinkID=221055)                                                                                                                                                                                                                                                                                                                                                                                    

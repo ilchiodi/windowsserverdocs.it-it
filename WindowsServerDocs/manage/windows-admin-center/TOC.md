@@ -2,15 +2,15 @@
 
 ## Nozioni di base
 ### [Che cos'è Windows Admin Center?](understand/what-is.md)
-### [Domande frequenti](understand/faq.md)
+### [DOMANDE FREQUENTI](understand/faq.md)
 ### [Case study](understand/case-studies.md)
 ### [Prodotti di gestione correlati](understand/related-management.md)
 
-## Pianificare
+## Pianificazione
 ### [Che tipo di installazione è adatto alle tue esigenze?](plan/installation-options.md)
 ### [Opzioni di accesso dell'utente](plan/user-access-options.md)
 
-## Distribuire
+## Distribuisci
 ### [Preparazione dell'ambiente](deploy/prepare-environment.md)
 ### [Installare Windows Admin Center](deploy/install.md)
 ### [Disponibilità elevata](deploy/high-availability.md)
@@ -24,7 +24,7 @@
 ### [Automatizzazione con PowerShell](configure/use-powershell.md)
 
 ## Uso
-### [Attività iniziali](use/get-started.md)
+### [Per iniziare](use/get-started.md)
 ### [Gestire i server](use/manage-servers.md)
 ### [Distribuire l'infrastruttura iperconvergente](use/deploy-hyperconverged-infrastructure.md)
 ### [Gestire l'infrastruttura iperconvergente](use/manage-hyper-converged.md)
@@ -66,13 +66,11 @@
 #### [Utilizzare un plug-in del gateway personalizzato nell'estensione dello strumento](extend/guides/use-custom-gateway-plugin.md)
 #### [Creare un provider di connessione](extend/guides/create-connection-provider.md)
 #### [Modificare il comportamento di spostamento principale](extend/guides/modify-root-navigation.md)
-#### [Modifiche al tipo di connessione cluster in Windows Admin Center v1909](extend/guides/cluster-connection-change-wac-1909.md)
 #### [Controllare la visibilità dello strumento](extend/guides/dynamic-tool-display.md)
 #### [Stringhe e localizzazione](extend/guides/strings-localization.md)
 #### [Guida di stile di progettazione e testo dell'interfaccia utente](extend/guides/ui-text-style-guide.md)
 #### [Utilizzo di PowerShell nell'estensione](extend/guides/powershell.md)
 #### [Guida dell'icona CSS](extend/guides/cssicons.md)
-#### [Eseguire la migrazione all'SDK più recente](extend/guides/migration-guide-0_1-1_0.md)
 #### [Abilitare il banner di individuazione dell'estensione](extend/guides/extension-discovery-banner.md)
 ### [Pubblicazione delle estensioni](extend/publish-extensions.md)
 ### Case study

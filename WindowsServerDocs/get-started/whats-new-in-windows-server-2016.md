@@ -11,10 +11,10 @@ ms.author: jgerend
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: 0c140c61a5887cc63b2a9d0b468f8d1daf02cd76
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "76822714"
 ---
 # <a name="whats-new-in-windows-server-2016"></a>Novità di Windows Server 2016
@@ -23,7 +23,7 @@ ms.locfileid: "76822714"
 
 ![Icona che rappresenta un giornale](media/whats-new.png) Per informazioni sulle funzionalità più recenti di Windows, vedi [Novità di Windows Server](whats-new-in-windows-server.md). Questa sezione illustra le funzionalità nuove e modificate di Windows Server&reg; 2016. Le nuove funzionalità e modifiche elencate di seguito sono quelle che più probabilmente avranno il massimo impatto sull'uso di questa versione.
 
-## <a name="computevirtualizationvirtualizationmd"></a>[Compute](../virtualization/virtualization.md)
+## <a name="compute"></a>[Compute](../virtualization/virtualization.md)
 
 L'area Virtualizzazione include funzionalità e prodotti di virtualizzazione che permettono a professionisti IT di progettare, distribuire e gestire Windows Server.  
 
@@ -59,13 +59,13 @@ Windows Server 2016 offre una nuova macchina virtuale schermata basata su Hyper-
 
 Per altre informazioni e istruzioni per l'uso di macchine virtuali schermate, vedere [Shielded VMs and Guarded Fabric Validation Guide for Windows Server 2016 (TPM)](https://aka.ms/shieldedvms) (Guida alle macchine virtuali schermate e alla convalida delle infrastrutture controllate per Windows Server 2016 (TPM)).  
 
-## <a name="identity-and-accessidentityidentity-and-accessmd"></a>[Identità e accesso](../identity/Identity-and-Access.md)  
+## <a name="identity-and-access"></a>[Identità e accesso](../identity/Identity-and-Access.md)  
 Le nuove funzionalità di Identità migliorano la capacità delle organizzazioni di proteggere gli ambienti Active Directory e consentono di eseguire la migrazione a distribuzioni solo cloud e ibride, in cui alcune applicazioni e alcuni servizi sono ospitati nel cloud e altri sono ospitati in locale.  
 
 ### <a name="active-directory-certificate-services"></a>Servizi certificati Active Directory  
 Servizi certificati Active Directory in Windows Server 2016 aumenta il supporto per l'attestazione della chiave TPM. Puoi usare ora il provider di archiviazione chiavi per smart card per l'attestazione della chiave, mentre i dispositivi non appartenenti al dominio possono usare ora la registrazione NDES per ottenere i certificati che possono essere attestati per le chiavi in un TPM.  
 
-### <a name="active-directory-domain-services"></a>Active Directory Domain Services  
+### <a name="active-directory-domain-services"></a>Servizi di dominio di Active Directory  
 Active Directory Domain Services include miglioramenti che consentono alle organizzazioni di proteggere gli ambienti Active Directory e fornire una migliore esperienza nella gestione delle identità per i dispositivi aziendali e personali. Per altre informazioni, vedere [What's new in Active Directory Domain Services (AD DS) in Windows Server 2016](../identity/whats-new-active-directory-domain-services.md) (Novità di Active Directory Domain Services (AD DS) in Windows Server 2016).   
 
 ### <a name="active-directory-federation-services"></a>Active Directory Federation Services  
@@ -74,7 +74,7 @@ Novità di Active Directory Federation Services. Active Directory Federation Ser
 ### <a name="web-application-proxy"></a>Proxy applicazione Web  
 L'ultima versione di Proxy applicazione Web è incentrata sulle nuove funzionalità che permettono la pubblicazione e la preautenticazione per più applicazioni e un'esperienza utente migliorata. Consultare l'elenco completo delle nuove funzionalità che include la preautenticazione per applicazioni rich client quali domini di Exchange ActiveSync e con caratteri jolly per la pubblicazione più semplice di applicazioni SharePoint. Per altre informazioni, vedi [Proxy applicazione Web in Windows Server 2016](../remote/remote-access/web-application-proxy/web-application-proxy-windows-server.md).  
 
-##  <a name="administrationadministrationmanage-windows-servermd"></a>[Amministrazione](../administration/manage-windows-server.md)  
+##  <a name="administration"></a>[Amministrazione](../administration/manage-windows-server.md)  
 L'area Gestione e automazione è incentrata sulle informazioni di riferimento e degli strumenti per i professionisti IT che vogliono eseguire e gestire Windows Server 2016, incluso Windows PowerShell.
 
 Windows PowerShell 5.1 include nuove funzionalità significative, tra cui il supporto per lo sviluppo con le classi e nuove funzionalità di sicurezza che ne estendono e migliorano l'usabilità, oltre a permettere di controllare e gestire gli ambienti basati su Windows in modo più semplice e completo. Per i dettagli, vedi [Nuovi scenari e funzionalità in WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/scenarios-features).
@@ -98,7 +98,7 @@ Per aiutare il team responsabile dell'analisi dei sistemi compromessi, sono stat
 
 Per altre informazioni, vedi [PowerShell ♥ the Blue Team](https://blogs.msdn.microsoft.com/powershell/2015/06/09/powershell-the-blue-team/).
 
-## <a name="networkingnetworkingnetworkingmd"></a>[Funzionalità di rete](../networking/Networking.md)  
+## <a name="networking"></a>[Funzionalità di rete](../networking/Networking.md)  
 Questa area si focalizza sui prodotti e sulle funzionalità di rete utilizzabili dai professionisti IT per la progettazione, la distribuzione e la manutenzione di Windows Server 2016.  
 
 ### <a name="software-defined-networking"></a>rete definita tramite software
@@ -109,7 +109,7 @@ Il valore predefinito di ICW (Initial Congestion Window) è stato aumentato da 4
 
 Per migliorare il comportamento di TCP durante il ripristino da una perdita di pacchetti sono state implementate le funzionalità TLP (TCP Tail Loss Probe) e RACK (Recent Acknowledgement). TLP consente di convertire il timeout di ritrasmissione (RTO) in ripristini veloci e RACK riduce il tempo necessario per il ripristino rapido per ritrasmettere un pacchetto perso. 
 
-## <a name="security-and-assurancesecuritysecurity-and-assurancemd"></a>[Sicurezza e controllo](../security/Security-and-Assurance.md)  
+## <a name="security-and-assurance"></a>[Sicurezza e controllo](../security/Security-and-Assurance.md)  
 Include funzionalità e soluzioni di protezione per il professionista IT che esegue la distribuzione nell'ambiente cloud e del centro dati. Per informazioni generali sulla sicurezza in Windows Server 2016, vedere [Sicurezza e controllo](../security/Security-and-Assurance.md).  
 
 ### <a name="just-enough-administration"></a>JEA  
@@ -132,7 +132,7 @@ Device Guard garantisce l'integrità del codice in modalità kernel (KMCI, Kerne
 Questa funzionalità di protezione della piattaforma è stata creata per contrastare le vulnerabilità legate al danneggiamento della memoria. Per altre informazioni, vedere [Control Flow Guard](https://msdn.microsoft.com/library/windows/desktop/mt637065(v=vs.85).aspx) (Protezione del flusso di controllo).
 
 
-## <a name="storagestoragestoragemd"></a>[Archiviazione](../storage/storage.md)
+## <a name="storage"></a>[Archiviazione](../storage/storage.md)
 
 In Windows Server 2016 la tecnologia di archiviazione include nuove funzionalità e miglioramenti per l'archiviazione software-defined e anche per i file server tradizionali. Di seguito sono riportate alcune delle nuove funzionalità. Per informazioni su altri miglioramenti e per altri dettagli, vedere [Novità di Archiviazione in Windows Server 2016](../storage/whats-new-in-storage.md).
 
@@ -154,7 +154,7 @@ Per altre informazioni, vedere [Replica di archiviazione](../storage/storage-rep
 
 Per altre informazioni, vedere [Storage Quality of Service](../storage/storage-qos/storage-qos-overview.md) (QoS di archiviazione).
 
-## <a name="failover-clusteringfailover-clusteringwhats-new-in-failover-clusteringmd"></a>[Clustering di failover](../failover-clustering/whats-new-in-failover-clustering.md)
+## <a name="failover-clustering"></a>[Clustering di failover](../failover-clustering/whats-new-in-failover-clustering.md)
 
 Windows Server 2016 include una serie di nuove funzionalità e miglioramenti per più server raggruppati in un unico cluster a tolleranza di errore mediante la funzione Clustering di failover. Alcune delle funzionalità aggiunte sono elencate di seguito. Per un elenco completo, vedere [Novità del clustering di failover in Windows Server 2016](../failover-clustering/whats-new-in-failover-clustering.md).
 
@@ -199,5 +199,5 @@ Sono state aggiunte tre nuove funzionalità in Microsoft Windows 10 e Windows Se
 
 
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 -   [Note sulla versione: problemi importanti di Windows Server 2016](Windows-Server-2016-GA-Release-Notes.md)  

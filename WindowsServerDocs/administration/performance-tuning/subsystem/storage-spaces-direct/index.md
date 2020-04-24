@@ -9,10 +9,10 @@ author: phstee
 ms.author: vshankar; danlo; clausjor; stevenek
 ms.date: 4/14/2017
 ms.openlocfilehash: a24bbdb83ec1b08f56989368a4831549c594f6c0
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80851604"
 ---
 # <a name="performance-tuning-for-storage-spaces-direct"></a>Ottimizzazione delle prestazioni per Spazi di archiviazione diretta
@@ -36,7 +36,7 @@ Si noti che, su un dispositivo SSD o NVMe, per impostazione predefinita nella ca
 
 Per visualizzare e modificare la configurazione della cache, usare i cmdlet [Get-ClusterStorageSpacesDirect](https://technet.microsoft.com/library/mt634616.aspx) e [Set-ClusterStorageSpacesDirect](https://technet.microsoft.com/library/mt763265.aspx). Le proprietà `CacheModeHDD` e `CacheModeSSD` definiscono la modalità di funzionamento della cache su supporti per la capacità del tipo indicato.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Informazioni su Spazi di archiviazione diretta](../../../../storage/storage-spaces/understand-storage-spaces-direct.md)
 - [Pianificazione di Spazi di archiviazione diretta](../../../../storage/storage-spaces/plan-storage-spaces-direct.md)

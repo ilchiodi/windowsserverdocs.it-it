@@ -7,10 +7,10 @@ ms.topic: article
 author: apdutta
 ms.date: 02/20/2020
 ms.openlocfilehash: 478f87db4d520a133b3d70c0ed2dbb4e91db60d9
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80853734"
 ---
 # <a name="netsh-mbn-commands"></a>Comandi netsh mbn
@@ -58,8 +58,8 @@ add dmprofile [interface=]<string> [name=]<string>
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
-| **name**      | Nome del file XML del profilo. È il nome del file XML contenente i dati del profilo.     | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
+| **name**      | Nome del file XML del profilo. È il nome del file XML contenente i dati del profilo.     | Obbligatorio |
 
 
 **Esempio**
@@ -83,8 +83,8 @@ add profile [interface=]<string> [name=]<string>
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
-| **name**      | Nome del file XML del profilo. È il nome del file XML contenente i dati del profilo.     | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
+| **name**      | Nome del file XML del profilo. È il nome del file XML contenente i dati del profilo.     | Obbligatorio |
 
 
 **Esempio**
@@ -108,9 +108,9 @@ connect [interface=]<string> [connmode=]tmp|name [name=]<string>
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
-| **connmode**  | Specifica come vengono resi disponibili i parametri di connessione. È possibile richiedere la connessione tramite un profilo XML o tramite il nome del profilo XML archiviato in precedenza nell'archivio dati profili di Mobile Broadband con il comando "netsh mbn add profile". Nel primo caso il parametro connmode conterrà "tmp" come valore, mentre nel secondo caso conterrà "name".                                       | Obbligatoria |
-| **name**      | Nome del file XML del profilo. È il nome del file XML contenente i dati del profilo.     | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
+| **connmode**  | Specifica come vengono resi disponibili i parametri di connessione. È possibile richiedere la connessione tramite un profilo XML o tramite il nome del profilo XML archiviato in precedenza nell'archivio dati profili di Mobile Broadband con il comando "netsh mbn add profile". Nel primo caso il parametro connmode conterrà "tmp" come valore, mentre nel secondo caso conterrà "name".                                       | Obbligatorio |
+| **name**      | Nome del file XML del profilo. È il nome del file XML contenente i dati del profilo.     | Obbligatorio |
 
 
 **Esempi**
@@ -144,8 +144,8 @@ delete dmprofile [interface=]<string> [name=]<string>
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
-| **name**      | Nome del file XML del profilo. È il nome del file XML contenente i dati del profilo.     | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
+| **name**      | Nome del file XML del profilo. È il nome del file XML contenente i dati del profilo.     | Obbligatorio |
 
 **Esempio**
 
@@ -167,8 +167,8 @@ delete profile [interface=]<string> [name=]<string>
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
-| **name**      | Nome del file XML del profilo. È il nome del file XML contenente i dati del profilo.     | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
+| **name**      | Nome del file XML del profilo. È il nome del file XML contenente i dati del profilo.     | Obbligatorio |
 
 
 **Esempio**
@@ -191,7 +191,7 @@ diagnose [interface=]<string>
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
 
 
 **Esempio**
@@ -215,7 +215,7 @@ disconnect [interface=]<string>
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
 
 
 **Esempio**
@@ -277,8 +277,8 @@ set acstate [interface=]<string> [state=]autooff|autoon|manualoff|manualon
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
-| **name**      | Stato di connessione automatica da impostare. Uno dei valori seguenti:<br>autooff: token di connessione automatica disattivato.<br>autoon: token di connessione automatica attivato.<br>manualoff: token di connessione manuale disattivato.<br>manualon: token di connessione manuale attivato. | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
+| **name**      | Stato di connessione automatica da impostare. Uno dei valori seguenti:<br>autooff: token di connessione automatica disattivato.<br>autoon: token di connessione automatica attivato.<br>manualoff: token di connessione manuale disattivato.<br>manualon: token di connessione manuale attivato. | Obbligatorio |
 
 
 **Esempio**
@@ -302,9 +302,9 @@ set dataenablement [interface=]<string> [profileset=]internet|mms|all [mode=]yes
 
 |                |                                                                                               |          |
 |----------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface**  | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
-| **profileset** | Nome del set di profili.                                                                      | Obbligatoria |
-| **mode**       | Uno dei valori seguenti:<br>yes: abilita il set di profili di destinazione.<br>no: disabilita il set di profili di destinazione.| Obbligatoria |
+| **interface**  | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
+| **profileset** | Nome del set di profili.                                                                      | Obbligatorio |
+| **mode**       | Uno dei valori seguenti:<br>yes: abilita il set di profili di destinazione.<br>no: disabilita il set di profili di destinazione.| Obbligatorio |
 
 
 **Esempio**
@@ -328,9 +328,9 @@ set dataroamcontrol [interface=]<string> [profileset=]internet|mms|all [state=]n
 
 |                |                                                                                               |          |
 |----------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface**  | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
-| **profileset** | Nome del set di profili.                                                                      | Obbligatoria |
-| **mode**       | Uno dei valori seguenti:<br>none: solo operatore domestico.<br>partner: solo operatori domestico e partner.<br>all: operatori domestico, partner e di roaming.| Obbligatoria |
+| **interface**  | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
+| **profileset** | Nome del set di profili.                                                                      | Obbligatorio |
+| **mode**       | Uno dei valori seguenti:<br>none: solo operatore domestico.<br>partner: solo operatori domestico e partner.<br>all: operatori domestico, partner e di roaming.| Obbligatorio |
 
 
 **Esempio**
@@ -354,10 +354,10 @@ set enterpriseapnparams [interface=]<string> [allowusercontrol=]yes|no|nc [allow
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
-| **allowusercontrol** | Uno dei valori seguenti:<br>yes: consente all'utente finale di controllare enterpriseAPN.<br>no: non consente all'utente finale di controllare enterpriseAPN.<br>nc: nessuna modifica. | Obbligatoria |
-| **allowuserview** |Uno dei valori seguenti:<br>yes: consente all'utente finale di visualizzare enterpriseAPN.<br>no: non consente all'utente finale di visualizzare enterpriseAPN.<br>nc: nessuna modifica. | Obbligatoria |
-| **profileaction** | Uno dei valori seguenti:<br>add: un profilo enterpriseAPN è stato aggiunto.<br>delete: un profilo enterpriseAPN è stato eliminato.<br>modify: un profilo enterpriseAPN è stato modificato.<br>nc: nessuna modifica. | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
+| **allowusercontrol** | Uno dei valori seguenti:<br>yes: consente all'utente finale di controllare enterpriseAPN.<br>no: non consente all'utente finale di controllare enterpriseAPN.<br>nc: nessuna modifica. | Obbligatorio |
+| **allowuserview** |Uno dei valori seguenti:<br>yes: consente all'utente finale di visualizzare enterpriseAPN.<br>no: non consente all'utente finale di visualizzare enterpriseAPN.<br>nc: nessuna modifica. | Obbligatorio |
+| **profileaction** | Uno dei valori seguenti:<br>add: un profilo enterpriseAPN è stato aggiunto.<br>delete: un profilo enterpriseAPN è stato eliminato.<br>modify: un profilo enterpriseAPN è stato modificato.<br>nc: nessuna modifica. | Obbligatorio |
 
 
 **Esempio**
@@ -381,8 +381,8 @@ set highestconncategory [interface=]<string> [highestcc=]admim|user|operator|dev
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
-| **highestcc** | Uno dei valori seguenti:<br>admin: profili con provisioning da parte dell'amministratore.<br>user: profili con provisioning da parte dell'utente.<br>operator: profili con provisioning da parte dell'operatore.<br>device: profili con provisioning da parte del dispositivo. | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
+| **highestcc** | Uno dei valori seguenti:<br>admin: profili con provisioning da parte dell'amministratore.<br>user: profili con provisioning da parte dell'utente.<br>operator: profili con provisioning da parte dell'operatore.<br>device: profili con provisioning da parte del dispositivo. | Obbligatorio |
 
 
 **Esempio**
@@ -406,8 +406,8 @@ set powerstate [interface=]<string> [state=]on|off
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
-| **state**      | Uno dei valori seguenti:<br>on: accende il ricetrasmettitore radio.<br>off:  spegne il ricetrasmettitore radio. | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
+| **state**      | Uno dei valori seguenti:<br>on: accende il ricetrasmettitore radio.<br>off:  spegne il ricetrasmettitore radio. | Obbligatorio |
 
 
 **Esempio**
@@ -431,7 +431,7 @@ set profileparameter [name=]<string> [[interface=]<string>] [[cost]=default|unre
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **name**      | Nome del profilo da modificare. Se è specificata l'interfaccia, verrà modificato solo il profilo presente in tale interfaccia. | Obbligatoria |
+| **name**      | Nome del profilo da modificare. Se è specificata l'interfaccia, verrà modificato solo il profilo presente in tale interfaccia. | Obbligatorio |
 | **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Facoltativo |
 | **cost**      | Costo associato al profilo.                                                             | Facoltativo |
 
@@ -462,8 +462,8 @@ set slotmapping [interface=]<string> [slotindex=]<integer>
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
-| **slotindex** | Indice dello slot da impostare.                                                                         | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
+| **slotindex** | Indice dello slot da impostare.                                                                         | Obbligatorio |
 
 
 **Esempio**
@@ -487,7 +487,7 @@ set tracing [mode=]yes|no
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **mode**      | Uno dei valori seguenti:<br>yes: abilita la traccia per Mobile Broadband.<br>no: disabilita la traccia per Mobile Broadband.     | Obbligatoria |
+| **mode**      | Uno dei valori seguenti:<br>yes: abilita la traccia per Mobile Broadband.<br>no: disabilita la traccia per Mobile Broadband.     | Obbligatorio |
 
 
 **Esempio**
@@ -543,7 +543,7 @@ show acstate [interface=]<string>
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
 
 
 **Esempio**
@@ -567,7 +567,7 @@ show capability [interface=]<string>
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
 
 
 **Esempio**
@@ -591,7 +591,7 @@ show connection [interface=]<string>
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
 
 
 **Esempio**
@@ -615,7 +615,7 @@ show dataenablement [interface=]<string>
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
 
 
 **Esempio**
@@ -639,7 +639,7 @@ show dataroamcontrol [interface=]<string>
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
 
 
 **Esempio**
@@ -697,7 +697,7 @@ show enterpriseapnparams [interface=]<string>
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
 
 
 **Esempio**
@@ -721,7 +721,7 @@ show highestconncategory [interface=]<string>
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
 
 
 **Esempio**
@@ -745,7 +745,7 @@ show homeprovider [interface=]<string>
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
 
 
 **Esempio**
@@ -780,7 +780,7 @@ show netlteattachinfo [interface=]<string>
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
 
 
 **Esempio**
@@ -803,7 +803,7 @@ show pin [interface=]<string>
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
 
 
 **Esempio**
@@ -827,7 +827,7 @@ show pinlist [interface=]<string>
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
 
 
 **Esempio**
@@ -851,7 +851,7 @@ show preferredproviders [interface=]<string>
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
 
 
 **Esempio**
@@ -910,8 +910,8 @@ show profilestate [interface=]<string> [name=]<string>
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
-| **name**      | Nome del profilo. È il nome del profilo con stato da visualizzare.            | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
+| **name**      | Nome del profilo. È il nome del profilo con stato da visualizzare.            | Obbligatorio |
 
 **Esempio**
 
@@ -933,7 +933,7 @@ show provisionedcontexts [interface=]<string>
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
 
 
 **Esempio**
@@ -968,7 +968,7 @@ show radio [interface=]<string>
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
 
 
 **Esempio**
@@ -992,7 +992,7 @@ show readyinfo [interface=]<string>
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
 
 
 **Esempio**
@@ -1016,7 +1016,7 @@ show signal [interface=]<string>
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
 
 
 **Esempio**
@@ -1040,7 +1040,7 @@ show slotmapping [interface=]<string>
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
 
 
 **Esempio**
@@ -1064,7 +1064,7 @@ show slotstatus [interface=]<string>
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
 
 
 **Esempio**
@@ -1088,7 +1088,7 @@ show smsconfig [interface=]<string>
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
 
 
 **Esempio**
@@ -1123,7 +1123,7 @@ show visibleproviders [interface=]<string>
 
 |               |                                                                                               |          |
 |---------------|-----------------------------------------------------------------------------------------------|----------|
-| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatoria |
+| **interface** | Nome dell'interfaccia. È uno dei nomi di interfaccia visualizzati dal comando "netsh mbn show interfaces". | Obbligatorio |
 
 
 **Esempio**

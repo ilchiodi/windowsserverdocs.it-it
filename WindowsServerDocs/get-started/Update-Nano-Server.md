@@ -10,10 +10,10 @@ author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
 ms.openlocfilehash: 3f8bbe4dcf9161686367f7807d522b79bcf99e32
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80826404"
 ---
 # <a name="updating-nano-server"></a>Aggiornamento di Nano Server
@@ -67,7 +67,7 @@ Edit-NanoServerImage -ServicingPackagePath 'C:\ServicingPackages_cabs\Windows10.
 ## <a name="option-3-apply-the-cumulative-update-to-an-existing-offline-vhd-or-vhdx"></a>Opzione 3: applicare l'aggiornamento cumulativo a un disco VHD o VHDX offline esistente
 Se hai un disco rigido virtuale (VHD o VHDX), puoi usare gli strumenti di Gestione e manutenzione immagini distribuzione per applicare l'aggiornamento a tale disco. Devi assicurarti che il disco non sia in uso arrestando le macchine virtuali che lo usano oppure smontando il file del disco rigido virtuale.
 
-- Uso di PowerShell
+- Mediante PowerShell
 
    ```powershell
    Mount-WindowsImage -ImagePath .\NanoServer.vhdx -Path .\MountDir -Index 1
@@ -95,7 +95,7 @@ Copy-Item -ToSession $s -Path C:\ServicingPackages_cabs -Destination C:\Servicin
 Enter-PSSession $s
 ```
 
-- Uso di PowerShell
+- Mediante PowerShell
 
    ```powershell
    # Apply the servicing stack update first and then restart

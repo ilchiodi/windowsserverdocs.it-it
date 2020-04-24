@@ -9,10 +9,10 @@ ms.date: 06/18/2018
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.openlocfilehash: b0707f8aa7a09fdd18c2107e375ad06d3909955e
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "71356904"
 ---
 # <a name="windows-admin-center-case-studies"></a>Case study di Windows Admin Center
@@ -60,7 +60,7 @@ Comparex è responsabile dell'esecuzione e della gestione di migliaia di server 
 
 Comparex era alla ricerca di una soluzione di gestione dei server accessibile da remoto e di facile utilizzo da applicare alle piccole e medie imprese.  La ricerca di un unico fornitore di soluzioni per la gestione moderna e sicura dei server si stava rivelando una sfida complessa.
 
-### <a name="the-solution"></a>**Soluzione**
+### <a name="the-solution"></a>**La soluzione**
 
 Comparex esegue un'installazione di Windows Admin Center basata su server per l'accesso e la gestione del laboratorio demo, che ha consentito di ridurre i passaggi aggiuntivi per VPN e RDP.  Anche i consulenti di Comparex eseguono Windows Admin Center nei propri notebook per aiutare i clienti nel proprio ambiente, senza dover accedere esplicitamente a RDP.
 
@@ -138,7 +138,7 @@ Windows Admin Center viene distribuito da Inside Technologies in un unico server
 
 Inside Technologies usa Windows Admin Center per gestire i clienti in modalità remota e, grazie all'integrazione con Azure Activity Directory, può garantire una maggiore sicurezza con l'autenticazione a più fattori.  Le dashboard in Windows Admin Center offrono una visibilità avanzata nello stato di ogni ruolo di ogni server e una semplicità di gestione anche dei più piccoli dettagli grazie a PowerShell.  Inside Technologies ha ridotto il tempo impiegato nella gestione dei server e nell'uso di console diverse per ogni ruolo del server.
 
-## <a id="secureguard-copa-data"></a>SecureGUARD / COPA-DATA
+## <a name="secureguard--copa-data"></a><a id="secureguard-copa-data"></a>SecureGUARD / COPA-DATA
 
 [SecureGUARD GmbH](http://www.secureguard.at/) aiuta le aziende a risolvere problemi IT complessi nell'infrastruttura di sicurezza e cloud con una serie di prodotti e servizi di progettazione personalizzati. SecureGUARD crea apparecchiature di sicurezza IT e basate su Microsoft Windows Server. Di recente, ha creato apparecchiature convergenti di livello rack per infrastrutture cloud. SecureGUARD è un partner Microsoft Gold per data center e sviluppo di applicazioni.
  

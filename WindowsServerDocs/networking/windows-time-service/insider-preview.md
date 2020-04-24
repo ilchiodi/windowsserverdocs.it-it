@@ -8,10 +8,10 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
 ms.openlocfilehash: f26822d52b55191ad7096135a2757e9f72b7e772
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80861644"
 ---
 # <a name="insider-preview"></a>Anteprima Insider 
@@ -26,7 +26,7 @@ Il secondo intercalare è una correzione occasionale di 1 secondo all'ora UTC. C
 
 I secondi intercalari sono diventati importanti per soddisfare i requisiti normativi di accuratezza e tracciabilità di Stati Uniti e Unione europea.
 
-Per altre informazioni, vedere:
+Per altre informazioni, vedi:
 
 -  Il [blog dell'annuncio](https://blogs.technet.microsoft.com/networking/2018/07/18/top10-ws2019-hatime/)
 
@@ -41,7 +41,7 @@ Per altre informazioni, vedere:
 
 Un nuovo provider di servizi temporali incluso in Windows Server 2019 e Windows 10 (versione 1809) consente di sincronizzare l'ora con il protocollo PTP (Precision Time Protocol). Quando l'orario viene distribuito in rete, subisce un ritardo (latenza) che, se non viene considerato o non è simmetrico, diventa sempre più difficile capire il timestamp inviato dal server di tempo. Il protocollo PTP consente ai dispositivi di rete di aggiungere la latenza introdotta da ogni dispositivo di rete nelle misurazioni temporali, fornendo così al client Windows un campione di tempo molto più accurato.
 
-Per altre informazioni, vedere:
+Per altre informazioni, vedi:
 
 -  Il [blog dell'annuncio](https://blogs.technet.microsoft.com/networking/2018/07/18/top10-ws2019-hatime/)
 
@@ -58,7 +58,7 @@ Quando si riceve un pacchetto temporizzato in rete da un server di riferimento d
 
 Per risolvere questo problema, il timestamp del software consente di eseguire il timestamp dei pacchetti prima e dopo i componenti di rete di Windows indicati in precedenza per poter tenere conto del ritardo nel sistema operativo.
 
-Per altre informazioni, vedere:
+Per altre informazioni, vedi:
 
 -  Il [blog dell'annuncio](https://blogs.technet.microsoft.com/networking/2018/07/18/top10-ws2019-hatime/)
 

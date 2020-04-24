@@ -9,10 +9,10 @@ manager: daveba
 ms.technology: storage-spaces
 ms.date: 06/20/2019
 ms.openlocfilehash: bb93ec15fd138ee65797c9d27413552c3a1759a6
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "75949676"
 ---
 # <a name="using-disk-cleanup-on-windows-server"></a>Uso di Pulizia disco in Windows Server
@@ -61,10 +61,10 @@ Lo strumento Pulizia disco (cleanmgr.exe) non è presente in Windows Server 2012
 
 Per usare cleanmgr.exe, installa Esperienza desktop come descritto in precedenza oppure copia due file già presenti nel server, cleanmgr.exe e cleanmgr.exe.mui. Per individuare i file per il sistema operativo in uso, fai riferimento alla tabella seguente.
 
-| Sistema operativo  | Architettura  | Percorso file  |
+| Sistema operativo  | Architecture  | Percorso file  |
 | ----------------- | -------------- | --------------- |
-| Windows Server 2008 R2 | 64 bit | C:\Windows\winsxs\amd64_microsoft-windows-cleanmgr_31bf3856ad364e35_6.1.7600.16385_none_c9392808773cd7da\cleanmgr.exe 
-| Windows Server 2008 R2 | 64 bit | C:\Windows\winsxs\amd64_microsoft-windows-cleanmgr.resources_31bf3856ad364e35_6.1.7600.16385_en-us_b9cb6194b257cc63\cleanmgr.exe.mui |
+| Windows Server 2008 R2 | 64 bit | C:\Windows\winsxs\amd64_microsoft-windows-cleanmgr_31bf3856ad364e35_6.1.7600.16385_none_c9392808773cd7da\cleanmgr.exe 
+| Windows Server 2008 R2 | 64 bit | C:\Windows\winsxs\amd64_microsoft-windows-cleanmgr.resources_31bf3856ad364e35_6.1.7600.16385_en-us_b9cb6194b257cc63\cleanmgr.exe.mui |
 
 Individua cleanmgr.exe e sposta il file in **%systemroot%\System32**.
 

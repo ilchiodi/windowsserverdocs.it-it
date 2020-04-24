@@ -10,10 +10,10 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.openlocfilehash: a1041bdc189238c7da32896e6f867f730e392d24
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80814431"
 ---
 # <a name="ad-fs-frequently-asked-questions-faq"></a>Domande frequenti su AD FS
@@ -102,7 +102,7 @@ Puoi abilitare e disabilitare SSL 2.0 e 3.0, nonché TLS versioni 1.0, 1.1 e 1.2
 
 Per assicurarti che i server AD FS e WAP negozino solo pacchetti di crittografia TLS che supportano ATP, puoi disabilitare tutti i pacchetti di crittografia non inclusi nell'[elenco dei pacchetti di crittografia conformi ad ATP](https://developer.apple.com/library/prerelease/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW57).  A tale scopo, usa i [cmdlet di Windows TLS PowerShell](https://technet.microsoft.com/itpro/powershell/windows/tls/index).
 
-## <a name="developer"></a>Sviluppo
+## <a name="developer"></a>Sviluppatore
 
 ### <a name="when-generating-an-id_token-with-adfs-for-a-user-authenticated-against-ad-how-is-the-sub-claim-generated-in-the-id_token"></a>Quando viene generato un id_token con AD FS per un utente autenticato in Active Directory, come viene generata l'attestazione sub nell'id_token?
 Il valore dell'attestazione sub è l'hash dell'ID client + il valore attestazione di ancoraggio.

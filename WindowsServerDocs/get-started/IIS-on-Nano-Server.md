@@ -11,10 +11,10 @@ author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
 ms.openlocfilehash: d2522dc94c0d3b68c75e14fec19466529256aad0
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80826864"
 ---
 # <a name="iis-on-nano-server"></a>IIS in Nano Server
@@ -240,7 +240,7 @@ Usare l'utilità Certoc.exe per importare certificati come nell'esempio seguente
     $sm.CommitChanges()  
     ```  
 
-    Puoi usare anche l'indicazione del nome del server con un nome host specifico tramite la sintassi seguente: `$sm.Sites[Default Web Site].Bindings.Add(*:443: www.foo.bar.com, $hash, My, Sni.`  
+    Puoi usare anche l'indicazione del nome del server con un nome host specifico tramite la sintassi seguente: `$sm.Sites[Default Web Site].Bindings.Add(*:443:www.foo.bar.com, $hash, My, Sni.`  
 
 ## <a name="appendix-1-list-of-iis-sub-features"></a>Appendice 1: Elenco di funzionalità secondarie di IIS
 

@@ -11,19 +11,19 @@ ms.author: jaimeo
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: 18c454d9ef4deb8c9ea681a486e85f356ad5c9cd
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80826944"
 ---
-# <a name="install-server-with-desktop-experience"></a>Installare Server con Esperienza Desktop
+# <a name="install-server-with-desktop-experience"></a>Installare la versione Server con Esperienza desktop
 > Si applica a: Windows Server 2016
   
 
 Quando si installa Windows Server 2016 tramite l'Installazione guidata, è possibile scegliere tra **Windows Server 2016** e **Windows Server (Server con Esperienza desktop)** . L'opzione Server con Esperienza desktop è l'equivalente in Windows Server 2016 dell'opzione Installazione completa disponibile in Windows Server 2012 R2, con la funzionalità Esperienza desktop installata. Se non si sceglie alcuna opzione nell'Installazione guidata, viene installato **Windows Server 2016**, ovvero l'opzione di installazione **Server Core**.
 
-L'opzione Server con Esperienza desktop installa l'interfaccia utente standard e tutti gli strumenti, comprese le funzionalità client che richiedevano un'installazione separata in Windows Server 2012 R2. I ruoli server e le funzionalità vengono installato con Server Manager o per mezzo di altri metodi. Rispetto all'opzione Server Core, questa richiede più spazio su disco e ha requisiti di manutenzione maggiori, è quindi consigliabile scegliere questo tipo di installazione a meno che non occorrano elementi aggiuntivi dell'interfaccia utente e strumenti di gestione grafica inclusi nell'opzione Server con Esperienza desktop. Se si ritiene di poter fare a meno degli elementi aggiuntivi, vedere [Installare Server Core](Getting-Started-with-Server-Core.md). Per un'opzione ancora più leggera, vedere [Installare Nano Server](Getting-Started-with-Nano-Server.md).
+L'opzione Server con Esperienza desktop installa l'interfaccia utente standard e tutti gli strumenti, comprese le funzionalità client che richiedevano un'installazione separata in Windows Server 2012 R2. I ruoli server e le funzionalità vengono installato con Server Manager o per mezzo di altri metodi. Rispetto all'opzione Server Core, questa richiede più spazio su disco e ha requisiti di manutenzione maggiori, è quindi consigliabile scegliere questo tipo di installazione a meno che non occorrano elementi aggiuntivi dell'interfaccia utente e strumenti di gestione grafica inclusi nell'opzione Server con Esperienza desktop. Se si ritiene di poter fare a meno degli elementi aggiuntivi, vedere [Installare Server Core](Getting-Started-with-Server-Core.md). Per altre opzioni lightweight, vedere [Installare Nano Server](Getting-Started-with-Nano-Server.md).
 
 > [!NOTE]
 >
@@ -73,7 +73,7 @@ Se nella colonna a destra sono presenti più edizioni, è supportato l'aggiornam
 |Windows Server 2012 Standard|Windows Server 2016 Standard o Datacenter|
 |Windows Server 2012 Datacenter|Windows Server 2016 Datacenter|
 |Windows Server 2012 R2 Standard|Windows Server 2016 Standard o Datacenter|
-|Windows Server 2012 R2 Datacenter|Windows Server 2016 Datacenter|
+|Windows Server 2012 R2 Datacenter|Windows Server 2016 Datacenter|
 |Windows Server 2012 R2 Essentials|Windows Server 2016 Essentials|
 |Windows Storage Server 2012 Standard|Windows Storage Server 2016 Standard|
 |Windows Storage Server 2012 Workgroup|Windows Storage Server 2016 Workgroup|
@@ -90,7 +90,7 @@ La possibilità di eseguire la migrazione varia a seconda dei ruoli server. La g
 |Ruolo server|Aggiornamento da Windows Server 2012 R2|Aggiornamento da Windows Server 2012|Supporto della migrazione|Completamento della migrazione senza tempi di inattività|  
 |-------------------|----------|--------------|--------------|----------|  
 |Servizi certificati Active Directory|    Sì|    Sì|    Sì|    No|
-|Active Directory Domain Services|    Sì|    Sì|    Sì|    Sì|
+|Servizi di dominio di Active Directory|    Sì|    Sì|    Sì|    Sì|
 |Active Directory Federation Services|    No|    No|    Sì|    No (è necessario aggiungere nuovi nodi alla farm)|
 |Active Directory Lightweight Directory Services|    Sì|    Sì|    Sì|    Sì|
 |Active Directory Rights Management Services|    Sì|    Sì|    Sì|    No|

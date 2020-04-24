@@ -10,10 +10,10 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: 664e0233d10cbbc526635f1868ea1977c59fea63
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80828904"
 ---
 # <a name="step-1-install-the-wsus-server-role"></a>Passaggio 1: Installare il ruolo server WSUS
@@ -31,13 +31,13 @@ Il passaggio successivo della procedura di distribuzione del server WSUS prevede
 
 2.  In **Server Manager** fare clic su **Gestione** e quindi su **Aggiungi ruoli e funzionalità**.
 
-3.  Nella pagina **Prima di iniziare** fare clic su **Avanti**.
+3.  Nella pagina **Prima di iniziare**, fare clic su **Avanti**.
 
 4.  Nella pagina **Selezione tipo di installazione** verificare che l'opzione **Installazione basata su ruoli o basata su funzionalità** sia selezionata e fare clic su **Avanti**.
 
 5.  Nella pagina **Selezione server di destinazione** scegliere la posizione del server, ad esempio un pool di server o un disco rigido virtuale. Dopo aver selezionato il percorso, scegliere il server in cui si vuole installare il ruolo server WSUS e fare clic su **Avanti**.
 
-6.  Nella pagina **Selezione ruoli server** fare clic su **Windows Server Update Services**.  Viene visualizzato**Aggiungere le funzionalità necessarie per Windows Server Update Services** . Fare clic su **Aggiungi funzionalità necessarie**e quindi su **Avanti**.
+6.  Nella pagina **Selezione ruoli server** fare clic su **Windows Server Update Services**.  Viene visualizzato **Aggiungere le funzionalità necessarie per Windows Server Update Services**. Fare clic su **Aggiungi funzionalità necessarie**e quindi su **Avanti**.
 
 7.  Nella pagina **Selezione funzionalità** mantenere le selezioni predefinite e fare clic su **Avanti**.
 

@@ -8,10 +8,10 @@ ms.author: davso; ericam; yashi
 author: akino
 ms.date: 10/16/2017
 ms.openlocfilehash: a4508e28e54562748422b198f703e23326d15720
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80851634"
 ---
 # <a name="performance-tuning-windows-server-containers"></a>Ottimizzazione delle prestazioni per i contenitori di Windows Server
@@ -35,7 +35,7 @@ L'isolamento aggiuntivo fornito dai contenitori di Hyper-V è realizzato in larg
 
 I contenitori di Windows Server e Hyper-V offrono il supporto per Server Core e per una nuova opzione di installazione disponibile in Windows Server 2016: [Nano Server](https://technet.microsoft.com/windows-server-docs/compute/nano-server/getting-started-with-nano-server). 
 
-Nano Server è un sistema operativo server amministrato da postazione remota e ottimizzato per data center e cloud privati. È simile a Windows Server in modalità Server Core, ma notevolmente più piccolo, non dispone di alcuna funzionalità di accesso locale e supporta solo agenti, strumenti e applicazioni a 64 bit. Occupa molto meno spazio su disco e si avvia più velocemente.
+Nano Server è un sistema operativo server amministrato da postazione remota e ottimizzato per data center e cloud privati. È simile a Windows Server in modalità Server Core, ma notevolmente più piccolo, non dispone di funzionalità di accesso locale e supporta solo agenti, strumenti e applicazioni a 64 bit. Occupa molto meno spazio su disco e si avvia più velocemente.
 
 ## <a name="container-start-up-time"></a>Tempo di avvio del contenitore
 Il tempo di avvio del contenitore è una metrica fondamentale in molti degli scenari in cui i contenitori offrono i maggiori vantaggi. È essenziale pertanto conoscere le procedure per ottimizzare il tempo di avvio del contenitore. Di seguito vengono descritti alcuni compromessi di ottimizzazione da conoscere per migliorare il tempo di avvio.
@@ -52,7 +52,7 @@ Hyper-V per Windows Server 2016 introduce il supporto di hypervisor annidato. È
 
 Per i contenitori questo effetto negativo si verifica quando si esegue un contenitore di Hyper-V all'interno di una macchina virtuale. Poiché un contenitore di Hyper-V offre isolamento tramite un livello di hypervisor tra se stesso e l'host del contenitore, quando l'host del contenitore è una macchina virtuale basata su Hyper-V, si verifica un sovraccarico per le prestazioni in termini di tempo di avvio del contenitore, I/O di archiviazione, I/O e velocità effettiva della rete e CPU.
 
-## <a name="storage"></a>Archiviazione:
+## <a name="storage"></a>Archiviazione
 ### <a name="mounted-data-volumes"></a>Volumi di dati montati
 
 I contenitori offrono la possibilità di usare l'unità del sistema host del contenitore per l'area scratch del contenitore. L'area scratch del contenitore tuttavia ha una durata pari a quella del contenitore. Quando pertanto il contenitore viene arrestato, l'area scratch e tutti i dati associati vengono eliminati.
@@ -64,7 +64,7 @@ Esistono tuttavia molti scenari in cui si preferisce avere dati persistenti indi
 Per impostazione predefinita, sia i contenitori di Windows Server sia i contenitori di Hyper-V forniscono un disco rigido virtuale dinamico da 20 GB per l'area scratch. Per entrambi i tipi di contenitore, il sistema operativo occupa una parte di tale spazio e questo vale per ogni contenitore avviato. È importante quindi ricordare che ogni contenitore avviato produce un certo impatto sulla memoria e a seconda del carico di lavoro può scrivere fino a 20 GB del supporto di archiviazione sottostante. Le configurazioni di archiviazione dei server devono essere progettate tenendo conto di questo comportamento
 (possibilità di configurare le dimensioni dell'area scratch).
 
-## <a name="networking"></a>Funzionalità di rete
+## <a name="networking"></a>Rete
 I contenitori di Windows Server e di Hyper-V offrono un'ampia gamma di modalità di rete per soddisfare al meglio le esigenze delle diverse configurazioni di rete. Ognuna di queste opzioni presenta proprie caratteristiche in termini di prestazioni.
 
 ### <a name="windows-network-address-translation-winnat"></a>Windows Network Address Translation (WinNAT)

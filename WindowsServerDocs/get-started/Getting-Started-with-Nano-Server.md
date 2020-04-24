@@ -11,10 +11,10 @@ author: jaimeo
 ms.author: jaimeo
 ms.localizationpriority: medium
 ms.openlocfilehash: 68de1697c8655075041cd9e598ccd2bbc2e6237b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80826984"
 ---
 # <a name="install-nano-server"></a>Installare Nano Server
@@ -47,9 +47,9 @@ Poiché Nano Server è ottimizzato come sistema operativo leggero per l'esecuzio
 - Nano Server non può essere usato come controller di dominio di Active Directory.
 - I Criteri di gruppo non sono supportati. È tuttavia possibile usare [Desired State Configuration](https://msdn.microsoft.com/powershell/dsc/nanoDsc) per applicare le impostazioni su vasta scala.
 - Nano Server non può essere configurato per l'uso di un server proxy per accedere a Internet.
-- Gruppo NIC, in particolare bilanciamento del carico e failover, non è supportato. È invece supportata la tecnologia Switch Embedded Teaming (SET).
+- Gruppo NIC, in particolare bilanciamento del carico e failover, non è supportato. È invece supportato Switch Embedded Teaming (SET).
 - Microsoft Endpoint Configuration Manager e System Center Data Protection Manager non sono supportati.
-- I cmdlet di Best Practices Analyzer (BPA) e l'integrazione di BPA con Server Manager non sono supportati.
+- I cmdlet Best Practices Analyzer (BPA) e l'integrazione di BPA con Server Manager non sono supportati.
 - Nano Server non supporta le schede bus host (HBA) virtuali.
 - Nano Server non deve essere attivato con un codice Product Key. Quando funge da host Hyper-V, Nano Server non supporta l'[attivazione automatica della macchina virtuale](https://technet.microsoft.com/library/dn303421%28v=ws.11%29.aspx) (AVMA). Le macchine virtuali in esecuzione in un host Nano Server possono essere attivate tramite il [Servizio di gestione delle chiavi](https://technet.microsoft.com/library/jj612867(v=ws.11).aspx) (KMS) con un codice Product Key per contratti multilicenza generico o mediante [l'attivazione basata su Active Directory](https://technet.microsoft.com/library/dn502534(v=ws.11).aspx).
 - La versione di Windows PowerShell fornita con Nano Server presenta differenze importanti. Per informazioni dettagliate, vedere [PowerShell in Nano Server](PowerShell-on-Nano-Server.md).
@@ -74,7 +74,7 @@ Poiché l'installazione di Nano Server viene eseguita configurando un disco rigi
 > [!IMPORTANT]  
 > Al termine dell'installazione e immediatamente dopo aver installato tutti i ruoli del server e le funzionalità necessarie, cercare e installare gli aggiornamenti disponibili per Windows Server 2016. Per Nano Server, vedi la sezione relativa alla gestione degli aggiornamenti in Nano Server in [Gestire Nano Server](Manage-Nano-Server.md).
 
-### <a name="upgrade"></a>Aggiornamento di versione/Aggiornare la versione
+### <a name="upgrade"></a>Aggiornamento
 Poiché Nano Server è una novità di Windows Server 2016, non è disponibile un percorso di aggiornamento da versioni precedenti del sistema operativo di Nano Server.
 
 ### <a name="migration"></a>Migrazione

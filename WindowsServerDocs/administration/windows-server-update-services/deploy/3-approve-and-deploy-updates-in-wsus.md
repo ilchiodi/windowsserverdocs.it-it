@@ -10,10 +10,10 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: d8758c4f957d2d9abb156652a568b23634cb1bf0
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80828854"
 ---
 # <a name="step-3-approve-and-deploy-updates-in-wsus"></a>Passaggio 3: Approvare e distribuire gli aggiornamenti in WSUS
@@ -22,7 +22,7 @@ ms.locfileid: "80828854"
 
 I computer inclusi in un gruppo di computer contattano automaticamente il server WSUS nelle successive 24 ore per ottenere aggiornamenti. È possibile utilizzare la funzionalità di generazione rapporti di WSUS per determinare se gli aggiornamenti sono stati distribuiti nei computer di test. Quando i test vengono completati correttamente è possibile approvare gli aggiornamenti per i gruppi di computer applicabili dell'organizzazione. Nell'elenco di controllo seguente sono descritti i passaggi per l'approvazione e la distribuzione di aggiornamenti mediante la console di gestione di Windows Server Update Services.
 
-|Attività|Description|
+|Attività|Descrizione|
 |----|--------|
 |[3.1. Approvare e distribuire gli aggiornamenti di WSUS](3-approve-and-deploy-updates-in-wsus.md#BKM_3.1.)|Approvare e distribuire gli aggiornamenti di WSUS mediante la console di gestione di Windows Server Update Services.|
 |[3.2. Configurare le regole di approvazione automatica](3-approve-and-deploy-updates-in-wsus.md#BKM_3.2.a.)|Configurare WSUS in modo da approvare automaticamente l'installazione degli aggiornamenti per i gruppi selezionati e come approvare le revisioni degli aggiornamenti esistenti.|
@@ -37,7 +37,7 @@ Utilizzare la procedura seguente per approvare e distribuire gli aggiornamenti.
 
 2.  Nella sezione **Tutti gli aggiornamenti** fare clic su **Aggiornamenti necessari per i computer**.
 
-3.  Nell'elenco di aggiornamenti selezionare gli aggiornamenti che si desidera approvare per l'installazione nel gruppo di computer di test. Le informazioni relative a un aggiornamento selezionato sono disponibili nel riquadro inferiore del pannello **Aggiornamenti** . Per selezionare più aggiornamenti contigui, fare clic sui nomi degli aggiornamenti tenendo premuto il tasto **MAIUSC**. Per selezionare più aggiornamenti non contigui, fare clic sui nomi degli aggiornamenti tenendo premuto il tasto **CTRL** .
+3.  Nell'elenco di aggiornamenti selezionare gli aggiornamenti che si desidera approvare per l'installazione nel gruppo di computer di test. Le informazioni relative a un aggiornamento selezionato sono disponibili nel riquadro inferiore del pannello **Aggiornamenti** . Per selezionare più aggiornamenti contigui, fare clic sui nomi degli aggiornamenti tenendo premuto il tasto **MAIUSC**. Per selezionare più aggiornamenti non contigui, fare clic sui nomi degli aggiornamenti tenendo premuto il tasto **CTRL**.
 
 4.  Fare clic con il pulsante destro del mouse sulla selezione e scegliere **Approva**.
 
@@ -56,7 +56,7 @@ Le approvazioni automatiche consentono di specificare come approvare automaticam
 
 2.  In **Opzioni**fare clic su **Approvazioni automatiche**. Viene visualizzata la finestra di dialogo Approvazioni automatiche.
 
-3.  In **Regole di aggiornamento**fare clic su **Nuova regola**. Viene visualizzata la finestra di dialogo **Aggiungi regola**.
+3.  In **Regole di aggiornamento** fare clic su **Nuova regola**. Viene visualizzata la finestra di dialogo **Aggiungi regola**.
 
 4.  In **Aggiungi regola**, in **Passaggio 1: selezionare le proprietà**, selezionare una singola opzione o qualsiasi combinazione di opzioni tra le seguenti:
 

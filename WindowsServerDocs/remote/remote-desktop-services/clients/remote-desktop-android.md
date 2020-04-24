@@ -11,10 +11,10 @@ ms.author: helohr
 ms.date: 03/12/2020
 ms.localizationpriority: medium
 ms.openlocfilehash: a9cb49f2570b297c81f41412ad041215090538d0
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80856234"
 ---
 # <a name="get-started-with-the-android-client"></a>Introduzione al client Android
@@ -218,11 +218,11 @@ Il client utilizza i movimenti tocco standard. È inoltre possibile utilizzare i
 | Modalità mouse    | Azione del mouse         | Movimento                                                                 |
 |---------------|----------------------|-------------------------------------------------------------------------|
 | Tocco diretto con  | Clic con il pulsante sinistro           | Tocco con un dito                                                     |
-| Tocco diretto con  | Fare clic con il pulsante destro del mouse su          | Tocco e pressione con un dito, quindi rilascio                              |
+| Tocco diretto con  | Clic con il pulsante destro del mouse          | Tocco e pressione con un dito, quindi rilascio                              |
 | Puntatore del mouse | Zoom                 | Avvicinamento di due dita per fare zoom indietro o allontanamento delle dita per fare zoom avanti |
 | Puntatore del mouse | Clic con il pulsante sinistro           | Tocco con un dito                                                     |
 | Puntatore del mouse | Clic con il pulsante sinistro e trascinamento  | Doppio tocco e pressione con un dito, quindi trascinamento                          |
-| Puntatore del mouse | Fare clic con il pulsante destro del mouse su          | Tocco con due dita                                                    |
+| Puntatore del mouse | Clic con il pulsante destro del mouse          | Tocco con due dita                                                    |
 | Puntatore del mouse | Clic con il pulsante destro del mouse e trascinamento | Doppio tocco e pressione con due dita, quindi trascinamento                         |
 | Puntatore del mouse | Rotellina del mouse          | Pressione con due dita, quindi trascinamento verso l'alto o verso il basso                     |
 

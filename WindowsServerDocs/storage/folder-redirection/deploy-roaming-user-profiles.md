@@ -9,10 +9,10 @@ manager: brianlic
 ms.date: 06/07/2019
 ms.author: jgerend
 ms.openlocfilehash: 8feed2adb606edfb6068d7fe10c18baf142077ac
-ms.sourcegitcommit: 07c9d4ea72528401314e2789e3bc2e688fc96001
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "76822344"
 ---
 # <a name="deploying-roaming-user-profiles"></a>Distribuzione di Profili utente mobili
@@ -99,7 +99,7 @@ Di seguito viene illustrato come creare un gruppo di sicurezza per Profili utent
 
 1. Apri Server Manager in un computer in cui è installato Centro amministrativo di Active Directory.
 2. Scegli **Centro amministrativo di Active Directory** dal menu **Strumenti**. Verrà visualizzato Centro amministrativo di Active Directory.
-3. Fai clic con il pulsante destro del mouse sul dominio o sull'unità organizzativa appropriati, scegli **Nuovo** e quindi **Gruppo**.
+3. Fai clic con il pulsante destro del mouse sul dominio o sull'unità organizzativa appropriata, scegli **Nuovo** e quindi **Gruppo**.
 4. Nella sezione **Gruppo** della finestra **Crea gruppo** specificare le impostazioni seguenti:
 
     - Digitare il nome del gruppo di sicurezza in **Nome gruppo**, ad esempio: **Utenti e computer profili utente mobili**.
@@ -122,12 +122,12 @@ Di seguito viene illustrato come creare una condivisione file in Windows Server:
 2. Nel riquadro Condivisioni seleziona **Attività**e quindi **Nuova condivisione**. Verrà visualizzata la Creazione guidata nuova condivisione.
 3. Nella pagina **Selezionare il profilo** seleziona **Condivisione SMB - rapida**. Se hai installato Gestione risorse file server e usi le proprietà di gestione delle cartelle, seleziona invece **Condivisione SMB - avanzata**.
 4. Nella pagina **Percorso condivisione** selezionare il server e il volume sui quali creare la condivisione.
-5. Nella pagina **Nome condivisione** digitare un nome per la condivisione (ad esempio **Profili utente$** ) nella casella **Nome condivisione** .
+5. Nella pagina **Nome condivisione** digitare un nome per la condivisione (ad esempio **Profili utente$** ) nella casella **Nome condivisione**.
 
     > [!TIP]
     > Quando si crea la condivisione, nasconderla inserendo ```$``` dopo il nome condivisione. In tal modo, la condivisione verrà nascosta dai browser casuali.
 
-6. Nella pagina **Altre impostazioni** deselezionare la casella di controllo **Abilita disponibilità continua** , se disponibile e selezionare facoltativamente le caselle di controllo **Abilita enumerazione basata sull'accesso** e **Crittografa accesso ai dati** .
+6. Nella pagina **Altre impostazioni** deselezionare la casella di controllo **Abilita disponibilità continua**, se disponibile e selezionare facoltativamente le caselle di controllo **Abilita enumerazione basata sull'accesso** e **Crittografa accesso ai dati**.
 7. Nella pagina **Autorizzazioni** seleziona **Personalizza autorizzazioni**. Viene visualizzata la finestra di dialogo Impostazioni di protezione avanzate.
 8. Seleziona **Disabilita ereditarietà** e quindi **Converti autorizzazioni ereditate in autorizzazioni esplicite per questo oggetto**.
 9. Imposta le autorizzazioni come descritto in [Autorizzazioni necessarie per la condivisione file che ospita i profili utente mobili](#required-permissions-for-the-file-share-hosting-roaming-user-profiles) e mostrato nello screenshot seguente, rimuovendo le autorizzazioni per i gruppi e gli account non elencati e aggiungendo autorizzazioni speciali al gruppo Utenti e computer profili utente mobili creato nel passaggio 1.
@@ -186,7 +186,7 @@ Di seguito viene illustrato come configurare Profili utente mobili per gli accou
     `\\fs1.corp.contoso.com\User Profiles$\%username%`
     
     Per specificare un profilo utente mobile obbligatorio, specifica il percorso del file NTuser.man creato in precedenza, ad esempio `fs1.corp.contoso.comUser Profiles$default`. Per altre informazioni, vedi [Creare profili utente obbligatori](https://docs.microsoft.com/windows/client-management/mandatory-user-profile).
-4. Fare clic su **OK**.
+4. Seleziona **OK**.
 
 > [!NOTE]
 > Per impostazione predefinita, la distribuzione di tutte le app basate su Windows® Runtime (Windows Store) è consentita durante l'uso dei profili utente mobili. Quando però si usa un profilo speciale, le app non vengono distribuite per impostazione predefinita. I profili speciali sono profili utente in cui le modifiche vengono rimosse subito dopo la disconnessione dell'utente:
@@ -207,7 +207,7 @@ Di seguito viene illustrato come configurare Profili utente mobili sui computer:
 1. Aprire Server Manager in un computer in cui è installata la console Gestione Criteri di gruppo.
 2. Scegli **Gestione Criteri di gruppo** dal menu **Strumenti**. Verrà visualizzata la finestra Gestione Criteri di gruppo.
 3. In Gestione Criteri di gruppo fai clic con il pulsante destro del mouse sull'oggetto Criteri di gruppo creato nel passaggio 3 (ad esempio, **Impostazioni dei profili utente mobili**) e quindi scegli **Modifica**.
-4. Nella finestra Editor Gestione Criteri di gruppo passare a **Configurazione computer**, **Criteri**, **Modelli amministrativi**, **Sistema**e quindi **Profili utente**.
+4. Nella finestra Editor Gestione Criteri di gruppo passare a **Configurazione computer**, **Criteri**, **Modelli amministrativi**, **Sistema** e quindi **Profili utente**.
 5. Fai clic con il pulsante destro del mouse su **Imposta percorso profilo mobile per tutti gli utenti che accedono al computer** e quindi scegli **Modifica**.
     > [!TIP]
     > La home directory di un utente, se configurata, è la cartella predefinita usata da alcuni programmi come Windows PowerShell. È possibile configurare un percorso di rete o locale alternativo in base al numero di utenti con la sezione **Home directory** delle proprietà dell'account utente in Servizi di dominio Active Directory. Per configurare il percorso della home directory per tutti gli utenti di un computer che esegue Windows 8.1, Windows 8, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012 in un ambiente di desktop virtuale, abilita l'impostazione criterio **Imposta la home directory utente** e quindi specifica la condivisione file e la lettera di unità di cui eseguire il mapping (oppure specifica una cartella locale). Non usare variabili di ambiente o puntini di sospensione. L'alias dell'utente viene aggiunto alla fine del percorso specificato durante l'accesso dell'utente.
@@ -217,7 +217,7 @@ Di seguito viene illustrato come configurare Profili utente mobili sui computer:
     `\\fs1.corp.contoso.com\User Profiles$\%username%`
 
     Per specificare un profilo utente mobile obbligatorio, cioè un profilo preconfigurato al quale gli utenti non possono apportare modifiche definitive (gli elementi modificati vengono ripristinati alla disconnessione dell'utente), specifica il percorso del file NTuser.man creato in precedenza, ad esempio `\\fs1.corp.contoso.com\User Profiles$\default`. Per altre informazioni, vedere [Creazione di un profilo utente obbligatorio](https://docs.microsoft.com/windows/client-management/mandatory-user-profile).
-8. Fare clic su **OK**.
+8. Seleziona **OK**.
 
 ## <a name="step-7-optionally-specify-a-start-layout-for-windows-10-pcs"></a>Passaggio 7: Specificare facoltativamente un layout Start per i computer Windows 10
 
@@ -339,7 +339,7 @@ Ecco alcuni modi per ovviare alla reimpostazione dei layout del menu Start dopo 
 
 La tabella seguente include un riepilogo di alcune delle più importanti modifiche apportate a questo argomento.
 
-| Data | Description |Motivo|
+| Data | Descrizione |Motivo|
 | --- | ---         | ---   |
 | 1° maggio 2019 | Aggiunta di aggiornamenti per Windows Server 2019 |
 | 10 aprile 2018 | Aggiunta di una discussione sulla tempistica con cui le personalizzazioni dell'utente per il menu Start vanno perse dopo un aggiornamento sul posto del sistema operativo|Problema noto di callout. |
@@ -354,11 +354,11 @@ La tabella seguente include un riepilogo di alcune delle più importanti modific
 | 19 marzo 2014 | Uso delle lettere maiuscole nei suffissi della versione del profilo (.V2, .V3, .V4) in [Appendice B: Informazioni di riferimento relative alla versione del profilo](#appendix-b-profile-version-reference-information). | Nonostante Windows non operi distinzione tra maiuscole e minuscole, se usi NFS con la condivisione file, è importante indicare la corretta grafia (maiuscole) del suffisso del profilo. |
 | 9 ottobre 2013 | Revisione per Windows Server 2012 R2 e Windows 8.1, spiegazione di alcuni elementi e aggiunta delle sezioni [Considerazioni sull'uso di profili utente mobili su più versioni di Windows](#considerations-when-using-roaming-user-profiles-on-multiple-versions-of-windows) e [Appendice B: Informazioni di riferimento relative alla versione del profilo](#appendix-b-profile-version-reference-information). | Aggiornamenti per la nuova versione; feedback dei clienti. |
 
-## <a name="more-information"></a>Ulteriori informazioni
+## <a name="more-information"></a>Altre informazioni
 
 - [Distribuire Reindirizzamento cartelle, File offline e Profili utente mobili](deploy-folder-redirection.md)
 - [Distribuire i computer primari per Reindirizzamento cartelle e Profili utente mobili](deploy-primary-computers.md)
 - [Implementazione della gestione stato utente](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc784645(v=ws.10)>)
 - [Dichiarazione Microsoft a supporto della replica dei dati del profilo utente](https://blogs.technet.microsoft.com/askds/2010/09/01/microsofts-support-statement-around-replicated-user-profile-data/)
-- [Trasferire localmente le app con DISM](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh852635(v=win.10)>)
+- [Trasferire localmente le app con Gestione e manutenzione immagini distribuzione](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh852635(v=win.10)>)
 - [Risoluzione dei problemi di creazione di pacchetti, distribuzione e query delle app basate su Windows Runtime](https://msdn.microsoft.com/library/windows/desktop/hh973484.aspx)

@@ -10,10 +10,10 @@ author: coreyp-at-msft
 ms.author: coreyp
 ms.localizationpriority: high
 ms.openlocfilehash: 2ecec7ad47ade22ec05f1d721c9667b0887f3de3
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80852944"
 ---
 # <a name="security--assurance"></a>Sicurezza | Controllo
@@ -221,7 +221,7 @@ La sicurezza di Windows Server offre livelli di protezione integrati nel sistema
                     <div class="cardText">
                         <h3>Protezione delle credenziali</h3>
 <HR />
-                        <p><h3><a href="https://docs.microsoft.com/windows/security/identity-protection/credential-guard/credential-guard">Proteggere le credenziali di dominio derivate con Credential Guard</a></h3>Credential Guard usa la protezione basata su virtualizzazione per isolare i segreti in modo che solo il software di sistema con privilegi possa accedervi. L'accesso non autorizzato a questi segreti può produrre attacchi di furto delle credenziali, come attacchi di tipo Pass-the-Hash o Pass-The-Ticket.</a> Credential Guard impedisce questi attacchi proteggendo gli hash delle password NTLM e tramite i ticket di concessione Kerberos.</p>
+                        <p><h3><a href="https://docs.microsoft.com/windows/security/identity-protection/credential-guard/credential-guard">Proteggere le credenziali di dominio derivate con Credential Guard</a></h3>Credential Guard usa la protezione basata su virtualizzazione per isolare i segreti in modo che solo il software di sistema con privilegi possa accedervi. L'accesso non autorizzato a questi segreti può produrre attacchi di furto delle credenziali, come attacchi di tipo Pass-the-Hash o Pass-The-Ticket.</a> Credential Guard impedisce questi attacchi proteggendo gli hash delle password NTLM e i ticket di concessione ticket Kerberos.</p>
 <HR />
                         <p><h3><a href="https://docs.microsoft.com/windows/security/identity-protection/remote-credential-guard">Proteggere le credenziali di Desktop remoto con Remote Credential Guard</a></h3> Credential Guard remoto consente di proteggere le credenziali tramite una connessione Desktop remoto reindirizzando le richieste Kerberos al dispositivo che richiede la connessione. Fornisce inoltre il punto di accesso singolo per le sessioni Desktop remoto. </p>
 <HR />

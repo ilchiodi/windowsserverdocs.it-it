@@ -10,10 +10,10 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: d678c139ae2327eeecdff2731f1edb57d358a28a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80828844"
 ---
 # <a name="step-4-configure-group-policy-settings-for-automatic-updates"></a>Passaggio 4: Configurare le impostazioni di Criteri di gruppo per gli aggiornamenti automatici
@@ -151,7 +151,7 @@ Specifica se aggiornamenti automatici accetta gli aggiornamenti che sono firmati
 
 **Opzioni:** non sono disponibili opzioni per questa impostazione.
 
-#### <a name="always-automatically-restart-at-the-scheduled-time"></a>Riavvia sempre automaticamente all'ora pianificata
+#### <a name="always-automatically-restart-at-the-scheduled-time"></a>Esegui sempre riavvio automatico nel momento pianificato
 Specifica se un timer di riavvio immediatamente viene sempre avviato dopo che Windows Update ha installato gli aggiornamenti IMPORTANTI, invece di inviare prima agli utenti una notifica nella schermata di accesso per almeno due giorni.
 
 |Supportato in:|Esclusione:|
@@ -329,7 +329,7 @@ Il computer non attivano a meno che non sono disponibili aggiornamenti da instal
 
 **Opzioni:** non sono disponibili opzioni per questa impostazione.
 
-#### <a name="no-auto-restart-with-logged-on-users-for-scheduled-automatic-updates-installations"></a>Nessun riavvio automatico agli utenti automatica pianificata Aggiorna installazioni
+#### <a name="no-auto-restart-with-logged-on-users-for-scheduled-automatic-updates-installations"></a>Escludi riavvio automatico per installazioni pianificate di Aggiornamenti automatici con gli utenti non connessi
 Specifica che per completare un'installazione pianificata, aggiornamenti automatici attenderà che il computer venga riavviato da qualsiasi utente che ha effettuato l'accesso, anziché il computer venga riavviato automaticamente.
 
 |Supportato in:|Esclusione:|
@@ -618,7 +618,7 @@ La procedura descritta di seguito viene descritto come aprire la console GPMC su
 
 3.  Nel riquadro a sinistra, fare doppio clic su **domini**, quindi fare doppio clic sul dominio per il quale si desidera gestire un oggetto Criteri di gruppo. Ad esempio, fare doppio clic su **example.com**.
 
-4.  Eseguire una delle operazioni seguenti:
+4.  Effettua una delle seguenti operazioni:
 
     -  **Per aprire un oggetto Criteri di gruppo esistente a livello di dominio per la modifica**, fare doppio clic sul dominio contente l'oggetto Criteri di gruppo da gestire, fare clic con il pulsante destro del mouse sui criteri di dominio da gestire e quindi scegliere **Modifica**. Verrà visualizzato l'Editor Gestione Criteri di gruppo.
 
@@ -658,7 +658,7 @@ Per ulteriori informazioni sui criteri di gruppo, vedere [Cenni preliminari sui 
 
 3.  In **Opzioni**, se sono elencate le opzioni, mantenere i valori predefiniti o modificarli in base alle esigenze.
 
-4.  Eseguire una delle operazioni seguenti:
+4.  Effettua una delle seguenti operazioni:
 
     -   Per salvare le modifiche e continuare a quella successiva, fare clic su **Applica**, quindi fare clic su **impostazione successiva**.
 
@@ -669,7 +669,7 @@ Per ulteriori informazioni sui criteri di gruppo, vedere [Cenni preliminari sui 
 ### <a name="changes-to-wsus-relevant-to-this-guide"></a>Modifiche apportate a WSUS pertinente per questa Guida
 Nella tabella seguente sono riepilogate le differenze principali tra le versioni correnti e precedenti di Windows Server Update SERVICES che sono rilevanti per questa Guida.
 
-|Versioni di Windows Server e Windows Server Update SERVICES|Description|
+|Versioni di Windows Server e Windows Server Update SERVICES|Descrizione|
 |------------------|--------|
 | Windows Server 2012 R2 con Windows Server Update SERVICES 6.0 e versioni successive|A partire da Windows Server 2012, il ruolo server WSUS è integrato con il sistema operativo e le impostazioni di Criteri di gruppo associate per i client WSUS sono incluse in Criteri di gruppo per impostazione predefinita.|
 | Windows Server 2008 (e versioni precedenti di Windows Server) con WSUS 3.2 e versioni precedenti|In Windows Server 2008 e versioni precedenti di Windows Server tramite WSUS 3.2 (e versioni precedenti), le impostazioni di criteri di gruppo che controllano i client WSUS non sono inclusi in questi sistemi operativi Windows Server. Le impostazioni dei criteri sono nel modello di amministrazione di WSUS, **Wuau. adm**. In queste versioni di server, il modello amministrativo di WSUS deve essere prima aggiunto nella Console di gestione di criteri di gruppo (GPMC) prima che possano essere configurate le impostazioni del client WSUS.|

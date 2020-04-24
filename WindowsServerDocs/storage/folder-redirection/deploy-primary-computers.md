@@ -9,10 +9,10 @@ ms.technology: storage
 ms.date: 06/06/2019
 ms.localizationpriority: medium
 ms.openlocfilehash: be2b41cf32e2020422c32415e2d8f4273eb09859
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "71394442"
 ---
 # <a name="deploy-primary-computers-for-folder-redirection-and-roaming-user-profiles"></a>Distribuire i computer primari per Reindirizzamento cartelle e Profili utente mobili
@@ -113,7 +113,7 @@ Di seguito viene illustrato come testare la funzionalità dei computer primari:
 > [!NOTE]
 > Se le cartelle sono state reindirizzate in un computer prima che abilitassi il supporto dei computer primari, le cartelle rimarranno reindirizzate, a meno che non sia configurata l'impostazione seguente nell'impostazione criterio di reindirizzamento cartelle di ogni cartella: **Reindirizza la cartella nel percorso del profilo utente locale quando i criteri vengono rimossi**. Analogamente, per i profili di cui precedentemente è stato effettuato il roaming in un determinato computer verrà visualizzato **Roaming** nelle colonne **Tipo**. Nella colonna **Stato** verrà tuttavia visualizzato **Locale**.
 
-## <a name="more-information"></a>Ulteriori informazioni
+## <a name="more-information"></a>Altre informazioni
 
 - [Distribuire Reindirizzamento cartelle con File offline](deploy-folder-redirection.md)
 - [Distribuire profili utente mobili](deploy-roaming-user-profiles.md)

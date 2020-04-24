@@ -9,10 +9,10 @@ ms.author: greg-lindsay
 ms.localizationpriority: high
 ms.date: 05/07/2018
 ms.openlocfilehash: 8b359ac883c24d559e2c3d47db5b68e4f5341338
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80826004"
 ---
 # <a name="whats-new-in-windows-server-version-1803"></a>Novità di Windows Server versione 1803
@@ -92,7 +92,7 @@ Con il rilascio di Windows Server, versione 1803, saranno disponibili ulteriori 
     - In particolare, la funzionalità di notifica è stata impostata su CTRL_SHUTDOWN_EVENT sia per le immagini basate sul contenitore Server Core sia per quelle basate sul contenitore Nano Server. Inoltre, nelle immagini basate sul contenitore Server Core, la notifica, incluso l'invio delle notifiche di arresto del servizio, viene estesa a tutti i processi in esecuzione nel contenitore.
 - È stato risolto un problema di incompatibilità di docker pull e docker load con l'impostazione dei criteri che determina se è richiesta la protezione con BitLocker per consentire la scrittura sulle unità dati fisse (FDVDenyWriteAccess). 
 
-## <a name="storage"></a>Archiviazione:
+## <a name="storage"></a>Archiviazione
 
 In questa versione, è possibile impedire la creazione di un journal delle modifiche (o journal USN) in tutti i volumi all'avvio del servizio Gestione risorse file server. Ciò consente di risparmiare spazio su ciascun volume, ma disabilita la classificazione dei file in tempo reale. Per altre informazioni, vedi [Panoramica di Gestione risorse file server](https://docs.microsoft.com/windows-server/storage/fsrm/fsrm-overview).
 
@@ -108,7 +108,7 @@ Per abilitare il servizio Server di trasporto in Server Core puoi usare il coman
 Install-WindowsFeature -Name WDS
 ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Informazioni sulle versioni di Windows Server](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info)<br>
 [Novità nei contenuti per i professionisti IT di Windows 10, versione 1803](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1803)

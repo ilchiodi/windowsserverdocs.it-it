@@ -10,15 +10,15 @@ ms.author: elizapo
 manager: dougkim
 ms.localizationpriority: medium
 ms.openlocfilehash: a511c9888f27fe97fdeaf65cde022e5c2aa999d4
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80826084"
 ---
 # <a name="release-notes-important-issues-in-windows-server-version-1803"></a>Note sulla versione: problemi importanti di Windows Server versione 1803
 
->Si applica a: Windows Server, Canale semestrale
+>Si applica a: Canale semestrale Windows Server
 
 Queste note sulla versione presentano una sintesi dei problemi più critici del sistema operativo Windows Server, incluse le soluzioni per evitare o risolvere i problemi noti. Per informazioni sulle nuove funzionalità di questa versione, vedi [Novità di Windows Server versione 1803](whats-new-in-windows-server-1803.md). Per eseguire un contenitore Windows Server versione 1803, vedi [Informazioni sui contenitori di Windows](https://docs.microsoft.com/virtualization/windowscontainers/about/). 
 

@@ -8,10 +8,10 @@ author: kaushika-msft
 ms.author: kaushika-msft; v-tea
 ms.localizationpriority: medium
 ms.openlocfilehash: 50c50353316db4288f01893125ecd651db63cbb7
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80826354"
 ---
 # <a name="resolve-windows-activation-error-codes"></a>Risolvere i codici di errore di attivazione di Windows
@@ -37,7 +37,7 @@ Sono supportati i codici di errore seguenti: 0xC004F038, 0xC004F039, 0xC004F041,
 
 ## <a name="summary-of-error-codes"></a>Riepilogo dei codici di errore
 
-|Codice di errore |Messaggio di errore |Tipo di&nbsp;attivazione|
+|Codice errore |Messaggio di errore |Tipo di&nbsp;attivazione|
 |-----------|--------------|----------------|
 |[0x8004FE21](#0x8004fe21-this-computer-is-not-running-genuine-windows) |In questo computer non è in esecuzione una copia autentica di Windows.  |MAK<br />Client del Servizio di gestione delle chiavi |
 |[0x80070005](#0x80070005-access-denied) |Accesso negato: l'azione richiesta prevede privilegi elevati. |MAK<br />Client del Servizio di gestione delle chiavi<br />Host del Servizio di gestione delle chiavi |

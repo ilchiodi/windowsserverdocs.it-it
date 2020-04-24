@@ -9,10 +9,10 @@ ms.technology: storage
 ms.date: 06/17/2019
 ms.localizationpriority: medium
 ms.openlocfilehash: b98877d0a94ff8033b65bf74d0118e2a5f1ea092
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "71402081"
 ---
 # <a name="ntfs-overview"></a>Panoramica di NTFS
@@ -54,7 +54,7 @@ NTFS monitora e corregge continuamente i problemi di danneggiamento temporaneo i
 
 Per consentire l'estensione corretta di file vhdx di grandi dimensioni, sono disponibili nuove indicazioni per la formattazione dei volumi. Quando formatti volumi che verranno usati con Deduplicazione dati o che ospiteranno file di grandi dimensioni, ad esempio file vhdx di dimensioni superiori a 1 TB, usa il cmdlet **Format-Volume** in Windows PowerShell con i parametri seguenti.
 
-|Parametro|Description|
+|Parametro|Descrizione|
 |---|---|
 |-AllocationUnitSize 64KB|Imposta una dimensione delle unità di allocazione NTFS pari a 64 KB.|
 |-UseLargeFRS|Abilita il supporto di segmenti di record di file di grandi dimensioni, necessario per aumentare il numero di extent possibili per ogni file nel volume. Per segmenti di record di file di grandi dimensioni, il limite aumenta da circa 1,5 milioni di extent a circa 6 milioni di extent.|

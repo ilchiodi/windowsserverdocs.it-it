@@ -10,10 +10,10 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: mas
 ms.openlocfilehash: 00335fb2ca7a54031430c6c606fb6ffa23a8f7a2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80855134"
 ---
 # <a name="active-directory-administrative-tier-model"></a>Modello a livelli dell'amministrazione di Active Directory
@@ -557,7 +557,7 @@ Le organizzazioni devono controllare e monitorare l'appartenenza a tutti i grupp
 - Controller di dominio di sola lettura
 - Proprietari autori criteri di gruppo
 - Operazioni di crittografia
-- Distributed COM Users
+- Utenti DCOM
 - Altri gruppi delegati: gruppi personalizzati che possono essere creati dall'organizzazione per gestire le operazioni di directory e che possono avere anche accesso al livello 0.
 
 ## <a name="administrative-tools-and-logon-types"></a>Strumenti di amministrazione e tipi di accesso
@@ -575,25 +575,25 @@ Questa tabella include istruzioni per gli strumenti di amministrazione e i metod
 |RUNAS/NETWORK|NewCredentials|v|Clona la sessione LSA corrente per l'accesso locale, ma usa le nuove credenziali quando ci si connette alle risorse di rete.|
 |Desktop remoto (esito positivo)|RemoteInteractive|v|Se il client Desktop remoto è configurato per la condivisione di dispositivi e risorse locali, anche questi possono risultare compromessi.|
 |Desktop remoto (errore: tipo di accesso negato)|RemoteInteractive|-|Per impostazione predefinita, se si verifica un errore durante l'accesso RDP le credenziali vengono archiviate solo brevemente. Ciò potrebbe non valere se il computer viene compromesso.|
-|Net use * \\\SERVER|Rete|-||
-|Net use * \\\SERVER /u:utente|Rete|-||
-|Snap-in MMC al computer remoto|Rete|-|Esempio: gestione computer, visualizzatore eventi, dispositivo di gestione, servizi|
-|PowerShell WinRM|Rete|-|Esempio: server Enter-PSSession|
+|Net use * \\\SERVER|Network|-||
+|Net use * \\\SERVER /u:utente|Network|-||
+|Snap-in MMC al computer remoto|Network|-|Esempio: gestione computer, visualizzatore eventi, dispositivo di gestione, servizi|
+|PowerShell WinRM|Network|-|Esempio: server Enter-PSSession|
 |PowerShell WinRM con CredSSP|NetworkClearText|v|Server New-PSSession<br />-Credssp di autenticazione<br />-Credenziale Credential|
-|PsExec senza credenziali esplicite|Rete|-|Esempio: PsExec \\\server cmd|
+|PsExec senza credenziali esplicite|Network|-|Esempio: PsExec \\\server cmd|
 |PsExec con credenziali esplicite|Rete + interattivo|v|PsExec \\\server -u utente -p pwd cmd<br />Crea più sessioni di accesso.|
-|Registro di sistema remoto|Rete|-||
-|Gateway Desktop remoto|Rete|-|Autenticazione a Gateway Desktop remoto.|
+|Registro di sistema remoto|Network|-||
+|Gateway Desktop remoto|Network|-|Autenticazione a Gateway Desktop remoto.|
 |Attività pianificata|Batch|v|La password verrà salvata anche come segreto LSA sul disco.|
 |Eseguire gli strumenti come un servizio|Servizio|v|La password verrà salvata anche come segreto LSA sul disco.|
-|Scanner delle vulnerabilità|Rete|-|Per impostazione predefinita la maggior parte degli scanner usa gli accessi alla rete, anche se alcuni fornitori possono implementare gli accessi non alla rete e introdurre ulteriori rischi di furto delle credenziali.|
+|Scanner delle vulnerabilità|Network|-|Per impostazione predefinita la maggior parte degli scanner usa gli accessi alla rete, anche se alcuni fornitori possono implementare gli accessi non alla rete e introdurre ulteriori rischi di furto delle credenziali.|
 
 Per l'autenticazione Web, usare il riferimento dalla tabella riportata di seguito:
 
 |Metodo di connessione|Tipo di accesso|Credenziali riusabili nella destinazione|Commenti|
 |-----------|-------|--------------------|------|
 |"Autenticazione di base" di IIS|NetworkClearText<br />(IIS 6.0+)<p>Interactive (Interattivo)<br />(precedente a IIS 6.0)|v||
-|"Autenticazione integrata di Windows" di IIS|Rete|-|Provider Kerberos e NTLM.|
+|"Autenticazione integrata di Windows" di IIS|Network|-|Provider Kerberos e NTLM.|
 
 Definizioni delle colonne:
 
@@ -615,7 +615,7 @@ In computer basati su Windows, tutte le autenticazioni vengono elaborate come un
 |Tipo di accesso|#|Autenticatori accettati|Credenziali riusabili nella sessione LSA|Esempi|
 |-------|---|--------------|--------------------|------|
 |Interattivo (anche noto come accesso locale)|2|Password, smart card,<br />altro|Sì|Accesso alla console;<br />RUNAS;<br />Soluzioni di controllo remoto dell'hardware (ad esempio KVM di rete o accesso remoto/scheda Lights-Out nel server)<br />Autenticazione di base di IIS (prima di IIS 6.0)|
-|Rete|3|Password,<br />hash NT,<br />ticket Kerberos|No (eccetto se è abilitata la delega, quindi il ticket Kerberos è presente)|NET USE;<br />Chiamate RPC;<br />Registro di sistema remoto;<br />Autenticazione integrata di Windows di IIS;<br />Autenticazione di Windows SQL;|
+|Network|3|Password,<br />hash NT,<br />ticket Kerberos|No (eccetto se è abilitata la delega, quindi il ticket Kerberos è presente)|NET USE;<br />Chiamate RPC;<br />Registro di sistema remoto;<br />Autenticazione integrata di Windows di IIS;<br />Autenticazione di Windows SQL;|
 |Batch|4|Password (in genere archiviata come segreto LSA)|Sì|Attività pianificate|
 |Servizio|5|Password (in genere archiviata come segreto LSA)|Sì|Servizi Windows|
 |NetworkClearText|8|Password|Sì|Autenticazione di base di IIS (IIS 6.0 e versioni successive);<br />Windows PowerShell con CredSSP|

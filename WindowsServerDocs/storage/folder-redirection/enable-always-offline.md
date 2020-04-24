@@ -9,10 +9,10 @@ ms.technology: storage
 ms.date: 09/10/2018
 ms.localizationpriority: medium
 ms.openlocfilehash: 389fdd26a7e1d9824f1eaf0136a544547f08eb05
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "71401957"
 ---
 # <a name="enable-always-offline-mode-for-faster-access-to-files"></a>Abilitare la modalità sempre offline per accedere più rapidamente ai file
@@ -41,7 +41,7 @@ Per abilitare la modalità sempre offline, usa Criteri di gruppo per abilitare l
 3. Nell'albero della console fai clic con il pulsante destro del mouse sull'oggetto Criteri di gruppo per cui vuoi configurare le impostazioni di File offline e quindi seleziona **Modifica**. Viene visualizzato l'**Editor Gestione Criteri di gruppo**.
 4. Nell'albero della console, in **Configurazione computer**, espandi **Criteri**, **Modelli amministrativi**, **Rete** e **File offline**.
 5. Fai clic con il pulsante destro del mouse su **Configura modalità collegamento lento** e quindi seleziona **Modifica**. Verrà visualizzata la finestra **Configura modalità collegamento lento**.
-6. Selezionare **Abilitato**.
+6. Seleziona **Attivata**.
 7. Nella casella **Opzioni** seleziona **Visualizza**. Verrà visualizzata la finestra **Visualizzazione contenuto**.
 8. Nella casella **Nome valore** specifica la condivisione file per la quale vuoi abilitare la modalità sempre offline.
 9. Per abilitare la modalità sempre offline in tutte le condivisioni file, immetti **\*** .
@@ -50,7 +50,7 @@ Per abilitare la modalità sempre offline, usa Criteri di gruppo per abilitare l
 >[!NOTE]
 >Per impostazione predefinita, quando è attiva la modalità sempre offline, Windows sincronizza i file nella cache di File offline in background ogni due ore. Per modificare questo valore, usa l'impostazione criterio **Configura sincronizzazione in background**.
 
-## <a name="more-information"></a>Ulteriori informazioni
+## <a name="more-information"></a>Altre informazioni
 
 * [Panoramica di reindirizzamento cartelle, file offline e profili utente mobili](folder-redirection-rup-overview.md)
 * [Distribuire il reindirizzamento cartelle con File offline](deploy-folder-redirection.md)

@@ -11,10 +11,10 @@ ms.author: jaimeo
 manager: dougkim
 ms.localizationpriority: medium
 ms.openlocfilehash: fd9ea63785e8de313d2177113a466fa67c17410b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80826644"
 ---
 # <a name="windows-server-2016-activation"></a>Attivazione di Windows Server 2016
@@ -33,9 +33,9 @@ La tabella seguente riepiloga i requisiti client e host del servizio di gestione
 
 |Gruppo del codice Product Key|Il Servizio di gestione delle chiavi può essere ospitato in|Versioni di Windows attivate da questo host del Servizio di gestione delle chiavi|  
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------|  
-|Contratti multilicenza per Windows Server 2016|Windows Server 2012<p>Windows Server 2012 R2<p>Windows Server 2016<p>|Windows Server, Canale semestrale <br><br>Windows Server 2016 (tutte le edizioni)<p>Windows 10 LTSB (2015 e 2016)<p>Windows 10 Professional<p>Windows 10 Enterprise<p>Windows 10 Pro for Workstations<br><br>Windows 10 Education<br><br>Windows Server 2012 R2 (tutte le edizioni)<p>Windows 8.1 Professional<p>Windows 8.1 Enterprise<p>Windows Server 2012 (tutte le edizioni)<p>Windows Server 2008 R2 (tutte le edizioni)<p>Windows Server 2008 (tutte le edizioni)<p>Windows 7 Professional<p>Windows 7 Enterprise| 
-|Contratti multilicenza per Windows 10|Windows 7<p>Windows 8.1<p> Windows 10|Windows 10 Professional<p> Windows 10 Professional N<p> Windows 10 Enterprise<p> Windows 10 Enterprise N<p> Windows 10 Education<p> Windows 10 Education N<p> Windows 10 Enterprise LTSB (2015)<p> Windows 10 Enterprise LTSB N (2015)<p> Windows 10 Pro for Workstations<br><br>Windows 8.1 Professional<p> Windows 8.1 Enterprise<p> Windows 7 Professional<p> Windows 7 Enterprise<p>|  
-|Contratti multilicenza per Windows Server 2012 R2 per Windows 10|Windows Server 2008 R2<p> Windows Server 2012 Standard<p> Windows Server 2012 Datacenter<p> Windows Server 2012 R2 Standard<p>Windows Server 2012 R2 Datacenter|Windows 10 Professional<p> Windows 10 Enterprise<p>Windows 10 Enterprise LTSB (2015)<br><br>Windows 10 Pro for Workstations<br><br>Windows 10 Education<br><br> Windows Server 2012 R2 (tutte le edizioni)<p> Windows 8.1 Professional<p> Windows 8.1 Enterprise<p> Windows Server 2012 (tutte le edizioni)<p> Windows Server 2008 R2 (tutte le edizioni)<p>Windows Server 2008 (tutte le edizioni)<p> Windows 7 Professional<p> Windows 7 Enterprise|
+|Contratti multilicenza per Windows Server 2016|Windows Server 2012<p>Windows Server 2012 R2<p>Windows Server 2016<p>|Windows Server, Canale semestrale <br><br>Windows Server 2016 (tutte le edizioni)<p>Windows 10 LTSB (2015 e 2016)<p>Windows 10 Professional<p>Windows 10 Enterprise<p>Windows 10 Pro for Workstations<br><br>Windows 10 Education<br><br>Windows Server 2012 R2 (tutte le edizioni)<p>Windows 8.1 Professional<p>Windows 8.1 Enterprise<p>Windows Server 2012 (tutte le edizioni)<p>Windows Server 2008 R2 (tutte le edizioni)<p>Windows Server 2008 (tutte le edizioni)<p>Windows 7 Professional<p>Windows 7 Enterprise| 
+|Contratti multilicenza per Windows 10|Windows 7<p>Windows 8.1<p> Windows 10|Windows 10 Professional<p> Windows 10 Professional N<p> Windows 10 Enterprise<p> Windows 10 Enterprise N<p> Windows 10 Education<p> Windows 10 Education N<p> Windows 10 Enterprise LTSB (2015)<p> Windows 10 Enterprise LTSB N (2015)<p> Windows 10 Pro for Workstations<br><br>Windows 8.1 Professional<p> Windows 8.1 Enterprise<p> Windows 7 Professional<p> Windows 7 Enterprise<p>|  
+|Contratti multilicenza per Windows Server 2012 R2 per Windows 10|Windows Server 2008 R2<p> Windows Server 2012 Standard<p> Windows Server 2012 Datacenter<p> Windows Server 2012 R2 Standard<p>Windows Server 2012 R2 Datacenter|Windows 10 Professional<p> Windows 10 Enterprise<p>Windows 10 Enterprise LTSB (2015)<br><br>Windows 10 Pro for Workstations<br><br>Windows 10 Education<br><br> Windows Server 2012 R2 (tutte le edizioni)<p> Windows 8.1 Professional<p> Windows 8.1 Enterprise<p> Windows Server 2012 (tutte le edizioni)<p> Windows Server 2008 R2 (tutte le edizioni)<p>Windows Server 2008 (tutte le edizioni)<p> Windows 7 Professional<p> Windows 7 Enterprise|
 
 > [!NOTE]  
 > A seconda del sistema operativo eseguito dal server del Server di gestione delle chiavi e dei sistemi operativi che si intende attivare, potrebbe essere necessario installare uno o più degli aggiornamenti seguenti:

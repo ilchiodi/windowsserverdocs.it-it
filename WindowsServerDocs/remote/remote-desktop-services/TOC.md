@@ -1,5 +1,5 @@
 # [Servizi Desktop remoto](welcome-to-rds.md)
-## [Attività iniziali](rds-get-started.md)
+## [Per iniziare](rds-get-started.md)
 ### [Novità di Servizi Desktop remoto](rds-whats-new.md)
 ### [Configurazioni supportate per Servizi Desktop remoto](rds-supported-config.md)
 ### [Configurazioni di sicurezza supportate per Windows 10 VDI](rds-vdi-supported-config.md)

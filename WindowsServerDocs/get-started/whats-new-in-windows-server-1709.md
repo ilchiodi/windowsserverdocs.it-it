@@ -9,10 +9,10 @@ ms.author: coreyp
 ms.localizationpriority: medium
 ms.date: 06/03/2019
 ms.openlocfilehash: 07479bc5bd2fdf661db8a30e3a9f20c7cce0513e
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80825994"
 ---
 # <a name="whats-new-in-windows-server-version-1709"></a>Novità di Windows Server, versione 1709
@@ -88,7 +88,7 @@ Per altre informazioni, vedere la [panoramica dell'infrastruttura sorvegliata e 
 
 **Vulnerabilità SMBLoris**: è stato risolto il problema noto come "SMBLoris", che potrebbe causare un attacco Denial of Service.
 
-## <a name="storage"></a>Archiviazione:
+## <a name="storage"></a>Archiviazione
 
 **Replica archiviazione**: la protezione del ripristino di emergenza aggiunta tramite Replica di archiviazione in Windows Server 2016 è ora estesa per includere:
 - **Failover di test**: l'opzione per montare l'archiviazione di destinazione è ora possibile tramite la funzionalità di failover di test. È possibile montare temporaneamente uno snapshot dell'archiviazione replicata nei nodi di destinazione a scopo di test o backup.  Per altre informazioni, vedi [Domande frequenti su Replica di archiviazione](https://aka.ms/srfaq). 
@@ -110,7 +110,7 @@ Per altre informazioni, vedere la [panoramica dell'infrastruttura sorvegliata e 
 >[!TIP]
 >Per dare un'occhiata in anteprima alle altre straordinarie modifiche in arrivo per Servizi Desktop remoto, vedere [Servizi Desktop remoto: aggiornamenti e innovazioni future](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/20/first-look-at-updates-coming-to-remote-desktop-services/)
 
-## <a name="networking"></a>Funzionalità di rete
+## <a name="networking"></a>Rete
 
 La **mesh di routing di Docker** è supportata. La mesh di routing in ingresso fa parte della [modalità Swarm](https://docs.docker.com/engine/swarm/), soluzione di orchestrazione incorporata di Docker per i contenitori. Per altre informazioni, vedere la pagina relativa alla [disponibilità della mesh di routing in Windows Server versione 1709](https://blogs.technet.microsoft.com/virtualization/2017/09/26/dockers-ingress-routing-mesh-available-with-windows-server-version-1709/).
 

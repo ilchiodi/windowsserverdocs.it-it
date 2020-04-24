@@ -10,10 +10,10 @@ ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
 ms.openlocfilehash: aa8a59a25d4a9880c70e593cd31a416ab51552f1
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80828864"
 ---
 # <a name="step-2-configure-wsus"></a>Passaggio 2: Configurare WSUS
@@ -22,7 +22,7 @@ ms.locfileid: "80828864"
 
 Una volta completata l'installazione del ruolo del server WSUS (Windows Server Update Services) nel server, è necessario configurarlo correttamente. L'elenco seguente riassume i passaggi necessari per eseguire la configurazione iniziale per il server WSUS.
 
-|Attività|Description|
+|Attività|Descrizione|
 |----|--------|
 |[2.1. Configurare le connessioni di rete](#21-configure-network-connections)|Configurare la rete di cluster tramite la Configurazione guidata rete.|
 |[2.2. Configurare WSUS tramite la Configurazione guidata WSUS](#22-configure-wsus-by-using-the-wsus-configuration-wizard)|Usare la Configurazione guidata WSUS per definire la configurazione di base di WSUS.|
@@ -167,7 +167,7 @@ Questa procedura presuppone l'utilizzo della Configurazione guidata WSUS visuali
 
 #### <a name="to-configure-wsus"></a>Per configurare WSUS
 
-1.  Nel riquadro di spostamento di Server Manager scegliere **Dashboard**, **Strumenti**, quindi fare clic su **Windows Server Update Services**.
+1.  Nel riquadro di spostamento di Server Manager scegliere **Dashboard**,  **Strumenti**, quindi fare clic su **Windows Server Update Services**.
 
     > [!NOTE]
     > Se viene visualizzata la finestra di dialogo **Completamento installazione WSUS**, fare clic su **Esegui**. Nella finestra di dialogo **Completamento installazione WSUS** fare clic su **Chiudi** al termine dell'installazione.
@@ -204,7 +204,7 @@ Questa procedura presuppone l'utilizzo della Configurazione guidata WSUS visuali
 10. Nel **scelta lingue** pagina, è possibile selezionare le lingue da cui WSUS riceverà gli aggiornamenti - tutte le lingue o un sottoinsieme di lingue. La selezione di un sottoinsieme di lingue consente di risparmiare spazio su disco. È tuttavia IMPORTANTE scegliere tutte le lingue necessarie per tutti i client del server WSUS. Se si decide di ottenere gli aggiornamenti solo per determinate lingue, selezionare **Scarica aggiornamenti solo nelle lingue seguenti** e quindi le lingue delle quali si vogliono ricevere gli aggiornamenti. Altrimenti, lasciare la selezione predefinita.
 
     > [!WARNING]
-    > Se si seleziona l'opzione **Scarica aggiornamenti solo nelle lingue seguenti**quando al server è connesso un server WSUS downstream, anche quest'ultimo sarà forzato a utilizzare solo le lingue selezionate.
+    > Se si seleziona l'opzione **Scarica aggiornamenti solo nelle lingue seguenti** quando al server è connesso un server WSUS downstream, anche quest'ultimo sarà forzato a utilizzare solo le lingue selezionate.
 
 11. Dopo aver selezionato le opzioni linguistiche appropriate per la distribuzione, fare clic su **Avanti** per continuare.
 
@@ -224,7 +224,7 @@ Questa procedura presuppone l'utilizzo della Configurazione guidata WSUS visuali
 
 16. Dopo aver selezionato le opzioni di sincronizzazione appropriate per la distribuzione, fare clic su **Avanti** per continuare.
 
-17. Nella pagina **Operazione completata** è ora possibile avviare la sincronizzazione selezionando la casella di controllo **Avvia sincronizzazione iniziale** . Se non si seleziona questa opzione, per eseguire la sincronizzazione iniziale è necessario usare la console di amministrazione di WSUS. Per informazioni sulle impostazioni aggiuntive, fare clic su **Avanti** ; altrimenti, scegliere **Fine** per terminare la procedura guidata e completare la configurazione iniziale di Windows Server Update Services.
+17. Nella pagina **Operazione completata** è ora possibile avviare la sincronizzazione selezionando la casella di controllo **Avvia sincronizzazione iniziale**. Se non si seleziona questa opzione, per eseguire la sincronizzazione iniziale è necessario usare la console di amministrazione di WSUS. Per informazioni sulle impostazioni aggiuntive, fare clic su **Avanti** ; altrimenti, scegliere **Fine** per terminare la procedura guidata e completare la configurazione iniziale di Windows Server Update Services.
 
 18. Dopo aver scelto **Fine**, viene visualizzata la console di amministrazione di WSUS.
 
@@ -292,7 +292,7 @@ Collegare l'oggetto Criteri di gruppo WSUS a un contenitore Active Directory app
 5.  Selezionare **Abilita appartenenza gruppo destinazione**, scegliere **Abilitato** e quindi digitare il nome del gruppo di computer WSUS a cui si vuole aggiungere il computer nella casella **Nome gruppo di destinazione del computer**.
 
     > [!NOTE]
-    > L'opzione**Abilita appartenenza gruppo destinazione** consente ai computer client di aggiungersi ai gruppi di computer di destinazione nel server WSUS quando viene eseguito il reindirizzamento di Aggiornamenti automatici a un server WSUS. Se lo stato è impostato su Abilitato, il computer identificherà se stesso come membro di un determinato gruppo di computer quando invia informazioni al server WSUS, che usa i dati per determinare quali aggiornamenti vengono distribuiti nel computer. Questa impostazione indica al server WSUS il gruppo che il computer client userà. È necessario creare il gruppo nel server WSUS e aggiungere al gruppo i computer membri del dominio.
+    > L'opzione **Abilita appartenenza gruppo destinazione** consente ai computer client di aggiungersi ai gruppi di computer di destinazione nel server WSUS quando viene eseguito il reindirizzamento di Aggiornamenti automatici a un server WSUS. Se lo stato è impostato su Abilitato, il computer identificherà se stesso come membro di un determinato gruppo di computer quando invia informazioni al server WSUS, che usa i dati per determinare quali aggiornamenti vengono distribuiti nel computer. Questa impostazione indica al server WSUS il gruppo che il computer client userà. È necessario creare il gruppo nel server WSUS e aggiungere al gruppo i computer membri del dominio.
 
 6.  Fare clic su **OK** per chiudere il criterio **Abilita appartenenza gruppo destinazione** e tornare al riquadro dei dettagli di Windows Update.
 
@@ -300,7 +300,7 @@ Collegare l'oggetto Criteri di gruppo WSUS a un contenitore Active Directory app
 
 8.  Nel riquadro dei dettagli di **Windows Update** fare doppio clic su **Specifica il percorso del servizio di aggiornamento Microsoft nella rete Intranet**.
 
-9. Fare clic su **Abilitato**e quindi nelle caselle di testo **Impostare il servizio di aggiornamento nella rete Intranet per il rilevamento degli aggiornamenti** e **Impostare il server per le statistiche nella rete Intranet** digitare lo stesso URL del server WSUS. Digitare, ad esempio, *http://servername* in entrambe le caselle, dove *nomeserver* è il nome del server WSUS.
+9. Fare clic su **Abilitato** e quindi nelle caselle di testo **Impostare il servizio di aggiornamento nella rete Intranet per il rilevamento degli aggiornamenti** e **Impostare il server per le statistiche nella rete Intranet** digitare lo stesso URL del server WSUS. Digitare, ad esempio, *http://servername* in entrambe le caselle, dove *nomeserver* è il nome del server WSUS.
 
     > [!WARNING]
     > Durante l'immissione dell'indirizzo Intranet del server WSUS accertarsi di specificare la porta da utilizzare. Per impostazione predefinita, WSUS utilizza le porte 8530 per HTTP e 8531 per HTTPS. Se si usa il protocollo HTTP, ad esempio, è necessario digitare **http://servername:8530** .
@@ -374,7 +374,7 @@ WSUS richiede due porte per SSL: una porta che usa HTTPS per inviare i metadati 
 
 -   È necessario importare il certificato in tutti i computer che comunicheranno con il server WSUS. Sono inclusi tutti i computer client, i server downstream e i computer che eseguono la console di amministrazione di WSUS. Il certificato deve essere importato nell'archivio delle autorità di certificazione radice attendibili del computer locale o di Windows Server Update Services.
 
--   È possibile usare qualsiasi porta per SSL. Tuttavia, la porta configurata per SSL determina anche la porta usata da WSUS per inviare il traffico HTTP non crittografato. Vedere gli esempi seguenti:
+-   È possibile usare qualsiasi porta per SSL. Tuttavia, la porta configurata per SSL determina anche la porta usata da WSUS per inviare il traffico HTTP non crittografato. Considera gli esempi che seguono:
 
     -   Se si usa la porta standard del settore 443 per il traffico HTTPS, WSUS usa la porta standard del settore 80 per il traffico HTTP non crittografato.
 

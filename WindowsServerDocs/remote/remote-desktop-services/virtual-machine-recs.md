@@ -9,10 +9,10 @@ ms.topic: article
 author: Heidilohr
 manager: lizross
 ms.openlocfilehash: 1d6a7daa3966488c951117b083411587d13be56b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80857104"
 ---
 # <a name="virtual-machine-sizing-guidance"></a>Linee guida relative al dimensionamento delle macchine virtuali
@@ -25,10 +25,10 @@ La tabella seguente indica il numero massimo di utenti suggerito per ogni CPU vi
 
 | Tipo di carico di lavoro | Numero massimo di utenti per vCPU | Spazio di archiviazione minimo vCPU/RAM/sistema operativo | Istanze di Azure di esempio | Spazio di archiviazione minimo contenitore profili |
 | --- | --- | --- | --- | --- |
-| Leggero | 6 | 2 vCPU, 8 GB di RAM, 16 GB di spazio di archiviazione | D2s_v3, F2s_v2 | 30 GB |
+| Chiaro | 6 | 2 vCPU, 8 GB di RAM, 16 GB di spazio di archiviazione | D2s_v3, F2s_v2 | 30 GB |
 | Medio | 4 | 4 vCPU, 16 GB di RAM, 32 GB di spazio di archiviazione | D4s_v3, F4s_v2 | 30 GB |
 | Pesante | 2 | 4 vCPU, 16 GB di RAM, 32 GB di spazio di archiviazione | D4s_v3, F4s_v2 | 30 GB |
-| Potenza | 1 | 6 vCPU, 56 GB di RAM, 340 GB di spazio di archiviazione | D4s_v3, F4s_v2, NV6 | 30 GB |
+| Alimentazione | 1 | 6 vCPU, 56 GB di RAM, 340 GB di spazio di archiviazione | D4s_v3, F4s_v2, NV6 | 30 GB |
 
 ## <a name="single-session-recommendations"></a>Indicazioni per scenari a sessione singola
 

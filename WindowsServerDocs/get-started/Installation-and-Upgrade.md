@@ -11,10 +11,10 @@ ms.author: jgerend
 manager: dougkim
 ms.localizationpriority: medium
 ms.openlocfilehash: 140f67a9dab5cf1f10cdb0c5c51a031a0dfb9dd3
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "79323643"
 ---
 # <a name="windows-server-installation-and-upgrade"></a>Installazione e aggiornamento di Windows Server
@@ -44,7 +44,7 @@ L'aggiornamento in sequenza del sistema operativo del cluster è una nuova funzi
 ## <a name="license-conversion"></a>Conversione della licenza
 In alcune versioni del sistema operativo puoi convertire una determinata edizione della versione in un'altra edizione della stessa versione con un'unica operazione, usando un semplice comando e il codice di licenza appropriato. Questo processo è definito **conversione della licenza**. Ad esempio, se il server esegue Windows Server 2016 Standard, puoi convertirlo in Windows Server 2016 Datacenter. In alcune versioni di Windows Server, puoi anche eseguire la conversione tra versioni OEM con contratto multilicenza e versioni definitive con lo stesso comando e il codice appropriato.
 
-## <a name="upgrade"></a>Aggiornamento di versione/Aggiornare la versione
+## <a name="upgrade"></a>Aggiornamento
 Se vuoi mantenere lo stesso hardware e tutti i ruoli del server che hai configurato senza rendere flat il server, l'**aggiornamento** è una possibilità e può essere eseguito in molti modi. Nell'aggiornamento classico passerai da un sistema operativo precedente a una versione più recente, mantenendo impostazioni, ruoli del server e dati. Ad esempio, se nel server è in esecuzione Windows Server 2012 R2, puoi aggiornarlo a Windows Server 2016. Tuttavia, non per tutti i sistemi operativi precedenti esiste un percorso a ogni versione più recente.
  
 >[!NOTE]
@@ -74,7 +74,7 @@ Tabella di riferimento rapido dei percorsi di aggiornamento supportati dalle edi
 |Windows Server 2012 Standard|Windows Server 2016 Standard o Datacenter|
 |Windows Server 2012 Datacenter|Windows Server 2016 Datacenter|
 |Windows Server 2012 R2 Standard|Windows Server 2016 Standard o Datacenter|
-|Windows Server 2012 R2 Datacenter|Windows Server 2016 Datacenter|
+|Windows Server 2012 R2 Datacenter|Windows Server 2016 Datacenter|
 |Hyper-V Server 2012 R2|Hyper-V Server 2016 (con funzionalità di aggiornamento in sequenza del sistema operativo del cluster)|
 |Windows Server 2012 R2 Essentials|Windows Server 2016 Essentials|
 |Windows Storage Server 2012 Standard|Windows Storage Server 2016 Standard|

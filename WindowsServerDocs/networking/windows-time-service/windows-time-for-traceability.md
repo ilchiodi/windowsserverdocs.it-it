@@ -9,10 +9,10 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
 ms.openlocfilehash: 30952c7a15109ccdd8bcbb09d7c8dda44f716d5d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80859814"
 ---
 # <a name="windows-time-for-traceability"></a>Ora di Windows per la tracciabilità
@@ -48,7 +48,7 @@ Questo evento viene registrato all'avvio del servizio Ora di Windows (W32Time) e
 |Descrizione dell'evento |Avvio del servizio |
 |Dettagli |Si verifica all'avvio di W32Time |
 |Dati registrati |<ul><li>Ora corrente nel formato ora UTC</li><li>Conteggio tick corrente</li><li>Configurazione di W32Time</li><li>Configurazione del provider servizi orari</li><li>Frequenza di clock</li></ul> |
-|Meccanismo di limitazione  |Nessuna. Questo evento viene generato a ogni avvio del servizio. |
+|Meccanismo di limitazione  |Nessuno. Questo evento viene generato a ogni avvio del servizio. |
 
 **Esempio:**
 ```
@@ -78,7 +78,7 @@ Questo evento viene registrato all'arresto del servizio Ora di Windows (W32Time)
 |Descrizione dell'evento |Arresto del servizio |
 |Dettagli |Si verifica all'arresto di W32Time |
 |Dati registrati |<ul><li>Ora corrente nel formato ora UTC</li><li>Conteggio tick corrente</li></ul> |
-|Meccanismo di limitazione  |Nessuna. Questo evento viene generato a ogni arresto del servizio. |
+|Meccanismo di limitazione  |Nessuno. Questo evento viene generato a ogni arresto del servizio. |
 
 **Testo di esempio:** 
 `W32time service is stopping at 2018-03-01T05:42:13.944Z (UTC), System Tick Count 6370250.`
@@ -109,7 +109,7 @@ server1.fabrikam.com,0x8 (ntp.m|0x8|[::]:123->[IPAddress]:123)server2.fabrikam.c
 |||
 |---|---|
 |Descrizione dell'evento |Configurazione e stato del servizio Ora |
-|Dettagli |W32Time registra periodicamente la configurazione e lo stato. Questa operazione equivale a chiamare:<br><br>`w32tm /query /configuration /verbose`<br>OPPURE<br>`w32tm /query /status /verbose` |
+|Dettagli |W32Time registra periodicamente la configurazione e lo stato. Questa operazione equivale a chiamare:<br><br>`w32tm /query /configuration /verbose`<br>O<br>`w32tm /query /status /verbose` |
 |Meccanismo di limitazione  |Registrazione eseguita ogni otto ore. |
 
 # <a name="261"></a>[261](#tab/261)
@@ -118,7 +118,7 @@ Registra ogni istanza in cui viene modificata l'ora di sistema tramite l'API Set
 |||
 |---|---|
 |Descrizione dell'evento |Impostazione dell'ora di sistema |
-|Meccanismo di limitazione  |Nessuna.<br><br>Questo evento si verifica raramente nei sistemi con una ragionevole sincronizzazione dell'ora e viene registrato ogni volta che si verifica. L'impostazione TimeJumpAuditOffset viene ignorata quando viene registrato questo evento poiché è specifica per la limitazione degli eventi nel registro degli eventi di sistema di Windows. |
+|Meccanismo di limitazione  |Nessuno.<br><br>Questo evento si verifica raramente nei sistemi con una ragionevole sincronizzazione dell'ora e viene registrato ogni volta che si verifica. L'impostazione TimeJumpAuditOffset viene ignorata quando viene registrato questo evento poiché è specifica per la limitazione degli eventi nel registro degli eventi di sistema di Windows. |
 
 # <a name="262"></a>[262](#tab/262)
 
@@ -134,7 +134,7 @@ Registra ogni istanza in cui viene modificata l'ora di sistema tramite l'API Set
 |---|---|
 |Descrizione dell'evento |Modifica delle impostazioni del servizio Ora o elenco dei provider servizi orari caricati. |
 |Dettagli |La rilettura delle impostazioni di W32Time può causare la modifica in memoria di alcune impostazioni critiche, con ripercussioni sull'accuratezza complessiva della sincronizzazione dell'ora.<br><br>W32Time registra ogni occorrenza durante la rilettura delle impostazioni con un potenziale impatto sulla sincronizzazione dell'ora. |
-|Meccanismo di limitazione  |Nessuna.<br><br>Questo evento si verifica solo quando un aggiornamento di un amministratore o di protezione generale modifica i provider servizi orari e quindi attiva W32Time. Viene registrata ogni istanza di modifica delle impostazioni. |
+|Meccanismo di limitazione  |Nessuno.<br><br>Questo evento si verifica solo quando un aggiornamento di un amministratore o di protezione generale modifica i provider servizi orari e quindi attiva W32Time. Viene registrata ogni istanza di modifica delle impostazioni. |
 
 
 # <a name="264"></a>[264](#tab/264)
@@ -151,7 +151,7 @@ Registra ogni istanza in cui viene modificata l'ora di sistema tramite l'API Set
 |---|---|
 |Descrizione dell'evento |Modifiche del numero di strato o dell'origine del servizio Ora |
 |Dettagli |Il numero di strato o l'origine del servizio Ora W32time sono fattori importanti nella tracciabilità dell'ora e qualsiasi modifica deve essere registrata. Se W32Time non dispone di un'origine ora e non è stato configurato come origine ora affidabile, non si annuncerà più come server di riferimento ora e per impostazione predefinita risponderà alle richieste con alcuni parametri non validi. Questo evento è fondamentale per tenere traccia dei cambiamenti di stato in una topologia NTP. |
-|Meccanismo di limitazione  |Nessuna. |
+|Meccanismo di limitazione  |Nessuno. |
 
 
 # <a name="266"></a>[266](#tab/266)

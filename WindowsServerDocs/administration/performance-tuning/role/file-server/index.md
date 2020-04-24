@@ -10,10 +10,10 @@ ms.date: 12/12/2019
 manager: dcscontentpm
 audience: Admin
 ms.openlocfilehash: 1236b961f77fe46f19b70a2c48d32f05585bd29c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80851844"
 ---
 # <a name="performance-tuning-for-file-servers"></a>Ottimizzazione delle prestazioni per file server
@@ -229,7 +229,7 @@ Le impostazioni REG\_DWORD seguenti del Registro di sistema possono incidere sul
 
 I parametri di ottimizzazione generali per i computer client consentono di ottimizzare un computer per l'accesso a condivisioni file remote, in particolare su alcune reti ad alta latenza quali succursali, comunicazioni tra data center, sedi centrali e reti a banda larga mobili. Le impostazioni non sono ottimali o appropriate per tutti i computer. È consigliabile valutare l'impatto delle singole impostazioni prima di applicarle.
 
-| Parametro                   | Value | Valore predefinito |
+| Parametro                   | Valore | Impostazione predefinita |
 |-----------------------------|-------|---------|
 | DisableBandwidthThrottling  | 1     | 0       |
 | FileInfoCacheEntriesMax     | 32768 | 64      |

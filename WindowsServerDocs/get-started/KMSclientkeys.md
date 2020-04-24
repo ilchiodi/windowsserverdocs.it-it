@@ -10,10 +10,10 @@ ms.localizationpriority: medium
 ms.date: 11/12/2019
 ms.topic: get-started-article
 ms.openlocfilehash: 1bbb8f06ab66ced50024f4ff17b73229d50ec5c6
-ms.sourcegitcommit: 479ad84a0d6c7c7b8308122b8bac8308cb36fe9b
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80391713"
 ---
 # <a name="kms-client-setup-keys"></a>Chiavi di configurazione di client del servizio di gestione delle chiavi
@@ -65,7 +65,7 @@ Se si converte un computer in un client KMS a partire da un host KMS, un codice 
 
 | Sistema operativo/edizione       | Chiave di configurazione client KMS          |
 |--------------------------------|-------------------------------|
-| Windows Server 2016 Datacenter | CB7KF-BWN84-R7R2Y-793K2-8XDDG |
+| Windows Server 2016 Datacenter | CB7KF-BWN84-R7R2Y-793K2-8XDDG |
 | Windows Server 2016 Standard   | WC2BQ-8NRM3-FDDYY-2BFGV-KHKQY |
 | Windows Server 2016 Essentials | JCKRF-N37P4-C2D82-9YXRT-4M63B |
 
@@ -75,7 +75,7 @@ Vedere la [scheda informativa sul ciclo di vita di Windows](https://support.micr
 
 | Sistema operativo/edizione          | Chiave di configurazione client KMS          |
 |-----------------------------------|-------------------------------|
-| Windows 10 Pro                    | W269N-WFGWX-YVC9B-4J6C9-T83GX |
+| Windows 10 Pro                    | W269N-WFGWX-YVC9B-4J6C9-T83GX |
 | Windows 10 Pro N                  | MH37W-N47XK-V7XM9-C7227-GCQG9 |
 | Windows 10 Pro for Workstations   | NRG8B-VKK3Q-CXVCJ-9G2XF-6Q84J |
 | Windows 10 Pro for Workstations N | 9FNHH-K3HBT-3W4TD-6383H-6XYWF |
@@ -149,15 +149,15 @@ Vedere la [scheda informativa sul ciclo di vita di Windows](https://support.micr
 | Windows Server 2012 Datacenter          | 48HP8-DN98B-MYWDG-T2DCC-8W83P |
 
 
-### <a name="windows-server-2008-r2"></a>Windows Server 2008 R2
+### <a name="windows-server-2008-r2"></a>Windows Server 2008 R2
 
 | Sistema operativo/edizione                         | Chiave di configurazione client KMS          |
 |--------------------------------------------------|-------------------------------|
 | Windows Server 2008 R2 Web                       | 6TPJF-RBVHG-WBW2R-86QPH-6RTM4 |
 | Windows Server 2008 R2 HPC edition               | TT8MH-CG224-D3D7Q-498W2-9QCTX |
 | Windows Server 2008 R2 Standard                  | YC6KT-GKW9T-YTKYR-T4X34-R7VHC |
-| Windows Server 2008 R2 Enterprise                | 489J6-VHDMP-X63PK-3K798-CPX3Y |
-| Windows Server 2008 R2 Datacenter                | 74YFP-3QFB3-KQT8W-PMXWJ-7M648 |
+| Windows Server 2008 R2 Enterprise                | 489J6-VHDMP-X63PK-3K798-CPX3Y |
+| Windows Server 2008 R2 Datacenter                | 74YFP-3QFB3-KQT8W-PMXWJ-7M648 |
 | Windows Server 2008 R2 per sistemi basati su Itanium | GT63C-RJFQ3-4GMB6-BRFB9-CB83V |
 
 ### <a name="windows-server-2008"></a>Windows Server 2008
@@ -176,7 +176,7 @@ Vedere la [scheda informativa sul ciclo di vita di Windows](https://support.micr
 
 ## <a name="earlier-versions-of-windows"></a>Versioni precedenti di Windows
 
-### <a name="windows-81"></a>Windows 8.1
+### <a name="windows-81"></a>Windows 8.1
 
 | Sistema operativo/edizione | Chiave di configurazione client KMS          |
 |--------------------------|-------------------------------|
@@ -199,15 +199,15 @@ Vedere la [scheda informativa sul ciclo di vita di Windows](https://support.micr
 
 | Sistema operativo/edizione | Chiave di configurazione client KMS          |
 |--------------------------|-------------------------------|
-| Windows 7 Professional   | FJ82H-XT6CR-J8D7P-XQJJ2-GPDD4 |
+| Windows 7 Professional   | FJ82H-XT6CR-J8D7P-XQJJ2-GPDD4 |
 | Windows 7 Professional N | MRPKT-YTG23-K7D7T-X2JMM-QY7MG |
 | Windows 7 Professional E | W82YF-2Q76Y-63HXB-FGJG9-GF7QX |
-| Windows 7 Enterprise     | 33PXH-7Y6KF-2VJC9-XBBR8-HVTHH |
+| Windows 7 Enterprise     | 33PXH-7Y6KF-2VJC9-XBBR8-HVTHH |
 | Windows 7 Enterprise N   | YDRBP-3D83W-TY26F-D46B2-XCKRJ |
 | Windows 7 Enterprise E   | C29WB-22CC8-VJ326-GHFJW-H9DH4 |
 
 
-Vedere anche
+Vedi anche
 
 • [Pianificare l'attivazione dei contratti multilicenza](https://technet.microsoft.com/library/jj134042(v=ws.11).aspx)
 

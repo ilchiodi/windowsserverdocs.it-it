@@ -11,10 +11,10 @@ ms.author: helohr
 ms.date: 04/06/2020
 ms.localizationpriority: medium
 ms.openlocfilehash: 8c41d2691f22e7feb89518a02736f3607940a2f6
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80856224"
 ---
 # <a name="compare-the-clients"></a>Confrontare i client
@@ -56,7 +56,7 @@ Quando si abilita il reindirizzamento delle porte USB, tutti i dispositivi USB c
 | Fotocamere             | X                         | X                           |               |         |   X         | X                               |               |
 | Appunti           | X                         | X                           | X             | Testo    | Testo, immagini | X                               | testo          |
 | Unità locale/archiviazione | X                         | X                           |               | X       |   X        | X                               |               |
-| Posizione            | X                         | X                           |               |         |             |                                 |               |
+| Location            | X                         | X                           |               |         |             |                                 |               |
 | Microfoni         | X                         | X                           | X             |         |  X          | X                               |               |
 | Stampanti            | X                         | X                           |               |         |             | X (solo CUPS)                   | Stampa PDF     |
 | Scanner            | X                         | X                           |               |         |             |                                 |               |

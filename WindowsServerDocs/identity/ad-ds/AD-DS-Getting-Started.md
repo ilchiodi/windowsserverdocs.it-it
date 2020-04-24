@@ -9,10 +9,10 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
 ms.openlocfilehash: b9e8d4d2169ef1af5406dc3d6a7deff9828ee501
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80825594"
 ---
 # <a name="ad-ds-getting-started"></a>Guida introduttiva a Servizi di dominio Active Directory
@@ -21,7 +21,7 @@ ms.locfileid: "80825594"
 
 Active Directory archivia le informazioni relative agli oggetti sulla rete e semplifica la ricerca e l'uso di queste informazioni da parte degli amministratori e degli utenti. Active Directory usa un archivio dati strutturato come base per un'organizzazione logica e gerarchica delle informazioni di directory.  
   
-| Argomento | Description |
+| Argomento | Descrizione |
 | --------- | --------- |
 | [Panoramica di Active Directory Domain Services](../ad-ds/get-started/virtual-dc/Active-Directory-Domain-Services-Overview.md) | Descrive le funzionalità di base di Active Directory Domain Services. Include concetti tecnici e collegamenti alla pianificazione e alla distribuzione.|
 | [Centro di amministrazione di Active Directory](../ad-ds/get-started/adac/Active-Directory-Administrative-Center.md) | Descrive il Centro di amministrazione di Active Directory che offre funzionalità di gestione migliorate. Queste funzionalità semplificano le attività amministrative per la gestione di Active Directory Domain Services (AD DS).|

@@ -9,10 +9,10 @@ ms.technology: storage
 ms.date: 04/05/2018
 ms.localizationpriority: medium
 ms.openlocfilehash: a7c37638e25fc0d16447ab57bf369255dab9c859
-ms.sourcegitcommit: 083ff9bed4867604dfe1cb42914550da05093d25
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "75950254"
 ---
 # <a name="folder-redirection-offline-files-and-roaming-user-profiles-overview"></a>Panoramica di reindirizzamento cartelle, file offline e profili utente mobili
@@ -46,11 +46,11 @@ Gli amministratori possono usare il reindirizzamento cartelle, i file offline e 
 
 Nella tabella seguente vengono descritte alcune delle principali modifiche introdotte per il reindirizzamento cartelle, i file offline e i profili utente mobili, disponibili in questa versione.
 
-| Caratteristica/funzionalità | Novità o aggiornamento | Description |
+| Caratteristica/funzionalità | Novità o aggiornamento | Descrizione |
 | --- | --- | --- |
-| Modalità sempre offline | Nuovo | Consente l'accesso più rapido ai file e un minore utilizzo della larghezza di banda utilizzando sempre la modalità offline, anche in presenza di una connessione alla rete ad alta velocità. |
-| Sincronizzazione che tiene conto dei costi | Nuovo | Gli utenti possono evitare i costi elevati di utilizzo dei dati correlati alla sincronizzazione quando usano connessioni a consumo con limiti di utilizzo o durante il roaming sulla rete di un altro provider. |
-| Supporto del computer primario | Nuovo | Consente di limitare l'uso di una o di entrambe le funzionalità Reindirizzamento cartelle e Profili utente mobili ai soli computer primari di un utente. |
+| Modalità sempre offline | Nuova | Consente l'accesso più rapido ai file e un minore utilizzo della larghezza di banda utilizzando sempre la modalità offline, anche in presenza di una connessione alla rete ad alta velocità. |
+| Sincronizzazione che tiene conto dei costi | Nuova | Gli utenti possono evitare i costi elevati di utilizzo dei dati correlati alla sincronizzazione quando usano connessioni a consumo con limiti di utilizzo o durante il roaming sulla rete di un altro provider. |
+| Supporto del computer primario | Nuova | Consente di limitare l'uso di una o di entrambe le funzionalità Reindirizzamento cartelle e Profili utente mobili ai soli computer primari di un utente. |
 
 ## <a name="always-offline-mode"></a>Modalità sempre offline
 
@@ -67,7 +67,7 @@ La modalità sempre offline offre i vantaggi seguenti:
 
 Prima di Windows 8 e Windows Server 2012, gli utenti avrebbero alternato le modalità online e offline a seconda della disponibilità e delle condizioni della rete, anche quando la modalità Collegamento lento (nota anche come modalità Connessione lenta) era abilitata e impostata su una soglia di latenza di 1 millisecondo.
 
-Con la modalità sempre offline, i computer non passano mai alla modalità online quando è configurata l'impostazione di Criteri di gruppo **Configura modalità collegamento lento** e il parametro di soglia **Latenza** è impostato su 1 millisecondo. Le modifiche vengono sincronizzate in background ogni 120 minuti per impostazione predefinita, ma la sincronizzazione è configurabile tramite l'impostazione di Criteri di gruppo **Configure Background Sync** .
+Con la modalità sempre offline, i computer non passano mai alla modalità online quando è configurata l'impostazione di Criteri di gruppo **Configura modalità collegamento lento** e il parametro di soglia **Latenza** è impostato su 1 millisecondo. Le modifiche vengono sincronizzate in background ogni 120 minuti per impostazione predefinita, ma la sincronizzazione è configurabile tramite l'impostazione di Criteri di gruppo **Configura sincronizzazione in background**.
 
 Per altre informazioni, vedere [Enable the Always Offline Mode to Provide Faster Access to Files](enable-always-offline.md).
 
@@ -108,7 +108,7 @@ Esistono quattro vantaggi principali della designazione di computer primari per 
 Per limitare il download dei dati utente privati nei computer primari, le tecnologie di reindirizzamento cartelle e profili utente mobili eseguono i controlli logici seguenti al momento dell'accesso a un computer:
 
 1. Il sistema operativo Windows controlla le nuove impostazioni di Criteri di gruppo (**Scarica profili mobili solo nei computer primari** e **Reindirizza cartelle solo nei computer primari**) per stabilire se l'attributo **msDS-Primary-Computer** in Active Directory Domain Services deve influire sulla decisione di eseguire il roaming del profilo dell'utente o applicare Reindirizzamento cartelle.
-2. Se l'impostazione dei criteri consente il supporto dei computer primari, Windows verifica che lo schema di Servizi di dominio Active Directory supporti l'attributo **msDS-Primary-Computer** . In caso affermativo, Windows stabilisce se il computer a cui sta accedendo l'utente è designato come computer primario, come segue:
+2. Se l'impostazione dei criteri consente il supporto dei computer primari, Windows verifica che lo schema di Servizi di dominio Active Directory supporti l'attributo **msDS-Primary-Computer**. In caso affermativo, Windows stabilisce se il computer a cui sta accedendo l'utente è designato come computer primario, come segue:
     1. Se il computer è uno dei computer primari dell'utente, vengono applicate automaticamente le impostazioni di Reindirizzamento cartelle e Profili utente mobili.
     2. Se il computer non è uno dei computer primari dell'utente, viene caricato il profilo locale dell'utente memorizzato nella cache, se presente, oppure viene creato un nuovo profilo locale. Vengono inoltre rimosse eventuali cartelle reindirizzate esistenti, in base all'azione di rimozione specificata dall'impostazione di Criteri di gruppo applicata in precedenza e mantenuta nella configurazione locale di reindirizzamento cartelle.
 
@@ -125,7 +125,7 @@ Per designare i computer primari, l'ambiente deve soddisfare i requisiti seguent
 - Lo schema di Active Directory Domain Services deve essere aggiornato in modo da includere lo schema e le condizioni di Windows Server 2012. Lo schema viene aggiornato automaticamente con l'installazione di un controller di dominio Windows Server 2012 o versioni successive. Per altre informazioni sull'aggiornamento di Active Directory Domain Services, vedi [Aggiornare i controller di dominio a Windows Server 2016](../../identity/ad-ds/deploy/upgrade-domain-controllers.md).
 - I computer client devono eseguire Windows 10, Windows 8.1, Windows 8, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 o Windows Server 2012 per poter essere aggiunti al dominio di Active Directory che stai gestendo.
 
-## <a name="more-information"></a>Ulteriori informazioni
+## <a name="more-information"></a>Altre informazioni
 
 Per altre informazioni correlate, vedere le risorse seguenti.
 

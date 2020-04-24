@@ -9,10 +9,10 @@ ms.technology: storage
 ms.date: 05/18/2018
 ms.localizationpriority: medium
 ms.openlocfilehash: 8ff800fc2a0885cec39ca104607d7207f0bd8ce0
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80815604"
 ---
 # <a name="use-robocopy-to-pre-seed-files-for-dfs-replication"></a>Usare Robocopy per eseguire il preseeding dei file per Replica DFS
@@ -89,7 +89,7 @@ Dopo aver ridotto al minimo i blocchi sui file che verranno replicati, puoi eseg
 
 1. Accedi al server di destinazione con un account membro del gruppo Administrators locale sia nel server di origine che in quello di destinazione.
 
-2. Aprire un prompt dei comandi con privilegi elevati.
+2. Apri una finestra del prompt dei comandi con privilegi elevati.
 
 3. Per eseguire il preseeding dei file dal server di origine al server di destinazione, esegui il comando seguente, sostituendo i valori tra parentesi con i tuoi percorsi di origine, di destinazione e dei file di log:
     
@@ -99,7 +99,7 @@ Dopo aver ridotto al minimo i blocchi sui file che verranno replicati, puoi eseg
     
     Questo comando copia tutto il contenuto della cartella di origine nella cartella di destinazione, con i parametri seguenti:
     
-    |Parametro|Description|
+    |Parametro|Descrizione|
     |---|---|
     |"\<source replicated folder path\>"|Specifica la cartella di origine di cui eseguire il preeseeding nel server di destinazione.|
     |"\<destination replicated folder path\>"|Specifica il percorso della cartella in cui verranno archiviati i file di cui è stato eseguito il preseeding.<br><br>La cartella di destinazione non deve essere già presente nel server di destinazione. Per ottenere hash file corrispondenti, Robocopy deve creare la cartella radice quando esegue il preseeding dei file.|

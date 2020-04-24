@@ -11,10 +11,10 @@ ms.author: elizapo
 manager: dongill
 ms.localizationpriority: medium
 ms.openlocfilehash: 5133e474882531e05cd8b6a3e69ca9c90a1c101a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80859724"
 ---
 # <a name="windows-server---it-administrator-content-for-current-and-previous-releases"></a>Windows Server - Contenuti per gli amministratori IT relativi alle versioni correnti e precedenti
@@ -56,7 +56,7 @@ Usa i collegamenti seguenti per visualizzare contenuti tecnici per professioni I
 
 [Download della versione di valutazione di Windows Server 2012 R2](https://www.microsoft.com/evalcenter/evaluate-windows-server-2012-r2) 
 
-## <a name="related-links"></a>Collegamenti correlati
+## <a name="related-links"></a>Link correlati
 [Informazioni sul prodotto Windows Server 2016](https://www.microsoft.com/cloud-platform/windows-server) 
 
 > [!TIP]

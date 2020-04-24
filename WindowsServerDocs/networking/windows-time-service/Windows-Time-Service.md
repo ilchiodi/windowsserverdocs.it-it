@@ -9,10 +9,10 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: networking
 ms.openlocfilehash: 51711d423582aee4ebc3762a51abe9156754b55a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80860134"
 ---
 # <a name="windows-time-service"></a>Ora di Windows
@@ -76,7 +76,7 @@ I protocolli di tempo comunicano tra due computer per scambiare informazioni sul
   
 Il servizio Ora di Windows usa il protocollo NTP per sincronizzare l'ora in una rete. NTP è un protocollo di tempo Internet che include gli algoritmi di disciplina necessari per la sincronizzazione degli orologi. NTP è un protocollo di tempo più accurato rispetto a Simple Network Time Protocol (SNTP), che viene usato in alcune versioni di Windows. Tuttavia, W32Time continua a supportare SNTP per abilitare la compatibilità con le versioni precedenti per i computer che eseguono servizi ora basati su SNTP, ad esempio Windows 2000.  
   
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedi anche  
 [Funzionamento del servizio Ora di Windows](How-the-Windows-Time-Service-Works.md)  
 [Strumenti e impostazioni del servizio Ora di Windows](Windows-Time-Service-Tools-and-Settings.md)  
 [Articolo 902229 della Microsoft Knowledge Base](https://go.microsoft.com/fwlink/?LinkId=186066)

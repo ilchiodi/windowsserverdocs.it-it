@@ -9,11 +9,11 @@
 ### [Approfondimento sul bilanciamento del carico delle macchine virtuali](vm-load-balancing-deep-dive.md)
 ### [Set di cluster](../storage/storage-spaces/cluster-sets.md)
 ### [Affinità del cluster](cluster-affinity.md)
-## Pianificare
+## Pianificazione
 ### [Requisiti hardware](clustering-requirements.md)
 ### [Usare Volumi condivisi cluster](failover-cluster-csvs.md)
 ### [Uso di cluster di macchine virtuali guest](../storage/storage-spaces/storage-spaces-direct-in-vm.md)
-## Distribuire
+## Distribuisci
 ### [Creare un cluster di failover](create-failover-cluster.md)
 ### [Distribuire un file server a due nodi](deploy-two-node-clustered-file-server.md)
 ### [Pre-installare un cluster in Active Directory Domain Services](prestage-cluster-adds.md)
@@ -23,11 +23,11 @@
 ### [Distribuire una condivisione file di controllo](file-share-witness.md)
 ### [Aggiornamenti in sequenza del sistema operativo del cluster](cluster-operating-system-rolling-upgrade.md)
 ### [Aggiornamento di un cluster di failover nello stesso hardware](upgrade-option-same-hardware.md)
-## Gestire
+## Gestisci
 ### [Aggiornamento compatibile con cluster](cluster-aware-updating.md)
 #### [Requisiti e procedure consigliate](cluster-aware-updating-requirements.md)
 #### [Opzioni avanzate](cluster-aware-updating-options.md)
-#### [Domande frequenti](cluster-aware-updating-faq.md)
+#### [DOMANDE FREQUENTI](cluster-aware-updating-faq.md)
 #### [Plug-in](cluster-aware-updating-plug-ins.md)
 ### [Servizio integrità](health-service-overview.md)
 #### [Segnalazioni](health-service-reports.md)
