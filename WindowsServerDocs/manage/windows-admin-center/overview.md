@@ -9,10 +9,10 @@ ms.date: 01/07/2020
 ms.localizationpriority: high
 ms.prod: windows-server
 ms.openlocfilehash: bb2f6d7fcbf18ef9bc67534982d1a98fdc5172a1
-ms.sourcegitcommit: 0a0a45bec6583162ba5e4b17979f0b5a0c179ab2
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "79320035"
 ---
 # <a name="windows-admin-center"></a>Windows Admin Center
@@ -64,7 +64,7 @@ Il video seguente fornisce una panoramica ed è seguito da un poster contenente 
             </ul>
         </td>
         <td style="vertical-align: top;">
-            <h3>Pianificare</h3>
+            <h3>Pianificazione</h3>
             <ul>
             <li><a href="plan/installation-options.md">Che tipo di installazione è adatto alle tue esigenze?</a>
             <li><a href="plan/user-access-options.md">Opzioni di accesso dell'utente</a>
@@ -74,7 +74,7 @@ Il video seguente fornisce una panoramica ed è seguito da un poster contenente 
     </tr>
     <tr>
         <td style="vertical-align: top;">
-            <h3>Distribuire</h3>
+            <h3>Distribuisci</h3>
             <ul>
             <li><a href="deploy/prepare-environment.md">Preparare l'ambiente</a>
             <li><a href="deploy/install.md">Installare Windows Admin Center</a>

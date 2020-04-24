@@ -10,10 +10,10 @@ manager: dongill
 ms.date: 06/04/2019
 ms.localizationpriority: medium
 ms.openlocfilehash: 5a90ad13a51a540c6c76adacb7df0225d642573a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/23/2020
 ms.locfileid: "80857194"
 ---
 # <a name="windows-server-software-defined-datacenter"></a>Data center software-defined di Windows Server
@@ -227,7 +227,7 @@ Il servizio Sorveglianza host contiene le chiavi per le infrastrutture legittime
 
 ![](media/sddc/learn.png) **[Altre informazioni sul servizio Sorveglianza host](https://docs.microsoft.com/windows-server/virtualization/guarded-fabric-shielded-vm/guarded-fabric-manage-hgs)**
 
-### <a name="device-health-attestation"></a>Attestazione di integrità del dispositivo
+### <a name="device-health-attestation"></a>Attestazione dell'integrità dei dispositivi
 
 ![](media/sddc/security-line.png)
 
