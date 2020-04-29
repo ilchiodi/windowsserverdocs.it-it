@@ -43,8 +43,23 @@ sections:
             image:
               src: ../media/i-network.svg
             title: Software Defined Networking
+          - href: ../manage/windows-admin-center/overview.md
+            html: <p>Gestisce il cluster e altri server Windows.</p>
+            image:
+              src: ../media/i-admin-center.svg
+            title: Windows Admin Center
+          - href: ../azure-hybrid-services.md
+            html: '<p>Connette il cluster ai servizi ibridi di Azure per ripristino del sito, monitoraggio e altro ancora.</p>'
+            image:
+              src: ../media/i-microsoft-azure.svg
+            title: Connessione ai servizi ibridi di Azure
+          - href: ../azure-stack-hci
+            html: '<p>Combina le tecnologie di virtualizzazione e clustering di Windows Server 2019 con soluzioni hardware convalidate di un partner di propria scelta, semplificando l''ottimizzazione di data center software-defined.</p>'
+            image:
+              src: ../media/i-azure-stack.svg
+            title: Azure Stack HCI
           - href: 'https://www.microsoft.com/cloud-platform/software-defined-datacenter'
-            html: '<p>Combina le tecnologie di virtualizzazione e clustering di Windows Server con soluzioni hardware convalidate di un partner di propria scelta, semplificando l''ottimizzazione di data center software-defined.</p>'
+            html: '<p>Combina le tecnologie di virtualizzazione e clustering di Windows Server 2016 con soluzioni hardware convalidate di un partner di propria scelta, semplificando l''ottimizzazione di data center software-defined.</p>'
             image:
               src: 'https://docs.microsoft.com/media/common/i_data-collection.svg'
             title: Programma software-defined per Windows Server (WSSD)

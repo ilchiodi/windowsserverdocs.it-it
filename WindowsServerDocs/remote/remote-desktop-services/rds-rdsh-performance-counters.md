@@ -9,12 +9,12 @@ ms.topic: article
 author: lizap
 manager: dougkim
 ms.localizationpriority: medium
-ms.openlocfilehash: c33e5c6309c41e39aeda3a2bdff1a0caf72b2675
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a424a28be835fa2a941187b110907fff76e6f220
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80860334"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "81650063"
 ---
 # <a name="use-performance-counters-to-diagnose-app-performance-problems-on-remote-desktop-session-hosts"></a>Usare i contatori delle prestazioni per diagnosticare i problemi di prestazioni dell'applicazione su host sessione Desktop remoto
 
@@ -22,8 +22,8 @@ ms.locfileid: "80860334"
 
 Uno dei problemi più difficili da diagnosticare sono le scarse prestazioni dell'applicazione, ovvero quando le applicazioni sono lente o non rispondono. In genere, si avvia la diagnostica per la raccolta di CPU, memoria, input/output su disco e altre metriche e quindi si usano strumenti come Windows Performance Analyzer per tentare di determinare la causa del problema. Purtroppo nella maggior parte delle situazioni questi dati non consentono di identificare la causa radice, perché i contatori del consumo di risorse sono soggetti a variazioni significative e frequenti. Questo rende difficile la lettura dei dati e l'associazione al problema segnalato. Per risolvere più rapidamente i problemi di prestazioni delle app, sono stati aggiunti alcuni nuovi contatori delle prestazioni (disponibili [per il download](#download-windows-server-insider-software) tramite il [programma Windows Insider](https://insider.windows.com)) che misurano i flussi di input dell'utente.
 
->[!NOTE]
->Il contatore User Input Delay (Ritardo input utente) è compatibile solo con:
+> [!NOTE]
+> Il contatore User Input Delay (Ritardo input utente) è compatibile solo con:
 > - Windows Server 2019 o versione successiva
 > - Windows 10 versione 1809 o successiva
 
@@ -33,7 +33,7 @@ L'immagine seguente mostra una rappresentazione approssimativa del flusso di inp
 
 ![Desktop remoto: flussi di input dell'utente dal client Desktop remoto all'applicazione](./media/rds-user-input.png)
 
-Il contatore di ritardo di input utente misura il delta massimo (all'interno di un intervallo di tempo) tra l'input in coda e il momento in cui viene prelevato dall'app in un [ciclo di messaggi tradizionale](https://msdn.microsoft.com/library/windows/desktop/ms644927.aspx#loop), come illustrato nel diagramma di flusso seguente:
+Il contatore di ritardo di input utente misura il delta massimo (all'interno di un intervallo di tempo) tra l'input in coda e il momento in cui viene prelevato dall'app in un [ciclo di messaggi tradizionale](https://docs.microsoft.com/windows/win32/winmsg/about-messages-and-message-queues#message-loop), come illustrato nel diagramma di flusso seguente:
 
 ![Desktop remoto: flusso del contatore delle prestazioni ritardo di input dell'utente](./media/rds-user-input-delay.png)
 
@@ -41,9 +41,9 @@ Un dettaglio importante di questo contatore è che segnala il ritardo di input m
 
 Ad esempio, nella tabella seguente, il ritardo di input dell'utente sarebbe stato segnalato come 1.000 millisecondi entro questo intervallo. Il contatore indica il ritardo di input più lento di dell'utente nell'intervallo perché la percezione di "lento" è determinata dal tempo di input più lento (il valore massimo) che si verifica, non dalla velocità media di tutti gli input totali.
 
-|Numero| 0 | 1 | 2 |
-|------|---|---|---|
-|Ritardo |16 ms| 20 ms| 1\.000 ms|
+| Numero |   0   |   1   |    2     |
+| ------ | ----- | ----- | -------- |
+| Ritardo  | 16 ms | 20 ms | 1\.000 ms |
 
 ## <a name="enable-and-use-the-new-performance-counters"></a>Abilitare e usare i nuovi contatori delle prestazioni
 
@@ -53,7 +53,7 @@ Per usare questi nuovi contatori delle prestazioni, è innanzitutto necessario a
 reg add "HKLM\System\CurrentControlSet\Control\Terminal Server" /v "EnableLagCounter" /t REG_DWORD /d 0x1 /f
 ```
 
->[!NOTE]
+> [!NOTE]
 > Se si usa Windows 10, versione 1809 o versioni successive o Windows Server 2019 o versioni successive, non è necessario abilitare la chiave del Registro di sistema.
 
 Quindi riavviare il server. Quindi, aprire Performance Monitor e selezionare il segno più (+), come illustrato nella schermata seguente.
@@ -68,12 +68,12 @@ Dopo questa operazione, verrà visualizzata la finestra di dialogo Aggiungi cont
 
 Se si seleziona **Ritardo di input dell'utente per processo**, si visualizzeranno le **istanze dell'oggetto selezionato** (in altre parole, i processi) in formato ```SessionID:ProcessID <Process Image>```.
 
-Ad esempio, se l'app Calcolatrice è in esecuzione nell'[ID sessione 1](https://msdn.microsoft.com/library/ms524326.aspx), si visualizzerà ```1:4232 <Calculator.exe>```.
+Ad esempio, se l'app Calcolatrice è in esecuzione nell'[ID sessione 1](https://docs.microsoft.com/previous-versions/iis/6.0-sdk/ms524326(v=vs.90)), si visualizzerà ```1:4232 <Calculator.exe>```.
 
 > [!NOTE]
 > Non tutti i processi sono inclusi. Non sarà possibile vedere tutti i processi in esecuzione come SYSTEM.
 
-Appena aggiunto il contatore inizia a inviare report sul ritardo dell'input dell'utente. La scala massima è impostata su 100 (ms) per impostazione predefinita. 
+Appena aggiunto il contatore inizia a inviare report sul ritardo dell'input dell'utente. La scala massima è impostata su 100 (ms) per impostazione predefinita.
 
 ![Desktop remoto: un esempio di attività per Ritardo di input dell'utente per processo in Performance Monitor](./media/rds-sample-user-input-delay-perfmon.png)
 
@@ -81,15 +81,15 @@ Appena aggiunto il contatore inizia a inviare report sul ritardo dell'input dell
 
 Questa tabella mostra un esempio visivo di queste istanze. (È possibile ottenere le stesse informazioni in Perfmon passando al tipo di grafico Report.)
 
-|Tipo di contatore|Nome istanza|Ritardo segnalata (ms)|
-|---------------|-------------|-------------------|
-|Ritardo dell'input dell'utente per processo|1:4232 <Calculator.exe>|    200|
-|Ritardo dell'input dell'utente per processo|2:1000 <Calculator.exe>|    16|
-|Ritardo dell'input dell'utente per processo|1:2000 <Calculator.exe>|    32|
-|Ritardo dell'input dell'utente per sessione|1|    200|
-|Ritardo dell'input dell'utente per sessione|2|    16|
-|Ritardo dell'input dell'utente per sessione|Media|     108|
-|Ritardo dell'input dell'utente per sessione|Max|     200|
+| Tipo di contatore | Nome istanza | Ritardo segnalata (ms) |
+| --------------- | ------------- | ------------------- |
+| Ritardo dell'input dell'utente per processo | 1:4232 <Calculator.exe> |    200 |
+| Ritardo dell'input dell'utente per processo | 2:1000 <Calculator.exe> |     16 |
+| Ritardo dell'input dell'utente per processo | 1:2000 <Calculator.exe> |     32 |
+| Ritardo dell'input dell'utente per sessione | 1 |    200 |
+| Ritardo dell'input dell'utente per sessione | 2 |     16 |
+| Ritardo dell'input dell'utente per sessione | Media |     108 |
+| Ritardo dell'input dell'utente per sessione | Max |     200 |
 
 ## <a name="counters-used-in-an-overloaded-system"></a>Contatori utilizzati in un sistema sovraccarico
 
@@ -120,8 +120,8 @@ Per risolvere questo problema, è possibile impostare la chiave del Registro di 
 "LagCounterInterval"=dword:00005000
 ```
 
->[!NOTE]
->Se si usa Windows 10, versione 1809 o versioni successive o Windows Server 2019 o versioni successive, non è necessario impostare LagCounterInterval per risolvere il problema del contatore delle prestazioni.
+> [!NOTE]
+> Se si usa Windows 10, versione 1809 o versioni successive o Windows Server 2019 o versioni successive, non è necessario impostare LagCounterInterval per risolvere il problema del contatore delle prestazioni.
 
 È stata anche aggiunta una coppia di chiavi che potrebbe risultare utile nella stessa chiave del Registro di sistema:
 
@@ -135,11 +135,11 @@ Questo è il risultato si attivano entrambe le chiavi:
 
 ## <a name="using-the-new-counters-with-non-microsoft-tools"></a>Utilizzo dei nuovi contatori con strumenti non Microsoft
 
-Gli strumenti di monitoraggio possono utilizzare questo contatore con l'[API Perfmon](https://msdn.microsoft.com/library/windows/desktop/aa371903.aspx).
+Gli strumenti di monitoraggio possono utilizzare questo contatore tramite [Uso dei contatori delle prestazioni](https://docs.microsoft.com/windows/win32/perfctrs/using-performance-counters).
 
 ## <a name="download-windows-server-insider-software"></a>Scaricare il software di Windows Server Insider
 
-Gli utenti Insider registrati possono navigare direttamente nella [pagina di download di Windows Server Insider Preview](https://www.microsoft.com/software-download/windowsinsiderpreviewserver) per ottenere il software più recente di Insider.  Per informazioni su come registrarsi come Insider, vedere [Introduzione a Server](https://insider.windows.com/en-us/for-business-getting-started-server/).
+Gli utenti Insider registrati possono navigare direttamente nella [pagina di download di Windows Server Insider Preview](https://microsoft.com/en-us/software-download/windowsinsiderpreviewserver) per ottenere il software più recente di Insider.  Per informazioni su come registrarsi come Insider, vedere [Introduzione a Server](https://insider.windows.com/en-us/for-business-getting-started-server/).
 
 ## <a name="share-your-feedback"></a>Feedback
 
