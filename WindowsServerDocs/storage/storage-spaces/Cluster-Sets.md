@@ -9,12 +9,12 @@ ms.author: johnmar
 ms.date: 01/30/2019
 description: Questo articolo descrive lo scenario dei set di cluster
 ms.localizationpriority: medium
-ms.openlocfilehash: 3c7ddef1831a82f7fc068ec4241bb1a72bd888bd
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 484b6a1e658cd5c0583747194fa42494e54c3301
+ms.sourcegitcommit: 4824f3b307e5b8b9bf5be7bc948f7aba9cf7063f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80861044"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82579938"
 ---
 # <a name="cluster-sets"></a>Set di cluster
 
@@ -101,13 +101,15 @@ In Windows Server 2019 è disponibile un nuovo ruolo di file server con scalabil
 
 Le considerazioni seguenti si applicano a un ruolo SOFS dell'infrastruttura:
 
-1.    In un cluster di failover può essere presente al massimo un solo ruolo cluster SOFS di infrastruttura. Il ruolo SOFS dell'infrastruttura viene creato specificando il parametro switch " **-Infrastructure**" per il cmdlet **Add-ClusterScaleOutFileServerRole** .  Ad esempio,
+1. In un cluster di failover può essere presente al massimo un solo ruolo cluster SOFS di infrastruttura. Il ruolo SOFS dell'infrastruttura viene creato specificando il parametro switch "**-Infrastructure**" per il cmdlet **Add-ClusterScaleOutFileServerRole** .  Ad esempio:
 
-        Add-ClusterScaleoutFileServerRole-Name "my_infra_sofs_name"-infrastruttura
+    ```PowerShell
+    Add-ClusterScaleoutFileServerRole -Name "my_infra_sofs_name" -Infrastructure
+    ```
 
-2.    Ogni volume CSV creato nel failover attiva automaticamente la creazione di una condivisione SMB con un nome generato automaticamente in base al nome del volume CSV. Un amministratore non può creare o modificare direttamente le condivisioni SMB in un ruolo SOFS, oltre che tramite operazioni di creazione/modifica del volume CSV.
+2. Ogni volume CSV creato nel failover attiva automaticamente la creazione di una condivisione SMB con un nome generato automaticamente in base al nome del volume CSV. Un amministratore non può creare o modificare direttamente le condivisioni SMB in un ruolo SOFS, oltre che tramite operazioni di creazione/modifica del volume CSV.
 
-3.    Nelle configurazioni iperconvergenti, un SOFS di infrastruttura consente a un client SMB (host Hyper-V) di comunicare con la disponibilità continua garantita (CA) al server SMB SOFS di infrastruttura. Questa CA di loopback SMB iperconvergente viene eseguita tramite macchine virtuali che accedono ai file del disco virtuale (VHDx) in cui l'identità della macchina virtuale proprietaria viene trasmessa tra il client e il server. Questo tipo di inoltri consente ai file VHDx ACL come nelle configurazioni di cluster iperconvergenti standard come prima.
+3. Nelle configurazioni iperconvergenti, un SOFS di infrastruttura consente a un client SMB (host Hyper-V) di comunicare con la disponibilità continua garantita (CA) al server SMB SOFS di infrastruttura. Questa CA di loopback SMB iperconvergente viene eseguita tramite macchine virtuali che accedono ai file del disco virtuale (VHDx) in cui l'identità della macchina virtuale proprietaria viene trasmessa tra il client e il server. Questo tipo di inoltri consente ai file VHDx ACL come nelle configurazioni di cluster iperconvergenti standard come prima.
 
 Una volta creato un set di cluster, lo spazio dei nomi del set di cluster si basa su un SOFS di infrastruttura in ognuno dei cluster membri, oltre a un'infrastruttura SOFS nel cluster di gestione.
 
@@ -130,7 +132,7 @@ Quando si crea un set di cluster, sono consigliati i prerequisiti seguenti:
 
 1. Creare un nuovo set di cluster da tre cluster come definito nei prerequisiti.  Il grafico seguente fornisce un esempio di cluster da creare.  Il nome del cluster impostato in questo esempio sarà **csmaster**.
 
-   | Nome del cluster               | Nome SOFS dell'infrastruttura da usare in un secondo momento | 
+   | Cluster Name               | Nome SOFS dell'infrastruttura da usare in un secondo momento | 
    |----------------------------|-------------------------------------------|
    | SET-CLUSTER                | SOFS-CLUSTERSET                           |
    | CLUSTER1                   | SOFS-CLUSTER1                             |
@@ -138,49 +140,69 @@ Quando si crea un set di cluster, sono consigliati i prerequisiti seguenti:
 
 2. Una volta creato tutto il cluster, usare i comandi seguenti per creare il master del set di cluster.
 
-        New-ClusterSet -Name CSMASTER -NamespaceRoot SOFS-CLUSTERSET -CimSession SET-CLUSTER
+    ```PowerShell
+    New-ClusterSet -Name CSMASTER -NamespaceRoot SOFS-CLUSTERSET -CimSession SET-CLUSTER
+    ```
 
 3. Per aggiungere un server del cluster al set di cluster, viene usato il seguente.
 
-        Add-ClusterSetMember -ClusterName CLUSTER1 -CimSession CSMASTER -InfraSOFSName SOFS-CLUSTER1
-        Add-ClusterSetMember -ClusterName CLUSTER2 -CimSession CSMASTER -InfraSOFSName SOFS-CLUSTER2
+    ```PowerShell
+    Add-ClusterSetMember -ClusterName CLUSTER1 -CimSession CSMASTER -InfraSOFSName SOFS-CLUSTER1
+    Add-ClusterSetMember -ClusterName CLUSTER2 -CimSession CSMASTER -InfraSOFSName SOFS-CLUSTER2
+    ```
 
    > [!NOTE]
    > Se si usa uno schema di indirizzi IP statici, è necessario includere *-StaticAddress x* . x.x. x nel comando **New-ClusterSet** .
 
 4. Una volta creato il cluster impostato sui membri del cluster, è possibile elencare il set di nodi e le relative proprietà.  Per enumerare tutti i cluster membro nel set di cluster:
 
-        Get-ClusterSetMember -CimSession CSMASTER
+    ```PowerShell
+    Get-ClusterSetMember -CimSession CSMASTER
+    ```
 
 5. Per enumerare tutti i cluster di membri nel set di cluster, inclusi i nodi del cluster di gestione:
 
-        Get-ClusterSet -CimSession CSMASTER | Get-Cluster | Get-ClusterNode
+    ```PowerShell
+    Get-ClusterSet -CimSession CSMASTER | Get-Cluster | Get-ClusterNode
+    ```
 
 6. Per elencare tutti i nodi dei cluster membro:
 
-        Get-ClusterSetNode -CimSession CSMASTER
+    ```PowerShell
+    Get-ClusterSetNode -CimSession CSMASTER
+    ```
 
 7. Per elencare tutti i gruppi di risorse nel set di cluster:
 
-        Get-ClusterSet -CimSession CSMASTER | Get-Cluster | Get-ClusterGroup 
+    ```PowerShell
+    Get-ClusterSet -CimSession CSMASTER | Get-Cluster | Get-ClusterGroup 
+    ```
 
 8. Per verificare che il processo di creazione del set di cluster abbia creato una condivisione SMB (identificata come volume1 o la cartella CSV con l'etichetta ScopeName come nome del file server dell'infrastruttura e il percorso come entrambi) nell'infrastruttura SOFS per ogni volume CSV del membro del cluster:
 
-        Get-SmbShare -CimSession CSMASTER
+    ```PowerShell
+    Get-SmbShare -CimSession CSMASTER
+    ```
 
 8. I set di cluster dispongono di log di debug che possono essere raccolti per la revisione.  Sia il set di cluster che i log di debug del cluster possono essere raccolti per tutti i membri e il cluster di gestione.
 
-        Get-ClusterSetLog -ClusterSetCimSession CSMASTER -IncludeClusterLog -IncludeManagementClusterLog -DestinationFolderPath <path>
+    ```PowerShell
+    Get-ClusterSetLog -ClusterSetCimSession CSMASTER -IncludeClusterLog -IncludeManagementClusterLog -DestinationFolderPath <path>
+    ```
 
 9. Configurare la [delega vincolata](https://techcommunity.microsoft.com/t5/virtualization/live-migration-via-constrained-delegation-with-kerberos-in/ba-p/382334) Kerberos tra tutti i membri del set di cluster.
 
 10. Configurare il tipo di autenticazione della migrazione in tempo reale di una macchina virtuale tra cluster in Kerberos in ogni nodo del set di cluster.
 
-        foreach($h in $hosts){ Set-VMHost -VirtualMachineMigrationAuthenticationType Kerberos -ComputerName $h }
+    ```PowerShell
+    foreach($h in $hosts){ Set-VMHost -VirtualMachineMigrationAuthenticationType Kerberos -ComputerName $h }
+    ```
 
 11. Aggiungere il cluster di gestione al gruppo Administrators locale in ogni nodo del set di cluster.
 
-        foreach($h in $hosts){ Invoke-Command -ComputerName $h -ScriptBlock {Net localgroup administrators /add <management_cluster_name>$} }
+    ```PowerShell
+    foreach($h in $hosts){ Invoke-Command -ComputerName $h -ScriptBlock {Net localgroup administrators /add <management_cluster_name>$} }
+    ```
 
 ## <a name="creating-new-virtual-machines-and-adding-to-cluster-sets"></a>Creazione di nuove macchine virtuali e aggiunta a set di cluster
 
@@ -198,43 +220,53 @@ I comandi seguenti consentono di identificare il cluster ottimale e di distribui
 - imposta il processore virtuale usato su 1
 - Verificare che sia disponibile almeno il 10% di CPU per la macchina virtuale
 
-   ```PowerShell
-   # Identify the optimal node to create a new virtual machine
-   $memoryinMB=4096
-   $vpcount = 1
-   $targetnode = Get-ClusterSetOptimalNodeForVM -CimSession CSMASTER -VMMemory $memoryinMB -VMVirtualCoreCount $vpcount -VMCpuReservation 10
-   $secure_string_pwd = convertto-securestring "<password>" -asplaintext -force
-   $cred = new-object -typename System.Management.Automation.PSCredential ("<domain\account>",$secure_string_pwd)
+```PowerShell
+# Identify the optimal node to create a new virtual machine
+$memoryinMB=4096
+$vpcount = 1
+$targetnode = Get-ClusterSetOptimalNodeForVM -CimSession CSMASTER -VMMemory $memoryinMB -VMVirtualCoreCount $vpcount -VMCpuReservation 10
+$secure_string_pwd = convertto-securestring "<password>" -asplaintext -force
+$cred = new-object -typename System.Management.Automation.PSCredential ("<domain\account>",$secure_string_pwd)
 
-   # Deploy the virtual machine on the optimal node
-   Invoke-Command -ComputerName $targetnode.name -scriptblock { param([String]$storagepath); New-VM CSVM1 -MemoryStartupBytes 3072MB -path $storagepath -NewVHDPath CSVM.vhdx -NewVHDSizeBytes 4194304 } -ArgumentList @("\\SOFS-CLUSTER1\VOLUME1") -Credential $cred | Out-Null
-   
-   Start-VM CSVM1 -ComputerName $targetnode.name | Out-Null
-   Get-VM CSVM1 -ComputerName $targetnode.name | fl State, ComputerName
-   ```
+# Deploy the virtual machine on the optimal node
+Invoke-Command -ComputerName $targetnode.name -scriptblock { param([String]$storagepath); New-VM CSVM1 -MemoryStartupBytes 3072MB -path $storagepath -NewVHDPath CSVM.vhdx -NewVHDSizeBytes 4194304 } -ArgumentList @("\\SOFS-CLUSTER1\VOLUME1") -Credential $cred | Out-Null
+
+Start-VM CSVM1 -ComputerName $targetnode.name | Out-Null
+Get-VM CSVM1 -ComputerName $targetnode.name | fl State, ComputerName
+```
 
 Al termine, verranno fornite le informazioni relative alla macchina virtuale e alla posizione in cui sono state inserite.  Nell'esempio precedente, verrebbe visualizzato come:
 
-        State         : Running
-        ComputerName  : 1-S2D2
+```
+State         : Running
+ComputerName  : 1-S2D2
+```
 
 Se non si dispone di memoria sufficiente, CPU o spazio su disco per aggiungere la macchina virtuale, verrà visualizzato l'errore seguente:
 
-      Get-ClusterSetOptimalNodeForVM : A cluster node is not available for this operation.  
+```
+Get-ClusterSetOptimalNodeForVM : A cluster node is not available for this operation.  
+```
 
 Una volta creata, la macchina virtuale verrà visualizzata nella console di gestione di Hyper-V nel nodo specifico specificato.  Per aggiungerlo come macchina virtuale del set di cluster e nel cluster, il comando è riportato di seguito.  
 
-        Register-ClusterSetVM -CimSession CSMASTER -MemberName $targetnode.Member -VMName CSVM1
+```PowerShell
+Register-ClusterSetVM -CimSession CSMASTER -MemberName $targetnode.Member -VMName CSVM1
+```
 
 Al termine dell'operazione, l'output sarà:
 
-         Id  VMName  State  MemberName  PSComputerName
-         --  ------  -----  ----------  --------------
-          1  CSVM1      On  CLUSTER1    CSMASTER
+```
+Id  VMName  State  MemberName  PSComputerName
+--  ------  -----  ----------  --------------
+1  CSVM1      On  CLUSTER1    CSMASTER
+```
 
 Se è stato aggiunto un cluster con macchine virtuali esistenti, sarà necessario registrare anche le macchine virtuali con i set di cluster, in modo da registrare tutte le macchine virtuali contemporaneamente. il comando da usare è:
 
-        Get-ClusterSetMember -name CLUSTER3 -CimSession CSMASTER | Register-ClusterSetVM -RegisterAll -CimSession CSMASTER
+```PowerShell
+Get-ClusterSetMember -Name CLUSTER3 -CimSession CSMASTER | Register-ClusterSetVM -RegisterAll -CimSession CSMASTER
+```
 
 Tuttavia, il processo non è completo perché il percorso della macchina virtuale deve essere aggiunto allo spazio dei nomi del set di cluster.
 
@@ -242,12 +274,16 @@ Quindi, ad esempio, viene aggiunto un cluster esistente e le macchine virtuali p
 
 In questo esempio, CLUSTER3 è stato aggiunto al set di cluster usando Add-ClusterSetMember con l'infrastruttura File server di scalabilità orizzontale come SOFS-CLUSTER3.  Per spostare la configurazione e l'archiviazione della macchina virtuale, il comando è:
 
-        Move-VMStorage -DestinationStoragePath \\SOFS-CLUSTER3\Volume1 -Name MYVM
+```PowerShell
+Move-VMStorage -DestinationStoragePath \\SOFS-CLUSTER3\Volume1 -Name MYVM
+```
 
 Al termine, verrà visualizzato un avviso:
 
-        WARNING: There were issues updating the virtual machine configuration that may prevent the virtual machine from running.  For more information view the report file below.
-        WARNING: Report file location: C:\Windows\Cluster\Reports\Update-ClusterVirtualMachineConfiguration '' on date at time.htm.
+```
+WARNING: There were issues updating the virtual machine configuration that may prevent the virtual machine from running.  For more information view the report file below.
+WARNING: Report file location: C:\Windows\Cluster\Reports\Update-ClusterVirtualMachineConfiguration '' on date at time.htm.
+```
 
 Questo avviso può essere ignorato perché l'avviso è "non sono state rilevate modifiche nella configurazione dell'archiviazione del ruolo macchina virtuale".  Il motivo dell'avviso perché la posizione fisica effettiva non cambia; solo i percorsi di configurazione. 
 
@@ -261,13 +297,17 @@ La migrazione in tempo reale di una macchina virtuale tra cluster di set di clus
 
 Con cluster imposta questi passaggi non sono necessari ed è necessario un solo comando.  Per prima cosa, è necessario impostare tutte le reti in modo che siano disponibili per la migrazione con il comando:
 
-    Set-VMHost -UseAnyNetworkForMigration $true
+```PowerShell
+Set-VMHost -UseAnyNetworkForMigration $true
+```
 
 Ad esempio, voglio spostare una macchina virtuale del set di cluster da CLUSTER1 a NODE2-CL3 in CLUSTER3.  Il singolo comando è:
 
-        Move-ClusterSetVM -CimSession CSMASTER -VMName CSVM1 -Node NODE2-CL3
+```PowerShell
+Move-ClusterSetVM -CimSession CSMASTER -VMName CSVM1 -Node NODE2-CL3
+```
 
-Si noti che questa operazione non consente di spostare i file di configurazione o di archiviazione della macchina virtuale.  Questa operazione non è necessaria perché il percorso della macchina virtuale rimane come \\SOFS-CLUSTER1\VOLUME1.  Quando una macchina virtuale è stata registrata con i set di cluster ha il percorso di condivisione del file server dell'infrastruttura, le unità e la macchina virtuale non devono essere nello stesso computer della macchina virtuale.
+Si noti che questa operazione non consente di spostare i file di configurazione o di archiviazione della macchina virtuale.  Questa operazione non è necessaria perché il percorso della macchina virtuale rimane come \\ \\SOFS-CLUSTER1\VOLUME1.  Quando una macchina virtuale è stata registrata con i set di cluster ha il percorso di condivisione del file server dell'infrastruttura, le unità e la macchina virtuale non devono essere nello stesso computer della macchina virtuale.
 
 ## <a name="creating-availability-sets-fault-domains"></a>Creazione di gruppi di disponibilità domini di errore
 
@@ -279,39 +319,49 @@ Nell'esempio seguente CLUSTER1 e CLUSTER2 si troveranno in un dominio di errore 
 
 Per creare i domini di errore, i comandi sono:
 
-        New-ClusterSetFaultDomain -Name FD1 -FdType Logical -CimSession CSMASTER -MemberCluster CLUSTER1,CLUSTER2 -Description "This is my first fault domain"
+```PowerShell
+New-ClusterSetFaultDomain -Name FD1 -FdType Logical -CimSession CSMASTER -MemberCluster CLUSTER1,CLUSTER2 -Description "This is my first fault domain"
 
-        New-ClusterSetFaultDomain -Name FD2 -FdType Logical -CimSession CSMASTER -MemberCluster CLUSTER3,CLUSTER4 -Description "This is my second fault domain"
+New-ClusterSetFaultDomain -Name FD2 -FdType Logical -CimSession CSMASTER -MemberCluster CLUSTER3,CLUSTER4 -Description "This is my second fault domain"
+```
 
 Per assicurarsi che siano stati creati correttamente, è possibile eseguire Get-ClusterSetFaultDomain con l'output visualizzato.
 
-        PS C:\> Get-ClusterSetFaultDomain -CimSession CSMASTER -FdName FD1 | fl *
+```PowerShell
+PS C:\> Get-ClusterSetFaultDomain -CimSession CSMASTER -FdName FD1 | fl *
 
-        PSShowComputerName    : True
-        FaultDomainType       : Logical
-        ClusterName           : {CLUSTER1, CLUSTER2}
-        Description           : This is my first fault domain
-        FDName                : FD1
-        Id                    : 1
-        PSComputerName        : CSMASTER
+PSShowComputerName    : True
+FaultDomainType       : Logical
+ClusterName           : {CLUSTER1, CLUSTER2}
+Description           : This is my first fault domain
+FDName                : FD1
+Id                    : 1
+PSComputerName        : CSMASTER
+```
 
 Ora che sono stati creati i domini di errore, è necessario creare il set di disponibilità.
 
-        New-ClusterSetAvailabilitySet -Name CSMASTER-AS -FdType Logical -CimSession CSMASTER -ParticipantName FD1,FD2
+```PowerShell
+New-ClusterSetAvailabilitySet -Name CSMASTER-AS -FdType Logical -CimSession CSMASTER -ParticipantName FD1,FD2
+```
 
 Per convalidare che è stato creato, usare:
 
-        Get-ClusterSetAvailabilitySet -AvailabilitySetName CSMASTER-AS -CimSession CSMASTER
+```PowerShell
+Get-ClusterSetAvailabilitySet -AvailabilitySetName CSMASTER-AS -CimSession CSMASTER
+```
 
 Quando si creano nuove macchine virtuali, è necessario usare il parametro-abilitate per come parte della determinazione del nodo ottimale.  Quindi, avrà un aspetto simile al seguente:
 
-        # Identify the optimal node to create a new virtual machine
-        $memoryinMB=4096
-        $vpcount = 1
-        $av = Get-ClusterSetAvailabilitySet -Name CSMASTER-AS -CimSession CSMASTER
-        $targetnode = Get-ClusterSetOptimalNodeForVM -CimSession CSMASTER -VMMemory $memoryinMB -VMVirtualCoreCount $vpcount -VMCpuReservation 10 -AvailabilitySet $av
-        $secure_string_pwd = convertto-securestring "<password>" -asplaintext -force
-        $cred = new-object -typename System.Management.Automation.PSCredential ("<domain\account>",$secure_string_pwd)
+```PowerShell
+# Identify the optimal node to create a new virtual machine
+$memoryinMB=4096
+$vpcount = 1
+$av = Get-ClusterSetAvailabilitySet -Name CSMASTER-AS -CimSession CSMASTER
+$targetnode = Get-ClusterSetOptimalNodeForVM -CimSession CSMASTER -VMMemory $memoryinMB -VMVirtualCoreCount $vpcount -VMCpuReservation 10 -AvailabilitySet $av
+$secure_string_pwd = convertto-securestring "<password>" -asplaintext -force
+$cred = new-object -typename System.Management.Automation.PSCredential ("<domain\account>",$secure_string_pwd)
+```
 
 Rimozione di un cluster da set di cluster a causa di diversi cicli di vita. In alcuni casi è necessario rimuovere un cluster da un set di cluster. Come procedura consigliata, tutte le macchine virtuali del set di cluster devono essere spostate all'esterno del cluster. Questa operazione può essere eseguita usando i comandi **Move-ClusterSetVM** e **Move-VMStorage** .
 
@@ -322,7 +372,9 @@ Tuttavia, se anche le macchine virtuali non vengono spostate, i set di cluster e
 
 Ad esempio, il comando per rimuovere il cluster CLUSTER1 dai set di cluster sarà:
 
-        Remove-ClusterSetMember -ClusterName CLUSTER1 -CimSession CSMASTER
+```PowerShell
+Remove-ClusterSetMember -ClusterName CLUSTER1 -CimSession CSMASTER
+```
 
 ## <a name="frequently-asked-questions-faq"></a>Domande frequenti
 
@@ -355,8 +407,8 @@ Ad esempio, il comando per rimuovere il cluster CLUSTER1 dai set di cluster sar�
 **Domanda:** È possibile eseguire il failover delle macchine virtuali tra domini di errore in una situazione di ripristino di emergenza (ad eccezione del fatto che l'intero dominio di errore è stato arrestato)? <br>
 **Risposta:** No. si noti che il failover tra cluster all'interno di un dominio di errore logico non è ancora supportato. 
 
-**Domanda:** Il cluster può estendersi sui cluster in più siti o domini DNS? <br>**risposta  
-:** si tratta di uno scenario non testato e non pianificato immediatamente per il supporto di produzione. Microsoft sa se questo scenario è fondamentale per l'utente e come si prevede di usarlo.
+**Domanda:** Il cluster può estendersi sui cluster in più siti o domini DNS? <br> 
+**Risposta:** Si tratta di uno scenario non testato e non pianificato immediatamente per il supporto di produzione. Microsoft sa se questo scenario è fondamentale per l'utente e come si prevede di usarlo.
 
 **Domanda:** Il set di cluster funziona con IPv6? <br>
 **Risposta:** Sia IPv4 che IPv6 sono supportati con i set di cluster come per i cluster di failover.

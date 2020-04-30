@@ -7,12 +7,12 @@ ms.date: 01/20/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: ddec398be56aba6d354b1863a98c8d641831415c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 8660bcab5719029936588738352e542828081ce8
+ms.sourcegitcommit: 371e59315db0cca5bdb713264a62b215ab43fd0f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80816094"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192617"
 ---
 # <a name="setting-up-an-ad-fs-deployment-with-alwayson-availability-groups"></a>Configurazione di una distribuzione di AD FS con Gruppi di disponibilità AlwaysOn
 Una topologia con distribuzione geografica a disponibilità elevata offre:
@@ -26,7 +26,7 @@ La guida seguente illustra una panoramica delle AD FS con i gruppi di disponibil
 
 Per ulteriori informazioni sui gruppi di disponibilità AlwaysOn, vedere [Panoramica di gruppi di disponibilità AlwaysOn (SQL Server)](https://technet.microsoft.com/library/ff877884.aspx)
 
-Dal punto di vista dei nodi di una farm di AD FS SQL Server, il gruppo di disponibilità AlwaysOn sostituisce la singola istanza di SQL Server come database Policy/artefatto.  Il listener del gruppo di disponibilità è quello usato dal client (il servizio token di sicurezza AD FS) per connettersi a SQL.
+Dal punto di vista dei nodi di una farm di AD FS SQL Server, il gruppo di disponibilità AlwaysOn sostituisce la singola istanza di SQL Server come database Policy/artefatto.Il listener del gruppo di disponibilità è quello usato dal client (il servizio token di sicurezza AD FS) per connettersi a SQL.
 Il diagramma seguente mostra un SQL Server Farm ADFS con gruppo di disponibilità AlwaysOn.
 
 ![server farm con SQL](media/ad-fs-always-on/SQLoverview.png)
@@ -51,13 +51,14 @@ Per ulteriori informazioni sulla Gruppi di disponibilità AlwaysOn, vedere [Pano
 La tabella seguente descrive le differenze tra le funzionalità supportate tra un database WID e un database SQL.
 
 
-| Category      | Caratteristica       | Supportato da WID  | Supportato da SQL |
+| Category      | Funzionalità       | Supportato da WID  | Supportato da SQL |
 | ------------------ |:-------------:| :---:|:---: |
 | Funzionalità di AD FS     | Distribuzione in una server farm federativa | Sì  | Sì |
-| Funzionalità di AD FS     | Risoluzione artefatti SAML. Nota: questa operazione non è comune per le applicazioni SAML     |   No | No  |
-| Funzionalità di AD FS | Rilevamento riproduzione token SAML/WS-Federation. Nota: è necessario solo quando AD FS riceve token da IDP esterni. Questa operazione non è necessaria se AD FS non funge da IDP.      |    No  | Sì |
-| Funzionalità di database     |   Ridondanza di base del database tramite la replica pull, in cui uno o più server che ospitano una copia di sola lettura del database richiedono modifiche apportate in un server di origine che ospita una copia di lettura/scrittura del database    |   No | No  |
-| Funzionalità di database | Ridondanza dei database con soluzioni a disponibilità elevata, ad esempio il clustering o il mirroring (a livello di database)      |    No  | Sì |
+| Funzionalità di AD FS     | Risoluzione artefatto SAML. Nota: questa operazione non è comune per le applicazioni SAML     |   No | Sì  |
+| Funzionalità di AD FS | Rilevamento riproduzione token SAML/WS-Federation. Nota: è necessario solo quando AD FS riceve token da IDP esterni. Questa operazione non è necessaria se AD FS non funge da partner federativo.      |    No  | Sì |
+| Caratteristiche del database     |   Ridondanza di base del database tramite la replica pull, in cui uno o più server che ospitano una copia di sola lettura del database richiedono modifiche apportate in un server di origine che ospita una copia di lettura/scrittura del database    |   No | No  |
+| Caratteristiche del database | Ridondanza dei database con soluzioni a disponibilità elevata, ad esempio il clustering o il mirroring (a livello di database)      |    No  | Sì |
+| Funzionalità aggiuntive | Scenario OAuth authcode     |   Sì  | Sì |
 
 Se si è un'organizzazione di grandi dimensioni con più di 100 relazioni di trust che devono fornire agli utenti interni e agli utenti esterni l'accesso Single Sign-on alle applicazioni o ai servizi federativi, SQL è l'opzione consigliata.
 
@@ -125,7 +126,7 @@ Il ruolo cluster di failover di Windows Server fornisce per ulteriori informazio
 
 ![server di destinazione](media/ad-fs-always-on/clusteringDestinationServer.png)
 
-6.  Nella pagina Selezione ruoli server selezionare Avanti.
+6.  Nella pagina Selezione ruoli server seleziona Avanti.
 7.  Nella pagina Selezione funzionalità selezionare la casella di controllo Clustering di failover.
 
 ![Selezione funzionalità clustering](media/ad-fs-always-on/clusteringFeature.png)
@@ -138,8 +139,8 @@ L'installazione della funzionalità Clustering di failover non richiede alcun ri
 ## <a name="run-cluster-validation-tests"></a>Eseguire i test di convalida del cluster
 1.  In un computer in cui sono installati gli strumenti di gestione del cluster di failover da Strumenti di amministrazione remota del server, oppure in un server in cui è installata la funzionalità Clustering di failover, avviare Gestione cluster di failover. Per eseguire questa operazione in un server, avviare Server Manager, quindi scegliere Gestione cluster di failover dal menu strumenti.
 2.  Nel riquadro Gestione cluster di failover fare clic su Convalida configurazione in gestione.
-3.  Nella pagina prima di iniziare selezionare Avanti.
-4.  Nella pagina Selezione di server o di un cluster, nella casella Immettere il nome, immettere il nome NetBIOS o il nome di dominio completo di un server che si prevede di aggiungere come nodo del cluster di failover e quindi selezionare Aggiungi. Ripetere questo passaggio per ogni server da aggiungere. Per aggiungere più server contemporaneamente, separare i nomi con una virgola o un punto e virgola. Immettere ad esempio i nomi nel formato server1.contoso.com, server2.contoso.com. Al termine, fare clic su Avanti.
+3.  Nella pagina Prima di iniziare scegliere Avanti.
+4.  Nella pagina Selezione di server o di un cluster, nella casella Immettere il nome, immettere il nome NetBIOS o il nome di dominio completo di un server che si prevede di aggiungere come nodo del cluster di failover e quindi selezionare Aggiungi. Ripetere questo passaggio per ogni server da aggiungere. Per aggiungere più server contemporaneamente, separare i nomi con una virgola o un punto e virgola. Immettere ad esempio i nomi nel formato server1.contoso.com, server2.contoso.com. Al termine dell'operazione, scegliere Avanti.
 
 ![selezione immagine server](media/ad-fs-always-on/clusterValidationServers.png)
 
@@ -164,8 +165,8 @@ Per completare questo passaggio, assicurarsi che l'account utente usato per l'ac
 2.  Scegliere Gestione cluster di failover dal menu strumenti.
 3.  Nel riquadro Gestione cluster di failover fare clic su Crea cluster in gestione.
 Verrà visualizzata la Creazione guidata cluster.
-4.  Nella pagina prima di iniziare selezionare Avanti.
-5.  Se viene visualizzata la pagina Selezione server, nella casella Immettere il nome immettere il nome NetBIOS o il nome di dominio completo di un server che si prevede di aggiungere come nodo del cluster di failover e quindi selezionare Aggiungi. Ripetere questo passaggio per ogni server da aggiungere. Per aggiungere più server contemporaneamente, separare i nomi con una virgola o un punto e virgola. Immettere ad esempio i nomi nel formato server1.contoso.com; server2.contoso.com. Al termine, fare clic su Avanti.
+4.  Nella pagina Prima di iniziare scegliere Avanti.
+5.  Se viene visualizzata la pagina Selezione server, nella casella Immettere il nome immettere il nome NetBIOS o il nome di dominio completo di un server che si prevede di aggiungere come nodo del cluster di failover e quindi selezionare Aggiungi. Ripetere questo passaggio per ogni server da aggiungere. Per aggiungere più server contemporaneamente, separare i nomi con una virgola o un punto e virgola. Immettere ad esempio i nomi nel formato server1.contoso.com; server2.contoso.com. Al termine dell'operazione, scegliere Avanti.
 
 ![Crea cluster e seleziona Server](media/ad-fs-always-on/createClusterServers.png)
 
@@ -175,11 +176,11 @@ Verrà visualizzata la Creazione guidata cluster.
 6.  Se si è precedentemente ignorata la convalida, verrà visualizzata la pagina Avviso di convalida. È consigliabile che la convalida del cluster venga eseguita. Solo i cluster che superano tutti i test di convalida sono supportati da Microsoft. Per eseguire i test di convalida, selezionare Sì e quindi fare clic su Avanti. Completare la convalida guidata configurazione come descritto in [convalidare la configurazione](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster#validate-the-configuration).
 7.  Nella pagina Punto di accesso per l'amministrazione del cluster eseguire le operazioni seguenti:
 -   Nella casella Nome cluster immettere il nome che si vuole usare per amministrare il cluster. Prima di procedere, tuttavia, prendere nota delle informazioni seguenti:
- -  Durante la creazione del cluster, questo nome viene registrato come oggetto computer del cluster (anche noto come oggetto nome cluster o oggetto nome cluster) in servizi di dominio Active Directory. Se si specifica un nome NetBIOS per il cluster, l'oggetto CNO viene creato nello stesso percorso in cui risiedono gli altri oggetti computer per i nodi del cluster. Questo può essere il contenitore Computer predefinito o un'unità organizzativa.
- -  Per specificare un percorso diverso per l'oggetto CNO, è possibile immettere il nome distinto di un'unità organizzativa nella casella Nome cluster. Ad esempio: CN = clustername, OU = clusters, DC = contoso, DC = com.
+ -  Durante la creazione del cluster, questo nome verrà registrato come oggetto computer del cluster (anche noto come oggetto nome cluster o CNO) in Servizi di dominio Active Directory. Se si specifica un nome NetBIOS per il cluster, l'oggetto CNO viene creato nello stesso percorso in cui risiedono gli altri oggetti computer per i nodi del cluster. Questo può essere il contenitore Computer predefinito o un'unità organizzativa.
+ -  Per specificare un percorso diverso per l'oggetto CNO, è possibile immettere il nome distinto di un'unità organizzativa nella casella Nome cluster. Ad esempio: CN=NomeCluster, OU=Cluster, DC=Contoso, DC=com.
  -  Se un amministratore di dominio ha pre-installato l'oggetto CNO in un'unità organizzativa differente rispetto a quella in cui risiedono i nodi del cluster, specificare il nome distinto fornito dall'amministratore.
 - Se il server non dispone di un adattatore di rete configurato per usare DHCP, è necessario configurare uno o più indirizzi IP statici per il cluster di failover. Selezionare la casella di controllo accanto a ogni rete da usare per la gestione del cluster. Selezionare il campo indirizzo accanto a una rete selezionata, quindi immettere l'indirizzo IP che si desidera assegnare al cluster. Questo indirizzo (o questi indirizzi) IP verranno associati al nome del cluster in ambito DNS (Domain Name System).
-- Al termine, fare clic su Avanti.
+- Al termine dell'operazione, scegliere Avanti.
 
 8.  Verificare le impostazioni nella finestra di dialogo Conferma. Per impostazione predefinita, la casella di controllo Aggiungi tutte le risorse di archiviazione idonee al cluster è selezionata. Deselezionarla se si intende procedere in uno dei modi seguenti:
 -   Si vuole configurare l'archiviazione in un secondo tempo.
@@ -195,11 +196,11 @@ Tenere presente che il completamento della replica del nome del cluster nel DNS 
 
 1.  Connettersi al nodo WSFC (Windows Server failover cluster) che ospita l'istanza di SQL Server in cui si desidera abilitare Always On gruppi di disponibilità.
 2.  Dal menu Start scegliere tutti i programmi, Microsoft SQL Server, Strumenti di configurazione e fare clic su Gestione configurazione SQL Server.
-3.  In Gestione configurazione SQL Server fare clic su servizi SQL Server, fare clic con il pulsante destro del mouse su SQL Server (<instance name>), dove <instance name> è il nome di un'istanza del server locale per cui si desidera abilitare Always On gruppi di disponibilità, quindi fare clic su Proprietà.
-4.  Selezionare la scheda disponibilità elevata Always On.
+3.  In Gestione configurazione SQL Server fare clic su servizi SQL Server, fare clic con il<instance name>pulsante destro del <instance name> mouse su SQL Server (), dove è il nome di un'istanza del server locale per cui si desidera abilitare always on gruppi di disponibilità e fare clic su Proprietà.
+4.  Selezionare la scheda Disponibilità elevata Always On.
 5.  Verificare che nel campo Nome cluster di failover Windows sia incluso il nome del cluster di failover locale. Se questo campo è vuoto, questa istanza del server non supporta attualmente Gruppi di disponibilità Always On. Il computer locale non è un nodo del cluster, il cluster WSFC è stato arrestato o questa edizione di SQL Server che non supporta Gruppi di disponibilità Always On.
-6.  Selezionare la casella di controllo Abilita gruppi di disponibilità Always On e fare clic su OK.
-La modifica viene salvata da Gestione configurazione SQL Server. Successivamente, è necessario riavviare manualmente il servizio SQL Server. In questo modo è possibile scegliere un'ora di riavvio migliore per i requisiti aziendali. Quando il servizio SQL Server viene riavviato, Always On verrà abilitato e la proprietà del server IsHadrEnabled sarà impostata su 1.
+6.  Selezionare la casella di controllo Abilita gruppi di disponibilità Always On e scegliere OK.
+La modifica viene salvata da Gestione configurazione SQL Server. Successivamente, è necessario riavviare manualmente il servizio SQL Server. In questo modo è possibile scegliere un'ora per il riavvio che meglio soddisfa le esigenze aziendali. Quando il servizio SQL Server viene riavviato, Always On verrà abilitato e la proprietà del server IsHadrEnabled sarà impostata su 1.
 
 ![Abilita AoA](media/ad-fs-always-on/enableAoAGroup.png)
 
@@ -213,43 +214,43 @@ Eseguire il backup dell'artefatto e dei database di configurazione di ADFS.
 ## <a name="create-new-availability-group"></a>Crea nuovo gruppo di disponibilità
 
 1.  In Esplora oggetti connettersi all'istanza del server che ospita la replica primaria.
-2.  Espandere il nodo Always On disponibilità elevata e il nodo gruppi di disponibilità.
+2.  Espandere il nodo Disponibilità elevata AlwaysOn e il nodo Gruppi di disponibilità.
 3.  Per avviare la Creazione guidata Gruppo di disponibilità, selezionare il comando Creazione guidata Gruppo di disponibilità.
 4.  Quando si esegue la procedura guidata per la prima volta, viene visualizzata una pagina Introduzione. Per ignorare questa pagina in futuro, è possibile fare clic su Non visualizzare più questa pagina. Dopo avere letto questa pagina, fare clic su Avanti.
-5.  Nella pagina specifica opzioni del gruppo di disponibilità immettere il nome del nuovo gruppo di disponibilità nel campo nome gruppo di disponibilità. Questo nome deve essere un identificatore di SQL Server valido che sia univoco nel cluster e nell'intero dominio. La lunghezza massima consentita per il nome di un gruppo di disponibilità è 128 caratteri. e
-6.  Specificare quindi il tipo di cluster. I tipi di cluster possibili dipendono dalla versione SQL Server e dal sistema operativo. Scegliere WSFC, EXTERNAL o NONE. Per informazioni dettagliate, vedere la pagina [specifica il nome del gruppo di disponibilità](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/specify-availability-group-name-page?view=sql-server-ver15)
+5.  Nella pagina Specifica opzioni del gruppo di disponibilità immettere il nome del nuovo gruppo di disponibilità nel campo Nome gruppo di disponibilità . Questo nome deve essere un identificatore di SQL Server valido che sia univoco nel cluster e nell'intero dominio. La lunghezza massima consentita per il nome del gruppo di disponibilità è 128 caratteri. e
+6.  Successivamente, specificare il tipo di cluster. I tipi di cluster possibili dipendono dalla versione SQL Server e dal sistema operativo. Scegliere WSFC, EXTERNAL o NONE. Per informazioni dettagliate, vedere la pagina [specifica il nome del gruppo di disponibilità](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/specify-availability-group-name-page?view=sql-server-ver15)
 
 ![Nome gruppo e cluster AoA](media/ad-fs-always-on/createAoAName.png)
 
-7.  Nella griglia della pagina Seleziona database sono elencati i database utente sull'istanza del server connessa idonei per diventare i database di disponibilità. Selezionare uno o più database elencati per partecipare al nuovo gruppo di disponibilità. Questi database diventeranno inizialmente i database primari iniziali.
-Per ogni database elencato, nella colonna Dimensioni viene visualizzata la dimensione del database, se nota. Nella colonna stato viene indicato se un determinato database soddisfa i [prerequisiti](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/prereqs-restrictions-recommendations-always-on-availability?view=sql-server-ver15) per i database di disponibilità. Poiché i prerequisiti non sono soddisfatti, una breve descrizione dello stato indica il motivo per cui il database non è idoneo; Se, ad esempio, non viene utilizzato il modello di recupero con la versione completa. Per ulteriori informazioni, fare clic sulla descrizione dello stato.
+7.  Nella griglia della pagina Seleziona database sono elencati i database utente sull'istanza del server connessa idonei per diventare i database di disponibilità. Selezionare uno o più dei database elencati per usarli nel nuovo gruppo di disponibilità. Questi database diventeranno inizialmente i database primari iniziali.
+Per ogni database elencato, nella colonna Dimensioni viene visualizzata la dimensione del database, se nota. Nella colonna stato viene indicato se un determinato database soddisfa i [prerequisiti](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/prereqs-restrictions-recommendations-always-on-availability?view=sql-server-ver15) per i database di disponibilità. Se i prerequisiti non vengono soddisfatti, una breve descrizione dello stato indica il motivo per il database non è idoneo; ad esempio, se non usano il modello di recupero con registrazione completa. Per altre informazioni, fare clic sulla descrizione relativa allo stato.
 Se si modifica un database per renderlo idoneo, fare clic su Aggiorna per aggiornare la griglia dei database.
 Se il database contiene una chiave master di database, immettere la password per la chiave master di database nella colonna Password.
 
 ![Selezionare i database per AoA](media/ad-fs-always-on/createAoASelectDb.png)
 
-8. nella pagina Specifica repliche specificare e configurare una o più repliche per il nuovo gruppo di disponibilità. Questa pagina contiene quattro schede. Nella tabella seguente vengono presentate queste schede. Per ulteriori informazioni, vedere l'argomento [pagina Specifica repliche (creazione guidata gruppo di disponibilità: Aggiungi replica)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/specify-replicas-page-new-availability-group-wizard-add-replica-wizard?view=sql-server-ver15) .
+8. nella pagina Specifica repliche specificare e configurare una o più repliche per il nuovo gruppo di disponibilità. In questa pagina sono incluse quattro schede. Queste schede vengono presentate nella tabella seguente. Per ulteriori informazioni, vedere l'argomento [pagina Specifica repliche (creazione guidata gruppo di disponibilità: Aggiungi replica)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/specify-replicas-page-new-availability-group-wizard-add-replica-wizard?view=sql-server-ver15) .
 
-| TAB      | Breve descrizione       |
+| Scheda      | Breve descrizione       |
 | ------------------ |:-------------:|
-| Repliche     | Utilizzare questa scheda per specificare ogni istanza di SQL Server in cui verrà ospitata una replica secondaria. Si noti che l'istanza del server a cui si è attualmente connessi deve ospitare la replica primaria. |
-| Endpoint     | Utilizzare questa scheda per verificare eventuali endpoint del mirroring del database esistenti e anche se l'endpoint non è presente in un'istanza del server i cui account del servizio utilizzano l'autenticazione di Windows, per creare automaticamente l'endpoint.|
-| Preferenze di backup | Utilizzare questa scheda per specificare le preferenze di backup per il gruppo di disponibilità nel suo complesso e le priorità di backup per le singole repliche di disponibilità.      |
-| Listener     | Utilizzare questa scheda per creare un listener del gruppo di disponibilità. Per impostazione predefinita, la procedura guidata non crea un listener.      |
+| Repliche     | Utilizzare questa scheda per specificare ogni istanza di SQL Server in cui verrà ospitata una replica secondaria. Si noti che la replica primaria sarà ospitata nell'istanza del server a cui si è attualmente connessi. |
+| Endpoint     | Usare questa scheda per verificare eventuali endpoint del mirroring di database esistenti e, inoltre, se tale endpoint risulta mancante in un'istanza del server i cui account del servizio usano l'autenticazione di Windows, per creare l'endpoint automaticamente.|
+| Preferenze di backup | Usare questa scheda per specificare le preferenze di backup per il gruppo di disponibilità nel suo complesso e le priorità di backup per le singole repliche di disponibilità.      |
+| Listener     | Usare questa scheda per creare un listener del gruppo di disponibilità. Per impostazione predefinita, la procedura guidata non crea un listener.      |
 
 ![specificare i dettagli della replica](media/ad-fs-always-on/createAoAchooseReplica.png)
 
-9. Nella pagina Seleziona sincronizzazione dei dati iniziale specificare come creare e aggiungere i nuovi database secondari al gruppo di disponibilità. Scegliere una delle seguenti opzioni:
+9. Nella pagina Seleziona sincronizzazione dei dati iniziale specificare come creare e aggiungere i nuovi database secondari al gruppo di disponibilità. Scegliere una delle opzioni seguenti:
 -   Seeding automatico
- - SQL Server crea automaticamente le repliche secondarie per ogni database nel gruppo. Il seeding automatico richiede che i percorsi dei file di dati e di log siano gli stessi in ogni istanza SQL Server che partecipa al gruppo. Disponibile in SQL Server 2016 (13. x) e versioni successive. Vedere [inizializzare automaticamente i gruppi di disponibilità always on](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group?view=sql-server-ver15).
-- Backup completo del database e del log
+ - SQL Server crea automaticamente le repliche secondarie per ogni database nel gruppo. Il seeding automatico richiede che il percorso dei dati e del file di log sia lo stesso in ogni istanza di SQL Server inclusa nel gruppo. Disponibile in SQL Server 2016 (13. x) e versioni successive. Vedere [inizializzare automaticamente i gruppi di disponibilità always on](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group?view=sql-server-ver15).
+- Backup completo di database e log
  - Selezionare questa opzione se l'ambiente soddisfa i requisiti per l'avvio automatico della sincronizzazione dei dati iniziale. per ulteriori informazioni, vedere [prerequisiti, restrizioni e raccomandazioni, più indietro in questo argomento](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio?view=sql-server-ver15#Prerequisites).
-Se si seleziona Completo, dopo avere creato il gruppo di disponibilità verrà eseguito il backup di ogni database primario e del relativo log delle transazioni su una condivisione di rete e verranno ripristinati i backup su ogni istanza del server in cui è ospitata una replica secondaria. La procedura guidata creerà quindi un join di ogni database secondario al gruppo di disponibilità.
-Nel campo Specificare un percorso di rete condiviso accessibile da tutte le repliche: specificare una condivisione di backup a cui abbiano accesso in lettura e scrittura tutte le istanze del server che ospitano repliche. Per altre informazioni, vedere la sessione Prerequisiti più indietro in questo argomento. Nel passaggio di convalida, la procedura guidata eseguirà un test per assicurarsi che il percorso di rete specificato sia valido, il test creerà un database nella replica primaria denominata "BackupLocDb_" seguito da un GUID ed eseguirà il backup nel percorso di rete fornito, quindi lo ripristinerà sulle repliche secondarie. È possibile eliminare questo database insieme alla relativa cronologia di backup e al file di backup nel caso in cui la procedura guidata non sia stata eliminata.
+Se si seleziona Completo, dopo avere creato il gruppo di disponibilità verrà eseguito il backup di ogni database primario e del relativo log delle transazioni su una condivisione di rete e verranno ripristinati i backup su ogni istanza del server in cui è ospitata una replica secondaria. Ogni database secondario verrà quindi aggiunto al gruppo di disponibilità.
+Nel campo Specificare un percorso di rete condiviso accessibile da tutte le repliche: specificare una condivisione di backup a cui abbiano accesso in lettura e scrittura tutte le istanze del server che ospitano repliche. Per altre informazioni, vedere la sessione Prerequisiti più indietro in questo argomento. Nel passaggio di convalida la procedura guidata esegue un test per verificare che la posizione di rete sia valida e il test crea nella replica primaria un database "BackupLocDb_" seguito da un GUID, quindi esegue il backup nella posizione di rete specificata e quindi il ripristino nelle repliche secondarie. È possibile eliminare questo database insieme alla cronologia di backup e al file di backup se la procedura guidata non li ha eliminati.
 - Solo join
- - Se sono stati preparati manualmente database secondari nelle istanze del server che ospiteranno le repliche secondarie, è possibile selezionare questa opzione. La procedura guidata aggiungerà i database secondari esistenti al gruppo di disponibilità.
-- Ignora sincronizzazione dati iniziale
- - Selezionare questa opzione se si desidera utilizzare i backup del database e del log dei database primari. Per ulteriori informazioni, vedere [avviare lo spostamento dati su un database secondario always on (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/start-data-movement-on-an-always-on-secondary-database-sql-server?view=sql-server-ver15).
+ - Se sono stati preparati manualmente database secondari sulle istanze del server che ospiteranno le repliche secondarie, è possibile selezionare questa opzione. I database secondari esistenti verranno uniti al gruppo di disponibilità tramite la procedura guidata.
+- Ignora sincronizzazione dei dati iniziale
+ - Selezionare questa opzione se si desidera usare i backup dei database e del log dei database primari. Per ulteriori informazioni, vedere [avviare lo spostamento dati su un database secondario always on (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/start-data-movement-on-an-always-on-secondary-database-sql-server?view=sql-server-ver15).
 
 ![scegliere l'opzione di sincronizzazione dati](media/ad-fs-always-on/createAoADataSync.png)
 
@@ -259,10 +260,10 @@ Nel campo Specificare un percorso di rete condiviso accessibile da tutte le repl
 
 > [!NOTE] 
 > Quando l'account del servizio SQL Server di un'istanza del server che ospiterà una nuova replica di disponibilità non esiste già come account di accesso, è necessario creare l'account di accesso tramite la procedura guidata nuovo gruppo di disponibilità. Nella pagina Riepilogo vengono visualizzate le informazioni relative all'account di accesso da creare. Se si fa clic su Fine, viene creato questo account di accesso per l'account del servizio SQL Server e viene concessa l'autorizzazione CONNECT.
-> Se si è soddisfatti delle selezioni, è possibile fare clic su Script per creare uno script dei passaggi eseguiti nel corso della procedura guidata. Per creare e configurare il nuovo gruppo di disponibilità, fare quindi clic su Fine.
+> Se si è soddisfatti delle selezioni, è possibile fare clic su Script per creare uno script dei passaggi eseguiti dalla procedura guidata. Per creare e configurare il nuovo gruppo di disponibilità, fare quindi clic su Fine.
 
 11. Nella pagina Stato viene visualizzato lo stato di avanzamento dei passaggi per la creazione del gruppo di disponibilità (configurazione di endpoint, creazione del gruppo di disponibilità e creazione di un join della replica secondaria al gruppo).
-12. Al termine di questi passaggi, nella pagina Risultati vengono visualizzati i relativi risultati. Se tutti questi passaggi hanno esito positivo, il nuovo gruppo di disponibilità è completamente configurato. Se uno dei passaggi genera un errore, potrebbe essere necessario completare manualmente la configurazione o utilizzare una procedura guidata per il passaggio non riuscito. Per informazioni sulla causa di un determinato errore, fare clic sul collegamento "Errore" nella colonna Risultato.
+12. Al termine di questi passaggi, nella pagina Risultati vengono visualizzati i relativi risultati. Se tutti questi passaggi sono stati eseguiti correttamente, il nuovo gruppo di disponibilità è completamente configurato. Se si verifica un errore durante uno dei passaggi, potrebbe essere necessario completare manualmente la configurazione o usare una procedura dettagliata per il passaggio errato. Per informazioni sulla causa di un determinato errore, fare clic sul collegamento "Errore" nella colonna Risultato.
 Al termine della procedura guidata, fare clic su Chiudi per uscire.
 
 ![Convalida completata](media/ad-fs-always-on/createAoAValidation.png)
@@ -270,18 +271,18 @@ Al termine della procedura guidata, fare clic su Chiudi per uscire.
 ## <a name="add-databases-on-secondary-node"></a>Aggiungere database nel nodo secondario
 
 1.  Ripristinare il database degli artefatti tramite l'interfaccia utente nel nodo secondario usando i file di backup creati.
-ripristino ![tramite interfaccia utente](media/ad-fs-always-on/restoreDB.png)
+![ripristino tramite interfaccia utente](media/ad-fs-always-on/restoreDB.png)
 
 2. Ripristinare il database in uno stato NON di ripristino.
-ripristino ![con](media/ad-fs-always-on/restoreNonRecovery.png) non di ripristino
+![ripristino con non ripristino](media/ad-fs-always-on/restoreNonRecovery.png)
 
 3. Ripetere il processo per ripristinare il database di configurazione.
 
 ## <a name="join-availability-replica-to-an-availability-group"></a>Aggiungere una replica di disponibilità a un gruppo di disponibilità
 
-1.  In Esplora oggetti connettersi all'istanza del server che ospita la replica secondaria e fare clic sul nome del server per espandere l'albero del server.
-2.  Espandere il nodo Always On disponibilità elevata e il nodo gruppi di disponibilità.
-3.  Consente di selezionare il gruppo di disponibilità della replica secondaria a cui si è connessi.
+1.  In Esplora oggetti connettersi all'istanza del server in cui viene ospitata la replica secondaria e fare clic sul nome del server per espandere il relativo albero.
+2.  Espandere il nodo Disponibilità elevata AlwaysOn e il nodo Gruppi di disponibilità.
+3.  Selezionare il gruppo di disponibilità della replica secondaria a cui si è connessi.
 4.  Fare clic con il pulsante destro del mouse sulla replica secondaria e scegliere Crea un join del gruppo di disponibilità.
 5.  In questo modo verrà aperta la finestra di dialogo Creare un join della replica al gruppo di disponibilità.
 6.  Per creare un join della replica secondaria al gruppo di disponibilità, fare clic su OK.
