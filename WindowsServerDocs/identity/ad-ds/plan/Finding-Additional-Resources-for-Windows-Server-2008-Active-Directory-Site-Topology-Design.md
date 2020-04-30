@@ -7,52 +7,49 @@ manager: mtillman
 ms.date: 05/31/2017
 ms.topic: article
 ms.prod: windows-server
-ms.openlocfilehash: 49709ca40c515c8fdb7df62598e9a9dc766029c8
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b328bfcb5977e5c7117590b173dbb967214bf10d
+ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80822454"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81624219"
 ---
->Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 # <a name="finding-additional-resources-for-windows-server-2008-active-directory-site-topology-design"></a>Ricerca di ulteriori resou # RCE per Windows Server 2008 Active Directory progettazione della topologia del sito
 
-È possibile trovare la documentazione seguente su Active Directory Domain Services (AD DS) di Windows Server 2003 e siti Web di Windows Server 2008 TechCenter:  
-  
--   Per ulteriori informazioni sul processo di individuazione di un controller di dominio, vedere Active Directory Collection ([https://go.microsoft.com/fwlink/?LinkID=88626](https://go.microsoft.com/fwlink/?LinkID=88626)).  
-  
--   Per ulteriori informazioni sulla progettazione e la distribuzione di server di stampa, vedere Progettazione e distribuzione di server di stampa ([https://go.microsoft.com/fwlink/?LinkId=107041](https://go.microsoft.com/fwlink/?LinkId=107041)).  
-  
--   Per ulteriori informazioni sugli alberi con spanning e Active Directory topologia di replica, vedere riferimento tecnico per la topologia di replica Active Directory ([https://go.microsoft.com/fwlink/?LinkId=44137](https://go.microsoft.com/fwlink/?LinkId=44137)).  
-  
--   Per ulteriori informazioni sull'utilizzo di Adlb. exe e sulla gestione di ambienti con 100 o più siti di succursale, vedere Planning and Deploying Active Directory Domain Services for Branchs ([https://go.microsoft.com/fwlink/?LinkId=107114](https://go.microsoft.com/fwlink/?LinkId=107114)).  
-  
--   Per informazioni sull'installazione di Network Monitor, vedere monitoraggio del traffico di rete ([https://go.microsoft.com/fwlink/?LinkId=107058](https://go.microsoft.com/fwlink/?LinkId=107058)).  
-  
--   Per i fogli di lavoro che facilitano la documentazione della progettazione della topologia del sito di servizi di dominio Active Directory di Windows Server 2008, vedere la pagina relativa agli strumenti per la distribuzione di Windows Server 2003 ([https://go.microsoft.com/fwlink/?LinkID=102558](https://go.microsoft.com/fwlink/?LinkID=102558)).  
-  
--   Per ulteriori informazioni sui trust di collegamento tra domini, vedere informazioni su quando creare un trust di collegamento ([https://go.microsoft.com/fwlink/?LinkId=107061](https://go.microsoft.com/fwlink/?LinkId=107061)).  
-  
--   Per ulteriori informazioni sulla distribuzione di dominio radice della foresta, vedere [la distribuzione di un dominio radice della foresta Windows Server 2008](https://technet.microsoft.com/library/cc731174.aspx).  
-  
--   Per ulteriori informazioni sulla protezione dei controller di dominio, vedere la Guida alle procedure consigliate per la protezione delle installazioni di Windows Server Active Directory ([https://go.microsoft.com/fwlink/?LinkId=28521](https://go.microsoft.com/fwlink/?LinkId=28521)).  
-  
--   Per ulteriori informazioni sulla distribuzione di domini regionali, vedere [la distribuzione di Windows Server 2008 domini regionali](https://technet.microsoft.com/library/cc755118.aspx).  
-  
--   Per ulteriori informazioni sul funzionamento della memorizzazione nella cache dei gruppi universali, vedere funzionamento del catalogo globale ([https://go.microsoft.com/fwlink/?LinkId=107063](https://go.microsoft.com/fwlink/?LinkId=107063)).  
-  
--   Per ulteriori informazioni sulla creazione di oggetti sito, vedere la pagina relativa alla creazione di un sito ([https://go.microsoft.com/fwlink/?LinkId=107067](https://go.microsoft.com/fwlink/?LinkId=107067)).  
-  
--   Per ulteriori informazioni sulla creazione di oggetti subnet, vedere creare una subnet ([https://go.microsoft.com/fwlink/?LinkId=107068](https://go.microsoft.com/fwlink/?LinkId=107068)).  
-  
--   Per ulteriori informazioni sull'utilizzo dello snap-in siti e servizi Active Directory per disabilitare l'impostazione **Bridge tutti i collegamenti di sito** , vedere Abilitare o disabilitare i Bridge di collegamenti di sito ([https://go.microsoft.com/fwlink/?LinkId=107073](https://go.microsoft.com/fwlink/?LinkId=107073)).  
-  
--   Per informazioni sulla gestione della replica tramite firewall, vedere Active Directory in reti segmentate in base ai firewall ([https://go.microsoft.com/fwlink/?LinkId=37928](https://go.microsoft.com/fwlink/?LinkId=37928)).  
-  
--   Per ulteriori informazioni sulle funzionalità del controller di dominio di sola lettura (RODC), vedere Servizi di dominio Active Directory: controller di dominio di sola lettura ([https://go.microsoft.com/fwlink/?LinkID=106616](https://go.microsoft.com/fwlink/?LinkID=106616)).  
-  
--   Per informazioni su come distribuire un controller di dominio di sola lettura, vedere la guida dettagliata per i controller di dominio di sola lettura ([https://go.microsoft.com/fwlink/?LinkID=92728](https://go.microsoft.com/fwlink/?LinkID=92728)).  
-  
+È possibile trovare la documentazione seguente su Active Directory Domain Services (AD DS) nei siti Web TechCenter di Windows Server 2003 e Windows Server 2008:
 
+- Per ulteriori informazioni sul processo di individuazione di un controller di dominio, vedere [Active Directory Collection](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc780036(v=ws.10)).
 
+- Per ulteriori informazioni sulla progettazione e la distribuzione di server di stampa, vedere [progettazione e distribuzione di server di stampa](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc785842(v=ws.10)).
+
+- Per ulteriori informazioni sullo spanning degli alberi e Active Directory topologia di replica, vedere [Active Directory riferimento tecnico per la topologia di replica](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc755326(v=ws.10)).
+
+- Per altre informazioni sull'uso di Adlb. exe e sulla gestione di ambienti con 100 o più siti di succursale, vedere [esaminare i miglioramenti del bilanciamento del carico del server testa di ponte con Windows Server 2008 RODC](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd735927(v%3dws.10)).
+
+- Per informazioni sull'installazione di Network Monitor, vedere [monitoraggio del traffico di rete](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc783075(v=ws.10)).
+
+- Per i fogli di lavoro che facilitano la documentazione della progettazione della topologia del sito di servizi di dominio Active Directory di Windows Server 2008, vedere la pagina [relativa agli strumenti di distribuzione per Windows server 2003](https://microsoft.com/download/details.aspx?id=9608).
+
+- Per ulteriori informazioni sui trust di collegamento tra domini, vedere [informazioni su quando creare un trust di collegamento](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754538(v=ws.11)).
+
+- Per ulteriori informazioni sulla distribuzione di dominio radice della foresta, vedere [la distribuzione di un dominio radice della foresta Windows Server 2008](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731174(v=ws.10)).
+
+- Per ulteriori informazioni sulla protezione dei controller di dominio, vedere [Active Directory: considerazioni e procedure consigliate](https://social.technet.microsoft.com/wiki/contents/articles/52587.active-directory-design-considerations-and-best-practices.aspx)per la progettazione.
+
+- Per ulteriori informazioni sulla distribuzione di domini regionali, vedere [la distribuzione di Windows Server 2008 domini regionali](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc755118(v=ws.10)).
+
+- Per ulteriori informazioni sul funzionamento della memorizzazione nella cache dei gruppi universali, vedere funzionamento [del catalogo globale](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc737410(v=ws.10)).
+
+- Per ulteriori informazioni sulla creazione di oggetti sito, vedere [creare un sito](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc772304(v=ws.11)).
+
+- Per ulteriori informazioni su come creare oggetti subnet, vedere [creare una subnet](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770372(v=ws.11)).
+
+- Per ulteriori informazioni sull'utilizzo dello snap-in siti e servizi Active Directory per disabilitare l'impostazione **Bridge tutti i collegamenti di sito** , vedere [abilitare o disabilitare i Bridge](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc738789(v=ws.10))di collegamenti di sito.
+
+- Per informazioni sulla gestione della replica tramite firewall, vedere [Active Directory in reti segmentate in base ai firewall](https://microsoft.com/download/details.aspx?familyid=c2ef3846-43f0-4caf-9767-a9166368434e).
+
+- Per ulteriori informazioni sulle funzionalità del controller di dominio di sola lettura (RODC), vedere [servizi di dominio Active Directory: controller di dominio](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732801(v=ws.10))di sola lettura.
+
+- Per informazioni su come distribuire un controller di dominio di sola lettura, vedere la [Guida dettagliata ai controller di dominio di sola lettura](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc772234(v=ws.10)).

@@ -8,12 +8,12 @@ ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: abc02bec101b39a66a78da871f838d2585d89377
-ms.sourcegitcommit: af1cf89632d62a94943d3ad9f6b5234b88499278
+ms.openlocfilehash: 1abf845ce69b395bf46a0f155db2c683c359207c
+ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81524926"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81623879"
 ---
 # <a name="selecting-the-forest-root-domain"></a>Selezione del dominio radice della foresta
 
@@ -68,7 +68,7 @@ Per selezionare un suffisso per il dominio radice della foresta:
 Si consiglia di utilizzare nomi DNS registrati con un'autorità Internet nello spazio dei nomi Active Directory. Solo i nomi registrati sono sicuramente univoci a livello globale. Se successivamente un'altra organizzazione registra lo stesso nome di dominio DNS (o se l'organizzazione si unisce, acquisisce o viene acquisita da un'altra società che usa lo stesso nome DNS), le due infrastrutture non possono interagire tra loro.
 
 > [!CAUTION]
-> Non usare nomi DNS con etichetta singola. Per ulteriori informazioni, vedere la pagina relativa alla[distribuzione e al funzionamento dei domini Active Directory configurati utilizzando i nomi DNS con etichetta singola](https://go.microsoft.com/fwlink/?LinkId=106631)). Inoltre, non è consigliabile utilizzare suffissi non registrati, ad esempio. local.
+> Non usare nomi DNS con etichetta singola. Per ulteriori informazioni, vedere [distribuzione e funzionamento dei domini Active Directory configurati utilizzando nomi DNS con etichetta singola](https://support.microsoft.com/help/300684/). Inoltre, non è consigliabile utilizzare suffissi non registrati, ad esempio. local.
 
 ### <a name="selecting-a-prefix"></a>Selezione di un prefisso
 
@@ -78,14 +78,14 @@ Se è stato selezionato un dominio a livello di area per funzionare come dominio
 
 Nella tabella seguente sono elencate le regole per la selezione di un prefisso per un nome DNS registrato.
 
-|Regola|Spiegazione|
-|--------|---------------|
-|Selezionare un prefisso che probabilmente non diventi obsoleto.|Evitare nomi come una linea di prodotti o un sistema operativo che potrebbero cambiare in futuro. Si consiglia di usare nomi generici, ad esempio Corp o DS.|
-|Selezionare un prefisso che includa solo i caratteri Internet standard.|A-Z, a-z, 0-9 e (-), ma non interamente numerici.|
-|Includere almeno 15 caratteri nel prefisso.|Se si sceglie una lunghezza del prefisso di 15 caratteri o meno, il nome NetBIOS sarà uguale al prefisso.|
+| Regola     | Spiegazione |
+| -------- | --------------- |
+| Selezionare un prefisso che probabilmente non diventi obsoleto. | Evitare nomi come una linea di prodotti o un sistema operativo che potrebbero cambiare in futuro. Si consiglia di usare nomi generici, ad esempio Corp o DS.|
+| Selezionare un prefisso che includa solo i caratteri Internet standard. | A-Z, a-z, 0-9 e (-), ma non interamente numerici. |
+| Includere almeno 15 caratteri nel prefisso. | Se si sceglie una lunghezza del prefisso di 15 caratteri o meno, il nome NetBIOS sarà uguale al prefisso. |
 
 È importante che il proprietario del DNS Active Directory collabori con il proprietario DNS dell'organizzazione per ottenere la proprietà del nome che verrà usato per lo spazio dei nomi Active Directory. Per ulteriori informazioni sulla progettazione di un'infrastruttura DNS per supportare servizi di dominio Active Directory, vedere [creazione di un progetto di infrastruttura DNS](../../ad-ds/plan/Creating-a-DNS-Infrastructure-Design.md).
 
 ## <a name="documenting-the-forest-root-domain-name"></a>Documentazione del nome di dominio radice della foresta
 
-Documentare il prefisso e il suffisso DNS selezionati per il dominio radice della foresta. A questo punto, identificare quale dominio sarà la radice della foresta. È possibile aggiungere le informazioni sul nome di dominio radice della foresta al foglio di lavoro di pianificazione del dominio creato per documentare il piano per i domini nuovi e aggiornati e i nomi di dominio. Per aprirlo, scaricare Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip da [Job Aids per Windows Server 2003 Deployment Kit](https://www.microsoft.com/download/details.aspx?id=9608) e aprire "Domain Planning" (DSSLOGI_5. doc).
+Documentare il prefisso e il suffisso DNS selezionati per il dominio radice della foresta. A questo punto, identificare quale dominio sarà la radice della foresta. È possibile aggiungere le informazioni sul nome di dominio radice della foresta al foglio di lavoro di pianificazione del dominio creato per documentare il piano per i domini nuovi e aggiornati e i nomi di dominio. Per aprirlo, scaricare Job_Aids_Designing_and_Deploying_Directory_and_Security_Services. zip da [Job Aids per Windows Server 2003 Deployment Kit](https://microsoft.com/download/details.aspx?id=9608) e aprire "Domain Planning" (DSSLOGI_5. doc).

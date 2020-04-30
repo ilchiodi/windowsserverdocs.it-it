@@ -8,13 +8,13 @@ ms.topic: article
 ms.assetid: a08648eb-eea0-4e2b-87fb-52bfe8953491
 author: shirgall
 ms.author: kathydav
-ms.date: 3/1/2019
-ms.openlocfilehash: 7baf71af401b8318ccd136fe12d6eb810cf9434e
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.date: 04/15/2020
+ms.openlocfilehash: d8861369abe24ea0d34dce209a5d98e854c4c95d
+ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80853304"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82072237"
 ---
 # <a name="best-practices-for-running-linux-on-hyper-v"></a>Procedure consigliate per l'esecuzione di Linux in Hyper-V
 
@@ -49,7 +49,7 @@ A causa dell'hardware legacy rimosso dall'emulazione nelle macchine virtuali di 
 
 Poiché il timer PIT non è presente nelle macchine virtuali di seconda generazione, le connessioni di rete al server TFTP PxE possono essere terminate in anticipo e impedire al bootloader di leggere la configurazione di GRUB e di caricare un kernel dal server.
 
-In RHEL 6. x, è possibile usare il bootloader di GRUB v 0.97 EFI legacy anziché GRUB2, come descritto qui: [https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/6/html/Installation_Guide/s1-netboot-pxe-config-efi.html](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/6/html/Installation_Guide/s1-netboot-pxe-config-efi.html)
+In RHEL 6. x, è possibile usare il bootloader di GRUB v 0.97 EFI legacy anziché GRUB2, come descritto di seguito:[https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/6/html/Installation_Guide/s1-netboot-pxe-config-efi.html](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/6/html/Installation_Guide/s1-netboot-pxe-config-efi.html)
 
 Nelle distribuzioni di Linux diverse da RHEL 6. x, è possibile seguire una procedura simile per configurare GRUB v 0.97 per caricare i kernel Linux da un server PxE.
 
@@ -74,13 +74,15 @@ Le macchine virtuali Linux che verranno distribuite tramite il clustering di fai
 
 Configurare e usare la scheda Ethernet virtuale, che è una scheda di rete specifica di Hyper-V con prestazioni migliorate. Se entrambe le schede di rete legacy e Hyper-V sono collegate a una macchina virtuale, i nomi di rete nell'output di **ifconfig-a** possono mostrare valori casuali, ad esempio **_tmp12000801310**. Per evitare questo problema, rimuovere tutte le schede di rete legacy quando si usano schede di rete specifiche di Hyper-V in una macchina virtuale Linux.
 
-## <a name="use-io-scheduler-noop-for-better-disk-io-performance"></a>Usare l'utilità di pianificazione di I/O NOOP per migliorare le prestazioni di I/O su disco
+## <a name="use-io-scheduler-noopnone-for-better-disk-io-performance"></a>Usare l'utilità di pianificazione di I/O NOOP/None per migliorare le prestazioni di I/O su disco
 
-Il kernel Linux ha quattro diverse utilità di pianificazione di I/O per riordinare le richieste con algoritmi diversi. NOOP è una coda First-in First-out che passa la decisione di pianificazione che deve essere eseguita dall'hypervisor. Si consiglia di usare NOOP come utilità di pianificazione durante l'esecuzione di una macchina virtuale Linux in Hyper-V. Per modificare l'utilità di pianificazione per un dispositivo specifico, nella configurazione del caricatore di avvio (ad esempio,/etc/grub.conf) aggiungere **Elevator = NOOP** ai parametri del kernel e quindi riavviare.
+Il kernel Linux offre due set di utilità di pianificazione di I/O su disco per riordinare le richieste.  Un set è per il sottosistema ' BLK ' precedente e un set è per il sottosistema ' BLK-mq ' più recente. In entrambi i casi, con i dischi a stato solido di oggi è consigliabile usare un'utilità di pianificazione che passa le decisioni di pianificazione all'hypervisor Hyper-V sottostante. Per i kernel Linux che usano il sottosistema "BLK", questa è l'utilità di pianificazione "NOOP". Per i kernel Linux che usano il sottosistema "BLK-mq", questa è l'utilità di pianificazione "None".
+
+Per un disco specifico, le utilità di pianificazione disponibili possono essere visualizzate in questo file system percorso:`<diskname>`/sys/class/Block//Queue/Scheduler, con l'utilità di pianificazione attualmente selezionata tra parentesi quadre. È possibile modificare l'utilità di pianificazione scrivendo in questo percorso file system. La modifica deve essere aggiunta a uno script di inizializzazione per renderla permanente tra i riavvii. Per informazioni dettagliate, vedere la documentazione sulla distribuzione di Linux.
 
 ## <a name="numa"></a>NUMA
 
-Le versioni del kernel Linux precedenti a 2.6.37 non supportano NUMA in Hyper-V con dimensioni di VM maggiori. Questo problema influisca principalmente sulle distribuzioni precedenti che usano il kernel Red Hat 2.6.32 upstream ed è stato risolto in Red Hat Enterprise Linux (RHEL) 6,6 (kernel-2.6.32-504). I sistemi che eseguono kernel personalizzati precedenti a 2.6.37 o i kernel basati su RHEL precedenti a 2.6.32-504 devono impostare il parametro di avvio `numa=off` nella riga di comando del kernel in grub. conf. Per ulteriori informazioni, vedere la pagina relativa alla [KB 436883 di Red Hat](https://access.redhat.com/solutions/436883).
+I kernel Linux con versione precedente a 2.6.37 non supportano NUMA in Hyper-V con macchine virtuali di dimensioni maggiori. Questo problema incide principalmente sulle distribuzioni precedenti che usano il kernel upstream Red Hat 2.6.32. Il problema è stato risolto in Red Hat Enterprise Linux (RHEL) 6.6 (kernel-2.6.32-504). I sistemi che eseguono kernel personalizzati con versione precedente a 2.6.37 o kernel basati su RHEL con versione precedente a 2.6.32-504 devono impostare il parametro di avvio `numa=off` nella riga di comando del kernel in rub.conf. Per altre informazioni, vedere l'articolo [KB 436883](https://access.redhat.com/solutions/436883) di Red Hat.
 
 ## <a name="reserve-more-memory-for-kdump"></a>Riservare ulteriore memoria per kdump
 
@@ -94,7 +96,7 @@ Dopo il ridimensionamento di un disco rigido virtuale o VHDX, gli amministratori
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Macchine virtuali Linux e FreeBSD supportate per Hyper-V in Windows](Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)
+* [Linux e FreeBSD macchine virtuali supportate per Hyper-V in Windows](Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows.md)
 
 * [Procedure consigliate per l'esecuzione di FreeBSD in Hyper-V](Best-practices-for-running-FreeBSD-on-Hyper-V.md)
 
@@ -102,4 +104,4 @@ Dopo il ridimensionamento di un disco rigido virtuale o VHDX, gli amministratori
 
 * [Creare immagini Linux per Azure](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic)
 
-* [Ottimizzare la VM Linux in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/optimization)
+* [Ottimizzare la macchina virtuale Linux su Azure](https://docs.microsoft.com/azure/virtual-machines/linux/optimization)

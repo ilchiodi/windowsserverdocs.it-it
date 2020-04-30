@@ -11,12 +11,12 @@ ms.technology: compute-hyper-v
 ms.assetid: 444e1496-9e5a-41cf-bfbc-306e2ed8e00a
 audience: IT Pros
 ms.reviewer: kathydav
-ms.openlocfilehash: f5c9b932cabfea8df55ba8622165bbb04b4a4113
-ms.sourcegitcommit: 6aff3d88ff22ea141a6ea6572a5ad8dd6321f199
+ms.openlocfilehash: ea78bf9cb892f8e8cb41f357242f3b38a5bca934
+ms.sourcegitcommit: d669d4af166b9018bcf18dc79cb621a5fee80042
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71392727"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "82037130"
 ---
 # <a name="create-hyper-v-vhd-set-files"></a>Creare file di set VHD Hyper-V
 I file di set VHD sono un nuovo modello di disco virtuale condiviso per i cluster guest in Windows Server 2016. I file di set VHD supportano il ridimensionamento online di dischi virtuali condivisi, supportano la replica Hyper-V e possono essere inclusi in Checkpoint coerenti con l'applicazione. 
@@ -25,9 +25,12 @@ I file di set VHD utilizzano un nuovo tipo di file VHD,. VHD. I file di set VHD 
 
 Hyper-V gestisce tutti gli aspetti della gestione delle catene di checkpoint e l'Unione del set di dischi rigidi virtuali condivisi. Il software di gestione può eseguire operazioni su disco come il ridimensionamento online nei file di set VHD nello stesso modo in cui avviene per. File VHDX. Ciò significa che non è necessario che il software di gestione conosca il formato del file di set VHD.
 
+> [!NOTE]  
+> È importante valutare l'effetto dei file di set VHD prima della distribuzione nell'ambiente di produzione. Assicurarsi che non vi sia alcuna riduzione delle prestazioni o funzionale nell'ambiente, ad esempio la latenza del disco.
+
 ## <a name="create-a-vhd-set-file-from-hyper-v-manager"></a>Creazione di un file di set VHD dalla console di gestione di Hyper-V
 
-1.  Aprire la console di gestione di Hyper-V. Fare clic su **avviare**, scegliere **Strumenti di amministrazione**, quindi fare clic su **gestione di Hyper-V**.
+1.  Aprire la console di gestione di Hyper-V. Fare clic sul pulsante **Start**, scegliere **Strumenti di amministrazione** e quindi **Console di gestione di Hyper-V**.
 2.  Nel riquadro azioni fare clic su **Nuovo** e quindi su **Disco rigido**.
 3.  Nella pagina Selezione **formato disco** selezionare **VHD impostato** come formato del disco rigido virtuale.
 4.  Continuare con le pagine della procedura guidata per personalizzare il disco rigido virtuale. Per passare alla pagina successiva della procedura guidata, fare clic su **Avanti**. Per passare direttamente a una pagina specifica, fare clic sul relativo nome nel riquadro a sinistra.

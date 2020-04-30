@@ -1,6 +1,6 @@
 ---
 ms.assetid: 7dd905ea-4235-4519-8400-31b4fa0ed1bf
-title: Consentire ai client di individuare il controller di dominio più vicino
+title: Consentendo ai client di individuare i Controller di dominio più vicino
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
@@ -8,16 +8,16 @@ ms.date: 08/08/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adds
-ms.openlocfilehash: 55e19728e247240ca35bf7cc7b47b36171f1f195
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 75e31a435e8d8411fbe4db242e6d31fd7676fe4e
+ms.sourcegitcommit: 11421f4005f9f3a3f6c0db95b1836d0f765a9fa3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80822504"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81624249"
 ---
-# <a name="enabling-clients-to-locate-the-next-closest-domain-controller"></a>Consentire ai client di individuare il controller di dominio più vicino
+# <a name="enabling-clients-to-locate-the-next-closest-domain-controller"></a>Consentendo ai client di individuare i Controller di dominio più vicino
 
->Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Se si dispone di un controller di dominio che esegue Windows Server 2008 o versione successiva, è possibile consentire ai computer client che eseguono Windows Vista o versioni successive o Windows Server 2008 o versioni successive di individuare i controller di dominio in modo più efficiente, abilitando l'impostazione **prova criteri di gruppo sito più vicino successivo** . Questa impostazione consente di migliorare il localizzatore di Controller di dominio (DC Locator) in quanto contribuiscono a semplificare il traffico di rete, soprattutto nelle grandi imprese che dispongono di molte succursali e siti.
 
@@ -31,7 +31,7 @@ Per impostazione predefinita, il **prova sito più vicino successivo** non è ab
 - Se nello stesso sito è disponibile alcun controller di dominio, provare a trovare qualsiasi controller di dominio nel dominio.
 
 > [!NOTE]
-> Questo è lo stesso algoritmo che DC Locator utilizzato nelle versioni precedenti di Active Directory. Per ulteriori informazioni, vedere l'articolo relativo al [funzionamento del supporto DNS per Active Directory](https://go.microsoft.com/fwlink/?LinkId=108587).
+> Questo è lo stesso algoritmo che DC Locator utilizzato nelle versioni precedenti di Active Directory. Per ulteriori informazioni, vedere l'articolo relativo al [funzionamento del supporto DNS per Active Directory](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc759550(v=ws.10)).
 
 Se si abilita il **prova sito più vicino successivo** impostazione DC Locator utilizza l'algoritmo seguente per individuare un controller di dominio:
 
@@ -54,4 +54,4 @@ Se l'impostazione non è abilitato, il client tenta di trovare un controller di 
 > [!NOTE]
 > Il **prova sito più vicino successivo** impostazione funziona in coordinamento con la copertura automatica del sito. Ad esempio, se il sito più vicino successivo non dispone di alcun controller di dominio, DC Locator tenta di trovare il controller di dominio che esegue copertura automatica del sito per tale sito.
 
-Per applicare l'impostazione **prova sito più vicino successivo** , è possibile creare un oggetto Criteri di gruppo (GPO) e collegarlo all'oggetto appropriato per l'organizzazione. in alternativa, è possibile modificare il criterio dominio predefinito in modo che abbia effetto su tutti i client che eseguono Windows Vista o versione successiva e windows Server 2008 o versione successiva nel dominio. Per ulteriori informazioni su come impostare il **prova sito più vicino successivo** impostazione, vedere [consentire ai client di individuare un Controller di dominio nel sito più vicino successivo](https://technet.microsoft.com/library/cc772592.aspx).
+Per applicare l'impostazione **prova sito più vicino successivo** , è possibile creare un oggetto Criteri di gruppo (GPO) e collegarlo all'oggetto appropriato per l'organizzazione. in alternativa, è possibile modificare il criterio dominio predefinito in modo che abbia effetto su tutti i client che eseguono Windows Vista o versione successiva e windows Server 2008 o versione successiva nel dominio. Per ulteriori informazioni su come impostare il **prova sito più vicino successivo** impostazione, vedere [consentire ai client di individuare un Controller di dominio nel sito più vicino successivo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc772592(v=ws.10)).

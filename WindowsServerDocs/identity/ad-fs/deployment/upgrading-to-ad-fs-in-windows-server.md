@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
 ms.author: billmath
-ms.openlocfilehash: 4c13a3ecbcc6ade1455c10dde5f6a89e0303e161
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 9389d1565462572a5617856f0f2531580b069745
+ms.sourcegitcommit: 074b59341640a8ae0586d6b37df7ba256e03a0c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80857634"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81650069"
 ---
 # <a name="upgrading-to-ad-fs-in-windows-server-2016-using-a-wid-database"></a>Aggiornamento ad AD FS in Windows Server 2016 con un database interno di Windows
 
@@ -56,6 +56,9 @@ Il resto del documento è la procedura per l'aggiunta di un server federativo di
 > [!NOTE]
 > Prima di poter passare a AD FS in Windows Server 2019 FBI, è necessario rimuovere tutti i nodi Windows Server 2016 o 2012 R2. Non è possibile aggiornare solo un sistema operativo Windows Server 2016 o 2012 R2 a Windows Server 2019 e diventare un nodo 2019. Sarà necessario rimuoverlo e sostituirlo con un nuovo nodo 2019.
 
+> [!NOTE]
+> Se i gruppi AlwaysOnAvailability o la replica di tipo merge sono configurati in AD FS, rimuovere tutte le repliche di tutti i database ADFS prima di eseguire l'aggiornamento e puntare tutti i nodi al database SQL primario. Dopo aver eseguito questa operazione, eseguire l'aggiornamento della farm come documentato. Dopo l'aggiornamento, aggiungere i gruppi di AlwaysOnAvailability o la replica di tipo merge ai nuovi database.
+
 ##### <a name="to-upgrade-your-ad-fs-farm-to-windows-server-2019-farm-behavior-level"></a>Per aggiornare la farm AD FS al livello di comportamento della farm di Windows Server 2019
 
 1. Con Server Manager, installare il ruolo Active Directory Federation Services in Windows Server 2019
@@ -88,14 +91,14 @@ Set-AdfsSyncProperties -Role SecondaryComputer -PrimaryComputerName {FQDN}
 
 ![aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_6.png)
 
-7. Se si esegue l'aggiornamento di una farm AD FS 2012 R2 a 2016 o 2019, per l'aggiornamento della farm è necessario che lo schema di Active Directory sia almeno di livello 85.  Per aggiornare lo schema, con il supporto di installazione di Windows Server 2016, aprire un prompt dei comandi e passare alla directory support\adprep Eseguire il comando seguente: `adprep /forestprep`
+7. Se si esegue l'aggiornamento di una farm AD FS 2012 R2 a 2016 o 2019, per l'aggiornamento della farm è necessario che lo schema di Active Directory sia almeno di livello 85.  Per aggiornare lo schema, con il supporto di installazione di Windows Server 2016, aprire un prompt dei comandi e passare alla directory support\adprep Eseguire quanto segue:`adprep /forestprep`
 
 ![aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_7.png)
 
-Una volta completata l'esecuzione `adprep/domainprep`
+Una volta completata l'esecuzione`adprep/domainprep`
 
 > [!NOTE]
-> Prima di eseguire il passaggio successivo, verificare che Windows Server sia aggiornato eseguendo Windows Update da impostazioni. Continua questo processo fino a quando non sono necessari altri aggiornamenti.
+> Prima di eseguire il passaggio successivo, verificare che Windows Server sia aggiornato eseguendo Windows Update da impostazioni. Continuare questo processo fino a quando non sono necessari altri aggiornamenti.
 
 ![aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_8.png)
 
@@ -119,7 +122,7 @@ Invoke-AdfsFarmBehaviorLevelRaise
 
 ![aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_12.png)
 
-11. Analogamente, è possibile usare il cmdlet di PowerShell: `Get-AdfsFarmInformation` per visualizzare l'FBI corrente.
+11. Analogamente, è possibile usare il cmdlet di `Get-AdfsFarmInformation` PowerShell: per visualizzare l'FBI corrente.
 
 ![aggiornamento](media/Upgrading-to-AD-FS-in-Windows-Server-2016/ADFS_Mixed_13.png)
 
@@ -151,7 +154,7 @@ Verrà completato l'aggiornamento dei server WAP.
 
 
 > [!NOTE] 
-> Un problema noto di PRT esiste nel AD FS 2019 se viene eseguito Windows Hello for business con attendibilità del certificato ibrido. Questo errore può verificarsi nei registri eventi di amministrazione di ADFS: ricevuta richiesta OAuth non valida. Il client 'NAME' non è autorizzato ad accedere alla risorsa con ambito 'ugs'. Per correggere questo errore: 
+> Un problema noto di PRT esiste nel AD FS 2019 se viene eseguito Windows Hello for business con attendibilità del certificato ibrido. Nei registri eventi amministrativi di ADFS puoi riscontrare questo errore: ricevuta richiesta Oauth non valida. Il client 'NAME' non è autorizzato ad accedere alla risorsa con ambito 'ugs'. Per correggere questo errore: 
 > 1. Avvia la console di gestione AD FS. Passa a "Servizi > Descrizioni ambiti".
 > 2. Fai clic con il pulsante destro del mouse su "Descrizioni ambiti" e seleziona "Aggiungi descrizione ambito".
 > 3. In Nome digita "ugs" e fai clic su Applica > OK.
@@ -159,5 +162,5 @@ Verrà completato l'aggiornamento dei server WAP.
 > 5. Esegui il comando "Get-AdfsApplicationPermission". Cerca ScopeNames :{openid, aza} con ClientRoleIdentifier. Prendi nota del valore di ObjectIdentifier.
 > 6. Esegui il comando "Set-AdfsApplicationPermission -TargetIdentifier <ObjectIdentifier al passaggio 5> -AddScope 'ugs'.
 > 7. Riavvia il servizio ADFS.
-> 8. Sul client: riavviare il client. All'utente deve essere richiesto di effettuare il provisioning di WHFB.
+> 8. Nel client: riavvia il client. All'utente deve essere richiesto di effettuare il provisioning di WHFB.
 > 9. Se la finestra di provisioning non viene visualizzata, devi raccogliere i registri di traccia NGC ed eseguire altre operazioni per la risoluzione dei problemi.

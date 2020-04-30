@@ -4,16 +4,16 @@ title: Strumento di ripristino rapido di AD FS
 author: billmath
 ms.author: billmath
 manager: femila
-ms.date: 07/02/2019
+ms.date: 04/24/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 506734812689a42ec17768652ac715f5c7e24401
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: dde9d60278a32ae4e6ba0baf35bc11ce631d4e02
+ms.sourcegitcommit: 371e59315db0cca5bdb713264a62b215ab43fd0f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80858104"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82192602"
 ---
 # <a name="ad-fs-rapid-restore-tool"></a>Strumento di ripristino rapido di AD FS
 
@@ -78,7 +78,7 @@ Set di parametri
 
 - **BackupDKM** -esegue il backup il contenitore di Active Directory distribuite che contiene le chiavi di ADFS nella configurazione predefinita (generato automaticamente token di firma e la decrittografia di certificati). Viene usato uno strumento AD "LDIFDE" per esportare il contenitore di Active Directory e tutti i relativi sottoalberi.
 
-- -**StorageType &lt;stringa&gt;** : il tipo di archiviazione che l'utente vuole usare. "FileSystem" indica che l'utente vuole archiviarlo in una cartella in locale o nella rete "Azure" indica che l'utente vuole archiviarlo nel contenitore di archiviazione di Azure quando l'utente esegue il backup, seleziona il percorso di backup, ovvero il file System o nel cloud. Per Azure da utilizzare, le credenziali di archiviazione di Azure deve essere passate al cmdlet. Le credenziali di archiviazione contiene il nome dell'account e la chiave. Inoltre, un nome di contenitore deve anche essere passato. Se il contenitore non esiste, viene creato durante il backup. Per il file system da utilizzare, è necessario fornire un percorso di archiviazione. In questa directory verrà creata una nuova directory per ogni backup. Ogni directory creata conterrà i file di backup. 
+- -** &lt;Stringa&gt; StorageType** : il tipo di archiviazione che l'utente vuole usare. "FileSystem" indica che l'utente vuole archiviarlo in una cartella in locale o nella rete "Azure" indica che l'utente vuole archiviarlo nel contenitore di archiviazione di Azure quando l'utente esegue il backup, seleziona il percorso di backup, ovvero il file System o nel cloud. Per Azure da utilizzare, le credenziali di archiviazione di Azure deve essere passate al cmdlet. Le credenziali di archiviazione contiene il nome dell'account e la chiave. Inoltre, un nome di contenitore deve anche essere passato. Se il contenitore non esiste, viene creato durante il backup. Per il file system da utilizzare, è necessario fornire un percorso di archiviazione. In questa directory verrà creata una nuova directory per ogni backup. Ogni directory creata conterrà i file di backup. 
 
 - **EncryptionPassword &lt;stringa&gt;** -la password che verrà utilizzato per crittografare tutti i file di backup prima dell'archiviazione
 
@@ -88,7 +88,7 @@ Set di parametri
 
 - **StoragePath &lt;stringa&gt;** -il percorso di backup verranno archiviati
 
-- **ServiceAccountCredential &lt;pscredential&gt;** : specifica l'account del servizio utilizzato per il servizio ad FS attualmente in esecuzione. Questo parametro è necessario solo se l'utente vuole eseguire il backup di DKM e non è amministratore di dominio o non ha accesso al contenuto del contenitore. 
+- **ServiceAccountCredential &lt;PSCredential&gt; ** -specifica l'account del servizio utilizzato per il servizio ad FS attualmente in esecuzione. Questo parametro è necessario solo se l'utente vuole eseguire il backup di DKM e non è amministratore di dominio o non ha accesso al contenuto del contenitore. 
 
 - **BackupComment &lt;string []&gt;** -una stringa informativa sul backup verrà visualizzato durante il ripristino, simile al concetto di denominazione checkpoint Hyper-V. Il valore predefinito è una stringa vuota
 
@@ -123,7 +123,7 @@ Backup-ADFS -StorageType "FileSystem" -StoragePath "C:\Users\administrator\testE
 ## <a name="restore-from-backup"></a>Ripristino da backup
 Per applicare una configurazione creata utilizzando Backup ADFS per una nuova installazione di ADFS, utilizzare il cmdlet Restore-ADFS.
 
-Questo cmdlet crea una nuova farm AD FS usando il cmdlet `Install-AdfsFarm` e ripristina la configurazione AD FS, il database, i certificati e così via.  Se il ruolo AD FS non è stato installato nel server, verrà installato dal cmdlet.  Il cmdlet verifica il percorso di ripristino per i backup esistenti e richiede all'utente di scegliere un backup appropriato in base alla data e ora che è stato eseguito e qualsiasi commento backup che l'utente potrebbe avere collegato per il backup. Se sono presenti più configurazioni di ADFS con i nomi dei servizi di federazione, l'utente viene richiesto di scegliere la configurazione di ADFS appropriata.
+Questo cmdlet crea una nuova farm AD FS usando il cmdlet `Install-AdfsFarm` e ripristina la configurazione ad FS, il database, i certificati e così via.  Se il ruolo AD FS non è stato installato nel server, verrà installato dal cmdlet.  Il cmdlet verifica il percorso di ripristino per i backup esistenti e richiede all'utente di scegliere un backup appropriato in base alla data e ora che è stato eseguito e qualsiasi commento backup che l'utente potrebbe avere collegato per il backup. Se sono presenti più configurazioni di ADFS con i nomi dei servizi di federazione, l'utente viene richiesto di scegliere la configurazione di ADFS appropriata.
 L'utente deve essere un amministratore locali e di dominio per eseguire questo cmdlet.
 
 
@@ -149,9 +149,9 @@ Il cmdlet accetta i parametri seguenti:
 
 - **ADFSName &lt; stringa &gt;** -il nome della federazione che è stato eseguito il backup e si intende ripristinare. Se non viene fornito ed è nome del servizio un solo federativo allora che verrà utilizzato. Se è presente più di un servizio federativo backup nel percorso, quindi l'utente viene chiesto di scegliere uno dei backup Federation Services.
 
-- **ServiceAccountCredential &lt; pscredential &gt;** -specifica l'account del servizio che verrà usato per il nuovo servizio di ad FS da ripristinare 
+- **ServiceAccountCredential &lt; PSCredential &gt; ** -specifica l'account del servizio che verrà usato per il nuovo servizio di ad FS in fase di ripristino 
 
-- **GroupServiceAccountIdentifier &lt;stringa&gt;** : gMSA che l'utente vuole usare per il nuovo servizio di ad FS da ripristinare. Per impostazione predefinita, se non viene fornito quindi il backup di nome dell'account viene utilizzato se è stato GESTITO, else all'utente viene richiesto di inserire in un account di servizio
+- ** &lt;Stringa&gt; GroupServiceAccountIdentifier** : gMSA che l'utente vuole usare per il nuovo servizio ad FS in fase di ripristino. Per impostazione predefinita, se non viene fornito quindi il backup di nome dell'account viene utilizzato se è stato GESTITO, else all'utente viene richiesto di inserire in un account di servizio
 
 - **DBConnectionString &lt;stringa&gt;** : se l'utente desidera utilizzare un database diverso per il ripristino, quindi si deve passare la stringa di connessione SQL o un tipo di database interno di Windows per sarà WID
 
@@ -217,12 +217,23 @@ Ogni volta che viene eseguito un backup o un ripristino, viene creato un file di
 >[!NOTE]
 > Quando si esegue un ripristino, è possibile creare un file di PostRestore_Instructions contenente una panoramica dei provider di autenticazione aggiuntivi, gli archivi di attributi e i trust del provider di attestazioni locali da installare manualmente prima di avviare il servizio di AD FS.
 
-## <a name="version-release-history"></a>Cronologia delle versioni
+## <a name="version-release-history"></a>Cronologia di rilascio delle versioni
+
+### <a name="version-10823"></a>Versione 1.0.82.3
+Versione: aprile 2020
+
+**Problemi risolti:**
+
+
+- Aggiunta del supporto per i certificati basati su CNG
+
 
 ### <a name="version-10820"></a>Versione 1.0.82.0
 Versione: 2019 luglio
 
 **Problemi risolti:**
+
+
 - Correzione di bug per i nomi di account di servizio AD FS che contengono caratteri di escape LDAP
 
 
