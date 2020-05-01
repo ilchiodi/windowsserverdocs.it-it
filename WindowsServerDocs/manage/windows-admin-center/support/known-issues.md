@@ -8,12 +8,12 @@ ms.author: jeffrew
 ms.localizationpriority: medium
 ms.prod: windows-server
 ms.date: 06/07/2019
-ms.openlocfilehash: 5c9e8b7e1e11deaa82fbec6f451b4f194609c299
-ms.sourcegitcommit: 1d83ca198c50eef83d105151551c6be6f308ab94
+ms.openlocfilehash: d7dc3455c5d7c6b00940008ceea646436b40bed0
+ms.sourcegitcommit: e51dd9dabec82c59e805e7a04c27e56c83773857
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/30/2020
-ms.locfileid: "82605551"
+ms.locfileid: "82613733"
 ---
 # <a name="windows-admin-center-known-issues"></a>Problemi noti dell'interfaccia di amministrazione di Windows
 
@@ -28,6 +28,8 @@ Se si verifica un problema non descritto in questa pagina, è [possibile segnala
 - L'uso della porta inferiore a 1024 non è supportato. In modalità servizio è eventualmente possibile configurare la porta 80 per il reindirizzamento alla porta specificata.
 
 ## <a name="general"></a>Generale
+
+- Nella versione 1910,2 dell'interfaccia di amministrazione di Windows, potrebbe non essere possibile connettersi ai server Hyper-V su hardware specifico. Se il problema persiste, [scaricare la compilazione precedente](https://aka.ms/wacprevious). 
 
 - Se l'interfaccia di amministrazione di Windows è installata come gateway in **Windows Server 2016** con un utilizzo intensivo, il servizio potrebbe arrestarsi in modo anomalo con ```Faulting application name: sme.exe``` un ```Faulting module name: WsmSvc.dll```errore nel registro eventi che contiene e. Ciò è dovuto a un bug che è stato risolto in Windows Server 2019. La patch per Windows Server 2016 includeva l'aggiornamento cumulativo di febbraio 2019, [KB4480977](https://www.catalog.update.microsoft.com/Search.aspx?q=4480977).
 
