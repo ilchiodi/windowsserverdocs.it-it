@@ -1,6 +1,6 @@
 ---
 title: tlntadmn
-description: Windows Commands argomento per tlntadmn, che consente di amministrare un computer locale o remoto, che esegue il servizio Server Telnet.
+description: Argomento di riferimento per tlntadmn, che consente di amministrare un computer locale o remoto, eseguendo il servizio Server Telnet.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 20c3f519d5488409437efd6bb8392fab4d13c535
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 7c15d94eb5b6bf949c6ec339b5fd8c350ab68be3
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80832754"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721316"
 ---
 # <a name="tlntadmn"></a>tlntadmn
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Amministra un computer locale o remoto che esegue il servizio Server Telnet.   
 
@@ -30,31 +30,31 @@ tlntadmn [<computerName>] [-u <UserName>] [-p <Password>] [{start | stop | pause
 
 |                   Parametro                    |                                                                                                                                                       Descrizione                                                                                                                                                        |
 |------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|                \<nomecomputer >                 |                                                                                                                    Specifica il nome del server a cui connettersi. Il valore predefinito è il computer locale.                                                                                                                    |
-|         -u \<nome utente >-p \<password >          |                                                Specifica le credenziali amministrative per un server remoto che si desidera amministrare. Questo parametro è obbligatorio se si desidera amministrare un server remoto a cui non si è connessi con credenziali amministrative.                                                |
-|                     inizio                      |                                                                                                                                            avvia il servizio Server Telnet.                                                                                                                                             |
+|                \<nomecomputer>                 |                                                                                                                    Specifica il nome del server a cui connettersi. Il valore predefinito è il computer locale.                                                                                                                    |
+|         -u \<nomeutente>-p \<password>          |                                                Specifica le credenziali amministrative per un server remoto che si desidera amministrare. Questo parametro è obbligatorio se si desidera amministrare un server remoto a cui non si è connessi con credenziali amministrative.                                                |
+|                     start                      |                                                                                                                                            avvia il servizio Server Telnet.                                                                                                                                             |
 |                      stop                      |                                                                                                                                             Arresta il servizio Server Telnet                                                                                                                                              |
 |                     Sospendi                      |                                                                                                                          sospende il servizio Server Telnet. Verranno accettare nuove connessioni.                                                                                                                          |
 |                    continue                    |                                                                                                                                            Riprende il servizio Server Telnet.                                                                                                                                            |
-|          -s {\<SessionID > &#124; all}          |                                                                                                                                             Visualizza le sessioni Telnet attive.                                                                                                                                             |
-|          -k {\<SessionID > &#124; all}          |                                                                                                        Termina le sessioni Telnet. digitare l'ID sessione per terminare una sessione specifica oppure digitare all per terminare tutte le sessioni.                                                                                                         |
-|    -m {\<SessionID > &#124; all} <Message>     |                                                   Invia un messaggio a una o più sessioni. digitare l'ID di sessione per inviare un messaggio a una sessione specifica oppure digitare all per inviare un messaggio a tutte le sessioni. digitare il messaggio che si desidera inviare tra virgolette.                                                   |
-|             config dom = \<dominio >             |                                                                                                                                      Consente di configurare il dominio predefinito per il server.                                                                                                                                       |
+|          -s {\<SessionID> &#124; all}          |                                                                                                                                             Visualizza le sessioni Telnet attive.                                                                                                                                             |
+|          -k {\<SessionID> &#124; all}          |                                                                                                        Termina le sessioni Telnet. digitare l'ID sessione per terminare una sessione specifica oppure digitare all per terminare tutte le sessioni.                                                                                                         |
+|    -m {\<SessionID> &#124; all}<Message>     |                                                   Invia un messaggio a una o più sessioni. digitare l'ID di sessione per inviare un messaggio a una sessione specifica oppure digitare all per inviare un messaggio a tutte le sessioni. digitare il messaggio che si desidera inviare tra virgolette.                                                   |
+|             config dom = \<> di dominio             |                                                                                                                                      Consente di configurare il dominio predefinito per il server.                                                                                                                                       |
 |      configurazione non qualificato = {Sì & #124; n}      |                                                                                     Specifica se si desidera che il server Telnet interpreti CTRL + A come ALT. Digitare **Yes** per eseguire il mapping del tasto di scelta rapida oppure digitare **No** per evitare il mapping.                                                                                     |
-|       timeout configurazione = \<HH >:\<mm >:\<SS >       |                                                                                                                                 Imposta il periodo di timeout in ore, minuti e secondi.                                                                                                                                 |
+|       timeout configurazione = \<HH>:\<mm>:\<SS>       |                                                                                                                                 Imposta il periodo di timeout in ore, minuti e secondi.                                                                                                                                 |
 |     configurazione timeoutactive = {Sì & #124; no      |                                                                                                                                            Consente il timeout di sessione inattiva.                                                                                                                                             |
-|          config maxfail = \<tentativi >          |                                                                                                                          Imposta il numero massimo di tentativi di accesso non riusciti prima della disconnessione.                                                                                                                          |
-|        config maxconn = connessioni \<>         |                                                                                                                                         Imposta il numero massimo di connessioni.                                                                                                                                          |
-|            porta config = < \Numero >             |                                                                                                                    Imposta la porta Telnet. È necessario specificare la porta con un valore integer minore di 1024.                                                                                                                    |
-| configurazione sec {+ & #124; -} NTLM {+ & #124; -} passwd | Specifica se si desidera utilizzare NTLM, una password o entrambi per autenticare i tentativi di accesso. Per utilizzare un particolare tipo di autenticazione, digitare un segno più ( **+** ) prima del tipo di autenticazione. Per impedire l'utilizzo di un determinato tipo di autenticazione, digitare un segno meno ( **-** ) prima del tipo di autenticazione. |
+|          config maxfail = \<tentativi>          |                                                                                                                          Imposta il numero massimo di tentativi di accesso non riusciti prima della disconnessione.                                                                                                                          |
+|        config maxconn = \<connections>         |                                                                                                                                         Imposta il numero massimo di connessioni.                                                                                                                                          |
+|            porta config = < \Numero>             |                                                                                                                    Imposta la porta Telnet. È necessario specificare la porta con un valore integer minore di 1024.                                                                                                                    |
+| configurazione sec {+ & #124; -} NTLM {+ & #124; -} passwd | Specifica se si desidera utilizzare NTLM, una password o entrambi per autenticare i tentativi di accesso. Per usare un particolare tipo di autenticazione, digitare un segno più (**+**) prima del tipo di autenticazione. Per impedire l'utilizzo di un particolare tipo di autenticazione, digitare un segno**-** meno () prima di tale tipo di autenticazione. |
 |     modalità di configurazione = {console & #124; flusso}      |                                                                                                                                             Specifica la modalità di funzionamento.                                                                                                                                             |
 |                       -?                       |                                                                                                                                           Visualizza la guida al prompt dei comandi.                                                                                                                                           |
 
-## <a name="remarks"></a>Note  
+## <a name="remarks"></a>Osservazioni  
 -   Per visualizzare le impostazioni del server, digitare **tlntadmn** senza parametri.  
 -   Utilizzare il **tlntadmn** comando, è necessario accedere al computer locale con credenziali amministrative. Per amministrare un computer remoto, è inoltre necessario fornire credenziali amministrative per il computer remoto. È possibile farlo accedendo al computer locale con un account con credenziali amministrative per il computer locale sia nel computer remoto. Se è possibile utilizzare questo metodo, è possibile utilizzare il **-u** e **-p** parametri per fornire credenziali amministrative per il computer remoto.  
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Esempi  
+## <a name="examples"></a>Esempi  
 Configurare il timeout di sessione inattiva per 30 minuti.  
 ```  
 tlntadmn config timeout=0:30:0  

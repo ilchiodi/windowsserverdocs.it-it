@@ -1,6 +1,6 @@
 ---
-title: inizio
-description: Windows Commands Topic for Start, che avvia una finestra del prompt dei comandi separata per eseguire un programma o un comando specificato.
+title: start
+description: Argomento di riferimento per Start, che avvia una finestra del prompt dei comandi separata per eseguire un programma o un comando specificato.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6ab8fc07923a2396a173803264d54a036983fb71
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 388a6b0871382c7704813298e6978a40cadeb709
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80834074"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721756"
 ---
-# <a name="start"></a>inizio
+# <a name="start"></a>start
 
 Avvia una finestra del prompt dei comandi separata per eseguire un comando o il programma specificato.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -32,21 +32,21 @@ start [<Title>] [/d <Path>] [/i] [{/min | /max}] [{/separate | /shared}] [{/low 
 
 |Parametro|Descrizione|
 |---------|-----------|
-|> titolo \<|Specifica il titolo da visualizzare nella barra del titolo di finestra prompt dei comandi.|
-|/d \<percorso >|Specifica la directory di avvio.|
+|\<> titolo|Specifica il titolo da visualizzare nella barra del titolo di finestra prompt dei comandi.|
+|/d \<percorso>|Specifica la directory di avvio.|
 |/i|Passa l'ambiente di avvio Cmd.exe alla nuova finestra prompt dei comandi. Se **/i** non viene specificato, viene usato l'ambiente corrente.|
-|/min \|/max|Specifica per ridurre al minimo ( **/min**) o ottimizzare (**Max**) la nuova finestra prompt dei comandi.|
-|/separate \|/documenti condivisi|Avvia i programmi a 16 bit in uno spazio di memoria separato ( **/separate**) o spazio di memoria condivisa ( **/ condiviso**). Queste opzioni non sono supportate nelle piattaforme a 64 bit.|
-|/Low \|/Normal \|/High \|/realtime \|/AboveNormal \|/BelowNormal|Avvia un'applicazione nella classe di priorità specificata. I valori di classe di priorità validi sono **/basso**, **/normale**, **/elevata**, **/realtime**, **/abovenormal**, e **/belownormal**.|
-|/Affinity \<HexAffinity >|Applica la maschera di affinità di processore specificato (espressa come numero esadecimale) per la nuova applicazione.|
+|/Max \| /min|Specifica per ridurre al minimo (**/min**) o ottimizzare (**Max**) la nuova finestra prompt dei comandi.|
+|/documenti condivisi \| /separate|Avvia i programmi a 16 bit in uno spazio di memoria separato (**/separate**) o spazio di memoria condivisa (**/ condiviso**). Queste opzioni non sono supportate nelle piattaforme a 64 bit.|
+|/low \| /Normal \| /High \| /realtime \| /AboveNormal \| /BelowNormal|Avvia un'applicazione nella classe di priorità specificata. I valori di classe di priorità validi sono **/basso**, **/normale**, **/elevata**, **/realtime**, **/abovenormal**, e **/belownormal**.|
+|/Affinity \<HexAffinity>|Applica la maschera di affinità di processore specificato (espressa come numero esadecimale) per la nuova applicazione.|
 |/Wait|Avvia un'applicazione e attende la fine.|
 |/elevate|Esegue l'applicazione come amministratore.|
 |/ b|Avvia un'applicazione senza aprire una nuova finestra prompt dei comandi. CTRL + C viene ignorato a meno che l'applicazione consente l'elaborazione di CTRL + C. Utilizzare CTRL + INTERR per interrompere l'applicazione.|
-|\<comando > \| \<Program >|Specifica il comando o un programma di avvio.|
-|\<parametro >...|Specifica i parametri da passare al comando o al programma.|
+|\<Comando> \| \<programma>|Specifica il comando o un programma di avvio.|
+|\<Parametro>...|Specifica i parametri da passare al comando o al programma.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 - È possibile eseguire eseguibili tramite la relativa associazione file digitando il nome del file come un comando.
 - Quando si esegue un comando che contiene la stringa CMD come primo token senza un'estensione o un qualificatore di percorso, CMD viene sostituito con il valore della variabile COMSPEC. Questo impedisce agli utenti di prelievo **cmd** dalla directory corrente.
@@ -58,7 +58,7 @@ start [<Title>] [/d <Path>] [/i] [{/min | /max}] [{/separate | /shared}] [{/low 
   Si noti che la sintassi è quello utilizzato per la variabile di PERCORSO, con un punto e virgola che separa ogni estensione.
 - Durante la ricerca di un file eseguibile, se non esiste alcuna corrispondenza qualsiasi estensione, **avviare** verifica se il nome corrisponde a un nome di directory. In caso affermativo, **avviare** apre Explorer.exe in tale percorso.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per avviare il programma Myapp al prompt dei comandi e continuare a utilizzare la finestra prompt dei comandi corrente, digitare:
 ```
@@ -69,6 +69,6 @@ Per visualizzare il **avviare** ottimizzando l'argomento della Guida della riga 
 start /max start /?
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

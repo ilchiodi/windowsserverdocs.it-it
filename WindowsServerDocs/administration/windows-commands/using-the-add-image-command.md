@@ -1,6 +1,6 @@
 ---
 title: Aggiungi immagine
-description: Windows Commands argomento per Add-Image, che aggiunge immagini a un server di servizi di distribuzione Windows.
+description: Argomento di riferimento per Add-Image, che aggiunge immagini a un server di servizi di distribuzione Windows.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6888027e3f5f7f44f2b37e958d0f779431e994a9
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0fb252fb5e10cc18d421c44d6edca893879905a5
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80831974"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721084"
 ---
 # <a name="add-image"></a>Aggiungi immagine
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Consente di aggiungere immagini a un server di servizi di distribuzione Windows. Per esempi di come è possibile utilizzare questo comando, vedere [esempi](#BKMK_examples).
+Consente di aggiungere immagini a un server di servizi di distribuzione Windows.
 
 ## <a name="syntax"></a>Sintassi
 per le immagini di avvio, usare la sintassi seguente:
@@ -46,15 +46,15 @@ wdsutil /add-ImagmediaFile:<wim file path>
 |-------|--------|
 mediaFile: < percorso del file con estensione wim >|Specifica il nome di file e percorso completo del file di immagine Windows (wim) che contiene le immagini da aggiungere.|
 |[/Server:<Server name>]|Specifica il nome del server. Può essere il nome NetBIOS oppure il nome di dominio completo. Se non si specifica alcun nome server, verrà utilizzato il server locale.|
-mediatype:{Boot&#124;Install}|Specifica il tipo di immagini da aggiungere.|
+MediaType: {boot&#124;install}|Specifica il tipo di immagini da aggiungere.|
 |[/Skipverify]|Specifica che verifica integrità non verrà eseguita sul file di immagine di origine prima di aggiungere l'immagine.|
 |[/Name:<Name>]|Imposta il nome visualizzato dell'immagine.|
 |/Description<Description>]|Imposta la descrizione dell'immagine.|
 |[/Filename:<Filename>]|Specifica il nuovo nome di file per il file con estensione wim. In questo modo è possibile modificare il nome del file del file con estensione wim quando si aggiunge l'immagine. Se viene specificato alcun nome di file, verrà utilizzato il nome del file di immagine di origine. In tutti i casi, i servizi di distribuzione Windows verifica per determinare se il nome del file è univoco nell'archivio di immagini di avvio del computer di destinazione.|
 |\mediaGroup:<Image group name>]|Specifica il nome del gruppo di immagini in cui le immagini devono essere aggiunti. Se è presente più di un gruppo di immagini nel server, è necessario specificare il gruppo di immagini. Se non si specifica alcun gruppo di immagini e un gruppo di immagini non esiste già, verrà creato un nuovo gruppo di immagini. In caso contrario, verrà utilizzato il gruppo di immagini esistente.|
-|[/SingleImage:<Single image name>] [/Name:<Name>] /Description<Description>]|Copia l'immagine singola specificata da un file con estensione wim e imposta il nome dell'immagine e descrizione.|
+|[/SingleImage:<Single image name>] [/Name:<Name>] [/Description:<Description>]|Copia l'immagine singola specificata da un file con estensione wim e imposta il nome dell'immagine e descrizione.|
 |[/UnattendFile:<Unattend file path>]|Specifica il percorso completo al file di installazione automatica da associare le immagini che vengono aggiunte. Se **/SingleImage** non è specificato, lo stesso file di installazione automatica verrà associato a tutte le immagini nel file con estensione wim.|
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 Per aggiungere un'immagine di avvio, digitare:
 ```
 wdsutil /add-ImagmediaFile:C:\MyFolder\Boot.wimmediatype:Boot
@@ -68,11 +68,11 @@ wdsutil /verbose /Progress /add-ImagmediaFile:\\MyServer\Share \Install.wim /Ser
 /SingleImage:Windows Pro /Name:My WDS Image
 /Description:Windows Pro image with Microsoft Office /Filename:Win Pro.wim /UnattendFile:\\server\share\unattend.xml
 ```
-## <a name="additional-references"></a>Altre informazioni di riferimento
-- [Chiave sintassi della riga di comando](command-line-syntax-key.md)
-[utilizzando il comando Copia immagine](using-the-copy-image-command.md)
-[utilizzando il comando Export-Image](using-the-export-image-command.md)
-[utilizzando il comando get-immagine](using-the-get-image-command.md)
-[utilizzando il comando remove-immagine](using-the-remove-image-command.md)
-[utilizzando l'immagine di sostituzione comando](using-the-replace-image-command.md)
-[sottocomando: set-immagine](subcommand-set-image.md)
+## <a name="additional-references"></a>Riferimenti aggiuntivi
+- [Chiave](command-line-syntax-key.md)
+della sintassi della riga di comando usando il comando[Copy-Image](using-the-copy-image-command.md)
+
+[usando il comando Export-Image](using-the-export-image-command.md)usando il comando[Get-](using-the-get-image-command.md)
+Image usando il
+[comando Remove-Image](using-the-remove-image-command.md)
+[usando il comando Replace-Image](using-the-replace-image-command.md)[sottocomando: Set-Image](subcommand-set-image.md)

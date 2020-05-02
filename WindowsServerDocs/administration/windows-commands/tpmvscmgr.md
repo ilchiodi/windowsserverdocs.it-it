@@ -1,6 +1,6 @@
 ---
 title: tpmvscmgr
-description: Windows Commands Topic for tpmvscmgr, che è uno strumento da riga di comando che consente agli utenti con credenziali amministrative di creare ed eliminare Smart card virtuali TPM in un computer.
+description: Argomento di riferimento per tpmvscmgr, che è uno strumento da riga di comando che consente agli utenti con credenziali amministrative di creare ed eliminare Smart card virtuali TPM in un computer.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4411e0ec3c75cd768b2fe32ad26b17331328e3ca
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ab0419060121033571eeba643cc0e2d42b45c743
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80832734"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721300"
 ---
 # <a name="tpmvscmgr"></a>tpmvscmgr
 
-Lo strumento da riga di comando Tpmvscmgr consente agli utenti con credenziali amministrative creare ed eliminare smart card virtuali TPM in un computer. Per esempi di come è possibile utilizzare questo comando, vedere [esempi](#BKMK_Examples).
+Lo strumento da riga di comando Tpmvscmgr consente agli utenti con credenziali amministrative creare ed eliminare smart card virtuali TPM in un computer.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -35,12 +35,12 @@ Il comando crea configura nuove smart card virtuali nel sistema dell'utente. Res
 
 |Parametro|Descrizione|
 |---------|-----------|
-|al nome|Obbligatoria. Indica il nome della nuova smart card virtuale.|
+|al nome|Obbligatorio. Indica il nome della nuova smart card virtuale.|
 |/ AdminKey|Indica la chiave amministratore desiderato che può essere utilizzata per reimpostare il PIN della scheda se un utente dimentica il PIN.</br>**PREDEFINITO** Specifica il valore predefinito di 010203040506070801020304050607080102030405060708.</br>**Prompt dei COMANDI** richiede all'utente di immettere un valore per la chiave amministratore.</br>**CASUALE** comporta un'impostazione casuale per la chiave di amministrazione per una smart card che non viene restituita all'utente. Verrà creata una smart card che potrebbe non essere gestita tramite strumenti di gestione delle smart card. Quando è stato generato con RANDOM, la chiave amministratore deve essere inserita come 48 caratteri esadecimali.|
 |/ PIN|Indica il valore PIN utente desiderato.</br>**PREDEFINITO** Specifica il valore predefinito di 12345678 PIN.</br>**Prompt dei COMANDI** richiede all'utente di immettere un PIN nella riga di comando. Il PIN deve contenere un minimo di otto caratteri e può contenere numeri, caratteri e caratteri speciali.|
 |/ PUK|Indica il valore di chiave PIN sblocco (PUK) desiderato. Il valore PUK deve essere un minimo di otto caratteri e può contenere numeri, caratteri e caratteri speciali. Se il parametro viene omesso, la scheda viene creata senza un PUK.</br>**PREDEFINITO** Specifica il valore predefinito di 12345678 PUK.</br>**Prompt dei COMANDI** chiede all'utente di immettere un PUK nella riga di comando.|
 |/ generare|Genera i file nell'archiviazione necessari per la smart card virtuale alla funzione. Se il / generare parametro viene omesso, è equivalente alla creazione di una scheda senza questo file system. Una scheda senza un file system può essere gestita solo da un sistema di gestione delle smart card, ad esempio Microsoft Configuration Manager.|
-|/Machine|Consente di specificare il nome di un computer remoto in cui è possibile creare la smart card virtuale. Può essere utilizzato in un solo ambiente di dominio e si basa su DCOM. Per il comando abbia esito positivo per la creazione di una smart card virtuale in un computer diverso, l'utente che esegue questo comando deve essere un membro del gruppo administrators locale nel computer remoto.|
+|/machine|Consente di specificare il nome di un computer remoto in cui è possibile creare la smart card virtuale. Può essere utilizzato in un solo ambiente di dominio e si basa su DCOM. Per il comando abbia esito positivo per la creazione di una smart card virtuale in un computer diverso, l'utente che esegue questo comando deve essere un membro del gruppo administrators locale nel computer remoto.|
 |/?|Visualizza la Guida per questo comando.|
 
 #### <a name="parameters-for-destroy-command"></a>Parametri del comando di eliminazione
@@ -52,16 +52,16 @@ Il comando destroy Elimina in modo sicuro una smart card virtuale dal computer d
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/istanza|Specifica l'ID di istanza di smart card virtuale da rimuovere. L'ID istanza generato come output da Tpmvscmgr.exe quando è stata creata la scheda. Il parametro /istanza è un campo obbligatorio per il comando di eliminazione.|
+|/instance|Specifica l'ID di istanza di smart card virtuale da rimuovere. L'ID istanza generato come output da Tpmvscmgr.exe quando è stata creata la scheda. Il parametro /istanza è un campo obbligatorio per il comando di eliminazione.|
 |/?|Visualizza la Guida per questo comando.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 L'appartenenza di **amministratori** gruppo (o equivalente) nel computer di destinazione è il requisito minimo necessario per eseguire tutti i parametri del comando.
 
 Per gli input alfanumerico, è consentito il set di ASCII completo 127 caratteri.
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Il comando seguente viene illustrato come creare una smart card virtuale che può essere gestita in un secondo momento da uno strumento di gestione delle smart card avviato da un altro computer.
 ```
@@ -79,8 +79,8 @@ Il comando seguente crea una smart card virtuale con una chiave amministratore c
 ```
 tpmvscmgr.exe destroy /instance <instance ID> 
 ```
-dove \<ID istanza > è il valore stampato sullo schermo quando l'utente ha creato la scheda. In particolare, per la prima scheda creata, l'ID istanza è ROOT\SMARTCARDREADER\0000.
+dove \<ID istanza> è il valore stampato sullo schermo quando l'utente ha creato la scheda. In particolare, per la prima scheda creata, l'ID istanza è ROOT\SMARTCARDREADER\0000.
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 -   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

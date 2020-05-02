@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5b6efff57a512a2e0519b3294c51c073f1f44d8d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: e27b260bdaa8896ad3cf0ad58294467bbb63e1c2
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80832834"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721356"
 ---
 # <a name="time"></a>time
 
@@ -22,7 +22,7 @@ ms.locfileid: "80832834"
 
 Visualizza o imposta l'ora di sistema. Se utilizzata senza parametri, **ora** Visualizza l'ora di sistema corrente e viene richiesto di immettere un'ora nuove.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -34,11 +34,11 @@ time [/t | [<HH>[:<MM>[:<SS>]] [am|pm]]]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<HH > [:\<MM > [:\<SS > [.\<NN >]]] [AM\|PM]|Imposta l'ora di sistema per la nuova ora specificata, in cui *HH* è espresso in ore (obbligatoria), *MM* in minuti e *SS* è espresso in secondi. *NN* può essere utilizzato per specificare i centesimi di secondo. Se **sono** o **pm** non è specificato, **ora** utilizza il formato di 24 ore per impostazione predefinita.|
+|\<HH> [:\<mm> [:\<SS> [.\< NN>]]] [\|PM]|Imposta l'ora di sistema per la nuova ora specificata, in cui *HH* è espresso in ore (obbligatoria), *MM* in minuti e *SS* è espresso in secondi. *NN* può essere utilizzato per specificare i centesimi di secondo. Se **sono** o **pm** non è specificato, **ora** utilizza il formato di 24 ore per impostazione predefinita.|
 |/t|Visualizza l'ora corrente senza richiedere una nuova ora.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   Per modificare l'ora corrente, è necessario disporre di credenziali amministrative.
 -   È necessario separare i valori per *HH*, *MM*, e *SS* con due punti (:). *SS* e *NN* devono essere separati da un punto (.).
@@ -63,6 +63,6 @@ Enter the new time:
 ```
 Per mantenere l'ora corrente e tornare al prompt dei comandi, premere INVIO. Per modificare l'ora corrente, digitare la nuova ora e quindi premere INVIO.
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
 title: volume x:.
-description: Windows Commands Topic for unexpoe, che non espone una copia shadow esposta tramite il comando Expose.
+description: Argomento di riferimento per Unexpo, che non espone una copia shadow esposta tramite il comando Expose.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f2f8bbdb3b810ffbf9332608a016fc3b3e188e9f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: e0caa412e5ff7de149f0a2bd8806f7141c368306
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80832354"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721193"
 ---
 # <a name="unexpose"></a>volume x:.
 
 Unexposes una copia shadow esposta tramite il **esporre** comando. La copia shadow esposta può essere specificata dal relativo ID Shadow, lettera di unità, una condivisione o un punto di montaggio.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -32,22 +32,22 @@ unexpose {<ShadowID> | <Drive:> | <Share> | <MountPoint>}
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<IDShadow >|Unexposes la copia shadow specificata per l'ID di Shadow specificato.|
-|Unità \<: >|Non espone la copia shadow associata alla lettera di unità specificata (ad esempio, l'unità P).|
-|Condivisione \<>|Non espone la copia shadow associata alla condivisione specificata, ad esempio \\\\*MachineName*\).|
-|\<MountPoint >|Non espone la copia shadow associata al punto di montaggio specificato, ad esempio C:\shadowcopy\).|
+|\<> IDShadow|Unexposes la copia shadow specificata per l'ID di Shadow specificato.|
+|\<Unità: >|Non espone la copia shadow associata alla lettera di unità specificata (ad esempio, l'unità P).|
+|\<Condividi>|Non espone la copia shadow associata alla condivisione specificata, \\ \\ad esempio *machineName*\).|
+|\<> MountPoint|Non espone la copia shadow associata al punto di montaggio specificato, ad esempio C:\shadowcopy\).|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   È possibile utilizzare un alias esistente o una variabile di ambiente al posto di *IDShadow*. Utilizzare **aggiungere** senza parametri per visualizzare gli alias esistenti.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per annullare l'esposizione della copia shadow associata P unità, digitare:
 ```
 unexpose P:
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

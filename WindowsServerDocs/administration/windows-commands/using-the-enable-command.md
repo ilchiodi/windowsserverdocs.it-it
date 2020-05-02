@@ -1,6 +1,6 @@
 ---
-title: Attiva
-description: Windows Commands argomento per Enable, che Abilita tutti i servizi per servizi di distribuzione Windows.
+title: Abilitare
+description: Argomento di riferimento per Enable, che Abilita tutti i servizi per servizi di distribuzione Windows.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,21 +9,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 676c180f3c36a09bea99d38036f5974c75e3ffc0
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: d27f55e92779edc5f3388374a422c957b85e51f9
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80831554"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720936"
 ---
-# <a name="enable"></a>Attiva
+# <a name="enable"></a>Abilitare
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Abilita tutti i servizi per servizi di distribuzione Windows.
 
 ## <a name="subcommands"></a>Sottocomandi
 |Subommand|Descrizione|
 |-------|--------|
-|[Uso del comando Enable-Server](using-the-enable-server-command.md)|Abilita tutti i servizi in un server di servizi di distribuzione Windows (Server di distribuzione) specificato.|
-|[Uso del comando Enable-TransportServer](using-the-enable-transportserver-command.md)|Abilita tutti i servizi in un Server di trasporto specificato.|
+|[Utilizzando il comando enable-Server](using-the-enable-server-command.md)|Abilita tutti i servizi in un server di servizi di distribuzione Windows (Server di distribuzione) specificato.|
+|[Utilizzando il comando enable-TransportServer](using-the-enable-transportserver-command.md)|Abilita tutti i servizi in un Server di trasporto specificato.|

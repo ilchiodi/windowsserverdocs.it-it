@@ -1,6 +1,6 @@
 ---
-title: corso
-description: Windows Commands Topic for progress, che visualizza lo stato di avanzamento durante l'esecuzione di un comando.
+title: progress
+description: Argomento di riferimento per Progress, che visualizza lo stato di avanzamento durante l'esecuzione di un comando.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9957174203df8f2f5c02bf3ab8a4f3406701a8da
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3fcb06304df22208cef013d73a4ebf0af1991f88
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80833124"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721426"
 ---
-# <a name="progress"></a>corso
+# <a name="progress"></a>progress
 
 Visualizza lo stato di avanzamento durante l'esecuzione di un comando. È possibile utilizzare **/stato di avanzamento** con tutti gli altri comandi WDSUTIL eseguiti. Si noti che è necessario specificare **/Verbose** e **/stato di avanzamento** direttamente dopo **WDSUTIL**.
 

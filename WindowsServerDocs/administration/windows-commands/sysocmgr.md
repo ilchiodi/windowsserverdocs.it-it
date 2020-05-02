@@ -1,6 +1,6 @@
 ---
 title: sysocmgr
-description: Windows Commands Topic for sysocmgr, che è stato deprecato e non è garantito che sia supportato nelle versioni future di Windows.
+description: Argomento di riferimento per sysocmgr, che è stato deprecato e non è garantito per essere supportato nelle versioni future di Windows.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a8f410d99fa1296cdf2577d57368fda58cbdfd04
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 513bcab45b16f82e7f3dac0d77587a8db9d1c327
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80833594"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721590"
 ---
 # <a name="sysocmgr"></a>sysocmgr
 

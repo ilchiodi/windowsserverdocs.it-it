@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 43cbc57aba29ea0b9150dccdfc566a93017a09a5
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 62ba0de33e69998e7d3e343b1e53c1de7e630e10
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80833644"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721615"
 ---
 # <a name="subst"></a>subst
 
@@ -22,7 +22,7 @@ ms.locfileid: "80833644"
 
 Associa un percorso con una lettera di unità. Se utilizzata senza parametri, **subst** vengono visualizzati i nomi delle unità virtuali attive.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -35,12 +35,12 @@ subst <Drive1>: /d
 
 |Parametro|Descrizione|
 |---------|-----------|
-|> unità1 \<:|Specifica l'unità virtuale a cui si desidera assegnare un percorso.|
-|[\<unità2 >:]\<percorso >|Specifica l'unità fisica e il percorso che si desidera assegnare a un'unità virtuale.|
+|\<> unità1:|Specifica l'unità virtuale a cui si desidera assegnare un percorso.|
+|[\<Unità2>:] \<> percorso|Specifica l'unità fisica e il percorso che si desidera assegnare a un'unità virtuale.|
 |/d|Elimina un'unità sostituita (virtuale).|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   I comandi seguenti non funzionano e non devono essere usati nelle unità specificate nel comando **SUBST** :
 
@@ -70,6 +70,6 @@ Anziché digitare il percorso completo, è possibile raggiungere questa director
 z: 
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

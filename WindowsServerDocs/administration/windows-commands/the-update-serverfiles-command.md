@@ -1,6 +1,6 @@
 ---
 title: Update-ServerFiles
-description: Windows Commands Topic for Update-ServerFiles, che aggiorna i file nella cartella condivisa reminst usando i file più recenti archiviati nella cartella%Windir%\System32\RemInst del server.
+description: Argomento di riferimento per Update-ServerFiles, che aggiorna i file nella cartella condivisa reminst usando i file più recenti archiviati nella cartella%Windir%\System32\RemInst del server.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 37cbb880246cf5e5ff6a9e007dbe720de8dd1cbe
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0005d8e198300c4aad9fdfc772957b460d6fee74
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80832954"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721378"
 ---
 # <a name="update-serverfiles"></a>Update-ServerFiles
 
@@ -30,9 +30,9 @@ WDSUTIL [Options] /Update-ServerFiles [/Server:<Server name>]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|[/Server:\<nome server >]|Specifica il nome del server. Può essere il nome NetBIOS oppure il nome di dominio completo. Se viene specificato alcun nome di server, verrà utilizzato il server locale.|
+|[/Server:\<nome server>]|Specifica il nome del server. Può essere il nome NetBIOS oppure il nome di dominio completo. Se viene specificato alcun nome di server, verrà utilizzato il server locale.|
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per aggiornare i file, digitare uno dei seguenti:
 ```
@@ -40,6 +40,6 @@ WDSUTIL /Update-ServerFiles
 WDSUTIL /Verbose /Progress /Update-ServerFiles /Server:MyWDSServer
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

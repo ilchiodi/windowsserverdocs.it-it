@@ -1,6 +1,6 @@
 ---
 title: invio Telnet
-description: Windows Commands argomento per Telnet Send, che invia comandi Telnet al server Telnet.
+description: Argomento di riferimento per l'invio Telnet, che invia comandi Telnet al server Telnet.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6fef48ca04a3817f58d063bc8b23f5c11c4ea197
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 432401bbe2050a7954967a73b5ba8abeee5bb1d3
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80833284"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721494"
 ---
 # <a name="telnet-send"></a>Telnet: invio
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Invia comandi Telnet al server Telnet.   
 
@@ -39,10 +39,10 @@ sen[d] {ao | ayt | brk | esc | ip | synch | <string>} [?]
 | <string>  | Invia qualsiasi stringa digitata al server Telnet. |
 |     ?     |     Visualizza la Guida associata a questo comando.      |
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Esempi  
+## <a name="examples"></a>Esempi  
 Inviare il server Telnet.  
 ```  
 sen ayt  
 ```  
-## <a name="additional-references"></a>Altre informazioni di riferimento  
+## <a name="additional-references"></a>Riferimenti aggiuntivi  
 -   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

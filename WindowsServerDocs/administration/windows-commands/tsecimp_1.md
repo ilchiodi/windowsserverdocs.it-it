@@ -1,6 +1,6 @@
 ---
 title: tsecimp
-description: Windows Commands Topic for TSecImp, che importa le informazioni di assegnazione da un file Extensible Markup Language (XML) nel file di sicurezza del server TAPI (Tsec. ini).
+description: Argomento di riferimento per TSecImp, che importa le informazioni di assegnazione da un file Extensible Markup Language (XML) nel file di sicurezza del server TAPI (Tsec. ini).
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 30a097bcd25e981f72a421b81b80b595343404ba
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: afd38f7081a9b4674eb6cac26f52849794b8d5e6
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80832504"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721248"
 ---
 # <a name="tsecimp"></a>tsecimp
 
@@ -31,13 +31,13 @@ tsecimp /d
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/f \<nomefile >|Obbligatoria. Specifica il nome del file XML che contiene le informazioni di assegnazione che si desidera importare.|
+|/f \<> nomefile|Obbligatorio. Specifica il nome del file XML che contiene le informazioni di assegnazione che si desidera importare.|
 |/v|Convalida la struttura del file XML senza importare le informazioni nel file Tsec. ini.|
-|/u|Verifica se ogni utente è un membro del dominio specificato nel file XML. Il computer in cui si utilizza questo parametro deve essere connesso alla rete. Questo parametro potrebbe rallentare significativamente le prestazioni se si elabora una grande quantità di informazioni sull'assegnazione dell'utente.|
+|/U|Verifica se ogni utente è un membro del dominio specificato nel file XML. Il computer in cui si utilizza questo parametro deve essere connesso alla rete. Questo parametro potrebbe rallentare significativamente le prestazioni se si elabora una grande quantità di informazioni sull'assegnazione dell'utente.|
 |/d|Visualizza un elenco di provider di telefonia installati. Per ogni provider di telefonia vengono elencati i dispositivi linea associati, nonché gli indirizzi e gli utenti associati a ogni dispositivo di linea.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   Il file XML da cui si desidera importare le informazioni di assegnazione deve seguire la struttura descritta di seguito.  
     -   **Utente** (elemento)
@@ -152,8 +152,8 @@ tsecimp /d
 
     ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 
-[Panoramica della shell comandi](https://technet.microsoft.com/library/cc737438(v=ws.10).aspx)
+[Cenni preliminari sulla shell comandi](https://technet.microsoft.com/library/cc737438(v=ws.10).aspx)

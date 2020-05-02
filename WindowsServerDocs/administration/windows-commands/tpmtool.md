@@ -1,6 +1,6 @@
 ---
 title: tpmtool
-description: Windows Commands argomento per tpmtool, che ottiene informazioni sul Trusted Platform Module.
+description: Argomento di riferimento per tpmtool, che ottiene informazioni sul Trusted Platform Module.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -8,19 +8,19 @@ author: ashleytqy
 ms.author: ashleytqy
 manager: ronaldai
 ms.date: 05/07/2019
-ms.openlocfilehash: 14a2401fae008c9749f33b076346fe8df7794d3e
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f2e283dd20d22418416958686d77605976923eaf
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80832744"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721335"
 ---
 # <a name="tpmtool"></a>tpmtool
 
 Questa utilità può essere utilizzata per ottenere informazioni sulla [Trusted Platform Module (TPM)](https://docs.microsoft.com/windows/security/information-protection/tpm/trusted-platform-module-overview).
 
 >[!IMPORTANT]
->Alcune informazioni sono relative a un prodotto non definitivo che potrebbe subire modifiche sostanziali prima del rilascio sul mercato. Microsoft non offre alcuna garanzia, esplicita o implicita, relativamente alle informazioni fornite.
+>Alcune informazioni sono relative a un prodotto non definitivo che potrebbe subire modifiche sostanziali prima del rilascio sul mercato. Microsoft non offre alcuna garanzia, esplicita o implicita, riguardo alle informazioni fornite in questo documento.
 
 Per esempi di utilizzo di questo comando, vedere [Esempi](#tpmtool_examples).
 
@@ -36,7 +36,7 @@ tpmtool /parameter [<arguments>]
 |getdeviceinformation|Visualizza le informazioni di base del TPM. Il significato dei valori del flag informazioni è disponibile [qui](https://docs.microsoft.com/windows/desktop/SecProv/win32-tpm-isreadyinformation#parameters).|
 |GatherLogs [percorso della directory di output]|Raccoglie i log TPM e li inserisce nella directory specificata. Se la directory non esiste, viene creata. Per impostazione predefinita, vengono inseriti nella directory corrente. I file possibili generati sono: </br>-TpmEvents. evtx</br>-TpmInformation. txt</br>-SRTMBoot. dat</br>-SRTMResume. dat</br>-DRTMBoot. dat</br>-DRTMResume. dat</br>|
 |drivertracing [Start/Stop]|Avviare/arrestare la raccolta delle tracce del driver TPM. Il log di traccia, TPMTRACE. ETL, verrà generato e inserito nella directory corrente.|
-|parsetcglogs [-Validate (-v)]|Consente di visualizzare il log TCG analizzato, noto anche come log di configurazione di avvio di Windows (WBCL). Le descrizioni degli eventi più aggiornati sono reperibili nel [sito Web TCG](https://trustedcomputinggroup.org/resource/pc-client-specific-platform-firmware-profile-specification/), in **descrizioni degli eventi**. Se il flag di `-validate` impostato, verifica che i valori del registro di configurazione della piattaforma (PCR) nel TPM corrispondano ai valori nel log.|
+|parsetcglogs [-Validate (-v)]|Consente di visualizzare il log TCG analizzato, noto anche come log di configurazione di avvio di Windows (WBCL). Le descrizioni degli eventi più aggiornati sono reperibili nel [sito Web TCG](https://trustedcomputinggroup.org/resource/pc-client-specific-platform-firmware-profile-specification/), in **descrizioni degli eventi**. Se il `-validate` flag è impostato, verifica che i valori del registro di configurazione della piattaforma (PCR) nel TPM corrispondano ai valori nel log.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="examples"></a><a name=tpmtool_examples></a>Esempi

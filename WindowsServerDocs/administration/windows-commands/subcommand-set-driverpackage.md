@@ -1,6 +1,6 @@
 ---
 title: Set di sottocomandi-DriverPack
-description: Windows Commands argomento for subcommand set-DriverPacking, che Rinomina e/o Abilita o Disabilita un pacchetto driver in un server.
+description: Argomento di riferimento per il set di sottocomandi-DriverPack, che Rinomina e/o Abilita o Disabilita un pacchetto driver in un server.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 68d282b3338e67a33a55481658f55db69930b10e
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 40a812e785df6820da404a8951af6731cced15d3
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80834020"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721717"
 ---
 # <a name="subcommand-set-driverpackage"></a>Sottocomando: set /InfFile
 
@@ -30,13 +30,13 @@ WDSUTIL /Set-DriverPackage [/Server:<Server name>] {/DriverPackage:<Name> | /Pac
 
 |        Parametro         |                                                                                                                                                                                                               Descrizione                                                                                                                                                                                                                |
 |--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [/Server:\<nome server >] |                                                                                                                                                 Specifica il nome del server. Questo può essere il nome NetBIOS o il nome FQDN. Se non viene specificato un nome di server, viene utilizzato il server locale.                                                                                                                                                 |
-| [/DriverPackage: nome\<>] |                                                                                                                                                                                       Specifica il nome corrente del pacchetto driver da modificare.                                                                                                                                                                                        |
-|    [/PackageId: ID\<>]    | Specifica l'ID di servizi di distribuzione di Windows del pacchetto driver. È necessario specificare questa opzione se il pacchetto driver non può essere identificato in modo univoco in base al nome. Per trovare questo ID per un pacchetto, fare clic sul gruppo di driver che contiene il pacchetto (o **tutti i pacchetti** nodo), fare doppio clic su pacchetto e quindi fare clic su **proprietà**. L'ID del pacchetto è elencato nella scheda **generale** . Ad esempio: {DD098D20-1850-4FC8-8E35-EA24A1BEFF5E}. |
-|   [/Name:\<nuovo nome >]    |                                                                                                                                                                                              Specifica il nuovo nome per il pacchetto driver.                                                                                                                                                                                              |
+| [/Server:\<nome server>] |                                                                                                                                                 Specifica il nome del server. Questo può essere il nome NetBIOS o il nome FQDN. Se non viene specificato un nome di server, viene utilizzato il server locale.                                                                                                                                                 |
+| [/DriverPackage:\<nome>] |                                                                                                                                                                                       Specifica il nome corrente del pacchetto driver da modificare.                                                                                                                                                                                        |
+|    [/PackageId:\<ID>]    | Specifica l'ID di servizi di distribuzione di Windows del pacchetto driver. È necessario specificare questa opzione se il pacchetto driver non può essere identificato in modo univoco in base al nome. Per trovare questo ID per un pacchetto, fare clic sul gruppo di driver che contiene il pacchetto (o **tutti i pacchetti** nodo), fare doppio clic su pacchetto e quindi fare clic su **proprietà**. L'ID del pacchetto è elencato nella scheda **generale** . Ad esempio: {DD098D20-1850-4FC8-8E35-EA24A1BEFF5E}. |
+|   [/Name:\<nuovo nome>]    |                                                                                                                                                                                              Specifica il nuovo nome per il pacchetto driver.                                                                                                                                                                                              |
 |      [/Enabled: {Sì      |                                                                                                                                                                                                                   Non                                                                                                                                                                                                                    |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per modificare le impostazioni relative a un pacchetto, digitare uno degli elementi seguenti:
 ```
@@ -46,6 +46,6 @@ WDSUTIL /Set-DriverPackage /PackageId:{4D36E972-E325-11CE-BFC1-08002BE10318} /Na
 WDSUTIL /Set-DriverPackage /DriverPackage:MyDriverPackage /Name:NewName /Enabled:Yes
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

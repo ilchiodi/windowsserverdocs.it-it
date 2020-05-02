@@ -1,6 +1,6 @@
 ---
 title: showmount
-description: Windows Commands argomento per showmount, che visualizza le directory montate.
+description: Argomento di riferimento per showmount, che consente di visualizzare le directory montate.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6fa61d47bb14cf21d93beec0a6e9257b9f66737b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 60057c154e7a646d14a0e57d5cf4cd72d0f90876
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80834224"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721808"
 ---
 # <a name="showmount"></a>showmount
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 È possibile usare **showmount** per visualizzare le directory montate.  
   
@@ -28,13 +28,13 @@ showmount {-e|-a|-d} <Server>
 ```
 
 ## <a name="description"></a>Descrizione  
-Il comando **showmount**\-riga Utility Visualizza informazioni sui file system montati esportati da server per NFS nel computer specificato dal *Server*. Se il *Server* non è specificato, **showmount** Visualizza informazioni sul computer in cui viene eseguito il comando **showmount** .  
+L' **showmount** utilità della\-riga di comando showmount visualizza informazioni sui file system montati esportati da server per NFS nel computer specificato dal *server*. Se il *Server* non è specificato, **showmount** Visualizza informazioni sul computer in cui viene eseguito il comando **showmount** .  
   
 È necessario specificare una delle opzioni seguenti:  
   
-- **\-e** -Visualizza tutti i file system esportati nel server.  
-- **\-a** -Visualizza tutti i client \(NFS\) di file System di rete e le directory nel server in cui è installato.  
-- **\-d** -Visualizza tutte le directory nel server attualmente montate dai client NFS.  
+- e-Visualizza tutti i file system esportati nel server. ** \-**  
+- a: Visualizza tutti i client NFS \(\) di file System di rete e le directory nel server in cui è installato ciascuno di essi. ** \-**  
+- d: Visualizza tutte le directory nel server attualmente montate dai client NFS. ** \-**  
   
 ## <a name="see-also"></a>Vedi anche  
 [Informazioni di riferimento sui comandi di Servizi per NFS](services-for-network-file-system-command-reference.md)  
