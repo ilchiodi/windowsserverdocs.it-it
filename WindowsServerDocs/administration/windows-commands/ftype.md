@@ -1,6 +1,6 @@
 ---
 title: ftype
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,20 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f982f68f25a4decbc9c572b533fa1ecc5e893a8c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 43108fad0e1981bffd110264809acf30c1c12ba1
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80842704"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725010"
 ---
 # <a name="ftype"></a>ftype
 
 
 
-Visualizza o modifica i tipi di file che vengono utilizzati nelle associazioni di estensione nome file. Se utilizzata senza un operatore di assegnazione ( **=** ), **ftype** Visualizza la stringa di comando di apertura corrente per il tipo di file specificato. Se utilizzata senza parametri, **ftype** vengono visualizzati i tipi di file che dispongono di stringhe di comando di apertura definite.
+Visualizza o modifica i tipi di file che vengono utilizzati nelle associazioni di estensione nome file. Se usato senza un operatore di assegnazione**=**(), **ftype** Visualizza la stringa di comando Open corrente per il tipo di file specificato. Se utilizzata senza parametri, **ftype** vengono visualizzati i tipi di file che dispongono di stringhe di comando di apertura definite.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -34,22 +34,22 @@ ftype [<FileType>[=[<OpenCommandString>]]]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|> di \<filetype|Specifica il tipo di file per visualizzare o modificare.|
-|\<OpenCommandString >|Specifica la stringa di comando di apertura da usare all'apertura dei file del tipo di file specificato.|
+|\<> filetype|Specifica il tipo di file per visualizzare o modificare.|
+|\<> OpenCommandString|Specifica la stringa di comando di apertura da usare all'apertura dei file del tipo di file specificato.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 La tabella seguente descrive come **ftype** sostituisce le variabili all'interno di una stringa di comando di apertura:
 
-|Variable|Valore di sostituzione|
+|Variabile|Valore di sostituzione|
 |--------|-----------------|
 |%1 o %0|Ottiene sostituita con il nome del file viene avviato tramite l'associazione.|
 |%*|Ottiene tutti i parametri.|
 |%2, %3,...|Ottiene il primo parametro (%2), il secondo parametro (%3) e così via.|
-|%~\<N >|Ottiene tutti i parametri rimanenti a partire dal *N*parametro in posizione in cui *N* può essere qualsiasi numero compreso tra 2 e 9.|
+|%~\<N>|Ottiene tutti i parametri rimanenti a partire dal *N*parametro in posizione in cui *N* può essere qualsiasi numero compreso tra 2 e 9.|
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per visualizzare i tipi di file corrente le stringhe di comando di apertura definite, digitare:
 ```
@@ -59,7 +59,7 @@ Per visualizzare la stringa di comando di apertura corrente per il *txtfile* tip
 ```
 ftype txtfile
 ```
-Questo comando restituisce un output simile al seguente:
+Questo comando consente di generare un output analogo a quello illustrato di seguito.
 ```
 txtfile=%SystemRoot%\system32\NOTEPAD.EXE %1
 ```
@@ -77,6 +77,6 @@ Per eliminare la necessità di digitare l'estensione pl quando si richiama uno s
 set PATHEXT=.pl;%PATHEXT%
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

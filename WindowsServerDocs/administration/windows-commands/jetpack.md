@@ -1,6 +1,6 @@
 ---
 title: jetpack
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 008e9dd4d41fe270d775b1c44d799dd16429046f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ec29a1fd48fdba72f07fe5d00de7730d93434105
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80841974"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724794"
 ---
 # <a name="jetpack"></a>jetpack
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 compatta un database WINS (Windows Internet Name Service) o Dynamic Host Configuration Protocol (DHCP). Si consiglia di compattare il database ogni volta che si avvicina 30 MB. 
 
@@ -34,7 +34,7 @@ jetpack.EXE <database name> <temp database name>
 |<temp database name>|Specifica il file di database temporaneo.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
+## <a name="examples"></a>Esempi
 Per compattare il database WINS:
 ```
 cd %SYSTEMROOT%\SYSTEM32\WINS
@@ -58,5 +58,5 @@ Jetpack. exe compatta il database WINS o DHCP eseguendo le operazioni seguenti:
 > [!NOTE]
 > Durante il processo di compattazione, jetpack. exe crea un file temporaneo con il nome specificato dal parametro del *nome del database temporaneo* . Una volta completato il processo di compattazione, viene rimosso il file temporaneo. Assicurarsi che non è un file già esistente in WINS o DHCP con lo stesso nome di quello specificato nella cartella di *nome database temporaneo* parametro.
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 -   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

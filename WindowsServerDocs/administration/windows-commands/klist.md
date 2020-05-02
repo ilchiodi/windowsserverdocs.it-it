@@ -1,6 +1,6 @@
 ---
 title: klist
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b693e4496f4fc1275e1f2b364900564ce86e97cb
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f83a46f158cd83aa8393630aa0138271e8868575
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80841964"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724746"
 ---
 # <a name="klist"></a>klist
 
 
 
-Visualizza un elenco dei ticket Kerberos attualmente memorizzati nella cache. Queste informazioni si applicano a Windows Server 2012. Per esempi di come è possibile utilizzare questo comando, vedere [esempi](#BKMK_Examples).
+Visualizza un elenco dei ticket Kerberos attualmente memorizzati nella cache. Queste informazioni si applicano a Windows Server 2012.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -34,7 +34,7 @@ klist [-lh <LogonId.HighPart>] [-li <LogonId.LowPart>] tickets | tgt | purge | s
 |---------|-----------|
 |-lh|Indica la parte alta dell'identificatore univoco locale (LUID) dell'utente, espressa in formato esadecimale. Se né lh – o – li sono presenti, il comando predefinito è l'identificatore univoco LOCALE dell'utente attualmente connesso.|
 |-li|Indica la parte bassa dell'identificatore univoco locale (LUID) dell'utente, espressa in formato esadecimale. Se né lh – o – li sono presenti, il comando predefinito è l'identificatore univoco LOCALE dell'utente attualmente connesso.|
-|ticket|Elenca gli attualmente memorizzati nella cache ticket di concessione-ticket (TGT) e ticket di servizio della sessione di accesso specificato. Questo è l'opzione predefinita.|
+|ticket|Elenca gli attualmente memorizzati nella cache ticket di concessione-ticket (TGT) e ticket di servizio della sessione di accesso specificato. Questa è l'opzione predefinita.|
 |TGT|Visualizza il TGT. Kerberos iniziale|
 |eliminazione|Consente di eliminare tutti i ticket di sessione di accesso specificato.|
 |sessioni|Visualizza un elenco di sessioni di accesso del computer.|
@@ -46,7 +46,7 @@ klist [-lh <LogonId.HighPart>] [-li <LogonId.LowPart>] tickets | tgt | purge | s
 |kdcoptions|Visualizza le opzioni di Centro distribuzione chiavi (KDC) specificate nella RFC 4120.|
 |/?|Visualizza la Guida per questo comando.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 L'appartenenza a **Domain Admins**, o equivalente è il requisito minimo necessario per eseguire tutti i parametri del comando.
 
@@ -70,7 +70,7 @@ I parametri di visualizzare le informazioni seguenti:
     Elenca il TGT Kerberos iniziale e gli attributi seguenti del ticket attualmente memorizzati nella cache:  
     -   IDaccesso: Identificato in formato esadecimale
     -   Nome_servizio: krbtgt
-    -   TargetName \<SPN >: krbtgt
+    -   \<Nome SPN targetname>: krbtgt
     -   DomainName: Nome del dominio che emette il TGT
     -   TargetDomainName: Dominio il TGT rilasciato a
     -   AltTargetDomainName: Dominio il TGT rilasciato a
@@ -93,7 +93,7 @@ I parametri di visualizzare le informazioni seguenti:
 
     Consente di visualizzare le informazioni della cache di delega vincolata Kerberos.  
     -   IDaccesso: Se specificato, vengono visualizzate le informazioni della cache per la sessione di accesso per il valore specificato. Se omesso, Visualizza le informazioni sulla cache per la sessione di accesso dell'utente corrente.
--   **Ottieni**
+-   **get**
 
     Consente di richiedere un ticket di destinazione specificato dal nome SPN.  
     -   IDaccesso: Se specificato, richiede un ticket di sessione di accesso utilizzando il valore specificato. Se non specificato, richiede un ticket usando la sessione di accesso dell'utente corrente.
@@ -114,7 +114,7 @@ I parametri di visualizzare le informazioni seguenti:
 **Altre considerazioni**
 -   Klist. exe è disponibile in Windows Server 2012 e Windows 8 e non richiede alcuna installazione speciale.
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 1. Quando la diagnosi di un 27 ID evento durante l'elaborazione di un servizio di concessione ticket (TGS) richiesta per il server di destinazione, l'account non dispone di una chiave adatta per generare un ticket Kerberos. È possibile utilizzare Klist per eseguire una query la cache del ticket Kerberos per determinare se eventuali ticket sono mancanti, se il server di destinazione o l'account è in errore o se il tipo di crittografia non è supportato.  
    ```
@@ -162,6 +162,6 @@ I parametri di visualizzare le informazioni seguenti:
    klist purge_bind
    ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 -   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

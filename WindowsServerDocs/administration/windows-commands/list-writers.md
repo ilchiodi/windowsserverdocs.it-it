@@ -1,6 +1,6 @@
 ---
 title: elencare i writer
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1e12c4f36c3fd840b7b37b12d9f4171429e5a52d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ef7fa0bd6e9857e22994178849e49afeb3305a2a
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80841114"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724476"
 ---
 # <a name="list-writers"></a>elencare i writer
 
@@ -22,7 +22,7 @@ ms.locfileid: "80841114"
 
 Elenca i writer che il siano. Se utilizzata senza parametri, **elenco** viene visualizzato l'output **elenco metadati** per impostazione predefinita.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -35,10 +35,10 @@ list writers [metadata | detailed | status]
 |Parametro|Descrizione|
 |---------|-----------|
 |metadata|Elenca l'identità e lo stato del writer e visualizza i metadati, ad esempio dettagli sui componenti e file esclusi. Si tratta del parametro predefinito.|
-|dettagliato|Elenca le stesse informazioni **metadati**, ma **dettagliate** include l'elenco di file completo per tutti i componenti.|
-|stato|Vengono elencati solo l'identità e lo stato di writer registrati.|
+|dettagliate|Elenca le stesse informazioni **metadati**, ma **dettagliate** include l'elenco di file completo per tutti i componenti.|
+|status|Vengono elencati solo l'identità e lo stato di writer registrati.|
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per elencare solo l'identità e lo stato del writer, digitare:
 ```
@@ -68,6 +68,6 @@ Listing writer status ...
 8 writers listed. 
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

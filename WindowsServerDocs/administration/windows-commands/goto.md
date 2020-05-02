@@ -1,6 +1,6 @@
 ---
 title: goto
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 928a9031a7f86261789676257afe95ffc3be8a99
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: dd61575b8b31ed47463db464f4aad0a048e755b2
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80842564"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725000"
 ---
 # <a name="goto"></a>goto
 
@@ -22,7 +22,7 @@ ms.locfileid: "80842564"
 
 Indirizza cmd.exe a una riga con etichetta in un file batch. All'interno di un file batch, **goto** indirizza l'elaborazione del comando a una riga identificata da un'etichetta. Quando viene trovato l'etichetta, l'elaborazione continua a partire da quelli che iniziano nella riga successiva.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -34,14 +34,14 @@ goto <Label>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|Etichetta \<>|Specifica una stringa di testo che viene utilizzata come etichetta nel programma batch.|
+|\<Etichetta>|Specifica una stringa di testo che viene utilizzata come etichetta nel programma batch.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   Utilizzo di estensioni di comando
 
-    Se sono abilitate le estensioni dei comandi (impostazione predefinita) e si usa il comando **goto** con un'etichetta di destinazione **: EOF**, si trasferisce il controllo alla fine del file di script batch corrente e si chiude il file di script batch senza definire un'etichetta. Quando si utilizza **goto** con il **: EOF** etichetta, è necessario inserire due punti prima l'etichetta. Ad esempio,  
+    Se sono abilitate le estensioni dei comandi (impostazione predefinita) e si usa il comando **goto** con un'etichetta di destinazione **: EOF**, si trasferisce il controllo alla fine del file di script batch corrente e si chiude il file di script batch senza definire un'etichetta. Quando si utilizza **goto** con il **: EOF** etichetta, è necessario inserire due punti prima l'etichetta. Ad esempio:  
     ```
     goto:EOF
     ```  
@@ -58,7 +58,7 @@ goto <Label>
 
     È possibile utilizzare **goto** con altri comandi per eseguire operazioni condizionali. Per ulteriori informazioni sull'utilizzo **goto** per operazioni condizionali, vedere il [Se](if.md) comando riferimento.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Il programma batch seguente formatta un disco nell'unità come disco di sistema. Se l'operazione ha esito positivo, il **goto** comando indirizza l'elaborazione di **: fine** etichetta:
 ```
@@ -70,7 +70,7 @@ echo An error occurred during formatting.
 echo End of batch program. 
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

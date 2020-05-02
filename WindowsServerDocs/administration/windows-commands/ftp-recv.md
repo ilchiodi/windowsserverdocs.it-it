@@ -1,6 +1,6 @@
 ---
 title: ricezione FTP
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7fec409741e00bb3e6f61808630e5141ce4ec78f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 5ece259f2d48e18f6a789d51b1df7089490f2fa1
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80842964"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725121"
 ---
 # <a name="ftp-recv"></a>FTP: ricezione
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Copia un file remoto nel computer locale utilizzando il tipo di trasferimento di file corrente.   
 ## <a name="syntax"></a>Sintassi  
@@ -32,10 +32,10 @@ recv <remoteFile> [<LocalFile>]
 | <remoteFile>  |        Specifica il file remoto da copiare.        |
 | [<LocalFile>] | Specifica il nome da utilizzare nel computer locale. |
 
-## <a name="remarks"></a>Note  
+## <a name="remarks"></a>Osservazioni  
 - Il comando **ricezione** è identico al comando **Get** .  
 - Se *LocalFile* non è specificato, al file viene assegnato il nome *FileRemoto* .  
-  ## <a name="examples"></a><a name=BKMK_Examples></a>Esempi  
+  ## <a name="examples"></a>Esempi  
   copiare **test. txt** nel computer locale usando il tipo di trasferimento di file corrente.  
   ```  
   recv test.txt  
@@ -44,7 +44,7 @@ recv <remoteFile> [<LocalFile>]
   ```  
   recv test.txt test1.txt  
   ```  
-  ## <a name="additional-references"></a>Altre informazioni di riferimento  
+  ## <a name="additional-references"></a>Riferimenti aggiuntivi  
 - [FTP: ASCII](ftp-ascii.md)  
 - [FTP: binario](ftp-binary.md)  
 - [FTP: Get](ftp-get.md)  

@@ -1,6 +1,6 @@
 ---
-title: importare
-description: Argomento dei comandi di Windows per * * * *-
+title: import
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,20 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 07fdd03c73c454e92218a4c6983eac7f29b50883
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 72cbd6195de64a6a0a7f2c258e19b2d5eb1378b1
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80842174"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724849"
 ---
-# <a name="import"></a>importare
+# <a name="import"></a>import
 
 
 
 Importa una copia shadow trasportabile da un file di metadati caricato nel sistema.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -30,12 +30,12 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 import
 ```
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   Le copie shadow trasportabili non vengono archiviate immediatamente nel sistema. I relativi dettagli vengono archiviati in un file XML del documento dei componenti di backup, che DiskShadow richiede e salva automaticamente in un file di metadati CAB nella directory di lavoro. È possibile modificare il percorso e il nome del file usando il comando **set Metadata** .
 -   Prima di poter usare **Import**, è necessario caricare un file di metadati DiskShadow usando il comando **Load Metadata** .
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Di seguito è riportato uno script DiskShadow di esempio che illustra l'uso del comando **Import** :
 ```
@@ -55,6 +55,6 @@ IMPORT
 #The shadow copy will now be loaded into the system.
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

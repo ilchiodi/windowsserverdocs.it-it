@@ -1,6 +1,6 @@
 ---
 title: Logman start | arrestare
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2bd81a33779aa58e7528d0173a7a4b49489de8f9
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 68f570d99d4b3eaa818c9fbdcce76c42d1cb12d4
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80840624"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724340"
 ---
 # <a name="logman-start--stop"></a>Logman start | arrestare
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 avviare un agente di raccolta dati e impostare l'ora di inizio su manuale oppure arrestare un insieme agenti di raccolta dati e impostare l'ora di fine su manuale.  
 
@@ -32,16 +32,16 @@ logman stop <[-n] <name>> [options]
 |     Parametro      |                                 Descrizione                                  |
 |--------------------|------------------------------------------------------------------------------|
 |         -?         |                       Vengono visualizzate sensibile al contesto della Guida.                       |
-| -s <computer name> |            Eseguire il comando nel computer remoto specificato.             |
+| -s<computer name> |            Eseguire il comando nel computer remoto specificato.             |
 |  -config <value>   |           Specifica il file di impostazioni che contiene le opzioni di comando.            |
-|    [-n] <name>     |                          Nome dell'oggetto di destinazione.                          |
+|    [-n]<name>     |                          Nome dell'oggetto di destinazione.                          |
 |        -ets        | Inviare comandi alle sessioni di traccia eventi direttamente senza salvare o pianificare. |
 |        -come         |               Eseguire l'operazione richiesta in modo asincrono.                |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi  
+## <a name="examples"></a>Esempi  
 Il comando seguente avvia perf_log l'agente di raccolta dati in server_1 il computer remoto.  
 ```  
 logman start perf_log -s server_1  
 ```  
-## <a name="additional-references"></a>Altre informazioni di riferimento  
+## <a name="additional-references"></a>Riferimenti aggiuntivi  
 [logman](logman.md)  

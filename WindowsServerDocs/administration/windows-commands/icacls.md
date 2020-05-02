@@ -1,6 +1,6 @@
 ---
 title: icacls
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per il comando icacls, che Visualizza o modifica gli elenchi di controllo di accesso discrezionale (DACL) sui file specificati e applica i DACL archiviati ai file nelle directory specificate.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,119 +9,129 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 08/21/2018
-ms.openlocfilehash: 59d10b9ed681b7e0af120798dde9f200182d67d3
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: dcf4fa9fa9205a762ead99ac4a8486ac04c23514
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80842264"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724869"
 ---
 # <a name="icacls"></a>icacls
 
 Visualizza o modifica gli elenchi di controllo di accesso discrezionali (DACL) nei file specificati e applica gli elenchi DACL archiviati ai file nelle directory specificate.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#examples).
+> [!NOTE]
+> Questo comando sostituisce il [comando cacls](cacls.md)deprecato.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-icacls <FileName> [/grant[:r] <Sid>:<Perm>[...]] [/deny <Sid>:<Perm>[...]] [/remove[:g|:d]] <Sid>[...]] [/t] [/c] [/l] [/q] [/setintegritylevel <Level>:<Policy>[...]]
-icacls <Directory> [/substitute <SidOld> <SidNew> [...]] [/restore <ACLfile> [/c] [/l] [/q]]
+icacls <filename> [/grant[:r] <sid>:<perm>[...]] [/deny <sid>:<perm>[...]] [/remove[:g|:d]] <sid>[...]] [/t] [/c] [/l] [/q] [/setintegritylevel <Level>:<policy>[...]]
+icacls <directory> [/substitute <sidold> <sidnew> [...]] [/restore <aclfile> [/c] [/l] [/q]]
 ```
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|\<FileName >|Specifica il file per cui visualizzare gli elenchi DACL.|
-|> Directory \<|Specifica la directory per cui visualizzare gli elenchi DACL.|
-|/t|Esegue l'operazione su tutti i file specificati nella directory corrente e nelle relative sottodirectory.|
-|/c|L'operazione continuerà nonostante eventuali errori nel file. Verranno ancora visualizzati messaggi di errore.|
-|/l|Esegue l'operazione su un collegamento simbolico e la relativa destinazione.|
-|/q|Elimina i messaggi di esito positivo.|
-|[/Save \<ACLfile > [/t] [/c] [/l] [/q]]|Archivia gli elenchi DACL per tutti i file corrispondenti in *ACLfile* per un utilizzo successivo con **/ripristino**.|
-|[/SetOwner \<username > [/t] [/c] [/l] [/q]]|Modifica il proprietario di tutti i file corrispondenti all'utente specificato.|
-|[/findSID \<SID > [/t] [/c] [/l] [/q]]|Trova tutti i file corrispondenti che contengono un DACL citare in modo esplicito l'identificatore specificato di sicurezza (SID).|
-|[/ verificare [/t] [/c] [/l] [/q]]|Trova tutti i file con gli ACL non canonico o hanno lunghezze non coerente con i conteggi ACE (voce di controllo di accesso).|
-|[/Reset [/t] [/c] [/l] [/q]]|Sostituisce gli ACL predefinito ereditata ACL per tutti i file corrispondenti.|
-|[/dy [: r] \<SID >:<Perm>[...]]|Concede specificato diritti di accesso utente. Autorizzazioni di sostituiscono le autorizzazioni precedentemente concesse esplicite.</br>Senza **: r**, le autorizzazioni vengono aggiunte a qualsiasi precedentemente concesse le autorizzazioni esplicite.|
-|[/Deny \<SID >:<Perm>[...]]|Nega in modo esplicito i diritti di accesso utente specificato. L'impostazione esplicita Nega ACE viene aggiunto per le autorizzazioni indicate e vengono rimosse le stesse autorizzazioni in qualsiasi autorizzazione esplicita.|
-|[/Remove [: g\|:d]] \<SID > [...]] /t /c /l /q|Rimuove tutte le occorrenze del SID specificato dall'elenco DACL.</br>**: g** Rimuove tutte le occorrenze di concessione dei diritti per il SID specificato.</br>**: d** Rimuove tutte le occorrenze dei diritti negato l'accesso al SID specificato.|
-|[/setintegritylevel [(CI) (OI)] livello\<>:<Policy>[...]]|Aggiunge una voce ACE di integrità in modo esplicito per tutti i file corrispondenti. *Livello* viene specificato come:</br>-   **L**[ow]</br>-   **M**[edium]</br>-   **H**[IGH]</br>Opzioni di ereditarietà per l'integrità ACE possono precedere il livello e vengono applicate solo alla directory.|
-|[/substitute \<SidOld > <SidNew> [...]]|Sostituisce un SID esistente (*SidOld*) con un nuovo SID (*SidNew*). Richiede il *Directory* parametro.|
-|/Restore \<ACLfile > [/c] [/l] [/q]|Si applica stored DACL da *ACLfile* ai file nella directory specificata. Richiede il *Directory* parametro.|
-|/InheritanceLevel: [e\|d\|r]|Imposta il livello di ereditarietà: <br>  **e** -Abilita enheritance <br>**d** : Disabilita l'ereditarietà e copia le voci ACE <br>**r** -rimuove tutte le voci ACE ereditate
+| Parametro | Descrizione |
+| --------- | ----------- |
+| `<filename>` | Specifica il file per cui visualizzare gli elenchi DACL. |
+| `<directory>` | Specifica la directory per cui visualizzare gli elenchi DACL. |
+| /t | Esegue l'operazione su tutti i file specificati nella directory corrente e nelle relative sottodirectory. |
+| /C | L'operazione continuerà nonostante eventuali errori nel file. Verranno ancora visualizzati messaggi di errore. |
+| /l | Esegue l'operazione su un collegamento simbolico anziché sulla relativa destinazione. |
+| /q | Elimina i messaggi di esito positivo. |
+| [/ Salva `<ACLfile>` [/t] / [c] [/l] [/q]] | Archivia gli elenchi DACL per tutti i file corrispondenti in *ACLfile* per un utilizzo successivo con **/ripristino**. |
+| [/ setowner `<username>` [/t] / [c] [/l] [/q]] | Modifica il proprietario di tutti i file corrispondenti all'utente specificato. |
+| [/findsid `<sid>` [/t] [/c] [/l] [/q]] | Trova tutti i file corrispondenti che contengono un DACL citare in modo esplicito l'identificatore specificato di sicurezza (SID). |
+| [/ verificare [/t] [/c] [/l] [/q]] | Trova tutti i file con gli ACL non canonico o hanno lunghezze non coerente con i conteggi ACE (voce di controllo di accesso). |
+| [/Reset [/t] [/c] [/l] [/q]] | Sostituisce gli ACL predefinito ereditata ACL per tutti i file corrispondenti. |
+| [/dy [: r] \<SID>:<perm>[...]] | Concede specificato diritti di accesso utente. Autorizzazioni di sostituiscono le autorizzazioni precedentemente concesse esplicite.<p>Se non si aggiunge **: r**, le autorizzazioni vengono aggiunte a qualsiasi autorizzazione esplicita precedentemente concessa. |
+| [/Deny \<SID>:<perm>[...]] | Nega in modo esplicito i diritti di accesso utente specificato. L'impostazione esplicita Nega ACE viene aggiunto per le autorizzazioni indicate e vengono rimosse le stesse autorizzazioni in qualsiasi autorizzazione esplicita. |
+| [/Remove`[:g | :d]]` `<sid>`[...] /t /c /l /q | Rimuove tutte le occorrenze del SID specificato dall'elenco DACL. Questo comando può anche usare:<ul><li>**: g** -rimuove tutte le occorrenze dei diritti concessi al SID specificato.</li><li>**:d** : rimuove tutte le occorrenze dei diritti negati al SID specificato. |
+| [/setintegritylevel [(CI) (OI)] `<Level>:<Policy>`[...]] | Aggiunge una voce ACE di integrità in modo esplicito per tutti i file corrispondenti. Il livello può essere specificato come:<ul><li>**l** -basso</li><li>**m**-medio</li><li>**h** -alto</li></ul>Opzioni di ereditarietà per l'integrità ACE possono precedere il livello e vengono applicate solo alla directory. |
+| [/ sostituire `<sidold> <sidnew>` [...]] | Sostituisce un SID esistente (*sidold*) con un nuovo SID (*sidnew*). Richiede l'utilizzo di `<directory>` con il parametro. |
+| / ripristino `<ACLfile>` [/c] [/l] [/q] | Applica gli elenchi DACL archiviati `<ACLfile>` da ai file nella directory specificata. Richiede l'utilizzo di `<directory>` con il parametro. |
+| InheritanceLevel`[e | d | r]` | Imposta il livello di ereditarietà, che può essere:<ul><li>**e** -Abilita l'ereditarietà</li><li>**d** : Disabilita l'ereditarietà e copia le voci ACE</li><li>**r** -rimuove tutte le voci ACE ereditate</li></ul> |
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
--   SID potrebbero essere in qualsiasi formato di nome descrittivo o numerici. Se si usa un formato numerico, applicare il carattere **&#42;** jolly all'inizio del SID.
--   **Icacls** mantiene l'ordine canonico delle voci ACE come:  
-    -   Negazioni esplicite
-    -   Concede l'esplicita
-    -   Rifiuti ereditati
-    -   Concede ereditati
--   *Perm* è una maschera di autorizzazione che può essere specificata in uno dei seguenti formati:  
-    -   Una sequenza di diritti di base:
+- SID potrebbero essere in qualsiasi formato di nome descrittivo o numerici. Se si usa un formato numerico, applicare il carattere jolly **&#42;** all'inizio del SID.
 
-        **F** (accesso completo)
+- Questo comando conserva l'ordine canonico delle voci ACE come segue:  
 
-        **M** (modifica dell'accesso)
+    - Negazioni esplicite
 
-        **RX** (lettura ed esecuzione)
+    -  Concede l'esplicita
 
-        **R** (accesso in sola lettura)
+    - Rifiuti ereditati
 
-        **W** (accesso in sola scrittura)
-    -   Un elenco delimitato da virgole tra parentesi di diritti specifici:
+    - Concede ereditati
 
-        **D** (eliminare)
+- L' `<perm>` opzione è una maschera di autorizzazione che può essere specificata in uno dei formati seguenti:
 
-        **RC** (controllo lettura)
+    - Una sequenza di diritti di base:
 
-        **WDAC** (scrittura DAC)
+      - **F** -accesso completo
 
-        **WO** (proprietario scrittura)
+      - **M**-modificare l'accesso
 
-        **S** (sincronizzazione)
+      - **RX** -lettura ed esecuzione dell'accesso
 
-        **AS** (accesso di sicurezza del sistema)
+      - **R** -accesso in sola lettura
 
-        **MA** (impostazione massima consentita)
+      - **W** Accesso con accesso in sola scrittura
 
-        **GR** (lettura generica)
+    - Un elenco delimitato da virgole tra parentesi di diritti specifici:
 
-        **GW** (scrittura generica)
+      - **D** -eliminazione
 
-        **GE** (esecuzione generica)
+      - Controllo di lettura **RC**
 
-        **GA** (generico tutti)
+      - **WDAC** -scrittura DAC
 
-        **Desktop remoto** (lettura directory/elenco di dati)
+      - Proprietario **wo** -Write
 
-        **WD** (scrittura file/Aggiungi dati)
+      - **S** -Sincronizza
 
-        **Active Directory** (aggiungere/aggiunta dati sottodirectory)
+      - Sicurezza del sistema **As** -Access
 
-        **REA** (lettura attributi estesi)
+      - **Ma** -massimo consentito
 
-        **WEA** (scrittura attributi estesi)
+      - **Gr** -lettura generica
 
-        **X** (eseguire/incrociato)
+      - **GW** -scrittura generica
 
-        **Controller di dominio** (eliminare figlio)
+      - **GE** -esecuzione generica
 
-        **RA** (lettura attributi)
+      - **GA** -generico all
 
-        **WA** (scrivere attributi)
--   Diritti di ereditarietà possono precedere uno *Perm* form essi vengono applicati solo alle directory:
+      - Directory di dati/elenco di lettura **Desktop remoto**
 
-    **(OI)** : l'oggetto eredita
+      - **WD** -scrivere dati/Aggiungi file
 
-    **(CI)** : eredità
+      - **Ad** -Accoda dati/Aggiungi sottodirectory
 
-    **(I/o)** : solo eredità
+      - **Rea** -lettura degli attributi estesi
 
-    **(NP)** : non vengono propagate ereditano
+      - **WEA** -scrivere attributi estesi
+
+      - **X** -esecuzione/attraversamento
+
+      - **DC** -Elimina figlio
+
+      - Attributi di lettura **ra**
+
+      - Attributi **WA** -Write
+
+  - I diritti di ereditarietà possono precedere uno dei due `<perm>` moduli e vengono applicati solo alle directory:
+
+      - **(OI)** -l'oggetto eredita
+
+      - **(Ci)** -contenitore eredita
+
+      - **(Io)** -solo ereditarietà
+
+      - **(NP)** -non propagare eredita
 
 ## <a name="examples"></a>Esempi
 
@@ -149,6 +159,6 @@ Per concedere all'utente definito da SID S-1-1-0 le autorizzazioni per l'elimina
 icacls test2 /grant *S-1-1-0:(d,wdac)
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

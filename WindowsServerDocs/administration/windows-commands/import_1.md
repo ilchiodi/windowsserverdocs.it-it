@@ -1,6 +1,6 @@
 ---
-title: importare
-description: Argomento dei comandi di Windows per * * * *-
+title: import
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7e098e7133bca18e1a6ba683e525783af17c3958
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 569d986c57ae8b3d7253c050146ac0583c7c92df
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80842134"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724840"
 ---
-# <a name="import"></a>importare
+# <a name="import"></a>import
 
 
 
@@ -32,21 +32,21 @@ import [noerr]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|NOERR|solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.|
+|NOERR|Solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   Il comando import Importa ogni disco presente nello stesso gruppo di dischi con lo stato attivo.
 -   Per eseguire questa operazione, è necessario selezionare un disco dinamico in un gruppo di dischi esterni. Utilizzare il **disco selezionare** comando per selezionare un disco e spostare lo stato attivo a esso.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per importare tutti i dischi che sono nello stesso gruppo di disco come disco con lo stato attivo al gruppo del disco del computer locale, digitare:
 ```
 import
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

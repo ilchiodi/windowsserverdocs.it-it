@@ -1,6 +1,6 @@
 ---
 title: 'che Ksetup: ChangePassword'
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 68b14388ff3c33458873b494c8d5a770b44f7545
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 32c48e896b77043820eea42159e20c089bd69fb8
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80841784"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724719"
 ---
 # <a name="ksetupchangepassword"></a>che Ksetup: ChangePassword
 
 
 
-Usa il valore della password Centro distribuzione chiavi (KDC) (kpasswd) per modificare la password dell'utente che ha eseguito l'accesso. Per esempi di come è possibile utilizzare questo comando, vedere [esempi](#BKMK_Examples).
+Usa il valore della password Centro distribuzione chiavi (KDC) (kpasswd) per modificare la password dell'utente che ha eseguito l'accesso.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -32,10 +32,10 @@ ksetup /changepassword <OldPasswd> <NewPasswd>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<OldPasswd >|Indica la password esistente dell'utente connesso.|
-|\<NewPasswd >|Indica la nuova password dell'utente connesso.|
+|\<> OldPasswd|Indica la password esistente dell'utente connesso.|
+|\<> NewPasswd|Indica la nuova password dell'utente connesso.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 Questo comando usa il valore della password KDC (kpasswd) per modificare la password dell'utente che ha eseguito l'accesso. Il kpasswd, se impostato, viene visualizzato nell'output eseguendo il comando **che Ksetup/dumpstate** .
 
@@ -47,7 +47,7 @@ Se si vuole forzare una modifica della password all'accesso successivo, questo c
 
 L'output del comando segnala lo stato di esito positivo o negativo.
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Modificare la password di un utente attualmente connesso al computer in questo dominio:
 ```
@@ -62,6 +62,6 @@ Forza l'utente attualmente connesso a modificare la password all'accesso success
 ksetup /changepassword Pas$w0rd *
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 -   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

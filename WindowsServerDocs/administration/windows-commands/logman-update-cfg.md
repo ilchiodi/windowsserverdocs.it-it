@@ -1,6 +1,6 @@
 ---
 title: Logman update cfg
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c74370432dbc21f244dd675bb62cc65a13fa2ec7
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 895b5cddab10438acfffd01ab6bb26031751d287
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80840534"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724325"
 ---
 # <a name="logman-update-cfg"></a>Logman update cfg
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Aggiornare le proprietà di una raccolta di dati di configurazione esistente.  
 
@@ -31,11 +31,11 @@ logman update cfg <[-n] <name>> [options]
 |                    Parametro                     |                                                                               Descrizione                                                                               |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |                        /?                        |                                                                    Vengono visualizzate sensibile al contesto della Guida.                                                                     |
-|                -s <computer name>                |                                                          Eseguire il comando nel computer remoto specificato.                                                          |
+|                -s<computer name>                |                                                          Eseguire il comando nel computer remoto specificato.                                                          |
 |                 -config <value>                  |                                                         Specifica il file di impostazioni che contiene le opzioni di comando.                                                         |
-|                   [-n] <name>                    |                                                                       Nome dell'oggetto di destinazione.                                                                        |
+|                   [-n]<name>                    |                                                                       Nome dell'oggetto di destinazione.                                                                        |
 | -f < bin & #124; bincirc & #124; csv & #124; tsv & #124; sql > |                                                            Specifica il formato di log per l'agente di raccolta dati.                                                             |
-|             -u [-] < utente [password] >              | Specifica l'utente di Esegui come. L'immissione di un \* per la password genera una richiesta per la password. La password non viene visualizzata quando si digita. |
+|             -u [-] < utente [password] >              | Specifica l'utente di Esegui come. L'immissione \* di un oggetto per la password genera una richiesta per la password. La password non viene visualizzata quando si digita. |
 |    -m < [avvio] [stop] [[start] [stop] [...]] >    |                                                modificare l'avvio o l'arresto manuale anziché un'ora di inizio o di fine pianificata.                                                 |
 |                -rf < [[hh:] mm:] ss >                |                                                        Eseguire l'agente di raccolta dati per il periodo di tempo specificato.                                                         |
 |        -b < g/aaaa h:mm: ss [AM & #124; PM] >         |                                                              Avviare la raccolta dei dati all'ora specificata.                                                               |
@@ -46,7 +46,7 @@ logman update cfg <[-n] <name>> [options]
 |                      -[-]a                       |                                                                     Accoda a un file di log esistente.                                                                     |
 |                      -[-] Mostra                      |                                                                     Sovrascrivere un file di log esistente.                                                                     |
 |           -v [-] < nnnnnn & #124; mmgghhmm >           |                                                   alleghi le informazioni sul controllo delle versioni dei file alla fine del nome del file di log.                                                   |
-|                  -[-] RC <task>                   |                                                         Eseguire il comando specificato ogni volta che il log viene chiuso.                                                          |
+|                  -[-] RC<task>                   |                                                         Eseguire il comando specificato ogni volta che il log viene chiuso.                                                          |
 |                 -max [-] <value>                  |                                                 Dimensioni massime in MB o numero massimo di record di log di SQL.                                                  |
 |              -cnf [-] < [[hh:] mm:] ss >              |     Quando viene specificata l'ora, creare un nuovo file quando è trascorso il tempo specificato. Quando non viene specificata l'ora, creare un nuovo file quando viene superata la dimensione massima.     |
 |                        -y                        |                                                             Rispondere Sì a tutte le domande senza chiedere conferma.                                                              |
@@ -55,13 +55,13 @@ logman update cfg <[-n] <name>> [options]
 |            -energia < query [query [...]] >            |                                                      Specifica gli oggetti WMI per raccogliere mediante il linguaggio di query SQL.                                                       |
 |             -ftc < percorso [[...]] >             |                                                           Specifica il percorso completo per i file da raccogliere.                                                            |
 
-## <a name="remarks"></a>Note  
+## <a name="remarks"></a>Osservazioni  
 Dove [-] è elencato, un ulteriore - Nega l'opzione.  
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi  
-Il comando seguente aggiorna l'agente di raccolta dati di configurazione esistente cfg_log per raccogliere la chiave del registro di sistema HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows NT\Currentverion\\.  
+## <a name="examples"></a>Esempi  
+Il comando seguente aggiorna l'agente di raccolta dati di configurazione esistente cfg_log per raccogliere la chiave del\\registro di sistema HKEY_LOCAL_MACHINE \Software\Microsoft\Windows NT\Currentverion.  
 ```  
 logman update cfg cfg_log -reg HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\Currentverion\  
 ```  
-## <a name="additional-references"></a>Altre informazioni di riferimento  
+## <a name="additional-references"></a>Riferimenti aggiuntivi  
 [logman](logman.md)  
-[logman creare una cfg](logman-create-cfg.md)  
+[Logman creare cfg](logman-create-cfg.md)  

@@ -1,6 +1,6 @@
 ---
 title: getmac
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6b593bf61bb08d2c1c7868b1bbb175ed64a8bcf7
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 1fa37f558b454388b8451629ef96584ab8da0c3d
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80842614"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724973"
 ---
 # <a name="getmac"></a>getmac
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Restituisce la media access control (MAC) indirizzo e l'elenco dei protocolli di rete associati con ogni indirizzo per tutte le schede di rete in ogni computer, localmente o attraverso una rete. 
 ## <a name="syntax"></a>Sintassi
@@ -29,17 +29,17 @@ getmac[.exe][/s <computer> [/u <Domain\<User> [/p <Password>]]][/fo {TABLE | lis
 
 |             Parametro              |                                                                                          Descrizione                                                                                          |
 |------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|           /s <computer>            |                                      Specifica il nome o l'indirizzo IP di un computer remoto (non utilizzare barre rovesciate). Il valore predefinito è il computer locale.                                       |
-|        /u <Domain>\\<User>         | Esegue il comando con le autorizzazioni dell'account dell'utente specificato dall'utente o dominio\utente. Il valore predefinito è le autorizzazioni dell'oggetto utente nel computer eseguendo il comando connesso. |
-|           /p <Password>            |                                                     Specifica la password dell'account utente specificato nella **/u** parametro.                                                     |
-| /FO {elenco &#124; &#124; tabella CSV} |                       Specifica il formato da utilizzare per l'output della query. I valori validi sono **Table**, **List**e **CSV**. Il formato predefinito per l'output è **TABELLA**.                        |
-|                /NH                 |                                             Omette le intestazioni di colonna nell'output. Valido quando il **/fo** parametro è impostato su **TABELLA** o **CSV**.                                              |
+|           /s<computer>            |                                      Specifica il nome o l'indirizzo IP di un computer remoto (non utilizzare barre rovesciate). Il valore predefinito è il computer locale.                                       |
+|        /u<Domain>\\<User>         | Esegue il comando con le autorizzazioni dell'account dell'utente specificato dall'utente o dominio\utente. Il valore predefinito è le autorizzazioni dell'oggetto utente nel computer eseguendo il comando connesso. |
+|           /p<Password>            |                                                     Specifica la password dell'account utente specificato nella **/u** parametro.                                                     |
+| /fo {TABLE &#124; list&#124; CSV} |                       Specifica il formato da utilizzare per l'output della query. I valori validi sono **Table**, **List**e **CSV**. Il formato predefinito per l'output è **TABELLA**.                        |
+|                /NH                 |                                             Omette le intestazioni di colonna nell'output. Valido quando il parametro **/fo** è impostato su **Table** o **CSV**.                                              |
 |                 /v                 |                                                                    Specifica la visualizzazione di informazioni dettagliate.                                                                     |
 |                 /?                 |                                                                                                                                                                                               |
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 **getmac** può essere utile quando si vuole immettere l'indirizzo Mac in un analizzatore di rete o quando è necessario conoscere i protocolli attualmente in uso in ogni scheda di rete in un computer.
-## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
+## <a name="examples"></a>Esempi
 Gli esempi seguenti illustrano come utilizzare il **getmac** comando:
 ```
 getmac /fo table /nh /v
@@ -59,5 +59,5 @@ getmac /s srvmain /u maindom\hiropln /p p@ssW23 /fo list /v
 ```
 getmac /s srvmain /u maindom\hiropln /p p@ssW23 /fo table /nh
 ```
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 -   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

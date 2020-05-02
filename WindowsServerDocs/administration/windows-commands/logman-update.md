@@ -1,6 +1,6 @@
 ---
 title: Logman update
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 77eb7232bde12076903ab9da3bd379a6968cca45
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: cc226d4b9044eaa966725f3bf1329ed6a1eecd62
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80840424"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724279"
 ---
 # <a name="logman-update"></a>Logman update
 
@@ -32,12 +32,12 @@ logman update <counter | trace | alert | cfg | api> <[-n] <name>> [options]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|[contatore di aggiornamenti logman](logman-update-counter.md)|Aggiornare un agente di raccolta dati del contatore.|
-|[Logman Update Trace](logman-update-trace.md)|Aggiornare un agente di raccolta dati di traccia.|
-|[avviso di aggiornamento logman](logman-update-alert.md)|Aggiornare un agente di raccolta dati di avviso.|
-|[logman update cfg](logman-update-cfg.md)|Aggiornare un agente di raccolta dati di configurazione.|
-|[API di aggiornamento logman](logman-update-api.md)|Aggiornare un agente di raccolta dati traccia API.|
+|[Logman update contatore](logman-update-counter.md)|Aggiornare un agente di raccolta dati del contatore.|
+|[Logman update trace](logman-update-trace.md)|Aggiornare un agente di raccolta dati di traccia.|
+|[avviso di aggiornamento Logman](logman-update-alert.md)|Aggiornare un agente di raccolta dati di avviso.|
+|[Logman update cfg](logman-update-cfg.md)|Aggiornare un agente di raccolta dati di configurazione.|
+|[Logman aggiornare api](logman-update-api.md)|Aggiornare un agente di raccolta dati traccia API.|
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 [Logman](logman.md)

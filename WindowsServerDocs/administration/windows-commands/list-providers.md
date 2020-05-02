@@ -1,6 +1,6 @@
 ---
 title: elenca i provider
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: df58eb8383378e8cfbe44db286e5f2a116d52a88
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 761099e3b399aeb9e6a3fe1ddd53ed1a667a4ccb
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80841184"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724506"
 ---
 # <a name="list-providers"></a>elenca i provider
 
@@ -22,7 +22,7 @@ ms.locfileid: "80841184"
 
 Elenca i provider di copie shadow attualmente registrati nel sistema.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -30,7 +30,7 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 list providers
 ```
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per elencare i provider di copie shadow attualmente registrato, digitare:
 ```
@@ -46,6 +46,6 @@ Output che è simile a verrà visualizzato il seguente:
 1 provider registered.
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
 title: stato FTP
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 03d294271059103c1291b66debd1071ee1b45cee
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0dda330eb15a76b00266f89b9e478c1ed16e5a82
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80842903"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725096"
 ---
 # <a name="ftp-status"></a>FTP: stato
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Visualizza lo stato corrente delle connessioni FTP.   
 ## <a name="syntax"></a>Sintassi  
@@ -26,11 +26,11 @@ Visualizza lo stato corrente delle connessioni FTP.
 status  
 ```  
 #### <a name="parameters"></a>Parametri  
-nessuno  
-## <a name="examples"></a><a name=BKMK_Examples></a>Esempi  
+none  
+## <a name="examples"></a>Esempi  
 Visualizza lo stato corrente delle connessioni FTP.  
 ```  
 status  
 ```  
-## <a name="additional-references"></a>Altre informazioni di riferimento  
+## <a name="additional-references"></a>Riferimenti aggiuntivi  
 -   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

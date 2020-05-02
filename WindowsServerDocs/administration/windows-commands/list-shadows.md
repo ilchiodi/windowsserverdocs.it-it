@@ -1,6 +1,6 @@
 ---
 title: ombreggiatura elenco
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e22b0006709e1cf6636ad6c2bcc18432f59b4d1a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: d22fc3bbe644983eaf072a430e565a0d34d1c4dd
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80841164"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724479"
 ---
 # <a name="list-shadows"></a>ombreggiatura elenco
 
@@ -32,10 +32,10 @@ list shadows {all | set <SetID> | id <ShadowID>}
 
 |Parametro|Descrizione|
 |---------|-----------|
-|tutti|Elenca tutte le copie shadow.|
-|imposta \<SetId >|Elenchi di ombreggiatura copie che appartengono all'ID specificato insieme di copie Shadow.|
-|ID \<IDShadow >|Elenca qualsiasi copia shadow con l'ID di copia shadow specificata.|
+|all|Elenca tutte le copie shadow.|
+|imposta \<> SetID|Elenchi di ombreggiatura copie che appartengono all'ID specificato insieme di copie Shadow.|
+|ID \<IDShadow>|Elenca qualsiasi copia shadow con l'ID di copia shadow specificata.|
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

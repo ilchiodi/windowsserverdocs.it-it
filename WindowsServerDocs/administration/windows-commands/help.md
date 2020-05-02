@@ -1,6 +1,6 @@
 ---
 title: help
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f7b6f3a563c59a55ff92b38f0854437b96478f6c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 9d3a16c2534934a7bc8126b0a775ec7aa08462b3
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80842344"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724910"
 ---
 # <a name="help"></a>help
 
@@ -22,7 +22,7 @@ ms.locfileid: "80842344"
 
 Fornisce informazioni in linea sui comandi del sistema (ovvero, non di rete comandi). Se utilizzata senza parametri, **Guida** vengono elencate e descritte brevemente ogni comando di sistema.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -35,9 +35,9 @@ help [<Command>]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|Comando \<>|Specifica il nome del comando che si desiderano informazioni.|
+|\<> comando|Specifica il nome del comando che si desiderano informazioni.|
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per visualizzare informazioni sui **robocopy** comando, digitare uno dei seguenti:
 ```
@@ -45,6 +45,6 @@ help robocopy
 robocopy /? 
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

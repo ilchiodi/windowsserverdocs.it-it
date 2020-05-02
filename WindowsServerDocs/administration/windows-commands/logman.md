@@ -1,6 +1,6 @@
 ---
 title: logman
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bb6654cce0e23ac08a2fa6334d6144b08c8b65f3
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 9aed5a83c503c03f52757abf525aa5d122f41466
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80840404"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724278"
 ---
 # <a name="logman"></a>logman
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 **logman** crea e gestisce i registri di sessione di traccia eventi e di prestazioni e supporta molte funzioni di performance monitor dalla riga di comando.
 ## <a name="syntax"></a>Sintassi

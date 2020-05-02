@@ -1,6 +1,6 @@
 ---
 title: creare Logman
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2ec0b62bf859e7a3713e2f691e9947a177c301f8
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: e584e6f4a5632967a6e62408afe971b1681d8493
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80840844"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724406"
 ---
 # <a name="logman-create"></a>creare Logman
 
@@ -30,10 +30,10 @@ logman create <counter | trace | alert | cfg | api> <[-n] <name>> [options]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|[logman create counter](logman-create-counter.md)|Creare un agente di raccolta dati del contatore.|
-|[logman Crea traccia](logman-create-trace.md)|Creare un agente di raccolta dati di traccia.|
-|[logman crea avviso](logman-create-alert.md)|Creare un agente di raccolta dati di avviso.|
-|[logman creare una cfg](logman-create-cfg.md)|Creare un agente di raccolta dati di configurazione.|
-|[logman creare un'API](logman-create-api.md)|Creare una raccolta di dati di traccia API.|
+|[Logman creazione del contatore](logman-create-counter.md)|Creare un agente di raccolta dati del contatore.|
+|[Logman creare traccia](logman-create-trace.md)|Creare un agente di raccolta dati di traccia.|
+|[Logman crea avviso](logman-create-alert.md)|Creare un agente di raccolta dati di avviso.|
+|[Logman creare cfg](logman-create-cfg.md)|Creare un agente di raccolta dati di configurazione.|
+|[Logman creare api](logman-create-api.md)|Creare una raccolta di dati di traccia API.|
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi

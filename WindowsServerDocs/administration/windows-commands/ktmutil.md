@@ -1,6 +1,6 @@
 ---
 title: ktmutil
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2e65312ea4bb3169b90c2550b8b945919b86587f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 47b447165ee54e6839bb6338801c6703d818caa8
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80841194"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724521"
 ---
 # <a name="ktmutil"></a>ktmutil
 
@@ -22,7 +22,7 @@ ms.locfileid: "80841194"
 
 Avvia l'utilità Gestione transazioni kernel. Se usato senza parametri, **ktmutil** Visualizza i sottocomandi disponibili.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -39,15 +39,15 @@ ktmutil forget
 
 ### <a name="parameters"></a>Parametri
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per forzare una transazione InDoubt con GUID 311a9209-03f4-11dc-918f-00188b8f707b al commit, digitare:
 ```
 ktmutil force commit {311a9209-03f4-11dc-918f-00188b8f707b}
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

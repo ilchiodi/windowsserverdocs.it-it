@@ -1,6 +1,6 @@
 ---
 title: ksetup
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b3c61fd81691f9db44330eddbf40d4212d1786ff
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 2f3fde0ada4ab8bcbe52eccf22b959f99f91319f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80841254"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724543"
 ---
 # <a name="ksetup"></a>ksetup
 
@@ -64,7 +64,7 @@ ksetup
 |[Ksetup:server](ksetup-server.md)|Consente di specificare il nome di un computer Windows in cui applicare le modifiche.|
 |[Ksetup:setcomputerpassword](ksetup-setcomputerpassword.md)|Imposta la password per l'account di dominio del computer (o l'entità host).|
 |[Ksetup:removerealm](ksetup-removerealm.md)|Elimina tutte le informazioni per l'area di autenticazione specificato dal Registro di sistema.|
-|[Ksetup:domain](ksetup-domain.md)|Consente di specificare un dominio (se \<NomeDominio > non è stato impostato tramite **/Domain**).|
+|[Ksetup:domain](ksetup-domain.md)|Consente di specificare un dominio (se \<domainname> non è stato impostato tramite **/Domain**).|
 |[Ksetup:changepassword](ksetup-changepassword.md)|Consente di usare kpasswd per modificare la password dell'utente che ha eseguito l'accesso.|
 |[Ksetup:listrealmflags](ksetup-listrealmflags.md)|Elenca i flag dell'area di autenticazione disponibili che **che Ksetup** è in grado di rilevare.|
 |[Ksetup:setrealmflags](ksetup-setrealmflags.md)|Imposta i flag dell'area di autenticazione per un'area di autenticazione specifica.|
@@ -77,9 +77,9 @@ ksetup
 |[Ksetup:getenctypeattr](ksetup-getenctypeattr.md)|Ottiene l'attributo trust dei tipi di crittografia per il dominio.|
 |[Ksetup:addenctypeattr](ksetup-addenctypeattr.md)|Aggiunge tipi di crittografia all'attributo trust dei tipi di crittografia per il dominio.|
 |[Ksetup:delenctypeattr](ksetup-delenctypeattr.md)|Elimina l'attributo trust dei tipi di crittografia per il dominio.|
-|/?|Visualizza la Guida dal prompt dei comandi.|
+|/?|Visualizza la Guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 **Che Ksetup** viene utilizzato per modificare le impostazioni del computer per l'individuazione delle aree di autenticazione Kerberos. Nelle implementazioni basate su Kerberos non Microsoft queste informazioni vengono in genere mantenute nel file krb5. conf. Nei sistemi operativi Windows Server, viene mantenuta nel registro di sistema. È possibile utilizzare questo strumento per modificare queste impostazioni. Queste impostazioni vengono usate dalle workstation per individuare le aree di autenticazione Kerberos e i controller di dominio per individuare le aree di autenticazione Kerberos per le relazioni di trust tra aree di autenticazione.
 
@@ -87,6 +87,6 @@ ksetup
 
 Il protocollo Kerberos versione 5 è il valore predefinito per l'autenticazione di rete nei computer che eseguono Windows XP Professional, Windows Vista e Windows 7. SSP Kerberos Cerca nel registro di sistema il nome di dominio dell'area di autenticazione dell'utente e quindi risolve il nome in un indirizzo IP eseguendo una query su un server DNS. Il protocollo Kerberos può usare DNS per individuare KDC usando solo il nome dell'area di autenticazione, ma deve essere appositamente configurato per eseguire questa operazione.
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 -   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
