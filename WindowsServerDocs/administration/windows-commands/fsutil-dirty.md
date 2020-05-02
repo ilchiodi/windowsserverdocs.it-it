@@ -9,19 +9,19 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: cf3685bae9ed76ede4da6df244139437d92250c0
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3b35938c21180199aabb74431d20a31167aea706
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80844334"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725533"
 ---
 # <a name="fsutil-dirty"></a>Fsutil dirty
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
 
 Esegue una query o imposta il bit dirty di un volume. Quando un volume del dirty bit è impostato, **autochk** Controlla automaticamente il volume per gli errori al successivo riavvio del computer.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -35,9 +35,9 @@ fsutil dirty {query | set} <VolumePath>
 |---------------|--------------------------------------------------------------------------------------------------------------|
 |     query     |                                  Esegue una query sul bit dirty del volume specificato.                                   |
 |      set      |                                    Imposta il bit dirty del volume specificato.                                    |
-| \<VolumePath > | Specifica il nome dell'unità seguito da due punti o GUID nel formato seguente: **volume {** <em>GUID</em> **}** . |
+| \<> VolumePath | Specifica il nome dell'unità seguito da due punti o GUID nel formato seguente: **volume {**<em>GUID</em>**}**. |
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   Il bit dirty di un volume indica che lo stato del file system potrebbe essere incoerente. È possibile impostare il bit dirty perché:
 
@@ -70,7 +70,7 @@ Per impostare il bit dirty sull'unità C, digitare:
 fsutil dirty set C:
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 
 [Fsutil](Fsutil.md)

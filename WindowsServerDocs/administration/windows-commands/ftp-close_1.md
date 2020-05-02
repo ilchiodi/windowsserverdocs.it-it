@@ -1,6 +1,6 @@
 ---
 title: close_1 FTP
-description: Argomento dei comandi di Windows per FTP close_1
+description: Argomento di riferimento per close_1 FTP
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,28 +9,28 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e94090418f3beb865f043810198152a1e5ab11da
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: febfe7db8bcb3d58486624ac29f7d42c95f49a9b
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80843654"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725329"
 ---
 # <a name="ftp-close_1"></a>FTP: close_1
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Termina la sessione FTP con il server remoto e rimane alla richiesta **ftp >** .   
+Termina la sessione FTP con il server remoto e rimane alla richiesta **ftp>** .   
 ## <a name="syntax"></a>Sintassi  
 ```  
 close  
 ```  
 #### <a name="parameters"></a>Parametri  
-nessuno  
-## <a name="examples"></a><a name=BKMK_Examples></a>Esempi  
-Terminare la sessione FTP con il server remoto e rimanere alla richiesta **ftp >** .  
+none  
+## <a name="examples"></a>Esempi  
+Terminare la sessione FTP con il server remoto e rimanere alla richiesta **ftp>** .  
 ```  
 close  
 ```  
-## <a name="additional-references"></a>Altre informazioni di riferimento  
+## <a name="additional-references"></a>Riferimenti aggiuntivi  
 -   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

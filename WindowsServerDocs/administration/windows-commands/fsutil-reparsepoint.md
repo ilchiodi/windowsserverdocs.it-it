@@ -9,19 +9,19 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 0b819f15e473738996484283bceac439f482a13d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 05c203ef610dda0443ddc845245a4072e617f7a6
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80844154"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725432"
 ---
 # <a name="fsutil-reparsepoint"></a>Fsutil reparsepoint
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7, Windows 2008, Windows Vista
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7, Windows 2008, Windows Vista
 
 Esegue una query o Elimina i reparse point.  Il comando **fsutil reparsepoint** viene in genere utilizzato dai professionisti del supporto tecnico.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -35,10 +35,10 @@ fsutil reparsepoint [delete] <FileName>
 | Parametro  |                                                                Descrizione                                                                |
 |------------|-------------------------------------------------------------------------------------------------------------------------------------------|
 |   query    |            Recupera i dati di reparse point associati al file o alla directory identificata dall'handle specificato.             |
-|   delete   | Elimina un reparse point dal file o dalla directory identificato dall'handle specificato, ma non elimina il file o la directory. |
+|   eliminare   | Elimina un reparse point dal file o dalla directory identificato dall'handle specificato, ma non elimina il file o la directory. |
 | <FileName> |             Specifica il percorso completo del file, inclusi il nome file e l'estensione, ad esempio C:\documents\filename.txt.             |
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   I reparse point sono oggetti file system NTFS che hanno un attributo definibile che contiene dati definiti dall'utente e vengono usati per estendere le funzionalità nel sottosistema di input/output (I/O).
 
@@ -59,7 +59,7 @@ Per eliminare un reparse point da un file o da una directory specificata, usare 
 fsutil reparsepoint delete c:\server
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 
 [Fsutil](Fsutil.md)

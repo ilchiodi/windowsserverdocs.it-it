@@ -1,5 +1,5 @@
 ---
-title: Formato
+title: Format
 ms.prod: windows-server
 manager: dongill
 ms.author: jgerend
@@ -8,19 +8,19 @@ ms.topic: article
 ms.assetid: 51ec7423-9a01-4219-868a-25d69cdcc832
 author: jasongerend
 ms.date: 10/16/2017
-ms.openlocfilehash: 95f88ef316bb7d188db212911835b867c6d4556f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ee2454cbbf817d3713e999ac2899da352a175272
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80844474"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725567"
 ---
-# <a name="format"></a>Formato
+# <a name="format"></a>Format
 > Si applica a: Windows 10, Windows Server 2016
 
 Formatta un disco per accettare i file di Windows.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -36,20 +36,20 @@ format <Volume> [/q]
 
 |   Parametro    |                                                                                                                                                                                                                    Descrizione                                                                                                                                                                                                                     |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   \<volume >    |                                                                                         Specifica il punto di montaggio, il nome del volume o la lettera di unità (seguita da due punti) dell'unità che si desidera formattare. Se non si specifica alcuna delle opzioni della riga di comando seguenti, **Format** usa il tipo di volume per determinare il formato predefinito per il disco.                                                                                         |
+|   \<> volume    |                                                                                         Specifica il punto di montaggio, il nome del volume o la lettera di unità (seguita da due punti) dell'unità che si desidera formattare. Se non si specifica alcuna delle opzioni della riga di comando seguenti, **Format** usa il tipo di volume per determinare il formato predefinito per il disco.                                                                                         |
 |    /FS: {FAT    |                                                                                                                                                                                                                       FAT32                                                                                                                                                                                                                        |
-|  /v: etichetta\<>   |                           Specifica l'etichetta di volume. Se si omette l'opzione della riga di comando **/v** o la si utilizza senza specificare un'etichetta di volume, **Format** richiede l'etichetta del volume al termine della formattazione. Usare la sintassi **/v:** per non richiedere un'etichetta di volume. Se si usa un comando **format** singolo per formattare più di un disco, ai dischi verrà assegnata la stessa etichetta di volume.                            |
-| /a:\<dimensioneunità > | Specifica le dimensioni dell'unità di allocazione da utilizzare nei volumi FAT, FAT32 o NTFS. Se non si specifica *UnitSize*, la dimensione viene scelta in base alle dimensioni del volume. Le impostazioni predefinite sono fortemente consigliate per l'uso generale. Nell'elenco seguente sono riportati i valori validi di *UnitSize* per NTFS, FAT e FAT32:</br>512</br>1024</br>2048</br>4096</br>8192</br>16 KB</br>32 KB</br>64 KB</br>FAT e FAT32 supportano anche 128 KB e 256 KB per una dimensione di settore maggiore di 512 byte. |
+|  /v:\<etichetta>   |                           Specifica l'etichetta di volume. Se si omette l'opzione della riga di comando **/v** o la si utilizza senza specificare un'etichetta di volume, **Format** richiede l'etichetta del volume al termine della formattazione. Usare la sintassi **/v:** per non richiedere un'etichetta di volume. Se si usa un comando **format** singolo per formattare più di un disco, ai dischi verrà assegnata la stessa etichetta di volume.                            |
+| /a:\<dimensioneunità> | Specifica le dimensioni dell'unità di allocazione da utilizzare nei volumi FAT, FAT32 o NTFS. Se non si specifica *UnitSize*, la dimensione viene scelta in base alle dimensioni del volume. Le impostazioni predefinite sono fortemente consigliate per l'uso generale. Nell'elenco seguente sono riportati i valori validi di *UnitSize* per NTFS, FAT e FAT32:</br>512</br>1024</br>2048</br>4096</br>8192</br>16K</br>32 KB</br>64 KB</br>FAT e FAT32 supportano anche 128 KB e 256 KB per una dimensione di settore maggiore di 512 byte. |
 |       /q       |                                                       Esegue una formattazione veloce. Elimina la tabella file e la directory radice di un volume formattato in precedenza, ma non esegue un'analisi settoriale per settore per le aree non valide. È consigliabile usare l'opzione della riga di comando **/q** per formattare solo i volumi formattati in precedenza che sono in buone condizioni. Si noti che **/q** sostituisce **/p**.                                                       |
-|   /f: dimensioni\<>   |                                                         Specifica la dimensione del disco floppy da formattare. Quando possibile, usare questa opzione della riga di comando anziché le opzioni **/t** e **/n** della riga di comando. Windows accetta i valori per le dimensioni seguenti:</br>-   1440 o 1440 K o 1440 KB</br>-   1,44 o 1,44 M o 1,44 MB</br>-1,44-MB, doppio lato, densità quadrupla, disco da 3,5 pollici                                                         |
-|  /t:\<tiene traccia >  |                                                    Specifica il numero di tracce del disco. Quando possibile, usare invece l'opzione della riga di comando **/f** . Se si usa l'opzione **/t**, è necessario usare anche l'opzione **/n**. Queste opzioni offrono insieme un metodo alternativo per specificare la dimensione del disco che viene formattato. Questa opzione non è valida con l'opzione **/f**.                                                     |
-| /n:\<settori >  |                                                         Specifica il numero di settori per traccia. Quando possibile, usare l'opzione della riga di comando **/f** anziché **/n**. Se si usa **/n**, è necessario usare anche **/t**. Queste due opzioni offrono insieme un metodo alternativo per specificare la dimensione del disco che viene formattato. Questa opzione non è valida con l'opzione **/f**.                                                         |
-|  /p:\<passa >  |                                                                                                                                                               Azzera ogni settore nel volume per il numero di passaggi specificato. Questa opzione non è valida con l'opzione **/q**.                                                                                                                                                                |
-|       /c       |                                                                                                                                                                                     Solo NTFS. I file creati sul nuovo volume verranno compressi per impostazione predefinita.                                                                                                                                                                                      |
+|   /f:\<dimensioni>   |                                                         Specifica la dimensione del disco floppy da formattare. Quando possibile, usare questa opzione della riga di comando anziché le opzioni **/t** e **/n** della riga di comando. Windows accetta i valori per le dimensioni seguenti:</br>-   1440 o 1440 K o 1440 KB</br>-   1,44 o 1,44 M o 1,44 MB</br>-1,44-MB, doppio lato, densità quadrupla, disco da 3,5 pollici                                                         |
+|  /t:\<tiene traccia>  |                                                    Specifica il numero di tracce del disco. Quando possibile, usare invece l'opzione della riga di comando **/f** . Se si usa l'opzione **/t**, è necessario usare anche l'opzione **/n**. Queste opzioni offrono insieme un metodo alternativo per specificare la dimensione del disco che viene formattato. Questa opzione non è valida con l'opzione **/f**.                                                     |
+| /n:\<settori>  |                                                         Specifica il numero di settori per traccia. Quando possibile, usare l'opzione della riga di comando **/f** anziché **/n**. Se si usa **/n**, è necessario usare anche **/t**. Queste due opzioni offrono insieme un metodo alternativo per specificare la dimensione del disco che viene formattato. Questa opzione non è valida con l'opzione **/f**.                                                         |
+|  /p:\<passa>  |                                                                                                                                                               Azzera ogni settore nel volume per il numero di passaggi specificato. Questa opzione non è valida con l'opzione **/q**.                                                                                                                                                                |
+|       /C       |                                                                                                                                                                                     Solo NTFS. I file creati sul nuovo volume verranno compressi per impostazione predefinita.                                                                                                                                                                                      |
 |       /x       |                                                                                                                                                            Causa lo smontaggio del volume, se necessario, prima della formattazione. Tutti gli handle aperti per il volume non saranno più validi.                                                                                                                                                            |
 |       /?       |                                                                                                                                                                                                        Visualizza la guida al prompt dei comandi.                                                                                                                                                                                                        |
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   Credenziali amministrative
 
@@ -124,6 +124,6 @@ Per formattare un disco floppy nell'unità A e assegnare l'etichetta di volume "
 format a: /v:DATA
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 [Indicazioni generali sulla sintassi della riga di comando](https://technet.microsoft.com/library/cc771080.aspx)

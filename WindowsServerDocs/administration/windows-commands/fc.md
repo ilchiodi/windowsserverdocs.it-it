@@ -1,6 +1,6 @@
 ---
 title: fc
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4b358b8c1bf44b5b7942cef05bd09fa8cac850a3
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 372e8b6a605bd96f6287a005004fd2f1532dfe4f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80844744"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725641"
 ---
 # <a name="fc"></a>fc
 
@@ -22,7 +22,7 @@ ms.locfileid: "80844744"
 
 Confronta due file o gruppi di file e visualizza le differenze esistenti tra di essi.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -37,20 +37,20 @@ fc /b [<Drive1:>][<Path1>]<FileName1> [<Drive2:>][<Path2>]<FileName2>
 |----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |                /a                |                                                 Abbrevia l'output di un confronto ASCII. Invece di visualizzare tutte le righe che sono diverse, **fc** viene visualizzata solo la riga e il cognome di ogni gruppo di differenze.                                                  |
 |                / b                |             Confronta i due file in modalità binaria, byte per byte e non tenta di sincronizzare nuovamente i file dopo aver trovato una mancata corrispondenza. Si tratta della modalità predefinita per il confronto tra i file con le seguenti estensioni: .exe,. com, sys, obj,. lib o bin.              |
-|                /c                |                                                                                                                               Ignora le maiuscole/minuscole.                                                                                                                               |
+|                /C                |                                                                                                                               Ignora le maiuscole/minuscole.                                                                                                                               |
 |                /l                |               Confronta i file in modalità ASCII, riga per riga e tenta di sincronizzare nuovamente i file dopo aver trovato una mancata corrispondenza. Si tratta della modalità predefinita per il confronto dei file, ad eccezione dei file con le seguenti estensioni: .exe,. com, sys, obj,. lib o bin.                |
-|             /LB\<N >              |                         Imposta il numero di righe per il buffer di riga interno su *N*. La lunghezza predefinita del buffer di riga è 100 righe. Se i file che si desidera confrontare più di 100 righe diverse volte consecutive, **fc** annullerà il confronto.                         |
+|             /LB\<N>              |                         Imposta il numero di righe per il buffer di riga interno su *N*. La lunghezza predefinita del buffer di riga è 100 righe. Se i file che si desidera confrontare più di 100 righe diverse volte consecutive, **fc** annullerà il confronto.                         |
 |                /n                |                                                                                                                Visualizza i numeri di riga durante un confronto ASCII.                                                                                                                 |
 |            / [offline]            |                                                                                                               Non ignorare i file che sono impostato l'attributo non in linea.                                                                                                               |
 |                /t                |                                                                    Impedisce **fc** dalla conversione tabulazioni in spazi. Il comportamento predefinito consiste nel considerare schede come spazi, con interruzioni ogni otto caratteri.                                                                    |
-|                /u                |                                                                                                                        Confronta i file come file di testo Unicode.                                                                                                                         |
-|                /w                |         Comprime gli spazi vuoti (vale a dire, schede e spazi) durante il confronto. Se una riga contiene molti spazi consecutivi o nelle schede, **/w** li considererà come spazio singolo. Se utilizzato con **/w**, **fc** Ignora gli spazi vuoti all'inizio e fine riga.         |
-|             /\<NNNN >             | Specifica il numero di righe consecutive che deve corrispondere in seguito una mancata corrispondenza prima **fc** considera i file essere risincronizzata. Se il numero di righe corrispondenti nei file è minore di *NNNN*, **fc** righe saranno visualizzate come differenze. Il valore predefinito è 2. |
-| [\<unità1 >:] [<Path1>]<FileName1> |                                                                                        Specifica il percorso e nome del primo file o set di file da confrontare. *FileName1* è obbligatorio.                                                                                        |
-| [\<unità2 >:] [<Path2>]<FileName2> |                                                                                       Specifica il percorso e nome del secondo file o set di file da confrontare. *FileName2* è obbligatorio.                                                                                        |
+|                /U                |                                                                                                                        Confronta i file come file di testo Unicode.                                                                                                                         |
+|                /W                |         Comprime gli spazi vuoti (vale a dire, schede e spazi) durante il confronto. Se una riga contiene molti spazi consecutivi o nelle schede, **/w** li considererà come spazio singolo. Se utilizzato con **/w**, **fc** Ignora gli spazi vuoti all'inizio e fine riga.         |
+|             /\<> NNNN             | Specifica il numero di righe consecutive che deve corrispondere in seguito una mancata corrispondenza prima **fc** considera i file essere risincronizzata. Se il numero di righe corrispondenti nei file è minore di *NNNN*, **fc** righe saranno visualizzate come differenze. Il valore predefinito è 2. |
+| [\<Unità1>:] [<Path1>]<FileName1> |                                                                                        Specifica il percorso e nome del primo file o set di file da confrontare. *FileName1* è obbligatorio.                                                                                        |
+| [\<Unità2>:] [<Path2>]<FileName2> |                                                                                       Specifica il percorso e nome del secondo file o set di file da confrontare. *FileName2* è obbligatorio.                                                                                        |
 |                /?                |                                                                                                                         Visualizza la guida al prompt dei comandi.                                                                                                                         |
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   Questo comando è implemeted da c:\WINDOWS\fc.exe. È possibile usare questo comando in PowerShell, ma assicurarsi di definire il file eseguibile completo (FC. exe) perché "FC" è un alias per Format-Custom.
 
@@ -72,7 +72,7 @@ fc /b [<Drive1:>][<Path1>]<FileName1> [<Drive2:>][<Path2>]<FileName2>
     Il valore di *xxxxxxxx* specifica l'indirizzo esadecimale relativo per la coppia di byte, misurato a partire dall'inizio del file. Gli indirizzi iniziano a 00000000. Valore esadecimale per *AA* e *ZZ* rappresentano i byte non corrispondenti da *FileName1* e *FileName2*, rispettivamente.
 -   Utilizzo di caratteri jolly
 
-    È possibile usare caratteri jolly ( **&#42;** e **?** ) in *filename1* e *filename2*. Se si utilizza un carattere jolly nel *FileName1*, **fc** Confronta tutti i file specificati nel file o un set di file specificato da *FileName2*. Se si utilizza un carattere jolly nel *FileName2*, **fc** utilizza il valore corrispondente dal *FileName1*.
+    È possibile usare caratteri jolly (**&#42;** e **?**) in *filename1* e *filename2*. Se si utilizza un carattere jolly nel *FileName1*, **fc** Confronta tutti i file specificati nel file o un set di file specificato da *FileName2*. Se si utilizza un carattere jolly nel *FileName2*, **fc** utilizza il valore corrispondente dal *FileName1*.
 -   Uso della memoria
 
     Quando si confrontano i file ASCII, **FC** usa un buffer interno (sufficientemente grande per ospitare 100 righe) come risorsa di archiviazione. Se i file sono maggiori del buffer, **fc** Confronta ciò che è possibile caricare nel buffer. Se **FC** non trova una corrispondenza nelle parti caricate dei file, viene arrestata e viene visualizzato il messaggio seguente:
@@ -81,7 +81,7 @@ fc /b [<Drive1:>][<Path1>]<FileName1> [<Drive2:>][<Path2>]<FileName2>
 
     Quando si confrontano file binari di dimensioni maggiori della memoria disponibile, **FC** confronta completamente entrambi i file, sovrapponendo le parti in memoria con le parti successive dal disco. L'output è uguale a quello per i file che rientrano completamente in memoria.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per eseguire un confronto di due file di testo, mensile e vendite. rpt, ASCII e visualizzare i risultati in formato abbreviato, digitare:
 ```
@@ -120,6 +120,6 @@ Per confrontare ogni file batch nella directory radice dell'unità C per il file
 fc c:*.bat d:*.bat
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

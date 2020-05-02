@@ -1,6 +1,6 @@
 ---
 title: eventcreate
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 79b10963abef9918e5962fdaf7d387a129873452
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 797298622ba1021caef3d04e2f2f06f016ef6a70
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80845094"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725766"
 ---
 # <a name="eventcreate"></a>eventcreate
 
 
 
-Consente agli amministratori di creare un evento personalizzato in un registro eventi specificato. Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+Consente agli amministratori di creare un evento personalizzato in un registro eventi specificato. 
 
 ## <a name="syntax"></a>Sintassi
 
@@ -32,21 +32,21 @@ eventcreate [/s <Computer> [/u <Domain\User> [/p <Password>]] {[/l {APPLICATION|
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/s \<computer >|Specifica il nome o l'indirizzo IP di un computer remoto (non utilizzare barre rovesciate). Il valore predefinito è il computer locale.|
-|/u \<dominio\utente >|Esegue il comando con le autorizzazioni dell'account dell'utente specificato da \<utente > o < dominio\utente >. Il valore predefinito è le autorizzazioni dell'oggetto utente nel computer eseguendo il comando connesso.|
-|/p \<password >|Specifica la password dell'account utente specificato nella **/u** parametro.|
-|/l {APPLICATION\|SYSTEM}|Specifica il nome del registro eventi in cui verrà creato l'evento. I nomi di log valido sono APPLICAZIONI e SISTEMA.|
-|/so \<NomeOrigine >|Specifica l'origine da utilizzare per l'evento. Un'origine valida può essere qualsiasi stringa e deve rappresentare l'applicazione o componente che genera l'evento.|
-|/t {ERROR\|avviso\|informazioni\|</br>SUCCESSAUDIT\|FAILUREAUDIT}|Specifica il tipo di evento da creare. I tipi validi sono ERRORE, AVVISO, INFORMAZIONI, SUCCESSAUDIT e FAILUREAUDIT.|
-|/ID \<EventId >|Specifica l'ID evento per l'evento. Un ID valido è qualsiasi numero compreso tra 1 e 1000.|
-|/d Descrizione \<>|Specifica la descrizione da utilizzare per l'evento appena creato.|
+|/s \<> computer|Specifica il nome o l'indirizzo IP di un computer remoto (non utilizzare barre rovesciate). Il valore predefinito è il computer locale.|
+|/u \<dominio\utente>|Esegue il comando con le autorizzazioni dell'account dell'utente specificato dall' \<utente> o <dominio\utente>. Il valore predefinito è le autorizzazioni dell'oggetto utente nel computer eseguendo il comando connesso.|
+|/p \<password>|Specifica la password dell'account utente specificato nella **/u** parametro.|
+|/l {APPLICATION\|System}|Specifica il nome del registro eventi in cui verrà creato l'evento. I nomi di log valido sono APPLICAZIONI e SISTEMA.|
+|/so \<NomeOrigine>|Specifica l'origine da utilizzare per l'evento. Un'origine valida può essere qualsiasi stringa e deve rappresentare l'applicazione o componente che genera l'evento.|
+|/t {informazioni\|sugli\|errori di avviso\|</br>SUCCESSAUDIT\|FailureAudit}|Specifica il tipo di evento da creare. I tipi validi sono ERRORE, AVVISO, INFORMAZIONI, SUCCESSAUDIT e FAILUREAUDIT.|
+|/ID \<eventid>|Specifica l'ID evento per l'evento. Un ID valido è qualsiasi numero compreso tra 1 e 1000.|
+|/d \<Descrizione>|Specifica la descrizione da utilizzare per l'evento appena creato.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   Eventi personalizzati non possono essere scritti nel Registro di protezione.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Negli esempi seguenti viene illustrano come è possibile utilizzare il comando eventcreate:
 ```
@@ -59,6 +59,6 @@ eventcreate /s server1 /s server2 /u user /p password /id 100 /t error /so winmg
 eventcreate /s server /u user /id 100 /t warning /so winmgmt /d Remote machine with partial user credentials
 ```
 
-#### <a name="additional-references"></a>Altre informazioni di riferimento
+#### <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

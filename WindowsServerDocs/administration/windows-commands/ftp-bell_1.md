@@ -1,6 +1,6 @@
 ---
 title: bell_1 FTP
-description: Argomento dei comandi di Windows per FTP bell_1
+description: Argomento di riferimento per bell_1 FTP
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 527b000f971cd3b4fc2b98772dc918d66c8d4b42
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 8efed1dcafb1076a6440a9c3a9519a16b86890c8
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80843734"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725386"
 ---
 # <a name="ftp-bell_1"></a>FTP: bell_1
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Attiva o disattiva un suono udibile avvenga dopo il completamento di ogni comando di trasferimento file.   
 ## <a name="syntax"></a>Sintassi  
@@ -26,13 +26,13 @@ Attiva o disattiva un suono udibile avvenga dopo il completamento di ogni comand
 bell  
 ```  
 #### <a name="parameters"></a>Parametri  
-nessuno  
-## <a name="remarks"></a>Note  
+none  
+## <a name="remarks"></a>Osservazioni  
 Per impostazione predefinita, segnale acustico è disattivato.  
-## <a name="examples"></a><a name=BKMK_Examples></a>Esempi  
+## <a name="examples"></a>Esempi  
 Attivare o disattivare un suono udibile avvenga dopo il completamento di ogni comando di trasferimento file.  
 ```  
 bell  
 ```  
-## <a name="additional-references"></a>Altre informazioni di riferimento  
+## <a name="additional-references"></a>Riferimenti aggiuntivi  
 -   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

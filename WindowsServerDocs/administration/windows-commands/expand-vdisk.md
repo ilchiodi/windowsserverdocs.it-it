@@ -1,6 +1,6 @@
 ---
 title: Espandi vdisk
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 272714372a35f7f205b5a2e70cb2f2669b3a0634
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: c2380045de45397888777f58e3420c75bb6915ae
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80844894"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725698"
 ---
 # <a name="expand-vdisk"></a>Espandi vdisk
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 espande un disco rigido virtuale (VHD) per le dimensioni specificate.
 > [!NOTE]
@@ -33,20 +33,20 @@ espande un disco rigido virtuale (VHD) per le dimensioni specificate.
 > |-------------|-------------------------------------------------------|
 > | massimo =<n> | Specifica la nuova dimensione per il disco rigido Virtuale in megabyte (MB). |
 > 
-> ## <a name="remarks"></a>Note
+> ## <a name="remarks"></a>Osservazioni
 > - Un disco rigido Virtuale deve essere selezionato e scollegato per eseguire questa operazione. Utilizzare il **Selezionare vdisk** comando per selezionare un volume e spostare lo stato attivo a esso.
->   ## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
+>   ## <a name="examples"></a>Esempi
 >   Per espandere il disco rigido Virtuale selezionato 20 GB, digitare:
 >   ```
 >   expand vdisk maximum=20000
 >   ```
->   ## <a name="additional-references"></a>Altre informazioni di riferimento
+>   ## <a name="additional-references"></a>Riferimenti aggiuntivi
 > - - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
-> - [Connetti vdisk](attach-vdisk.md)
+> - [attach vdisk](attach-vdisk.md)
 > - [compatta vdisk](compact-vdisk.md)
 
--   [Scollega vdisk](detach-vdisk.md)
+-   [Scollega disco virtuale](detach-vdisk.md)
 -   [Dettagli vdisk](detail-vdisk.md)
--   [Unisci vdisk](merge-vdisk.md)
+-   [Disco virtuale di tipo merge](merge-vdisk.md)
 -   [Seleziona vdisk](select-vdisk.md)
 -   [list_1](list_1.md)

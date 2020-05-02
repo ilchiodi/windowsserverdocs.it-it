@@ -9,19 +9,19 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 70c881cc02f31614160920766d32d73a3a939315
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3d0df4e8e8dc16818273393062989ef7c0455c51
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80844064"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725456"
 ---
 # <a name="fsutil-sparse"></a>Fsutil sparse
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
 
 Gestisce i file sparse.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -44,7 +44,7 @@ fsutil sparse [setrange] <FileName> <BeginningOffset> <Length>
 | <BeginningOffset> |                              Specifica l'offset nel file da contrassegnare come sparse.                              |
 |     <Length>      |                 Specifica la lunghezza dell'area nel file da contrassegnare come sparse (in byte).                 |
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   Un file sparse è un file con una o più aree di dati non allocati. Un programma vedranno tali aree non allocate come contenente byte con valore zero, ma nessuno spazio su disco viene utilizzato per rappresentare questi zeri. Vengono allocati tutti i dati significativi o diversi da zero, mentre tutti i dati non significativi (stringhe di grandi dimensioni di dati costituiti da zeri) non vengono allocati. Quando viene letto un file sparse, i dati allocati vengono restituiti come archiviati e vengono restituiti dati non allocati, per impostazione predefinita, come zeri, in base alla specifica del requisito di sicurezza C2. Supporto file sparse consente di deallocare da ovunque nel file di dati.
 
@@ -61,7 +61,7 @@ Per contrassegnare un file denominato Sample. txt nella directory C:\Temp come s
 fsutil sparse setflag c:\temp\sample.txt 
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 
 [Fsutil](Fsutil.md)

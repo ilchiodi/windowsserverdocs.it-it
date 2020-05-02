@@ -1,6 +1,6 @@
 ---
 title: esporre
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 55cc7a292b81977a346f3f078a3b5623243ea46c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 500dc5cfcd5e2bba4cfbc3cb5ef81a9065ea53cf
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80844804"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725673"
 ---
 # <a name="expose"></a>esporre
 
@@ -22,7 +22,7 @@ ms.locfileid: "80844804"
 
 Espone una copia permanente come una lettera di unità, una condivisione o un punto di montaggio.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -35,21 +35,21 @@ expose <ShadowID> {<Drive:> | <Share> | <MountPoint>}
 |Parametro|Descrizione|
 |---------|-----------|
 |IDShadow|Specifica l'ID di ombreggiatura della copia shadow che si desidera esporre.|
-|Unità \<: >|Espone la copia shadow specificata come lettera di unità (ad esempio, P:).|
-|Condivisione \<>|Espone la copia shadow specificata in una condivisione, ad esempio \\\\*MachineName*\).|
-|\<MountPoint >|Espone la copia shadow specificata a un punto di montaggio, ad esempio C:\shadowcopy\).|
+|\<Unità: >|Espone la copia shadow specificata come lettera di unità (ad esempio, P:).|
+|\<Condividi>|Espone la copia shadow specificata in una condivisione, \\ \\ad esempio *machineName*\).|
+|\<> MountPoint|Espone la copia shadow specificata a un punto di montaggio, ad esempio C:\shadowcopy\).|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   È possibile utilizzare un alias esistente o una variabile di ambiente al posto di *IDShadow*. Utilizzare **aggiungere** senza parametri per visualizzare gli alias esistenti.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per esporre la copia shadow persistente associata alla variabile di ambiente VSS_SHADOW_1 come unità X, digitare:
 ```
 expose %vss_shadow_1% x:
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

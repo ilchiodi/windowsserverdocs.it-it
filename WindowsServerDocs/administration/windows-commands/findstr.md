@@ -1,6 +1,6 @@
 ---
 title: findstr
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dbdc1b741b5934f53340bda773909fb5035e449b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 97cc58d2b87190c43137e8b193f0217fb98c006c
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80844634"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725605"
 ---
 # <a name="findstr"></a>findstr
 
@@ -35,7 +35,7 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] 
 |/ b|Se è all'inizio di una riga, corrisponde al modello di testo.|
 |/e|Se alla fine di una riga, corrisponde al modello di testo.|
 |/l|Le stringhe di ricerca letteralmente processi.|
-|/r|Processi di ricercano di stringhe come espressioni regolari. Questa è l'impostazione predefinita.|
+|/r|Processi di ricercano di stringhe come espressioni regolari. Si tratta dell'impostazione predefinita.|
 |/s|Cerca la directory corrente e tutte le sottodirectory.|
 |/i|Ignora le lettere maiuscole e minuscole durante la ricerca della stringa.|
 |/x|Stampa le righe che corrispondono esattamente.|
@@ -43,25 +43,25 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] 
 |/n|Visualizza il numero di ogni riga corrispondente.|
 |/m|Se un file contiene una corrispondenza, viene stampato solo il nome del file.|
 |/o|Offset carattere viene stampato prima di ogni riga corrispondente.|
-|/p|Ignora i file con caratteri non stampabili.|
+|/ p|Ignora i file con caratteri non stampabili.|
 |/ [offline]|Non ignorare i file che sono impostato l'attributo non in linea.|
-|/f:\<file >|Ottiene un elenco di file dal file specificato.|
-|/c:\<stringa >|Utilizza il testo specificato come stringa di ricerca letterale.|
-|/g:\<file >|Ottiene ricerca stringhe dal file specificato.|
-|/d:\<DirList >|Cerca l'elenco di directory specificato. Ogni directory devono essere separati da un punto e virgola (;), ad esempio `dir1;dir2;dir3`.|
-|/a:\<ColorAttribute >|Specifica gli attributi di colore con due cifre esadecimali. Tipo `color /?` Per ulteriori informazioni.|
-|Stringhe di \<>|Specifica il testo da cercare nella *FileName*. Obbligatoria.|
-|[\<unità >:] [<Path>]<FileName>[...]|Specifica il percorso e un file o file da cercare. Nome di almeno un file è obbligatorio.|
-|/?|Visualizza la Guida dal prompt dei comandi.|
+|/f:\<> file|Ottiene un elenco di file dal file specificato.|
+|/c:\<stringa>|Utilizza il testo specificato come stringa di ricerca letterale.|
+|/g:\<> file|Ottiene ricerca stringhe dal file specificato.|
+|/d:\<dirlist>|Cerca l'elenco di directory specificato. Ogni directory devono essere separati da un punto e virgola (;), ad esempio `dir1;dir2;dir3`.|
+|/a:\<ColorAttribute>|Specifica gli attributi di colore con due cifre esadecimali. Tipo `color /?` Per ulteriori informazioni.|
+|\<Stringhe>|Specifica il testo da cercare nella *FileName*. Obbligatorio.|
+|[\<Unità>:] [<Path>]<FileName>[ ...]|Specifica il percorso e un file o file da cercare. Nome di almeno un file è obbligatorio.|
+|/?|Visualizza la Guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 - Tutti **findstr** devono precedere le opzioni della riga di comando *stringhe* e *FileName* nella stringa di comando.
 - Espressioni regolari utilizzano sia i caratteri letterali e metacaratteri per individuare modelli di testo, anziché stringhe di caratteri esatte. Un carattere letterale è un carattere che non hanno un significato speciale nella sintassi delle espressioni regolari, corrisponde a un'occorrenza del carattere desiderato. Ad esempio, lettere e numeri sono caratteri letterali. Un metacarattere è un simbolo con un significato speciale (un operatore o delimitatore) nella sintassi delle espressioni regolari.
 
   Nella tabella seguente sono elencati i metacaratteri che **findstr** accetta.  
 
-  |Metacaratteri|Valore|
+  |Metacaratteri|valore|
   |-------------|-----|
   |.|Jolly: qualsiasi carattere|
   |*|Ripeti: zero o più occorrenze del carattere precedente o della classe|
@@ -71,8 +71,8 @@ findstr [/b] [/e] [/l | /r] [/s] [/i] [/x] [/v] [/n] [/m] [/o] [/p] [/f:<File>] 
   |[^ classe]|Classe inversa: qualsiasi carattere non in un set|
   |[x-y]|Intervallo: qualsiasi carattere compreso nell'intervallo specificato|
   |\x|Escape: utilizzo letterale di una metacarattere x|
-  |stringa \\<|Posizione nella parola: inizio della parola|
-  |\> stringa|Posizione nella parola: fine della parola|
+  |\\Stringa di<|Posizione nella parola: inizio della parola|
+  |string\>|Posizione nella parola: fine della parola|
 
   I caratteri speciali nella sintassi delle espressioni regolari sono della massima potenza quando vengono utilizzati insieme. Ad esempio, utilizzare la seguente combinazione del carattere jolly (.) e ripetere il carattere (*) per cercare una stringa di caratteri:
 
@@ -138,6 +138,6 @@ Per elencare tutti i file che contengono Word computer e altre parole che inizia
 findstr /s /i /m \<comp.* *.*
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

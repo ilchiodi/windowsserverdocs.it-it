@@ -1,6 +1,6 @@
 ---
 title: wbadmin
-description: Windows Commands argomento per Wbadmin, che consente di eseguire il backup e il ripristino del sistema operativo, di volumi, file, cartelle e applicazioni da un prompt dei comandi.
+description: Argomento di riferimento per Wbadmin, che consente di eseguire il backup e il ripristino del sistema operativo, di volumi, file, cartelle e applicazioni da un prompt dei comandi.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0ca9bdc54cd77f11239d0a61cf052e7b12b02b22
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 94f07d17d46dad4e5301ba3ea6be94b10f26a3af
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80829474"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725830"
 ---
 # <a name="wbadmin"></a>wbadmin
 
@@ -24,7 +24,7 @@ Consente di eseguire il backup e ripristinare il sistema operativo, volumi, file
 
 Per configurare un backup pianificato, è necessario essere un membro del **amministratori** gruppo. Per eseguire tutte le altre attività con questo comando, è necessario essere un membro del **Backup Operators** o **amministratori** gruppo, oppure è necessario che siano state delegate le autorizzazioni appropriate.
 
-È necessario eseguire **wbadmin** da un prompt dei comandi con privilegi elevati. (Per aprire un prompt dei comandi con privilegi elevati, fare doppio clic su **Command prompt**, quindi fare clic su **Esegui come amministratore**.)
+È necessario eseguire **wbadmin** da un prompt dei comandi con privilegi elevati. (Per aprire un prompt dei comandi con privilegi elevati, fare clic con il pulsante destro del mouse su **prompt dei comandi**e quindi scegliere **Esegui come amministratore**).
 
 ## <a name="subcommands"></a>Sottocomandi
 
@@ -46,7 +46,7 @@ Per configurare un backup pianificato, è necessario essere un membro del **ammi
 |[Wbadmin restore catalog](wbadmin-restore-catalog.md)|Recupera un catalogo di backup da una posizione di archiviazione specificata nel caso in cui il catalogo di backup nel computer locale sia danneggiato.|
 |[Wbadmin delete catalog](wbadmin-delete-catalog.md)|Elimina il catalogo di backup del computer locale. Utilizzare questo sottocomando solo se il catalogo di backup nel computer in uso è danneggiato e non sono disponibili backup archiviato in un altro percorso che è possibile utilizzare per ripristinare il catalogo.|
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 -   [Backup e ripristino](https://go.microsoft.com/fwlink/?LinkID=195054)
 -   [Cmdlet di Windows Server Backup in Windows PowerShell](https://technet.microsoft.com/library/jj902428.aspx)

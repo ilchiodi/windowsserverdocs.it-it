@@ -1,6 +1,6 @@
 ---
 title: disconnect_1 FTP
-description: Argomento dei comandi di Windows per FTP disconnect_1
+description: Argomento di riferimento per disconnect_1 FTP
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3db8abb8e0948b6f44a91178d71c6dcc03843210
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: bdfd6693f3f291cd5d8ddb3c62054f64d1b39138
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80843524"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725305"
 ---
 # <a name="ftp-disconnect_1"></a>FTP: disconnect_1
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Disconnette dal computer remoto e mantiene il **ftp >** prompt dei comandi.   
 ## <a name="syntax"></a>Sintassi  
@@ -26,11 +26,11 @@ Disconnette dal computer remoto e mantiene il **ftp >** prompt dei comandi.
 disconnect  
 ```  
 #### <a name="parameters"></a>Parametri  
-nessuno  
-## <a name="examples"></a><a name=BKMK_Examples></a>Esempi  
+none  
+## <a name="examples"></a>Esempi  
 Disconnettersi dal computer remoto e mantenere il **ftp >** prompt dei comandi.  
 ```  
 disconnect  
 ```  
-## <a name="additional-references"></a>Altre informazioni di riferimento  
+## <a name="additional-references"></a>Riferimenti aggiuntivi  
 -   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  

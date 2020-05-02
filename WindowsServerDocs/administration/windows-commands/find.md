@@ -1,6 +1,6 @@
 ---
-title: find
-description: Argomento dei comandi di Windows per * * * *-
+title: trovare
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,20 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 82b966db4117e9273ae6aed8d30baec76362de2f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3cd731ef64912644965ef6bb96d060a46f0a6067
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80844694"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82725620"
 ---
-# <a name="find"></a>find
+# <a name="find"></a>trovare
 
 
 
 Cerca una stringa di testo in una o più file e visualizza le righe di testo che contengono la stringa specificata.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -34,16 +34,16 @@ find [/v] [/c] [/n] [/i] [/off[line]] <String> [[<Drive>:][<Path>]<FileName>[...
 
 |           Parametro           |                                              Descrizione                                               |
 |-------------------------------|--------------------------------------------------------------------------------------------------------|
-|              /v               |                    Visualizza tutte le righe che non contengono la stringa di \<specificata >.                     |
-|              /c               |              Conta le righe che contengono la stringa di \<specificata > e visualizza il totale.              |
+|              /v               |                    Visualizza tutte le righe che non contengono la stringa \<specificata>.                     |
+|              /C               |              Conta le righe che contengono la stringa \<specificata>e visualizza il totale.              |
 |              /n               |                            Precede ogni riga con numero di riga del file.                             |
 |              /i               |                            Specifica che la ricerca non fa distinzione maiuscole/minuscole.                            |
 |         [/ [offline]]          |                        Non ignorare i file che sono impostato l'attributo non in linea.                        |
-|          \<stringa >          | Obbligatoria. Specifica il gruppo di caratteri (racchiusa tra virgolette singole) che si desidera cercare. |
-| [\<unità >:] [<Path>]<FileName> |        Specifica il percorso e nome del file in cui cercare la stringa specificata.        |
+|          \<> stringa          | Obbligatorio. Specifica il gruppo di caratteri (racchiusa tra virgolette singole) che si desidera cercare. |
+| [\<Unità>:] [<Path>]<FileName> |        Specifica il percorso e nome del file in cui cercare la stringa specificata.        |
 |              /?               |                                  Visualizza la guida al prompt dei comandi.                                  |
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   Specifica di una stringa
 
@@ -58,7 +58,7 @@ find [/v] [/c] [/n] [/i] [/off[line]] <String> [[<Drive>:][<Path>]<FileName>[...
     È possibile digitare parametri e opzioni della riga di comando per il comando **trova** in qualsiasi ordine.
 -   Utilizzo di caratteri jolly
 
-    Non è possibile utilizzare caratteri jolly **&#42;** (e **?** ) in nomi file o estensioni specificati con il comando **trova** . Per cercare una stringa in un set di file specificato con i caratteri jolly, è possibile utilizzare il **trovare** comando all'interno di un **per** comando.
+    Non è possibile usare caratteri jolly (**&#42;** e **?**) in nomi file o estensioni specificati con il comando **trova** . Per cercare una stringa in un set di file specificato con i caratteri jolly, è possibile utilizzare il **trovare** comando all'interno di un **per** comando.
 -   Uso di **/v** o **/n** con **/c**
 
     Se si usano **/c** e **/v** nella stessa riga di comando, **Find** Visualizza un conteggio delle righe che non contengono la stringa specificata. Se si specifica **/c** e **/n** nella stessa riga di comando, **trovare** Ignora **/n**.
@@ -66,7 +66,7 @@ find [/v] [/c] [/n] [/i] [/off[line]] <String> [[<Drive>:][<Path>]<FileName>[...
 
     Il comando **Find** non riconosce i ritorni a capo. Quando si utilizza **trovare** per cercare testo in un file che include i ritorni a capo, è necessario limitare la stringa di ricerca di testo che può trovarsi tra ritorni a capo (vale a dire una stringa che non sembra essere interrotta da un ritorno a capo). Se, ad esempio, si verifica un ritorno a capo tra le parole Tax e file, la **ricerca** non segnala una corrispondenza per il file di imposta della stringa.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per visualizzare tutte le righe da Pencil.ad che contengono la stringa di affilatura della matita, digitare:
 ```
@@ -86,6 +86,6 @@ dir c:\ /s /b | find CPU
 ```
 Poiché le ricerche di **ricerca** fanno distinzione tra maiuscole e minuscole e **dir** produce un output in maiuscolo, è necessario digitare la CPU della stringa in lettere maiuscole oppure usare l'opzione della riga di comando **/i** con **Find**.
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
