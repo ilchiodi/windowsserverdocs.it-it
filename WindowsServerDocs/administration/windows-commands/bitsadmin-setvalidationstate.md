@@ -1,6 +1,6 @@
 ---
-title: setvalidationstate Bitsadmin
-description: Windows Commands Topic for **BITSAdmin setvalidationstate**, che imposta lo stato di convalida del contenuto del file specificato all'interno del processo.
+title: bitsadmin setvalidationstate
+description: Argomento di riferimento per il comando Bitsadmin setvalidationstate, che imposta lo stato di convalida del contenuto del file specificato all'interno del processo.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6bec42ae926050cd21df594a38f1c441a40a527f
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: e3f22dc09eb1f70ce3c1ebd80fd6ba721e864377
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81122715"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720458"
 ---
-# <a name="bitsadmin-setvalidationstate"></a>setvalidationstate Bitsadmin
+# <a name="bitsadmin-setvalidationstate"></a>bitsadmin setvalidationstate
 
 Imposta lo stato di convalida del contenuto del file specificato all'interno del processo.
 
@@ -30,18 +30,20 @@ bitsadmin /setvalidationstate <job> <file_index> <TRUE|FALSE>
 
 | Parametro | Descrizione |
 | --------- | ---------- |
-| Job | Nome visualizzato o GUID del processo. |
+| Processo | Nome visualizzato o GUID del processo. |
 | file_index | Inizia da 0. |
 | TRUE o FALSE | **True** attiva la convalida del contenuto per il file specificato, mentre **false** lo disattiva. |
 
 ## <a name="examples"></a>Esempi
 
-L'esempio seguente imposta lo stato di convalida del contenuto del file 2 su TRUE per il processo denominato *myDownloadJob*.
+Per impostare lo stato di convalida del contenuto del file 2 su TRUE per il processo denominato *myDownloadJob*:
 
 ```
-C:\>bitsadmin /setvalidationstate myDownloadJob 2 TRUE
+bitsadmin /setvalidationstate myDownloadJob 2 TRUE
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

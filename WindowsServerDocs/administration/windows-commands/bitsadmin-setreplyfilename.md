@@ -1,6 +1,6 @@
 ---
 title: bitsadmin setreplyfilename
-description: Windows Commands Topic for **BITSAdmin setreplyfilename**, che specifica il percorso del file che contiene il server upload-Reply.
+description: Argomento di riferimento per il comando Bitsadmin setreplyfilename, che specifica il percorso del file che contiene il server di caricamento-risposta.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6c476073cb22ff66bcefc75a45fcd0526cdf3d25
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: 2f0bd184db274dc915817ff3e26ae2c686190c27
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81122732"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720483"
 ---
 # <a name="bitsadmin-setreplyfilename"></a>bitsadmin setreplyfilename
 
@@ -33,17 +33,19 @@ bitsadmin /setreplyfilename <job> <file_path>
 
 | Parametro | Descrizione |
 | -------------- | -------------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 | file_path | Percorso in cui inserire il server di caricamento-risposta. |
 
 ## <a name="examples"></a>Esempi
 
-Nell'esempio seguente viene impostato il percorso del file di caricamento-risposta per il processo denominato *myDownloadJob*.
+Per impostare il percorso del file di caricamento-risposta per il processo denominato *myDownloadJob*:
 
 ```
-C:\>bitsadmin /setreplyfilename myDownloadJob c:\upload-reply
+bitsadmin /setreplyfilename myDownloadJob c:\upload-reply
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

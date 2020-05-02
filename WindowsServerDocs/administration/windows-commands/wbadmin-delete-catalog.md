@@ -1,6 +1,6 @@
 ---
 title: wbadmin Elimina catalogo
-description: Argomento comandi di Windows per Wbadmin delete catalog, che elimina il catalogo di backup archiviato nel computer locale.
+description: Argomento di riferimento per Wbadmin delete catalog, che elimina il catalogo di backup archiviato nel computer locale.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5cf069163cb18c1763de2842b518f269b9fa57dd
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 73f6f44fb343d3347d18cf2c86913aea59613e07
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80829904"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720208"
 ---
 # <a name="wbadmin-delete-catalog"></a>wbadmin Elimina catalogo
 
@@ -37,11 +37,11 @@ wbadmin delete catalog
 |---------|-----------|
 |-quiet|Esegue il sottocomando senza alcuna richiesta visualizzata all'utente.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 Se si elimina il catalogo di backup per un computer, non sarà possibile accedere ai backup creati da tale computer utilizzando lo snap-in Windows Server Backup. In tal caso, se è possibile accedere a un altro percorso di backup, usare **Wbadmin restore catalog** per ripristinare il catalogo di backup da tale percorso. È necessario creare un nuovo backup dopo l'eliminazione del catalogo di backup.
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 -   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)

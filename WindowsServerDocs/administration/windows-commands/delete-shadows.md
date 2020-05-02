@@ -1,6 +1,6 @@
 ---
 title: Elimina ombre
-description: Windows Commands argomento for delete Shadows, che elimina le copie shadow.
+description: Argomento di riferimento per le ombreggiature Delete, che elimina le copie shadow.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cd109f7ddc0365d03737eddba31a1a4b7f34915b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 1dd367d76ad1699321af9caf47a0ddc351088a05
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80846564"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720802"
 ---
 # <a name="delete-shadows"></a>Elimina ombre
 
@@ -30,13 +30,13 @@ delete shadows [all | volume <Volume> | oldest <Volume> | set <SetID> | id <Shad
 
 | Parametro | Descrizione |
 | ---- | ---- |
-| tutti | Elimina tutte le copie shadow. |
-| volume \<volume > | Elimina tutte le copie shadow del volume specificato. |
-| Volume \<meno recente > | Elimina la copia shadow meno recente del volume specificato. |
-| imposta \<SetId > | Elimina le copie shadow in un Set di copia Shadow dell'ID specificato. È possibile specificare un alias utilizzando il **%** simbolo, se l'alias è presente nell'ambiente corrente. |
-| ID \<IDShadow > | Elimina una copia dell'ID specificato. È possibile specificare un alias utilizzando il **%** simbolo, se l'alias è presente nell'ambiente corrente. |
-| esposte {\<unità > | <MountPoint>} |
+| all | Elimina tutte le copie shadow. |
+| \<volume volume> | Elimina tutte le copie shadow del volume specificato. |
+| > \<del volume meno recente | Elimina la copia shadow meno recente del volume specificato. |
+| imposta \<> SetID | Elimina le copie shadow in un Set di copia Shadow dell'ID specificato. È possibile specificare un alias usando il **%** simbolo se l'alias esiste nell'ambiente corrente. |
+| ID \<IDShadow> | Elimina una copia dell'ID specificato. È possibile specificare un alias usando il **%** simbolo se l'alias esiste nell'ambiente corrente. |
+| esposte {\<unità> | <MountPoint>} |
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

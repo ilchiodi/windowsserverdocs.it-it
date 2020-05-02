@@ -1,6 +1,6 @@
 ---
 title: Remove-ImageGroup
-description: Argomento dei comandi di Windows per Remove-ImageGroup, che rimuove un gruppo di immagini da un server.
+description: Argomento di riferimento per Remove-ImageGroup, che rimuove un gruppo di immagini da un server.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d8406959037a958ea6d61b8e8145317635955e6d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f814d83a32a8c739e7462bc77251cf3f3f4fe20e
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80830354"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720347"
 ---
 # <a name="using-the-remove-imagegroup-command"></a>Utilizzando il comando remove-ImageGroup
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Rimuove un gruppo di immagini da un server.
 
@@ -29,17 +29,17 @@ wdsutil [Options] /remove-ImageGroumediaGroup:<Image group name> [/Server:<Serve
 ### <a name="parameters"></a>Parametri
 |Parametro|Descrizione|
 |-------|--------|
-mediaGroup:<Image group name>|Specifica il nome del gruppo di immagini da rimuovere|
+MediaGroup<Image group name>|Specifica il nome del gruppo di immagini da rimuovere|
 |[/Server:<Server name>]|Specifica il nome del server. Può essere il nome NetBIOS oppure il nome di dominio completo. Se viene specificato alcun nome di server, verrà utilizzato il server locale.|
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 Per rimuovere il gruppo di immagini, digitare uno dei seguenti:
 ```
 wdsutil /remove-ImageGroumediaGroup:ImageGroup1
 wdsutil /verbose /remove-ImageGroumediaGroup:My Image Group /Server:MyWDSServer 
 ```
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
-[Uso del comando Add-ImageGroup](using-the-add-imagegroup-command.md)  
-[Utilizzando il comando Get-AllImageGroups](using-the-get-allimagegroups-command.md)  
-[Utilizzando il comando Get-ImageGroup](using-the-get-imagegroup-command.md)  
+[Utilizzando il comando add-ImageGroup](using-the-add-imagegroup-command.md)  
+[Utilizzando il comando get-AllImageGroups](using-the-get-allimagegroups-command.md)  
+[Utilizzando il comando get-ImageGroup](using-the-get-imagegroup-command.md)  
 [Sottocomando: set-ImageGroup](subcommand-set-imagegroup.md)  

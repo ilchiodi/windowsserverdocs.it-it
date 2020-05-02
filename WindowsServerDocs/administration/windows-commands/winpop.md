@@ -1,6 +1,6 @@
 ---
 title: winpop
-description: Argomento dei comandi di Windows per winpop, che è deprecato e non è garantito per essere supportato nelle versioni future di Windows.
+description: Argomento di riferimento per winpop, che è deprecato e non è garantito per essere supportato nelle versioni future di Windows.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0bd75eb6072cc1999ef849b43009cae8e8133592
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b7b9077e0d0194e86200ab3710babb23bc308d83
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80829224"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720695"
 ---
 # <a name="winpop"></a>winpop
 

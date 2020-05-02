@@ -1,6 +1,6 @@
 ---
 title: bitsadmin setnotifycmdline
-description: Windows Commands Topic for **BITSAdmin setnotifycmdline**, che consente di impostare il comando della riga di comando che viene eseguito al termine del processo di trasferimento dei dati o quando un processo entra in uno stato.
+description: Argomento di riferimento per il comando Bitsadmin setnotifycmdline, che consente di impostare il comando della riga di comando che viene eseguito al termine del trasferimento dei dati da parte del processo o quando un processo entra in uno stato.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b268b68cbd355a7fe7f993d678a98f6fcb99f0ab
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: b21d7151a5b646a4fe07d073220614f5e3c99539
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81122891"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720126"
 ---
 # <a name="bitsadmin-setnotifycmdline"></a>bitsadmin setnotifycmdline
 
-Imposta il comando della riga di comando che viene eseguito al termine del processo di trasferimento dei dati o quando un processo entra in uno stato specificato.
+Imposta il comando della riga di comando che viene eseguito al termine del processo di trasferimento dei dati o dopo l'immissione di un processo in uno stato specificato.
 
 > [!NOTE]
 > Questo comando non è supportato da BITS 1,2 e versioni precedenti.
@@ -33,22 +33,26 @@ bitsadmin /setnotifycmdline <job> <program_name> [program_parameters]
 
 | Parametro | Descrizione |
 | --------- | ----------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 | program_name | Nome del comando da eseguire al termine del processo. È possibile impostare questo valore come NULL, ma in tal caso, *program_parameters* necessario impostare anche su null. |
 | program_parameters | Parametri che si desidera passare al *program_name*. È possibile impostare questo valore come NULL. Se *program_parameters* non è impostato su null, il primo parametro in *program_parameters* deve corrispondere al *program_name*. |
 
 ## <a name="examples"></a>Esempi
 
-Nell'esempio seguente viene impostato il comando della riga di comando utilizzato dal servizio per eseguire notepad. exe al termine del processo denominato *myDownloadJob* .
+Per eseguire notepad. exe al termine del processo denominato *myDownloadJob*:
 
 ```
-C:\>bitsadmin /setnotifycmdline myDownloadJob c:\winnt\system32\notepad.exe NULL
+bitsadmin /setnotifycmdline myDownloadJob c:\winnt\system32\notepad.exe NULL
 ```
 
+Per visualizzare il testo EULA in Notepad. exe, al termine del processo denominato myDownloadJob:
+
 ```
-C:\>bitsadmin /setnotifycmdline myDownloadJob c:\winnt\system32\notepad.exe notepad c:\eula.txt
+bitsadmin /setnotifycmdline myDownloadJob c:\winnt\system32\notepad.exe notepad c:\eula.txt
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

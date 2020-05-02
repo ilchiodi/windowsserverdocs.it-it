@@ -9,19 +9,19 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: aa6692dbb8af1ec832650971c6723c060fc2cd56
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 18088bcedd077d5c8052bca91c648e2719304a78
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80844014"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720086"
 ---
 # <a name="fsutil-transaction"></a>Fsutil transazione
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7, Windows 2008, Windows Vista
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7, Windows 2008, Windows Vista
 
 Gestisce le transazioni NTFS.
 
-Per esempi relativi all'uso di questo comando, vedere [esempi](#BKMK_examples) .
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -45,7 +45,7 @@ fsutil transaction [rollback] <GUID>
 |   query    | Visualizza le informazioni per la transazione specificata.<p>-Se viene specificato il **file fsutil transaction query** , le informazioni sul file verranno visualizzate solo per la transazione specificata.<br />-Se si specifica **fsutil transaction query All** , verranno visualizzate tutte le informazioni per la transazione. |
 |  rollback  |                                                                                                                                Esegue il rollback di una transazione specificata fino all'inizio.                                                                                                                                 |
 
-### <a name="remarks"></a>Note
+### <a name="remarks"></a>Osservazioni
 
 -   Transactional NTFS è stato introdotto in Windows Server 2008.
 

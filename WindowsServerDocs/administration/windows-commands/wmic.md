@@ -1,6 +1,6 @@
 ---
 title: wmic
-description: Argomento dei comandi di Windows per WMIC, che visualizza le informazioni WMI all'interno di una shell dei comandi interattiva.
+description: Argomento di riferimento per WMIC, che visualizza le informazioni WMI all'interno di una shell dei comandi interattiva.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 03ba4ecb4b12b03e010318bf6ca260dec00f28f3
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 252ba6b59c29378dd1f5e437de21a2ec4f5ec5c8
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80829054"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720651"
 ---
 # <a name="wmic"></a>wmic
 
@@ -22,7 +22,7 @@ ms.locfileid: "80829054"
 
 Visualizza le informazioni WMI all'interno di una shell comandi interattiva.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -36,12 +36,12 @@ I comandi secondari seguenti sono sempre disponibili:
 
 |Sottocomando|Descrizione|
 |-----------|-----------|
-|class|Viene eseguito l'escape dalla modalità alias predefinita di WMIC per accedere direttamente alle classi nello schema WMI.|
+|classe|Viene eseguito l'escape dalla modalità alias predefinita di WMIC per accedere direttamente alle classi nello schema WMI.|
 |path|Viene eseguito l'escape dalla modalità alias predefinita di WMIC per accedere direttamente alle istanze nello schema WMI.|
-|context|Consente di visualizzare i valori correnti di tutti i commutatori globali.|
-|[uscire \| uscire]|Chiude la shell dei comandi WMIC.|
+|contesto|Consente di visualizzare i valori correnti di tutti i commutatori globali.|
+|[Esci \| dall'uscita]|Chiude la shell dei comandi WMIC.|
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per visualizzare i valori correnti di tutte le opzioni globali, digitare:
 ```
@@ -71,6 +71,6 @@ Per modificare l'ID lingua usato dalla riga di comando in inglese (ID impostazio
 wmic /locale:ms_409
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

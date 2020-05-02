@@ -1,6 +1,6 @@
 ---
 title: Rimuovi immagine
-description: Argomento dei comandi di Windows per Remove-Image, che consente di eliminare un'immagine da un server.
+description: Argomento di riferimento per Remove-Image, che consente di eliminare un'immagine da un server.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 760c61c3109255000fe1177a456243a5c91c883f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 770c8487bcfe0cba28bffcd32a05285d904ba21c
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80830364"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720356"
 ---
 # <a name="remove-image"></a>Rimuovi immagine
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Elimina un'immagine da un server.
 
@@ -34,13 +34,13 @@ wdsutil [Options] /remove-Imagmedia:<Image name> [/Server:<Server name>mediatype
 ### <a name="parameters"></a>Parametri
 |Parametro|Descrizione|
 |-------|--------|
-supporto:<Image name>|Specifica il nome dell'immagine.|
+media<Image name>|Specifica il nome dell'immagine.|
 |[/Server:<Server name>]|Specifica il nome del server. Può essere il nome NetBIOS oppure il nome di dominio completo. Se viene specificato alcun nome di server, verrà utilizzato il server locale.|
-mediatype:{Boot &#124; Install}|Specifica il tipo di immagine.|
+MediaType: {boot &#124; install}|Specifica il tipo di immagine.|
 |/ Architettura: {x86 & #124; ia64 & #124; x64}|Specifica l'architettura dell'immagine. Poiché è possibile che lo stesso nome di immagine per immagini di avvio diverse architetture, che specifica il valore di architettura garantisce che l'immagine corretta verrà rimosso.|
 |\mediaGroup:<Image group name>]|Specifica il gruppo di immagini che contiene l'immagine. Se viene specificato alcun nome di gruppo di immagini e il gruppo solo un'immagine esistente sul server, verrà utilizzato tale gruppo di immagini. Se esiste più di un gruppo di immagini, è necessario utilizzare questa opzione per specificare il gruppo di immagini.|
 |[/Filename:<File name>]|Se l'immagine non può essere identificata in modo univoco in base al nome, è necessario utilizzare questa opzione per specificare il nome del file.|
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 Per rimuovere un'immagine di avvio, digitare:
 ```
 wdsutil /remove-Imagmedia:WinPE Boot Imagemediatype:Boot /Architecture:x86
@@ -55,11 +55,11 @@ wdsutil /remove-Imagmedia:Windows Vista with Officemediatype:Install
 ```
 wdsutil /verbose /remove-Imagmedia:Windows Vista with Office /Server:MyWDSServemediatype:InstalmediaGroup:ImageGroup1 /Filename:install.wim
 ```
-## <a name="additional-references"></a>Altre informazioni di riferimento
-- [Chiave sintassi della riga di comando](command-line-syntax-key.md)
-[utilizzando il comando add-immagine](using-the-add-image-command.md)
-[utilizzando il comando Copia immagine](using-the-copy-image-command.md)
-[utilizzando il comando Export-Image](using-the-export-image-command.md)
-[utilizzando il comando get-immagine](using-the-get-image-command.md)
-[utilizzando l'immagine di sostituzione comando](using-the-replace-image-command.md)
-[sottocomando: set-immagine](subcommand-set-image.md)
+## <a name="additional-references"></a>Riferimenti aggiuntivi
+- [Chiave](command-line-syntax-key.md)
+della sintassi della riga di comando usando il comando[Add-Image](using-the-add-image-command.md)
+usando
+[il comando copy-image](using-the-copy-image-command.md)
+[usando il comando Export-Image](using-the-export-image-command.md)usando il comando[Get-Image](using-the-get-image-command.md)
+
+[usando il comando Replace-Image](using-the-replace-image-command.md)[sottocomando: Set-Image](subcommand-set-image.md)

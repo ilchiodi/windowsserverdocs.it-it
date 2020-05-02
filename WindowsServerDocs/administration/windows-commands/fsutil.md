@@ -9,20 +9,20 @@ ms.technology: storage
 audience: IT Pro
 ms.topic: article
 ms.date: 08/21/2018
-ms.openlocfilehash: 717c287995be2ab56bd49f2f24d46001f77e0e68
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a12647908811066293772ab1e9354a0d67874d88
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80843904"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720052"
 ---
 # <a name="fsutil"></a>Fsutil
 
->Si applica a: Windows Server (canale semestrale), Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
 
 Esegue le attività correlate ai file system FAT (file allocation table) e NTFS, ad esempio la gestione dei reparse point, la gestione di file sparse o lo smontaggio di un volume. Se viene utilizzato senza parametri, **fsutil** Visualizza un elenco di sottocomandi supportati. 
 
-> [!Note] 
+> [!NOTE] 
 > Per utilizzare fsutil, è necessario effettuare l'accesso come amministratore o come membro del gruppo Administrators. Il fsutil comando è piuttosto potente e deve essere utilizzato solo da utenti avanzati che hanno una conoscenza approfondita dei sistemi operativi Windows.
 >
 >Prima di poter eseguire **fsutil**, è necessario abilitare il sottosistema Windows per Linux. Eseguire il comando seguente come amministratore in PowerShell per abilitare questa funzionalità facoltativa:

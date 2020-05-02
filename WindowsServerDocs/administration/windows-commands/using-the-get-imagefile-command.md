@@ -1,6 +1,6 @@
 ---
 title: Get-ImageFile
-description: Windows Commands argomento per Get-ImageFile, che consente di recuperare informazioni sulle immagini contenute in un file di immagine Windows (wim).
+description: Argomento di riferimento per Get-ImageFile, che consente di recuperare informazioni sulle immagini contenute in un file di immagine Windows (wim).
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ef1cf2b9eec6739690d286c32d26dd84b07e348c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 4f60be17f13e1436a0e895991c72d5ccb7130782
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80830994"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719909"
 ---
 # <a name="get-imagefile"></a>Get-ImageFile
 
@@ -30,10 +30,10 @@ WDSUTIL [Options] /Get-ImageFile /ImageFile:<wim file path> [/Detailed]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/ImageFile:\<percorso del file WIM >|Specifica il percorso completo e il nome file del file con estensione wim.|
+|/ImageFile:\<percorso del file WIM>|Specifica il percorso completo e il nome file del file con estensione wim.|
 |[/ Dettagliate]|Restituisce tutti i metadati delle immagini da ogni immagine. Se si omette questa opzione, il comportamento predefinito è per restituire solo il nome dell'immagine, descrizione e nome file.|
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per visualizzare le informazioni su un'immagine, digitare:
 ```
@@ -44,6 +44,6 @@ Per visualizzare informazioni dettagliate, digitare:
 WDSUTIL /Verbose /Get-ImageFile /ImageFile:\\Server\Share\My Folder \install.wim /Detailed
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
 title: wscript
-description: Windows Commands Topic for WScript, che fornisce un ambiente in cui gli utenti possono eseguire script in un'ampia gamma di linguaggi che usano un'ampia gamma di modelli a oggetti per eseguire attività.
+description: Argomento di riferimento per WScript, che fornisce un ambiente in cui gli utenti possono eseguire script in un'ampia gamma di linguaggi che usano un'ampia gamma di modelli a oggetti per eseguire attività.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 08/21/2018
-ms.openlocfilehash: 77a0087eee1287699d66c4e1e5ab2aef69551440
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: cf2d23c7d5773662f679a9a20b0aaba118f35548
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80828934"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720632"
 ---
 # <a name="wscript"></a>wscript
 
@@ -39,18 +39,18 @@ wscript [<scriptname>] [/b] [/d] [/e:<engine>] [{/h:cscript|/h:wscript}] [/i] [/
 |/h: cscript|Registra **cscript. exe** come host di script predefinito per l'esecuzione di script.|
 |/h: WScript|Registra **WScript. exe** come host di script predefinito per l'esecuzione di script. Si tratta dell'impostazione predefinita quando si omette l'opzione **/h** .|
 |/i|Specifica la modalità interattiva, che visualizza gli avvisi, errori di script e richieste di input.</br>Si tratta dell'impostazione predefinita e l'opposto di **/b**.|
-|/minuto: identificatore\<>|Esegue il processo identificato dall' *identificatore* in un file di script **. wsf** .|
+|/minuto:\<identificatore>|Esegue il processo identificato dall' *identificatore* in un file di script **. wsf** .|
 |/logo|Specifica che l'intestazione di Windows Script Host verrà visualizzata nella console prima dell'esecuzione dello script.</br>Si tratta dell'impostazione predefinita e del contrario di **/nologo**.|
 |/nologo|Specifica che l'intestazione di Windows Script Host non viene visualizzata prima dell'esecuzione dello script. Si tratta del contrario di **/logo**.|
 |/s|Salva le opzioni del prompt dei comandi correnti per l'utente corrente.|
-|/t: numero\<>|Specifica il tempo massimo che esecuzione dello script (in secondi). È possibile specificare fino a 32.767 secondi.</br>Il valore predefinito non è alcun limite di tempo.|
+|/t:\<numero>|Specifica il tempo massimo che esecuzione dello script (in secondi). È possibile specificare fino a 32.767 secondi.</br>Il valore predefinito non è alcun limite di tempo.|
 |/x|Avvia lo script nel debugger.|
 |ScriptArguments|Specifica gli argomenti passati allo script. Ogni argomento dello script deve essere preceduto da una barra (/).|
-|/?|Visualizza la Guida dal prompt dei comandi.|
+|/?|Visualizza la Guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
--   Per eseguire questa attività non è necessario disporre delle credenziali amministrative. Pertanto, per garantire un livello di protezione ottimale, eseguire questa attività come utente senza credenziali amministrative.
+-   L'esecuzione di questa attività non richiede credenziali amministrative. Pertanto, per garantire un livello di protezione ottimale, eseguire questa attività come utente senza credenziali amministrative.
 -   Per aprire il prompt dei comandi, nella schermata **Start** digitare **cmd**, quindi fare clic su **prompt dei comandi**.
 -   Ogni parametro è facoltativo. Tuttavia, è possibile specificare argomenti script senza specificare uno script. Se non si specifica alcuno script o argomenti dello script, **WScript. exe** Visualizza la finestra di dialogo **impostazioni di Windows script host** che consente di impostare le proprietà di scripting globali per tutti gli script eseguiti da **WScript. exe** nel computer locale.
 -   Il parametro **/t** impedisce l'esecuzione eccessiva di script impostando un timer. Quando il tempo supera il valore specificato, **WScript** interrompe il modulo di gestione di script e termina il processo.
@@ -59,6 +59,6 @@ wscript [<scriptname>] [/b] [/d] [/e:<engine>] [{/h:cscript|/h:wscript}] [/i] [/
 -   È possibile impostare le proprietà dei singoli script. Per ulteriori informazioni, vedere [Panoramica di Windows script host](https://technet.microsoft.com/library/cc738350(v=ws.10).aspx) .
 -   Windows script host può usare i file di script **. wsf** . Ogni file con **estensione wsf** può utilizzare più motori di script ed eseguire più processi.
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 -   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

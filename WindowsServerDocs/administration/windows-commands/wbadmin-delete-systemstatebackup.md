@@ -1,6 +1,6 @@
 ---
 title: Wbadmin delete systemstatebackup
-description: Argomento dei comandi di Windows per Wbadmin delete systemstatebackup, che consente di eliminare i backup dello stato del sistema specificati.
+description: Argomento di riferimento per Wbadmin delete systemstatebackup, che consente di eliminare i backup dello stato del sistema specificati.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e184a40612024f81e1c6ab93de8cec4a63eee578
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 12d8ba6ff24e338c6afa5556d7a60e2157156acc
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80829894"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720203"
 ---
 # <a name="wbadmin-delete-systemstatebackup"></a>Wbadmin delete systemstatebackup
 
@@ -27,7 +27,7 @@ Elimina i backup dello stato del sistema specificati. Se il volume specificato c
 
 Per eliminare un backup dello stato del sistema con questo sottocomando, è necessario essere un membro del gruppo **Backup Operators** o **Administrators** oppure avere ricevuto in delega le autorizzazioni appropriate. Inoltre, è necessario eseguire **wbadmin** da un prompt dei comandi con privilegi elevati. (Per aprire un prompt dei comandi con privilegi elevati di rapida **Command prompt**, quindi fare clic su **Esegui come amministratore**.)
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -47,13 +47,13 @@ wbadmin delete systemstatebackup
 |Parametro|Descrizione|
 |---------|-----------|
 |-keepVersions|Specifica il numero di backup dello stato del sistema più recenti da contenere. Il valore deve essere un numero intero positivo. Il valore del parametro **-keepVersions: 0** Elimina tutti i backup dello stato del sistema.|
-|-versione|Specifica l'identificatore di versione del backup nel formato MM/GG/AAAA-HH: MM. Se non si conosce l'identificatore di versione, digitare **wbadmin ottenere versioni**.</br>Con questo comando è possibile eliminare le versioni esclusivamente di backup dello stato del sistema. Usare **Wbadmin get items** per visualizzare il tipo di versione.|
+|-version|Specifica l'identificatore di versione del backup nel formato MM/GG/AAAA-HH: MM. Se non si conosce l'identificatore di versione, digitare **wbadmin ottenere versioni**.</br>Con questo comando è possibile eliminare le versioni esclusivamente di backup dello stato del sistema. Usare **Wbadmin get items** per visualizzare il tipo di versione.|
 |-deleteOldest|Elimina il backup dello stato del sistema meno recente.|
 |-backupTarget|Specifica il percorso di archiviazione per il backup che si desidera eliminare. Il percorso di archiviazione per i backup dei dischi può essere una lettera di unità, un punto di montaggio o un percorso del volume basato su GUID. Questo valore deve essere specificato solo per l'individuazione dei backup che non sono del computer locale. Le informazioni sui backup per il computer locale saranno disponibili nel catalogo di backup nel computer locale.|
 |-machine|Specifica il computer di cui si desidera eliminare il backup dello stato del sistema. Utile quando è stato eseguito il backup di più computer nello stesso percorso. Deve essere utilizzato quando il **- backupTarget** parametro specificato.|
 |-quiet|Esegue il sottocomando senza alcuna richiesta visualizzata all'utente.|
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per eliminare il backup dello stato del sistema creato il 31 marzo 2013 alle 10:00 AM, digitare:
 ```
@@ -68,7 +68,7 @@ Per eliminare il backup dello stato del sistema meno recente archiviato sul disc
 wbadmin delete systemstatebackup -backupTarget:f -deleteOldest
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 -   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)

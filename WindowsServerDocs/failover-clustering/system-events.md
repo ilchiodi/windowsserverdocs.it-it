@@ -8,16 +8,16 @@ ms.author: jgerend
 manager: lizross
 ms.technology: storage-failover-clustering
 ms.date: 01/14/2020
-ms.openlocfilehash: 5d382807adcfd771215d1f87332a47842d25eda3
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: eea98579a66f1db7f7ec873bda6a2c934841736f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80827384"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720513"
 ---
 # <a name="failover-clustering-system-log-events"></a>Eventi del registro di sistema del clustering di failover
 
->Si applica a: Windows Server 2019, Windows Server 2016
+> Si applica a: Windows Server 2019, Windows Server 2016
 
 Questo argomento elenca gli eventi di clustering di failover dal registro di sistema di Windows Server (visualizzabile in Visualizzatore eventi). Tutti questi eventi condividono l'origine evento di **FailoverClustering** e possono essere utili per la risoluzione dei problemi di un cluster.
 
@@ -134,7 +134,7 @@ Il servizio cluster ha rilevato un problema imprevisto e verrà arrestato. Codic
 
 Non è stato possibile avviare Servizio cluster perché questo nodo ha rilevato che non contiene la copia più recente dei dati di configurazione del cluster. Le modifiche apportate al cluster si sono verificate durante l'appartenenza del nodo e di conseguenza non è stato possibile ricevere gli aggiornamenti dei dati di configurazione.
 
-#### <a name="guidance"></a>Materiale sussidiario
+#### <a name="guidance"></a>Indicazioni
 
 Provare ad avviare il servizio cluster in tutti i nodi del cluster in modo che i nodi con la copia più recente dei dati di configurazione del cluster possano prima formare il cluster. Questo nodo sarà quindi in grado di accedere al cluster e otterrà automaticamente i dati di configurazione del cluster aggiornati. Se non sono disponibili nodi con la copia più recente dei dati di configurazione del cluster, eseguire il cmdlet di Windows PowerShell ' Start-ClusterNode-FQ '. Se si usa il parametro ForceQuorum (FQ), il servizio cluster verrà avviato e la copia del nodo dei dati di configurazione del cluster verrà contrassegnata come autorevole. La forzatura del quorum in un nodo con una copia obsoleta del database cluster può comportare modifiche della configurazione del cluster che si sono verificate durante la mancata partecipazione del nodo al cluster.
 
@@ -185,7 +185,7 @@ L'ora di quarantena verrà cancellata automaticamente: %3
 
 ### <a name="event-1024-cp_reg_ckpt_restore_failed"></a>Evento 1024: CP_REG_CKPT_RESTORE_FAILED
 
-Impossibile ripristinare il checkpoint del registro di sistema per la risorsa cluster ' %1' nella chiave del registro di sistema HKEY_LOCAL_MACHINE\\%2. La risorsa potrebbe non funzionare correttamente.
+Impossibile ripristinare il checkpoint del registro di sistema per la risorsa cluster ' %1' nella chiave\\del registro di sistema HKEY_LOCAL_MACHINE %2. La risorsa potrebbe non funzionare correttamente.
 Assicurarsi che nessun altro processo disponga di handle aperti per le chiavi del registro di sistema nel sottoalbero del registro di sistema.
 
 ### <a name="event-1034-res_disk_missing"></a>Evento 1034: RES_DISK_MISSING
@@ -498,7 +498,7 @@ La risorsa cluster ' %1' nel ruolo del cluster ' %2' ha ricevuto una notifica di
 
 La risorsa del nome di rete cluster non è riuscita a registrare uno o più nomi DNS associati perché la zona DNS corrispondente non accetta aggiornamenti dinamici.<br><br>Nome rete cluster:' %1'<br>Zona DNS:' %2'
 
-#### <a name="guidance"></a>Materiale sussidiario
+#### <a name="guidance"></a>Indicazioni
 
 Verificare che il DNS sia configurato come zona DNS dinamica. Se il server DNS non accetta aggiornamenti dinamici deselezionare l'opzione ' registra gli indirizzi della connessione in DNS ' nelle proprietà della scheda di rete.
 
@@ -518,7 +518,7 @@ La risorsa del nome di rete cluster non è riuscita a registrare uno o più nomi
 
 La risorsa nome di rete cluster non è riuscita a modificare la registrazione DNS.<br><br>Nome rete cluster:' %1'<br>Codice errore:' %2'
 
-#### <a name="guidance"></a>Materiale sussidiario
+#### <a name="guidance"></a>Indicazioni
 
 Verificare che le schede di rete associate alle risorse degli indirizzi IP dipendenti siano configurate con accesso ad almeno un server DNS.
 
@@ -526,7 +526,7 @@ Verificare che le schede di rete associate alle risorse degli indirizzi IP dipen
 
 La risorsa nome di rete cluster non è riuscita a modificare la registrazione DNS.<br><br>Nome rete cluster:' %1'<br>Motivo:' %2'
 
-#### <a name="guidance"></a>Materiale sussidiario
+#### <a name="guidance"></a>Indicazioni
 
 Verificare che le schede di rete associate alle risorse degli indirizzi IP dipendenti siano configurate con accesso ad almeno un server DNS.
 
@@ -534,7 +534,7 @@ Verificare che le schede di rete associate alle risorse degli indirizzi IP dipen
 
 La risorsa nome di rete cluster non è riuscita a pubblicare il record PTR nella zona DNS di ricerca inversa.<br><br>Nome rete cluster:' %1'<br>Codice errore:' %2'
 
-#### <a name="guidance"></a>Materiale sussidiario
+#### <a name="guidance"></a>Indicazioni
 
 Verificare che le schede di rete associate alle risorse degli indirizzi IP dipendenti siano configurate con accesso ad almeno un server DNS e che la zona di ricerca inversa DNS esista.
 
@@ -542,7 +542,7 @@ Verificare che le schede di rete associate alle risorse degli indirizzi IP dipen
 
 La risorsa nome di rete cluster non è riuscita a pubblicare il record PTR nella zona DNS di ricerca inversa.<br><br>Nome rete cluster:' %1'<br>Motivo:' %2'
 
-#### <a name="guidance"></a>Materiale sussidiario
+#### <a name="guidance"></a>Indicazioni
 
 Verificare che le schede di rete associate alle risorse degli indirizzi IP dipendenti siano configurate con accesso ad almeno un server DNS e che la zona di ricerca inversa DNS esista.
 
@@ -600,7 +600,7 @@ Impossibile portare in linea la risorsa del nome di rete del cluster ' %1'. La r
 
 ### <a name="event-1567-service_failed_to_change_log_size"></a>Evento 1567: SERVICE_FAILED_TO_CHANGE_LOG_SIZE
 
-Servizio cluster non è stato possibile modificare le dimensioni del log di traccia. Verificare l'impostazione ClusterLogSize con il cmdlet di PowerShell "Get-cluster \| Format-List \*". Inoltre, utilizzare lo snap-in Performance Monitor per verificare le impostazioni della sessione di traccia eventi per FailoverClustering.
+Servizio cluster non è stato possibile modificare le dimensioni del log di traccia. Verificare l'impostazione ClusterLogSize con il cmdlet di PowerShell "Get \| -cluster Format \*-list". Inoltre, utilizzare lo snap-in Performance Monitor per verificare le impostazioni della sessione di traccia eventi per FailoverClustering.
 
 ### <a name="event-1567-res_vipaddr_address_interface_failed"></a>Evento 1567: RES_VIPADDR_ADDRESS_INTERFACE_FAILED
 
@@ -610,7 +610,7 @@ Verifica integrità per l'interfaccia IP ' %1' (indirizzo ' %2') non riuscita (s
 
 La risorsa di controllo cloud non è riuscita a raggiungere i servizi di archiviazione Microsoft Azure.<br><br>Risorsa cluster: %1 <br>Nodo cluster: %2 
 
-#### <a name="guidance"></a>Materiale sussidiario
+#### <a name="guidance"></a>Indicazioni
 
 La causa potrebbe essere la comunicazione di rete tra il nodo del cluster e il servizio Microsoft Azure bloccato. Verificare la connettività Internet del nodo al Microsoft Azure. Connettersi al portale di Microsoft Azure e verificare che l'account di archiviazione esista.
 
@@ -622,7 +622,7 @@ La rete ' %1' che è stata disabilitata per l'uso del cluster di failover, è st
 
 Non è stato possibile eseguire l'autenticazione della risorsa cloud Witness con Microsoft Azure servizi di archiviazione. È stato restituito un errore di accesso negato durante il tentativo di contattare il Microsoft Azure account di archiviazione. <br><br>Risorsa cluster: %1 
 
-#### <a name="guidance"></a>Materiale sussidiario
+#### <a name="guidance"></a>Indicazioni
 
 La chiave di accesso dell'account di archiviazione potrebbe non essere più valida. Usare la configurazione guidata quorum del cluster nel Gestione cluster di failover o il cmdlet di Windows PowerShell set-ClusterQuorum per configurare la risorsa di cloud Witness con la chiave di accesso dell'account di archiviazione aggiornata.
 
@@ -664,11 +664,11 @@ Impossibile avviare il file server perché non è stata trovata una dipendenza p
 
 ### <a name="event-1606-res_disk_cno_check_failed"></a>Evento 1606: RES_DISK_CNO_CHECK_FAILED
 
-La risorsa disco del cluster ' %1' contiene un volume protetto da BitLocker,' %2', ma per questo volume, l'account del nome del cluster Active Directory (detto anche oggetto nome cluster o oggetto nome cluster) non è una protezione BitLocker per il volume. Questa operazione è necessaria per i volumi protetti da BitLocker. Per risolvere il problema, rimuovere innanzitutto il disco dal cluster. Usare quindi lo strumento da riga di comando Manage-bde. exe per aggiungere il nome del cluster come protezione ADAccountOrGroup usando il formato Domain\\clustername\$ per il nome del cluster. Quindi, aggiungere di nuovo il disco al cluster. Per ulteriori informazioni, vedere la documentazione di Manage-bde. exe
+La risorsa disco del cluster ' %1' contiene un volume protetto da BitLocker,' %2', ma per questo volume, l'account del nome del cluster Active Directory (detto anche oggetto nome cluster o oggetto nome cluster) non è una protezione BitLocker per il volume. Questa operazione è necessaria per i volumi protetti da BitLocker. Per risolvere il problema, rimuovere innanzitutto il disco dal cluster. Usare quindi lo strumento da riga di comando Manage-bde. exe per aggiungere il nome del cluster come protezione ADAccountOrGroup usando il formato DomainName\\\$ per il nome del cluster. Quindi, aggiungere di nuovo il disco al cluster. Per ulteriori informazioni, vedere la documentazione di Manage-bde. exe
 
 ### <a name="event-1607-res_disk_cno_unlock_failed"></a>Evento 1607: RES_DISK_CNO_UNLOCK_FAILED
 
-La risorsa disco del cluster ' %1' non è riuscita a sbloccare il volume protetto da BitLocker ' %2'. L'oggetto nome cluster (oggetto nome cluster) non è impostato come protezione BitLocker valida per questo volume. Per risolvere il problema, rimuovere il disco dal cluster. Usare quindi lo strumento da riga di comando Manage-bde. exe per aggiungere il nome del cluster come protezione ADAccountOrGroup, usando il formato Domain\\clustername\$e aggiungere di nuovo il disco al cluster. Per ulteriori informazioni, vedere la documentazione di Manage-bde. exe.
+La risorsa disco del cluster ' %1' non è riuscita a sbloccare il volume protetto da BitLocker ' %2'. L'oggetto nome cluster (oggetto nome cluster) non è impostato come protezione BitLocker valida per questo volume. Per risolvere il problema, rimuovere il disco dal cluster. Usare quindi lo strumento da riga di comando Manage-bde. exe per aggiungere il nome del cluster come protezione ADAccountOrGroup, usando il formato domain\\clustername\$e aggiungere di nuovo il disco al cluster. Per ulteriori informazioni, vedere la documentazione di Manage-bde. exe.
 
 ### <a name="event-1608-res_fileserver_leader_failed"></a>Evento 1608: RES_FILESERVER_LEADER_FAILED
 
@@ -727,7 +727,7 @@ Svuotamento del nodo non riuscito nel nodo cluster %1. <br><br>Fare riferimento 
 
 Il servizio cluster non è riuscito a raggiungere alcun controller di dominio disponibile nel dominio. Questo può influito sulle funzionalità che dipendono dall'autenticazione del nome di rete del cluster.<br><br>Server DC: %1 
 
-#### <a name="guidance"></a>Materiale sussidiario
+#### <a name="guidance"></a>Indicazioni
 
 Verificare che i controller di dominio siano accessibili sulla rete ai nodi del cluster.
 
@@ -735,14 +735,14 @@ Verificare che i controller di dominio siano accessibili sulla rete ai nodi del 
 
 La risorsa nome di rete cluster non è riuscita a trovare l'oggetto computer associato in Active Directory. Questo può influito sulle funzionalità che dipendono dall'autenticazione del nome di rete del cluster.<br><br>Nome rete: %1<br>Unità organizzativa: %2
 
-#### <a name="guidance"></a>Materiale sussidiario
+#### <a name="guidance"></a>Indicazioni
 
 Ripristinare l'oggetto computer per il nome di rete dal cestino del Active Directory. In alternativa, offline la risorsa nome di rete del cluster ed eseguire l'azione di ripristino per ricreare l'oggetto computer in Active Directory.
 
 ### <a name="event-1685-res_netname_computer_object_cno_not_found"></a>Evento 1685: RES_NETNAME_COMPUTER_OBJECT_CNO_NOT_FOUND
 
 La risorsa nome di rete cluster non è riuscita a trovare l'oggetto computer associato in Active Directory. Questo può influito sulle funzionalità che dipendono dall'autenticazione del nome di rete del cluster.<br><br>Nome rete: %1<br>Unità organizzativa: %2
-#### <a name="guidance"></a>Materiale sussidiario
+#### <a name="guidance"></a>Indicazioni
 
 Ripristinare l'oggetto computer per il nome di rete dal cestino del Active Directory.
 
@@ -750,7 +750,7 @@ Ripristinare l'oggetto computer per il nome di rete dal cestino del Active Direc
 
 Risorsa nome di rete cluster: è stato trovato l'oggetto computer associato in Active Directory da disabilitare. Questo può influito sulle funzionalità che dipendono dall'autenticazione del nome di rete del cluster.<br><br>Nome rete: %1<br>Unità organizzativa: %2
 
-#### <a name="guidance"></a>Materiale sussidiario
+#### <a name="guidance"></a>Indicazioni
 
 Abilitare l'oggetto computer per il nome di rete in Active Directory.
 
@@ -758,7 +758,7 @@ Abilitare l'oggetto computer per il nome di rete in Active Directory.
 
 Risorsa nome di rete cluster: è stato trovato l'oggetto computer associato in Active Directory da disabilitare. Questo può influito sulle funzionalità che dipendono dall'autenticazione del nome di rete del cluster.<br><br>Nome rete: %1<br>Unità organizzativa: %2
 
-#### <a name="guidance"></a>Materiale sussidiario
+#### <a name="guidance"></a>Indicazioni
 
 Abilitare l'oggetto computer per il nome di rete in Active Directory. In alternativa, offline la risorsa nome di rete del cluster ed eseguire l'azione di ripristino per abilitare l'oggetto computer in Active Directory.
 
@@ -766,7 +766,7 @@ Abilitare l'oggetto computer per il nome di rete in Active Directory. In alterna
 
 La risorsa nome di rete cluster ha rilevato che l'oggetto computer associato in Active Directory è stato disabilitato e non è riuscito nel tentativo di abilitarlo. Questo può influito sulle funzionalità che dipendono dall'autenticazione del nome di rete del cluster.<br><br>Nome rete: %1<br>Unità organizzativa: %2
 
-#### <a name="guidance"></a>Materiale sussidiario
+#### <a name="guidance"></a>Indicazioni
 
 Abilitare l'oggetto computer per il nome di rete in Active Directory.
 
@@ -780,7 +780,7 @@ Il disco del cluster con ID ' %2' non è stato rilasciato da Gestione partizioni
 
 ### <a name="event-4613-nodecleanup_clear_clusdisk_database_failed"></a>Evento 4613: NODECLEANUP_CLEAR_CLUSDISK_DATABASE_FAILED
 
-Il servizio cluster non è riuscito a pulire correttamente un disco del cluster con ID ' %2' durante l'eliminazione del cluster. Codice di errore:' %1'. Potrebbe non essere possibile accedere a questo disco fino a quando la pulizia non è stata completata correttamente. Per la pulizia manuale, eliminare il valore "AttachedDisks" della chiave "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\ClusDisk\\Parameters" nel registro di sistema di Windows.
+Il servizio cluster non è riuscito a pulire correttamente un disco del cluster con ID ' %2' durante l'eliminazione del cluster. Codice di errore:' %1'. Potrebbe non essere possibile accedere a questo disco fino a quando la pulizia non è stata completata correttamente. Per la pulizia manuale, eliminare il valore ' AttachedDisks ' della chiave '\\HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\Clusdisk parameters ' nel registro di sistema di Windows.
 
 ### <a name="event-4615-nodecleanup_disable_cluster_service_failed"></a>Evento 4615: NODECLEANUP_DISABLE_CLUSTER_SERVICE_FAILED
 
@@ -927,7 +927,7 @@ La risorsa cluster ' %1' non è in grado di creare o modificare l'account utente
 
 Non è stato possibile avviare il cluster. La copia più recente dei dati di configurazione del cluster non è disponibile nel set di nodi che tentano di avviare il cluster. Le modifiche apportate al cluster si sono verificate quando il set di nodi non è membro e di conseguenza non è stato possibile ricevere gli aggiornamenti dei dati di configurazione. .<br><br>Voti necessari per avviare il cluster: %1<br>Voti disponibili: %2<br>Nodi con voti: %3
 
-#### <a name="guidance"></a>Materiale sussidiario
+#### <a name="guidance"></a>Indicazioni
 
 Provare ad avviare il servizio cluster in tutti i nodi del cluster in modo che i nodi con la copia più recente dei dati di configurazione del cluster possano prima formare il cluster. Il cluster sarà in grado di avviarsi e i nodi otterranno automaticamente i dati di configurazione del cluster aggiornati. Se non sono disponibili nodi con la copia più recente dei dati di configurazione del cluster, eseguire il cmdlet di Windows PowerShell ' Start-ClusterNode-FQ '. Se si usa il parametro ForceQuorum (FQ), il servizio cluster verrà avviato e la copia del nodo dei dati di configurazione del cluster verrà contrassegnata come autorevole. La forzatura del quorum in un nodo con una copia obsoleta del database cluster può comportare modifiche della configurazione del cluster che si sono verificate durante la mancata partecipazione del nodo al cluster.
 
@@ -1114,7 +1114,7 @@ Per ulteriori informazioni da ChkDsk, consultare il registro eventi dell'applica
 
 Impossibile portare in linea la risorsa disco fisico del cluster.<br><br>Nome risorsa disco fisico: %1<br>Codice errore: %2<br>Tempo trascorso (secondi): %3
 
-#### <a name="guidance"></a>Materiale sussidiario
+#### <a name="guidance"></a>Indicazioni
 
 Eseguire la convalida guidata configurazione per verificare la configurazione dell'archiviazione. Se il codice di errore è stato ERROR_CLUSTER_SHUTDOWN, lo stato online in sospeso è stato annullato da un amministratore. Se si tratta di un volume replicato, questo potrebbe essere il risultato di un errore di impostazione degli attributi del disco. Per ulteriori informazioni, esaminare gli eventi di replica di archiviazione.
 

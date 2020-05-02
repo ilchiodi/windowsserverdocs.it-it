@@ -1,6 +1,6 @@
 ---
 title: Get-AllServers
-description: Windows Commands argomento per Get-AllServers, che recupera informazioni su tutti i server di servizi di distribuzione Windows.
+description: Argomento di riferimento per Get-AllServers, che consente di recuperare informazioni su tutti i server di servizi di distribuzione Windows.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b400d5a2be69e8e89a05b233cc2e8f29bec848f6
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b623b5e95e2a57147b7d9d191d42556191dd8e4d
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80831214"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719977"
 ---
 # <a name="get-allservers"></a>Get-AllServers
 
@@ -37,7 +37,7 @@ WDSUTIL [Options] /Get-AllServers /Show:{Config | Images | All} [/Detailed] [/Fo
 |  [/ Dettagliate]  | Quando utilizzato in combinazione con il **/Show:Images** o **/Show:All**, restituisce tutti i metadati di ogni immagine di immagine. Se il **/dettagliate** opzione non è specificata, il comportamento predefinito è per restituire il nome dell'immagine, descrizione e nome file. |
 | [/Forest: {Sì |                                                                                                                     No}]                                                                                                                     |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per visualizzare informazioni su tutti i server, digitare:
 ```
@@ -48,6 +48,6 @@ Per visualizzare informazioni dettagliate su tutti i server, digitare:
 WDSUTIL /Verbose /Get-AllServers /Show:All /Detailed /Forest:Yes
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

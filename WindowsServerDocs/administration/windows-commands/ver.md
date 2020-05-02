@@ -1,6 +1,6 @@
 ---
 title: ver
-description: Windows Commands Topic for ver, che Visualizza il numero di versione del sistema operativo.
+description: Argomento di riferimento per ver, che Visualizza il numero di versione del sistema operativo.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d0d0676dcfa6546e4bbf74c4c58a24f51744d00f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 7050dddda6cc27c50980f2e44f40e1f682c1d375
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80830194"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720307"
 ---
 # <a name="ver"></a>ver
 
@@ -24,7 +24,7 @@ Visualizza il numero di versione del sistema operativo.
 
 Questo comando è supportato nel prompt dei comandi di Windows (cmd. exe), ma non in PowerShell.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -38,7 +38,7 @@ ver
 |---------|-----------|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per ottenere il numero di versione del sistema operativo dalla shell dei comandi (cmd. exe), digitare:
 
@@ -53,6 +53,6 @@ $PSVersionTable.BuildVersion
 ````
 
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

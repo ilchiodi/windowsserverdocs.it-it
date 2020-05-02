@@ -7,14 +7,15 @@ ms.technology: storage-health-service
 ms.topic: article
 author: cosmosdarwin
 ms.date: 10/05/2017
-ms.openlocfilehash: 3b47e1abf3805b7e6e3dc180d5d937ddb2723fa4
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0a03dc5d646d24c9f24f979df36fb3fe1eafe631
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80827544"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720548"
 ---
 # <a name="health-service-reports"></a>Report Servizio integrità
+
 > Si applica a: Windows Server 2019, Windows Server 2016
 
 ## <a name="what-are-reports"></a>Che cosa sono i report  
@@ -43,14 +44,13 @@ Get-Volume -FileSystemLabel <Label> | Get-StorageHealthReport -Count <Count>
 Get-StorageNode -Name <Name> | Get-StorageHealthReport -Count <Count>
 ```
 
-## <a name="usage-in-net-and-c"></a>Utilizzo in .NET eC#
+## <a name="usage-in-net-and-c"></a>Utilizzo in .NET e C #
 
-### <a name="connect"></a>Connetti
+### <a name="connect"></a>Connessione
 
-Per eseguire una query sulla Servizio integrità, è necessario stabilire una **CimSession** con il cluster. A tale scopo, sono necessari alcuni elementi disponibili solo in .NET completo, ovvero non è possibile eseguire facilmente questa operazione direttamente da un'app Web o per dispositivi mobili. Questi esempi di codice useranno C\#, la scelta più semplice per questo livello di accesso ai dati.
+Per eseguire una query sulla Servizio integrità, è necessario stabilire una **CimSession** con il cluster. A tale scopo, sono necessari alcuni elementi disponibili solo in .NET completo, ovvero non è possibile eseguire facilmente questa operazione direttamente da un'app Web o per dispositivi mobili. Questi esempi di codice utilizzeranno\#C, la scelta più semplice per questo livello di accesso ai dati.
 
-``` 
-...
+```
 using System.Security;
 using Microsoft.Management.Infrastructure;
 
@@ -79,7 +79,7 @@ Il nome utente specificato deve essere un amministratore locale del computer di 
 
 Con la **CimSession** stabilita, è possibile eseguire una query Strumentazione gestione Windows (WMI) nel cluster.
 
-Prima di poter ottenere errori o metriche, è necessario ottenere istanze di diversi oggetti rilevanti. In primo luogo, **MSFT\_StorageSubSystem** che rappresenta spazi di archiviazione diretta nel cluster. Utilizzando questa, è possibile ottenere ogni **msft\_StorageNode** nel cluster e ogni **volume MSFT\_** , ovvero i volumi di dati. Infine, sarà necessario anche **MSFT\_StorageHealth**, il servizio integrità stesso.
+Prima di poter ottenere errori o metriche, è necessario ottenere istanze di diversi oggetti rilevanti. In primo luogo **,\_MSFT StorageSubSystem** che rappresenta spazi di archiviazione diretta nel cluster. Usando questo, è possibile ottenere ogni **StorageNode\_MSFT** nel cluster e ogni **volume MSFT\_**, ovvero i volumi di dati. Infine, sarà necessario anche il **StorageHealth\_MSFT**, il servizio integrità stesso.
 
 ```
 CimInstance Cluster;
@@ -112,7 +112,6 @@ Si tratta degli stessi oggetti che si ottengono in PowerShell usando cmdlet come
 È possibile accedere a tutte le stesse proprietà, documentate in [classi API di gestione dell'archiviazione](https://msdn.microsoft.com/library/windows/desktop/hh830612(v=vs.85).aspx).
 
 ```
-...
 using System.Diagnostics;
 
 foreach (CimInstance Node in Nodes)
@@ -208,19 +207,19 @@ Inutile dirlo, queste metriche possono essere visualizzate, archiviate in un dat
 
 Ogni esempio di metrica è un "report" che contiene molti "record" corrispondenti a singole metriche.
 
-Per lo schema completo, esaminare le classi **msft\_StorageHealthReport** e **MSFT\_HealthRecord** in *StorageWMI. mof*.
+Per lo schema completo, esaminare le **classi\_MSFT StorageHealthReport** e **MSFT\_HealthRecord** in *StorageWMI. mof*.
 
 Ogni metrica dispone solo di tre proprietà, in base a questa tabella.
 
 | **Proprietà** | **Esempio**       |
 | -------------|-------------------|
-| Name         | IOLatencyAverage  |
-| Valore        | 0,00021           |
+| Nome         | IOLatencyAverage  |
+| valore        | 0,00021           |
 | Unità        | 3                 |
 
 Unità = {0, 1, 2, 3, 4}, dove 0 = "byte", 1 = "BytesPerSecond", 2 = "CountPerSecond", 3 = "secondi" o 4 = "percentuale".
 
-## <a name="coverage"></a>Coverage
+## <a name="coverage"></a>Copertura
 
 Di seguito sono riportate le metriche disponibili per ogni ambito di Windows Server 2016.
 

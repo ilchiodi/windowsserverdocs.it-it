@@ -1,5 +1,5 @@
 ---
-title: Affinità cluster
+title: Affinità del cluster
 ms.prod: windows-server
 manager: eldenc
 ms.technology: failover-clustering
@@ -8,22 +8,22 @@ author: johnmarlin-msft
 ms.author: johnmar
 ms.date: 03/07/2019
 description: Questo articolo descrive i livelli di affinità e affinità del cluster di failover
-ms.openlocfilehash: c9910cac602802b753391fad1009fb7f1fa3d2f2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b0c2209680f3c34ac8376d5662620595aff92c0b
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80828284"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720609"
 ---
-# <a name="cluster-affinity"></a>Affinità cluster
+# <a name="cluster-affinity"></a>Affinità del cluster
 
 > Si applica a: Windows Server 2019, Windows Server 2016
 
-Un cluster di failover può ospitare numerosi ruoli che possono spostarsi tra i nodi ed eseguire.  In alcuni casi alcuni ruoli, ad esempio macchine virtuali, gruppi di risorse e così via, non devono essere eseguiti nello stesso nodo.  Questo problema può essere dovuto all'utilizzo delle risorse, all'utilizzo della memoria e così via.  Esistono, ad esempio, due macchine virtuali con utilizzo intensivo di memoria e CPU e se le due macchine virtuali sono in esecuzione nello stesso nodo, una o entrambe le macchine virtuali potrebbero avere problemi di conseguenze sulle prestazioni.  In questo articolo vengono illustrati i livelli di antiaffinità del cluster e il modo in cui è possibile usarli.
+Un cluster di failover può ospitare numerosi ruoli che possono spostarsi tra i nodi ed eseguire. In alcuni casi alcuni ruoli, ad esempio macchine virtuali, gruppi di risorse e così via, non devono essere eseguiti nello stesso nodo.  Questo problema può essere dovuto all'utilizzo delle risorse, all'utilizzo della memoria e così via.  Esistono, ad esempio, due macchine virtuali con utilizzo intensivo di memoria e CPU e se le due macchine virtuali sono in esecuzione nello stesso nodo, una o entrambe le macchine virtuali potrebbero avere problemi di conseguenze sulle prestazioni.  In questo articolo vengono illustrati i livelli di antiaffinità del cluster e il modo in cui è possibile usarli.
 
 ## <a name="what-is-affinity-and-antiaffinity"></a>Che cos'è l'affinità e l'affinità?
 
-L'affinità è una regola da configurare che stabilisce una relazione tra due o più ruoli (i, e, macchine virtuali, gruppi di risorse e così via) per mantenerli insieme.  L'affinità è la stessa, ma viene usata per provare a evitare che i ruoli specificati siano separati tra loro.  I cluster di failover usano l'affinità per i ruoli.  In particolare, il parametro [AntiAffinityClassNames](https://docs.microsoft.com/previous-versions/windows/desktop/mscs/groups-antiaffinityclassnames) definito nei ruoli in modo che non vengano eseguiti nello stesso nodo.  
+L'affinità è una regola da configurare che stabilisce una relazione tra due o più ruoli (i, e, macchine virtuali, gruppi di risorse e così via) per mantenerli insieme.  L'affinità è la stessa, ma viene usata per provare a evitare che i ruoli specificati siano separati tra loro. I cluster di failover usano l'affinità per i ruoli.  In particolare, il parametro [AntiAffinityClassNames](https://docs.microsoft.com/previous-versions/windows/desktop/mscs/groups-antiaffinityclassnames) definito nei ruoli in modo che non vengano eseguiti nello stesso nodo.  
 
 ## <a name="antiaffinityclassnames"></a>AntiAffinityClassnames
 
@@ -88,6 +88,3 @@ In un elenco di PowerShell dei gruppi si noterà quanto segue:
 
 - L'uso dei proprietari preferiti nei gruppi può essere combinato con l'affinità in un cluster di tre o più nodi.
 - Le impostazioni AntiAffinityClassNames e ClusterEnforcedAntiAffinity verranno applicate solo dopo un riciclo delle risorse. I.E. è possibile impostarle, ma se entrambi i gruppi sono online nello stesso nodo quando sono impostati, continueranno a rimanere online.
-
-
-

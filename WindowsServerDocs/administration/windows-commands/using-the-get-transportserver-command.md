@@ -1,6 +1,6 @@
 ---
 title: Get-TransportServer
-description: Windows Commands argomento per Get-TransportServer, che visualizza le informazioni su un server di trasporto specificato.
+description: Argomento di riferimento per Get-TransportServer, che visualizza le informazioni su un server di trasporto specificato.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 549eb32536bda201a81e5f40ef408359fae39f4b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 82ab5f901240f964bd22e7fb8053ed95b1c6fe51
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80830814"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719729"
 ---
 # <a name="get-transportserver"></a>Get-TransportServer
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Visualizza informazioni su un Server di trasporto specificato.
 
@@ -31,7 +31,7 @@ wdsutil [Options] /Get-TransportServer [/Server:<Server name>] /Show:{Config}
 |-------|--------|
 |[/Server:<Server name>]|Specifica il nome del server. Può essere il nome NetBIOS oppure il nome di dominio completo. Se viene specificato alcun nome di server, verrà utilizzato il server locale.|
 |/Show: {config}|Restituisce le informazioni di configurazione relative al server di trasporto specificato.|
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 Per visualizzare le informazioni sul server, digitare:
 ```
 wdsutil /Get-TransportServer /Show:Config
@@ -40,10 +40,10 @@ Per visualizzare le informazioni di configurazione, digitare:
 ```
 wdsutil /Get-TransportServer /Server:MyWDSServer /Show:Config
 ```
-## <a name="additional-references"></a>Altre informazioni di riferimento
-- [Chiave della sintassi della riga di comando](command-line-syntax-key.md)
-[uso del comando disable-TransportServer](using-the-disable-transportserver-command.md)
-[uso del comando Enable-TransportServer](using-the-enable-transportserver-command.md)
-sottocomando [: Set-TransportServer](subcommand-set-transportserver.md)
+## <a name="additional-references"></a>Riferimenti aggiuntivi
+- [Sintassi della riga di comando chiave](command-line-syntax-key.md)
+
+[utilizzando il comando Disable-TransportServer](using-the-disable-transportserver-command.md)
+[utilizzando il comando Enable-TransportServer](using-the-enable-transportserver-command.md)sottocomando[: Set-TransportServer](subcommand-set-transportserver.md)
 [sottocomando: Start-TransportServer](subcommand-start-transportserver.md)
 [sottocomando: Stop-TransportServer](subcommand-stop-transportserver.md)

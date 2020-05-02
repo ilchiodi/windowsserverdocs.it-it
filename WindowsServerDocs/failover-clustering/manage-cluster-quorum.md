@@ -9,16 +9,16 @@ manager: lizross
 ms.technology: storage-failover-clustering
 ms.date: 06/07/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 16f141eceb4831f588e33aca5284425f69e9e417
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 67ef309bc2a09c5e241d52c747ab800cfde86168
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80827514"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720528"
 ---
 # <a name="configure-and-manage-quorum"></a>Configurare e gestire il quorum
 
->Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In questo argomento vengono fornite informazioni generali e procedure per la configurazione e la gestione del quorum in un cluster di failover di Windows Server.
 
@@ -40,7 +40,7 @@ La tabella seguente elenca le tre opzioni di configurazione quorum disponibili n
 
 In base all'opzione di configurazione quorum selezionata e dalle impostazioni specifiche, il cluster sarà configurato in una delle modalità quorum seguenti:
 
-| Modalità  | Descrizione  |
+| Mode  | Descrizione  |
 | --------- | ---------|
 | Maggioranza dei nodi (senza controllo)     |   Solo i nodi dispongono di voti. Non è configurato alcun quorum di controllo. Il quorum del cluster corrisponde alla maggioranza dei nodi votanti tra i membri del cluster attivo.      |
 | Maggioranza dei nodi con controllo (disco o condivisione file)     |   I nodi dispongono di voti. Il quorum di controllo, inoltre, dispone di un voto. Il quorum del cluster corrisponde alla maggioranza dei nodi votanti tra i membri del cluster attivo più un voto del disco di controllo. Un quorum di controllo può essere un disco di controllo designato o una condivisione file di controllo designata. 
@@ -60,7 +60,7 @@ La tabella seguente include informazioni e considerazioni aggiuntive sui tipi di
 | ---------    |---------        |---------                        |
 | Disco di controllo     |  <ul><li> LUN dedicato per l'archiviazione di una copia del database del cluster</li><li> Particolarmente utile per i cluster con archiviazione condivisa (non replicata)</li>       |  <ul><li>Le dimensioni di LUN devo essere pari almeno a 512 MB</li><li> Deve essere dedicato all'uso da parte del cluster e non assegnato ad alcun ruolo del cluster</li><li> Deve essere incluso nell'archiviazione cluster e deve superare i test di convalida dell'archiviazione</li><li> Non può essere un disco di tipo CSV (Cluster Shared Volume)</li><li> Disco di base con un singolo volume</li><li> Non necessita di lettera di unità</li><li> Formattabile con NTFS o ReFS</li><li> Può essere configurato con RAID hardware per tolleranza di errore</li><li> Deve essere escluso da backup e scansione antivirus</li><li> Il disco di controllo non è supportato con Spazi di archiviazione diretta</li>|
 | Condivisione file di controllo     | <ul><li>Condivisione file SMB configurata in un file server che esegue Windows Server</li><li> Non archivia alcuna copia del database cluster</li><li> Mantiene le informazioni del cluster solo in un file witness.log</li><li> Particolarmente utile per cluster multisito con archiviazione replicata </li>       |  <ul><li>Deve avere almeno 5 MB di spazio disponibile</li><li> Deve essere dedicata al singolo cluster e non usata per l'archiviazione di dati utente o applicazione</li><li> Deve disporre di autorizzazioni di scrittura abilitate per l'oggetto computer per il nome del cluster</li></ul><br>Di seguito sono riportate alcune considerazioni aggiuntive per un file server che ospita la condivisione file di controllo:<ul><li>Un singolo file server può essere configurato con condivisioni file di controllo per più cluster.</li><li> Il file server deve trovarsi in un sito separato dal carico di lavoro del cluster. Ciò offre a qualsiasi sito di cluster uguali opportunità di sopravvivere in caso di perdita di comunicazioni di rete da sito a sito. Se il file server si trova nello stesso sito, tale sito diventa il sito primario e sarà l'unico sito in grado di raggiungere la condivisione file.</li><li> Il file server può essere eseguito in una macchina virtuale se la VM non è ospitata nello stesso cluster che usa la condivisione file di controllo.</li><li> Per assicurare una disponibilità elevata, è possibile configurare il file in un cluster di failover separato. </li>      |
-| Server di controllo cloud     |  <ul><li>Un file witness archiviato nell'archivio BLOB di Azure</li><li> Consigliato quando tutti i server del cluster hanno una connessione Internet affidabile.</li>      |  Vedere [distribuire un cloud di](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)controllo.       |
+| Cloud di controllo     |  <ul><li>Un file witness archiviato nell'archivio BLOB di Azure</li><li> Consigliato quando tutti i server del cluster hanno una connessione Internet affidabile.</li>      |  Vedere [distribuire un cloud di](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)controllo.       |
 
 ### <a name="node-vote-assignment"></a>Assegnazione di voti al nodo
 
@@ -126,7 +126,7 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **A
 ### <a name="change-the-quorum-configuration-in-a-failover-cluster-by-using-failover-cluster-manager"></a>Modificare la configurazione quorum in un cluster di failover utilizzando Gestione cluster di failover
 
 1. In Gestione cluster di failover selezionare o specificare il cluster da modificare.
-2. Con il cluster selezionato, in **azioni**selezionare **altre azioni**, quindi selezionare **Configura impostazioni quorum del cluster**. Sarà visualizzata la Configurazione guidata quorum del cluster. Fare clic su **Avanti**.
+2. Con il cluster selezionato, in **azioni**selezionare **altre azioni**, quindi selezionare **Configura impostazioni quorum del cluster**. Sarà visualizzata la Configurazione guidata quorum del cluster. Selezionare **Avanti**.
 3. Nella pagina **Selezione opzione configurazione quorum** selezionare una delle tre opzioni di configurazione e completare i passaggi relativi all'opzione selezionata. Prima di configurare le impostazioni del quorum, è possibile verificare le opzioni disponibili. Per ulteriori informazioni sulle opzioni, vedere [informazioni sul quorum](#understanding-quorum), più indietro in questo argomento.
 
     - Per consentire al cluster di reimpostare automaticamente le impostazioni del quorum ottimali per la configurazione corrente del cluster, selezionare **Usa impostazioni tipiche** e quindi completare la procedura guidata.
@@ -156,9 +156,9 @@ Per eseguire questa procedura, è necessaria almeno l'appartenenza al gruppo **A
       4. Se si seleziona l'opzione per la configurazione di un disco di controllo, nella pagina **Configurazione risorsa di archiviazione di controllo** selezionare il volume di archiviazione da assegnare come disco di controllo e quindi completare la procedura guidata.
       5. Se si seleziona l'opzione per la configurazione di una condivisione file di controllo, nella pagina **Configurazione condivisione file di controllo** digitare o selezionare una condivisione file che sarà usata come risorsa di controllo, quindi completare la procedura guidata.
 
-4. Fare clic su **Avanti**. Confermare le selezioni nella pagina di conferma visualizzata, quindi fare clic su **Avanti**.
+4. Selezionare **Avanti**. Confermare le selezioni nella pagina di conferma visualizzata, quindi fare clic su **Avanti**.
 
-Quando viene eseguita la procedura guidata e viene visualizzata la pagina **Riepilogo** , se si desidera visualizzare un report delle attività eseguite dalla procedura guidata, selezionare **Visualizza report**. Il report più recente rimarrà nella cartella <em>systemroot</em> **\\cluster\\Reports** con il nome **QuorumConfiguration. mht**.
+Quando viene eseguita la procedura guidata e viene visualizzata la pagina **Riepilogo** , se si desidera visualizzare un report delle attività eseguite dalla procedura guidata, selezionare **Visualizza report**. Il report più recente rimarrà nella cartella <em>systemroot</em>**\\cluster\\Reports** con il nome **QuorumConfiguration. mht**.
 
 > [!NOTE]
 > Dopo la configurazione del quorum del cluster, è consigliabile eseguire il test **Convalida configurazione quorum** per verificare le impostazioni aggiornate del quorum.
@@ -179,7 +179,7 @@ L'esempio seguente modifica la configurazione quorum nel cluster locale in una c
 Set-ClusterQuorum -NodeAndDiskMajority "Cluster Disk 2"
 ```
 
-L'esempio seguente modifica la configurazione quorum nel cluster locale in una configurazione a maggioranza di nodi con configurazione di controllo. La risorsa di condivisione file denominata *\\\\contoso-FS\\FSW* è configurata come condivisione file di controllo.
+L'esempio seguente modifica la configurazione quorum nel cluster locale in una configurazione a maggioranza di nodi con configurazione di controllo. La risorsa di condivisione file denominata * \\ \\Contoso-\\FS FSW* è configurata come condivisione file di controllo.
 
 ```PowerShell
 Set-ClusterQuorum -NodeAndFileShareMajority "\\fileserver\fsw"
@@ -281,7 +281,7 @@ In questa configurazione il cluster è costituito da due o più siti che possono
 
 La tabella seguente include un riepilogo di considerazioni e suggerimenti per questa configurazione.
 
-| Elemento  | Descrizione  |
+| Item  | Descrizione  |
 | ---------| ---------|
 | Numero di voti di nodo per sito     | Deve essere uguale       |
 | Assegnazione di voti al nodo     |  Non rimuovere voti di nodo perché tutti i nodi sono ugualmente importanti       |
@@ -299,7 +299,7 @@ In questa configurazione il cluster è costituito da un sito primario, *SiteA*, 
 
 La tabella seguente include un riepilogo di considerazioni e suggerimenti per questa configurazione.
 
-| Elemento   |Descrizione  |
+| Item   |Descrizione  |
 | ---------| ---------|
 | Numero di voti di nodo per sito     |  <ul><li> I voti di nodo non devono essere rimossi dai nodi nel sito primario, **SiteA**</li><li>I voti di nodo devono essere rimossi dai nodi nel sito di backup, **SiteB**</li><li>In caso di interruzione a lungo termine in **SiteA**, i voti devono essere assegnati ai nodi in **SiteB** per abilitare una maggioranza del quorum in tale sito come parte del ripristino.</li>       |
 | Gestione dinamica del quorum     |  Deve essere abilitata       |
@@ -311,7 +311,7 @@ La tabella seguente include un riepilogo di considerazioni e suggerimenti per qu
 - Solo i nodi in *SiteA* sono configurati inizialmente con voti di quorum. Ciò è necessario per assicurare che lo stato dei nodi in *SiteB* non influisca sul quorum del cluster.
 - La procedura di ripristino dipende dalla capacità di *SiteA* di sostenere un errore temporaneo o un errore a lungo termine.
 
-## <a name="more-information"></a>Altre informazioni
+## <a name="more-information"></a>Ulteriori informazioni
 
 * [Clustering di failover](failover-clustering.md)
 * [Cmdlet di Windows PowerShell per i cluster di failover](https://docs.microsoft.com/powershell/module/failoverclusters/?view=win10-ps)

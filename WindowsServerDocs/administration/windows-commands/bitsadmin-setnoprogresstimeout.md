@@ -1,6 +1,6 @@
 ---
 title: bitsadmin setnoprogresstimeout
-description: Windows Commands Topic for **BITSAdmin setnoprogresstimeout**, che consente di impostare il periodo di tempo, in secondi, durante il quale il servizio tenta di trasferire il file dopo che si è verificato un errore temporaneo.
+description: Argomento di riferimento per il comando Bitsadmin setnoprogresstimeout, che consente di impostare il periodo di tempo, in secondi, durante il quale il servizio tenta di trasferire il file dopo che si è verificato un errore temporaneo.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8adff95b0dbae68634db2e248d4493549c5ac85d
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: 398882cf795e98dc0bbc0fb81006d3406fded707
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81122876"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720112"
 ---
 # <a name="bitsadmin-setnoprogresstimeout"></a>bitsadmin setnoprogresstimeout
 
@@ -30,10 +30,10 @@ bitsadmin /setnoprogresstimeout <job> <timeoutvalue>
 
 | Parametro | Descrizione |
 | --------- | ----------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 | TimeOutValue | Tempo di attesa di BITS per il trasferimento di un file dopo il primo errore, in secondi. |
 
-## <a name="remarks"></a>Note
+### <a name="remarks"></a>Osservazioni
 
 - L'intervallo di timeout "nessun avanzamento" inizia quando il processo rileva il primo errore temporaneo.
 
@@ -43,12 +43,14 @@ bitsadmin /setnoprogresstimeout <job> <timeoutvalue>
 
 ## <a name="examples"></a>Esempi
 
-Nell'esempio seguente il valore di timeout "No Progress" viene impostato su 20 secondi per il processo denominato *myDownloadJob*.
+Per impostare il valore di timeout "No Progress" su 20 secondi, per il processo denominato *myDownloadJob*:
 
 ```
-C:\>bitsadmin /setnoprogresstimeout myDownloadJob 20
+bitsadmin /setnoprogresstimeout myDownloadJob 20
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

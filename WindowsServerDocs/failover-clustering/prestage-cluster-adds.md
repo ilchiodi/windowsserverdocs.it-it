@@ -9,16 +9,16 @@ manager: lizross
 ms.technology: storage-failover-clustering
 ms.date: 05/09/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: b14561a05778ed30e71363a2cd3b3b6fdf24f78e
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: eb9077f40c33d615c0bbe18f1c02b29ce27165a2
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80827474"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720516"
 ---
 # <a name="prestage-cluster-computer-objects-in-active-directory-domain-services"></a>Pre-installare oggetti computer del cluster in Active Directory Domain Services
 
->Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 In questo argomento viene illustrato come pre-installare oggetti computer del cluster in Servizi di dominio Active Directory. Eseguendo questa procedura, è possibile consentire a un utente o a un gruppo di creare un cluster di failover quando non dispone delle autorizzazioni necessarie per creare oggetti computer in Servizi di dominio Active Directory.
 
@@ -71,14 +71,14 @@ Ecco come concedere all'utente le autorizzazioni per creare il cluster:
 
 1. In Utenti e computer di Active Directory verificare che nel menu **Visualizza** sia selezionata la voce **Funzionalità avanzate**.
 2. Individuare e quindi fare clic con il pulsante destro del mouse su oggetto nome cluster e quindi scegliere **Proprietà**.
-3. Nella scheda **sicurezza** selezionare **Aggiungi**.
+3. Selezionare **Aggiungi** nella scheda **Sicurezza**.
 4. Nella finestra di dialogo **Seleziona utenti, computer o gruppi** specificare l'account utente o il gruppo a cui si desidera concedere le autorizzazioni e quindi fare clic su **OK**.
 5. Selezionare l'account utente o il gruppo appena aggiunto e quindi accanto a **Controllo completo** selezionare la casella di controllo **Consenti**.
   
    ![Concessione del controllo completo all'utente o al gruppo che creerà il cluster](media/prestage-cluster-adds/granting-full-control-to-the-user-create-the-cluster.png)
   
    **Figura 2. Concessione del controllo completo all'utente o al gruppo che creerà il cluster**
-6. Scegliere **OK**.
+6. Selezionare **OK**.
 
 Dopo l'esecuzione di questo passaggio, l'utente a cui sono state concesse le autorizzazioni potrà creare il cluster di failover. Se però l'oggetto nome cluster si trova in un'unità organizzativa, l'utente potrà creare ruoli del cluster che richiedono un punto di accesso client solo dopo che è stato eseguito il passaggio 3.
 
@@ -128,15 +128,15 @@ Un amministratore nel cluster di failover potrà ora creare ruoli del cluster co
 4. Nella casella **nome computer** immettere il nome che verrà utilizzato per il ruolo del cluster e quindi fare clic su **OK**.
 5. Come procedura consigliata, fare clic con il pulsante destro del mouse sull'account computer appena creato, scegliere **Proprietà**e quindi selezionare la scheda **oggetto** . Nella scheda **oggetto** selezionare la casella **di controllo Proteggi oggetto da eliminazioni accidentali** e quindi fare clic su **OK**.
 6. Fare clic con il pulsante destro del mouse sull'account computer appena creato e quindi scegliere **Proprietà**.
-7. Nella scheda **sicurezza** selezionare **Aggiungi**.
+7. Selezionare **Aggiungi** nella scheda **Sicurezza**.
 8. Nella finestra di dialogo **Seleziona utente, computer, account servizio o gruppi** selezionare tipi di **oggetto**, selezionare la casella di controllo **computer** e quindi fare clic su **OK**.
 9. In **immettere i nomi degli oggetti da selezionare**immettere il nome del oggetto nome cluster, selezionare **Controlla nomi**e quindi fare clic su **OK**. Se viene visualizzato un messaggio di avviso indicante che sta per essere aggiunto un oggetto disabilitato, fare clic su **OK**.
 10. Verificare che l'oggetto nome cluster sia selezionato e quindi accanto a **Controllo completo** selezionare la casella di controllo **Consenti**.
-11. Scegliere **OK**.
+11. Selezionare **OK**.
 
 Un amministratore nel cluster di failover potrà ora creare il ruolo del cluster con un punto di accesso client corrispondente al nome dell'oggetto computer virtuale pre-installato e connettere la risorsa.
 
-## <a name="more-information"></a>Altre informazioni
+## <a name="more-information"></a>Ulteriori informazioni
 
 - [Clustering di failover](failover-clustering.md)
 - [Configurazione di account di cluster in Active Directory](configure-ad-accounts.md)

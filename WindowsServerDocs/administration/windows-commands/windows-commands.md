@@ -1,6 +1,6 @@
 ---
 title: Comandi di Windows
-description: Comandi di Windows
+description: Riferimento
 ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: c703d07c-8227-4e86-94a6-8ef390f94cdc
@@ -9,12 +9,12 @@ ms.author: jgerend
 manager: dongill
 ms.date: 06/26/2019
 ms.prod: windows-server
-ms.openlocfilehash: 9d68e2becbf9c6522be7e1ff6e6742d44f3a8247
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 7baec3bbe532bbcedb8c17628fd88d2c8eac34c6
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80829234"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720727"
 ---
 # <a name="windows-commands"></a>Comandi di Windows
 
@@ -26,28 +26,28 @@ Per trovare informazioni su un comando specifico, nel menu A-Z seguente, fare cl
 
 [A](#a) |
 [B](#b) | 
-[C](#c) | 
-[D](#d) | 
-[E](#e) | 
-[F](#f) | 
-[G](#g) | 
-[H](#h) | 
-[i](#i) |
+[M](#m)[D](#d) | 
+[V](#v)[C](#c) |
 [J](#j) | 
-[K](#k) | 
-[L](#l) | 
-[M](#m) | 
-[N](#n) | 
-[O](#o) | 
-[P](#p) | 
-[Q](#q) | 
-[R](#r) | 
-[S](#s) | 
-[t](#t) | 
-[U](#u) | 
-[V](#v) | 
-[W](#w) | 
-[X](#x) | Y | Z
+[W](#w)[F](#f) | 
+[S](#s)[E](#e) | 
+[R](#r)[G](#g) | 
+[U](#u)[H](#h) | 
+[X](#x) [I](#i) | 
+[T](#t)[L](#l)[N](#n)[Q](#q)[O](#o)[P](#p)[K](#k)C d E F G H i J | 
+K L M | 
+N | 
+O | 
+P | 
+Q R S T U V W X | | 
+ | 
+ | 
+ | 
+ | 
+ | 
+ | 
+ | 
+ Y | Z
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -56,9 +56,9 @@ Le informazioni contenute in questo argomento si applicano a:
 -   Windows Server 2019
 -   Windows Server (Canale semestrale)
 -   Windows Server 2016
--   Windows Server 2012 R2
+-   Windows Server 2012 R2
 -   Windows Server 2012 
--   Windows Server 2008 R2
+-   Windows Server 2008 R2
 -   Windows Server 2008
 -   Windows 10
 -   Windows 8.1
@@ -76,7 +76,7 @@ Per l'automazione di Windows più affidabile e aggiornata, è consigliabile usar
 >È anche possibile scaricare e installare [PowerShell Core](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6), la versione open source di PowerShell. 
 
 > [!CAUTION]
-> È possibile che eventuali modifiche non corrette del Registro di sistema danneggino gravemente il sistema. Prima di apportare le modifiche seguenti al registro di sistema, è necessario eseguire il backup di tutti i dati importanti presenti nel computer.
+> La modifica non corretta del Registro di sistema potrebbe danneggiare gravemente il sistema. Prima di apportare le modifiche seguenti al registro di sistema, è necessario eseguire il backup di tutti i dati importanti presenti nel computer.
 
 > [!NOTE]
 > Per abilitare o disabilitare il completamento del nome file e directory nella shell dei comandi in una sessione di accesso utente o computer, eseguire **Regedit. exe** e impostare il **valore di reg_DWOrd**seguente:
@@ -91,30 +91,30 @@ Per trovare informazioni su un comando di Windows specifico, nel menu A-Z seguen
 
 [A](#a) |
 [B](#b) | 
-[C](#c) | 
-[D](#d) | 
-[E](#e) | 
-[F](#f) | 
-[G](#g) | 
-[H](#h) | 
-[i](#i) |
+[M](#m)[D](#d) | 
+[V](#v)[C](#c) |
 [J](#j) | 
-[K](#k) | 
-[L](#l) | 
-[M](#m) | 
-[N](#n) | 
-[O](#o) | 
-[P](#p) | 
-[Q](#q) | 
-[R](#r) | 
-[S](#s) | 
-[t](#t) | 
-[U](#u) | 
-[V](#v) | 
-[W](#w) | 
-[X](#x) | Y | Z
+[W](#w)[F](#f) | 
+[S](#s)[E](#e) | 
+[R](#r)[G](#g) | 
+[U](#u)[H](#h) | 
+[X](#x) [I](#i) | 
+[T](#t)[L](#l)[N](#n)[Q](#q)[O](#o)[P](#p)[K](#k)C d E F G H i J | 
+K L M | 
+N | 
+O | 
+P | 
+Q R S T U V W X | | 
+ | 
+ | 
+ | 
+ | 
+ | 
+ | 
+ | 
+ Y | Z
 
-### <a name="a"></a>A
+### <a name="a"></a>Una
 -   [append](append.md)
 -   [arp](arp.md)
 -   [assoc](assoc.md)
@@ -126,7 +126,7 @@ Per trovare informazioni su un comando di Windows specifico, nel menu A-Z seguen
 -   [autoconv](autoconv.md)
 -   [autofmt](autofmt.md)
 
-### <a name="b"></a>B
+### <a name="b"></a>b
 - [bcdboot](bcdboot.md)
 - [bcdedit](bcdedit.md)
 - [bdehdcfg](bdehdcfg.md)
@@ -361,10 +361,10 @@ Per trovare informazioni su un comando di Windows specifico, nel menu A-Z seguen
 - [logman](logman.md)
   -   [logman create](logman-create.md)
   -   [logman query](logman-query.md)
-  -   [logman start & 124; arrestare](logman-start-stop.md)
+  -   [logman start &124; arrestare](logman-start-stop.md)
   -   [logman delete](logman-delete.md)
   -   [logman update](logman-update.md)
-  -   [logman Import & 124; esportazione](logman-import-export.md)
+  -   [logman Import &124; esportazione](logman-import-export.md)
 - [logoff](logoff.md)
 - [lpq](lpq.md)
 - [lpr](lpr.md)
@@ -485,7 +485,7 @@ Per trovare informazioni su un comando di Windows specifico, nel menu A-Z seguen
 -   [quser](quser.md)
 -   [qwinsta](qwinsta.md)
 
-### <a name="r"></a>V
+### <a name="r"></a>R
 - [rcp](rcp.md)
 - [rd](rd.md)
 - [rdpsign](rdpsign.md)
@@ -556,7 +556,7 @@ Per trovare informazioni su un comando di Windows specifico, nel menu A-Z seguen
 - [sysocmgr](sysocmgr.md)
 - [systeminfo](systeminfo.md)
 
-### <a name="t"></a>Elemento
+### <a name="t"></a>T
 -   [takeown](takeown.md)
 -   [tapicfg](tapicfg.md)
 -   [taskkill](taskkill.md)
@@ -589,7 +589,7 @@ Per trovare informazioni su un comando di Windows specifico, nel menu A-Z seguen
 -   [verifier](verifier.md)
 -   [verify](verify_1.md)
 -   [vol](vol.md)
--   - [vssadmin](vssadmin.md) 
+-   [vssadmin](vssadmin.md)- 
 
 ### <a name="w"></a>W
 - [waitfor](waitfor.md)

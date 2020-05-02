@@ -1,6 +1,6 @@
 ---
 title: writer
-description: Argomento comandi di Windows per Writer, che verifica che un writer o un componente sia incluso o escluda un writer o un componente dalla procedura di backup o ripristino.
+description: Argomento di riferimento per Writer, che verifica che un writer o un componente sia incluso o escluda un writer o un componente dalla procedura di backup o ripristino.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fb13de162b8e5eb8150d145a4afacccf47bb25f0
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: aed202ac774b17041f48df24333565727b110c53
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80828984"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720636"
 ---
 # <a name="writer"></a>writer
 
@@ -33,11 +33,11 @@ writer exclude [<Writer> | <Component>]
 
 | Parametro  |                                                                                      Descrizione                                                                                      |
 |------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   verifica   | Verifica che il writer o il componente specificato sia incluso nella procedura di backup o di ripristino. La procedura di backup o ripristino non riuscirà se il writer o il componente non è incluso. |
+|   verify   | Verifica che il writer o il componente specificato sia incluso nella procedura di backup o di ripristino. La procedura di backup o ripristino non riuscirà se il writer o il componente non è incluso. |
 |  exclude   |                                                   Esclude il writer o il componente specificato dalla procedura di backup o di ripristino.                                                    |
-| [writer\<> |                                                                                     <Component>]                                                                                      |
+| [\<Writer> |                                                                                     <Component>]                                                                                      |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per verificare un writer specificandone il GUID (per questo esempio, 4dc3bdd4-AB48-4d07-ADB0-3bee2926fd7f), digitare:
 ```
@@ -48,6 +48,6 @@ Per escludere un writer con il nome writer del sistema, digitare:
 writer exclude System Writer
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

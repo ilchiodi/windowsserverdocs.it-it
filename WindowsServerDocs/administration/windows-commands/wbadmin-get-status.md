@@ -1,6 +1,6 @@
 ---
 title: stato Wbadmin get
-description: Argomento dei comandi di Windows per Wbadmin get status, che indica lo stato dell'operazione di backup o ripristino attualmente in esecuzione.
+description: Argomento di riferimento per Wbadmin get status, che indica lo stato dell'operazione di backup o ripristino attualmente in esecuzione.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f8ebf1a078632f78dc8d58c232550345f0de78f2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 1e8e5194cd49770f72ce810f4652d9bc98af75e2
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80829744"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720163"
 ---
 # <a name="wbadmin-get-status"></a>stato Wbadmin get
 
@@ -34,12 +34,12 @@ wbadmin get status
 
 Questo sottocomando non ha parametri.
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   Questo sottocomando non verrà interrotto fino al completamento dell'operazione di backup o ripristino corrente. il sottocomando continuerà a essere eseguito anche se si chiude la finestra di comando.
 -   Se si desidera arrestare l'operazione di backup o ripristino corrente, utilizzare il comando **Wbadmin Stop Job** sottocomando.
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 -   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)

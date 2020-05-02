@@ -7,14 +7,15 @@ ms.technology: storage-health-service
 ms.topic: article
 author: cosmosdarwin
 ms.date: 10/05/2017
-ms.openlocfilehash: 913a596a46720718a165295345cb02e3e2baa1de
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 5fe2f98c89d97325c1f59dc6ba292831e0ffa5ff
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80827564"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720557"
 ---
 # <a name="health-service-faults"></a>Errori Servizio integrità
+
 > Si applica a: Windows Server 2019, Windows Server 2016
 
 ## <a name="what-are-faults"></a>Che cosa sono gli errori
@@ -23,7 +24,7 @@ Il Servizio integrità monitora costantemente il cluster Spazi di archiviazione 
 
 Ogni errore contiene cinque campi importanti:  
 
--   Severity
+-   Gravità
 -   Descrizione del problema
 -   Passaggi successivi consigliati per risolvere il problema
 -   Informazioni di identificazione per l'entità che ha generato l’errore
@@ -69,14 +70,13 @@ Get-FileShare -Name <Name> | Debug-FileShare
 
 Vengono restituiti tutti gli errori che interessano solo la condivisione file o il volume specifico. Spesso questi errori riguardano la pianificazione della capacità, la resilienza dei dati o funzionalità come la qualità del servizio di archiviazione o la replica di archiviazione. 
 
-## <a name="usage-in-net-and-c"></a>Utilizzo in .NET eC#
+## <a name="usage-in-net-and-c"></a>Utilizzo in .NET e C #
 
-### <a name="connect"></a>Connetti
+### <a name="connect"></a>Connessione
 
-Per eseguire una query sulla Servizio integrità, è necessario stabilire una **CimSession** con il cluster. A tale scopo, sono necessari alcuni elementi disponibili solo in .NET completo, ovvero non è possibile eseguire facilmente questa operazione direttamente da un'app Web o per dispositivi mobili. Questi esempi di codice useranno C\#, la scelta più semplice per questo livello di accesso ai dati.
+Per eseguire una query sulla Servizio integrità, è necessario stabilire una **CimSession** con il cluster. A tale scopo, sono necessari alcuni elementi disponibili solo in .NET completo, ovvero non è possibile eseguire facilmente questa operazione direttamente da un'app Web o per dispositivi mobili. Questi esempi di codice utilizzeranno\#C, la scelta più semplice per questo livello di accesso ai dati.
 
-``` 
-...
+```
 using System.Security;
 using Microsoft.Management.Infrastructure;
 
@@ -105,7 +105,7 @@ Il nome utente specificato deve essere un amministratore locale del computer di 
 
 Con la **CimSession** stabilita, è possibile eseguire una query Strumentazione gestione Windows (WMI) nel cluster.
 
-Prima di poter ottenere errori o metriche, è necessario ottenere istanze di diversi oggetti rilevanti. In primo luogo, **MSFT\_StorageSubSystem** che rappresenta spazi di archiviazione diretta nel cluster. Utilizzando questa, è possibile ottenere ogni **msft\_StorageNode** nel cluster e ogni **volume MSFT\_** , ovvero i volumi di dati. Infine, sarà necessario anche **MSFT\_StorageHealth**, il servizio integrità stesso.
+Prima di poter ottenere errori o metriche, è necessario ottenere istanze di diversi oggetti rilevanti. In primo luogo **,\_MSFT StorageSubSystem** che rappresenta spazi di archiviazione diretta nel cluster. Usando questo, è possibile ottenere ogni **StorageNode\_MSFT** nel cluster e ogni **volume MSFT\_**, ovvero i volumi di dati. Infine, sarà necessario anche il **StorageHealth\_MSFT**, il servizio integrità stesso.
 
 ```
 CimInstance Cluster;
@@ -138,7 +138,6 @@ Si tratta degli stessi oggetti che si ottengono in PowerShell usando cmdlet come
 È possibile accedere a tutte le stesse proprietà, documentate in [classi API di gestione dell'archiviazione](https://msdn.microsoft.com/library/windows/desktop/hh830612(v=vs.85).aspx).
 
 ```
-...
 using System.Diagnostics;
 
 foreach (CimInstance Node in Nodes)
@@ -284,7 +283,7 @@ Tuttavia, in alcuni casi, gli errori possono essere rilevati dal Servizio integr
 
 ### <a name="properties-of-faults"></a>Proprietà degli errori
 
-Questa tabella presenta diverse proprietà chiave dell'oggetto fault. Per lo schema completo, controllare la classe **MSFT\_StorageDiagnoseResult** in *StorageWMI. mof*.
+Questa tabella presenta diverse proprietà chiave dell'oggetto fault. Per lo schema completo, controllare la **classe\_MSFT StorageDiagnoseResult** in *StorageWMI. mof*.
 
 | **Proprietà**              | **Esempio**                                                     |
 |---------------------------|-----------------------------------------------------------------|
@@ -308,7 +307,7 @@ Questa tabella presenta diverse proprietà chiave dell'oggetto fault. Per lo sch
 
 ## <a name="properties-of-fault-events"></a>Proprietà degli eventi di errore
 
-Questa tabella presenta diverse proprietà chiave dell'evento di errore. Per lo schema completo, controllare la classe **MSFT\_StorageFaultEvent** in *StorageWMI. mof*.
+Questa tabella presenta diverse proprietà chiave dell'evento di errore. Per lo schema completo, controllare la **classe\_MSFT StorageFaultEvent** in *StorageWMI. mof*.
 
 Si noti l'oggetto **ChangeType**, che indica se viene creato, rimosso o aggiornato un errore e **FaultId**. Un evento contiene anche tutte le proprietà dell'errore interessato.
 
@@ -325,7 +324,7 @@ Si noti l'oggetto **ChangeType**, che indica se viene creato, rimosso o aggiorna
 
 **ChangeType** ChangeType = {0, 1, 2} = {"create", "Remove", "Update"}.
 
-## <a name="coverage"></a>Coverage
+## <a name="coverage"></a>Copertura
 
 In Windows Server 2016, il Servizio integrità fornisce la copertura degli errori seguente:  
 
@@ -379,7 +378,7 @@ In Windows Server 2016, il Servizio integrità fornisce la copertura degli error
 * RecommendedAction: *"ripristino della resilienza dei dati".*
 
 #### <a name="faulttype-microsofthealthfaulttypevirtualdisksdetached"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. Virtualdisks con. Detached
-* Gravità: critico
+* Gravità: Critica
 * Motivo: *"il volume è inaccessibile. Alcuni dati potrebbero andare perduti ".*
 * RecommendedAction: *"controllare la connettività fisica e/o di rete di tutti i dispositivi di archiviazione. Potrebbe essere necessario eseguire il ripristino dal backup ".*
 
@@ -390,7 +389,7 @@ In Windows Server 2016, il Servizio integrità fornisce la copertura degli error
 * Motivo: *"il pool di archiviazione non dispone della capacità minima di riserva consigliata. Questo potrebbe limitare la capacità di ripristinare la resilienza dei dati in caso di errori dell'unità. "*
 * RecommendedAction: *"aggiungere capacità aggiuntiva al pool di archiviazione o liberare capacità. La riserva consigliata minima varia a seconda della distribuzione, ma è di circa 2 unità di capacità ".*
 
-### <a name="volume-capacity-2sup1sup"></a>**Capacità volume (2)** <sup>1</sup>
+### <a name="volume-capacity-2sup1sup"></a>**Capacità volume (2)**<sup>1</sup>
 
 #### <a name="faulttype-microsofthealthfaulttypevolumecapacity"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. volume. Capacity
 * Gravità: Avviso
@@ -398,31 +397,31 @@ In Windows Server 2016, il Servizio integrità fornisce la copertura degli error
 * RecommendedAction: *"espandere il volume o eseguire la migrazione dei carichi di lavoro ad altri volumi".*
 
 #### <a name="faulttype-microsofthealthfaulttypevolumecapacity"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. volume. Capacity
-* Gravità: critico
+* Gravità: Critica
 * Motivo: *"lo spazio disponibile nel volume è esaurito."*
 * RecommendedAction: *"espandere il volume o eseguire la migrazione dei carichi di lavoro ad altri volumi".*
 
 ### <a name="server-3"></a>**Server (3)**
 
 #### <a name="faulttype-microsofthealthfaulttypeserverdown"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. Server. Down
-* Gravità: critico
+* Gravità: Critica
 * Motivo: *"Impossibile raggiungere il server."*
 * RecommendedAction: *"avvia o Sostituisci server".*
 
 #### <a name="faulttype-microsofthealthfaulttypeserverisolated"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. Server. isolated
-* Gravità: critico
+* Gravità: Critica
 * Motivo: *"il server è isolato dal cluster a causa di problemi di connettività".*
 * RecommendedAction: *"se l'isolamento è permanente, controllare le reti o eseguire la migrazione dei carichi di lavoro ad altri nodi".*
 
 #### <a name="faulttype-microsofthealthfaulttypeserverquarantined"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. Server. Quarantined
-* Gravità: critico
+* Gravità: Critica
 * Motivo: *"il server è in quarantena dal cluster a causa di errori ricorrenti".*
 * RecommendedAction: *"sostituire il server o correggere la rete".*
 
 ### <a name="cluster-1"></a>**Cluster (1)**
 
 #### <a name="faulttype-microsofthealthfaulttypeclusterquorumwitnesserror"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. ClusterQuorumWitness. Error
-* Gravità: critico
+* Gravità: Critica
 * Motivo: *"il cluster si è verificato un errore del server."*
 * RecommendedAction: *"controllare la risorsa del server di controllo del mirroring e riavviare se necessario. Avviare o sostituire i server non riusciti ".*
 
@@ -497,7 +496,7 @@ In Windows Server 2016, il Servizio integrità fornisce la copertura degli error
 * Motivo: *"implementazione del firmware annullata a causa di un numero eccessivo di dischi fisici che non riescono a eseguire un tentativo di aggiornamento del firmware"*
 * RecommendedAction: *"riavvio del firmware dopo la risoluzione del problema del firmware".*
 
-### <a name="storage-qos-3sup2sup"></a>**QoS di archiviazione (3)** <sup>2</sup>
+### <a name="storage-qos-3sup2sup"></a>**QoS di archiviazione (3)**<sup>2</sup>
 
 #### <a name="faulttype-microsofthealthfaulttypestorqosinsufficientthroughput"></a>Tipo FaultType: Microsoft. Health. tipo FaultType. StorQos. InsufficientThroughput
 * Gravità: Avviso

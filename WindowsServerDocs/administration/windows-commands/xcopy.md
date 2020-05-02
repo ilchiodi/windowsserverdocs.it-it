@@ -1,6 +1,6 @@
 ---
 title: xcopy
-description: Argomento comandi di Windows per xcopy, w hich copia i file e le directory, incluse le sottodirectory.
+description: Argomento di riferimento per xcopy, che consente di copiare file e directory, incluse le sottodirectory.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 01/05/2019
-ms.openlocfilehash: 660ef69a5f1df99c3b959a588984719c9d4dea6b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: d0ee0a9f87eacefad619e82aa28f5fcf8419ed09
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80828924"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720617"
 ---
 # <a name="xcopy"></a>xcopy
 
@@ -32,18 +32,18 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 
 |Parametro|Descrizione|
 |---------|-----------|
-|> origine \<|Obbligatoria. Specifica il percorso e i nomi dei file che si desidera copiare. Questo parametro deve includere un'unità o un percorso.|
+|\<> di origine|Obbligatorio. Specifica il percorso e i nomi dei file che si desidera copiare. Questo parametro deve includere un'unità o un percorso.|
 |[\<> di destinazione]|Specifica la destinazione dei file che si desidera copiare. Questo parametro può includere una lettera di unità e due punti, un nome di directory, un nome di file o una combinazione di questi.|
-|/w|Visualizza il messaggio seguente e attende la risposta prima di iniziare a copiare i file:</br>**Premere un tasto qualsiasi per iniziare a copiare i file**|
-|/p|Viene richiesto di confermare se si desidera creare ogni file di destinazione.|
-|/c|Ignora gli errori.|
+|/W|Visualizza il messaggio seguente e attende la risposta prima di iniziare a copiare i file:</br>**Premere un tasto qualsiasi per iniziare a copiare i file**|
+|/ p|Viene richiesto di confermare se si desidera creare ogni file di destinazione.|
+|/C|Ignora gli errori.|
 |/v|Verifica che ogni file venga scritto nel file di destinazione per assicurarsi che i file di destinazione siano identici a quelli dei file di origine.|
 |/q|Evita la visualizzazione dei messaggi **xcopy** .|
 |/f|Visualizza i nomi dei file di origine e di destinazione durante la copia.|
 |/l|Visualizza un elenco di file da copiare.|
 |/g|Crea file di *destinazione* decrittografati quando la destinazione non supporta la crittografia.|
 |/d [: MM-gg-aaaa]|Copia i file di origine modificati solo dopo la data specificata. Se non si include un valore *mm-gg-aaaa* , **xcopy** copia tutti i file di *origine* più recenti rispetto ai file di *destinazione* esistenti. Questa opzione della riga di comando consente di aggiornare i file che sono stati modificati.|
-|/u|Copia i file dall' *origine* esistente solo nella *destinazione* .|
+|/U|Copia i file dall' *origine* esistente solo nella *destinazione* .|
 |/i|Se l' *origine* è una directory o contiene caratteri jolly e la *destinazione* non esiste, **xcopy** presuppone che la *destinazione* specifichi un nome di directory e crea una nuova directory. Quindi, **xcopy** copia tutti i file specificati nella nuova directory. Per impostazione predefinita, **tramite Xcopy** viene richiesto di specificare se la *destinazione* è un file o una directory.|
 |/s|Copia le directory e le sottodirectory, a meno che non siano vuote. Se si omette **/s**, **xcopy** funziona all'interno di un'unica directory.|
 |/e|Copia tutte le sottodirectory, anche se sono vuote. Usare **/e** con le opzioni della riga di comando **/s** e **/t** .|
@@ -56,7 +56,7 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 |/n|Crea copie usando i nomi di file o di directory brevi NTFS. **/n** è obbligatorio quando si copiano file o directory da un volume NTFS a un volume FAT o quando è richiesta la convenzione di denominazione FAT file System (ovvero 8,3 caratteri) nel file System di *destinazione* . Il file system di *destinazione* può essere FAT o NTFS.|
 |/o|Copia la proprietà del file e le informazioni relative all'elenco di controllo di accesso discrezionale (DACL).|
 |/x|Copia le impostazioni di controllo del file e le informazioni dell'elenco di controllo di accesso di sistema (SACL) (implica **/o**).|
-|/exclude: FileName1 [+ [FileName2] [+ [FileName3] (\)]|Specifica un elenco di file. È necessario specificare almeno un file. Ogni file conterrà stringhe di ricerca con ogni stringa in una riga separata del file.</br>Quando una qualsiasi delle stringhe corrisponde a qualsiasi parte del percorso assoluto del file da copiare, il file verrà escluso dalla copia. Se ad esempio si specifica la stringa **obj** , tutti i file sotto la directory **obj** o tutti i file con estensione **obj** vengono esclusi.|
+|/exclude: FileName1 [+ [FileName2] [+ [FileName3] ( \)]|Specifica un elenco di file. È necessario specificare almeno un file. Ogni file conterrà stringhe di ricerca con ogni stringa in una riga separata del file.</br>Quando una qualsiasi delle stringhe corrisponde a qualsiasi parte del percorso assoluto del file da copiare, il file verrà escluso dalla copia. Se ad esempio si specifica la stringa **obj** , tutti i file sotto la directory **obj** o tutti i file con estensione **obj** vengono esclusi.|
 |/y|Evita la richiesta di conferma della sovrascrittura di un file di destinazione esistente.|
 |/-y|Richiede di confermare che si desidera sovrascrivere un file di destinazione esistente.|
 |/z|Copia in una rete in modalità riavviabile.|
@@ -64,7 +64,7 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 |/j|Copia i file senza memorizzare nel buffer. Consigliato per file di grandi dimensioni. Questo parametro è stato aggiunto in Windows Server 2008 R2.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 - Utilizzando **/z**
 
@@ -88,7 +88,7 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 
 - Specifica se la *destinazione* è un file o una directory
 
-  Se la *destinazione* non contiene una directory esistente e non termina con una barra rovesciata (\), viene visualizzato il messaggio seguente:
+  Se la *destinazione* non contiene una directory esistente e non termina con una barra rovesciata\)(, viene visualizzato il messaggio seguente:
   
   ```
   Does <Destination> specify a file name or directory name on the target(F = file, D = directory)?
@@ -151,7 +151,7 @@ xcopy \rawdata \reports /d:12-29-1993 /l > xcopy.out
 
 Il file xcopy. out elenca tutti i file che devono essere copiati.
 
-**6.** per copiare la directory \Customer e tutte le sottodirectory nella directory \\\\Public\Address sull'unità di rete H:, mantenere l'attributo di sola lettura e quando viene creato un nuovo file in h:, digitare:
+**6.** per copiare la directory \Customer e tutte le sottodirectory nella directory \\ \\Public\Address sull'unità di rete H:, mantenere l'attributo di sola lettura e quando viene creato un nuovo file in h:, digitare:
 
 ```
 xcopy \customer h:\public\address /s /e /k /p
@@ -204,9 +204,9 @@ rem  .\d2\toc.yml
 rem  3 File(s) copied
 ```
 
-Nell'esempio precedente, questo particolare valore del parametro di origine **.\\sommario\*. yml** copia gli stessi 3 file anche se i due caratteri di percorso **.\\** sono stati rimossi. Tuttavia, non viene copiato alcun file se il carattere jolly asterisco è stato rimosso dal parametro source, rendendolo semplicemente **.\\TOC. yml**.
+Nell'esempio precedente, questo particolare valore del parametro di **origine\\ . TOC\*. yml** copia gli stessi 3 file anche se i due caratteri del **percorso\\ .** sono stati rimossi. Tuttavia, non viene copiato alcun file se il carattere jolly asterisco è stato rimosso dal parametro source, rendendolo **semplicemente\\ . TOC. yml**.
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 -   [Copia](copy.md)
 -   [Sposta](move.md)

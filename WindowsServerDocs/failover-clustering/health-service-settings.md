@@ -7,14 +7,15 @@ ms.technology: storage-health-service
 ms.topic: article
 author: cosmosdarwin
 ms.date: 08/14/2017
-ms.openlocfilehash: 7ae78137bbd4e39291cc2e307f62697876c98135
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a8262567abdd18847e99026c43d722351a00d3f2
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80827524"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720543"
 ---
 # <a name="health-service-settings"></a>Impostazioni Servizio integrità
+
 > Si applica a: Windows Server 2019, Windows Server 2016
 
 Il Servizio integrità è una nuova funzionalità di Windows Server 2016 che migliora l'esperienza di monitoraggio e operatività quotidiana per i cluster che eseguono Spazi di archiviazione diretta.
@@ -23,7 +24,7 @@ Molti dei parametri che governano il comportamento del Servizio integrità vengo
 
 Usare il cmdlet di PowerShell seguente per impostare o modificare le impostazioni.
 
-### <a name="usage"></a>Utilizzo
+### <a name="usage"></a>Uso
 
 ```PowerShell
 Get-StorageSubSystem Cluster* | Set-StorageHealthSetting -Name <SettingName> -Value <Value>  

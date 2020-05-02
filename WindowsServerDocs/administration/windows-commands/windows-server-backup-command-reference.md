@@ -1,6 +1,6 @@
 ---
 title: Riferimenti ai comandi di Windows Server Backup
-description: Argomento dei comandi di Windows per informazioni di riferimento sui comandi di backup.
+description: Argomento di riferimento per informazioni di riferimento sui comandi di backup.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ca6a2e17c68e362d8b3d26f67ab3b7e4c7bf86d4
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 69121e445e5c7a967c30b0a911c639431c7dd74a
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80829205"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82720723"
 ---
 # <a name="windows-server-backup-command-reference"></a>Riferimenti ai comandi di Windows Server Backup
 
