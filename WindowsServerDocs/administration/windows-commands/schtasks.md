@@ -1,6 +1,6 @@
 ---
 title: schtasks
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2b50ca62aea7a46f9246fb8d5089c0ef41aa1316
-ms.sourcegitcommit: d669d4af166b9018bcf18dc79cb621a5fee80042
+ms.openlocfilehash: a723025846a0e1725c72d5880d1ecc97579e1a69
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82037170"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722173"
 ---
 # <a name="schtasks"></a>schtasks
 
@@ -340,7 +340,7 @@ In una pianificazione giornaliera, la **/sc daily** parametro è obbligatorio. I
 
 #### <a name="to-schedule-a-task-that-runs-every-day"></a>Per pianificare un'attività che viene eseguito ogni giorno
 
-Nell'esempio seguente consente di pianificare il programma MyApp per eseguire una volta al giorno, ogni giorno alle ore 8:00. fino al 31 dicembre 2002. Poiché viene omesso il **al mese** parametro, l'intervallo predefinito di 1 viene utilizzato per eseguire il comando ogni giorno.
+Per pianificare il programma MyApp da eseguire una volta al giorno, ogni giorno alle ore 8:00. fino al 31 dicembre 2002. Poiché viene omesso il **al mese** parametro, l'intervallo predefinito di 1 viene utilizzato per eseguire il comando ogni giorno.
 
 In questo esempio, perché il sistema del computer locale è impostato sul **inglese (Regno Unito)** opzione **Regional and Language Options** in **Pannello di controllo**, il formato della data di fine è MM/GG/AAAA (31/12/2002)
 ```
@@ -349,7 +349,7 @@ schtasks /create /tn My App /tr c:\apps\myapp.exe /sc daily /st 08:00 /ed 31/12/
 
 #### <a name="to-schedule-a-task-that-runs-every-12-days"></a>Per pianificare un'attività che viene eseguita ogni 12 giorni
 
-Nell'esempio seguente consente di pianificare il programma MyApp da eseguire ogni dodici giorni alle ore 1:00 (13:00) a partire dal 31 dicembre 2002. Il comando Usa il **al mese** parametro per specificare un intervallo di due (2) giorni e **/sd** e **/st** parametri per specificare la data e ora.
+Per pianificare il programma MyApp da eseguire ogni dodici giorni alle ore 1:00. (13:00) a partire dal 31 dicembre 2002. Il comando Usa il **al mese** parametro per specificare un intervallo di due (2) giorni e **/sd** e **/st** parametri per specificare la data e ora.
 
 In questo esempio, perché il sistema è impostato il **inglese (Zimbabwe)** opzione **Regional and Language Options** in **Pannello di controllo**, il formato della data di fine è MM/GG/AAAA (31/12/2002)
 ```

@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 03450a370c84eb4659b9ebfde0729fee52e6c1f6
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 4212951a5aee46be893069c15dba4b210aca253d
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80835554"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722278"
 ---
 # <a name="rpcinfo"></a>rpcinfo
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Vengono elencati i programmi nei computer remoti. Il **rpcinfo** utilità della riga di comando esegue una procedura remota (RPC call) a un server RPC e segnala trovato. 
 
@@ -30,13 +30,13 @@ rpcinfo [/p [<Node>]] [/b <Program version>] [/t <Node Program> [<version>]] [/u
 #### <a name="parameters"></a>Parametri
 |Parametro|Descrizione|
 |-------|--------|
-|/p [\<nodo >]|Elenca tutti i programmi registrati con il Mapper della porta nell'host specificato. Se non si specifica un nome di nodo (computer), il programma esegue una query il mapping di porta nell'host locale.|
-|/b \<versione programma >|Richiede una risposta da tutti i nodi di rete con il programma specificato e la versione registrata con il mapping di porta. È necessario specificare sia il nome del programma o numero sia un numero di versione.|
-|/t \<node Program > [\<versione >]|Usa il protocollo di trasporto TCP per chiamare il programma specificato. È necessario specificare un nome nodo (computer) e il nome del programma. Se non si specifica una versione, il programma chiama tutte le versioni.|
-|/u \<node Program > [\<versione >]|Usa il protocollo di trasporto UDP per chiamare il programma specificato. È necessario specificare un nome nodo (computer) e il nome del programma. Se non si specifica una versione, il programma chiama tutte le versioni.|
+|/p [\<> di nodo]|Elenca tutti i programmi registrati con il Mapper della porta nell'host specificato. Se non si specifica un nome di nodo (computer), il programma esegue una query il mapping di porta nell'host locale.|
+|> \<versione del programma/b|Richiede una risposta da tutti i nodi di rete con il programma specificato e la versione registrata con il mapping di porta. È necessario specificare sia il nome del programma o numero sia un numero di versione.|
+|/t \<Node Program> [\<versione>]|Usa il protocollo di trasporto TCP per chiamare il programma specificato. È necessario specificare un nome nodo (computer) e il nome del programma. Se non si specifica una versione, il programma chiama tutte le versioni.|
+|/u \<Node Program> [\<> versione]|Usa il protocollo di trasporto UDP per chiamare il programma specificato. È necessario specificare un nome nodo (computer) e il nome del programma. Se non si specifica una versione, il programma chiama tutte le versioni.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="examples"></a><a name="BKMK_Examples"></a>Esempi
+## <a name="examples"></a>Esempi
 Per elencare tutti i programmi registrati con il mapping di porta, digitare:
 ```
 rpcinfo /p [<Node>]

@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: d44e4f8383a77582177f4d9b161210207ce46e63
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 4ac424154968b4f4c55664d0d20f524345b87986
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80835904"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722377"
 ---
 # <a name="replace"></a>replace
 
@@ -22,7 +22,7 @@ ms.locfileid: "80835904"
 
 Sostituisce i file. Se utilizzato con il **/a** opzione **sostituire** aggiunge nuovi file in una directory invece di sostituire i file esistenti.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -35,17 +35,17 @@ replace [<Drive1>:][<Path1>]<FileName> [<Drive2>:][<Path2>] [/p] [/r] [/s] [/w] 
 
 |Parametro|Descrizione|
 |---------|-----------|
-|[\<unità1 >:] [\<path1 >]\<FileName >|Specifica il percorso e nome del file di origine o un set di file. *Filename* è obbligatorio e può includere caratteri jolly ( **&#42;** e **?** ).|
-|[\<unità2 >:] [\<Path2 >]|Specifica il percorso del file di destinazione. È possibile specificare un nome di file per file da sostituire. Se non si specifica un'unità o percorso, **sostituire** utilizza l'unità corrente e la directory come destinazione.|
+|[\<Unità1>:] [\<Path1>] \<> filename|Specifica il percorso e nome del file di origine o un set di file. *Filename* è obbligatorio e può includere caratteri jolly (**&#42;** e **?**).|
+|[\<Unità2>:] [\<Path2>]|Specifica il percorso del file di destinazione. È possibile specificare un nome di file per file da sostituire. Se non si specifica un'unità o percorso, **sostituire** utilizza l'unità corrente e la directory come destinazione.|
 |/a|Aggiunge nuovi file della directory di destinazione invece di sostituire i file esistenti. Non è possibile utilizzare questa opzione della riga di comando con il **/s** o **/u** opzione della riga di comando.|
-|/p|Chiede conferma prima di sostituire un file di destinazione o aggiunta di un file di origine.|
+|/ p|Chiede conferma prima di sostituire un file di destinazione o aggiunta di un file di origine.|
 |/r|Sostituisce i file protetti e di sola lettura. Se si tenta di sostituire un file di sola lettura, ma non si specifica **/r**, risultati di un errore e arresta l'operazione di sostituzione.|
-|/w|Attende che sia possibile inserire un disco prima di inizia la ricerca dei file di origine. Se non si specifica **/w**, **sostituire** inizia la sostituzione o l'aggiunta di file, subito dopo aver premuto INVIO.|
+|/W|Attende che sia possibile inserire un disco prima di inizia la ricerca dei file di origine. Se non si specifica **/w**, **sostituire** inizia la sostituzione o l'aggiunta di file, subito dopo aver premuto INVIO.|
 |/s|Cerca tutte le sottodirectory nella directory di destinazione e sostituisce i file corrispondenti. Non è possibile utilizzare **/s** con il **/a** opzione della riga di comando. Il **sostituire** comando non esegue la ricerca nelle sottodirectory specificate in *Path1*.|
-|/u|Sostituisce solo i file nella directory di destinazione che sono meno recenti di quelli nella directory di origine. Non è possibile utilizzare **/u** con il **/a** opzione della riga di comando.|
+|/U|Sostituisce solo i file nella directory di destinazione che sono meno recenti di quelli nella directory di origine. Non è possibile utilizzare **/u** con il **/a** opzione della riga di comando.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 - Come **sostituire** aggiunge o sostituisce i file, il file nomi vengono visualizzati sullo schermo. Dopo aver **sostituire** al termine, viene visualizzata una riga di riepilogo in uno dei seguenti formati:  
   ```
@@ -76,6 +76,6 @@ Per aggiornare tutte le versioni di un file denominato Telef (che vengono visual
 
 `replace a:\phones.cli c:\ /s`
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
 title: Eliminazione di SC
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 05b276de04d4250cc03e4b2976bf8c1330ef82ce
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: dd40b5eb82def3b3c437cbdb5b60d279529d25a0
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80835384"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722186"
 ---
 # <a name="sc-delete"></a>Eliminazione di SC
 
@@ -34,11 +34,11 @@ sc [<ServerName>] delete [<ServiceName>]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<ServerName >|Specifica il nome del server remoto in cui si trova il servizio. Il nome deve usare il formato Universal Naming Convention (UNC), ad esempio \\\\MyServer. Per eseguire SC. exe localmente, omettere questo parametro.|
-|\<ServiceName >|Specifica il nome del servizio restituito dal **getkeyname** operazione.|
+|\<Nomeserver>|Specifica il nome del server remoto in cui si trova il servizio. Il nome deve usare il formato UNC (Universal Naming Convention), \\ \\ad esempio myserver. Per eseguire SC. exe localmente, omettere questo parametro.|
+|\<ServiceName>|Specifica il nome del servizio restituito dal **getkeyname** operazione.|
 |?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 Utilizzare **Aggiungi / Rimuovi programmi** su **Pannello di controllo** eliminare DHCP, DNS o altri servizi del sistema operativo predefinito. Si noti che **Aggiungi / Rimuovi programmi** non rimuoverà solo la sottochiave del Registro di sistema per il servizio, ma verrà anche disinstallare il servizio ed eliminare tutti i collegamenti a esso.
 
@@ -49,6 +49,6 @@ Per eliminare la sottochiave servizio **nuovosrv** dal Registro di sistema del c
 sc delete newserv
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

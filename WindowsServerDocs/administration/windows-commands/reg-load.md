@@ -1,6 +1,6 @@
 ---
 title: carico reg
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 140c6b51b9f88081a8686ebebbc9400f241b5ef6
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 2523876e2ea2305ede3289226c934c9352825ba9
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80836384"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722545"
 ---
 # <a name="reg-load"></a>carico reg
 
@@ -22,7 +22,7 @@ ms.locfileid: "80836384"
 
 Scritture salvata sottochiavi e le voci in una sottochiave diversa nel Registro di sistema. Deve essere utilizzato con i file temporanei utilizzati per la risoluzione dei problemi o modificare le voci del Registro di sistema.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -34,26 +34,26 @@ reg load KeyName FileName
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<nome della >|Specifica il percorso completo della sottochiave da caricare. Per specificare i computer remoti, includere il nome del computer (nel formato \\\\ComputerName\) come parte del *nome*della pagina. Se si omette \\\\nomecomputer \ l'operazione viene impostata sul computer locale per impostazione predefinita. Il *KeyName* deve includere una chiave radice valido. Le chiavi principali valide per il computer locale sono: HKLM, HKCU, HKCR, HKU e HKCC. Se viene specificato un computer remoto, le chiavi principali valide sono: HKLM e HKU.|
-|\<FileName >|Specifica il nome e percorso del file da caricare. Questo file deve essere creato in anticipo usando il **reg salvare** operazione e l'estensione hiv.|
+|\<Nome>|Specifica il percorso completo della sottochiave da caricare. Per specificare i computer remoti, includere il nome del computer ( \\ \\nel formato\) ComputerName come parte del *nome*della finestra di. \\ \\Se si omette nomecomputer \, l'operazione viene impostata sul computer locale per impostazione predefinita. Il *nome* chiave deve includere una chiave radice valida. Le chiavi principali valide per il computer locale sono: HKLM, HKCU, HKCR, HKU e HKCC. Se viene specificato un computer remoto, le chiavi principali valide sono: HKLM e HKU.|
+|\<> FileName|Specifica il nome e percorso del file da caricare. Questo file deve essere creato in anticipo usando il **reg salvare** operazione e l'estensione hiv.|
 |/?|Visualizza la Guida per **Carico reg** al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 Nella tabella seguente sono elencati i valori restituiti per il **Carico reg** operazione.
 
-|Valore|Descrizione|
+|valore|Descrizione|
 |-----|-----------|
-|0|Success|
-|1|Operazione non riuscita|
+|0|Operazione completata|
+|1|Errore|
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per caricare il file TempHive HKLM\TempHive la chiave, digitare:
 ```
 REG LOAD HKLM\TempHive TempHive.hiv
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

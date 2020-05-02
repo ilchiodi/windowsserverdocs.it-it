@@ -1,6 +1,6 @@
 ---
 title: 'secedit: Validate'
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b9425f7a1fb821f4ecbaa7c1689c3baabbff6223
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3043a4af6c2ac4a6c58b973cca5abd066109eac5
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80834874"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722043"
 ---
 # <a name="seceditvalidate"></a>secedit: Validate
 
 
 
-Convalida le impostazioni di sicurezza archiviate in un modello di sicurezza (file con estensione inf). Per esempi di come è possibile utilizzare questo comando, vedere [esempi](#BKMK_Examples).
+Convalida le impostazioni di sicurezza archiviate in un modello di sicurezza (file con estensione inf).
 
 ## <a name="syntax"></a>Sintassi
 
@@ -33,9 +33,9 @@ Secedit /validate <configuration file name>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|Nome file di configurazione|Obbligatoria.</br>Specifica il percorso e il nome del modello di protezione che verrà convalidato.|
+|Nome file di configurazione|Obbligatorio.</br>Specifica il percorso e il nome del modello di protezione che verrà convalidato.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 Convalida dei modelli di sicurezza consentono se uno è danneggiato o impostato in modo non appropriato.
 
@@ -45,14 +45,14 @@ Il file di log non essere aggiornato.
 
 In Windows Server 2008, `Secedit /refreshpolicy` è stato sostituito con `gpupdate`. Per informazioni su come aggiornare le impostazioni di sicurezza, vedere [Gpupdate](gpupdate.md).
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Dopo un'operazione di rollback viene eseguita su un modello di protezione, si desidera verificare che il file con estensione inf rollback, secRBKcontoso.inf, è valido.
 ```
 Secedit /validate secRBKcontoso.inf
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 -   [Secedit:generaterollback](secedit-generaterollback.md)
 -   [Secedit](secedit.md)

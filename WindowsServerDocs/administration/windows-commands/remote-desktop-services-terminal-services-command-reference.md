@@ -1,6 +1,6 @@
 ---
 title: Riferimento ai comandi di Servizi Desktop remoto (servizi Terminal)
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,20 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b2e188be84c657688a971a75788942d4acf598d7
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 630b2274e96e446af07f7630d95056b40858209f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80836064"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722437"
 ---
 # <a name="remote-desktop-services-terminal-services-command-reference"></a>Riferimento ai comandi di Servizi Desktop remoto (servizi Terminal)
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Di seguito è riportato un elenco di strumenti della riga di comando di Servizi Desktop remoto.
 > [!NOTE]
-> In Windows Server 2008 R2 Servizi terminal è stato rinomato Servizi Desktop remoto. Per informazioni sulle novità della versione più recente, vedere Novità di [Servizi Desktop remoto in Windows server 2012](https://technet.microsoft.com/library/hh831527) nella libreria TechNet di Windows Server.
+> In Windows Server 2008 R2, Servizi terminal si chiama ora Servizi Desktop remoto. Per informazioni sulle novità della versione più recente, vedere Novità di [Servizi Desktop remoto in Windows server 2012](https://technet.microsoft.com/library/hh831527) nella libreria TechNet di Windows Server.
 > 
 > |                 Comando                 |                                                      Descrizione                                                       |
 > |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------|
@@ -40,7 +40,7 @@ Di seguito è riportato un elenco di strumenti della riga di comando di Servizi 
 > |          [qappsrv](qappsrv.md)          |                             Visualizza un elenco di tutti i server Host sessione Desktop remoto nella rete.                             |
 > |         [qprocess](qprocess.md)         |                  Visualizza informazioni sui processi in esecuzione in un server Host sessione Desktop remoto.                   |
 > |            [query](query.md)            |                      Visualizza informazioni su processi, sessioni e server Host sessione Desktop remoto.                      |
-> |    [processo di query](query-process.md)    |                  Visualizza informazioni sui processi in esecuzione in un server Host sessione Desktop remoto.                   |
+> |    [processo query](query-process.md)    |                  Visualizza informazioni sui processi in esecuzione in un server Host sessione Desktop remoto.                   |
 > |    [sessione di query](query-session.md)    |                           Visualizza informazioni sulle sessioni in un server Host sessione Desktop remoto.                            |
 > | [termserver query](query-termserver.md) |                             Visualizza un elenco di tutti i server Host sessione Desktop remoto nella rete.                             |
 > |       [utente query](query-user.md)       |                         Visualizza informazioni sulle sessioni utente in un server Host sessione Desktop remoto.                         |

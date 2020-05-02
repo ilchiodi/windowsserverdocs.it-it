@@ -1,6 +1,6 @@
 ---
 title: Query SC
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 38d83fa07e9f85f3a5a4b86388bbed41fcf326d1
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 6a6b4555790a8f9bb1149531251e724189177975
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80835284"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722176"
 ---
 # <a name="sc-query"></a>Query SC
 
@@ -22,7 +22,7 @@ ms.locfileid: "80835284"
 
 Ottiene e visualizza le informazioni sul servizio specificato, driver, tipo di servizio o tipo di driver.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -34,17 +34,17 @@ sc [<ServerName>] query [<ServiceName>] [type= {driver | service | all}] [type= 
 
 |       Parametro        |                                                                                                                          Descrizione                                                                                                                          |
 |------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     \<ServerName >      |                       Specifica il nome del server remoto in cui si trova il servizio. Il nome deve usare il formato Universal Naming Convention (UNC), ad esempio \\\\MyServer. Per eseguire SC. exe localmente, omettere questo parametro.                        |
-|     \<ServiceName >     |                                      Specifica il nome del servizio restituito dal **getkeyname** operazione. Questo **query** parametro non viene utilizzato in combinazione con altri **query** parametri (diverso da *ServerName*).                                      |
-|     tipo = {driver      |                                                                                                                            servizio                                                                                                                            |
+|     \<Nomeserver>      |                       Specifica il nome del server remoto in cui si trova il servizio. Il nome deve usare il formato UNC (Universal Naming Convention), \\ \\ad esempio myserver. Per eseguire SC. exe localmente, omettere questo parametro.                        |
+|     \<ServiceName>     |                                      Specifica il nome del servizio restituito dal **getkeyname** operazione. Questo **query** parametro non viene utilizzato in combinazione con altri **query** parametri (diverso da *ServerName*).                                      |
+|     tipo = {driver      |                                                                                                                            service                                                                                                                            |
 |       tipo = {proprietario       |                                                                                                                             condividi                                                                                                                             |
 |     stato = {attivo     |                                                                                                                           inactive                                                                                                                            |
-| bufsize = \<BufferSize > |                     Specifica la dimensione (in byte) del buffer di enumerazione. Dimensione del buffer predefinita è 1024 byte. Quando la visualizzazione risultante da una query supera i 1024 byte, è necessario aumentare le dimensioni del buffer di enumerazione.                      |
-|   ri = \<ResumeIndex >   | Specifica il numero di indice in cui è necessario iniziare o riprendere l'enumerazione. Il valore predefinito è **0** (zero). Utilizzare questo parametro in combinazione con il **bufsize =** parametro quando informazioni viene restituite da una query che può visualizzare il buffer predefinito. |
-|  gruppo = \<GroupName >   |                                                                             Specifica il gruppo di servizio da enumerare. Per impostazione predefinita, vengono enumerati tutti i gruppi (* * Group = * *).                                                                              |
+| bufsize = \<bufferSize> |                     Specifica la dimensione (in byte) del buffer di enumerazione. Dimensione del buffer predefinita è 1024 byte. Quando la visualizzazione risultante da una query supera i 1024 byte, è necessario aumentare le dimensioni del buffer di enumerazione.                      |
+|   ri = \<ResumeIndex>   | Specifica il numero di indice in cui è necessario iniziare o riprendere l'enumerazione. Il valore predefinito è **0** (zero). Utilizzare questo parametro in combinazione con il **bufsize =** parametro quando informazioni viene restituite da una query che può visualizzare il buffer predefinito. |
+|  gruppo = \<groupname>   |                                                                             Specifica il gruppo di servizio da enumerare. Per impostazione predefinita, vengono enumerati tutti i gruppi (* * Group = * *).                                                                              |
 |           /?           |                                                                                                             Visualizza la guida al prompt dei comandi.                                                                                                              |
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 - Senza uno spazio tra un parametro e il relativo valore (ovvero, **tipo = proprio**, non **tipo = proprio**), l'operazione avrà esito negativo.
 - Il **query** operazione consente di visualizzare le informazioni seguenti relative a un servizio: SERVICE_NAME (nome della sottochiave del Registro di sistema del servizio), TIPO, STATO (e gli Stati che non sono disponibili), WIN32_EXIT_B, SERVICE_EXIT_B, CHECKPOINT e WAIT_HINT.
@@ -58,7 +58,7 @@ sc [<ServerName>] query [<ServiceName>] [type= {driver | service | all}] [type= 
   sc query bufsize= 1822 ri= 79
   ```
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per visualizzare informazioni relative solo i servizi attivi, digitare uno dei seguenti comandi:
 ```
@@ -94,6 +94,6 @@ Per visualizzare informazioni per i driver del gruppo Network Driver Interface S
 sc query type= driver group= ndis
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

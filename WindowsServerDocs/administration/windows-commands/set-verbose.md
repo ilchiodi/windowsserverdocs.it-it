@@ -1,6 +1,6 @@
 ---
 title: Impostare dettagliato
-description: Windows Commands argomento for set Verbose, che specifica se l'output dettagliato viene fornito durante la creazione della copia shadow.
+description: Argomento di riferimento per set Verbose, che specifica se l'output dettagliato viene fornito durante la creazione della copia shadow.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f06400259004095fcc4ec81b2ed3cb25678a4b7d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: db31192037e57ee471d04480e0c9333b39e44980
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80834464"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721887"
 ---
 # <a name="set-verbose"></a>Impostare dettagliato
 
@@ -32,10 +32,10 @@ set verbose {on | off}
 |-----------|-------------|
 |    {on    |    off}     |
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   Se la modalità dettagliata è on, **impostare** fornisce dettagli del writer inclusione o esclusione e compressione di metadati e di estrazione.
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

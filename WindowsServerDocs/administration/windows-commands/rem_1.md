@@ -1,6 +1,6 @@
 ---
 title: rem
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 78c35c94bedb7fa204cbb074871ec2581183cbf0
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 4362eb37ff415d747962b86f66afe0283220b02b
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80836094"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722455"
 ---
 # <a name="rem"></a>rem
 
@@ -28,7 +28,7 @@ Consente di aggiungere commenti a uno script.
 rem
 ```
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 In questo esempio di script, **rem** viene utilizzata per fornire un commento sulle operazioni eseguite lo script:
 ```
@@ -46,7 +46,7 @@ create partition logical
 assign f:
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

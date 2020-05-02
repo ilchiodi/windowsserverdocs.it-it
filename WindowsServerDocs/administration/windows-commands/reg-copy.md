@@ -1,6 +1,6 @@
 ---
 title: Copia reg
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b2acfdd3c0ad66d93313a11f8025b690ea0157c2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 91090faffbb925754a0d4ed610b37464872242db
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80836534"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722577"
 ---
 # <a name="reg-copy"></a>Copia reg
 
@@ -22,7 +22,7 @@ ms.locfileid: "80836534"
 
 Copia una voce del Registro di sistema in una posizione specificata nel computer locale o remoto.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -34,23 +34,23 @@ reg copy <KeyName1> <KeyName2> [/s] [/f]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<Nomechiave1 >|Specifica il percorso completo della sottochiave da copiare. Per specificare un computer remoto, includere il nome del computer (nel formato \\\\nomecomputer\) come parte del *nome*della pagina. Se si omette \\\\nomecomputer \ l'operazione viene impostata sul computer locale per impostazione predefinita. Il *KeyName* deve includere una chiave radice valido. Le chiavi principali valide per il computer locale sono: HKLM, HKCU, HKCR, HKU e HKCC. Se viene specificato un computer remoto, le chiavi principali valide sono: HKLM e HKU.|
-|\<Nomechiave2 >|Specifica il percorso completo della destinazione della sottochiave. Per specificare un computer remoto, includere il nome del computer (nel formato \\\\nomecomputer\) come parte del *nome*della pagina. Se si omette \\\\nomecomputer \ l'operazione viene impostata sul computer locale per impostazione predefinita. Il *KeyName* deve includere una chiave radice valido. Le chiavi principali valide per il computer locale sono: HKLM, HKCU, HKCR, HKU e HKCC. Se viene specificato un computer remoto, le chiavi principali valide sono: HKLM e HKU.|
+|\<> Nomechiave1|Specifica il percorso completo della sottochiave da copiare. Per specificare un computer remoto, includere il nome del computer (nel formato \\ \\ComputerName\) come parte del *nome*della pagina. \\ \\Se si omette nomecomputer \, l'operazione viene impostata sul computer locale per impostazione predefinita. Il *nome* chiave deve includere una chiave radice valida. Le chiavi principali valide per il computer locale sono: HKLM, HKCU, HKCR, HKU e HKCC. Se viene specificato un computer remoto, le chiavi principali valide sono: HKLM e HKU.|
+|\<> Nomechiave2|Specifica il percorso completo della destinazione della sottochiave. Per specificare un computer remoto, includere il nome del computer (nel formato \\ \\ComputerName\) come parte del *nome*della pagina. \\ \\Se si omette nomecomputer \, l'operazione viene impostata sul computer locale per impostazione predefinita. Il *nome* chiave deve includere una chiave radice valida. Le chiavi principali valide per il computer locale sono: HKLM, HKCU, HKCR, HKU e HKCC. Se viene specificato un computer remoto, le chiavi principali valide sono: HKLM e HKU.|
 |/s|Copia tutte le sottochiavi e le voci nella sottochiave specificata.|
 |/f|Copia la sottochiave senza chiedere conferma.|
 |/?|Visualizza la Guida per **reg** Copia al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   Reg non chiede conferma per la copia di una sottochiave.
 -   Nella tabella seguente sono elencati i valori restituiti per il **Copia reg** operazione.
 
-|Valore|Descrizione|
+|valore|Descrizione|
 |-----|-----------|
-|0|Success|
-|1|Operazione non riuscita|
+|0|Operazione completata|
+|1|Errore|
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per copiare tutte le sottochiavi e valori della chiave MyApp chiave SalvaMiaApp, digitare:
 ```
@@ -61,6 +61,6 @@ Per copiare tutti i valori nella chiave MyCo nel computer denominato ZODIAC nell
 REG COPY \\ZODIAC\HKLM\Software\MyCo HKLM\Software\MyCo1
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

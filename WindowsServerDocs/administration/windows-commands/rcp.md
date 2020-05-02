@@ -1,6 +1,6 @@
 ---
 title: rcp
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b6d3ccf0ebb06e8d950a83909968f34470cd3ba1
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 1fd3daac59410b7d86c5a052e5ecadcbb668cde7
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80836694"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722652"
 ---
 # <a name="rcp"></a>rcp
 

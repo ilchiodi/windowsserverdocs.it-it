@@ -1,6 +1,6 @@
 ---
 title: Imposta contesto
-description: Windows Commands argomento per set context, che imposta il contesto per la creazione di copie shadow.
+description: Argomento di riferimento per il contesto di set, che imposta il contesto per la creazione di copie shadow.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 162fefc46bc3b8ae39dcb41a387e50ed98fefa70
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 9494cb8a0a6b0e320240d74980049a4e49843ecd
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80834564"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721926"
 ---
 # <a name="set-contex"></a>Set di menu di scelta rapida
 
 Imposta il contesto per la creazione di copie shadow. Se utilizzata senza parametri, **Imposta contesto** Visualizza la Guida al prompt dei comandi.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -37,17 +37,17 @@ set context {clientaccessible | persistent [nowriters] | volatile [nowriters]}
 |volatile|Consente di eliminare l'ombreggiatura copiare sul uscire o reimpostare.|
 |NoWriters|Specifica che tutti i writer sono esclusi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   Il *clientaccessible* contesto è persistente per impostazione predefinita.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per impedire che le copie shadow viene eliminata quando si esce dalla DiskShadow, digitare:
 ```
 set context persistent
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

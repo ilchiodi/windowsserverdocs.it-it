@@ -1,6 +1,6 @@
 ---
-title: rimozione
-description: Argomento dei comandi di Windows per * * * *-
+title: remove
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 666d7c1ecacda612b3ccb164e0b573ec257334b7
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 5f9107a038c90474244d9522a9a1b87794caa198
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80836054"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722426"
 ---
-# <a name="remove"></a>rimozione
+# <a name="remove"></a>remove
 
 
 

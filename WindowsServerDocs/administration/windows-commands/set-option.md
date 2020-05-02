@@ -1,6 +1,6 @@
 ---
-title: Opzione set
-description: Windows Commands argomento per set Option, che consente di impostare le opzioni per la creazione di copie shadow.
+title: Opzione SET
+description: Argomento di riferimento per l'opzione set, che consente di impostare le opzioni per la creazione di copie shadow.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a956c74619f3a6c33dfcaa62ee4c810cd93b21f1
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a4aba049e29cd74450467cf28057a2ff4e4a7094
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80834494"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82721896"
 ---
-# <a name="set-option"></a>Opzione set
+# <a name="set-option"></a>Opzione SET
 
 Imposta le opzioni per la creazione di copie shadow. Se utilizzata senza parametri, **impostare l'opzione** Visualizza la Guida al prompt dei comandi.
 
@@ -36,6 +36,6 @@ set option {[differential | plex] [transportable] [[rollbackrecover] [txfrecover
 |   [txfrecover]    |                                                               Richieste per effettuare la copia shadow coerenti durante la creazione di VSS.                                                                |
 |  [noautorecover]  | Gli autori si arresta e il file system di eseguire le modifiche di ripristino per la copia shadow in uno stato consistente. **Noautorecover** non può essere utilizzato con **txfrecover** o **rollbackrecover**. |
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

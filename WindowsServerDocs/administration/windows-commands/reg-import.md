@@ -1,6 +1,6 @@
 ---
 title: importazione reg
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0816297e837bbce91ca069e3506405cbdb53c51a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3e7e033091752f97086fd27fcb94e62469f0cced
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80836424"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82722549"
 ---
 # <a name="reg-import"></a>importazione reg
 
@@ -22,7 +22,7 @@ ms.locfileid: "80836424"
 
 Copia il contenuto di un file che contiene esportate le sottochiavi del Registro di sistema, le voci e valori nel Registro di sistema del computer locale.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -34,25 +34,25 @@ Reg import FileName
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<FileName >|Specifica il nome e percorso del file di contenuto deve essere copiato nel Registro di sistema del computer locale. Questo file deve essere creato in anticipo tramite **reg export**.|
+|\<> FileName|Specifica il nome e percorso del file di contenuto deve essere copiato nel Registro di sistema del computer locale. Questo file deve essere creato in anticipo tramite **reg export**.|
 |/?|Visualizza la Guida per **reg import** al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 Nella tabella seguente sono elencati i valori restituiti per il **reg import** operazione.
 
-|Valore|Descrizione|
+|valore|Descrizione|
 |-----|-----------|
-|0|Success|
-|1|Operazione non riuscita|
+|0|Operazione completata|
+|1|Errore|
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per importare le voci del Registro di sistema dal file AppBkUp, digitare:
 ```
 reg import AppBkUp.reg
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
