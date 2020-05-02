@@ -1,6 +1,6 @@
 ---
 title: bitsadmin create
-description: Argomento dei comandi di Windows per **BITSAdmin create**, che crea un processo di trasferimento con il nome visualizzato specificato.
+description: Argomento di riferimento per il comando Bitsadmin create, che crea un processo di trasferimento con il nome visualizzato specificato.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,20 +9,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4a922d9f15aff0a9bd064a7e987920adf3a9107d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 728027eb4680805c1f9a2afc32d8d37a14239597
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850814"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718215"
 ---
 # <a name="bitsadmin-create"></a>bitsadmin create
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Crea un processo di trasferimento con il nome visualizzato specificato. Scaricare i processi trasferire i dati da un server a un file locale. I processi di caricamento trasferiscono i dati da un file locale a un server. I processi di caricamento-risposta trasferiscono i dati da un file locale a un server e ricevono un file di risposta dal server.
+Crea un processo di trasferimento con il nome visualizzato specificato.
 
-Usare l'opzione [BITSAdmin Resume](bitsadmin-resume.md) per attivare il processo nella coda di trasferimento.
+> [!NOTE]
+> I tipi di parametro **tra/upload** e **/upload-Reply** non sono supportati da BITS 1,2 e versioni precedenti.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -34,17 +35,21 @@ bitsadmin /create [type] displayname
 
 | Parametro | Descrizione |
 | ------- | -------- |
-| type | -  **/download** trasferisce i dati da un server a un file locale.<p>- **tra/upload** trasferisce i dati da un file locale a un server.<p>-  **/upload-Reply** trasferisce i dati da un file locale a un server e riceve un file di risposta dal server.<p>Il valore predefinito di questo parametro è **/download** quando non è specificato nella riga di comando. Inoltre, i tipi di  **tra/upload** e **/upload-Reply** non sono disponibili in BITS 1,2 e versioni precedenti. |
+| type | Sono disponibili tre tipi di processi:<ul><li>**Scaricare.** Trasferisce i dati da un server a un file locale.</li><li>**/Upload.** Trasferisce i dati da un file locale a un server.</li><li>**/Upload-Reply.** Trasferisce i dati da un file locale a un server e riceve un file di risposta dal server.</li></ul>Se non è specificato, il valore predefinito di questo parametro è **/download** . |
 | displayname | Nome visualizzato assegnato al processo appena creato. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
-Crea un processo di download denominato *myDownloadJob*.
+Per creare un processo di download denominato *myDownloadJob*:
 
 ```
-C:\>bitsadmin /create myDownloadJob
+bitsadmin /create myDownloadJob
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin Resume](bitsadmin-resume.md)
+
+- [comando Bitsadmin](bitsadmin.md)

@@ -1,6 +1,6 @@
 ---
-title: GetHttpMethod Bitsadmin
-description: Windows Commands Topic for **BITSAdmin GetHttpMethod**, che ottiene il verbo HTTP da usare con il processo.
+title: bitsadmin gethttpmethod
+description: Argomento di riferimento per il comando Bitsadmin GetHttpMethod, che ottiene il verbo HTTP da usare con il processo.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -8,14 +8,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/01/2019
-ms.openlocfilehash: 4b5f131c8502545e3c4ea4107167d6da56c68d8c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a458322a5ace69df74df054a537a7365da9e7329
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850654"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717887"
 ---
-# <a name="bitsadmin-gethttpmethod"></a>GetHttpMethod Bitsadmin
+# <a name="bitsadmin-gethttpmethod"></a>bitsadmin gethttpmethod
 
 Ottiene il verbo HTTP da utilizzare con il processo.
 
@@ -29,8 +29,18 @@ bitsadmin /gethttpmethod <Job>
 
 | Parametro | Descrizione |
 | -------------- | -------------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="examples"></a>Esempi
+
+Per recuperare il verbo HTTP da usare con il processo denominato *myDownloadJob*:
+
+```
+bitsadmin /gethttpmethod myDownloadJob
+```
+
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

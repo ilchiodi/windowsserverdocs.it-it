@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getminretrydelay
-description: Argomento dei comandi di Windows per **BITSAdmin getminretrydelay**, che consente di recuperare il tempo, in secondi, di attesa del servizio dopo aver rilevato un errore temporaneo prima di provare a trasferire il file.
+description: Argomento di riferimento per il comando Bitsadmin getminretrydelay, che consente di recuperare il tempo, in secondi, di attesa del servizio dopo aver rilevato un errore temporaneo prima di provare a trasferire il file.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d79ffdf1f45b0198b4af535ed83154c3c2ec24f4
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a50b9d98fe0b873dc58b8e86dc672a8f4157208a
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850624"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717851"
 ---
 # <a name="bitsadmin-getminretrydelay"></a>bitsadmin getminretrydelay
 
@@ -30,16 +30,18 @@ bitsadmin /getminretrydelay <job>
 
 | Parametro | Descrizione |
 | -------------- | -------------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
-Nell'esempio seguente viene recuperato il ritardo minimo tra tentativi per il processo denominato *myDownloadJob*.
+Per recuperare il ritardo minimo dei tentativi per il processo denominato *myDownloadJob*:
 
 ```
-C:\>bitsadmin /getminretrydelay myDownloadJob
+bitsadmin /getminretrydelay myDownloadJob
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

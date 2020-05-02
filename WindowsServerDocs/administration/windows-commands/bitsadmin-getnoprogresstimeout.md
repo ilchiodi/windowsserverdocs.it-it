@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getnoprogresstimeout
-description: Windows Commands Topic for **BITSAdmin getnoprogresstimeout**, che consente di recuperare il periodo di tempo, in secondi, durante il quale il servizio tenterà di trasferire il file dopo un errore temporaneo.
+description: Argomento di riferimento per il comando Bitsadmin getnoprogresstimeout, che consente di recuperare il periodo di tempo, in secondi, durante il quale il servizio tenterà di trasferire il file dopo che si è verificato un errore temporaneo.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cf2cfd77b494e221b60c8816ff46eed5f9252f39
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3ee0377bde8a438f23ca571bc9859deef92f18fb
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850604"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717818"
 ---
 # <a name="bitsadmin-getnoprogresstimeout"></a>bitsadmin getnoprogresstimeout
 
@@ -30,16 +30,18 @@ bitsadmin /getnoprogresstimeout <job>
 
 | Parametro | Descrizione |
 | -------------- | -------------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
-Nell'esempio seguente viene recuperato il valore di timeout dello stato di avanzamento per il processo denominato *myDownloadJob*.
+Per recuperare il valore di timeout dello stato di avanzamento per il processo denominato *myDownloadJob*:
 
 ```
-C:\>bitsadmin /getnoprogresstimeout myDownloadJob
+bitsadmin /getnoprogresstimeout myDownloadJob
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)
