@@ -1,6 +1,6 @@
 ---
-title: getvalidationstate Bitsadmin
-description: Windows Commands Topic for **BITSAdmin getvalidationstate**, che segnala lo stato di convalida del contenuto del file specificato all'interno del processo.
+title: bitsadmin getvalidationstate
+description: Argomento di riferimento per il comando Bitsadmin getvalidationstate, che segnala lo stato di convalida del contenuto del file specificato all'interno del processo.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 52d7d983cc7858607c350483ed81223d107cee25
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ca753b20a1b7834d2e05d4ff8729a08332256f8c
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850434"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717455"
 ---
-# <a name="bitsadmin-getvalidationstate"></a>getvalidationstate Bitsadmin
+# <a name="bitsadmin-getvalidationstate"></a>bitsadmin getvalidationstate
 
 Segnala lo stato di convalida del contenuto del file specificato all'interno del processo.
 
@@ -30,17 +30,19 @@ bitsadmin /getvalidationstate <job> <file_index>
 
 | Parametro | Descrizione |
 | -------------- | -------------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 | file_index | Inizia da 0. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
-Nell'esempio seguente viene ottenuto lo stato di convalida del contenuto del file 2 nel processo denominato *myDownloadJob*.
+Per recuperare lo stato di convalida del contenuto del file 2 nel processo denominato *myDownloadJob*:
 
 ```
-C:\>bitsadmin /getvalidationstate myDownloadJob 1
+bitsadmin /getvalidationstate myDownloadJob 1
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getstate
-description: Windows Commands argomento per **BITSAdmin GetState**, che recupera lo stato del processo specificato.
+description: Argomento di riferimento per il comando Bitsadmin GetState, che recupera lo stato del processo specificato.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 43cd8c8e614cce65f55b16fc5395b1d37de0cf95
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ab014c96c6d5d62232243d704d41d33cfcfc50f0
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850464"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717532"
 ---
 # <a name="bitsadmin-getstate"></a>bitsadmin getstate
 
@@ -30,32 +30,34 @@ bitsadmin /getstate <job>
 
 | Parametro | Descrizione |
 | -------------- | -------------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 
-## <a name="output"></a>Output
+#### <a name="output"></a>Output
 
-I valori di output includono:
+I valori di output restituiti possono essere:
 
-| Stato | Descrizione |
+| State | Descrizione |
 | --------------- | ----------- |
-| Accodato | Il processo è in attesa di esecuzione. |
-| Connessione in corso | BITS è la connessione al server. |
-| Trasferimento | BITS è il trasferimento dei dati. |
+| Queued | Il processo è in attesa di esecuzione. |
+| Connecting | BITS è la connessione al server. |
+| Transferring | BITS è il trasferimento dei dati. |
 | Trasferiti | BITS ha trasferito correttamente tutti i file nel processo. |
 | Suspended | Il processo è stato sospeso. |
 | Errore | Si è verificato un errore irreversibile; il trasferimento non verrà ritentato. |
 | Transient_Error | Si è verificato un errore reversibile; i tentativi di trasferimento quando scade l'intervallo minimo tra tentativi. |
-| Riconosciuto | Il processo è stato completato. |
-| Canceled | Il processo è stato annullato. |
+| Confermato | Il processo è stato completato. |
+| Cancellati | Il processo è stato annullato. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
-Nell'esempio seguente recupera lo stato del processo *myDownloadJob*.
+Per recuperare lo stato per il processo denominato *myDownloadJob*:
 
 ```
-C:\>bitsadmin /getstate myDownloadJob
+bitsadmin /getstate myDownloadJob
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

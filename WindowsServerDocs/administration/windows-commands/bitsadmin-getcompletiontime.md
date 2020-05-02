@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getcompletiontime
-description: Windows Commands Topic for **BITSAdmin getcompletiontime**, che consente di recuperare il tempo di completamento del trasferimento dei dati da parte del processo.
+description: Argomento di riferimento per il comando Bitsadmin getcompletiontime, che consente di recuperare l'ora in cui il processo ha terminato il trasferimento dei dati.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5408e7e8c35135601a4a0af0ab7e9c55cea4c8dd
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 9b3721401e450ae60fb77534f8eb845ff5ac3443
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850754"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718113"
 ---
 # <a name="bitsadmin-getcompletiontime"></a>bitsadmin getcompletiontime
 
@@ -30,16 +30,18 @@ bitsadmin /getcompletiontime <job>
 
 | Parametro | Descrizione |
 | -------------- | -------------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
-Nell'esempio seguente viene recuperata l'ora in cui il processo denominato *myDownloadJob* ha terminato il trasferimento dei dati.
+Per recuperare l'ora in cui il processo denominato *myDownloadJob* ha terminato il trasferimento dei dati:
 
 ```
-C:\>bitsadmin /getcompletiontime myDownloadJob
+bitsadmin /getcompletiontime myDownloadJob
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

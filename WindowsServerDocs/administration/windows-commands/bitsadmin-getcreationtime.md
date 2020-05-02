@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getcreationtime
-description: Windows Commands Topic for **BITSAdmin GetCreationTime**, che consente di recuperare l'ora di creazione per il processo specificato.
+description: Argomento di riferimento per il comando Bitsadmin GetCreationTime, che consente di recuperare l'ora di creazione per il processo specificato.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cd8f718e53cc44dc5f4c6f5ff09c9a5c201e0564
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: dc6ca5ad23730e9f57d58e069e0a2daf961930e8
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850744"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718109"
 ---
 # <a name="bitsadmin-getcreationtime"></a>bitsadmin getcreationtime
 
@@ -30,16 +30,18 @@ bitsadmin /getcreationtime <job>
 
 | Parametro | Descrizione |
 | -------------- | -------------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
-Nell'esempio seguente viene recuperata l'ora di creazione per il processo denominato *myDownloadJob*.
+Per recuperare l'ora di creazione per il processo denominato *myDownloadJob*:
 
 ```
-C:\>bitsadmin /getcreationtime myDownloadJob
+bitsadmin /getcreationtime myDownloadJob
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

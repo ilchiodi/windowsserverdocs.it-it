@@ -1,6 +1,6 @@
 ---
 title: bitsadmin gettype
-description: Windows Commands argomento per **BITSAdmin GetType**, che consente di recuperare il tipo di processo del processo specificato.
+description: Argomento di riferimento per il comando Bitsadmin GetType, che consente di recuperare il tipo di processo del processo specificato.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 66a1fc5b0478e1eec26557dc9a7f76d50abcb8b6
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 151f9b8e81229a666111ebcd20f060d84160445a
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850444"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717472"
 ---
 # <a name="bitsadmin-gettype"></a>bitsadmin gettype
 
@@ -30,27 +30,29 @@ bitsadmin /gettype <job>
 
 | Parametro | Descrizione |
 | -------------- | -------------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 
-## <a name="output"></a>Output
+#### <a name="output"></a>Output
 
-I valori di output includono:
+I valori di output restituiti possono essere:
 
-| Type | Descrizione |
+| Type | Description |
 | --------------- | ----------- |
 | Download | Il processo è un download. |
-| Carica | Il processo è un caricamento. |
+| Caricamento | Il processo è un caricamento. |
 | Caricamento-risposta | Il processo è di caricamento-risposta. |
 | Sconosciuto | Il tipo del processo è sconosciuto. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
-Nell'esempio seguente viene recuperato il tipo di processo per il processo denominato *myDownloadJob*.
+Per recuperare il tipo di processo per il processo denominato *myDownloadJob*:
 
 ```
-C:\>bitsadmin /gettype myDownloadJob
+bitsadmin /gettype myDownloadJob
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

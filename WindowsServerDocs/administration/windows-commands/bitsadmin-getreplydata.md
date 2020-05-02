@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getreplydata
-description: Windows Commands Topic for **BITSAdmin getreplydata**, che recupera i dati di risposta di caricamento del server in formato esadecimale per il processo.
+description: Argomento di riferimento per il comando Bitsadmin getreplydata, che consente di recuperare i dati di caricamento e risposta del server in formato esadecimale per il processo.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fb83ca93f8e73445788d926e0d5e6db4c774d759
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ea2a82403fe05776abbbf65e87a4b6e72c8767b8
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850504"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717622"
 ---
 # <a name="bitsadmin-getreplydata"></a>bitsadmin getreplydata
 
-Recupera i dati di risposta di caricamento del server in formato esadecimale per il processo.
+Recupera i dati di caricamento/risposta del server in formato esadecimale per il processo.
 
 > [!NOTE]
 > Questo comando non è supportato da BITS 1,2 e versioni precedenti.
@@ -33,16 +33,18 @@ bitsadmin /getreplydata <job>
 
 | Parametro | Descrizione |
 | -------------- | -------------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
-Nell'esempio seguente vengono recuperati i dati di risposta di caricamento per il processo denominato *myDownloadJob*.
+Per recuperare i dati di caricamento-risposta per il processo denominato *myDownloadJob*:
 
 ```
-C:\>bitsadmin /getreplydata myDownloadJob
+bitsadmin /getreplydata myDownloadJob
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

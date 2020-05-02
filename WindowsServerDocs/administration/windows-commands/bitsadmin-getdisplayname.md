@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getdisplayname
-description: Windows Commands argomento per **BITSAdmin GetDisplayName**, che recupera il nome visualizzato del processo specificato.
+description: Argomento di riferimento per il comando Bitsadmin GetDisplayName, che consente di recuperare il nome visualizzato del processo specificato.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6944dc2b7a63ca986fb285d26796f350c1052295
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f7c92fdb7c743c1a4c71f076764f5d1da2d95a6f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850714"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718023"
 ---
 # <a name="bitsadmin-getdisplayname"></a>bitsadmin getdisplayname
 
@@ -30,16 +30,18 @@ bitsadmin /getdisplayname <job>
 
 | Parametro | Descrizione |
 | -------------- | -------------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
-Nell'esempio seguente viene recuperato il nome visualizzato per il processo denominato *myDownloadJob*.
+Per recuperare il nome visualizzato per il processo denominato *myDownloadJob*:
 
 ```
-C:\>bitsadmin /getdisplayname myDownloadJob
+bitsadmin /getdisplayname myDownloadJob
 ```
 
 ## <a name="additional-references"></a>Altri riferimenti
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

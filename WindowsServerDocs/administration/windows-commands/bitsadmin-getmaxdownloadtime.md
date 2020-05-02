@@ -1,6 +1,6 @@
 ---
-title: getmaxdownloadtime Bitsadmin
-description: Windows Commands Topic for **BITSAdmin getmaxdownloadtime**, che recupera il timeout di download in secondi.
+title: bitsadmin getmaxdownloadtime
+description: Argomento di riferimento per il comando Bitsadmin getmaxdownloadtime, che consente di recuperare il timeout di download in secondi.
 ms.prod: windows-servemr
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8b6e4a45da76d5ba39edae151454ad7f28a74085
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: c63acee7629267ed10df11fb8cf4eeb0c911e118
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850634"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717871"
 ---
-# <a name="bitsadmin-getmaxdownloadtime"></a>getmaxdownloadtime Bitsadmin
+# <a name="bitsadmin-getmaxdownloadtime"></a>bitsadmin getmaxdownloadtime
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Recupera il timeout di download in secondi.
 
@@ -32,16 +32,18 @@ bitsadmin /getmaxdownloadtime <job>
 
 | Parametro | Descrizione |
 | -------------- | -------------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
-Nell'esempio seguente viene ottenuto il tempo massimo di download per il processo denominato *myDownloadJob* in secondi.
+Per ottenere il tempo massimo di download per il processo denominato *myDownloadJob* in secondi:
 
 ```
-C:\>bitsadmin /getmaxdownloadtime myDownloadJob
+bitsadmin /getmaxdownloadtime myDownloadJob
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

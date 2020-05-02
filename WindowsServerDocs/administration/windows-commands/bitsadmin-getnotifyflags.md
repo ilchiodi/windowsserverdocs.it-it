@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getnotifyflags
-description: Windows Commands Topic for **BITSAdmin getnotifyflags**, che recupera i flag di notifica per il processo specificato.
+description: Argomento di riferimento per il comando Bitsadmin getnotifyflags, che consente di recuperare i flag di notifica per il processo specificato.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3138baea05f793cfb587d3f8fb669d446daea6b5
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 36e4c3584b2e3be9c9985756aeaec08b40e74b0c
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850584"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717770"
 ---
 # <a name="bitsadmin-getnotifyflags"></a>bitsadmin getnotifyflags
 
@@ -30,9 +30,9 @@ bitsadmin /getnotifyflags <job>
 
 | Parametro | Descrizione |
 | -------------- | -------------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 Il processo può contenere uno o più dei flag di notifica seguenti:
 
@@ -43,14 +43,16 @@ Il processo può contenere uno o più dei flag di notifica seguenti:
 | 0x004 | Disabilitare le notifiche. |
 | 0x008 | Genera un evento quando il processo viene modificato o viene eseguito lo stato del trasferimento. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
-Nell'esempio seguente vengono recuperati i flag di notifica per il processo denominato *myDownloadJob*.
+Per recuperare i flag di notifica per il processo denominato *myDownloadJob*:
 
 ```
-C:\>bitsadmin /getnotifyflags myDownloadJob
+bitsadmin /getnotifyflags myDownloadJob
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

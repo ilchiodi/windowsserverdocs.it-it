@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getowner
-description: Windows Commands argomento per Bitsadmin **GetOwner**, che recupera il proprietario del processo specificato.
+description: Argomento di riferimento per il comando Bitsadmin GetOwner, che recupera il proprietario del processo specificato.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3e622c3759c9ec20867c693539c4481c70aa4f26
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 2a345ea47232f1f4d6340e1341747c9dad92382b
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850564"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717713"
 ---
 # <a name="bitsadmin-getowner"></a>bitsadmin getowner
 
@@ -30,16 +30,18 @@ bitsadmin /getowner <job>
 
 | Parametro | Descrizione |
 | -------------- | -------------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
-Nell'esempio seguente viene visualizzato il proprietario del processo denominato *myDownloadJob*.
+Per visualizzare il proprietario del processo denominato *myDownloadJob*:
 
 ```
-C:\>bitsadmin /getowner myDownloadJob
+bitsadmin /getowner myDownloadJob
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

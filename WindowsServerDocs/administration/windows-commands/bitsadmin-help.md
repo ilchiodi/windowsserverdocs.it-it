@@ -1,6 +1,6 @@
 ---
 title: bitsadmin help
-description: Argomento dei comandi di Windows per la **Guida di Bitsadmin**, che consente di visualizzare l'utilizzo della riga di comando.
+description: Argomento di riferimento per il comando della Guida Bitsadmin, che consente di visualizzare l'utilizzo della riga di comando.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 95bc71c058ee1b20f86202198b1c176744ee403d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: d899ab94101505b69ac5cc4d86a612a4bbb91348
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850424"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717443"
 ---
 # <a name="bitsadmin-help"></a>bitsadmin help
 
@@ -26,14 +26,16 @@ Visualizza le informazioni relative alla guida relative ai parametri della riga 
 bitsadmin /help | /?
 ```
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
-Nell'esempio seguente viene recuperata la guida della riga di comando.
+Per recuperare la guida della riga di comando.
 
 ```
-C:\>bitsadmin /help
+bitsadmin /help
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

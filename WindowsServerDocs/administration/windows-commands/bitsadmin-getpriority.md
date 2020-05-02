@@ -1,6 +1,6 @@
 ---
-title: Bitsadmin GetPriority
-description: Windows Commands argomento per **BITSAdmin GetPriority**, che recupera la priorità del processo specificato.
+title: bitsadmin getpriority
+description: Argomento di riferimento per il comando Bitsadmin GetPriority, che recupera la priorità del processo specificato.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -8,14 +8,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/01/2019
-ms.openlocfilehash: b27829a0fb852abb88c88a65e61e8d7693ca2df2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 38f92e83ccf5b048d168ce6a21c6026f490b18bf
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850544"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717674"
 ---
-# <a name="bitsadmin-getpriority"></a>Bitsadmin GetPriority
+# <a name="bitsadmin-getpriority"></a>bitsadmin getpriority
 
 Recupera la priorità del processo specificato.
 
@@ -29,11 +29,11 @@ bitsadmin /getpriority <job>
 
 | Parametro | Descrizione |
 | -------------- | -------------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 
-## <a name="remarks"></a>Note
+#### <a name="output"></a>Output
 
-La priorità per questo comando può essere:
+La priorità restituita per questo comando può essere:
 
 - **FOREGROUND**
 
@@ -45,14 +45,16 @@ La priorità per questo comando può essere:
 
 - **SCONOSCIUTO**
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
-Nell'esempio seguente viene recuperata la priorità per il processo denominato *myDownloadJob*.
+Per recuperare la priorità per il processo denominato *myDownloadJob*:
 
 ```
-C:\>bitsadmin /getpriority myDownloadJob
+bitsadmin /getpriority myDownloadJob
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

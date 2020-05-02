@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getaclflags
-description: Argomento dei comandi di Windows per **BITSAdmin GETACLFLAGS**, che recupera i flag di propagazione dell'elenco di controllo di accesso (ACL).
+description: Argomento di riferimento per il comando Bitsadmin GETACLFLAGS, che consente di recuperare i flag di propagazione dell'elenco di controllo di accesso (ACL).
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d53018e2fa5c659c8cf4b0ec985beda848a8c1af
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a9ca541b488c3c83e7a64a138bae0914001778e3
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850794"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718179"
 ---
 # <a name="bitsadmin-getaclflags"></a>bitsadmin getaclflags
 
@@ -30,11 +30,11 @@ bitsadmin /getaclflags <job>
 
 | Parametro | Descrizione |
 | --------- | ----------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 
-## <a name="remarks"></a>Note
+### <a name="remarks"></a>Osservazioni
 
-Visualizza uno o più dei seguenti valori di flag:
+Restituisce uno o più dei seguenti valori di flag:
 
 - **o** -copia le informazioni sul proprietario con il file.
 
@@ -44,14 +44,16 @@ Visualizza uno o più dei seguenti valori di flag:
 
 - **s** : copia le informazioni dell'elenco di controllo di accesso di sistema (SACL) con file.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
-Nell'esempio seguente vengono recuperati i flag di propagazione dell'elenco di controllo di accesso per il processo denominato *myDownloadJob*.
+Per recuperare i flag di propagazione dell'elenco di controllo di accesso per il processo denominato *myDownloadJob*:
 
 ```
-C:\>bitsadmin /getaclflags myDownloadJob
+bitsadmin /getaclflags myDownloadJob
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

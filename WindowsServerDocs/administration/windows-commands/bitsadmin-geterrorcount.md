@@ -1,6 +1,6 @@
 ---
 title: bitsadmin geterrorcount
-description: Windows Commands Topic for **BITSAdmin GetErrorCount**, che recupera un conteggio del numero di volte in cui il processo specificato ha generato un errore temporaneo.
+description: Argomento di riferimento per il comando Bitsadmin GetErrorCount, che recupera un conteggio del numero di volte in cui il processo specificato ha generato un errore temporaneo.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ef0bf043517d4edfa8d72888746ca5d9c92ecc21
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: 516bd02ed296a2eba75e174c6f084926bde63e90
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81123131"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718003"
 ---
 # <a name="bitsadmin-geterrorcount"></a>bitsadmin geterrorcount
 
@@ -30,16 +30,18 @@ bitsadmin /geterrorcount <job>
 
 | Parametro | Descrizione |
 | -------------- | -------------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
-Nell'esempio seguente vengono recuperate le informazioni sul conteggio degli errori per il processo denominato *myDownloadJob*.
+Per recuperare le informazioni sul numero di errori per il processo denominato *myDownloadJob*:
 
 ```
-C:\>bitsadmin /geterrorcount myDownloadJob
+bitsadmin /geterrorcount myDownloadJob
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

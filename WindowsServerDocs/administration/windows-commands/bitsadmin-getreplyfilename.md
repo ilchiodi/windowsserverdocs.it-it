@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getreplyfilename
-description: Windows Commands Topic for **BITSAdmin getreplyfilename**, che ottiene il percorso del file che contiene la risposta di caricamento del server per il processo.
+description: Argomento di riferimento per il comando Bitsadmin getreplyfilename, che ottiene il percorso del file che contiene il server di caricamento-risposta per il processo.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 541a6e60d641405b5da2e65fecbbbe87468c8702
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: daed755e0ddc045174b98a8d4f9ee84da155cba6
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850494"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717598"
 ---
 # <a name="bitsadmin-getreplyfilename"></a>bitsadmin getreplyfilename
 
-Ottiene il percorso del file che contiene la risposta di caricamento del server per il processo.
+Ottiene il percorso del file che contiene il server di caricamento-risposta per il processo.
 
 > [!NOTE]
 > Questo comando non è supportato da BITS 1,2 e versioni precedenti.
@@ -33,17 +33,18 @@ bitsadmin /getreplyfilename <job>
 
 | Parametro | Descrizione |
 | -------------- | -------------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 
+## <a name="examples"></a>Esempi
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
-
-Nell'esempio seguente viene recuperato il nome file della risposta di caricamento per il processo denominato *myDownloadJob*.
+Per recuperare il nome file di upload-Reply per il processo denominato *myDownloadJob*:
 
 ```
-C:\>bitsadmin /getreplyfilename myDownloadJob
+bitsadmin /getreplyfilename myDownloadJob
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

@@ -1,6 +1,6 @@
 ---
 title: bitsadmin getproxyusage
-description: Windows Commands Topic for **BITSAdmin getproxyusage**, che recupera l'impostazione di utilizzo del proxy per il processo specificato.
+description: Argomento di riferimento per il comando Bitsadmin getproxyusage, che consente di recuperare l'impostazione di utilizzo del proxy per il processo specificato.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 01c9bb9a1d413fa847482f652e18eed30ad76109
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 13a3f216b1ed3c77dbbefee37d73a657525daa36
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850514"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717644"
 ---
 # <a name="bitsadmin-getproxyusage"></a>bitsadmin getproxyusage
 
@@ -30,11 +30,11 @@ bitsadmin /getproxyusage <job>
 
 | Parametro | Descrizione |
 | -------------- | -------------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 
-## <a name="remarks"></a>Note
+#### <a name="output"></a>Output
 
-I valori di utilizzo del proxy includono:
+I valori di utilizzo del proxy restituiti possono essere:
 
 - **Preconfig** : usare le impostazioni predefinite di Internet Explorer del proprietario.
 
@@ -44,14 +44,16 @@ I valori di utilizzo del proxy includono:
 
 - **Rilevamento** automatico: rileva automaticamente le impostazioni del proxy.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
-Nell'esempio seguente viene recuperato l'utilizzo di proxy per il processo denominato *myDownloadJob*.
+Per recuperare l'utilizzo del proxy per il processo denominato *myDownloadJob*:
 
 ```
-C:\>bitsadmin /getproxyusage myDownloadJob
+bitsadmin /getproxyusage myDownloadJob
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)
