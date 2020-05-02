@@ -1,6 +1,6 @@
 ---
 title: msdt
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 87c1e4e8cd6d9de036b47de590867a6531d0335a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: e5d31b1b5a73d975aec08d675aaff04ee29c7d3c
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80839254"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723878"
 ---
 # <a name="msdt"></a>msdt
 
@@ -35,9 +35,9 @@ Nella tabella seguente sono inclusi i parametri e le opzioni supportati da MSDT.
 
 |      Parametro      |                                                                                            Descrizione                                                                                             |
 |---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| nome del pacchetto \</ID > |        Specifica il pacchetto di diagnostica da eseguire. Per un elenco dei pacchetti disponibili, vedere la sezione Troubleshooting Pack ID nella sezione available Troubleshooting Packs più avanti in questo argomento.         |
-|  /path \<directory  |                                                                                           file con estensione diagpkg                                                                                            |
-|   /DCI \<passkey >   |                                        Popola il campo passkey in MSDT. Questo parametro viene utilizzato solo quando un provider di supporto ha fornito una passkey.                                         |
-|  /DT \<Directory >   | Visualizza la cronologia di risoluzione dei problemi nella directory specificata. I risultati diagnostici vengono archiviati nelle directory **%LocalAppData%\Diagnostics** o **%LocalAppData%\ElevatedDiagnostics** dell'utente. |
-| /AF \<> file di risposte  |                                               Specifica un file di risposte in formato XML che contiene risposte a una o più interazioni di diagnostica.                                               |
+| nome \<del pacchetto/ID> |        Specifica il pacchetto di diagnostica da eseguire. Per un elenco dei pacchetti disponibili, vedere la sezione Troubleshooting Pack ID nella sezione available Troubleshooting Packs più avanti in questo argomento.         |
+|  Directory \</Path  |                                                                                           file con estensione diagpkg                                                                                            |
+|   > \<passkey/DCI   |                                        Popola il campo passkey in MSDT. Questo parametro viene utilizzato solo quando un provider di supporto ha fornito una passkey.                                         |
+|  > \<directory/DT   | Visualizza la cronologia di risoluzione dei problemi nella directory specificata. I risultati diagnostici vengono archiviati nelle directory **%LocalAppData%\Diagnostics** o **%LocalAppData%\ElevatedDiagnostics** dell'utente. |
+| > \<file di risposte/AF  |                                               Specifica un file di risposte in formato XML che contiene risposte a una o più interazioni di diagnostica.                                               |
 

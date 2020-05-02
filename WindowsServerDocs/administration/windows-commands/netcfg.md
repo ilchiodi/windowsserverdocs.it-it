@@ -1,6 +1,6 @@
 ---
 title: netcfg
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4895928ffdd5d923d370f82e699d69f42c0f81a5
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a5945da45ee01fd5bf5f89a7835c4bae0b5534c4
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80838934"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723802"
 ---
 # <a name="netcfg"></a>netcfg
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Installa il Ambiente preinstallazione di Windows (WinPE), una versione leggera di Windows usata per distribuire le workstation.
 ## <a name="syntax"></a>Sintassi
@@ -32,13 +32,13 @@ netcfg [/v] [/e] [/winpe] [/l ] /c /i
 |/e|Usare le variabili di **ambiente** di manutenzione durante l'installazione e la disinstallazione|
 |/winpe|Installa TCP/IP, NetBIOS e Microsoft client per ambiente preinstallazione di Windows (WinPE)|
 |/l|Fornisce il **percorso** del inf|
-|/c|Fornisce la **classe** del componente da installare. protocollo, servizio o client|
+|/C|Fornisce la **classe** del componente da installare. protocollo, servizio o client|
 |/i|Fornisce l' **ID** componente|
 |/s|Fornisce il tipo di componenti da **visualizzare**.<p>\ta = Adapters, n = NET Components|
 |/ b|Consente di visualizzare i **percorsi di associazione**, se seguiti da una stringa contenente il nome del percorso.|
 |/?|Visualizza la **Guida** al prompt dei comandi.|
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per installare l' *esempio* di protocollo usando c:\oemdir\example.inf:
 ```
@@ -68,5 +68,5 @@ Per visualizzare i percorsi di binding contenenti *MS_TCPIP*:
 ```
 netcfg /b ms_tcpip
 ```
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 -   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

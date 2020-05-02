@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: c4836665946b39acdacf4c204c6e79fc2d8507bd
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 569b879caf29aac6d1592d822072f35021cec9d3
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80837534"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723299"
 ---
 # <a name="pnpunattend"></a>pnpunattend
 
-Controlla un computer per i driver di dispositivo ed esegue le installazioni automatiche dei driver o cerca i driver senza installare e, facoltativamente, segnalare i risultati alla riga di comando. Usare questo comando per specificare l'installazione di driver specifici per dispositivi hardware specifici. Vedi Osservazioni.
+Controlla un computer per i driver di dispositivo ed esegue le installazioni automatiche dei driver o cerca i driver senza installare e, facoltativamente, segnalare i risultati alla riga di comando. Usare questo comando per specificare l'installazione di driver specifici per dispositivi hardware specifici. Vedere la sezione Osservazioni.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -30,12 +30,12 @@ PnPUnattend.exe auditSystem [/help] [/?] [/h] [/s] [/L]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|Passaggio auditSystem|Specifica l'installazione del driver online.</br>Obbligatorio, tranne quando **pnpunattend** viene eseguito con **/Help** o **/?** .|
+|Passaggio auditSystem|Specifica l'installazione del driver online.</br>Obbligatorio, tranne quando **pnpunattend** viene eseguito con **/Help** o **/?** parametri.|
 |/s|Facoltativa. Specifica la ricerca dei driver senza installare.|
 |/L|Facoltativa. Specifica di visualizzare le informazioni di log per questo comando nel prompt dei comandi.|
 |/?|Facoltativa. Visualizza la guida per questo comando al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 La preparazione preliminare è obbligatoria. Prima di utilizzare questo comando, è necessario completare le attività seguenti:
 
@@ -43,12 +43,12 @@ La preparazione preliminare è obbligatoria. Prima di utilizzare questo comando,
 2. Scaricare ed estrarre il pacchetto driver per il dispositivo. Copiare il contenuto della sottocartella che contiene il file INF per la versione del sistema operativo ed eventuali sottocartelle nella cartella video creata. Ad esempio, copiare i file del driver video in C:\Drivers\Video.
 3. Aggiungere una variabile di percorso dell'ambiente di sistema alla cartella creata nel passaggio 1, ad esempio **C:\Drivers\Video**.
 4. Creare la chiave del registro di sistema seguente e quindi, per la chiave **DriverPaths** creata, impostare i **dati del valore** su **1**.
-5. Per Windows® 7 esplorare il percorso del registro di sistema: **HKEY_LOCAL_Machine \Software\microsoft\windows NT\CurrentVersion\\** , quindi creare le chiavi: **UnattendSettings\PnPUnattend\DriverPaths\\**
-6. Per Windows Vista, passare al percorso del registro di sistema: **HK_LM \Software\microsoft\windows NT\CurrentVersion\\** , quindi creare le chiavi = **\UnattendSettings\PnPUnattend\DriverPaths**.
+5. Per Windows® 7 esplorare il percorso del registro di sistema: **HKEY_LOCAL_Machine \Software\Microsoft\Windows NT\CurrentVersion\\**, quindi creare le chiavi: **UnattendSettings\PnPUnattend\DriverPaths\\ **
+6. Per Windows Vista, passare al percorso del registro di sistema: **HK_LM\\\Software\Microsoft\Windows NT\CurrentVersion**, quindi creare le chiavi = **\UnattendSettings\PnPUnattend\DriverPaths**.
 
 ## <a name="examples"></a>Esempi
 
-Il comando di esempio seguente mostra come usare **PNPUnattend. exe** per controllare un computer per individuare possibili aggiornamenti dei driver, quindi segnalare i risultati al prompt dei comandi.
+Per eseguire il comando, viene illustrato come utilizzare **PNPUnattend. exe** per controllare un computer per individuare possibili aggiornamenti dei driver, quindi segnalare i risultati al prompt dei comandi.
 
 ```
 pnpunattend auditsystem /s /l 

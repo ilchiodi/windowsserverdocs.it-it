@@ -1,6 +1,6 @@
 ---
 title: nslookup set search
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9972919eae1be21d5dd30820d64dd1576b935666
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 2e3f5bce42d3614b535b2dfb00c4c9ea9cac2346
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80838304"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723560"
 ---
 # <a name="nslookup-set-search"></a>nslookup set search
 
@@ -36,6 +36,6 @@ set [no]search
 |  **ricerca**  | Accoda i nomi di dominio di Domain Name System (DNS) nell'elenco di ricerca del dominio DNS alla richiesta fino a quando non viene ricevuta una risposta. La sintassi predefinita è **Search**. |
 |    {Guida     |                                                                              ?}                                                                               |
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

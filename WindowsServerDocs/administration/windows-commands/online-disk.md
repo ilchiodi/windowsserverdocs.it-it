@@ -1,6 +1,6 @@
 ---
 title: disco online
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c61d852ba71329c3d7345d74fd352a6c19436cec
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 110a73a46712e3cbe5b5ff22b7e4343afb103966
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80837894"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723418"
 ---
 # <a name="online-disk"></a>disco online
 
@@ -40,9 +40,9 @@ online disk [noerr]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|NOERR|solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.|
+|NOERR|Solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   Se utilizzato senza parametri in Windows Vista, questo comando opera su un gruppo di dischi. Per i dischi di base, non è mai più di un disco per ogni gruppo. Per i dischi dinamici, il gruppo include tutti i dischi dinamici non esterni.
 -   Per i dischi di base, il comando tenterà di portare online il disco selezionato e tutti i volumi presenti sul disco.
@@ -51,14 +51,14 @@ online disk [noerr]
 -   Se il gruppo di un disco selezionato contiene volumi con mirroring o RAID-5, questo comando Risincronizza anche questi volumi.
 -   È necessario selezionare un disco per questo comando abbia esito positivo. Utilizzare il **disco selezionare** comando per selezionare un disco e spostare lo stato attivo a esso.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per portare il disco in linea, digitare:
 ```
 online disk
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

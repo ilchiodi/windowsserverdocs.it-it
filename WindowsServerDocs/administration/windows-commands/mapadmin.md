@@ -1,6 +1,6 @@
 ---
 title: mapadmin
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5ea60f4d9753ed90c0d13ee48289b011aeafe6b0
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 19975f6f4e0e49cf55e4e80f6566f8596d6d33d8
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80839674"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724027"
 ---
 # <a name="mapadmin"></a>mapadmin
 
@@ -48,29 +48,29 @@ Oltre agli argomenti di comando specifici, **mapadmin** accetta gli argomenti e 
 
 &lt;computer&gt; specifica il computer remoto che esegue il servizio di mapping dei nomi utente che si desidera amministrare. È possibile specificare il computer utilizzando un nome WINS (Windows Internet Name Service) o un nome di Domain Name System (DNS) o un indirizzo IP (Internet Protocol).
 
--u &lt;utente&gt; specifica il nome utente dell'utente di cui si desidera utilizzare le credenziali. Potrebbe essere necessario aggiungere il nome di dominio al nome utente nel formato <em>dominio</em> **\\** <em>nome utente</em>.
+-u &lt;utente&gt; specifica il nome utente dell'utente le cui credenziali devono essere usate. Potrebbe essere necessario aggiungere il nome di dominio al nome utente nel formato <em>dominio</em>**\\**<em>nome utente</em>.
 
 -p &lt;password&gt; specifica la password dell'utente. Se si specifica l'opzione **-u** omettendo l'opzione **-p** , verrà richiesta la password dell'utente.
 L'azione specifica eseguita da **mapadmin** dipende dall'argomento del comando specificato:
 
 ### <a name="parameters"></a>Parametri
-### <a name="start"></a>inizio
+### <a name="start"></a>start
 avvia il servizio di mapping dei nomi utente.
 
 ### <a name="stop"></a>stop
 Arresta il servizio di mapping dei nomi utente.
 
 ### <a name="config"></a>config
-Specifica le impostazioni generali per il mapping dei nomi utente. Con questo argomento di comando sono disponibili le opzioni seguenti: **-r &lt;dddd&gt;:&lt;hh&gt;:&lt;mm&gt;** -specifica l'intervallo di aggiornamento per l'aggiornamento dai database Windows e NIS in giorni, ore e minuti. L'intervallo minimo è di 5 minuti.
+Specifica le impostazioni generali per il mapping dei nomi utente. Con questo argomento di comando sono disponibili le opzioni seguenti **:- &lt;r&gt;dddd&lt;:&gt;HH&lt;:&gt; mm** -specifica l'intervallo di aggiornamento per l'aggiornamento dai database Windows e NIS in giorni, ore e minuti. L'intervallo minimo è di 5 minuti.
 **-i {Yes | No}** -attiva il mapping semplice (**Sì**) o disattivato (**No**). Per impostazione predefinita, il mapping semplice è on.
 **Aggiungi** : crea un nuovo mapping per un utente o un gruppo. Con questo argomento di comando sono disponibili le opzioni seguenti:
 
 |Opzione|Definizione|
 |-----|-------|
 |-nome &lt;Wu&gt;|Specifica il nome dell'utente di Windows per il quale viene creato un nuovo mapping.|
-|-UU nome &lt;&gt;|Specifica il nome dell'utente UNIX per il quale viene creato un nuovo mapping.|
-|-WG &lt;gruppo&gt;|Specifica il nome del gruppo di Windows per il quale viene creato un nuovo mapping.|
-|-&lt;gruppo di ug&gt;|Specifica il nome del gruppo UNIX per il quale viene creato un nuovo mapping.|
+|-nome &lt;UU&gt;|Specifica il nome dell'utente UNIX per il quale viene creato un nuovo mapping.|
+|-gruppo &lt;WG&gt;|Specifica il nome del gruppo di Windows per il quale viene creato un nuovo mapping.|
+|-gruppo &lt;UG&gt;|Specifica il nome del gruppo UNIX per il quale viene creato un nuovo mapping.|
 |-seprimary|Specifica che il nuovo mapping è il mapping primario.|
 
 **seprimary** : specifica il mapping primario per un utente o un gruppo UNIX con più mapping. Con questo argomento di comando sono disponibili le opzioni seguenti:
@@ -78,18 +78,18 @@ Specifica le impostazioni generali per il mapping dei nomi utente. Con questo ar
 |Opzione|Definizione|
 |-----|-------|
 |-nome &lt;Wu&gt;|Specifica l'utente di Windows del mapping primario. Se esiste più di un mapping per l'utente, utilizzare l'opzione **-UU** per specificare il mapping primario.|
-|-UU nome &lt;&gt;|Specifica l'utente UNIX del mapping primario.|
-|-WG &lt;gruppo&gt;|Specifica il gruppo di Windows del mapping primario. Se esiste più di un mapping per il gruppo, utilizzare l'opzione **-UG** per specificare il mapping primario.|
-|-&lt;gruppo di ug&gt;|Specifica il gruppo UNIX del mapping primario.|
+|-nome &lt;UU&gt;|Specifica l'utente UNIX del mapping primario.|
+|-gruppo &lt;WG&gt;|Specifica il gruppo di Windows del mapping primario. Se esiste più di un mapping per il gruppo, utilizzare l'opzione **-UG** per specificare il mapping primario.|
+|-gruppo &lt;UG&gt;|Specifica il gruppo UNIX del mapping primario.|
 
 **Elimina** : consente di rimuovere il mapping per un utente o un gruppo. Per questo argomento di comando sono disponibili le opzioni seguenti:
 
 |Opzione|Definizione|
 |-----|-------|
-|-Wu &lt;utente&gt;|Utente di Windows per il quale verrà eliminato il mapping, specificato come &lt;*WindowsDomain&gt;\\&lt;nome utente&gt;* . È necessario specificare l'opzione **-Wu** o **-UU** oppure entrambe. Se si specificano entrambe le opzioni, il mapping specifico identificato dalle due opzioni verrà eliminato. Se si specifica solo l'opzione **-Wu** , verranno eliminati tutti i mapping per l'utente specificato.|
-|-WG &lt;gruppo&gt;|Gruppo di Windows per il quale verrà eliminato il mapping, specificato come &lt;WindowsDomain&gt;\\&lt;GroupName&gt;. È necessario specificare l'opzione **-WG** o **-UG** oppure entrambe. Se si specificano entrambe le opzioni, il mapping specifico identificato dalle due opzioni verrà eliminato. Se si specifica solo l'opzione **-WG** , verranno eliminati tutti i mapping per il gruppo specificato.|
-|-UU &lt;utente&gt;|Utente UNIX per il quale verrà eliminato il mapping, specificato come &lt;nome utente&gt;. È necessario specificare l'opzione **-Wu** o **-UU** oppure entrambe. Se si specificano entrambe le opzioni, il mapping specifico identificato dalle due opzioni verrà eliminato. Se si specifica solo l'opzione **-UU** , verranno eliminati tutti i mapping per l'utente specificato.|
-|-&lt;gruppo di ug&gt;|Gruppo UNIX per il quale verrà eliminato il mapping, specificato come &lt;GroupName&gt;. È necessario specificare l'opzione **-WG** o **-UG** oppure entrambe. Se si specificano entrambe le opzioni, il mapping specifico identificato dalle due opzioni verrà eliminato. Se si specifica solo l'opzione **-UG** , verranno eliminati tutti i mapping per il gruppo specificato.|
+|-utente &lt;Wu&gt;|Utente di Windows per il quale verrà eliminato il mapping, specificato come &lt; *nome&gt;\\&lt;&gt;utente WindowsDomain*. È necessario specificare l'opzione **-Wu** o **-UU** oppure entrambe. Se si specificano entrambe le opzioni, il mapping specifico identificato dalle due opzioni verrà eliminato. Se si specifica solo l'opzione **-Wu** , verranno eliminati tutti i mapping per l'utente specificato.|
+|-gruppo &lt;WG&gt;|Gruppo di Windows per il quale verrà eliminato il mapping, specificato come &lt;WindowsDomain&gt;\\&lt;GroupName&gt;. È necessario specificare l'opzione **-WG** o **-UG** oppure entrambe. Se si specificano entrambe le opzioni, il mapping specifico identificato dalle due opzioni verrà eliminato. Se si specifica solo l'opzione **-WG** , verranno eliminati tutti i mapping per il gruppo specificato.|
+|-utente &lt;UU&gt;|Utente UNIX per il quale verrà eliminato il mapping, specificato come &lt;nome&gt;utente. È necessario specificare l'opzione **-Wu** o **-UU** oppure entrambe. Se si specificano entrambe le opzioni, il mapping specifico identificato dalle due opzioni verrà eliminato. Se si specifica solo l'opzione **-UU** , verranno eliminati tutti i mapping per l'utente specificato.|
+|-gruppo &lt;UG&gt;|Gruppo UNIX per il quale verrà eliminato il mapping, specificato come &lt;GroupName&gt;. È necessario specificare l'opzione **-WG** o **-UG** oppure entrambe. Se si specificano entrambe le opzioni, il mapping specifico identificato dalle due opzioni verrà eliminato. Se si specifica solo l'opzione **-UG** , verranno eliminati tutti i mapping per il gruppo specificato.|
 
 **elenco** : Visualizza informazioni sui mapping di utenti e gruppi. Con questo argomento di comando sono disponibili le opzioni seguenti:
 
@@ -99,18 +99,18 @@ Specifica le impostazioni generali per il mapping dei nomi utente. Con questo ar
 |-semplice|Elenca tutti gli utenti e i gruppi con mapping semplice.|
 |-avanzate|Elenca tutti gli utenti e i gruppi con mapping avanzati. Le mappe sono elencate nell'ordine in cui vengono valutate. Le mappe primarie, contrassegnate con un asterisco (*), vengono elencate per prime, seguite dalle mappe secondarie, contrassegnate da un carato (^).|
 |-nome &lt;Wu&gt;|Elenca il mapping per un utente di Windows specificato.|
-|-WG &lt;gruppo&gt;|Elenca il mapping per un gruppo di Windows.|
-|-UU nome &lt;&gt;|Elenca il mapping per un utente UNIX.|
-|-&lt;gruppo di ug&gt;|Elenca il mapping per un gruppo UNIX.|
+|-gruppo &lt;WG&gt;|Elenca il mapping per un gruppo di Windows.|
+|-nome &lt;UU&gt;|Elenca il mapping per un utente UNIX.|
+|-gruppo &lt;UG&gt;|Elenca il mapping per un gruppo UNIX.|
 
-**backup** : Salva la configurazione del mapping dei nomi utente e i dati di mapping nel file specificato da &lt;filename&gt;.
-**Restore** : sostituisce i dati di configurazione e di mapping con i dati del file (specificati da &lt;filename&gt;) creati usando l'argomento del comando **backup** .
+**backup** : Salva la configurazione del mapping dei nomi utente e i dati di mapping &lt;nel&gt;file specificato da filename.
+**Restore** : sostituisce i dati di configurazione e di mapping con i dati del &lt;file&gt;(specificato da filename) creati usando l'argomento del comando di **backup** .
 **adddomainmap** : consente di aggiungere una mappa semplice tra un dominio Windows e un dominio NIS oppure file di gruppo e di password. Per questo argomento di comando sono disponibili le opzioni seguenti:
 
 |Opzione|Definizione|
 |-----|-------|
 |-d &lt;WindowsDomain&gt;|Specifica il dominio di Windows di cui eseguire il mapping.|
-|-y &lt;NISdomain&gt;|Specifica il dominio NIS da mappare.&lt;BR/&gt;&lt;BR/&gt; **-n** &lt;NisServer&gt; specifica il server NIS per il dominio NIS specificato con l'opzione **-y** .|
+|-y &lt;NISdomain&gt;|Specifica il dominio NIS da mappare. &lt;BR/&gt;&lt;BR/&gt;**-n** &lt;nisServer&gt; specifica il server NIS per il dominio NIS specificato con l'opzione **-y** .|
 |-f &lt;percorso&gt;|Specifica il percorso completo della directory contenente i file di gruppo e di password da mappare. I file devono trovarsi nel computer gestito e non è possibile usare **mapadmin** per gestire un computer remoto per configurare le mappe in base ai file di password e di gruppo.|
 
 **removedomainmap** : consente di rimuovere una mappa semplice tra un dominio Windows e un dominio NIS. Per questo argomento di comando sono disponibili le opzioni e gli argomenti seguenti:
@@ -126,10 +126,10 @@ Specifica le impostazioni generali per il mapping dei nomi utente. Con questo ar
 ## <a name="notes"></a>Note
 -   Se non si specifica un argomento di comando, **mapadmin** Visualizza le impostazioni correnti per il mapping dei nomi utente.
 -   per tutte le opzioni che specificano il nome di un utente o di un gruppo, è possibile usare i formati seguenti:
--   per gli utenti di Windows, utilizzare il formato &lt;dominio&gt;\\&lt;nome utente&gt;, \\\\&lt;computer&gt;\\&lt;nome utente&gt;, \\&lt;computer&gt;\\&lt;nome utente&gt;o &lt;computer&gt;\\&lt;nome utente&gt;
--   per i gruppi di Windows, utilizzare il formato &lt;dominio&gt;\\&lt;&lt;GroupName&gt;&gt;\\\\&lt;&gt;computer \\&lt;&lt;&gt;GroupName &gt;\\&lt;&gt;computer \\&lt;&lt;&gt;GroupName &gt;&lt;o&gt;computer \\&lt;&lt;&gt;GroupName &gt;
--   per gli utenti UNIX, utilizzare il formato &lt;NISdomain&gt;\\&lt;nome utente&gt;&lt;nome utente&gt;@&lt;NISdomain&gt;&lt;&gt;nome utente @PCNFS\\o PCNFS &lt;&gt; nome utente
--   per i gruppi UNIX, utilizzare il formato &lt;NISdomain&gt;\\&lt;GroupName&gt;, &lt;GroupName&gt;@&lt;NISdomain&gt;, &lt;GroupName&gt;@PCNFSo PCNFS\\&lt;GroupName&gt;
+-   per gli utenti di Windows, utilizzare &lt;il&gt;\\&lt;formato nome&gt;utente \\ \\ &lt;dominio&gt;\\&lt;, nome&gt;utente \\ &lt;computer&gt;\\&lt;, nome&gt;utente computer &lt;o&gt;\\&lt;nome utente computer&gt;
+-   per i gruppi di Windows, utilizzare &lt;il&gt;\\&lt;&lt;formato&gt;&gt;GroupName&gt;\\&lt;&lt;,&gt;&gt; &lt;&gt;computer GroupName&gt;, computer &lt;GroupName o&gt;computer&lt;GroupName&lt;\\&gt;\\&lt; \\ \\ \\ &lt;&lt;&gt;&gt;
+-   per gli utenti UNIX, usare il &lt;formato&gt;\\&lt;NISdomain nome&gt;utente &lt;, nome&gt;@&lt;utente&gt;NISdomain, &lt;nome&gt;@PCNFSutente o PCNFS\\&lt;nome utente&gt;
+-   per i gruppi UNIX, utilizzare il &lt;formato&gt;\\&lt;NISdomain&gt;GroupName&gt;@&lt;,&gt; &lt;GroupName&gt;@PCNFSNISdomain,\\&lt; &lt;GroupName o PCNFS GroupName&gt;
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

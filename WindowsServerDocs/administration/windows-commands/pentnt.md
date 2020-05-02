@@ -1,6 +1,6 @@
 ---
 title: pentnt
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7220ded30a3a2cda0fa9f367cbbf5ebb002e1dba
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 066ba6b847085cb84c1868758187b808ef0e2538
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80837644"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723330"
 ---
 # <a name="pentnt"></a>pentnt
 

@@ -1,6 +1,6 @@
 ---
-title: altro
-description: Argomento dei comandi di Windows per * * * *-
+title: more
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,20 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/26/2019
-ms.openlocfilehash: 4c627e003e71cb2265c717669e082d48564dd483
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f600d25dac32be2e7a0ebc2504a03dbf01235169
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80839424"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723946"
 ---
-# <a name="more"></a>altro
+# <a name="more"></a>more
 
 
 
 Visualizza una schermata di output alla volta.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -36,35 +36,35 @@ more [/c] [/p] [/s] [/t<N>] [+<N>] [<Files>]
 
 |           Parametro            |                               Descrizione                               |
 |--------------------------------|-------------------------------------------------------------------------|
-|           Comando \<>           |      Specifica un comando per il quale si desidera visualizzare l'output.      |
-|               /c               |               Cancella lo schermo prima di visualizzare una pagina.               |
-|               /p               |                      Espande i caratteri del feed di form.                      |
+|           \<> comando           |      Specifica un comando per il quale si desidera visualizzare l'output.      |
+|               /C               |               Cancella lo schermo prima di visualizzare una pagina.               |
+|               / p               |                      Espande i caratteri del feed di form.                      |
 |               /s               |          Visualizza più righe vuote come una singola riga vuota.          |
-|             /t\<N >             |         Visualizza le schede come numero di spazi specificato da *N*.         |
-|             +\<N >              |     Visualizza il primo file a partire dalla riga specificata da *N*.     |
-| [\<unità >:] [\<percorso >]\<FileName > |          Specifica il percorso e il nome di un file da visualizzare.          |
-|            File di \<>            | Specifica un elenco di file da visualizzare. Separare i nomi di file con uno spazio. |
+|             /t\<N>             |         Visualizza le schede come numero di spazi specificato da *N*.         |
+|             +\<N>              |     Visualizza il primo file a partire dalla riga specificata da *N*.     |
+| [\<Unità>:] [\<Percorso>] \<> filename |          Specifica il percorso e il nome di un file da visualizzare.          |
+|            \<File>            | Specifica un elenco di file da visualizzare. Separare i nomi di file con uno spazio. |
 |               /?               |                  Visualizza la guida al prompt dei comandi.                   |
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   I sottocomandi seguenti sono accettati al prompt **più** (`-- More --`). 
 
     | Chiave | Azione |
     | --- | ------ |
-    | BARRA spaziatrice | Consente di visualizzare la pagina successiva. |
+    | BARRA SPAZIATRICE | Consente di visualizzare la pagina successiva. |
     | INVIO | Consente di visualizzare la riga successiva. |
     | f | Consente di visualizzare il file successivo. |
     | q | Chiude il comando **more** . |
     | = | Mostra il numero di riga. |
-    | p \<N > | Consente di visualizzare le *N* righe successive. |
-    | s \<N > |S Kips le *N* righe successive. |
+    | p \<N> | Consente di visualizzare le *N* righe successive. |
+    | > \<s N |S Kips le *N* righe successive. |
     | ? | Mostra i comandi disponibili al prompt **più** .| 
     
--   Quando si utilizza il carattere di reindirizzamento ( **<** ), è necessario specificare un nome di file come origine. Quando si usa la pipe ( **\|** ), è possibile usare tali comandi come **dir**, **Sort**e **Type**.
+-   Quando si usa il carattere di reindirizzamento (**<**), è necessario specificare un nome di file come origine. Quando si utilizza pipe (**\|**), è possibile utilizzare tali comandi come **dir**, **Sort**e **Type**.
 -   Il comando **altro** , con parametri diversi, è disponibile dalla console di ripristino.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per visualizzare la prima schermata di informazioni di un file denominato clients. New, digitare uno dei comandi seguenti:
 ```
@@ -95,7 +95,7 @@ Gli esempi seguenti possono essere usati al prompt **più** (`-- More --`).
 - Per visualizzare il file successivo elencato nella riga di comando, digitare **f** **al prompt dei comandi.**
 - Per visualizzare i comandi disponibili, digitare **?** **al prompt dei** comandi.
 - Per uscire **,** Digitare **q** **al prompt dei** comandi.
-- Per visualizzare il numero di riga corrente, digitare **=** al **prompt dei** comandi. Il numero di riga corrente viene aggiunto al prompt **more** come segue:  
+- Per visualizzare il numero di riga corrente, **=** Digitare al prompt **più** . Il numero di riga corrente viene aggiunto al prompt **more** come segue:  
   ```
   -- More [Line: 24] --
   ```  
@@ -110,6 +110,6 @@ Gli esempi seguenti possono essere usati al prompt **più** (`-- More --`).
   ```  
   Digitare il numero di righe da ignorare, quindi premere INVIO. **More** ignora il numero di righe specificato e visualizza la schermata successiva delle informazioni.
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

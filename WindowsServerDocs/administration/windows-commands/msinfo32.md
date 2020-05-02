@@ -1,6 +1,6 @@
 ---
 title: msinfo32
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5a77cf9ae4c5f054e66839ff5b5b057e031b36ff
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0db8a4549ac26ef61d4aa8f435a01d3224501a77
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80839114"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723840"
 ---
 # <a name="msinfo32"></a>msinfo32
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Apre lo strumento informazioni di sistema per visualizzare una visualizzazione completa dell'hardware, dei componenti di sistema e dell'ambiente software nel computer locale. 
 ## <a name="syntax"></a>Sintassi
@@ -41,9 +41,9 @@ msinfo32 [/pch] [/nfo <path>] [/report <path>] [/computer <computerName>] [/show
 |   /Categories   |                          avvia le informazioni di sistema solo con la categoria o le categorie specificate. Limita inoltre l'output alla categoria o alle categorie selezionate. Usare **/showcategories** per visualizzare un elenco di ID di categoria disponibili.                          |
 |       /?        |                                                                                                                     Visualizza la guida al prompt dei comandi.                                                                                                                     |
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 Alcune categorie di informazioni di sistema contengono grandi quantità di dati. È possibile utilizzare il comando **Avvia/Wait** per ottimizzare le prestazioni di Reporting per queste categorie. Per ulteriori informazioni, vedere [informazioni di sistema](https://technet.microsoft.com/library/cc783305(v=ws.10).aspx).
-## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
+## <a name="examples"></a>Esempi
 Per elencare gli ID di categoria disponibili, digitare:
 ```
 msinfo32 /showcategories
@@ -60,6 +60,6 @@ Per visualizzare le informazioni sui conflitti di risorse e creare un file con e
 ```
 msinfo32 /nfo conflicts.nfo /categories    +componentsproblemdevices+resourcesconflicts+resourcesforcedhardware
 ```
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 -   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

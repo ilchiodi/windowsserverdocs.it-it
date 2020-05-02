@@ -1,6 +1,6 @@
 ---
 title: nslookup lserver
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9d0d8619101d2e7b1f7fb6d6ed99d801c7c264f1
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b2054c0fd427b41e7d6076258b29ab78d0fb7892
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80838634"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723670"
 ---
 # <a name="nslookup-lserver"></a>nslookup lserver
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Imposta il server predefinito sul dominio di Domain Name System (DNS) specificato.
 ## <a name="syntax"></a>Sintassi
@@ -30,10 +30,10 @@ lserver <DNSDomain>
 |    Parametro    |                      Descrizione                      |
 |-----------------|-------------------------------------------------------|
 |   <DNSDomain>   | Specifica il nuovo dominio DNS per il server predefinito.  |
-| {Help &#124; ?} | Viene visualizzato un breve riepilogo di **nslookup** sottocomandi. |
+| {Help &#124;?} | Viene visualizzato un breve riepilogo di **nslookup** sottocomandi. |
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 - Il comando **lserver** usa il server iniziale per cercare le informazioni sul dominio DNS specificato. Questo si differenzia dal comando **Server** , che usa il server predefinito corrente.
-  ## <a name="additional-references"></a>Altre informazioni di riferimento
-  - [Chiave della sintassi della riga di comando](command-line-syntax-key.md)
-  [Server nslookup](nslookup-server.md)
+  ## <a name="additional-references"></a>Riferimenti aggiuntivi
+  - [Sintassi della riga di comando chiave](command-line-syntax-key.md)
+  [nslookup server](nslookup-server.md)

@@ -1,6 +1,6 @@
 ---
 title: Manage-bde TPM
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,20 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b6495bfbfedea7219ae175145f72fc12314ce7ae
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: afb3859a1795959c90e71391b2926164165ef9ce
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80839764"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724069"
 ---
 # <a name="manage-bde-tpm"></a>Manage-bde: TPM
 
-> Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 > 
 > [!IMPORTANT]
 > Questo comando non è supportato per l'utilizzo in computer che eseguono Windows 8, Windows Server 2012 o versioni successive. Per tali computer, è possibile utilizzare il [Gestione TPM cmdlet Windows PowerShell per](https://docs.microsoft.com/powershell/module/trustedplatformmodule/).
-> Se si utilizza questo comando in un computer che esegue Windows 7 o Windows Server 2008, è comunque possibile configurare la Trusted Platform Module del computer (TPM) utilizzando questo comando. Per esempi di come è possibile utilizzare questo comando, vedere [esempi](#BKMK_Examples).
+> Se si utilizza questo comando in un computer che esegue Windows 7 o Windows Server 2008, è comunque possibile configurare la Trusted Platform Module del computer (TPM) utilizzando questo comando.
 > ## <a name="syntax"></a>Sintassi
 > ```
 > manage-bde -tpm [-turnon] [-takeownership <OwnerPassword>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
@@ -39,15 +39,15 @@ ms.locfileid: "80839764"
 > |    -? o /?     |                                                               Visualizza una breve guida al prompt dei comandi.                                                               |
 > |   -Help o-h   |                                                             Visualizza la guida completa al prompt dei comandi.                                                              |
 > 
-> ## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
-> Nell'esempio seguente viene illustrato l'utilizzo di **- tpm** comando per attivare il TPM.
+> ## <a name="examples"></a>Esempi
+> Per illustrare l'uso del comando **-TPM** per attivare il TPM.
 > ```
 > manage-bde  tpm -turnon
 > ```
-> Nell'esempio seguente viene illustrato l'utilizzo del comando **TPM** per assumere la proprietà del TPM e impostare la password del proprietario su 0wnerP@ss.
+> Per illustrare l'uso del comando **TPM** per assumere la proprietà del TPM e impostare la password del 0wnerP@ssproprietario su.
 > ```
 > manage-bde  tpm  takeownership 0wnerP@ss
 > ```
-> ## <a name="additional-references"></a>Altre informazioni di riferimento
+> ## <a name="additional-references"></a>Riferimenti aggiuntivi
 > -   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 > -   [manage-bde](manage-bde.md)

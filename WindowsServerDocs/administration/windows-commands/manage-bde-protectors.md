@@ -1,6 +1,6 @@
 ---
 title: protezione da Manage-bde
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 08/06/2018
-ms.openlocfilehash: 1a2e2c851ec9bc93ec434a35f14c6f92ec831876
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: e01049a5fb3dc419e219fe4ec8b11dcdc790f919
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80839954"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724113"
 ---
 # <a name="manage-bde-protectors"></a>Manage-bde: protezioni
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016
+> Si applica a: Windows Server (Canale semestrale), Windows Server 2016
 
-Gestisce i metodi di protezione utilizzati per la chiave di crittografia BitLocker. Per esempi di come è possibile utilizzare questo comando, vedere [esempi](#BKMK_Examples).
+Gestisce i metodi di protezione utilizzati per la chiave di crittografia BitLocker.
 ## <a name="syntax"></a>Sintassi
 ```
 manage-bde -protectors [{-get|-add|-delete|-disable|-enable|-adbackup|-aadbackup}] <Drive> [-computername <Name>] [{-?|/?}] [{-help|-h}]
@@ -31,9 +31,9 @@ manage-bde -protectors [{-get|-add|-delete|-disable|-enable|-adbackup|-aadbackup
 |---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |     -Introduzione      |                                                                                                                                            Visualizza tutti i metodi di protezione con chiave abilitati per l'unità e fornisce il tipo e l'identificatore (ID).                                                                                                                                             |
 |     -aggiungere      |                                                                                                                                   aggiunge i metodi di protezione delle chiavi come specificato tramite l' [aggiunta di parametri](manage-bde-protectors.md#BKMK_addprotectors)aggiuntivi.                                                                                                                                    |
-|    -delete    | Elimina i metodi di protezione con chiave utilizzati da BitLocker. Tutte le protezioni con chiave verrà rimossa da un'unità a meno che non facoltativo [-eliminare parametri](manage-bde-protectors.md#BKMK_deleteprotectors) vengono utilizzati per specificare quali programmi di protezione da eliminare. Quando viene eliminata l'ultimo protezione in un'unità, la protezione BitLocker dell'unità è disabilitata per assicurare che l'accesso ai dati non vengano perso accidentalmente. |
-|   -disable    |                      Disabilita la protezione, che consentirà a chiunque di accedere ai dati crittografati rendendo disponibile la chiave di crittografia non protette sul disco. Nessuna protezione con chiave vengono rimossi. Protezione verrà ripresa al successivo avvio di Windows a meno che non facoltativo [-disabilitare parametri](manage-bde-protectors.md#BKMK_disableprot) vengono utilizzati per specificare il numero di riavvio.                       |
-|    -enable    |                                                                                                                             Abilita la protezione rimuovendo la chiave di crittografia non protetta dall'unità. Verranno applicate tutte le protezioni con chiave configurata nell'unità.                                                                                                                             |
+|    -Elimina    | Elimina i metodi di protezione con chiave utilizzati da BitLocker. Tutte le protezioni con chiave verrà rimossa da un'unità a meno che non facoltativo [-eliminare parametri](manage-bde-protectors.md#BKMK_deleteprotectors) vengono utilizzati per specificare quali programmi di protezione da eliminare. Quando viene eliminata l'ultimo protezione in un'unità, la protezione BitLocker dell'unità è disabilitata per assicurare che l'accesso ai dati non vengano perso accidentalmente. |
+|   -Disabilita    |                      Disabilita la protezione, che consentirà a chiunque di accedere ai dati crittografati rendendo disponibile la chiave di crittografia non protette sul disco. Nessuna protezione con chiave vengono rimossi. Protezione verrà ripresa al successivo avvio di Windows a meno che non facoltativo [-disabilitare parametri](manage-bde-protectors.md#BKMK_disableprot) vengono utilizzati per specificare il numero di riavvio.                       |
+|    -abilitare    |                                                                                                                             Abilita la protezione rimuovendo la chiave di crittografia non protetta dall'unità. Verranno applicate tutte le protezioni con chiave configurata nell'unità.                                                                                                                             |
 |   -adbackup   |                                                                          Esegue il backup di tutte le informazioni di ripristino per l'unità specificata in servizi di dominio Active Directory (AD DS). Per eseguire il backup solo una chiave di ripristino solo di dominio Active Directory, aggiungere il **-id** parametro e specificare l'ID di una chiave di ripristino specifico per eseguire il backup.                                                                           |
 |  -aadbackup   |                                                                            Esegue il backup di tutte le informazioni di ripristino per l'unità specificata Azure Active Directory (Azure ad). Per eseguire il backup di una sola chiave di ripristino per Azure AD, aggiungere il parametro **-ID** e specificare l'ID di una chiave di ripristino specifica di cui eseguire il backup.                                                                             |
 |    <Drive>    |                                                                                                                                                                          Rappresenta una lettera di unità seguita da due punti.                                                                                                                                                                          |
@@ -42,7 +42,7 @@ manage-bde -protectors [{-get|-add|-delete|-disable|-enable|-adbackup|-aadbackup
 |   -? o /?    |                                                                                                                                                                            Visualizza una breve guida al prompt dei comandi.                                                                                                                                                                            |
 |  -Help o-h  |                                                                                                                                                                          Visualizza la guida completa al prompt dei comandi.                                                                                                                                                                           |
 
-### <a name="-add-syntax-and-parameters"></a><a name=BKMK_addprotectors></a>-aggiungere sintassi e parametri
+### <a name="-add-syntax-and-parameters"></a><a name=BKMK_addprotectors></a>-aggiungere la sintassi e parametri
 ```
 manage-bde  -protectors  -add [<Drive>] [-forceupgrade] [-recoverypassword <NumericalPassword>] [-recoverykey <pathToExternalKeydirectory>]
 [-startupkey <pathToExternalKeydirectory>] [-certificate {-cf <pathToCertificateFile>|-ct <CertificateThumbprint>}] [-tpm] [-tpmandpin] 
@@ -72,7 +72,7 @@ manage-bde  -protectors  -add [<Drive>] [-forceupgrade] [-recoverypassword <Nume
 |        -computername         |                                                                                                       Specifica che manage-bde viene utilizzato per modificare la protezione BitLocker in un computer diverso. È inoltre possibile utilizzare **- cn** come una versione abbreviata di questo comando.                                                                                                       |
 |            <Name>            |                                                                                                         Rappresenta il nome del computer in cui si desidera modificare la protezione BitLocker. I valori accettati includono nome NetBIOS del computer e l'indirizzo IP del computer.                                                                                                         |
 
-### <a name="-delete-syntax-and-parameters"></a><a name=BKMK_deleteprotectors></a>-Elimina sintassi e parametri
+### <a name="-delete-syntax-and-parameters"></a><a name=BKMK_deleteprotectors></a>-eliminare sintassi e parametri
 ```
 manage-bde  -protectors  -delete <Drive> [-type {recoverypassword|externalkey|certificate|tpm|tpmandstartupkey|tpmandpin|tpmandpinandstartupkey|Password|Identity}] 
 [-id <KeyProtectorID>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
@@ -98,7 +98,7 @@ manage-bde  -protectors  -delete <Drive> [-type {recoverypassword|externalkey|ce
 |        -? o /?        |                                                               Visualizza una breve guida al prompt dei comandi.                                                               |
 |      -Help o-h       |                                                             Visualizza la guida completa al prompt dei comandi.                                                              |
 
-### <a name="-disable-syntax-and-parameters"></a><a name=BKMK_disableprot></a>-Disabilita la sintassi e i parametri
+### <a name="-disable-syntax-and-parameters"></a><a name=BKMK_disableprot></a>-Disabilita la sintassi e parametri
 ```
 manage-bde  -protectors  -disable <Drive> [-RebootCount <integer 0 - 15>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
 ```
@@ -112,27 +112,27 @@ manage-bde  -protectors  -disable <Drive> [-RebootCount <integer 0 - 15>] [-comp
 |   -? o /?    |                                                                                                                                                                                                    Visualizza una breve guida al prompt dei comandi.                                                                                                                                                                                                    |
 |  -Help o-h  |                                                                                                                                                                                                  Visualizza la guida completa al prompt dei comandi.                                                                                                                                                                                                   |
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
-Nell'esempio seguente viene illustrato l'utilizzo di **-protezioni** comando per aggiungere una protezione con chiave certificato identificata da un file di certificato per l'unità E.
+## <a name="examples"></a>Esempi
+Per illustrare l'uso del comando **-Protectors** per aggiungere una protezione con chiave del certificato identificata da un file di certificato all'unità E.
 ```
 manage-bde  -protectors  -add E: -certificate  -cf c:\File Folder\Filename.cer
 ```
-Nell'esempio seguente viene illustrato l'utilizzo di **-protezioni** comando per aggiungere un **adaccountorgroup** protezione con chiave identificato dal nome di dominio e l'unità E.
+Per illustrare l'uso del comando **-Protectors** per aggiungere una protezione con chiave **adaccountorgroup** identificata dal dominio e dal nome utente all'unità E.
 ```
 manage-bde  -protectors  -add E: -sid DOMAIN\user
 ```
-Nell'esempio seguente viene illustrato l'utilizzo del comando **Protectors** per disabilitare la protezione fino a quando il computer non viene riavviato 3 volte.
+Per illustrare l'uso del comando **Proteggi** per disabilitare la protezione finché il computer non è stato riavviato 3 volte.
 ```
 manage-bde  -protectors  -disable C: -rc 3
 ```
-Nell'esempio seguente viene illustrato l'uso del comando **-Protectors** per eliminare tutte le protezioni con chiave basata su TPM e chiave di avvio nell'unità C.
+Per illustrare l'uso del comando **-Protectors** per eliminare tutte le protezioni con chiave basata su TPM e chiave di avvio nell'unità C.
 ```
 manage-bde  -protectors -delete C: -type tpmandstartupkey
 ```
-Nell'esempio seguente viene illustrato l'utilizzo di **-protezioni** comando per eseguire il backup di tutte le informazioni di ripristino dell'unità C per AD DS.
+Per illustrare l'uso del comando **-Protectors** per eseguire il backup di tutte le informazioni di ripristino per l'unità C in servizi di dominio Active Directory.
 ```
 manage-bde  -protectors  -adbackup C:
 ```
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 -   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [manage-bde](manage-bde.md)

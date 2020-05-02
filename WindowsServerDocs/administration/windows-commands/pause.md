@@ -1,6 +1,6 @@
 ---
 title: Sospendi
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 135d074a71c7153cc1665ad7b543bdba56ed66e8
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 89e76c4f45f59c32ef879fb518a1a92c973f5cdf
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80837684"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723358"
 ---
 # <a name="pause"></a>Sospendi
 
@@ -24,7 +24,7 @@ Sospende l'elaborazione di un programma batch e visualizza il messaggio seguente
 ```
 Press any key to continue . . .
 ```
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -38,7 +38,7 @@ pause
 |---------|-----------|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 - Quando si esegue il comando **Sospendi** , viene visualizzato il messaggio seguente:  
   ```
@@ -51,7 +51,7 @@ pause
   Se si preme Y (per Sì) in risposta a questo messaggio, il programma batch termina e il controllo torna al sistema operativo.
 - È possibile inserire il comando **pause** prima di una sezione del file batch che potrebbe non essere necessario elaborare. Quando **Sospendi sospende l'** elaborazione del programma batch, è possibile premere CTRL + C, quindi premere Y per arrestare il programma batch.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per creare un programma batch che richiede all'utente di modificare i dischi in una delle unità, digitare:
 ```
@@ -64,6 +64,6 @@ goto begin
 ```
 In questo esempio, tutti i file sul disco nell'unità A vengono copiati nella directory corrente. Dopo **che il messaggio** richiede di inserire un nuovo disco nell'unità a, il comando Sospendi sospende l'elaborazione in modo che sia possibile modificare i dischi e quindi premere un tasto qualsiasi per riprendere l'elaborazione. Questo programma batch viene eseguito in un ciclo infinito: il comando **goto Begin** invia l'interprete dei comandi all'etichetta Begin del file batch. Per arrestare il programma batch, premere CTRL + C, quindi premere Y.
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

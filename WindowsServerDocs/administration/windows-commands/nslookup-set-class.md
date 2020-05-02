@@ -1,6 +1,6 @@
 ---
 title: nslookup set class
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: bc3bb4e36582f01584c0b89a12d43874322c3190
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b1ae3a5336815a5273aafa976b1dcad8b60fac9b
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80838584"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723649"
 ---
 # <a name="nslookup-set-class"></a>nslookup set class
 
@@ -32,9 +32,9 @@ set class=<Class>
 
 | Parametro |                                                                                                                                    Descrizione                                                                                                                                    |
 |-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Classe \<>  | La classe predefinita è IN. Di seguito sono elencati i valori validi per questo comando.</br>-IN: specifica la classe Internet.</br>-CHAOS: specifica la classe Chaos.</br>-Esiodo: specifica la classe MIT Athena Esiodo.</br>-ANY: specifica uno dei caratteri jolly elencati in precedenza. |
+| \<Class>  | La classe predefinita è IN. Di seguito sono elencati i valori validi per questo comando.</br>-IN: specifica la classe Internet.</br>-CHAOS: specifica la classe Chaos.</br>-Esiodo: specifica la classe MIT Athena Esiodo.</br>-ANY: specifica uno dei caratteri jolly elencati in precedenza. |
 |   {Guida   |                                                                                                                                        ?}                                                                                                                                         |
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

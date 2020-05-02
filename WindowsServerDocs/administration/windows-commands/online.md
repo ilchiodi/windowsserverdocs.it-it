@@ -1,6 +1,6 @@
 ---
 title: online
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7b77e123a6e99c857ddb18cd0f2e2ccc6a4d6d42
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a0e7582bdaebb5f3e5180d1baace980d3006b2e9
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80837834"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723400"
 ---
 # <a name="online"></a>online
 
@@ -33,8 +33,8 @@ Offline volume
 
 |Parametro|Descrizione|
 |---------|-----------|
-|[Disco offline](offline-disk.md)|Accetta il disco non in linea con lo stato attivo allo stato online.|
+|[Disco non in linea](offline-disk.md)|Accetta il disco non in linea con lo stato attivo allo stato online.|
 |[Volume offline](offline-volume.md)|Porta il volume non in linea con lo stato attivo allo stato online.|
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 

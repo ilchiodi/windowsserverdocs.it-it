@@ -1,6 +1,6 @@
 ---
 title: nslookup
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 15062d81992ee1b6e55d47cb9e49822350e4f2bc
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 35f790a3a537959501afe7c3173317f22b934ec6
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80838094"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723493"
 ---
 # <a name="nslookup"></a>nslookup
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Visualizza le informazioni che è possibile utilizzare per diagnosticare infrastruttura Domain Name System (DNS). Prima di utilizzare questo strumento, è necessario conoscere il funzionamento di DNS. Lo strumento da riga di comando nslookup è disponibile solo se è stato installato il protocollo TCP/IP.
 ## <a name="syntax"></a>Sintassi
@@ -84,7 +84,7 @@ nslookup /view <FileName>
 |         [nslookup set vc](nslookup-set-vc.md)         |                                                                     Specifica se utilizzare o non utilizzare un circuito virtuale durante l'invio di richieste al server.                                                                      |
 |           [nslookup view](nslookup-view.md)           |                                                                          Ordina ed elenca l'output della riga precedente **ls** sottocomando o dei comandi.                                                                          |
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 - Se *ComputerDaTrovare* è un indirizzo IP e la query è per un tipo di record di risorsa A o PTR, viene restituito il nome del computer. Se *ComputerDaTrovare* è un nome e non ha un periodo finale, al nome viene aggiunto il nome di dominio DNS predefinito. Questo comportamento dipende dallo stato delle operazioni seguenti **impostare** sottocomandi: **dominio**, **srchlist**, **defname**, e **ricerca**.
 - Se si digita un trattino (-) anziché *ComputerDaTrovare*, il prompt dei comandi viene modificato in **nslookup** Interactive mode.
 - La lunghezza della riga di comando deve essere minore di 256 caratteri.

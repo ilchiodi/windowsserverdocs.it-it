@@ -1,6 +1,6 @@
 ---
-title: maschera
-description: Argomento dei comandi di Windows per * * * *-
+title: mask
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,20 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a1cb92caacb955449c1baaad411fdbe4cdf05b73
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 816bcd932091b33ed897add5a13603e3a1eea925
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80839644"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724014"
 ---
-# <a name="mask"></a>maschera
+# <a name="mask"></a>mask
 
 
 
 Rimuove le copie shadow dell'hardware importate tramite il comando **Import** .
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -36,17 +36,17 @@ mask <ShadowSetID>
 |---------|-----------|
 |ShadowSetID|Rimuove le copie shadow che appartengono all'ID del set di copie shadow specificato.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   È possibile usare un alias esistente o una variabile di ambiente al posto di *ShadowSetID*. Utilizzare **aggiungere** senza parametri per visualizzare gli alias esistenti.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per rimuovere la copia shadow importata% Import_1%, digitare:
 ```
 mask %Import_1%
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

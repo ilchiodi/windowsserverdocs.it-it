@@ -1,6 +1,6 @@
 ---
 title: nbtstat
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f8077228a6c72302e63a2d1b8123e7f7e0ff6b8e
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 0c3405818d3ed11d14dee6c2fc8796c024ef253e
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80839024"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82723820"
 ---
 # <a name="nbtstat"></a>nbtstat
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Visualizza le statistiche del protocollo NetBIOS su TCP/IP (NetBT), le tabelle dei nomi NetBIOS per il computer locale e i computer remoti e la cache dei nomi NetBIOS. **nbtstat** consente l'aggiornamento della cache dei nomi NetBIOS e dei nomi registrati con WINS (Windows Internet Name Service). Usato senza parametri, **nbtstat** Visualizza la guida. 
 
@@ -32,9 +32,9 @@ nbtstat [/a <remoteName>] [/A <IPaddress>] [/c] [/n] [/r] [/R] [/RR] [/s] [/S] [
 
 |    Parametro    |                                                                                                                         Descrizione                                                                                                                         |
 |-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| /a <remoteName> |    Visualizza la tabella dei nomi NetBIOS di un computer remoto, dove *RemoteName* è il nome del computer NetBIOS del computer remoto. La tabella dei nomi NetBIOS è l'elenco di nomi NetBIOS che corrisponde alle applicazioni NetBIOS in esecuzione nel computer.     |
-| /A <IPaddress>  |                                                           Visualizza la tabella dei nomi NetBIOS di un computer remoto, specificato dall'indirizzo IP (in notazione decimale punteggiata) del computer remoto.                                                            |
-|       /c        |                                                                        Visualizza il contenuto della cache dei nomi NetBIOS, la tabella dei nomi NetBIOS e i relativi indirizzi IP risolti.                                                                         |
+| /a<remoteName> |    Visualizza la tabella dei nomi NetBIOS di un computer remoto, dove *RemoteName* è il nome del computer NetBIOS del computer remoto. La tabella dei nomi NetBIOS è l'elenco di nomi NetBIOS che corrisponde alle applicazioni NetBIOS in esecuzione nel computer.     |
+| /A<IPaddress>  |                                                           Visualizza la tabella dei nomi NetBIOS di un computer remoto, specificato dall'indirizzo IP (in notazione decimale punteggiata) del computer remoto.                                                            |
+|       /C        |                                                                        Visualizza il contenuto della cache dei nomi NetBIOS, la tabella dei nomi NetBIOS e i relativi indirizzi IP risolti.                                                                         |
 |       /n        |                                            Consente di visualizzare la tabella dei nomi NetBIOS del computer locale. Lo stato di **registrato** indica che il nome è registrato tramite broadcast o con un server WINS.                                             |
 |       /r        |      Visualizza le statistiche di risoluzione dei nomi NetBIOS. In un computer che esegue Windows XP o Windows Server 2003 configurato per l'utilizzo di WINS, questo parametro restituisce il numero di nomi che sono stati risolti e registrati utilizzando broadcast e WINS.       |
 |       /R        |                                                                      Elimina il contenuto della cache dei nomi NetBIOS, quindi ricarica le voci con tag #PRE dal file **LMHOSTS** .                                                                      |
@@ -44,7 +44,7 @@ nbtstat [/a <remoteName>] [/A <IPaddress>] [/c] [/n] [/r] [/R] [/RR] [/s] [/S] [
 |   <Interval>    | Visualizza nuovamente le statistiche selezionate, sospendendo il numero di secondi specificato nell' *intervallo* tra ogni visualizzazione. Premere CTRL + C per arrestare la visualizzazione delle statistiche. Se questo parametro viene omesso, **nbtstat** stampa le informazioni di configurazione correnti una sola volta. |
 |       /?        |                                                                                                            Visualizza la guida al prompt dei comandi.                                                                                                             |
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   i parametri della riga di comando **nbtstat** fanno distinzione tra maiuscole e minuscole.
 
@@ -55,33 +55,33 @@ nbtstat [/a <remoteName>] [/A <IPaddress>] [/c] [/n] [/r] [/R] [/RR] [/s] [/S] [
     |Input|Numero di byte ricevuti.|
     |Output|Numero di byte inviati.|
     |Ingresso/Uscita|Indica se la connessione viene sttratta dal computer (in uscita) o da un altro computer al computer locale (in ingresso).|
-    |Vita|Tempo rimanente per il quale una voce della cache della tabella dei nomi vivrà prima di essere eliminata.|
+    |Life|Tempo rimanente per il quale una voce della cache della tabella dei nomi vivrà prima di essere eliminata.|
     |Nome locale|Nome NetBIOS locale associato alla connessione.|
     |Host remoto|Nome o indirizzo IP associato al computer remoto.|
-    |< 03 >|Ultimo byte di un nome NetBIOS convertito in esadecimale. Ogni nome NetBIOS è lungo 16 caratteri. Questo ultimo byte ha spesso un significato speciale perché lo stesso nome può essere presente più volte in un computer, che differisce solo per l'ultimo byte. Ad esempio, < 20 > è uno spazio nel testo ASCII.|
+    |<03>|Ultimo byte di un nome NetBIOS convertito in esadecimale. Ogni nome NetBIOS è lungo 16 caratteri. Questo ultimo byte ha spesso un significato speciale perché lo stesso nome può essere presente più volte in un computer, che differisce solo per l'ultimo byte. Ad esempio, <20> è uno spazio nel testo ASCII.|
     |type|Tipo di nome. Un nome può essere un nome univoco o un nome di gruppo.|
     |Stato|Se il servizio NetBIOS nel computer remoto è in esecuzione (registrato) o se un nome di computer duplicato ha registrato lo stesso servizio (conflitto).|
-    |Stato|Stato delle connessioni NetBIOS.|
+    |State|Stato delle connessioni NetBIOS.|
 
 -   Nella tabella seguente vengono descritti i possibili stati di connessione NetBIOS:
 
-    |Stato|Descrizione|
+    |State|Descrizione|
     |-----|--------|
     |Connesso|È stata stabilita una sessione.|
     |associato|Un endpoint di connessione è stato creato e associato a un indirizzo IP.|
     |in ascolto|Questo endpoint è disponibile per una connessione in ingresso.|
     |Idle|Questo endpoint è stato aperto ma non può ricevere connessioni.|
-    |Connessione in corso|Una sessione si trova nella fase di connessione e il mapping tra nome e indirizzo IP della destinazione è in fase di risoluzione.|
+    |Connecting|Una sessione si trova nella fase di connessione e il mapping tra nome e indirizzo IP della destinazione è in fase di risoluzione.|
     |Accettazione|Una sessione in ingresso è attualmente in fase di accettazione e verrà connessa a breve.|
     |Riconnessione|Una sessione sta provando a riconnettersi (non è stato possibile connettersi al primo tentativo).|
-    |Inserimento in|Una sessione si trova nella fase di connessione ed è in corso la creazione della connessione TCP.|
-    |Inserimento in|Una sessione in ingresso si trova nella fase di connessione.|
+    |In uscita|Una sessione si trova nella fase di connessione ed è in corso la creazione della connessione TCP.|
+    |In ingresso|Una sessione in ingresso si trova nella fase di connessione.|
     |Disconnessione in corso|È in corso la disconnessione di una sessione.|
     |Disconnesso|Il computer locale ha emesso una disconnessione ed è in attesa di conferma dal sistema remoto.|
 
 -   Questo comando è disponibile solo se è installato il protocollo Internet Protocol (TCP/IP) come componente nelle proprietà di una scheda di rete in connessioni di rete.
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
+## <a name="examples"></a>Esempi
 Per visualizzare la tabella dei nomi NetBIOS del computer remoto con il nome NetBIOS del computer CORP07, digitare:
 
 ```
@@ -124,7 +124,7 @@ Per visualizzare le statistiche della sessione NetBIOS in base all'indirizzo IP 
 nbtstat /S 5
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 -   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

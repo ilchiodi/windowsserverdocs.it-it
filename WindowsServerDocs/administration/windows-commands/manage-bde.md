@@ -1,6 +1,6 @@
 ---
 title: manage-bde
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 816e20152ec40ce54c1192f3075c6f4556aed3db
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 567e0ed45f6bef42e82c3a68b3c0cbbb352b12d9
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80839694"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82724035"
 ---
 # <a name="manage-bde"></a>manage-bde
 
 
 
-Utilizzato per attivare o disattivare BitLocker, specificare i meccanismi di sblocco, aggiornare i metodi di ripristino e sbloccare le unità dati protette con BitLocker. Questo strumento da riga di comando può essere utilizzato al posto dell'elemento del pannello di controllo **crittografia unità BitLocker** . Per esempi di come è possibile utilizzare questo comando, vedere [esempi](#BKMK_Examples).
+Utilizzato per attivare o disattivare BitLocker, specificare i meccanismi di sblocco, aggiornare i metodi di ripristino e sbloccare le unità dati protette con BitLocker. Questo strumento da riga di comando può essere utilizzato al posto dell'elemento del pannello di controllo **crittografia unità BitLocker** .
 
 ## <a name="syntax"></a>Sintassi
 
@@ -48,28 +48,28 @@ manage-bde [-status] [–on] [–off] [–pause] [–resume] [–lock] [–unloc
 |[Manage-bde: changepassword](manage-bde-changepassword.md)|Modifica la password per un'unità di dati.|
 |[Manage-bde: changepin](manage-bde-changepin.md)|Modifica il PIN per un'unità del sistema operativo.|
 |[Manage-bde: changekey](manage-bde-changekey.md)|Modifica la chiave di avvio per un'unità del sistema operativo.|
-|[Manage-bde: pacchetto di pacchetti](manage-bde-keypackage.md)|Genera un pacchetto di chiavi per un'unità.|
+|[Manage-bde: KeyPackage](manage-bde-keypackage.md)|Genera un pacchetto di chiavi per un'unità.|
 |[Manage-bde: upgrade](manage-bde-upgrade.md)|Aggiorna la versione di BitLocker.|
 |[Manage-bde: WipeFreeSpace](manage-bde-wipefreespace.md)|Cancella lo spazio disponibile in un'unità.|
 |-? o /?|Visualizza una breve guida al prompt dei comandi.|
 |-Help o-h|Visualizza la Guida completa al prompt dei comandi.|
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
+## <a name="examples"></a>Esempi
 
-Nell'esempio seguente vengono visualizzate le unità del computer e viene indicato se sono protette da BitLocker e lo stato di crittografia corrente.
+Per visualizzare le unità del computer e indica se sono protette da BitLocker e lo stato di crittografia corrente.
 ```
 manage-bde -status
 ```
-Nell'esempio seguente viene illustrata l'abilitazione di BitLocker nell'unità C con l'opzione di una password di ripristino. La password di ripristino verrà generata da BitLocker e visualizzata sullo schermo per poterla registrare.
+Per illustrare l'abilitazione di BitLocker nell'unità C con l'opzione di una password di ripristino. La password di ripristino verrà generata da BitLocker e visualizzata sullo schermo per poterla registrare.
 ```
 manage-bde –on C: -recoverypassword
 ```
-Nell'esempio seguente viene illustrato come sbloccare un'unità protetta da BitLocker utilizzando una password di ripristino.
+Per illustrare lo sblocco di un'unità protetta da BitLocker utilizzando una password di ripristino.
 ```
 manage-bde –unlock E: -recoverypassword 111111-222222-333333-444444-555555-666666-777777-888888
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 -   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Abilitazione di BitLocker tramite la riga di comando](https://technet.microsoft.com/library/dd894351(v=ws.10).aspx)
