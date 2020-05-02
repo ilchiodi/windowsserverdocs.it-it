@@ -1,6 +1,6 @@
 ---
 title: TestReferral Dfsdiag
-description: Argomento dei comandi di Windows per Dfsdiag TestReferral, che controlla i riferimenti file system distribuito (DFS).
+description: Argomento di riferimento per Dfsdiag TestReferral, che controlla i riferimenti file system distribuito (DFS).
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d5c0a75d557d816ac9e19a1e22b3273195b93f53
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 6b4c616181d367a8a95efe6484f74af0ff88cc5f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80846247"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719564"
 ---
 # <a name="dfsdiag-testreferral"></a>TestReferral Dfsdiag
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Verifica i riferimenti file system distribuito (DFS) eseguendo i test seguenti:
 
@@ -42,10 +42,10 @@ dfsdiag /TestReferral /DFSpath:<DFS path for getting referrals> [/Full]
 
 |Parametro|Descrizione|
 |-------|--------|
-| /DFSpath:<path for getting referrals>|Il percorso DFS può essere uno dei seguenti:<p>-   \(\)vuoto: verifica i domini trusted.<br />-   \\\\dominio: riferimenti del controller di dominio.<br />-   \\\\dominio\\SYSvol: riferimenti SYSvol.<br />-   \\\\Doma in\\NETLOGON: riferimenti NETLOGON.<br />-   \\\\<Domain or server>\\<Namespace Root>: riferimenti radice dello spazio dei nomi.<br />-   \\\\<Domain or server>\\<Namespace root>\\<DFS folder>: cartella DFS \(collegamento\) riferimenti.|
-|/Full|Applicabile solo a riferimenti dominio radice. Verifica la coerenza delle informazioni di associazione del sito tra il registro di sistema e i servizi di dominio Active Directory \(\)AD DS.|
+| DFSpath<path for getting referrals>|Il percorso DFS può essere uno dei seguenti:<p>-   \(blank\): verifica i domini trusted.<br />-   \\\\Dominio: riferimenti del controller di dominio.<br />-   \\\\Dominio\\SYSVOL: riferimenti SYSVOL.<br />-   \\\\Doma in\\Netlogon: riferimenti Netlogon.<br />-   \\\\<Domain or server>\\<Namespace Root>: Riferimenti alla radice dello spazio dei nomi.<br />-   \\\\<Domain or server>\\<Namespace root>\\<DFS folder>: Collegamenti\) alla \(cartella DFS.|
+|/Full|Applicabile solo a riferimenti dominio radice. Verifica la coerenza delle informazioni di associazione del sito tra il registro di sistema e servizi \(di dominio\)Active Directory ad DS.|
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 ```
 dfsdiag /TestReferral /DFSpath:\\Contoso.com\MyNamespace
@@ -55,7 +55,7 @@ dfsdiag /TestReferral /DFSpath:\\Contoso.com\MyNamespace
 dfsdiag /TestReferral /DFSpath:
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 -   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

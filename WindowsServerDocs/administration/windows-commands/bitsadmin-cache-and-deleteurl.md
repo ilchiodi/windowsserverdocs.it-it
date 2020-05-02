@@ -1,6 +1,6 @@
 ---
-title: Bitsadmin cache e DeleteUrl
-description: Argomento dei comandi di Windows per la **cache Bitsadmin e DeleteUrl**, che elimina tutte le voci della cache per l'URL specificato.
+title: Bitsadmin cache e deleteURL
+description: Argomento di riferimento per la cache Bitsadmin e il comando deleteURL, che elimina tutte le voci della cache per l'URL specificato.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,37 +9,39 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 70099e795d0f05d0fcf75fbf6b82f5466d1c0c55
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 075c48e5c8c205cbbf3fe476260ec7909edcc3e6
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850934"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718443"
 ---
-# <a name="bitsadmin-cache-and-deleteurl"></a>Bitsadmin cache e DeleteUrl
+# <a name="bitsadmin-cache-and-deleteurl"></a>Bitsadmin cache e deleteURL
 
 Elimina tutte le voci della cache per l'URL specificato.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-bitsadmin /deleteURL url
+bitsadmin /deleteURL URL
 ```
 
 ### <a name="parameters"></a>Parametri
 
 | Parametro | Descrizione |
 | -------------- | -------------- |
-| url | Uniform Resource Locator che identifica un file remoto. |
+| URL | Uniform Resource Locator che identifica un file remoto. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
-Nell'esempio seguente vengono eliminate tutte le voci della cache per `https://www.contoso.com/en/us/default.aspx`
+Per eliminare tutte le voci della `https://www.contoso.com/en/us/default.aspx`cache per:
 
 ```
-C:\>bitsadmin /deleteURL https://www.contoso.com/en/us/default.aspx 
+bitsadmin /deleteURL https://www.contoso.com/en/us/default.aspx 
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando cache Bitsadmin](bitsadmin-cache.md)

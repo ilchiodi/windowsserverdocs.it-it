@@ -1,6 +1,6 @@
 ---
-title: setmaxdownloadtime Bitsadmin
-description: Windows Commands Topic for **BITSAdmin setmaxdownloadtime**, che imposta il timeout di download in secondi.
+title: bitsadmin setmaxdownloadtime
+description: Argomento di riferimento per il comando Bitsadmin setmaxdownloadtime, che imposta il timeout di download in secondi.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f07931dfb9fabaec272384dced6d60f1335b6a94
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: 8192826570c9dae6aa9d286596336c3e589c9cbd
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81122916"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719683"
 ---
-# <a name="bitsadmin-setmaxdownloadtime"></a>setmaxdownloadtime Bitsadmin
+# <a name="bitsadmin-setmaxdownloadtime"></a>bitsadmin setmaxdownloadtime
 
 Imposta il timeout del download in secondi.
 
@@ -30,17 +30,19 @@ bitsadmin /setmaxdownloadtime <job> <timeout>
 
 | Parametro | Descrizione |
 | --------- | ----------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 | timeout | Lunghezza del timeout di download, in secondi. |
 
 ## <a name="examples"></a>Esempi
 
-Nell'esempio seguente imposta il timeout per il processo denominato *myDownloadJob* su 10 secondi.
+Per impostare il timeout per il processo denominato *myDownloadJob* su 10 secondi.
 
 ```
-C:\>bitsadmin /setmaxdownloadtime myDownloadJob 10
+bitsadmin /setmaxdownloadtime myDownloadJob 10
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

@@ -1,6 +1,6 @@
 ---
-title: cache Bitsadmin e getlimite
-description: Argomento dei comandi di Windows per la **cache Bitsadmin e getlimite**, che recupera il limite della cache.
+title: bitsadmin cache e getlimit
+description: Argomento di riferimento per la cache Bitsadmin e il comando getlimite, che consente di recuperare il limite della cache.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: de657e9be91ab09c284760a35bd0e4f3b6b94f63
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 17ee6b792727f613d6038cdf489bc62577f2e900
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850904"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718384"
 ---
-# <a name="bitsadmin-cache-and-getlimit"></a>cache Bitsadmin e getlimite
+# <a name="bitsadmin-cache-and-getlimit"></a>bitsadmin cache e getlimit
 
 Recupera il limite della cache.
 
@@ -26,14 +26,16 @@ Recupera il limite della cache.
 bitsadmin /cache /getlimit
 ```
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
-Nell'esempio seguente viene recuperato il limite della cache.
+Per recuperare il limite della cache:
 
 ```
-C:\>bitsadmin /cache /getlimit
+bitsadmin /cache /getlimit
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando cache Bitsadmin](bitsadmin-cache.md)

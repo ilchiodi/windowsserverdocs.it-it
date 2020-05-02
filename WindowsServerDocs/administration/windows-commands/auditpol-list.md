@@ -1,6 +1,6 @@
 ---
 title: elenco Auditpol
-description: Windows Commands Topic for **auditpol list**, che elenca le categorie e le sottocategorie dei criteri di controllo, oppure elenca gli utenti per i quali è definito un criterio di controllo per utente.
+description: Argomento di riferimento per il comando auditpol list, che elenca le categorie e le sottocategorie dei criteri di controllo, oppure elenca gli utenti per i quali è definito un criterio di controllo per utente.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9e0aff46e62ea4e4259360b78aae223dfcd66ef7
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 96ee4388c716c066a2e9b55b57dd2e70b4b4f69c
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851184"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719092"
 ---
 # <a name="auditpol-list"></a>elenco Auditpol
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Elenca le categorie e/o le sottocategorie dei criteri di controllo oppure elenca gli utenti per i quali è definito un criterio di controllo per utente.
+Elenca le categorie e le sottocategorie dei criteri di controllo oppure elenca gli utenti per i quali è definito un criterio di controllo per utente.
+
+Per eseguire operazioni di *elenco* sul criterio *per utente* , è necessario disporre dell'autorizzazione di **lettura** per tale set di oggetti nel descrittore di sicurezza. È anche possibile eseguire operazioni di *elenco* se si dispone del diritto utente **Gestisci registro di controllo e protezione** (SeSecurityPrivilege). Tuttavia, questo diritto consente un accesso aggiuntivo che non è necessario per eseguire le operazioni di *elenco* globale.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -41,11 +43,7 @@ auditpol /list
 | /r | Visualizza l'output come report in formato CSV (delimitato da virgole). |
 | /? | Visualizza la guida al prompt dei comandi. |
 
-## <a name="remarks"></a>Note
-
-Per tutte le operazioni di elenco per i criteri per utente, è necessario disporre dell'autorizzazione di lettura per tale set di oggetti nel descrittore di sicurezza. È anche possibile eseguire operazioni di elenco con il diritto utente **Gestione registro di controllo e protezione** (SeSecurityPrivilege). Tuttavia, questo diritto consente un accesso aggiuntivo che non è necessario per eseguire l'operazione di elenco.
-
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per elencare tutti gli utenti che dispongono di un criterio di controllo definito, digitare:
 
@@ -71,6 +69,8 @@ Per elencare le sottocategorie delle categorie di rilevamento dettagliate e di a
 auditpol /list /subcategory:detailed Tracking,DS Access
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comandi auditpol](auditpol.md)

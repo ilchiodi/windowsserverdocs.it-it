@@ -1,6 +1,6 @@
 ---
 title: bitsadmin setdisplayname
-description: Windows Commands Topic for **BITSAdmin sedisplayname**, che imposta il nome visualizzato del processo specificato.
+description: Argomento di riferimento per il comando Bitsadmin sedisplayname, che imposta il nome visualizzato del processo specificato.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0b1086903dd130392800f325c451bb4750fbf8fa
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: 382cb2f20f0374c2d2787c4c3d88670b4f7260cd
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81123009"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719384"
 ---
 # <a name="bitsadmin-setdisplayname"></a>bitsadmin setdisplayname
 
@@ -30,17 +30,19 @@ bitsadmin /setdisplayname <job> <display_name>
 
 | Parametro | Descrizione |
 | --------- | ----------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 | display_name | Testo utilizzato come nome visualizzato per il processo specifico. |
 
 ## <a name="examples"></a>Esempi
 
-Nell'esempio seguente il nome visualizzato del processo viene impostato su *myDownloadJob*.
+Per impostare il nome visualizzato per il processo su *myDownloadJob*:
 
 ```
-C:\>bitsadmin /setdisplayname myDownloadJob
+bitsadmin /setdisplayname myDownloadJob
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

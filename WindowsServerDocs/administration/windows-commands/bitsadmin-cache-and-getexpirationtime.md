@@ -1,6 +1,6 @@
 ---
-title: Bitsadmin cache e getexpirationtime
-description: Argomento dei comandi di Windows per la **cache Bitsadmin e getexpirationtime**, che recupera la scadenza della cache.
+title: bitsadmin cache e getexpirationtime
+description: Argomento di riferimento per la cache Bitsadmin e il comando getexpirationtime, che consente di recuperare la scadenza della cache.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 44e54e29865f67b2bed22d30871e8810a0b55587
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ecd20a6f35637be3d2f1cad08cf2d060c944857c
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850924"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718422"
 ---
-# <a name="bitsadmin-cache-and-getexpirationtime"></a>Bitsadmin cache e getexpirationtime
+# <a name="bitsadmin-cache-and-getexpirationtime"></a>bitsadmin cache e getexpirationtime
 
 Recupera l'ora di scadenza della cache.
 
@@ -26,14 +26,16 @@ Recupera l'ora di scadenza della cache.
 bitsadmin /cache /getexpirationtime
 ```
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
-Il codice seguente recupera l'ora di scadenza della cache.
+Per recuperare l'ora di scadenza della cache:
 
 ```
-C:\>bitsadmin /cache /getexpirationtime
+bitsadmin /cache /getexpirationtime
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando cache Bitsadmin](bitsadmin-cache.md)

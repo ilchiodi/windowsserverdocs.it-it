@@ -1,6 +1,6 @@
 ---
 title: auditpol get
-description: Argomento dei comandi di Windows per **auditpol get**, che recupera i criteri di sistema, i criteri per utente, le opzioni di controllo e l'oggetto descrittore di sicurezza di controllo.
+description: Argomento di riferimento per il comando auditpol get, che recupera i criteri di sistema, i criteri per utente, le opzioni di controllo e l'oggetto del descrittore di sicurezza del controllo.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,23 +9,25 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fe2b1bd060f128e39fa1c687ec963c964798fe1b
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 859ea9e2e42af0fe7f34f4e378166685f8316b9e
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851194"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719140"
 ---
 # <a name="auditpol-get"></a>auditpol get
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server, 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Recupera i criteri di sistema, i criteri per utente, le opzioni di controllo e l'oggetto descrittore di sicurezza del controllo.
+
+Per eseguire operazioni *Get* sui criteri *per utente* e di *sistema* , è necessario disporre dell'autorizzazione di **lettura** per tale set di oggetti nel descrittore di sicurezza. È anche possibile eseguire le operazioni *Get* se si dispone del diritto utente **Gestione registro di controllo e protezione** (SeSecurityPrivilege). Tuttavia, questo diritto consente un accesso aggiuntivo che non è necessario per eseguire le operazioni *Get* complessive.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-auditpol /get 
+auditpol /get
 [/user[:<username>|<{sid}>]]
 [/category:*|<name>|<{guid}>[,:<name|<{guid}> ]]
 [/subcategory:*|<name>|<{guid}>[,:<name|<{guid}> ]]
@@ -46,12 +48,11 @@ auditpol /get
 | /r | Visualizza l'output in formato report, con valori delimitati da virgole (CSV). |
 | /? | Visualizza la guida al prompt dei comandi. |
 
-## <a name="remarks"></a>Note
+### <a name="remarks"></a>Osservazioni
 
 Tutte le categorie e le sottocategorie possono essere specificate in base al nome o al GUID racchiuso tra virgolette ("). Gli utenti possono essere specificati in base al SID o al nome.
-per tutte le operazioni get per i criteri per utente e i criteri di sistema, è necessario disporre dell'autorizzazione di lettura per tale set di oggetti nel descrittore di sicurezza. È anche possibile eseguire le operazioni get possedendo il diritto utente **Gestione registro di controllo e protezione** (SeSecurityPrivilege). Tuttavia, questo diritto consente un accesso aggiuntivo che non è necessario per eseguire l'operazione get.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per recuperare i criteri di controllo per utente per l'account Guest e visualizzare l'output per le categorie sistema, rilevamento dettagliato e accesso agli oggetti, digitare:
 
@@ -60,7 +61,7 @@ auditpol /get /user:{S-1-5-21-1443922412-3030960370-963420232-51} /category:Syst
 ```
 
 > [!NOTE]
-> Questo comando è utile in due scenari. Quando si esegue il monitoraggio di un account utente specifico per attività sospette, è possibile usare il comando/Get per recuperare i risultati in categorie specifiche usando un criterio di inclusione per abilitare il controllo aggiuntivo. In alternativa, se le impostazioni di controllo per un account registrano numerosi eventi ma superflui, è possibile usare il comando/Get per filtrare gli eventi estranei per tale account con criteri di esclusione. Per un elenco di tutte le categorie, usare il comando auditpol/list/category.
+> Questo comando è utile in due scenari. 1) quando si esegue il monitoraggio di un account utente specifico per attività sospette `/get` , è possibile utilizzare il comando per recuperare i risultati in categorie specifiche utilizzando un criterio di inclusione per abilitare il controllo aggiuntivo. 2) se le impostazioni di controllo di un account registrano numerosi eventi ma superflui, è `/get` possibile usare il comando per filtrare gli eventi estranei per tale account con criteri di esclusione. Per un elenco di tutte le categorie, utilizzare `auditpol /list /category` il comando.
 
 Per recuperare i criteri di controllo per utente per una categoria e una sottocategoria specifica, che riporta le impostazioni incluse ed esclusive per la sottocategoria nella categoria sistema per l'account Guest, digitare:
 
@@ -104,5 +105,8 @@ Dove le opzioni disponibili sono AuditBaseObjects, AuditBaseOperations e Fullpri
 auditpol /get /option:CrashOnAuditFail /r
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
+
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comandi auditpol](auditpol.md)

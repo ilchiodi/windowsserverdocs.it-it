@@ -1,6 +1,6 @@
 ---
 title: auditpol
-description: Windows Commands (comandi di Windows) per **auditpol**, che visualizza informazioni su ed esegue funzioni per modificare i criteri di controllo.
+description: Argomento di riferimento per il comando auditpol, che consente di visualizzare informazioni su ed esegue funzioni per modificare i criteri di controllo.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,30 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 00365b0e46b8bff761cf991dbdbd09d8f5e9c687
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 89fee7ccd3b6671a6f2633c3b5d15d0cbee261fa
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851134"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718824"
 ---
 # <a name="auditpol"></a>auditpol
 
-Visualizza informazioni su ed esegue funzioni per modificare i criteri di controllo.
+Visualizza informazioni su ed esegue funzioni per modificare i criteri di controllo, tra cui:
 
-Per esempi di come è possibile usare questo comando, vedere la sezione Esempi in ogni argomento.
+- Impostazione ed esecuzione di query sui criteri di controllo del sistema.
+
+- Impostazione ed esecuzione di query su un criterio di controllo per utente.
+
+- Impostazione ed esecuzione di query sulle opzioni di controllo.
+
+- Impostazione ed esecuzione di query sul descrittore di sicurezza utilizzato per delegare l'accesso a un criterio di controllo.
+
+- Creazione di report o backup di un criterio di controllo in un file di testo con valori delimitati da virgole (CSV).
+
+- Caricamento di un criterio di controllo da un file di testo CSV.
+
+- Configurazione di SACL di risorse globali.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -28,7 +40,7 @@ Per esempi di come è possibile usare questo comando, vedere la sezione Esempi i
 auditpol command [<sub-command><options>]
 ```
 
-#### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
 | Sottocomando | Descrizione |
 | ----------- | ----------- |
@@ -42,24 +54,6 @@ auditpol command [<sub-command><options>]
 | /resourceSACL | Configura gli elenchi di controllo di accesso (SACL) globali del sistema di risorse. **Nota:** Si applica solo a Windows 7 e Windows Server 2008 R2. Per ulteriori informazioni, vedere [auditpol resourceSACL](auditpol-resourcesacl.md). |
 | /?| Visualizza la guida al prompt dei comandi. |
 
-## <a name="remarks"></a>Note
-
-Lo strumento da riga di comando per i criteri di controllo può essere utilizzato per:
-
-- Impostare ed eseguire una query sui criteri di controllo del sistema.
-
-- Impostare ed eseguire una query su un criterio di controllo per utente.
-
-- Opzioni di controllo set e query.
-
-- Impostare ed eseguire una query sul descrittore di sicurezza utilizzato per delegare l'accesso ai criteri di controllo.
-
-- Segnalare o eseguire il backup di un criterio di controllo in un file di testo con valori delimitati da virgole (CSV).
-
-- Caricare i criteri di controllo da un file di testo CSV.
-
-- Configurare SACL di risorse globali.
-
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

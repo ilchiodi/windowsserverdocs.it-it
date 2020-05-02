@@ -1,6 +1,6 @@
 ---
 title: diskcopy
-description: Windows Commands Topic for DISKCOPY, che copia il contenuto del disco floppy nell'unità di origine in un disco floppy formattato o non formattato nell'unità di destinazione.
+description: Argomento di riferimento per DISKCOPY, che copia il contenuto del disco floppy nell'unità di origine in un disco floppy formattato o non formattato nell'unità di destinazione.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 05/07/2018
-ms.openlocfilehash: 675694503cab207f05fd6b48e0d17c23196f85d0
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b5c9186a539a58ed0d3362ba83d7a3bcedcaabad
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80845544"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719464"
 ---
 # <a name="diskcopy"></a>diskcopy
 
 Copia il contenuto del disco floppy nell'unità di origine in un disco floppy formattato o non formattato nell'unità di destinazione. Se utilizzata senza parametri, **diskcopy** utilizza l'unità corrente per il disco di origine e il disco di destinazione.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 > [!NOTE]
 > Questo comando non è incluso in Windows 10.
@@ -35,12 +35,12 @@ diskcopy [<Drive1>: [<Drive2>:]] [/v]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<unità1 >|Specifica l'unità che contiene il disco di origine.|
-|\<unità2 >|Specifica l'unità che contiene il disco di destinazione.|
+|\<> unità1|Specifica l'unità che contiene il disco di origine.|
+|\<> Unità2|Specifica l'unità che contiene il disco di destinazione.|
 |/v|Verifica che le informazioni vengano copiate correttamente. Questa opzione rallenta il processo di copia.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   Uso di dischi
 
@@ -92,7 +92,7 @@ diskcopy [<Drive1>: [<Drive2>:]] [/v]
 
     To process the exit codes that are returned by **diskcomp**, you can use the *ERRORLEVEL* environment variable on the **if** command line in a batch program.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per copiare il disco nell'unità B sul disco nell'unità A, digitare:
 ```
@@ -102,6 +102,6 @@ Per utilizzare l'unità disco floppy a per copiare un disco floppy in un altro, 
 
 DISKCOPY a:
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

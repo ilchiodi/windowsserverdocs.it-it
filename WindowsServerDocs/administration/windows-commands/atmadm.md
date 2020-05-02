@@ -1,6 +1,6 @@
 ---
 title: atmadm
-description: Windows Commands argomento per **atmadm**, che monitora le connessioni e gli indirizzi registrati da ATM Call Manager in una rete di modalità di trasferimento asincrona (ATM).
+description: Argomento di riferimento per il comando atmadm, che consente di monitorare le connessioni e gli indirizzi registrati da atM Call Manager in una rete atM (Asynchronous Transfer Mode).
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cbfb787c472eaad4cbef5f86e7546f7b6f1da305
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 32dad00e5a4d03c905f95c48e112f512a9dbc2e5
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851274"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718913"
 ---
 # <a name="atmadm"></a>atmadm
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Esegue il monitoraggio delle connessioni e degli indirizzi registrati da Gestione chiamate atM in una rete atM (Asynchronous Transfer Mode). È possibile utilizzare **atmadm** per visualizzare le statistiche per le chiamate in ingresso e in uscita sugli adapter atM. Usato senza parametri, **atmadm** Visualizza le statistiche per il monitoraggio dello stato delle connessioni atM attive. 
+Esegue il monitoraggio delle connessioni e degli indirizzi registrati da Gestione chiamate atM in una rete atM (Asynchronous Transfer Mode). È possibile utilizzare **atmadm** per visualizzare le statistiche per le chiamate in ingresso e in uscita sugli adapter atM. Usato senza parametri, **atmadm** Visualizza le statistiche per il monitoraggio dello stato delle connessioni atM attive.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -32,12 +32,12 @@ atmadm [/c][/a][/s]
 
 | Parametro | Descrizione |
 | ------- | -------- |
-| /c | Visualizza le informazioni sulle chiamate per tutte le connessioni correnti alla scheda di rete atM installata nel computer. |
+| /C | Visualizza le informazioni sulle chiamate per tutte le connessioni correnti alla scheda di rete atM installata nel computer. |
 | /a | Consente di visualizzare l'indirizzo del punto di accesso al servizio di rete atM (NSAP) registrato per ogni scheda installata nel computer. |
 | /s | Visualizza le statistiche per il monitoraggio dello stato delle connessioni atM attive. |
 | /? | Visualizza la guida al prompt dei comandi. |
 
-## <a name="remarks"></a>Note
+### <a name="remarks"></a>Osservazioni
 
 - Il comando **atmadm/c** produce un output simile al seguente:
 
@@ -83,8 +83,8 @@ atmadm [/c][/a][/s]
     | PVC | La connessione si trova in un circuito virtuale permanente. |
     | Informazioni su VPI/VCI | VPI/VCI | Percorso virtuale e canale virtuale della chiamata in ingresso o in uscita. |
     | Indirizzo remoto/parametri multimediali | 47000580FFE1000000F21A2E180000C110081500 | Indirizzo NSAP del dispositivo atM chiamante **(in)** o chiamato **(out)** . |
-    | TX | Il parametro **TX** include i tre elementi seguenti:<p>-Tipo di velocità in bit predefinito o specificato (UBR, CBR, VBR o ABR)<p>-Velocità della riga predefinita o specificata<p>-Dimensione SDU (Service Data Unit) specificata. |
-    | RX | Il parametro **RX** include i tre elementi seguenti:<p>-Tipo di velocità in bit predefinito o specificato (UBR, CBR, VBR o ABR)<p>-Velocità della riga predefinita o specificata<p>-Dimensioni SDU specificate. |
+    | TX | Il parametro **TX** include i tre elementi seguenti:<ul><li>Tipo di velocità in bit predefinito o specificato (UBR, CBR, VBR o ABR)</li><li>Velocità riga predefinita o specificata</li><li>Dimensioni SDU (Service Data Unit) specificate.</li></ul> |
+    | Rx | Il parametro **RX** include i tre elementi seguenti:<ul><li>Tipo di velocità in bit predefinito o specificato (UBR, CBR, VBR o ABR)</li><li>Velocità riga predefinita o specificata</li><li>Dimensioni SDU specificate.</li></ul> |
 
 - Il comando **atmadm/a** produce un output simile al seguente:
 
@@ -124,7 +124,7 @@ atmadm [/c][/a][/s]
     | Segnalazione e pacchetti ILMI inviati | Numero di pacchetti ILMI (Integrated Local Management Interface) inviati allo switch a cui questo computer sta tentando di connettersi. |
     | Segnalazione e pacchetti ILMI ricevuti | Numero di pacchetti ILMI ricevuti dall'opzione atM. |
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per visualizzare le informazioni sulle chiamate per tutte le connessioni correnti alla scheda di rete atM installata nel computer, digitare:
 
@@ -144,6 +144,6 @@ Per visualizzare le statistiche per il monitoraggio dello stato delle connession
 atmadm /s
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
 title: bcdedit
-description: Windows Commands argomento per **bcdedit**, che consente di creare nuovi archivi, modificare gli archivi esistenti e aggiungere i parametri del menu di avvio.
+description: Argomento di riferimento per il comando bcdedit, che consente di creare nuovi archivi, modificare gli archivi esistenti e aggiungere i parametri del menu di avvio.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/27/2018
-ms.openlocfilehash: f5bd39fa29dc99bba0d3600fc8609a355ffe540c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: df68c2c1b1087f7e32dbe270657a54e072261c46
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851074"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718700"
 ---
 # <a name="bcdedit"></a>bcdedit
 
@@ -36,12 +36,12 @@ BCDEdit è limitato ai tipi di dati standard ed è progettato principalmente per
 ## <a name="syntax"></a>Sintassi
 
 ```
-BCDEdit /Command [<Argument1>] [<Argument2>] ...
+bcdedit /command [<argument1>] [<argument2>] ...
 ```
 
 ### <a name="parameters"></a>Parametri
 
-### <a name="general-bcdedit-command-line-option"></a>Opzione della riga di comando BCDEdit generale
+### <a name="general-bcdedit-command-line-options"></a>Opzioni della riga di comando di BCDEdit generale
 
 | Opzione | Descrizione |
 | ------ | ----------- |
@@ -76,7 +76,7 @@ BCDEdit /Command [<Argument1>] [<Argument2>] ...
 | Parametro | Descrizione |
 | ------ | ----------- |
 | /enum | Elenca le voci in un archivio. L'opzione **/enum** è il valore predefinito di BCEdit, pertanto l'esecuzione del comando **bcdedit** senza parametri equivale all'esecuzione del comando **bcdedit/enum Active** . |
-| /v | modalità dettagliata. In genere, tutti gli identificatori di voce noti sono rappresentati dal formato abbreviato descrittivo. Se si specifica **/v** come opzione della riga di comando, verranno visualizzati tutti gli identificatori completi. L'esecuzione del comando **bcdedit/v** è equivalente all'esecuzione del comando **bcdedit/enum Active/v** . |
+| /v | Modalità dettagliata. In genere, tutti gli identificatori di voce noti sono rappresentati dal formato abbreviato descrittivo. Se si specifica **/v** come opzione della riga di comando, verranno visualizzati tutti gli identificatori completi. L'esecuzione del comando **bcdedit/v** è equivalente all'esecuzione del comando **bcdedit/enum Active/v** . |
 
 #### <a name="parameters-that-control-the-boot-manager"></a>Parametri che controllano il Boot Manager
 
@@ -101,13 +101,13 @@ BCDEdit /Command [<Argument1>] [<Argument2>] ...
 | Parametro | Descrizione |
 | ------ | ----------- |
 | /bootdebug | Abilita o Disabilita il debugger di avvio per una voce di avvio specificata. Sebbene questo comando funzioni per qualsiasi voce di avvio, è efficace solo per le applicazioni di avvio. |
-| /dbgsettings | Specifica o Visualizza le impostazioni globali del debugger per il sistema. Questo comando non enablepose. Per impostare una singola impostazione del debugger globale, utilizzare il comando **bcdedit/set** `<dbgsettings> <type> <value>`. |
+| /dbgsettings | Specifica o Visualizza le impostazioni globali del debugger per il sistema. Questo comando non enablepose. Per impostare una singola impostazione del debugger globale, utilizzare il comando **bcdedit/set** `<dbgsettings> <type> <value>` . |
 | /debug | Abilita o Disabilita il debugger del kernel per una voce di avvio specificata. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 Per esempi relativi all'uso di BCDEdit, vedere l'articolo di [riferimento sulle opzioni di bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcd-boot-options-reference) .
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

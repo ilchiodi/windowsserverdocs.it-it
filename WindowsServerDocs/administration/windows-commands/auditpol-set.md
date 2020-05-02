@@ -1,6 +1,6 @@
 ---
 title: set di Auditpol
-description: Windows Commands Topic for **auditpol set**, che imposta i criteri di controllo per utente, i criteri di controllo del sistema o le opzioni di controllo.
+description: Argomento di riferimento per il comando auditpol set, che imposta i criteri di controllo per utente, i criteri di controllo del sistema o le opzioni di controllo.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0773a0a9ae9237b39293bae80001616d00630436
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 73868d6044d8742d4d9e0ce76e0668402f230f86
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851144"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718883"
 ---
 # <a name="auditpol-set"></a>set di Auditpol
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Imposta i criteri di controllo per utente, i criteri di controllo del sistema o le opzioni di controllo.
+
+Per eseguire operazioni sui *set* sui criteri *per utente* e di *sistema* , è necessario disporre dell'autorizzazione di **controllo completo** o di **scrittura** per tale set di oggetti nel descrittore di sicurezza. È inoltre possibile eseguire operazioni sui *set* se si dispone del diritto utente **Gestione registro di controllo e protezione** (SeSecurityPrivilege). Tuttavia, questo diritto consente un accesso aggiuntivo che non è necessario per eseguire le operazioni generali sui *set* .
 
 ## <a name="syntax"></a>Sintassi
 
@@ -49,11 +51,7 @@ auditpol /set
 | /SD | Imposta il descrittore di sicurezza utilizzato per delegare l'accesso ai criteri di controllo. Il descrittore di sicurezza deve essere specificato tramite il linguaggio SDDL (Security Descriptor Definition Language). Il descrittore di sicurezza deve avere un elenco di controllo di accesso discrezionale (DACL). |
 | /? | Visualizza la guida al prompt dei comandi. |
 
-## <a name="remarks"></a>Note
-
-Per tutte le operazioni sui set per i criteri per utente e i criteri di sistema, è necessario disporre dell'autorizzazione di controllo completo o di scrittura per tale set di oggetti nel descrittore di sicurezza. È anche possibile eseguire operazioni sui set possedendo il diritto utente **Gestione registro di controllo e protezione** (SeSecurityPrivilege). Tuttavia, questo diritto consente un accesso aggiuntivo che non è necessario per eseguire l'operazione di impostazione.
-
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per impostare i criteri di controllo per utente per tutte le sottocategorie della categoria di rilevamento dettagliata per l'utente Zaffaronif in modo che tutti i tentativi dell'utente vengano controllati, digitare:
 
@@ -94,6 +92,8 @@ Per impostare le opzioni di controllo sullo stato abilitato per l'opzione CrashO
 auditpol /set /option:CrashOnAuditFail /value:enable
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comandi auditpol](auditpol.md)

@@ -1,6 +1,6 @@
 ---
 title: Dettagli vdisk
-description: Windows Commands Topic for detail disk, che visualizza le proprietà del disco rigido virtuale (VHD) selezionato.
+description: Argomento di riferimento per il disco dei dettagli, che consente di visualizzare le proprietà del disco rigido virtuale (VHD) selezionato.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ba4a13762da4039459c2fa422ecf83b277fcd4d6
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: ed07639132fcf770036d5955a4e6cc54415b71e1
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80846404"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719626"
 ---
 # <a name="detail-vdisk"></a>Dettagli vdisk
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Consente di visualizzare le proprietà del disco rigido virtuale (VHD) selezionato.  
   
@@ -28,30 +28,30 @@ Consente di visualizzare le proprietà del disco rigido virtuale (VHD) seleziona
 detail vdisk  
 ```  
   
-## <a name="remarks"></a>Note  
+## <a name="remarks"></a>Osservazioni  
   
 -   Per eseguire questa operazione, è necessario selezionare un disco rigido Virtuale. Utilizzare il **Selezionare vdisk** comando per selezionare un disco rigido virtuale e spostare lo stato attivo a esso.  
   
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi  
+## <a name="examples"></a>Esempi  
 Per visualizzarne i dettagli del disco rigido Virtuale selezionato, digitare:  
   
 ```  
 detail vdisk  
 ```  
   
-## <a name="additional-references"></a>Altre informazioni di riferimento  
+## <a name="additional-references"></a>Riferimenti aggiuntivi  
   
 -   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
   
--   [Connetti vdisk](attach-vdisk.md)  
+-   [attach vdisk](attach-vdisk.md)  
   
 -   [compatta vdisk](compact-vdisk.md)
   
--   [Scollega vdisk](detach-vdisk.md)  
+-   [Scollega disco virtuale](detach-vdisk.md)  
   
 -   [Espandi vdisk](expand-vdisk.md)  
   
--   [Unisci vdisk](merge-vdisk.md)  
+-   [Disco virtuale di tipo merge](merge-vdisk.md)  
   
 -   [Seleziona vdisk](select-vdisk.md)  
   

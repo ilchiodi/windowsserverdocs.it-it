@@ -1,6 +1,6 @@
 ---
-title: attivo
-description: Windows Commands Topic for **Active**, che nei dischi di base, contrassegna la partizione con lo stato attivo come attivo.
+title: active
+description: Argomento di riferimento per il comando attivo, che su dischi di base, contrassegna la partizione con lo stato attivo come attivo.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,41 +9,36 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 42f2e0d367344355e8f9a570f37cfbdc5dfc4590
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 997c57b93434738c87396812c9b5e5b12d7a8e89
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851374"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719021"
 ---
-# <a name="active"></a>attivo
+# <a name="active"></a>active
 
-Nei dischi di base Contrassegna partizione come attiva.
+Nei dischi di base Contrassegna partizione come attiva. Solo le partizioni possono essere contrassegnate come attive. Per eseguire questa operazione, è necessario selezionare una partizione. Usare il comando **select partition** per selezionare una partizione e spostare lo stato attivo su di essa.
 
 > [!CAUTION]
-> DiskPart verifica che la partizione è in grado di contenere i file di avvio del sistema operativo. Ma non controlla il contenuto della partizione. Se l'errore si contrassegna una partizione come attiva e non contiene file di avvio del sistema operativo, il computer potrebbe non avviarsi.
+> DiskPart informa solo il BIOS (Basic Input/Output System) o Extensible Firmware Interface (EFI) che la partizione o il volume è una partizione di sistema o un volume di sistema valido e che è in grado di contenere i file di avvio del sistema operativo. Ma non controlla il contenuto della partizione. Se l'errore si contrassegna una partizione come attiva e non contiene file di avvio del sistema operativo, il computer potrebbe non avviarsi.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
 active
-```- 
+```
 
-## Remarks
+## <a name="examples"></a>Esempi
 
--   This informs the basic input/output system (BIOS) or Extensible Firmware Interface (EFI) that the partition or volume is a valid system partition or system volume.
-
--   Only partitions can be marked as active.
-
--   A partition must be selected for this operation to succeed. Use the **select partition** command to select a partition and shift the focus to it.
-
-## <a name=BKMK_examples></a>Examples
-
-To mark the partition with focus as the active partition, type:
+Per contrassegnare la partizione come partizione attiva, digitare:
 
 ```
-attivo
+active
 ```
-## Additional References
 
-- [Command-Line Syntax Key](command-line-syntax-key.md)
+## <a name="additional-references"></a>Riferimenti aggiuntivi
+
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando select partition](select-partition.md)

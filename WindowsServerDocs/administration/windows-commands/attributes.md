@@ -1,6 +1,6 @@
 ---
-title: attributi
-description: Windows Commands argomento per **gli attributi**, che Visualizza, imposta o cancella gli attributi di un disco o un volume.
+title: attributes
+description: Argomento di riferimento per il comando attributi, che Visualizza, imposta o cancella gli attributi di un disco o di un volume.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,31 +9,31 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e8faed6c0336315bf584f7f05e523b3adc05bdb0
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: cbee357c791f0f02e2d4d069e9e2886087119db1
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851224"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719153"
 ---
-# <a name="attributes"></a>attributi
+# <a name="attributes"></a>attributes
 
 Visualizza, imposta o cancella gli attributi di un disco o di un volume.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-Attributes disk
-Attributes volume
+attributes disk
+attributes volume
 ```
 
 ### <a name="parameters"></a>Parametri
 
 | Parametro | Descrizione |
 | --------- | ----------- |
-| [Disco attributi](attributes-disk.md) | Visualizza, imposta o cancella gli attributi di un disco. |
-| [Volume attributi](attributes-volume.md) | Visualizza, imposta o cancella gli attributi di un volume. |
+| [disco attributi](attributes-disk.md) | Visualizza, imposta o cancella gli attributi di un disco. |
+| [volume attributi](attributes-volume.md) | Visualizza, imposta o cancella gli attributi di un volume. |
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

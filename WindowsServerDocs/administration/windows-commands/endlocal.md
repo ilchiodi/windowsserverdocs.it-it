@@ -1,6 +1,6 @@
 ---
 title: endlocal
-description: Argomento dei comandi di Windows per * * * *-
+description: Argomento di riferimento per * * * *-
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4958c5419ed4f6374f7c6ecf09bdf67f61134d93
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f007a9ec1e86093192630011c5197740dfefe922
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80845114"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719372"
 ---
 # <a name="endlocal"></a>endlocal
 
@@ -22,7 +22,7 @@ ms.locfileid: "80845114"
 
 Termina la localizzazione delle modifiche all'ambiente in un file batch e ripristinare i valori delle variabili di ambiente prima della corrispondente **setlocal** comando è stato eseguito.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -36,7 +36,7 @@ endlocal
 |---------|-----------|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   Il **endlocal** comando non ha alcun effetto all'esterno di un file batch o script.
 -   È implicita **endlocal** comando alla fine di un file batch.
@@ -45,7 +45,7 @@ endlocal
 > [!NOTE]
 > Per ulteriori informazioni sull'abilitazione e disabilitazione delle estensioni del comando, vedere [Cmd](cmd.md).
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 È possibile localizzare le variabili di ambiente in un file batch. Ad esempio, il programma seguente viene avviato il programma batch superapp sulla rete, indirizza l'output in un file e viene visualizzato il file nel blocco note:
 ```
@@ -57,6 +57,6 @@ endlocal
 start notepad c:\superapp.out
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
 title: diantz
-description: Windows Commands argomento per diantz, che è lo stesso del comando makecab.
+description: Argomento di riferimento per diantz, che è lo stesso del comando makecab.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,21 +9,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d512e6a6bbb12775fc86bb3a21b20d9ed8d28356
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 2ce0094e1f1c24f8f1287ab680b9f4e9c7a8590c
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80845574"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719503"
 ---
 # <a name="diantz"></a>diantz
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Questo comando è analogo a come il **makecab** comando.
 
 Vedere [makecab](makecab.md) per la sintassi e i parametri.
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 -   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

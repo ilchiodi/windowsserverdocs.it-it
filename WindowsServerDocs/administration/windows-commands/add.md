@@ -1,6 +1,6 @@
 ---
 title: add
-description: Windows Commands argomento for **Add**, che aggiunge i volumi al set di volumi che devono essere replicati o aggiunge alias all'ambiente alias.
+description: Argomento di riferimento per il comando Aggiungi, che aggiunge volumi al set di volumi che devono essere copiati come Shadow, oppure aggiunge alias all'ambiente alias.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,39 +9,37 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9895082cc10223fd08cff6916c20c3af5613e947
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 9b621a3061c4e3366085c5cc44f91f26dd33d4e3
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851344"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719010"
 ---
 # <a name="add"></a>add
 
-aggiunge volumi al set di volumi di cui deve essere eseguita la copia shadow o aggiunge alias all'ambiente alias. Se usato senza sottocomandi, **Aggiungi** elenca i volumi e gli alias correnti.
+Aggiunge volumi al set di volumi di cui deve essere eseguita la copia shadow o aggiunge alias all'ambiente alias. Se usato senza sottocomandi, **Aggiungi** elenca i volumi e gli alias correnti.
 
 > [!NOTE]
 > Gli alias non vengono aggiunti all'ambiente alias fino a quando non viene creata la copia shadow. Gli alias che è necessario aggiungere immediatamente devono essere aggiunti usando **Aggiungi alias**.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
-
 ## <a name="syntax"></a>Sintassi
 
 ```
-add 
-add volume <Volume> [provider <ProviderID>] 
-add alias <AliasName> <AliasValue>
+add
+add volume <volume> [provider <providerid>]
+add alias <aliasname> <aliasvalue>
 ```
 
-## <a name="add-subcommands"></a>Aggiungi sottocomandi
+### <a name="parameters"></a>Parametri
 
-| Sottocomando | Descrizione |
+| Parametro | Descrizione |
 | ---------- | ----------- |
 | volume | Aggiunge un volume al set di copie shadow, ovvero il set di volumi da replicare. Vedere [aggiungere un volume](add-volume.md) per la sintassi e i parametri. |
 | alias | Aggiunge il nome e il valore specificati all'ambiente alias. Vedere [aggiungere alias](add-alias.md) per sintassi e parametri. |
-| `/?` | Visualizza la guida nella riga di comando. |
+| /? | Visualizza la guida nella riga di comando. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per visualizzare i volumi aggiunti e gli alias attualmente presenti nell'ambiente, digitare:
 
@@ -57,6 +55,6 @@ Volume c: alias System1    GUID \\?\Volume{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}
 No Diskshadow aliases in the environment.
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

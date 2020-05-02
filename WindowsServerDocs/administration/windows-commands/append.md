@@ -1,6 +1,6 @@
 ---
 title: append
-description: Windows Commands argomento for **Append**, che consente ai programmi di aprire i file di dati nelle directory specificate, come se si trovassero nella directory corrente.
+description: Argomento di riferimento per il comando APPEND, che consente ai programmi di aprire i file di dati nelle directory specificate, come se si trovassero nella directory corrente.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 95bbc607ef297e7cf67da2e388884882356ef744
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 562a13c6b1a47e43bb66548902f0b8e57e789a34
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851324"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718993"
 ---
 # <a name="append"></a>append
 
@@ -23,12 +23,10 @@ Consente ai programmi di aprire i file di dati nelle directory specificate come 
 > [!NOTE]
 > Questo comando non è supportato in Windows 10.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
-
 ## <a name="syntax"></a>Sintassi
 
 ```
-append [[<Drive>:]<Path>[;...]] [/x[:on|:off]] [/path:[:on|:off] [/e] 
+append [[<drive>:]<path>[;...]] [/x[:on|:off]] [/path:[:on|:off] [/e]
 append ;
 ```
 
@@ -36,16 +34,16 @@ append ;
 
 | Parametro | Descrizione |
 | --------- | ----------- |
-| `[\<Drive>:]<Path>` | Specifica un'unità e una directory da accodare. |
-| `/x:on` | Applica le directory accodate alle ricerche di file e all'avvio delle applicazioni. |
-| `/x:off` | Applica le directory accodate solo alle richieste per aprire i file. L'opzione **/x: off** è l'impostazione predefinita. |
-| `/path:on` | Applica le directory accodate alle richieste di file che già specificano un percorso. **/Path: on** è l'impostazione predefinita. |
-| `/path:off` | Disattiva l'effetto di **/Path: on**. |
-| `/e` | Archivia una copia dell'elenco di directory accodate in una variabile di ambiente denominata APPEND. **/e** può essere usato solo la prima volta che si usa **Append** dopo l'avvio del sistema. |
-| `;` | Cancella l'elenco di directory aggiunte. |
-| `/?` | Visualizza la guida al prompt dei comandi. |
+| `[\<drive>:]<path>` | Specifica un'unità e una directory da accodare. |
+| /x: on | Applica le directory accodate alle ricerche di file e all'avvio delle applicazioni. |
+| /x: disattivato | Applica le directory accodate solo alle richieste per aprire i file. L'opzione **/x: off** è l'impostazione predefinita. |
+| /Path: on | Applica le directory accodate alle richieste di file che già specificano un percorso. **/Path: on** è l'impostazione predefinita. |
+| /Path: disattivato | Disattiva l'effetto di **/Path: on**. |
+| /e | Archivia una copia dell'elenco di directory accodate in una variabile di ambiente denominata APPEND. **/e** può essere usato solo la prima volta che si usa **Append** dopo l'avvio del sistema. |
+| ; | Cancella l'elenco di directory aggiunte. |
+| /? | Visualizza la guida al prompt dei comandi. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per cancellare l'elenco delle directory accodate, digitare:
 
@@ -53,12 +51,12 @@ Per cancellare l'elenco delle directory accodate, digitare:
 append ;
 ```
 
-Per archiviare una copia della directory accodata in una variabile di ambiente denominata APPEND, digitare:
+Per archiviare una copia della directory accodata in una variabile di ambiente denominata *Append*, digitare:
 
 ```
 append /e
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

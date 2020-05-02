@@ -1,6 +1,6 @@
 ---
 title: resourceSACL auditpol
-description: Windows Commands (comandi di Windows) per **auditpol resourceSACL**, che configura gli elenchi di controllo di accesso (SACL) globali del sistema delle risorse.
+description: Argomento di riferimento per il comando auditpol resourceSACL, che consente di configurare gli elenchi di controllo di accesso (SAcl) globali del sistema delle risorse.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,21 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b004be6f21cd076fe20e73c45268731c35d654e5
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: befb76a21880171740b051c987dfd4d9329ecc9e
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851154"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719044"
 ---
 # <a name="auditpol-resourcesacl"></a>resourceSACL auditpol
 
+> Si applica a: Windows 7 e Windows Server 2008 R2
+
 Configura gli elenchi di controllo di accesso (SACL) globali del sistema di risorse.
 
-> [!NOTE]
-> Si applica solo a Windows 7 e Windows Server 2008 R2.
-
-Per esempi di come è possibile utilizzare questo comando, vedere [esempi](#BKMK_Examples).
+Per eseguire operazioni *resourceSACL* , è necessario disporre delle autorizzazioni di **controllo completo** o di **scrittura** per tale set di oggetti nel descrittore di sicurezza. È anche possibile eseguire operazioni *resourceSACL* se si dispone del diritto utente **Gestisci il registro di controllo e di protezione** (SeSecurityPrivilege).
 
 ## <a name="syntax"></a>Sintassi
 
@@ -45,21 +44,17 @@ auditpol /resourceSACL
 | /View | Elenca le voci di controllo di accesso agli oggetti globali in un SACL di risorsa. I tipi di utente e di risorsa sono facoltativi. |
 | /? | Visualizza la guida al prompt dei comandi. |
 
-## <a name="arguments"></a>Argomenti
+### <a name="arguments"></a>Argomenti
 
 | Argomento | Descrizione |
-| -------- | ----------- | 
-| /type | Risorsa per la quale è in corso la configurazione del controllo di accesso agli oggetti. I valori di argomento supportati e con distinzione tra maiuscole e minuscole sono file (per directory e file) e chiave (per le chiavi del registro di sistema). |
+| -------- | ----------- |
+| /type | Risorsa per la quale è in corso la configurazione del controllo di accesso agli oggetti. I valori di argomento supportati e con distinzione tra maiuscole e minuscole sono *file* (per directory e file) e *chiave* (per le chiavi del registro di sistema). |
 | /Success | Specifica il controllo di esito positivo. |
 | /Failure | Specifica il controllo degli errori. |
-| /User | Specifica un utente in uno dei formati seguenti:<ul><li> DomainName\Account (ad esempio DOM\Administrators)</li><li>Account StandaloneServer\Group (vedere la [funzione LookupAccountName](https://msdn.microsoft.com/library/windows/desktop/aa379159(v=vs.85).aspx))</li><li>{S-1-x-x-x-x} (x è espresso in decimale e l'intero SID deve essere racchiuso tra parentesi graffe). Ad esempio: {S-1-5-21-5624481-130208933-164394174-1001}<p>**Nota:** Se viene usato il modulo SID, non viene eseguita alcuna verifica per verificare l'esistenza di questo account.</li></ul> |
-| /access | Specifica una maschera di autorizzazione che può essere specificata tramite:<p>Diritti di accesso generici, tra cui:<ul><li>GA-GENERICO ALL</li><li>GR-LETTURA GENERICA</li><li>GW-SCRITTURA GENERICA</li><li>GX-ESECUZIONE GENERICA</li></ul><p>Diritti di accesso per i file, tra cui:<ul><li>FA-FILE TUTTI GLI ACCESSI</li><li>FR-FILE LETTO GENERICO</li><li>SCRITTURA GENERICA FILE FW</li><li>ESECUZIONE GENERICA FX-FILE</li></ul><p>Diritti di accesso per le chiavi del registro di sistema, tra cui:<ul><li>ACCESSO A TUTTE LE CHIAVI KA</li><li>KR-LETTURA CHIAVE</li><li>KW-SCRITTURA CHIAVE</li><li>ESECUZIONE DELLA CHIAVE KX</li></ul><p>Ad esempio: `/access:FRFW` consentirà di abilitare gli eventi di controllo per le operazioni di lettura e scrittura.<p>Valore esadecimale che rappresenta la maschera di accesso (ad esempio 0x1200a9)<p>    Questa operazione è utile quando si utilizzano maschere di bit specifiche delle risorse che non fanno parte dello standard SDDL (Security Descriptor Definition Language). Se omesso, viene utilizzato l'accesso completo. |
+| /User | Specifica un utente in uno dei formati seguenti:<ul><li> DomainName\Account (ad esempio DOM\Administrators)</li><li>Account StandaloneServer\Group (vedere la [funzione LookupAccountName](https://docs.microsoft.com/windows/win32/api/winbase/nf-winbase-lookupaccountnamea))</li><li>{S-1-x-x-x-x} (x è espresso in decimale e l'intero SID deve essere racchiuso tra parentesi graffe). Ad esempio: {S-1-5-21-5624481-130208933-164394174-1001}<p>**Nota:** Se viene usato il modulo SID, non viene eseguita alcuna verifica per verificare l'esistenza di questo account.</li></ul> |
+| /access | Specifica una maschera di autorizzazione che può essere specificata tramite:<p>Diritti di accesso generici, tra cui:<ul><li>GA-GENERICO ALL</li><li>GR-LETTURA GENERICA</li><li>GW-SCRITTURA GENERICA</li><li>GX-ESECUZIONE GENERICA</li></ul><p>Diritti di accesso per i file, tra cui:<ul><li>FA-FILE TUTTI GLI ACCESSI</li><li>FR-FILE LETTO GENERICO</li><li>SCRITTURA GENERICA FILE FW</li><li>ESECUZIONE GENERICA FX-FILE</li></ul><p>Diritti di accesso per le chiavi del registro di sistema, tra cui:<ul><li>ACCESSO A TUTTE LE CHIAVI KA</li><li>KR-LETTURA CHIAVE</li><li>KW-SCRITTURA CHIAVE</li><li>ESECUZIONE DELLA CHIAVE KX</li></ul><p>Ad esempio: `/access:FRFW` Abilita gli eventi di controllo per le operazioni di lettura e scrittura.<p>Valore esadecimale che rappresenta la maschera di accesso (ad esempio 0x1200a9)<p>Questa operazione è utile quando si utilizzano maschere di bit specifiche delle risorse che non fanno parte dello standard SDDL (Security Descriptor Definition Language). Se omesso, viene utilizzato l'accesso completo. |
 
-## <a name="remarks"></a>Note
-
-Per le operazioni resourceSACL, è necessario disporre dell'autorizzazione di controllo completo o di scrittura per tale set di oggetti nel descrittore di sicurezza. È anche possibile eseguire operazioni resourceSACL possedendo il diritto utente **Gestisci il registro di controllo e di protezione** (SeSecurityPrivilege). Tuttavia, questo diritto consente un accesso aggiuntivo che non è necessario per eseguire l'operazione di rimozione.
-
-## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per impostare un SACL di risorsa globale per controllare i tentativi di accesso riusciti da un utente su una chiave del registro di sistema:
 
@@ -97,6 +92,8 @@ Per elencare le voci di controllo di accesso agli oggetti globali per un determi
 auditpol /resourceSACL /type:File /view /user:MYDOMAIN\myuser
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comandi auditpol](auditpol.md)

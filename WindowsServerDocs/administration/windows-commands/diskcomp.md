@@ -1,6 +1,6 @@
 ---
 title: diskcomp
-description: Windows Commands argomento per verrà, che confronta il contenuto di due dischi floppy.
+description: Argomento di riferimento per verrà, che consente di confrontare il contenuto di due dischi floppy.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,17 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e36e644616e25659c1a2a5ca684e975fd06fc19f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: e1b15e9b6669a22ac95693e635bae1642c307e09
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80845554"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82719490"
 ---
 # <a name="diskcomp"></a>diskcomp
 
 Confronta il contenuto di due dischi floppy. Se usato senza parametri, **verrà** usa l'unità corrente per confrontare entrambi i dischi.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
 
 ## <a name="syntax"></a>Sintassi
 
@@ -32,11 +31,11 @@ diskcomp [<Drive1>: [<Drive2>:]]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<unità1 >|Specifica l'unità contenente uno dei dischi floppy.|
-|\<unità2 >|Specifica l'unità contenente l'altro disco floppy.|
+|\<> unità1|Specifica l'unità contenente uno dei dischi floppy.|
+|\<> Unità2|Specifica l'unità contenente l'altro disco floppy.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 - Uso di dischi
 
@@ -103,7 +102,7 @@ diskcomp [<Drive1>: [<Drive2>:]]
 
   Per elaborare i codici di uscita restituiti da **verrà**, è possibile usare la variabile di ambiente ERRORLEVEL nella riga di comando **if** in un programma batch.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Se il computer dispone di una sola unità disco floppy, ad esempio l'unità A, e si desidera confrontare due dischi, digitare:
 ```
@@ -111,7 +110,7 @@ diskcomp a: a:
 ```
 **Verrà** richiede di inserire ogni disco, in base alle esigenze.
 
-Nell'esempio seguente viene illustrato come elaborare un codice di uscita **verrà** in un programma batch che utilizza la variabile di ambiente ERRORLEVEL nella riga di comando **if** :
+Per illustrare come elaborare un codice di uscita di **verrà** in un programma batch che usa la variabile di ambiente ERRORLEVEL nella riga di comando **if** :
 ```
 rem Checkout.bat compares the disks in drive A and B 
 echo off 
@@ -138,6 +137,6 @@ goto exit
 :exit
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

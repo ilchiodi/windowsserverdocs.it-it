@@ -1,6 +1,6 @@
 ---
 title: autofmt
-description: Windows Commands Topic for **Autofmt**, che formatta un'unità o una partizione quando viene chiamata dalla console di ripristino di Windows.
+description: Argomento di riferimento per il comando Autofmt, che formatta un'unità o una partizione quando viene chiamata dalla Console ripristino Windows.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,23 +9,24 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 59aec4b42652f3a42f336be81f1ba99bee128140
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b7b82d940f2d8bd54d023a2a105208d1a18fc4c8
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851104"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718757"
 ---
 # <a name="autofmt"></a>autofmt
 
-Formatta un'unità o una partizione quando viene chiamata dalla Console ripristino Windows.
+Avvia l'utilità di formattazione del file System automatica, che formatta un'unità o una partizione quando viene chiamata dalla Console ripristino Windows.
 
-## <a name="remarks"></a>Note
+> [!IMPORTANT]
+> Non è possibile eseguire **Autofmt** direttamente dalla riga di comando.
 
-Non è possibile eseguire **Autofmt** direttamente dalla riga di comando.
-
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 
-- [Uso dei file System](https://go.microsoft.com/fwlink/?LinkId=4509)
+- [Ambiente ripristino Windows (WinRE)](https://docs.microsoft.com/windows-hardware/manufacture/desktop/windows-recovery-environment--windows-re--technical-reference)
+
+- [Come utilizzare ambiente ripristino Windows (WinRE) per risolvere i problemi di avvio comuni](https://support.microsoft.com/help/4026030/how-to-use-windows-recovery-environment-winre-to-troubleshoot-common-s)

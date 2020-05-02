@@ -1,6 +1,6 @@
 ---
 title: bdehdcfg
-description: Windows Commands argomento per **BdeHdCfg**, che prepara un disco rigido con le partizioni necessarie per crittografia unità BitLocker.
+description: Argomento di riferimento per il comando BdeHdCfg, che prepara un disco rigido con le partizioni necessarie per Crittografia unità BitLocker.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c9adf8bbfb655e0820fcff6385d3663fc7abbd9a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3bcc901847bb8d687d59bc3270dab39de0af8d60
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80851004"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718563"
 ---
 # <a name="bdehdcfg"></a>bdehdcfg
 
@@ -33,12 +33,10 @@ Prepara un disco rigido con le partizioni necessarie per Crittografia unità Bit
 >
 >- Se viene applicata questa impostazione relativa ai criteri, non è possibile partizionare un disco rigido perché l'unità è protetta. Se si esegue l'aggiornamento dei computer dell'organizzazione da una versione precedente di Windows e i computer sono stati configurati con una sola partizione, è necessario creare la partizione del sistema BitLocker richiesta prima di applicare l'impostazione relativa ai criteri dei computer.
 
-Per esempi di come è possibile utilizzare questo comando, vedere [esempi](#BKMK_Examples).
-
 ## <a name="syntax"></a>Sintassi
 
 ```
-bdehdcfg [–driveinfo <DriveLetter>] [-target {default|unallocated|<DriveLetter> shrink|<DriveLetter> merge}] [–newdriveletter] [–size <SizeinMB>] [-quiet]
+bdehdcfg [–driveinfo <drive_letter>] [-target {default|unallocated|<drive_letter> shrink|<drive_letter> merge}] [–newdriveletter] [–size <size_in_mb>] [-quiet]
 ```
 
 #### <a name="parameters"></a>Parametri
@@ -51,22 +49,8 @@ bdehdcfg [–driveinfo <DriveLetter>] [-target {default|unallocated|<DriveLetter
 | [BdeHdCfg: dimensioni](bdehdcfg-size.md) | Determina la dimensione della partizione di sistema durante la creazione di una nuova unità di sistema. |
 | [BdeHdCfg: non interattiva](bdehdcfg-quiet.md) | Impedisce la visualizzazione di tutte le azioni e degli errori nell'interfaccia della riga di comando e indica a BdeHdCfg di usare la risposta sì a qualsiasi richiesta Sì/No che può verificarsi durante la preparazione dell'unità successiva. |
 | [BdeHdCfg: riavvio](bdehdcfg-restart.md) | Indica che il computer deve essere riavviato al termine della preparazione dell'unità. |
-| /? | Visualizza la Guida dal prompt dei comandi. |
+| /? | Visualizza la Guida al prompt dei comandi. |
 
-## <a name="examples"></a><a name=BKMK_Examples></a>Esempi
-
-Nell'esempio seguente viene illustrato l'uso di BdeHdCfg con l'unità predefinita per creare una partizione di sistema di 500 MB. Poiché non è specificata alcuna lettera di unità, la nuova partizione di sistema non avrà una lettera di unità.
-
-```
-bdehdcfg -target default -size 500
-```
-
-Nell'esempio seguente viene illustrato l'utilizzo di BdeHdCfg con l'unità predefinita per creare una partizione di sistema (P:) delle dimensioni predefinite di 300 MB di spazio non allocato nell'unità. Lo strumento non richiederà alcun ulteriore input da parte dell'utente, né verrà visualizzato alcun errore. Al termine della creazione dell'unità di sistema, il computer verrà riavviato automaticamente.
-
-```
-bdehdcfg -target unallocated –newdriveletter P: -quiet -restart
-```
-
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

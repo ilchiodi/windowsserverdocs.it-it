@@ -1,6 +1,6 @@
 ---
-title: Bitsadmin cache e cancella
-description: Windows Commands Topic for **BITSAdmin cache e Clear**, che elimina la cache locale.
+title: bitsadmin cache e clear
+description: Argomento di riferimento per la cache Bitsadmin e il comando Clear, che elimina la cache locale.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2625268bf2bedc28e0ed5d1bda151c8802ef8d24
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 6195bfc28c59fe7609f4a8164fa080ff7f7b977d
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850854"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718279"
 ---
-# <a name="bitsadmin-cache-and-clear"></a>Bitsadmin cache e cancella
+# <a name="bitsadmin-cache-and-clear"></a>bitsadmin cache e clear
 
 Elimina la cache locale.
 
@@ -26,14 +26,16 @@ Elimina la cache locale.
 bitsadmin /cache /clear
 ```
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
-Nell'esempio seguente viene ripulita la cache locale.
+Per eliminare la cache locale:
 
 ```
-C:\>bitsadmin /cache /clear
+bitsadmin /cache /clear
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando cache Bitsadmin](bitsadmin-cache.md)

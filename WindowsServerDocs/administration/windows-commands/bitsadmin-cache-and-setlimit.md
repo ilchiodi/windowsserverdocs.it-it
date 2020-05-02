@@ -1,6 +1,6 @@
 ---
-title: cache Bitsadmin e limite
-description: Argomento dei comandi di Windows per la **cache Bitsadmin e**il valore di limite, che imposta il limite delle dimensioni della cache.
+title: bitsadmin cache e setlimit
+description: Argomento di riferimento per il comando Bitsadmin cache e selimit, che imposta il limite delle dimensioni della cache.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 746ee0b69da8f5bd22fec2ccbd432126cc25d94d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a4c41102bfb87ff6d48113c4e85a821b821b5b01
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850874"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718283"
 ---
-# <a name="bitsadmin-cache-and-setlimit"></a>cache Bitsadmin e limite
+# <a name="bitsadmin-cache-and-setlimit"></a>bitsadmin cache e setlimit
 
 Imposta il limite delle dimensioni della cache.
 
@@ -32,14 +32,16 @@ bitsadmin /cache /setlimit percent
 | -------------- | -------------- |
 | percent | Limite della cache definito come percentuale dello spazio totale su disco rigido. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
-Nell'esempio seguente la dimensione della cache viene limitata al 50%.
+Per impostare il limite delle dimensioni della cache su 50%:
 
 ```
-C:\>bitsadmin /cache /setlimit 50
+bitsadmin /cache /setlimit 50
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando cache Bitsadmin](bitsadmin-cache.md)

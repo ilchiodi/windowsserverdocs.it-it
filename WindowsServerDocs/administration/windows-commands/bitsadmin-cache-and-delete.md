@@ -1,6 +1,6 @@
 ---
-title: Bitsadmin cache ed eliminazione
-description: Argomento dei comandi di Windows per la **cache Bitsadmin e Delete**, che elimina una voce della cache specifica.
+title: bitsadmin cache e delete
+description: Argomento di riferimento per la cache Bitsadmin e il comando DELETE, che elimina una voce della cache specifica.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0fd7f1db83a62dd9c1085d6afdcf509c1c3ac8cf
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 62c0c3d5b2cc188e8a8987c7ca502cdeaf932410
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850944"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82718452"
 ---
-# <a name="bitsadmin-cache-and-delete"></a>Bitsadmin cache ed eliminazione
+# <a name="bitsadmin-cache-and-delete"></a>bitsadmin cache e delete
 
 Elimina una voce della cache specifica.
 
@@ -32,14 +32,16 @@ bitsadmin /cache /delete recordID
 | -------------- | -------------- |
 | recordID | GUID associato alla voce della cache. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
-Nell'esempio seguente viene eliminata la voce della cache con RecordID di {6511FB02-E195-40A2-B595-E8E2F8F47702}.
+Per eliminare la voce della cache con il RecordID di {6511FB02-E195-40A2-B595-E8E2F8F47702}:
 
 ```
-C:\>bitsadmin /cache /delete {6511FB02-E195-40A2-B595-E8E2F8F47702}
+bitsadmin /cache /delete {6511FB02-E195-40A2-B595-E8E2F8F47702}
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando cache Bitsadmin](bitsadmin-cache.md)
