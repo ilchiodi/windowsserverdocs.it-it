@@ -1,6 +1,6 @@
 ---
-title: util e versione di Bitsadmin
-description: Windows Commands Topic for **Bitsadmin util and Version**, che visualizza la versione del servizio BITS.
+title: bitsadmin util e version
+description: Argomento di riferimento per il comando util e Version di Bitsadmin, che visualizza la versione del servizio BITS.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2c2518eb7a8f15d9a592ed9a77dd67a6f8d8afac
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: 20c3db6e6fcd5ef3d00287f36c9f9624ab5224dd
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81122462"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82707596"
 ---
-# <a name="bitsadmin-util-and-version"></a>util e versione di Bitsadmin
+# <a name="bitsadmin-util-and-version"></a>bitsadmin util e version
 
 Visualizza la versione del servizio BITS (ad esempio, 2,0).
 
@@ -37,12 +37,16 @@ bitsadmin /util /version [/verbose]
 
 ## <a name="examples"></a>Esempi
 
-Nell'esempio seguente la versione del servizio BITS.
+Per visualizzare la versione del servizio BITS.
 
 ```
-C:\>bitsadmin /util /version
+bitsadmin /util /version
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando util Bitsadmin](bitsadmin-util.md)
+
+- [comando Bitsadmin](bitsadmin.md)

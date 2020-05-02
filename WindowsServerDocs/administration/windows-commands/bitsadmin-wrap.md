@@ -1,6 +1,6 @@
 ---
 title: bitsadmin wrap
-description: Argomento comandi di Windows per **BITSAdmin wrap**, che esegue il wrapping di qualsiasi riga di testo di output che si estende oltre il bordo all'estrema destra della finestra di comando alla riga successiva.
+description: Argomento di riferimento per il comando Bitsadmin wrap, che esegue il wrapping di qualsiasi riga di testo di output che si estende oltre il bordo all'estrema destra della finestra di comando alla riga successiva.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e754a765d94661baf24190431b455584d29991ec
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: 8c1c2c78fd3cc78674ef497526ba236ad058fe83
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81122569"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82707569"
 ---
 # <a name="bitsadmin-wrap"></a>bitsadmin wrap
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Esegue il wrapping di tutte le righe di output testo che si estende oltre il bordo all'estrema destra della finestra di comando nella riga successiva. È necessario specificare questa opzione prima di tutte le altre opzioni.
 
@@ -34,16 +34,18 @@ bitsadmin /wrap <job>
 
 | Parametro | Descrizione |
 | --------- | ---------- |
-| Job | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 
 ## <a name="examples"></a>Esempi
 
-Nell'esempio seguente recupera le informazioni per il processo denominato *myDownloadJob* e include l'output.
+Per recuperare le informazioni per il processo denominato *myDownloadJob* ed eseguire il wrapping del testo di output:
 
 ```
-C:\>bitsadmin /wrap /info myDownloadJob /verbose
+bitsadmin /wrap /info myDownloadJob /verbose
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

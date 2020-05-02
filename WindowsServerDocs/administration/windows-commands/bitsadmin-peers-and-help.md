@@ -1,6 +1,6 @@
 ---
-title: Bitsadmin peer e guida
-description: Argomento sui comandi di Windows per **BITSAdmin peer** e **Help**, che Visualizza l'utilizzo della riga di comando per le opzioni/Peers.
+title: bitsadmin peers e help
+description: Argomento di riferimento per il comando della guida e i peer Bitsadmin, che Visualizza l'utilizzo della riga di comando per le opzioni/Peers.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9f1eee039830fce2fc311afaf782b97ddd641c70
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 405bf6d0641d46a9e7d365bbd9742633df403020
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850084"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717153"
 ---
-# <a name="bitsadmin-peers-and-help"></a>Bitsadmin peer e guida
+# <a name="bitsadmin-peers-and-help"></a>bitsadmin peers e help
 
 Visualizza l'utilizzo della riga di comando per le opzioni **/Peers** .
 
@@ -26,14 +26,18 @@ Visualizza l'utilizzo della riga di comando per le opzioni **/Peers** .
 bitsadmin /peers /help
 ```
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
-Il comando seguente Visualizza la guida della riga di comando per le opzioni **/Peers** .
+Per visualizzare l'utilizzo della riga di comando per le opzioni **/Peers** :
 
 ```
-C:\>bitsadmin /peers /help
+bitsadmin /peers /help
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)
+
+- [Bitsadmin Peers (comando)](bitsadmin-peers.md)

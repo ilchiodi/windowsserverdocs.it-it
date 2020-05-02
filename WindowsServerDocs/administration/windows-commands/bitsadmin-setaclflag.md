@@ -1,6 +1,6 @@
 ---
 title: bitsadmin setaclflag
-description: Argomento dei comandi di Windows per **BITSAdmin setaclflag**, che imposta i flag di propagazione dell'elenco di controllo di accesso (ACL).
+description: Argomento di riferimento per il comando Bitsadmin setaclflag, che imposta i flag di propagazione dell'elenco di controllo di accesso (ACL).
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f0aae550e94d04db518edccafb1d6bcf46d0320b
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: 1852bd267fe22825d55f7522a81179e9290e2a00
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81123069"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82716982"
 ---
 # <a name="bitsadmin-setaclflag"></a>bitsadmin setaclflag
 
@@ -30,21 +30,19 @@ bitsadmin /setaclflag <job> <flags>
 
 | Parametro | Descrizione |
 | --------- | ----------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 | flags | Specificare uno o più valori, tra cui:<ul><li>**o** -copia le informazioni sul proprietario con il file.</li><li>**g** -copia le informazioni sul gruppo con il file.</li><li>**d** : copia le informazioni dell'elenco di controllo di accesso discrezionale (DACL) con file.</li><li>**s** : copia le informazioni dell'elenco di controllo di accesso di sistema (SACL) con file.</li></ul> |
-
-## <a name="remarks"></a>Note
-
-L'opzione/setaclflag viene usata per mantenere le informazioni sull'elenco di controllo di accesso e proprietario quando un processo sta scaricando i dati da una condivisione Windows (SMB).
 
 ## <a name="examples"></a>Esempi
 
-Nell'esempio seguente imposta il controllo di accesso flag di propagazione di elenco per il processo denominato *myDownloadJob* per mantenere le informazioni di gruppo e il proprietario con i file scaricati.
+Per impostare i flag di propagazione dell'elenco di controllo di accesso per il processo denominato *myDownloadJob*, in modo che mantenga le informazioni sul proprietario e sul gruppo con i file scaricati.
 
 ```
-C:\>bitsadmin /setaclflags myDownloadJob og
+bitsadmin /setaclflags myDownloadJob og
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
-[Chiave della sintassi della riga di comando](command-line-syntax-key.md)&reg;'    
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

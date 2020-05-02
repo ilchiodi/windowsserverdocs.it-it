@@ -1,6 +1,6 @@
 ---
 title: Chiave sintassi della riga di comando
-description: Argomento dei comandi di Windows per la chiave della sintassi della riga di comando, che descrive la notazione utilizzata per indicare la sintassi della riga di comando.
+description: Argomento di riferimento per la chiave della sintassi della riga di comando, che descrive la notazione utilizzata per indicare la sintassi della riga di comando.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 81fdd24a5810f1ead3ef27201f1ab4cfdff020e4
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: 3a3c78b6081733164be3a656e67c35dd3e2b5e2d
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81123145"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82711945"
 ---
 # <a name="command-line-syntax-key"></a>Chiave sintassi della riga di comando
 
@@ -24,7 +24,7 @@ Nella tabella seguente vengono descritti la notazione utilizzata per indicare la
 | -------- | ----------- |
 | Testo senza parentesi quadre o parentesi graffe | Gli elementi devono essere digitati come illustrato. |
 | `<Text inside angle brackets>` | Segnaposto per il quale è necessario fornire un valore. |
-| `[Text inside square brackets]` | Elementi facoltativi |
+| `[Text inside square brackets]` | Elementi facoltativi. |
 | `{Text inside braces}` | Set di elementi obbligatori. È necessario sceglierne una. |
-| Barra verticale `(|)`| Separatore per gli elementi che si escludono a vicenda. È necessario sceglierne una. |
-| Puntini di sospensione `(…)` | Elementi che possono essere ripetuti e usati più volte. |
+| Barra verticale`(|)`| Separatore per gli elementi che si escludono a vicenda. È necessario sceglierne una. |
+| Puntini`(…)` | Elementi che possono essere ripetuti e usati più volte. |

@@ -1,6 +1,6 @@
 ---
 title: bitsadmin rawreturn
-description: Windows Commands Topic for **BITSAdmin rawreturn**, che restituisce i dati appropriati per l'analisi.
+description: Argomento di riferimento per il comando Bitsadmin rawreturn, che restituisce i dati appropriati per l'analisi.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e8cd84b6082b1fda8061ee7b324dd66991d3b206
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: af465bb9f51ab6f43980c43bf2be1f5158429a82
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80849884"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717090"
 ---
 # <a name="bitsadmin-rawreturn"></a>bitsadmin rawreturn
 
 Restituisce i dati appropriati per l'analisi. In genere, si usa questo comando insieme alle opzioni **/create** e **/Get*** per ricevere solo il valore. È necessario specificare questa opzione prima di altre opzioni.
+
+> [!NOTE]
+> Questo comando rimuove i caratteri di nuova riga e la formattazione dall'output.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -26,18 +29,16 @@ Restituisce i dati appropriati per l'analisi. In genere, si usa questo comando i
 bitsadmin /rawreturn
 ```
 
-## <a name="remarks"></a>Note
+## <a name="examples"></a>Esempi
 
-- Rimuove i caratteri di nuova riga e la formattazione dall'output.
-
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
-
-Nell'esempio seguente recupera i dati non elaborati per lo stato del processo denominato *myDownloadJob*.
+Per recuperare i dati non elaborati per lo stato del processo denominato *myDownloadJob*:
 
 ```
-C:\>bitsadmin /rawreturn /getstate myDownloadJob
+bitsadmin /rawreturn /getstate myDownloadJob
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

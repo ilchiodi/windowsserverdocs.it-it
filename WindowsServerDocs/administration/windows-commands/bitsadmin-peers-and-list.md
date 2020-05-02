@@ -1,6 +1,6 @@
 ---
-title: Bitsadmin peer ed elenco
-description: Windows Commands argomento for **BITSAdmin Peers** and **List**, che elenca tutti i peer.
+title: bitsadmin peers e list
+description: Argomento di riferimento per il comando list e Bitsadmin Peers, che elenca tutti i peer.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a38f3ed825f6629c196d5ebac1e967f4fa06a940
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a6c1f8fbcb6ca40c86a1d589ba7217392b9875cf
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80849934"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717149"
 ---
-# <a name="bitsadmin-peers-and-list"></a>Bitsadmin peer ed elenco
+# <a name="bitsadmin-peers-and-list"></a>bitsadmin peers e list
 
 Elenca tutti i peer.
 
@@ -26,14 +26,18 @@ Elenca tutti i peer.
 bitsadmin /peers /list
 ```
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
-Nell'esempio seguente vengono elencati tutti i peer.
+Per elencare tutti i peer:
 
 ```
-C:\>bitsadmin /peers /list
+bitsadmin /peers /list
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)
+
+- [Bitsadmin Peers (comando)](bitsadmin-peers.md)

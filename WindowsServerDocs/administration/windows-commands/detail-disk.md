@@ -1,6 +1,6 @@
 ---
 title: disco dettagli
-description: Windows Commands Topic for detail disk, che visualizza le proprietà del disco selezionato e i volumi su tale disco.
+description: Argomento di riferimento per il disco dei dettagli, che consente di visualizzare le proprietà del disco selezionato e i volumi su tale disco.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0d0768d45c0f56ba549ff54064c4e74ae3048e41
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a746506d6c9609e3214dbd48e5fa91f52d16ab4d
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80846454"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82710512"
 ---
 # <a name="detail-disk"></a>disco dettagli
 
@@ -26,19 +26,19 @@ Visualizza le proprietà del disco selezionato e i volumi presenti sul disco.
 detail disk
 ```
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 -   Per eseguire questa operazione, è necessario selezionare un disco. Utilizzare il **disco selezionare** comando per selezionare un disco e spostare lo stato attivo a esso.
 -   Se il disco selezionato è un disco rigido virtuale (VHD), il **disco dei dettagli** segnala il tipo di bus del disco come virtuale.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per visualizzare le proprietà del disco selezionato e informazioni sui volumi del disco, digitare:
 ```
 detail disk
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

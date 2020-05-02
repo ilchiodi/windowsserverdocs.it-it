@@ -1,6 +1,6 @@
 ---
-title: delete
-description: Windows Commands argomento for delete, che elimina una partizione o un volume.
+title: eliminare
+description: Argomento di riferimento per Delete, che elimina una partizione o un volume.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1c9844a223390e3e825b7255f83a8867dc65297f
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: c53d73cea0c9c248f1f7c253f37f91084d92dc40
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80846544"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82716673"
 ---
-# <a name="delete"></a>delete
+# <a name="delete"></a>eliminare
 
 Elimina una partizione o un volume. Elimina inoltre un disco dinamico dall'elenco dei dischi.
 
@@ -36,7 +36,7 @@ delete volume
 |[Elimina partizione](delete-partition.md)|Elimina una partizione.|
 |[Elimina volume](delete-volume.md)|Elimina un volume.|
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

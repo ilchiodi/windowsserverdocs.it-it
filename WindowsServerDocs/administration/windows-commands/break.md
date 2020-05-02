@@ -1,6 +1,6 @@
 ---
 title: break
-description: Argomento dei comandi di Windows per break, che interrompe il volume con mirroring con lo stato attivo in due volumi semplici.
+description: Argomento di riferimento per il comando break, che interrompe il volume con mirroring con lo stato attivo in due volumi semplici.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,13 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ef9156940212de9ca8518dd481ef47f13411dd53
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b39e405d57992f03a28536725e3138e21cfdbdf1
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80848374"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82708829"
 ---
 # <a name="break"></a>break
 
 Suddivide il volume con mirroring con lo stato attivo in due volumi semplici.
-

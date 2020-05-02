@@ -1,6 +1,6 @@
 ---
 title: bitsadmin replaceremoteprefix
-description: Windows Commands Topic for **BITSAdmin REPLACEREMOTEPREFIX**, che modifica l'URL remoto per tutti i file nel processo da *oldprefix* a *newprefix*, in base alle esigenze.
+description: Argomento di riferimento per il comando Bitsadmin REPLACEREMOTEPREFIX, che consente di modificare l'URL remoto per tutti i file del processo da *oldprefix* a *newprefix*, se necessario.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0cea0108a292815e31e893e91dc4079305c1da9a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 745d026513413db799e86df3422d5ee19c89274f
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80849814"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717033"
 ---
 # <a name="bitsadmin-replaceremoteprefix"></a>bitsadmin replaceremoteprefix
 
@@ -30,18 +30,20 @@ bitsadmin /replaceremoteprefix <job> <oldprefix> <newprefix>
 
 | Parametro | Descrizione |
 | -------------- | -------------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 | oldprefix | Prefisso URL esistente. |
 | newprefix | Nuovo prefisso URL. |
 
 ## <a name="examples"></a>Esempi
 
-Nell'esempio seguente viene modificato l'URL remoto per tutti i file nel processo denominato *myDownloadJob*, da *http://stageserver* a *http://prodserver* .
+Per modificare l'URL remoto per tutti i file nel processo denominato *myDownloadJob*, *http://stageserver* da *http://prodserver*a.
 
 ```
-C:\>bitsadmin /replaceremoteprefix myDownloadJob http://stageserver http://prodserver
+bitsadmin /replaceremoteprefix myDownloadJob http://stageserver http://prodserver
 ```
 
 ## <a name="additional-information"></a>Informazioni aggiuntive
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

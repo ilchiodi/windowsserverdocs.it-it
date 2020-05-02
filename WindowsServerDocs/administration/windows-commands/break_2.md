@@ -1,6 +1,6 @@
 ---
 title: break
-description: Argomento dei comandi di Windows per break_2, che annulla l'associazione di un volume di copia shadow da VSS e lo rende accessibile come volume normale.
+description: Argomento di riferimento per il comando break, che annulla l'associazione di un volume di copia shadow a VSS e lo rende accessibile come volume normale.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6683c44c84f4baae5f016f7df62d5bd6591cff70
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 7e8789ab68ecb98d190a79c3f1088aad05b83562
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80848254"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82707780"
 ---
 # <a name="break"></a>break
 
@@ -22,37 +22,30 @@ Annulla l'associazione di un volume di copia shadow a VSS e lo rende accessibile
 
 > [!NOTE]
 > Questo comando è pertinente solo per le copie shadow dell'hardware dopo l'importazione.
-
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+>
+> Per impostazione predefinita, i volumi esposti, come le copie shadow da cui provengono, sono di sola lettura. L'accesso al volume viene effettuato direttamente al provider hardware senza che sia stata registrata una copia shadow del volume.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-break [writable] <SetID>
+break [writable] <setid>
 ```
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|scrivibile|Consente l'accesso in lettura/scrittura al volume.|
-|\<> SetId|Specifica l'ID del set di copie shadow.|
+| Parametro | Descrizione |
+| --------- | ----------- |
+| scrivibile | Consente l'accesso in lettura/scrittura al volume. |
+| \<> SetID | Specifica l'ID del set di copie shadow. L'alias dell'ID della copia shadow, archiviato come variabile di ambiente tramite il comando **Load Metadata** , può essere usato nel parametro *SetID* . |
 
-## <a name="remarks"></a>Note
+## <a name="examples"></a>Esempi
 
--   Per impostazione predefinita, i volumi esposti, come le copie shadow da cui provengono, sono di sola lettura.
--   L'alias dell'ID della copia shadow, archiviato come variabile di ambiente tramite il comando **Load Metadata** , può essere usato nel parametro *SetID* .
+Per creare una copia shadow usando il nome di alias Alias1 accessibile come volume scrivibile nel sistema operativo:
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
-
-Per creare una copia shadow con il nome alias Alias1 accessibile come volume scrivibile nel sistema operativo, digitare:
 ```
 break writable %Alias1%
 ```
 
-> [!NOTE]
-> L'accesso al volume viene effettuato direttamente al provider hardware senza che sia stata registrata una copia shadow del volume.
-
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

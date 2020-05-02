@@ -1,6 +1,6 @@
 ---
-title: setpeercachingflags Bitsadmin
-description: Windows Commands argomento for **BITSAdmin setpeercachingflags**, che imposta i flag che determinano se i file del processo possono essere memorizzati nella cache e serviti ai peer e se il processo può scaricare il contenuto dai peer.
+title: bitsadmin setpeercachingflags
+description: Argomento di riferimento per il comando Bitsadmin setpeercachingflags, che imposta i flag che determinano se i file del processo possono essere memorizzati nella cache e serviti ai peer e se il processo può scaricare il contenuto dai peer.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1b4a7807975fb46440301e30b1fdbd01784d7c85
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: 8b66b169c38ac050ecaaf6546365547148faa9cf
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81122770"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717264"
 ---
-# <a name="bitsadmin-setpeercachingflags"></a>setpeercachingflags Bitsadmin
+# <a name="bitsadmin-setpeercachingflags"></a>bitsadmin setpeercachingflags
 
 Imposta i flag che determinano se i file del processo possono essere memorizzato nella cache e forniti a colleghi e se il processo è possibile scaricare contenuto da peer.
 
@@ -30,17 +30,19 @@ bitsadmin /setpeercachingflags <job> <value>
 
 | Parametro | Descrizione |
 | --------- | ----------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 | value | Un Unsigned Integer, tra cui:<ul><li>**1.** il processo può scaricare il contenuto dai peer.</li><li>**2.** i file del processo possono essere memorizzati nella cache e serviti ai peer.</li></ul> |
 
 ## <a name="examples"></a>Esempi
 
-Nell'esempio seguente vengono impostati i flag per il processo denominato *myDownloadJob*, che consente di scaricare il contenuto dai peer.
+Per consentire al processo denominato *myDownloadJob* di scaricare il contenuto dai peer:
 
 ```
-C:\>bitsadmin /setpeercachingflags myDownloadJob 1
+bitsadmin /setpeercachingflags myDownloadJob 1
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

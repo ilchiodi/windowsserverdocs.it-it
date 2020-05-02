@@ -1,6 +1,6 @@
 ---
 title: defrag
-description: Windows Commands argomento for Defrag, che consente di individuare e consolidare i file frammentati nei volumi locali per migliorare le prestazioni del sistema.
+description: Argomento di riferimento per Defrag, che consente di individuare e consolidare i file frammentati nei volumi locali per migliorare le prestazioni del sistema.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f8723afc936fa1ea311e275a58a85b20988f92a2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 47a19ec697da29b1eff152de8fc5930516d5b806
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80846714"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82716764"
 ---
 # <a name="defrag"></a>defrag
 
->Si applica a: Windows 10, Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows 10, Windows Server (canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Individua e Consolida file frammentati nei volumi locali per migliorare le prestazioni del sistema.
 
@@ -36,7 +36,7 @@ defrag <volume> [/<Parameter>]*
 |Parametro|Descrizione|
 |-------|--------|
 |`<volume>`|Specifica il percorso di punto di montaggio o lettera di unità del volume da deframmentare o l'analisi.|
-|A|Analizzare i volumi specificati.|
+|Una|Analizzare i volumi specificati.|
 |C|Eseguire l'operazione in tutti i volumi.|
 |D|Eseguire la deframmentazione tradizionale (impostazione predefinita). In un volume a livelli, tuttavia, la deframmentazione tradizionale viene eseguita solo sul livello di capacità.|
 |E|Eseguire l'operazione in tutti i volumi ad eccezione di quelli specificati.|
@@ -47,13 +47,13 @@ defrag <volume> [/<Parameter>]*
 |L|Eseguire il ritaglio sui volumi specificati.|
 |M [n]|Eseguire l'operazione in ciascun volume in parallelo in background. Al massimo n thread ottimizzano i livelli di archiviazione in parallelo.|
 |O|Eseguire l'ottimizzazione corretta per ogni tipo di supporto.|
-|Elemento|Tenere traccia di un'operazione già in corso nel volume specificato.|
+|T|Tenere traccia di un'operazione già in corso nel volume specificato.|
 |U|stampa lo stato di avanzamento dell'operazione sullo schermo.|
 |V|stampa l'output dettagliato contenente le statistiche di frammentazione.|
 |X|Eseguire il consolidamento di spazio libero nel volume specificati.|
 |?|Consente di visualizzare queste informazioni della Guida.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 - È in grado di deframmentare tipi specifici di unità o volumi di file system:
   -   È possibile deframmentare i volumi che ha bloccato il file system.
   -   È Impossibile deframmentare volumi che il file system è contrassegnato come modificato, che indica un possibile danneggiamento. È necessario eseguire **chkdsk** in un volume danneggiato prima di deframmentare. È possibile determinare se un volume è danneggiato, utilizzare il **fsutil** dirty comando di query. Per ulteriori informazioni su **chkdsk** e **fsutil** Dirty, vedere [riferimenti aggiuntivi](defrag.md#BKMK_additionalRef).
@@ -61,15 +61,15 @@ defrag <volume> [/<Parameter>]*
   -   Non è possibile deframmentare i cdROM.
   -   Non è possibile deframmentare file system volumi che non sono **NTFS**, **refs**, **FAT** o **FAT32**.
 - Con Windows Server 2008 R2, Windows Server 2008 e Windows Vista, è possibile pianificare per deframmentare un volume. Tuttavia, non è possibile pianificare per deframmentare un volume su un disco rigido virtuale (VHD) che risiede in un'unità SSD o un solido stato unità SSD.
-- Per eseguire questa procedura, è necessario essere membro del gruppo Administrators sul computer locale o aver ricevuto in delega l'autorizzazione appropriata. Se il computer appartiene a un dominio, i membri del gruppo Domain Admins potrebbero essere in grado di eseguire questa procedura. Come procedura di sicurezza consigliata, provare a utilizzare **RunAs** per eseguire questa procedura.
+- Per eseguire questa procedura, è necessario essere un membro del gruppo Administrators nel computer locale oppure avere ricevuto in delega l'autorità appropriata. Se il computer fa parte di un dominio, è possibile che i membri del gruppo Domain Admins siano in grado di eseguire questa procedura. Come procedura di sicurezza consigliata, provare a utilizzare **RunAs** per eseguire questa procedura.
 - Un volume deve avere almeno 15% spazio per **defrag** in modo completo e corretto. **Defrag** utilizza questo spazio come area di ordinamento per i frammenti di file. Se un volume è inferiore a 15% di spazio libero, **defrag** solo parzialmente la deframmentazione. Per aumentare lo spazio disponibile su un volume, eliminare i file non necessari o spostarli in un altro disco.
 - Mentre **defrag** è l'analisi e la deframmentazione di un volume, viene visualizzato un cursore lampeggiante. Quando **defrag** termine dell'analisi e la deframmentazione del volume, Visualizza il report di analisi, il rapporto di deframmentazione o entrambi i report e quindi viene chiusa al prompt dei comandi.
 - Per impostazione predefinita, **defrag** Visualizza un riepilogo dei report di analisi e deframmentazione se non si specifica il **/a** o **/v** parametri.
-- È possibile inviare i report in un file di testo digitando **>** <em>nomefile</em>, dove *nomefile* è un nome file specificato. Ad esempio: `defrag volume /v > FileName.txt`
+- È possibile inviare i report a un file di testo digitando **>** <em>nomefile. txt</em>, dove *filename. txt* è un nome file specificato. Ad esempio: `defrag volume /v > FileName.txt`
 - Per interrompere il processo di deframmentazione, dalla riga di comando, premere **CTRL + C**.
 - L'esecuzione del comando **Defrag** e dell'utilità di deframmentazione dischi si escludono a vicenda. Se si usa l'utilità di deframmentazione dischi per deframmentare un volume e si esegue il comando **Defrag** da una riga di comando, il comando **Defrag** ha esito negativo. Viceversa, se si esegue il comando **Defrag** e si apre l'utilità di deframmentazione dischi, le opzioni di deframmentazione nell'utilità di deframmentazione dischi non sono disponibili.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 Per deframmentare il volume dell'unità C, fornendo lo stato di avanzamento e l'output dettagliato, digitare:
 ```
 defrag C: /U /V
@@ -99,7 +99,7 @@ L'attività pianificata di deframmentazione viene eseguita come un'attività di 
    - Viene avviato solo se il computer è alimentato da AC e si arresta se il computer passa alla batteria
    - Arresta se il computer cessa di essere inattivo
 
-## <a name="additional-references"></a><a name=BKMK_additionalRef></a>Riferimenti aggiuntivi
+## <a name="additional-references"></a><a name=BKMK_additionalRef></a>Altri riferimenti
 -   [chkdsk](chkdsk.md)
 -   [fsutil](fsutil.md)
 -   [fsutil dirty](fsutil-dirty.md)

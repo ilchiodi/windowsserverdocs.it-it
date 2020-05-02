@@ -1,6 +1,6 @@
 ---
 title: clip
-description: Windows Commands argomento for clip, che reindirizza l'output del comando dalla riga di comando agli Appunti di Windows.
+description: Argomento di riferimento per il comando di ritaglio, che reindirizza l'output del comando dalla riga di comando agli Appunti di Windows.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,53 +9,52 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0d997154a382cf39aa2b877d7a2b84f4ff34157d
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 61c905e3dcce52f3a3d35adeac55fc5df574f664
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80847644"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82712787"
 ---
 # <a name="clip"></a>clip
 
-Reindirizza l'output del comando dalla riga di comando agli Appunti di Windows. È quindi possibile incollare l'output di testo in altri programmi.
-
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+Reindirizza l'output del comando dalla riga di comando agli Appunti di Windows. È possibile utilizzare questo comando per copiare i dati direttamente in qualsiasi applicazione in grado di ricevere testo dagli Appunti. È anche possibile incollare questo output di testo in altri programmi.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-<Command> | clip
-clip < <FileName>
+<command> | clip
+clip < <filename>
 ```
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|Comando \<>|Specifica un comando il cui output si desidera inviare negli Appunti di Windows.|
-|\<FileName >|Specifica un file il cui contenuto si desidera inviare negli Appunti di Windows.|
-|/?|Visualizza la guida al prompt dei comandi.|
+| Parametro | Descrizione |
+| --------- | ----------- |
+| `<command>` | Specifica un comando il cui output si desidera inviare agli Appunti di Windows. |
+| `<filename>` | Specifica un file il cui contenuto si desidera inviare agli Appunti di Windows. |
+| /? | Visualizza la guida al prompt dei comandi. |
 
-## <a name="remarks"></a>Note
-
-È possibile utilizzare il **clip** comando per copiare i dati direttamente in un'applicazione in grado di ricevere il testo dagli Appunti.
-
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per copiare la directory corrente listato negli Appunti di Windows, digitare:
+
 ```
 dir | clip
 ```
-Per copiare l'output di un programma denominato Generic. awk negli Appunti di Windows, digitare:
+
+Per copiare l'output di un programma denominato *Generic. awk* negli Appunti di Windows, digitare:
+
 ```
 awk -f generic.awk input.txt | clip
 ```
-Per copiare il contenuto di un file denominato Readme. txt negli Appunti di Windows, digitare:
+
+Per copiare il contenuto di un file denominato *Readme. txt* negli Appunti di Windows, digitare:
+
 ```
 clip < readme.txt
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

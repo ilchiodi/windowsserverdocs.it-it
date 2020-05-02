@@ -1,6 +1,6 @@
 ---
 title: bitsadmin setpriority
-description: Windows Commands argomento per **BITSAdmin sepriority**, che imposta la priorità del processo specificato.
+description: Argomento di riferimento per il comando Bitsadmin sepriority, che imposta la priorità del processo specificato.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9348680a61649b938267b3277de9aa5aa521361f
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: 556a1d94700780ea22acc1e4c2f32961c0e43342
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81122762"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717259"
 ---
 # <a name="bitsadmin-setpriority"></a>bitsadmin setpriority
 
@@ -30,17 +30,19 @@ bitsadmin /setpriority <job> <priority>
 
 | Parametro | Descrizione |
 | --------- | ----------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 | priority | Imposta la priorità del processo, tra cui:<ul><li>FOREGROUND</li><li>HIGH</li><li>NORMAL</li><li>LOW</li></ul> |
 
 ## <a name="examples"></a>Esempi
 
-Nell'esempio seguente imposta la priorità per il processo denominato *myDownloadJob* Normal.
+Per impostare la priorità per il processo denominato *myDownloadJob* su Normal:
 
 ```
-C:\>bitsadmin /setpriority myDownloadJob NORMAL
+bitsadmin /setpriority myDownloadJob NORMAL
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

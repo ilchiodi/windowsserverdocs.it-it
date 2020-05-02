@@ -1,6 +1,6 @@
 ---
-title: removeclientcertificate Bitsadmin
-description: Windows Commands Topic for **BITSAdmin removeclientcertificate**, che rimuove il certificato client dal processo.
+title: bitsadmin removeclientcertificate
+description: Argomento di riferimento per il comando Bitsadmin removeclientcertificate, che rimuove il certificato client dal processo.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 312226b73b91385436e15c4afbb49df161258768
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: 513830f6048f78aa528fa22cb590571e718452c2
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81123102"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717062"
 ---
-# <a name="bitsadmin-removeclientcertificate"></a>removeclientcertificate Bitsadmin
+# <a name="bitsadmin-removeclientcertificate"></a>bitsadmin removeclientcertificate
 
 Rimuove il certificato del client dal processo.
 
@@ -30,16 +30,18 @@ bitsadmin /removeclientcertificate <job>
 
 | Parametro | Descrizione |
 | -------------- | -------------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 
 ## <a name="examples"></a>Esempi
 
-Nell'esempio seguente viene rimosso il certificato client dal processo denominato *myDownloadJob*.
+Per rimuovere il certificato client dal processo denominato *myDownloadJob*:
 
 ```
-C:\>bitsadmin /removeclientcertificate myDownloadJob 
+bitsadmin /removeclientcertificate myDownloadJob
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)

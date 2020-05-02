@@ -1,6 +1,6 @@
 ---
 title: detach vdisk
-description: Windows Commands Topic for detach vdisk, che interrompe la visualizzazione del disco rigido virtuale (VHD) selezionato come unità disco rigido locale nel computer host.
+description: Argomento di riferimento per detach vdisk, che consente di arrestare il disco rigido virtuale (VHD) selezionato come unità disco rigido locale nel computer host.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 14eb66031841624156afb03f492e2afce5bc56f0
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: e5e64559650597eb8d15e28075f74704fdf338a6
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80846504"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82716664"
 ---
 # <a name="detach-vdisk"></a>detach vdisk
 
->Si applica a: Windows Server (Canale semestrale), Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Arresta la visualizzazione del disco rigido virtuale (VHD) selezionato come unità disco rigido locale nel computer host. Quando viene reso non visibile, il VHD può essere copiato in percorsi diversi.  
   
@@ -37,22 +37,22 @@ detach vdisk [noerr]
 |-------|--------|  
 |NOERR|Utilizzato solo per gli script. Quando si è verificato un errore, DiskPart continua a elaborare i comandi come se non si è verificato l'errore. Senza questo parametro, un errore causa DiskPart viene interrotto con un codice di errore.|  
   
-## <a name="remarks"></a>Note  
+## <a name="remarks"></a>Osservazioni  
   
 -   Un disco rigido Virtuale deve essere selezionato e scollegato per eseguire questa operazione. Utilizzare il **Selezionare vdisk** comando per selezionare un disco rigido Virtuale e spostare lo stato attivo a esso.  
   
-## <a name="examples"></a><a name=BKMK_Examples></a>Esempi  
+## <a name="examples"></a>Esempi  
 Per scollegare il disco rigido Virtuale selezionato, digitare:  
   
 ```  
 detach vdisk  
 ```  
   
-## <a name="additional-references"></a>Altre informazioni di riferimento  
+## <a name="additional-references"></a>Riferimenti aggiuntivi  
   
 -   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
   
--   [Connetti vdisk](attach-vdisk.md)  
+-   [attach vdisk](attach-vdisk.md)  
   
 -   [compatta vdisk](compact-vdisk.md)  
 
@@ -60,7 +60,7 @@ detach vdisk
   
 -   [Espandi vdisk](expand-vdisk.md)  
   
--   [Unisci vdisk](merge-vdisk.md)  
+-   [Disco virtuale di tipo merge](merge-vdisk.md)  
   
 -   [Seleziona vdisk](select-vdisk.md)  
   

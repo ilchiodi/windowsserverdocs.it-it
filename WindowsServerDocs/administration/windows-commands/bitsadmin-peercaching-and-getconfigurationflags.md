@@ -1,6 +1,6 @@
 ---
-title: Bitsadmin peer caching e getconfigurationflags
-description: Argomento dei comandi di Windows per **BITSAdmin peer caching** e **getconfigurationflags**, che ottiene i flag di configurazione che determinano se il computer fornisce contenuto ai peer e se può scaricare il contenuto dai peer.
+title: bitsadmin peercaching e getconfigurationflags
+description: Argomento di riferimento per il comando Bitsadmin peer caching e getconfigurationflags, che ottiene i flag di configurazione che determinano se il computer fornisce contenuto ai peer e se può scaricare il contenuto dai peer.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,14 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: be8d6a719d63c8e9c6250320560b6ce21274c680
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 62b6848dec30a9a9fef401b1b2372605dbb9934a
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80850174"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717328"
 ---
-# <a name="bitsadmin-peercaching-and-getconfigurationflags"></a>Bitsadmin peer caching e getconfigurationflags
+# <a name="bitsadmin-peercaching-and-getconfigurationflags"></a>bitsadmin peercaching e getconfigurationflags
 
 Ottiene i flag di configurazione che determinano se il computer fornisce contenuto ai peer e se può scaricare il contenuto da peer.
 
@@ -30,16 +30,20 @@ bitsadmin /peercaching /getconfigurationflags <job>
 
 | Parametro | Descrizione |
 | -------------- | -------------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
-Nell'esempio seguente vengono ottenuti i flag di configurazione per il processo denominato *myDownloadJob*.
+Per ottenere i flag di configurazione per il processo denominato *myDownloadJob*:
 
 ```
-C:\> bitsadmin /peercaching /getconfigurationflags myDownloadJob
+bitsadmin /peercaching /getconfigurationflags myDownloadJob
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)
+
+- [comando Bitsadmin peer caching](bitsadmin-peercaching.md)

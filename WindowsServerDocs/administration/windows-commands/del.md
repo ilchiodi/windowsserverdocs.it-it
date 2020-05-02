@@ -1,6 +1,6 @@
 ---
 title: del
-description: Argomento dei comandi di Windows per CANC, che consente di eliminare uno o più file.
+description: Argomento di riferimento per CANC, che consente di eliminare uno o più file.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7069ee50a810296d31e1a034b24955299918020a
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 703597ae422518a5b401b656ace0b4cd73418be8
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80846664"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82716750"
 ---
 # <a name="del"></a>del
 
 Elimina uno o più file. Questo comando è analogo a come il **erase** comando.
 
-Per esempi di utilizzo di questo comando, vedere [Esempi](#BKMK_examples).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -33,15 +33,15 @@ erase [/p] [/f] [/s] [/q] [/a[:]<Attributes>] <Names>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|Nomi \<>|Specifica un elenco di uno o più file o directory. Per eliminare più file, è possibile utilizzare caratteri jolly. Se viene specificata una directory, verranno eliminati tutti i file all'interno della directory.|
-|/p|Richiede una conferma prima di eliminare il file specificato.|
+|\<Nomi>|Specifica un elenco di uno o più file o directory. Per eliminare più file, è possibile utilizzare caratteri jolly. Se viene specificata una directory, verranno eliminati tutti i file all'interno della directory.|
+|/ p|Richiede una conferma prima di eliminare il file specificato.|
 |/f|Eliminazione di forza dei file di sola lettura.|
 |/s|Elimina i file dalla directory corrente e tutte le sottodirectory specificati. Visualizza i nomi dei file di come vengono eliminati.|
 |/q|Specifica la modalità non interattiva. Non viene chiesto di confermare l'eliminazione.|
-|/a [:]\<attributi >|Elimina i file in base ai seguenti attributi di file:</br>**r** i file di sola lettura</br>**h** file nascosti</br>**i** non contenuti i file indicizzati</br>**s** i file di sistema</br>**un** pronto per l'archiviazione dei file</br>**l** Reparse Point</br>-Prefisso vale a dire 'not'|
+|/a [:]\<attributi>|Elimina i file in base ai seguenti attributi di file:</br>**r** i file di sola lettura</br>**h** file nascosti</br>**i** non contenuti i file indicizzati</br>**s** i file di sistema</br>**un** pronto per l'archiviazione dei file</br>**l** Reparse Point</br>-Prefisso vale a dire 'not'|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 > [!CAUTION]
 > Se si utilizza **CANC** per eliminare un file dal disco, non è possibile recuperarlo.
@@ -56,7 +56,7 @@ erase [/p] [/f] [/s] [/q] [/a[:]<Attributes>] <Names>
   ```
   del \work
   ```  
-- È possibile utilizzare caratteri jolly ( **&#42;** e **?** ) per eliminare più di un file alla volta. Tuttavia, per evitare di eliminare accidentalmente dei file, è necessario utilizzare caratteri jolly con cautela con il **CANC** comando. Ad esempio, se si digita il comando seguente:  
+- È possibile utilizzare caratteri jolly (**&#42;** e **?**) per eliminare più di un file alla volta. Tuttavia, per evitare di eliminare accidentalmente dei file, è necessario utilizzare caratteri jolly con cautela con il **CANC** comando. Ad esempio, se si digita il comando seguente:  
   ```
   del *.*
   ```  
@@ -71,7 +71,7 @@ erase [/p] [/f] [/s] [/q] [/a[:]<Attributes>] <Names>
 
 -   Il **CANC** comando con parametri diversi, è disponibile dalla Console di ripristino.
 
-## <a name="examples"></a><a name=BKMK_examples></a>Esempi
+## <a name="examples"></a>Esempi
 
 Per eliminare tutti i file in una cartella denominata Test sull'unità C, digitare uno dei seguenti:
 ```
@@ -87,6 +87,6 @@ Per eliminare tutti i file di sola lettura nella directory corrente, digitare:
 del /a:r *.*
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
 title: bitsadmin setnotifyflags
-description: Windows Commands Topic for **BITSAdmin setnotifyflags**, che imposta i flag di notifica degli eventi per il processo specificato.
+description: Argomento di riferimento per il comando Bitsadmin setnotifyflags, che imposta i flag di notifica degli eventi per il processo specificato.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 73c088ce2bae8d2ad99b313417c14449ddd822b5
-ms.sourcegitcommit: 141f2d83f70cb467eee59191197cdb9446d8ef31
+ms.openlocfilehash: 00b704bf0943790ef01bbfbdbcbbde4dfd1845c6
+ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2020
-ms.locfileid: "81122796"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82717274"
 ---
 # <a name="bitsadmin-setnotifyflags"></a>bitsadmin setnotifyflags
 
@@ -30,17 +30,19 @@ bitsadmin /setnotifyflags <job> <notifyflags>
 
 | Parametro | Descrizione |
 | --------- | ----------- |
-| lavoro | Nome visualizzato o GUID del processo. |
+| processo | Nome visualizzato o GUID del processo. |
 | notifyflags | Può includere uno o più dei flag di notifica seguenti, tra cui:<ul><li>**1.** genera un evento quando tutti i file del processo sono stati trasferiti.</li><li>**2.** genera un evento quando si verifica un errore.</li><li>**3.** genera un evento quando tutti i file hanno completato il trasferimento o quando si verifica un errore.</li><li>**4.** Disabilita le notifiche.</li></ul> |
 
 ## <a name="examples"></a>Esempi
 
-Nell'esempio seguente vengono impostati i flag di notifica per generare un evento quando si verifica un errore, per un processo denominato *myDownloadJob*.
+Per impostare i flag di notifica per generare un evento quando si verifica un errore, per un processo denominato *myDownloadJob*:
 
 ```
-C:\>bitsadmin /setnotifyflags myDownloadJob 2
+bitsadmin /setnotifyflags myDownloadJob 2
 ```
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando Bitsadmin](bitsadmin.md)
