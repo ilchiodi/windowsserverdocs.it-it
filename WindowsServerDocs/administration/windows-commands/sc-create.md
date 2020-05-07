@@ -1,6 +1,6 @@
 ---
-title: Creazione SC
-description: Argomento di riferimento per * * * *-
+title: SC. exe-crea
+description: Informazioni su come registrare nuovi servizi con Windows Service Manager tramite l'utilità SC. exe
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,25 +9,21 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0406e82afbe1f70dc27236a29c3c20489f46f44e
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 9e1a581273def291502bf01e3fc9acf0c296707b
+ms.sourcegitcommit: 95b60384b0b070263465eaffb27b8e3bb052a4de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722203"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82850102"
 ---
-# <a name="sc-create"></a>Creazione SC
-
-
+# <a name="scexe-create"></a>SC. exe-crea
 
 Crea una sottochiave e le voci per un servizio nel registro di sistema e nel database di gestione controllo servizi.
-
-
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-sc [<ServerName>] create [<ServiceName>] [type= {own | share | kernel | filesys | rec | interact type= {own | share}}] [start= {boot | system | auto | demand | disabled | delayed-auto }] [error= {normal | severe | critical | ignore}] [binpath= <BinaryPathName>] [group= <LoadOrderGroup>] [tag= {yes | no}] [depend= <dependencies>] [obj= {<AccountName> | <ObjectName>}] [displayname= <DisplayName>] [password= <Password>]
+sc.exe [<ServerName>] create [<ServiceName>] [type= {own | share | kernel | filesys | rec | interact type= {own | share}}] [start= {boot | system | auto | demand | disabled | delayed-auto }] [error= {normal | severe | critical | ignore}] [binpath= <BinaryPathName>] [group= <LoadOrderGroup>] [tag= {yes | no}] [depend= <dependencies>] [obj= {<AccountName> | <ObjectName>}] [displayname= <DisplayName>] [password= <Password>]
 ```
 
 ### <a name="parameters"></a>Parametri
@@ -55,10 +51,10 @@ sc [<ServerName>] create [<ServiceName>] [type= {own | share | kernel | filesys 
 
 ## <a name="examples"></a>Esempi
 
-Gli esempi seguenti illustrano come è possibile usare il comando **SC create** :
+Gli esempi seguenti illustrano come è possibile usare il comando **SC. exe create** :
 ```
-sc \\myserver create NewService binpath= c:\windows\system32\NewServ.exe
-sc create NewService binpath= c:\windows\system32\NewServ.exe type= share start= auto depend= +TDI NetBIOS
+sc.exe \\myserver create NewService binpath= c:\windows\system32\NewServ.exe
+sc.exe create NewService binpath= c:\windows\system32\NewServ.exe type= share start= auto depend= +TDI NetBIOS
 ```
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi

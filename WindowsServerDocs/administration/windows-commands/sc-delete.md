@@ -1,6 +1,6 @@
 ---
-title: Eliminazione di SC
-description: Argomento di riferimento per * * * *-
+title: Eliminazione di SC. exe
+description: Informazioni su come annullare la registrazione dei servizi tramite l'utilità SC. exe
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dd40b5eb82def3b3c437cbdb5b60d279529d25a0
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 284012cf6799df52832e62c3eea1b2f0fcd84805
+ms.sourcegitcommit: 95b60384b0b070263465eaffb27b8e3bb052a4de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722186"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82850112"
 ---
-# <a name="sc-delete"></a>Eliminazione di SC
-
-
+# <a name="scexe-delete"></a>Eliminazione di SC. exe
 
 Elimina una sottochiave servizio dal Registro di sistema. Se il servizio è in esecuzione o se un altro processo ha un handle aperto al servizio, il servizio è contrassegnato per l'eliminazione.
 
@@ -27,7 +25,7 @@ Per esempi di utilizzo di questo comando, vedere [Esempi](#examples).
 ## <a name="syntax"></a>Sintassi
 
 ```
-sc [<ServerName>] delete [<ServiceName>]
+sc.exe [<ServerName>] delete [<ServiceName>]
 ```
 
 ### <a name="parameters"></a>Parametri
@@ -40,13 +38,13 @@ sc [<ServerName>] delete [<ServiceName>]
 
 ## <a name="remarks"></a>Osservazioni
 
-Utilizzare **Aggiungi / Rimuovi programmi** su **Pannello di controllo** eliminare DHCP, DNS o altri servizi del sistema operativo predefinito. Si noti che **Aggiungi / Rimuovi programmi** non rimuoverà solo la sottochiave del Registro di sistema per il servizio, ma verrà anche disinstallare il servizio ed eliminare tutti i collegamenti a esso.
+Non è consigliabile usare SC. exe per eliminare i servizi del sistema operativo incorporati, ad esempio DHCP, DNS o Internet Information Services. Per installare, rimuovere o riconfigurare i ruoli, i servizi e i componenti del sistema operativo, vedere [installare o disinstallare ruoli, servizi ruolo o funzionalità](/WindowsServerDocs/administration/server-manager/install-or-uninstall-roles-role-services-or-features.md)
 
 ## <a name="examples"></a>Esempi
 
 Per eliminare la sottochiave servizio **nuovosrv** dal Registro di sistema del computer locale, digitare:
 ```
-sc delete newserv
+sc.exe delete newserv
 ```
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi

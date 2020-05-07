@@ -3,16 +3,16 @@ title: Creare plug-in con il modello di valutazione dei rischi di AD FS 2019
 author: billmath
 ms.author: billmath
 manager: mtillman
-ms.date: 04/16/2019
+ms.date: 05/05/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 6433513f525572254e4aaef65e2bfc992a7c5280
-ms.sourcegitcommit: 41dc7f487d282895a242e788049285363dd19eeb
+ms.openlocfilehash: c9795ea1b945d5da773b8d257434f216d842799d
+ms.sourcegitcommit: f0f447193a0bd14d9a623aaead80329b95bf1f47
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82169176"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82842840"
 ---
 # <a name="build-plug-ins-with-ad-fs-2019-risk-assessment-model"></a>Creare plug-in con il modello di valutazione dei rischi di AD FS 2019
 
@@ -313,6 +313,7 @@ Il metodo restituisce il [Punteggio di rischio](https://docs.microsoft.com/dotne
 
 **Quali altri plug-in di esempio sono disponibili?**</br>
 **R:** Sono disponibili i seguenti plug-in di esempio:
+
 |Nome|Descrizione| 
 |-----|-----|
 |[Plug-in utente rischioso](https://github.com/microsoft/adfs-sample-block-user-on-adfs-marked-risky-by-AzureAD-IdentityProtection)|Plug-in di esempio che blocca l'autenticazione o impone l'autenticazione a più fattori in base al livello di rischio utente determinato da Azure AD Identity Protection.| 

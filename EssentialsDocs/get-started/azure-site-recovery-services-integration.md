@@ -8,14 +8,14 @@ ms.assetid: 262701a6-8a97-4c4e-bfbf-9f8007c308d6
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 29db78fdf38a6fab23d9a5ec5539c0606e2fbbaa
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: b947ca49a82c18fd7a6c1da71b1e4b43ea741b41
+ms.sourcegitcommit: f247065941508b913c31828944978d3e721e2110
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80814484"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82876416"
 ---
-# <a name="azure-site-recovery-services-integration"></a>Integrazione dei servizi Azure Site Recovery
+# <a name="azure-site-recovery-services-integration"></a>Integrazione dei servizi Azure Site Recovery 
 
 >Si applica a: Windows Server 2016 Essentials
 
@@ -39,7 +39,7 @@ Dopo la selezione di sottoscrizione e area, viene visualizzata una nuova scheda 
 
 ### <a name="enabling-guest-virtual-machines-for-protection"></a>Abilitazione di macchine virtuali guest per la protezione
 
-Quando si seleziona una macchina virtuale presente nella finestra di ripristino di Azure, è possibile fare clic su **Abilita replica in Azure** sul lato destro del dashboard per preparare e copiare l'immagine della macchina virtuale &trade;s in Azure:
+Quando si seleziona una macchina virtuale presente nella finestra di ripristino di Azure, è possibile fare clic su **Abilita replica in Azure** sul lato destro del dashboard per preparare e copiare l'immagine &trade;della macchina virtuale in Azure:
 
 ![Screenshot che mostra la finestra di dialogo Abilita replica in Azure. Viene visualizzato un indicatore di stato durante l'aggiunta di un host.](media/azure-site-recovery-5.PNG)
 
