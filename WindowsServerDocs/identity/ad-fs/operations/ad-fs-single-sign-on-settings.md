@@ -8,12 +8,12 @@ ms.date: 08/17/2017
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: bad6ad9a95618239825366187c8083c1fe77ae94
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: cdd35ccc7800616f7803937738c942e68bf04c00
+ms.sourcegitcommit: 67116322915066b85decb4261d47cedec2cfe12f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80860084"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82903442"
 ---
 # <a name="ad-fs-single-sign-on-settings"></a>Impostazioni di AD FS Single Sign-on
 
@@ -47,7 +47,7 @@ Se il dispositivo non è registrato, ma un utente seleziona l'opzione "Mantieni 
  
  Per Windows Server 2012 R2, per abilitare ACCAVALLARE per lo scenario "Mantieni l'accesso", è necessario installare questo [hotfix](https://support.microsoft.com/kb/2958298/) che fa anche parte dell' [aggiornamento cumulativo di agosto 2014 per Windows RT 8,1, Windows 8.1 e Windows Server 2012 R2](https://support.microsoft.com/kb/2975719).   
 
-Attività | PowerShell | Descrizione
+Attività | PowerShell | Description
 ------------ | ------------- | -------------
 Abilita/Disabilita SSO permanente | ```` Set-AdfsProperties –EnablePersistentSso <Boolean> ````| L'accesso SSO permanente è abilitato per impostazione predefinita. Se è disabilitato, non verrà scritto alcun cookie ACCAVALLARE.
 "Abilita/Disabilita" Mantieni l'accesso " | ```` Set-AdfsProperties –EnableKmsi <Boolean> ```` | Per impostazione predefinita, la funzionalità "Mantieni l'accesso" è disabilitata. Se è abilitata, l'utente finale visualizzerà una scelta "Mantieni l'accesso" nella pagina di accesso AD FS
@@ -102,7 +102,7 @@ Set-AdfsProperties –KmsiLifetimeMins <Int32\>
 ## <a name="psso-revocation"></a>Revoca ACCAVALLARE  
  Per proteggere la sicurezza, AD FS rifiuterà qualsiasi cookie SSO permanente emesso in precedenza quando vengono soddisfatte le condizioni seguenti. In questo modo l'utente deve fornire le proprie credenziali per eseguire nuovamente l'autenticazione con AD FS. 
   
-- Password modifiche utente  
+- L'utente cambia la password  
   
 - L'impostazione SSO permanente è disabilitata in AD FS  
   
@@ -155,14 +155,14 @@ Per riepilogare:
     <th></th>
     <th>NO</th>
     <th>NO, ma KMSI</th>
-    <th>SÌ</th>
+    <th>YES</th>
     <th></th>
     <th>NO</th>
     <th>NO, ma KMSI</th>
-    <th>SÌ</th>
+    <th>YES</th>
   </tr>
  <tr align="center">
-    <td>SSO =&gt;impostare il token di aggiornamento =&gt;</td>
+    <td>SSO =&gt;imposta token di aggiornamento =&gt;</td>
     <td>8 ore</td>
     <td>N/D</td>
     <td>N/D</td>
@@ -173,7 +173,7 @@ Per riepilogare:
   </tr>
 
  <tr align="center">
-    <td>ACCAVALLARE =&gt;impostare il token di aggiornamento =&gt;</td>
+    <td>ACCAVALLARE =&gt;imposta token di aggiornamento =&gt;</td>
     <td>N/D</td>
     <td>24 ore</td>
     <td>7 giorni</td>
@@ -201,6 +201,10 @@ Per riepilogare:
 Se
  - [x] l'amministratore ha abilitato la funzionalità KMSI [e]
  - [x] l'utente fa clic sulla casella di controllo KMSI nella pagina di accesso ai moduli
+ 
+  
+ADFS rilascia un nuovo token di aggiornamento solo se la validità del token di aggiornamento più recente è superiore al token precedente. La durata massima di un token è di 84 giorni, ma AD FS mantiene il token valido in una finestra temporale scorrevole di 14 giorni. Se il token di aggiornamento è valido per 8 ore, ovvero l'ora di SSO normale, non verrà emesso un nuovo token di aggiornamento. 
+ 
  
 **Bene conoscere:** <br>
 Gli utenti federati che non dispongono dell'attributo **LastPasswordChangeTimestamp** sincronizzato vengono rilasciati i cookie di sessione e i token di aggiornamento con un **valore di validità massimo di 12 ore**.<br>
