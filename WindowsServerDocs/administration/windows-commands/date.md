@@ -1,6 +1,6 @@
 ---
 title: Data
-description: Argomento di riferimento per date, che Visualizza o imposta la data di sistema. Se utilizzata senza parametri,
+description: Argomento di riferimento per il comando date, che Visualizza o imposta la data di sistema. Se utilizzata senza parametri,
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,59 +9,58 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d7bcdb35579ac86b4ec7f9c7c639cf905f6a05fa
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 64d0d94061e1b5c7891b364f4c0fe153b44a564e
+ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82716808"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993196"
 ---
 # <a name="date"></a>Data
 
 Visualizza o imposta la data di sistema. Se utilizzata senza parametri, **Data** Visualizza l'impostazione corrente della data di sistema e viene richiesto di immettere una nuova data.
 
-
+>[!IMPORTANT]
+> Per usare questo comando, è necessario essere un amministratore.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-date [/t | <Month-Day-Year>]
+date [/t | <month-day-year>]
 ```
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|\<> mese-giorno-anno|Imposta la data specificata, in cui *mese* è il mese (una o due cifre), *giorno* è il giorno (uno o due cifre), e *anno* è l'anno (due o quattro cifre).|
-|/t|Visualizza la data corrente senza richiedere una nuova data.|
-|/?|Visualizza la guida al prompt dei comandi.|
-
-## <a name="remarks"></a>Osservazioni
-
--   Per modificare la data corrente, è necessario disporre di credenziali amministrative.
--   È necessario separare i valori per *mese*, *giorno*, e *anno* con punti (.), trattini (-), o una barra (/) vengono contrassegnate.
--   Valido *mese* i valori sono da 1 a 12.
--   Valido *giorno* i valori sono 1 e 31.
--   Valido *anno* i valori sono da 00 a 99 o 1980 e 2099. Se si utilizzano due cifre, i valori compresi tra 80 e 99 corrispondono agli anni 1980 e 1999.
+| Parametro | Descrizione |
+| --------- | ----------- |
+| `<month-day-year>` | Imposta la data specificata, dove *Month* è il mese (una o due cifre, inclusi i valori da 1 a 12), *Day* è il giorno (una o due cifre, compresi i valori da 1 a 31) e *year* è l'anno (due o quattro cifre, inclusi i valori da 00 a 99 o da 1980 a 2099). È necessario separare i valori per *mese*, *giorno*e *anno* con punti (.), trattini (-) o barre (/).<p>**Nota:** Tenere presente che se si usano 2 cifre per rappresentare l'anno, i valori 80-99 corrispondono a 1980 a 1999. |
+| /t | Visualizza la data corrente senza richiedere una nuova data. |
+| /? | Visualizza la guida al prompt dei comandi. |
 
 ## <a name="examples"></a>Esempi
 
 Se sono abilitate le estensioni dei comandi, per visualizzare la data corrente del sistema, digitare:
+
 ```
 date /t
 ```
+
 Per modificare la data corrente del sistema a 3 agosto 2007, è possibile digitare uno dei seguenti:
+
 ```
 date 08.03.2007
 date 08-03-07
 date 8/3/07
 ```
+
 Per visualizzare la data corrente del sistema, seguita da una richiesta di immettere una nuova data, digitare:
+
 ```
 The current date is: Mon 04/02/2007
-Enter the new date: (mm-dd-yy)
+Enter the new date: (mm-dd-yyyy)
 ```
-Per mantenere la data corrente e tornare al prompt dei comandi, premere INVIO. Per modificare la data corrente, digitare la nuova data e quindi premere INVIO.
+
+Per mantenere la data corrente e tornare al prompt dei comandi, premere **invio**. Per modificare la data corrente, digitare la nuova data, quindi premere **invio**.
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 

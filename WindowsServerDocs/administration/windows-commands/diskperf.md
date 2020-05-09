@@ -1,6 +1,6 @@
 ---
 title: diskperf
-description: Argomento di riferimento per diskperf, che può essere usato per abilitare o disabilitare in remoto i contatori delle prestazioni dei dischi fisici o logici nei computer che eseguono Windows 2000.
+description: Argomento di riferimento per il comando diskperf, che può essere utilizzato per abilitare o disabilitare in remoto i contatori delle prestazioni dei dischi fisici o logici nei computer che eseguono Windows.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,34 +9,36 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c8f505d924ee1de311f2f2736ff65be844c3f2ea
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 092518f414d6e27436c46ffd6f9f15b6e6c0407e
+ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82719451"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82992431"
 ---
 # <a name="diskperf"></a>diskperf
 
-In Windows 2000, i contatori delle prestazioni dei dischi fisici e logici non sono abilitati per impostazione predefinita.
-
-**Diskperf** è incluso in Windows XP, windows Server 2003, windows Server 2008, Windows Vista, windows Server 2008 R2 e Windows 7, in modo che possa essere utilizzato per abilitare o disabilitare in remoto i contatori delle prestazioni dei dischi fisici o logici nei computer che eseguono Windows 2000.
+Il comando **diskperf** Abilita o Disabilita in remoto i contatori delle prestazioni dei dischi fisici o logici nei computer che eseguono Windows.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-diskperf [-Y[D|V] | -N[D|V]] [\\computername]
+diskperf [-y[d|v] | -n[d|v]] [\\computername]
 ```
 
 ## <a name="options"></a>Opzioni
 
-|Opzione|Descrizione|
-|------|-----------|
-|-?|Vengono visualizzate sensibile al contesto della Guida.|
-|-y|Avviare tutti i contatori delle prestazioni del disco quando il computer viene riavviato.|
-|-IARDE|Abilitare i contatori delle prestazioni del disco per le unità fisiche quando il computer viene riavviato.|
-|-YV|Abilitare i contatori delle prestazioni del disco per le unità logiche o i volumi di archiviazione al riavvio del computer.|
-|-n|Disabilitare tutti i contatori delle prestazioni del disco quando il computer viene riavviato.|
-|-ND|Disabilitare i contatori delle prestazioni del disco per le unità fisiche quando il computer viene riavviato.|
-|-NV|Disabilitare i contatori delle prestazioni del disco per le unità logiche o i volumi di archiviazione al riavvio del computer.|
-|\\\\*\<nomecomputer>*|Specificare il nome del computer in cui si desidera abilitare o disabilitare i contatori delle prestazioni del disco.|
+| Opzione | Descrizione |
+| ------ | ----------- |
+| -y | Avvia tutti i contatori delle prestazioni del disco quando il computer viene riavviato. |
+| -iarde | Abilita i contatori delle prestazioni del disco per le unità fisiche quando il computer viene riavviato. |
+| -YV | Abilita i contatori delle prestazioni del disco per le unità logiche o i volumi di archiviazione quando il computer viene riavviato. |
+| -n | Disabilita tutti i contatori delle prestazioni del disco quando il computer viene riavviato. |
+| -ND | Disabilitare i contatori delle prestazioni del disco per le unità fisiche quando il computer viene riavviato. |
+| -NV | Disabilitare i contatori delle prestazioni del disco per le unità logiche o i volumi di archiviazione al riavvio del computer. |
+| `\\<computername>` | Specifica il nome del computer in cui si desidera abilitare o disabilitare i contatori delle prestazioni del disco. |
+| -? | Vengono visualizzate sensibile al contesto della Guida. |
+
+## <a name="additional-references"></a>Riferimenti aggiuntivi
+
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
