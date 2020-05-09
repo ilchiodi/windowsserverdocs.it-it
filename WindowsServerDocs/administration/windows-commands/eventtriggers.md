@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f577c317ac90c87d48edbd36170a4d5b9424fc4f
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 1f0e504974c1e8db5477f9c198e875ec4dc8db6f
+ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725758"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82992369"
 ---
 # <a name="eventtriggers"></a>eventtriggers
 
@@ -22,4 +22,4 @@ ms.locfileid: "82725758"
 
 EventTrigger è deprecato e non è garantito a essere supportato nelle versioni future di Windows.
 
-Questo strumento è incluso in Windows Server 2003. Per ulteriori informazioni vedere [EventTrigger](https://technet.microsoft.com/library/cc773308(v=ws.10).aspx).
+Questo strumento è incluso in Windows Server 2003. Per ulteriori informazioni, vedere [eventtriggers](https://technet.microsoft.com/library/cc773308(v=ws.10).aspx).

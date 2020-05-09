@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8fa956124e0c227d048d4c6eec844154187d5861
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 4878377225f9c58e40256a3d151d0d8f3761afca
+ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725050"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993344"
 ---
 # <a name="ftp"></a>ftp
 
 > Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Trasferisce i file da e verso un computer che esegue un servizio server FTP (File Transfer Protocol). **FTP** può essere utilizzato in modo interattivo o in modalità batch elaborando file di testo ASCII. 
+Trasferisce i file da e verso un computer che esegue un servizio server FTP (File Transfer Protocol). **FTP** può essere utilizzato in modo interattivo o in modalità batch elaborando file di testo ASCII.
 ## <a name="syntax"></a>Sintassi
 ```
 ftp [-v] [-d] [-i] [-n] [-g] [-s:<FileName>] [-a] [-A] [-x:<SendBuffer>] [-r:<RecvBuffer>] [-b:<AsyncBuffers>][-w:<WindowsSize>]  [-?] [<Host>]
@@ -48,7 +48,7 @@ ftp [-v] [-d] [-i] [-n] [-g] [-s:<FileName>] [-a] [-A] [-x:<SendBuffer>] [-r:<Re
 - Per ulteriori informazioni sui comandi **FTP** in Windows Server 2003, vedere [FTP](https://technet.microsoft.com/library/cc756013(v=ws.10).aspx).
 - i parametri della riga di comando **FTP** fanno distinzione tra maiuscole e minuscole.
 - Questo comando è disponibile solo se il **protocollo Internet (TCP/IP)** è installato come un componente nelle proprietà di una scheda di rete in connessioni di rete.
-- **FTP** può essere utilizzato in modo interattivo. Dopo l'avvio, **ftp** Crea un ambiente secondario in cui è possibile utilizzare **ftp** comandi. È possibile tornare al prompt dei comandi digitando il **chiudere** comando. Quando il **ftp** ambiente secondario è in esecuzione, è indicata dal **ftp >** prompt dei comandi. Per ulteriori informazioni vedere il **ftp** comandi.
+- **FTP** può essere utilizzato in modo interattivo. Dopo l'avvio, **ftp** Crea un ambiente secondario in cui è possibile utilizzare **ftp** comandi. È possibile tornare al prompt dei comandi digitando il **chiudere** comando. Quando il **ftp** ambiente secondario è in esecuzione, è indicata dal **ftp >** prompt dei comandi. Per ulteriori informazioni, vedere i comandi **FTP** .
 - **FTP** supporta l'utilizzo di IPv6 quando il protocollo IPv6 è installato. Per ulteriori informazioni, vedere [riferimenti aggiuntivi](ftp.md#BKMK_additionalRef).
   ## <a name="examples"></a>Esempi
   Per accedere al server FTP denominato ftp.example.microsoft.com, digitare:

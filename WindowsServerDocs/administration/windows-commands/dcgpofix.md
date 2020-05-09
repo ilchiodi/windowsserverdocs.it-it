@@ -1,6 +1,6 @@
 ---
 title: dcgpofix
-description: Argomento di riferimento per Dcgpofix, che ricrea gli oggetti Criteri di gruppo predefiniti (GPO) per un dominio.
+description: Argomento di riferimento per il comando Dcgpofix, che ricrea gli oggetti Criteri di gruppo predefiniti (GPO) per un dominio.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,48 +9,48 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7b30190f06e5e38031c8d205d8ccee9c573a8d84
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: f11b7db8110cd2d7dcf08cd250eba411e7ff21a8
+ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82716783"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993171"
 ---
 # <a name="dcgpofix"></a>dcgpofix
 
-Ricrea il valore predefinito dei criteri di gruppo (GPO) per un dominio.
+Ricrea il valore predefinito dei criteri di gruppo (GPO) per un dominio. Per passare alla Console Gestione Criteri di gruppo (GPMC), è necessario installare Criteri di gruppo gestione come funzionalità tramite Server Manager.
+
+>[!IMPORTANT]
+> Come procedura consigliata, è necessario configurare l'oggetto Criteri di gruppo criterio dominio predefinito solo per gestire le impostazioni predefinite dei criteri di **account** , i criteri password, i criteri di blocco degli account e i criteri Kerberos. Inoltre, è necessario configurare l'oggetto Criteri di gruppo criterio controller di dominio predefinito solo per impostare i diritti utente e i criteri di controllo.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-DCGPOFix [/ignoreschema] [/target: {Domain | DC | Both}] [/?]
+dcgpofix [/ignoreschema] [/target: {domain | dc | both}] [/?]
 ```
 
-#### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
-|    Parametro    |                                                                                                 Descrizione                                                                                                 |
-|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  /IgnoreSchema  | Ignora la versione di mc schema Active Directory®</br>Quando si esegue questo comando. In caso contrario, il comando funziona solo nella stessa versione di schema come la versione di Windows in cui è stato fornito il comando. |
-| /target {dominio |                                                                                                     DC                                                                                                      |
-|       /?        |                                                                                    Visualizza la Guida al prompt dei comandi.                                                                                     |
-
-## <a name="remarks"></a>Osservazioni
-
--   Il comando **Dcgpofix** è disponibile in windows Server 2008 R2 e windows Server 2008, tranne che nelle installazioni dei componenti di base del server.
--   Sebbene la Console Gestione Criteri di gruppo (GPMC) venga distribuita con Windows Server 2008 R2 e Windows Server 2008, è necessario installare Criteri di gruppo gestione come funzionalità tramite Server Manager.
+| Parametro | Descrizione |
+| --------- | ----------- |
+| /IgnoreSchema | Ignora la versione dello schema di Active Directory quando si esegue questo comando. In caso contrario, il comando funziona solo nella stessa versione di schema come la versione di Windows in cui è stato fornito il comando. |
+| `/target {domain | dc | both` | Specifica se specificare come destinazione i criteri di dominio predefiniti, i criteri dei controller di dominio predefiniti o entrambi i tipi di criteri. |
+| /? | Visualizza la Guida al prompt dei comandi. |
 
 ## <a name="examples"></a>Esempi
 
-Ripristinare il criterio dominio predefinito per lo stato originale. Si perderanno tutte le modifiche apportate a questo oggetto Criteri di gruppo. Come procedura consigliata, è necessario configurare l'oggetto criterio dominio predefinito solo per gestire le impostazioni di criteri di Account, criteri Password, criterio di blocco Account e criterio Kerberos. In questo esempio, si ignora la versione dello schema di Active Directory in modo che il **dcgpofix** comando non è limitato allo stesso schema della versione di Windows in cui è stato fornito il comando.
+Per gestire le impostazioni predefinite dei **criteri di account** , i criteri password, i criteri di blocco degli account e i criteri Kerberos, ignorando la versione dello schema Active Directory, digitare:
+
 ```
-dcgpofix /ignoreschema /target:Domain
+dcgpofix /ignoreschema /target:domain
 ```
-Ripristinare il controller criterio dominio predefinito per lo stato originale. Si perderanno tutte le modifiche apportate a questo oggetto Criteri di gruppo. Come procedura consigliata, è necessario configurare il controller criterio dominio predefinito solo per impostare i diritti utente e criteri di controllo. In questo esempio, si ignora la versione dello schema di Active Directory in modo che il **dcgpofix** comando non è limitato allo stesso schema della versione di Windows in cui è stato fornito il comando.
+
+Per configurare l'oggetto Criteri di gruppo criterio controller di dominio predefinito solo per impostare i diritti utente e i criteri di controllo, ignorando la versione dello schema Active Directory, digitare:
+
 ```
-dcgpofix /ignoreschema /target:DC
+dcgpofix /ignoreschema /target:dc
 ```
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
--   [TechCenter di criteri di gruppo](https://go.microsoft.com/fwlink/?LinkID=145531)
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
