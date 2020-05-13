@@ -9,16 +9,16 @@ ms.technology: compute-hyper-v
 ms.date: 12/13/2016
 ms.topic: article
 ms.assetid: 7fd996f5-1ea9-4b16-9776-85fb39a3aa34
-ms.openlocfilehash: 1e9cd8710a53c1e5d9d97e464c32dbf7f17d29a7
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f1b321c04ad0b7541f21b444499b13fd2b4e4a6d
+ms.sourcegitcommit: 32f810c5429804c384d788c680afac427976e351
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80860894"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83203560"
 ---
->Si applica a: Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
-
 # <a name="export-and-import-virtual-machines"></a>Esportazione e importazione di macchine virtuali
+
+> Si applica a: Windows 10, Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, Microsoft Hyper-V Server 2019
 
 Questo articolo illustra come esportare e importare una macchina virtuale, un modo rapido per spostarli o copiarli. Questo articolo illustra anche alcune delle scelte da effettuare durante un'esportazione o un'importazione.
 
@@ -38,7 +38,7 @@ Al termine dell'esportazione, è possibile visualizzare tutti i file esportati n
 
 ### <a name="using-powershell"></a>Utilizzo di PowerShell
 
-Aprire una sessione come amministratore ed eseguire un comando simile al seguente, dopo aver sostituito \<nome VM\> e \<percorso\>:
+Aprire una sessione come amministratore ed eseguire un comando simile al seguente, dopo aver sostituito il \< nome e il percorso della macchina virtuale \> \< \> :
 
 ```powershell
 Export-VM -Name \<vm name\> -Path \<path\>
@@ -46,7 +46,7 @@ Export-VM -Name \<vm name\> -Path \<path\>
 
 Per informazioni dettagliate, vedere [Export-VM](https://docs.microsoft.com/powershell/module/hyper-v/export-vm).
 
-## <a name="import-a-virtual-machine"></a>Importare una macchina virtuale 
+## <a name="import-a-virtual-machine"></a>Importare una macchina virtuale
 
 L'importazione di una macchina virtuale esegue la registrazione della macchina virtuale con l'host di Hyper-V. È possibile importare di nuovo nell'host o in un nuovo host. Se si sta importando nello stesso host, non è necessario esportare prima la macchina virtuale, poiché Hyper-V tenta di ricreare la macchina virtuale dai file disponibili. L'importazione di una macchina virtuale lo registra per poter essere utilizzata nell'host Hyper-V.
 
@@ -68,19 +68,19 @@ Per importare una macchina virtuale:
 
 6. Fare clic su **Fine**.
 
-### <a name="import-using-powershell"></a>Importazione tramite PowerShell
+### <a name="import-using-powershell"></a>Importare con PowerShell
 
-Usare il cmdlet **Import-VM** , seguendo l'esempio per il tipo di importazione desiderata. Per le descrizioni dei tipi, vedere i [tipi di importazione](#import-types)più avanti. 
+Usare il cmdlet **Import-VM** , seguendo l'esempio per il tipo di importazione desiderata. Per le descrizioni dei tipi, vedere i [tipi di importazione](#import-types)più avanti.
 
 #### <a name="register-in-place"></a>Registra sul posto
 
 Questo tipo di importazione USA i file in cui vengono archiviati al momento dell'importazione e mantiene l'ID della macchina virtuale. Il comando seguente mostra un esempio di un file di importazione. Eseguire un comando simile con valori personalizzati.
 
 ```powershell
-Import-VM -Path 'C:\<vm export path>\2B91FEB3-F1E0-4FFF-B8BE-29CED892A95A.vmcx' 
+Import-VM -Path 'C:\<vm export path>\2B91FEB3-F1E0-4FFF-B8BE-29CED892A95A.vmcx'
 ```
 
-#### <a name="restore"></a>Ripristina
+#### <a name="restore"></a>Restore
 
 Per importare la macchina virtuale specificando il percorso per i file della macchina virtuale, eseguire un comando simile al seguente, sostituendo gli esempi con i valori seguenti:
 
