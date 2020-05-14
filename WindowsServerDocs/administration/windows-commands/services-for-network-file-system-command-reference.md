@@ -9,22 +9,25 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c0aa26478fe816bff12e9bf83db44db29a2f1a4a
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: a5a5e68bfd455fae9aa1e6fcb2c9cf1bd8005ea5
+ms.sourcegitcommit: d1fc59d53055952f8e55aacebeb29547eef0bca7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82721939"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83375213"
 ---
 # <a name="services-for-network-file-system-command-reference"></a>Servizi per riferimento ai comandi di Network File System
+
 I servizi per NFS (Network File System) forniscono una soluzione di condivisione file che consente di trasferire file tra computer che eseguono sistemi operativi Windows Server 2008 e UNIX usando il protocollo NFS.
-Di seguito è riportato un elenco di strumenti da riga di comando NFS.
-|Comando|Descrizione|
-|-------|-----------|
-|[mapadmin](mapadmin.md)|Gestire Mapping per i servizi Microsoft per NFS di nome utente.|
-|[Eseguire il montaggio](mount.md)|Montare le condivisioni di rete NFS (Network File System).|
-|[Nfsadmin](nfsadmin.md)|Gestire Server per NFS e Client per NFS.|
-|[Nfsshare](nfsshare.md)|Controllare le condivisioni NFS (Network File System).|
-|[Nfsstat](nfsstat.md)|Visualizzare o reimpostare i conteggi delle chiamate effettuate a Server per NFS.|
-|[Rpcinfo](rpcinfo.md)|Elenco programmi nei computer remoti.|
-|[Showmount](showmount.md)|Visualizzare le directory montate.|
+Di seguito è riportato un elenco di strumenti da riga di comando NFS:
+
+
+| Comando | Descrizione |
+| ------- | ----------- |
+| [mapadmin](mapadmin.md) | Gestire Mapping per i servizi Microsoft per NFS di nome utente. |
+| [Eseguire il montaggio](mount.md) | Montare le condivisioni di rete NFS (Network File System). |
+| [Nfsadmin](nfsadmin.md) | Gestire Server per NFS e Client per NFS. |
+| [Nfsshare](nfsshare.md) | Controllare le condivisioni NFS (Network File System). |
+| [Nfsstat](nfsstat.md) | Visualizzare o reimpostare i conteggi delle chiamate effettuate a Server per NFS. |
+| [Rpcinfo](rpcinfo.md) | Elenco programmi nei computer remoti. |
+| [Showmount](showmount.md)|Visualizzare le directory montate. |
