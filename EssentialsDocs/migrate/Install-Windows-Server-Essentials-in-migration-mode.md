@@ -8,16 +8,16 @@ ms.assetid: fd7196ac-cfa6-46a5-ba77-6962b47a825e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: d253a550763f34409f25223e6319607b9abcd8e6
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 977922d8f2af23afc058162e7455ac5099e4325b
+ms.sourcegitcommit: 2f072c0c02e3e0deae331ca64b375d63b89d0522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80852584"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83404563"
 ---
 # <a name="install-windows-server-essentials-in-migration-mode1"></a>Installare Windows Server Essentials nella migrazione Mode1
 
->Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>Si applica a: Windows Server 2012 Essentials
 
 È possibile disporre di un solo server della rete che esegue Windows Server Essentials e che il server deve essere un controller di dominio per la rete.  
   

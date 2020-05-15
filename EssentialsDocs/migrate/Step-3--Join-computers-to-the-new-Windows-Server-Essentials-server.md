@@ -8,16 +8,16 @@ ms.assetid: a0e07d1a-8409-429b-87d7-0f4a7e14d668
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 3d004d89f6606c8b38360c9139f882f087b7c554
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 8efb8251bd85638b8ad4b760a5292a2b6d6681fd
+ms.sourcegitcommit: 2f072c0c02e3e0deae331ca64b375d63b89d0522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80852364"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83404548"
 ---
 # <a name="step-3-join-computers-to-the-new-windows-server-essentials-server"></a>Passaggio 3: Aggiungere computer al nuovo server Windows Server Essentials
 
->Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials
 
 Il passaggio successivo del processo di migrazione consiste nel connettere i computer client al nuovo server che esegue Windows Server Essentials.  
   
@@ -46,7 +46,7 @@ Il passaggio successivo del processo di migrazione consiste nel connettere i com
   
 2.  Aprire un browser Internet, ad esempio Internet Explorer.  
   
-3.  Nella barra degli indirizzi digitare **http://< nomeserver\>/Connect**, quindi premere INVIO.  
+3.  Nella barra degli indirizzi digitare **http://<NomeServer \> /Connect**e quindi premere INVIO.  
   
 4.  Seguire le istruzioni visualizzate per aggiungere il computer client al nuovo server di Windows Server Essentials.  
   

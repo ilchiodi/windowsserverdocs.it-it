@@ -8,16 +8,16 @@ ms.assetid: c7ccfc34-63fd-436b-a1cd-e05810f60bfe
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 932ff1010ebe0be3b560375ac46b0372f86e3dc2
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: d5d86f5ae25c67ffb9e0f00fc5d373e6a095df98
+ms.sourcegitcommit: 2f072c0c02e3e0deae331ca64b375d63b89d0522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80852374"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83404550"
 ---
 # <a name="step-2-install-windows-server-essentials-as-a-new-replica-domain-controller"></a>Passaggio 2: Installare Windows Server Essentials come nuovo controller di dominio di replica
 
->Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials
 
 Questa sezione descrive come installare Windows Server Essentials e Windows Server 2012 R2 Standard (con il ruolo esperienza Windows Server Essentials abilitato) come controller di dominio.  
   
@@ -52,7 +52,7 @@ Questa sezione descrive come installare Windows Server Essentials e Windows Serv
   
 7.  Verificare l'installazione nel modo seguente:  
   
-    1.  Aprire il Dashboard.  
+    1.  Aprire il dashboard.  
   
     2.  Fare clic sulla scheda **Utenti** e verificare che siano elencati gli account utente presenti in Active Directory.  
   
@@ -75,7 +75,7 @@ Questa sezione descrive come installare Windows Server Essentials e Windows Serv
   
     3.  Digitare **connections**, quindi premere INVIO.  
   
-    4.  Digitare **Connetti al server** *< nomeserver\>* (dove *< nomeserver\>* è il nome del server di destinazione), quindi premere INVIO.  
+    4.  Digitare **Connetti al server** *<nomeserver \> * (dove *<NomeServer \> * è il nome del server di destinazione), quindi premere INVIO.  
   
     5.  Al prompt dei comandi digitare **q**, quindi premere INVIO.  
   

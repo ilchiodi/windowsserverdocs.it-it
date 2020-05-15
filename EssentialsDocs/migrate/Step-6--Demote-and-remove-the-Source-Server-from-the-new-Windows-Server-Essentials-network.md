@@ -8,24 +8,24 @@ ms.assetid: 86244c66-2c5e-488d-adb8-112e1ca3e2e1
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: b1b7836e976ef35aec66e206ec8b1de0e2150d62
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 406010234528a094bfb36a606072f98c043c397a
+ms.sourcegitcommit: 2f072c0c02e3e0deae331ca64b375d63b89d0522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80852334"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83404517"
 ---
 # <a name="step-6-demote-and-remove-the-source-server-from-the-new-windows-server-essentials-network"></a>Passaggio 6: Abbassare di livello e rimuovere il server di origine dalla nuova rete Windows Server Essentials
 
->Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials
 
 Dopo aver completato l'installazione di Windows Server Essentials e aver completato la migrazione, è necessario eseguire le attività seguenti:  
   
-1.  [Rimuovere Active Directory Servizi certificati](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md#BKMK_ADCS)  
+1.  [Rimuovere Servizi certificati Active Directory](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md#BKMK_ADCS)  
   
 2.  [Disconnettere le stampanti direttamente connesse al server di origine](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md#BKMK_PhysicallyDisconnect)  
   
-3.  [Abbassare di pagina il server di origine](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md#BKMK_DemoteTheSourceServer)  
+3.  [Abbassare di livello il server di origine](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md#BKMK_DemoteTheSourceServer)  
   
 4.  [Rimuovere e reimpiegare il server di origine](Step-6--Demote-and-remove-the-Source-Server-from-the-new-Windows-Server-Essentials-network.md#BKMK_RemoveTheSourceServer)  
   
@@ -74,7 +74,7 @@ Dopo aver completato l'installazione di Windows Server Essentials e aver complet
   
 1. Accedere al computer client come amministratore.  
   
-2. Aprire una finestra del prompt dei comandi come amministratore.  
+2. Aprire una finestra del Prompt dei comandi come amministratore.  
   
 3. Al prompt dei comandi digitare **gpupdate /force**, quindi premere INVIO.  
   

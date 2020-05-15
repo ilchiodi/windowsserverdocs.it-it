@@ -8,16 +8,16 @@ ms.assetid: e143df43-e227-4629-a4ab-9f70d9bf6e84
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: e19f3a8333cc08568f8d437da2e35a6c64920df1
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: dd3ba0b54e24a5fcafb72c970f05224c3606ff3a
+ms.sourcegitcommit: 2f072c0c02e3e0deae331ca64b375d63b89d0522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80852354"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83404520"
 ---
 # <a name="step-4-move-settings-and-data-to-the-destination-server-for-windows-server-essentials-migration"></a>Passaggio 4: Spostare dati e impostazioni nel server di destinazione per la migrazione a Windows Server Essentials
 
->Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials
 
 In questa sezione vengono fornite informazioni in merito alla migrazione di dati e impostazioni dal server di origine. Spostare impostazioni e dati nel server di destinazione nel modo seguente:  
   
@@ -50,15 +50,15 @@ In questa sezione vengono fornite informazioni in merito alla migrazione di dati
   
     Dove:  
   
-   - \<SourceServerName\> è il nome del server di origine  
+   - \<SourceServerName \> è il nome del server di origine  
   
-   - \<SharedSourceFolderName\> è il nome della cartella condivisa nel server di origine  
+   - \<SharedSourceFolderName \> è il nome della cartella condivisa nel server di origine  
   
-   - \<PathOfTheDestination\> è il percorso assoluto in cui si desidera spostare la cartella  
+   - \<PathOfTheDestination \> è il percorso assoluto in cui si vuole spostare la cartella  
   
-   - \<SharedDestinationFolderName\> è la cartella nel server di destinazione in cui verranno copiati i dati  
+   - \<SharedDestinationFolderName \> è la cartella nel server di destinazione in cui verranno copiati i dati  
   
-     Ad esempio,  `robocopy \\sourceserver\MyData "d:\ServerFolders\MyData" /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`.  
+     Ad esempio, `robocopy \\sourceserver\MyData "d:\ServerFolders\MyData" /E /B /COPY:DATSOU /LOG:C:\Copyresults.txt`.  
   
 3. Se si usa Windows PowerShell, digitare il comando seguente e quindi premere INVIO.  
   

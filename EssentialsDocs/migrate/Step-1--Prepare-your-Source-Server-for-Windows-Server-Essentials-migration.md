@@ -8,16 +8,16 @@ ms.assetid: 244c8a06-04c6-4863-8b52-974786455373
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 214f25d1743cca3693907b7a7a8380fd564d4114
-ms.sourcegitcommit: 32f810c5429804c384d788c680afac427976e351
+ms.openlocfilehash: f5696c473a8fcb04a60b9a4b6c51ac206a6ef0de
+ms.sourcegitcommit: 2f072c0c02e3e0deae331ca64b375d63b89d0522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83203480"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83404588"
 ---
 # <a name="step-1-prepare-your-source-server-for-windows-server-essentials-migration"></a>Passaggio 1: Preparare il server di origine per la migrazione a Windows Server Essentials
 
-> Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+> Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials
 
 Questo argomento illustra come eseguire il backup del server di origine, valutare l'integrità del sistema del server di origine, installare gli aggiornamenti e i Service Pack più recenti e verificare la configurazione della rete.
 
@@ -129,7 +129,7 @@ Questo argomento illustra come eseguire il backup del server di origine, valutar
 
    Dopo aver raccolto informazioni sulla configurazione del server, lo strumento BPA verifica che le informazioni siano corrette e quindi presenta agli amministratori un elenco di informazioni e problemi ordinati per gravità. L'elenco descrive ogni problema e offre un suggerimento o una possibile soluzione. Sono disponibili tre tipi di rapporti:
 
-|Tipo di report|Descrizione
+|Tipo di report|Description
 |-----------------|-----------------
 |Rapporti elenco|Visualizza i rapporti in un elenco unidimensionale.
 |Rapporti albero|Visualizza i rapporti in un elenco gerarchico.

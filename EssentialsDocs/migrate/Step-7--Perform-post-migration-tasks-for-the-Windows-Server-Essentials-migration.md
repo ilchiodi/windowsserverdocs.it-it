@@ -8,22 +8,22 @@ ms.assetid: d382e3fd-d393-4bd0-883f-db50104a969f
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 579be2c36ca01a4b8ab2a34157e13e298e34c48c
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 3101a7bdc42ef754e5aafa87a8758172c42824bb
+ms.sourcegitcommit: 2f072c0c02e3e0deae331ca64b375d63b89d0522
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80852324"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83404505"
 ---
 # <a name="step-7-perform-post-migration-tasks-for-the-windows-server-essentials-migration"></a>Passaggio 7: Eseguire le attività post-migrazione per la migrazione a Windows Server Essentials
 
->Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials, Windows Server 2012 Essentials
+>Si applica a: Windows Server 2016 Essentials, Windows Server 2012 R2 Essentials
 
 Le attività seguenti aiutano a completare la configurazione del server di destinazione con alcune impostazioni uguali a quelle del server di origine. Durante il processo di migrazione è possibile che alcune di queste impostazioni siano state disabilitate sul server di origine e di conseguenza non ne sia stata eseguita la migrazione al server di destinazione.  
   
-1.  [Elimina le voci DNS per il server di origine](Step-7--Perform-post-migration-tasks-for-the-Windows-Server-Essentials-migration.md#BKMK_DeleteDNSEntries)  
+1.  [Eliminare le voci DNS per il server di origine](Step-7--Perform-post-migration-tasks-for-the-Windows-Server-Essentials-migration.md#BKMK_DeleteDNSEntries)  
   
-2.  [Condividere le cartelle di dati delle applicazioni line-of-business e di altro settore](Step-7--Perform-post-migration-tasks-for-the-Windows-Server-Essentials-migration.md#BKMK_ShareLineOfBusinessAndOtherApplications)  
+2.  [Condividere le cartelle di dati di applicazioni LOB e di altro tipo](Step-7--Perform-post-migration-tasks-for-the-Windows-Server-Essentials-migration.md#BKMK_ShareLineOfBusinessAndOtherApplications)  
   
 ##  <a name="delete-dns-entries-for-the-source-server"></a><a name="BKMK_DeleteDNSEntries"></a>Elimina le voci DNS per il server di origine  
  Anche dopo aver rimosso le autorizzazioni per il server di origine, il server Domain Name Service (DNS) potrebbe contenere voci che puntano al server di origine. Eliminare queste voci DNS.  
@@ -42,7 +42,7 @@ Le attività seguenti aiutano a completare la configurazione del server di desti
   
 6.  Nella casella di testo **Server dei nomi** selezionare una voce che punta al server di origine, fare clic su **Rimuovi** e quindi fare clic su **OK**.  
   
-7.  Ripetere i passaggi 5 e 6 finché tutti i puntatori al server di origine non sono stati rimossi.  
+7.  Ripetere i passaggi 5 e 6 finché tutti i puntatori al server di origine non sono stati rimossi.  
   
 8.  Fare clic su **OK** per chiudere la finestra di dialogo **Proprietà**.  
   
