@@ -9,12 +9,12 @@ ms.author: jgerend
 ms.technology: storage-failover-clustering
 ms.date: 06/06/2019
 ms.localizationpriority: high
-ms.openlocfilehash: b646890ebc8b8e64d84e6d448ce4acb393422009
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 5b0193f18fe94f391f1bbbc41280c16e4a1bcd0c
+ms.sourcegitcommit: 32f810c5429804c384d788c680afac427976e351
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80827714"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83203498"
 ---
 # <a name="failover-clustering-in-windows-server"></a>Clustering di failover in Windows Server
 
@@ -32,7 +32,7 @@ Clustering di failover offre numerose applicazioni pratiche, tra cui:
 | **Comprensione**                                                               |  **Pianificazione**                          |  **Distribuzione**       |
 | -------------                                                                |  --------------                        | --------------------- |
 | [Novità del clustering di failover](whats-new-in-failover-clustering.md)    | [Requisiti hardware per il clustering di failover e opzioni di archiviazione](clustering-requirements.md)  | [Creazione di un cluster di failover](create-failover-cluster.md) |
-| [File server di scalabilità orizzontale per dati delle applicazioni](sofs-overview.md)               | [Usare Volumi condivisi cluster](failover-cluster-csvs.md) | [Distribuire un file server a due nodi](../storage/storage-spaces/storage-spaces-direct-in-vm.md) |
+| [File server di scalabilità orizzontale per dati delle applicazioni](sofs-overview.md)               | [Usare Volumi condivisi cluster](failover-cluster-csvs.md) | [Distribuire un file server a due nodi](deploy-two-node-clustered-file-server.md) |
 |  [Quorum di cluster e pool](../storage/storage-spaces/understand-quorum.md)   |  [Utilizzo dei cluster di macchina virtuale guest con Spazi di archiviazione diretta](../storage/storage-spaces/storage-spaces-direct-in-vm.md)       | [Pre-installare oggetti computer del cluster in Active Directory Domain Services](prestage-cluster-adds.md) |
 | [Riconoscimento dei domini di errore](fault-domains.md)                                 |                                 | [Configurazione di account di cluster in Active Directory](configure-ad-accounts.md) |
 | [SMB multicanale semplificato e reti di cluster Multi-NIC](smb-multichannel.md) |                       | [Gestire quorum e risorse di controllo](manage-cluster-quorum.md) |
