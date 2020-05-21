@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 05/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: bc715b3df9e4f4dd6d2de82be9346edc7d88805e
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 38eda178b6c9e34fec1d63ed6c59f01023b859c4
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720258"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83436675"
 ---
 # <a name="vssadmin-list-shadows"></a>Ombreggiatura elenco Vssadmin
 
@@ -31,10 +31,10 @@ vssadmin list shadows [/for=<ForVolumeSpec>] [/shadow=<ShadowID>]
 
 |Parametro|Descrizione|
 |---|---|
-|/for =\<PerVolumeSpecificato>|Specifica il volume per cui verranno elencate le copie shadow.|
-|/Shadow =\<IDShadow>|Elenca la copia shadow specificata da IDShadow. Per ottenere l'ID della copia shadow, usare il comando **vssadmin list shadows** . Quando si digita un ID copia shadow, usare il formato seguente, dove ogni *X* rappresenta un carattere esadecimale:<br><br>XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX|
+|/for = \< pervolumespecificato>|Specifica il volume per cui verranno elencate le copie shadow.|
+|/Shadow = \< idshadow>|Elenca la copia shadow specificata da IDShadow. Per ottenere l'ID della copia shadow, usare il comando **vssadmin list shadows** . Quando si digita un ID copia shadow, usare il formato seguente, dove ogni *X* rappresenta un carattere esadecimale:<br><br>XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX|
 
-## <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 * [Chiave sintassi della riga di comando](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc771080(v%3dws.11))
 * [Vssadmin](vssadmin.md)

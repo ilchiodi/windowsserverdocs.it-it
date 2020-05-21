@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c8a0a4608a16df0336b90ea5df281278ae47a503
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 9b3ae6858a70d22b3ad928474648a3b2ee156235
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722705"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83436236"
 ---
 # <a name="query-termserver"></a>termserver query
 
@@ -29,7 +29,7 @@ Visualizza un elenco di tutti i server di host sessione Desktop remoto (host ses
 > query termserver [<ServerName>] [/domain:<Domain>] [/address] [/continue]
 > ```
 > ### <a name="parameters"></a>Parametri
-> 
+>
 > |    Parametro     |                                                                        Descrizione                                                                         |
 > |------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > |   <ServerName>   |                                               Specifica il nome che identifica il server Host sessione Desktop remoto.                                               |
@@ -37,8 +37,8 @@ Visualizza un elenco di tutti i server di host sessione Desktop remoto (host ses
 > |     /Address     |                                                  Visualizza gli indirizzi di rete e di nodo per ogni server.                                                  |
 > |    /continue     |                                              Impedisce la sospensione dopo la visualizzazione di ogni schermata delle informazioni.                                               |
 > |        /?        |                                                            Visualizza la guida al prompt dei comandi.                                                            |
-> 
-> ## <a name="remarks"></a>Osservazioni
+>
+>#### <a name="remarks"></a>Osservazioni
 > - **query termserver** Cerca nella rete tutti i server Host sessione Desktop remoto collegati e restituisce le informazioni seguenti:
 >   - Nome host del server.
 >   - Rete (e indirizzo del nodo se viene utilizzata l'opzione/Address)
@@ -60,6 +60,6 @@ Visualizza un elenco di tutti i server di host sessione Desktop remoto (host ses
 >   query termserver Server3 /address
 >   ```
 >   ## <a name="additional-references"></a>Riferimenti aggiuntivi
->   - [Guida di](command-line-syntax-key.md)
->   [query](query.md)
->   riferimento ai comandi della sintassi della riga di comando[Servizi Desktop remoto (Servizi terminal)](remote-desktop-services-terminal-services-command-reference.md)
+>   - Chiave sintassi della [riga di comando](command-line-syntax-key.md) 
+>    [query](query.md) 
+>    di Guida di [riferimento ai comandi servizi desktop remoto (Servizi terminal)](remote-desktop-services-terminal-services-command-reference.md)

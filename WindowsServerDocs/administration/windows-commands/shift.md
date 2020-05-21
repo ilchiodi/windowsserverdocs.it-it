@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 617d7f712ccae13c522bc65db147c12c526b4efb
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 870bda19de3426fd7007020efb2f3db39bf654c8
+ms.sourcegitcommit: 7116460855701eed4e09d615693efa4fffc40006
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82721827"
+ms.lasthandoff: 05/15/2020
+ms.locfileid: "83433165"
 ---
 # <a name="shift"></a>spostamento
 
@@ -32,7 +32,7 @@ shift [/n <N>]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/n \<n>|Specifica di iniziare a spostare in corrispondenza dell'argomento *n*, dove *n* è qualsiasi valore compreso tra 0 e 8. Sono necessarie le estensioni dei comandi, abilitate per impostazione predefinita.|
+|/n \< n>|Specifica di iniziare a spostare in corrispondenza dell'argomento *n*, dove *n* è qualsiasi valore compreso tra 0 e 8. Sono necessarie le estensioni dei comandi, abilitate per impostazione predefinita.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Osservazioni
@@ -40,7 +40,7 @@ shift [/n <N>]
 - Il **comando shift** consente di modificare i valori dei parametri batch da **%0** a **%9** copiando ogni parametro in quello precedente. il valore di **%1** viene copiato in **%0**, il valore di **%2** viene copiato in **%1**e così via. Questa operazione è utile per la scrittura di un file batch che esegue la stessa operazione su un numero qualsiasi di parametri.
 - Se sono abilitate le estensioni dei comandi, il comando **Shift** supporta l'opzione della riga di comando **/n** . L'opzione **/n** specifica di iniziare lo spostamento in corrispondenza dell'ennesimo argomento, dove **n** è qualsiasi valore compreso tra 0 e 8. Ad esempio, **Shift/2** sposterebbe **%3** in **%2**, **%4** in **%3**e così via e lascerebbe **%0** e **%1** non interessato. Le estensioni dei comandi sono abilitate per impostazione predefinita.
 - È possibile utilizzare il comando **Shift** per creare un file batch in grado di accettare più di 10 parametri batch. Se nella riga di comando si specificano più di 10 parametri, quelli visualizzati dopo il decimo (**%9**) verranno spostati uno alla volta in **%9**.
-- Il comando **Shift** non ha alcun effetto sul ** % **parametro * batch.
+- Il comando **Shift** non ha alcun effetto sul **%\*** parametro batch.
 - Nessun comando di **spostamento** all'indietro. Dopo aver implementato il comando **Shift** , non è possibile recuperare il parametro batch (**%0**) esistente prima del turno.
 
 ## <a name="examples"></a>Esempi

@@ -1,66 +1,66 @@
 ---
-ms.assetid: 385a2a7c-d6bd-4f11-9c18-fca0413f9e97
-title: Fsutil dirty
+title: fsutil dirty
+description: Argomento di riferimento per il comando fsutil dirty, che esegue una query o imposta il bit dirty di un volume.
 ms.prod: windows-server
 manager: dmoss
 ms.author: toklima
 author: toklima
 ms.technology: storage
-audience: IT Pro
+ms.assetid: 385a2a7c-d6bd-4f11-9c18-fca0413f9e97
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 3b35938c21180199aabb74431d20a31167aea706
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 72defd974177675f53e89fb8570f028580b7e167
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725533"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83435866"
 ---
-# <a name="fsutil-dirty"></a>Fsutil dirty
-> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8, Windows Server 2008 R2, Windows 7
+# <a name="fsutil-dirty"></a>fsutil dirty
+
+> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows 10, Windows Server 2012 R2, Windows 8.1, Windows Server 2012, Windows 8
 
 Esegue una query o imposta il bit dirty di un volume. Quando un volume del dirty bit è impostato, **autochk** Controlla automaticamente il volume per gli errori al successivo riavvio del computer.
-
-
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-fsutil dirty {query | set} <VolumePath>
+fsutil dirty {query | set} <volumepath>
 ```
 
 ### <a name="parameters"></a>Parametri
 
-|   Parametro   |                                                 Descrizione                                                  |
-|---------------|--------------------------------------------------------------------------------------------------------------|
-|     query     |                                  Esegue una query sul bit dirty del volume specificato.                                   |
-|      set      |                                    Imposta il bit dirty del volume specificato.                                    |
-| \<> VolumePath | Specifica il nome dell'unità seguito da due punti o GUID nel formato seguente: **volume {**<em>GUID</em>**}**. |
+| Parametro | Descrizione |
+| --------- | ----------- |
+| query | Esegue una query sul bit dirty del volume specificato. |
+| set | Imposta il bit dirty del volume specificato. |
+| `<volumepath>` | Specifica il nome dell'unità seguito da due punti o GUID nel formato seguente: `volume{GUID}` . |
 
-## <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Osservazioni
 
--   Il bit dirty di un volume indica che lo stato del file system potrebbe essere incoerente. È possibile impostare il bit dirty perché:
+- Il bit dirty di un volume indica che lo stato del file system potrebbe essere incoerente. È possibile impostare il bit dirty perché:
 
-    -   Il volume è online ed è in attesa di modifiche.
+    - Il volume è online ed è in attesa di modifiche.
 
-    -   Sono state apportate modifiche al volume e il computer è stato arrestato prima del commit delle modifiche nel disco.
+    - Sono state apportate modifiche al volume e il computer è stato arrestato prima del commit delle modifiche nel disco.
 
-    -   È stato rilevato un danneggiamento nel volume.
+    - È stato rilevato un danneggiamento nel volume.
 
--   Se il bit dirty viene impostato al riavvio del computer, viene eseguito **chkdsk** per verificare l'integrità del file System e per tentare di risolvere eventuali problemi relativi al volume.
+- Se il bit dirty viene impostato al riavvio del computer, viene eseguito **chkdsk** per verificare l'integrità del file System e per tentare di risolvere eventuali problemi relativi al volume.
 
-## <a name="examples"></a><a name="BKMK_examples"></a>Esempi
+### <a name="examples"></a>Esempi
+
 Per eseguire una query sul bit dirty sull'unità C, digitare:
 
 ```
 fsutil dirty query c:
 ```
 
--   Se il volume è dirty, viene visualizzato l'output seguente:
+    If the volume is dirty, the following output displays:
 
     `Volume C: is dirty`
 
--   Se il volume non è dirty, viene visualizzato l'output seguente:
+    If the volume isn't dirty, the following output displays:
 
     `Volume C: is not dirty`
 
@@ -71,8 +71,7 @@ fsutil dirty set C:
 ```
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
+
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 
-[Fsutil](Fsutil.md)
-
-
+- [fsutil](fsutil.md)

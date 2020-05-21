@@ -1,6 +1,6 @@
 ---
 title: eventquery
-description: Argomento di riferimento per * * * *-
+description: Argomento di riferimento per il comando EventQuery, che è stato deprecato e non è garantito per essere supportato nelle versioni future di Windows.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,13 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3f0e4294354470dcfb3a33191cc36edfa556bb02
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: 5031d18311c177c7f745bc771c212727ce700ee3
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82992386"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83436866"
 ---
 # <a name="eventquery"></a>eventquery
 
-> Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
-EventQuery è deprecato e non è garantito che sia supportato nelle versioni future di Windows.
-Questo strumento è incluso in Windows Server 2003. Per ulteriori informazioni, vedere [EventQuery](https://technet.microsoft.com/library/cc772995(v=ws.10).aspx).
+Il comando Eventquery è stato deprecato e non è garantito che sia supportato nelle versioni future di Windows.

@@ -9,12 +9,12 @@ ms.assetid: 7f899e62-6e5b-4fca-9a59-130d4766ee2f
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 08/10/2018
-ms.openlocfilehash: da9164eea4ab7e2fb38864fb69c47252448b77b6
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: f5a7ec331c9d70214cbd0a772de6e2b2c7f4f58e
+ms.sourcegitcommit: 7116460855701eed4e09d615693efa4fffc40006
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80854424"
+ms.lasthandoff: 05/15/2020
+ms.locfileid: "83433175"
 ---
 # <a name="requirements-for-deploying-network-controller"></a>Requisiti per la distribuzione del controller di rete
 
@@ -61,7 +61,7 @@ L'operazione successiva consiste nel configurare i percorsi dei file per archivi
 Infine, la prossima cosa da fare è distribuire i nodi del cluster del controller di rete nella stessa subnet o in subnet diverse. 
 
 
-|         Relazione         |                                                                                                                                                         Necessità di ripristino                                                                                                                                                         |
+|         Se...         |                                                                                                                                                         Quindi...                                                                                                                                                         |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  Nella stessa subnet,  |                                                                                                                                È necessario specificare l'indirizzo IP REST del controller di rete.                                                                                                                                 |
 | In subnet diverse | È necessario specificare il nome DNS REST del controller di rete creato durante il processo di distribuzione. È inoltre necessario eseguire le operazioni seguenti:<ul><li>Configurare gli aggiornamenti dinamici DNS per il nome DNS del controller di rete nel server DNS.</li><li>Limitare gli aggiornamenti dinamici DNS solo ai nodi del controller di rete.</li></ul> |
@@ -125,10 +125,6 @@ Per disponibilità elevati sono presenti due o più nodi SLB/MUX.
 Sono disponibili tre macchine virtuali del gateway. due sono attivi e uno è ridondante.
 
 ![Pianificazione di SDN NC](../../media/Plan-a-Software-Defined-Network-Infrastructure/SDN-GW-Deployment.png)  
-
-
-
-Per l'automazione della distribuzione basata su TP5, Active Directory necessario che siano disponibili e raggiungibili da queste subnet. Per ulteriori informazioni su Active Directory, vedere [Panoramica di Active Directory Domain Services](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).  
 
 >[!IMPORTANT] 
 >Se si esegue la distribuzione tramite VMM, assicurarsi che le macchine virtuali dell'infrastruttura (server VMM, AD/DNS, SQL Server e così via) non siano ospitate in nessuno dei quattro host visualizzati nei diagrammi.  

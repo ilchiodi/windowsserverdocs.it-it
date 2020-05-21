@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0ec812e9a455cc0060a3f0a6be4d0e7227821a0b
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: 96e0f97e27de8933de44c437508ef59803765771
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82992384"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83437126"
 ---
 # <a name="erase"></a>erase
 
@@ -73,7 +73,7 @@ del [/p] [/f] [/s] [/q] [/a[:]<attributes>] <names>
   > [!NOTE]
   > Prima di usare i caratteri jolly con il comando **Erase** , usare gli stessi caratteri jolly con il comando **dir** per elencare tutti i file che verranno eliminati.
 
-## <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempi
 
 Per eliminare tutti i file in una cartella denominata Test sull'unità C, digitare uno dei seguenti:
 

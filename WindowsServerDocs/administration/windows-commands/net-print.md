@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a2fa74da638c23c071e86c19d73cea35c52e8516
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 1f2febdb79f4d0429cfb1cd423188ed9fafc198c
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723813"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83437256"
 ---
 # <a name="net-print"></a>Stampa di rete
 
@@ -22,24 +22,24 @@ ms.locfileid: "82723813"
 
 Visualizza le informazioni relative a una coda di stampanti specificata o a un processo di stampa specificato oppure controlla un processo di stampa specificato.
 > [!NOTE]
-> Questo comando è stato deprecato in Windows 7 e Windows Server 2008 R2. Tuttavia, è possibile eseguire molte delle stesse attività usando i cmdlet di prnjobs, Strumentazione gestione Windows (WMI) o Windows PowerShell. Per ulteriori informazioni, vedere [prnjobs](prnjobs.md), [Strumentazione gestione Windows](https://go.microsoft.com/fwlink/?LinkID=29991) (https://go.microsoft.com/fwlink/?LinkID=29991), [Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=128426) (https://go.microsoft.com/fwlink/?LinkID=128426)e la [raccolta di script Center TechNet](https://go.microsoft.com/fwlink/?LinkId=164635) (https://go.microsoft.com/fwlink/?LinkId=164635)).
+> Questo comando è stato deprecato in Windows 7 e Windows Server 2008 R2. Tuttavia, è possibile eseguire molte delle stesse attività usando i cmdlet di prnjobs, Strumentazione gestione Windows (WMI) o Windows PowerShell. Per ulteriori informazioni, vedere [prnjobs](prnjobs.md), [Strumentazione gestione Windows](https://go.microsoft.com/fwlink/?LinkID=29991) ( https://go.microsoft.com/fwlink/?LinkID=29991) , [Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=128426) ( https://go.microsoft.com/fwlink/?LinkID=128426) e la [raccolta di script Center TechNet](https://go.microsoft.com/fwlink/?LinkId=164635) () https://go.microsoft.com/fwlink/?LinkId=164635) .
 > ## <a name="syntax"></a>Sintassi
 > ```
-> Net print {\\<computerName>\<Sharename> | 
+> Net print {\\<computerName>\<Sharename> |
 > \\<computerName> <JobNumber> [/hold | /release | /delete]} [help]
 > ```
 > ### <a name="parameters"></a>Parametri
-> 
-> |               Parametri               |                                                                                                                                                                                                                     Descrizione                                                                                                                                                                                                                      |
+>
+> |               Parametri               |                                                                                                                                                                                                                     Description                                                                                                                                                                                                                      |
 > |----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > |    \\\\<computerName>\\<Sharename>     |                                                                                                                                                                            Specifica (per nome) il computer e la coda di stampa per cui si desidera visualizzare le informazioni.                                                                                                                                                                             |
 > |           \\\\<computerName>           |                                                                                                                                 Specifica (per nome) il computer che ospita il processo di stampa che si desidera controllare. Se non si specifica un computer, viene utilizzato il computer locale. Richiede il <JobNumber> parametro.                                                                                                                                  |
-> |              <JobNumber>               |                                             Specifica il numero del processo di stampa che si desidera controllare. Questo numero viene assegnato dal computer che ospita la coda di stampa in cui viene inviato il processo di stampa. Dopo che un computer ha assegnato un numero a un processo di stampa, tale numero non viene assegnato ad altri processi di stampa in una coda ospitata da tale computer. Obbligatorio quando si usa \\ \\ <computerName> il parametro.                                             |
+> |              <JobNumber>               |                                             Specifica il numero del processo di stampa che si desidera controllare. Questo numero viene assegnato dal computer che ospita la coda di stampa in cui viene inviato il processo di stampa. Dopo che un computer ha assegnato un numero a un processo di stampa, tale numero non viene assegnato ad altri processi di stampa in una coda ospitata da tale computer. Obbligatorio quando si usa il \\ \\ <computerName> parametro.                                             |
 > | [/Hold &#124;/Release &#124;/Delete] | Specifica l'azione da eseguire con il processo di stampa.<p>-Il parametro **/Hold** ritarda il processo, consentendo ad altri processi di stampa di ignorarlo fino a quando non viene rilasciato.<br />-Il parametro **/Release** rilascia un processo di stampa che è stato posticipato.<br />-Il parametro **/Delete** rimuove un processo di stampa da una coda di stampa.<p>Se si specifica un numero di processo, ma non si specifica alcuna azione, verranno visualizzate le informazioni sul processo di stampa. |
 > |                  help                  |                                                                                                                                                                                                     Visualizza la guida per il comando **net print** .                                                                                                                                                                                                     |
-> 
-> ## <a name="remarks"></a>Osservazioni
-> - **Net** \\ \\ Print <computerName> Visualizza le informazioni sui processi di stampa in una coda di stampa condivisa. Di seguito è riportato un esempio di report per tutti i processi di stampa in una coda per una stampante condivisa denominata LASER:
+>
+>#### <a name="remarks"></a>Osservazioni
+> - **Stampa** \\ \\ net <computerName> Visualizza informazioni sui processi di stampa in una coda di stampa condivisa. Di seguito è riportato un esempio di report per tutti i processi di stampa in una coda per una stampante condivisa denominata LASER:
 >   ```
 >   printers at \\PRODUCTION
 >   Name              Job #      Size      Status
@@ -62,22 +62,22 @@ Visualizza le informazioni relative a una coda di stampanti specificata o a un p
 >   additional info
 >   ```
 >   ## <a name="examples"></a>Esempi
->   Questo esempio illustra come elencare il contenuto della coda di stampa Dotmatrix nel computer \\\Production:
+>   Questo esempio illustra come elencare il contenuto della coda di stampa Dotmatrix nel \\ computer \Production:
 >   ```
->   Net print \\Production\Dotmatrix 
+>   Net print \\Production\Dotmatrix
 >   ```
->   Questo esempio Mostra come visualizzare informazioni sul numero di processo 35 nel computer \\\Production:
+>   Questo esempio Mostra come visualizzare informazioni sul numero di processo 35 nel \\ computer \Production:
 >   ```
->   Net print \\Production 35 
+>   Net print \\Production 35
 >   ```
->   Questo esempio illustra come ritardare il \\numero di processo 263 nel computer \Production:
+>   Questo esempio illustra come ritardare il numero di processo 263 nel \\ computer \Production:
 >   ```
->   Net print \\Production 263 /hold 
+>   Net print \\Production 263 /hold
 >   ```
->   Questo esempio Mostra come rilasciare il \\numero di processo 263 nel computer \Production:
+>   Questo esempio Mostra come rilasciare il numero di processo 263 nel \\ computer \Production:
 >   ```
->   Net print \\Production 263 /release 
+>   Net print \\Production 263 /release
 >   ```
 >   ## <a name="additional-references"></a>Riferimenti aggiuntivi
->   - [Informazioni di](command-line-syntax-key.md)
->   [riferimento sui comandi di stampa](print-command-reference.md) della sintassi della riga di comando
+>   - Chiave sintassi della [riga di comando](command-line-syntax-key.md) 
+>    [riferimento al comando stampa](print-command-reference.md)

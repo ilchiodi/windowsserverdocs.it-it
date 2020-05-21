@@ -1,6 +1,6 @@
 ---
 title: eventcreate
-description: Argomento di riferimento per * * * *-
+description: Argomento di riferimento per il comando eventcreate, che consente a un amministratore di creare un evento personalizzato in un registro eventi specificato.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,46 +9,44 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 797298622ba1021caef3d04e2f2f06f016ef6a70
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 8348e61f6cd94c9b660d0ad9cac4cb1f96920cad
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725766"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83436876"
 ---
 # <a name="eventcreate"></a>eventcreate
 
+Consente agli amministratori di creare un evento personalizzato in un registro eventi specificato.
 
-
-Consente agli amministratori di creare un evento personalizzato in un registro eventi specificato. 
+> [!IMPORTANT]
+> Gli eventi personalizzati non possono essere scritti nel registro di sicurezza.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-eventcreate [/s <Computer> [/u <Domain\User> [/p <Password>]] {[/l {APPLICATION|SYSTEM}]|[/so <SrcName>]} /t {ERROR|WARNING|INFORMATION|SUCCESSAUDIT|FAILUREAUDIT} /id <EventID> /d <Description>
+eventcreate [/s <computer> [/u <domain\user> [/p <password>]] {[/l {APPLICATION|SYSTEM}]|[/so <srcname>]} /t {ERROR|WARNING|INFORMATION|SUCCESSAUDIT|FAILUREAUDIT} /id <eventID> /d <description>
 ```
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|/s \<> computer|Specifica il nome o l'indirizzo IP di un computer remoto (non utilizzare barre rovesciate). Il valore predefinito è il computer locale.|
-|/u \<dominio\utente>|Esegue il comando con le autorizzazioni dell'account dell'utente specificato dall' \<utente> o <dominio\utente>. Il valore predefinito è le autorizzazioni dell'oggetto utente nel computer eseguendo il comando connesso.|
-|/p \<password>|Specifica la password dell'account utente specificato nella **/u** parametro.|
-|/l {APPLICATION\|System}|Specifica il nome del registro eventi in cui verrà creato l'evento. I nomi di log valido sono APPLICAZIONI e SISTEMA.|
-|/so \<NomeOrigine>|Specifica l'origine da utilizzare per l'evento. Un'origine valida può essere qualsiasi stringa e deve rappresentare l'applicazione o componente che genera l'evento.|
-|/t {informazioni\|sugli\|errori di avviso\|</br>SUCCESSAUDIT\|FailureAudit}|Specifica il tipo di evento da creare. I tipi validi sono ERRORE, AVVISO, INFORMAZIONI, SUCCESSAUDIT e FAILUREAUDIT.|
-|/ID \<eventid>|Specifica l'ID evento per l'evento. Un ID valido è qualsiasi numero compreso tra 1 e 1000.|
-|/d \<Descrizione>|Specifica la descrizione da utilizzare per l'evento appena creato.|
-|/?|Visualizza la guida al prompt dei comandi.|
+| Parametro | Descrizione |
+| --------- |------------ |
+| /s`<computer>` | Specifica il nome o l'indirizzo IP di un computer remoto (non utilizzare barre rovesciate). Il valore predefinito è il computer locale. |
+| /u`<domain\user>` | Esegue il comando con le autorizzazioni dell'account dell'utente specificato da `<user>` o `<domain\user>`. Il valore predefinito è le autorizzazioni dell'oggetto utente nel computer eseguendo il comando connesso. |
+| /p`<password>` | Specifica la password dell'account utente specificato nella **/u** parametro. |
+| /l`{APPLICATION | SYSTEM}` | Specifica il nome del registro eventi in cui verrà creato l'evento. I nomi di log validi sono **applicazione** o **sistema**. |
+| /so`<srcname>` | Specifica l'origine da utilizzare per l'evento. Un'origine valida può essere qualsiasi stringa e deve rappresentare l'applicazione o componente che genera l'evento. |
+| /t`{ERROR | WARNING | INFORMATION | SUCCESSAUDIT | FAILUREAUDIT}` | Specifica il tipo di evento da creare. I tipi validi sono **Error**, **warning**, **Information**, **SuccessAudit**e **FailureAudit**. |
+| /ID`<eventID>` | Specifica l'ID evento per l'evento. Un ID valido è qualsiasi numero compreso tra 1 e 1000. |
+| /d`<description>` | Specifica la descrizione da utilizzare per l'evento appena creato. |
+| /? | Visualizza la guida al prompt dei comandi. |
 
-## <a name="remarks"></a>Osservazioni
+### <a name="examples"></a>Esempi
 
--   Eventi personalizzati non possono essere scritti nel Registro di protezione.
+Gli esempi seguenti illustrano come è possibile usare il comando **eventcreate** :
 
-## <a name="examples"></a>Esempi
-
-Negli esempi seguenti viene illustrano come è possibile utilizzare il comando eventcreate:
 ```
 eventcreate /t error /id 100 /l application /d Create event in application log
 eventcreate /t information /id 1000 /so winmgmt /d Create event in WinMgmt source
@@ -59,6 +57,6 @@ eventcreate /s server1 /s server2 /u user /p password /id 100 /t error /so winmg
 eventcreate /s server /u user /id 100 /t warning /so winmgmt /d Remote machine with partial user credentials
 ```
 
-#### <a name="additional-references"></a>Riferimenti aggiuntivi
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

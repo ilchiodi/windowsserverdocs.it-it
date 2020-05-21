@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 99ebdcc3a888a19793892a4a014707db61b92736
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: da43b13f0333f3a12a8763db4cad31e12283bb8b
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82721566"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83436196"
 ---
 # <a name="takeown"></a>takeown
 
@@ -33,9 +33,9 @@ takeown [/s <Computer> [/u [<Domain>\]<User name> [/p [<Password>]]]] /f <File n
 |Parametro|Descrizione|
 |---------|-----------|
 |/s \<> computer|Specifica il nome o l'indirizzo IP di un computer remoto (non utilizzare barre rovesciate). Il valore predefinito è il computer locale. Questo parametro si applica a tutti i file e le cartelle specificati nel comando.|
-|/u [\<dominio>\]<User name>|Esegue lo script con le autorizzazioni dell'account utente specificato. Il valore predefinito è le autorizzazioni di sistema.|
-|/p [\<password>]|Specifica la password dell'account utente specificato nella **/u** parametro.|
-|/f \<nome file>|Specifica il nome file o il modello di nome di directory. È possibile usare il carattere jolly * quando si specifica il criterio. È anche possibile usare la sintassi *ShareName*\*filename *.|
+|/u [ \< dominio>\]<User name>|Esegue lo script con le autorizzazioni dell'account utente specificato. Il valore predefinito è le autorizzazioni di sistema.|
+|/p [ \< Password>]|Specifica la password dell'account utente specificato nella **/u** parametro.|
+|/f \< Nome File>|Specifica il nome file o il modello di nome di directory. È possibile usare il carattere jolly * quando si specifica il criterio. È anche possibile usare la sintassi *ShareName* \* filename *.|
 |/a|Assegna la proprietà al gruppo Administrators anziché all'utente corrente.|
 |/r|Esegue un'operazione ricorsiva su tutti i file nella directory e nelle sottodirectory specificate.|
 |/d {Y \| N}|Disattiva la richiesta di conferma visualizzata quando l'utente corrente non dispone dell'autorizzazione "elenco cartelle" per una directory specificata e utilizza invece il valore predefinito specificato. I valori validi per l'opzione **/d** sono i seguenti:</br>-Y: assume la proprietà della directory.</br>-N: ignora la directory.</br>Si noti che è necessario usare questa opzione in combinazione con l'opzione **/r** .|

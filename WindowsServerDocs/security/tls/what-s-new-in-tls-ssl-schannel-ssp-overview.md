@@ -9,12 +9,12 @@ author: justinha
 ms.author: justinha
 manager: brianlic
 ms.date: 05/16/2018
-ms.openlocfilehash: 5478a97a6b333cfc92de100440d53a769a8c0fd9
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 105225736d6b883e8451aa599af1937068ebe43d
+ms.sourcegitcommit: f22e4d67dd2a153816acf8355e50319dbffc5acf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80855189"
+ms.lasthandoff: 05/18/2020
+ms.locfileid: "83546564"
 ---
 # <a name="overview-of-tls---ssl-schannel-ssp"></a>Panoramica di TLS-SSL (SSP Schannel)
 
@@ -22,7 +22,7 @@ ms.locfileid: "80855189"
 
 Questo argomento per i professionisti IT descrive le modifiche apportate alla funzionalità di Schannel Security Support Provider (SSP), che include i protocolli di autenticazione Transport Layer Security (TLS), Secure Sockets Layer (SSL) e Datagram Transport Layer Security (DTLS), per Windows Server 2012 R2, Windows Server 2012, Windows 8.1 e Windows 8.
 
-Schannel è un Security Support Provider (SSP) che implementa i protocolli di autenticazione standard Internet SSL, TLS E DTLS. Security Support Provider Interface (SSPI) è un'API utilizzata dai sistemi Windows per eseguire funzioni correlate alla sicurezza, tra cui l'autenticazione. SSPI funziona come un'interfaccia comune per diversi Security Support Provider (SSP), tra cui l'SSP Schannel.
+Schannel è un Security Support Provider (SSP) che implementa i protocolli di autenticazione standard Internet SSL, TLS E DTLS. Security Support Provider Interface (SSPI) è un'API utilizzata dai sistemi Windows per eseguire funzioni correlate alla sicurezza, tra cui l'autenticazione. SSPI funziona come una comune interfaccia per diversi Security Support Provider (SSP), incluso SSP Schannel.
 
 Per ulteriori informazioni sull'implementazione Microsoft di TLS e SSL nell'SSP Schannel, vedere la [documentazione tecnica su TLS/SSL (2003)](https://technet.microsoft.com/library/cc784149(v=ws.10).aspx).
 
@@ -33,7 +33,7 @@ Di seguito vengono descritte le funzionalità di TLS in SSP Schannel.
 ### <a name="tls-session-resumption"></a>Ripresa della sessione TLS
 Il protocollo Transport Layer Security (TLS), un componente del Security Support Provider Schannel, viene usato per proteggere i dati inviati tra le applicazioni in una rete non attendibile. TLS/SSL può essere usato per autenticare server e computer client e anche per crittografare i messaggi tra le entità autenticate.
 
-I dispositivi che connettono spesso TLS ai server devono riconnettersi a causa della scadenza della sessione. Windows 8.1 e Windows Server 2012 R2 supportano ora RFC 5077 (ripresa della sessione TLS senza stato sul lato server). Questa modifica fornisce Windows Phone e i dispositivi Windows RT con:
+I dispositivi che connettono spesso TLS ai server devono riconnettersi a causa della scadenza della sessione. Windows 8.1 e Windows Server 2012 R2 supportano ora RFC 5077 (ripresa della sessione TLS senza stato sul lato server). Questa modifica fornisce ai dispositivi Windows Phone e Windows RT quanto segue:
 
 -   Riduzione dell'utilizzo di risorse nel server.
 
@@ -42,20 +42,20 @@ I dispositivi che connettono spesso TLS ai server devono riconnettersi a causa d
 -   Riduzione del tempo impiegato per l'handshake TLS a causa delle riprese della connessione.
 
 > [!NOTE]
-> L'implementazione sul lato client di RFC 5077 è stata aggiunta in Windows 8.
+> L'implementazione sul lato client di RFC 5077 è stata aggiunta in Windows 8.
 
 Per informazioni sulla ripresa della sessione TLS senza stato, vedere il documento IETF [RFC 5077.](http://www.ietf.org/rfc/rfc5077)
 
 ### <a name="application-protocol-negotiation"></a>Negoziazione del protocollo applicativo
  Windows Server 2012 R2 e Windows 8.1 supportano la negoziazione del protocollo applicativo TLS sul lato client, quindi le applicazioni possono sfruttare i protocolli come parte dello sviluppo standard HTTP 2,0 e gli utenti possono accedere Servizi online come Google e Twitter usando le app che eseguono il protocollo SPDY.
 
-**Funzionamento**
+**Come funziona**
 
 Le applicazioni client e server abilitano l'estensione della negoziazione del protocollo applicativo fornendo elenchi di identificatori di protocolli applicativi supportati, in ordine di preferenza decrescente. Il client TLS indica il supporto della negoziazione del protocollo applicativo includendo l'estensione Application Layer Protocol Negotiation (ALPN) con un elenco di protocolli supportati dal client nel messaggio ClientHello.
 
 Quando il client TLS effettua la richiesta al server, il server TLS legge l'elenco dei protocolli supportati per cercare il protocollo applicativo preferito, anch'esso supportato dal client. Se il protocollo viene trovato, il server risponde con l'identificatore di protocollo selezionato e continua con l'handshake come di consueto. Se non è presente alcun protocollo applicativo comune, il server invia un avviso di errore handshake irreversibile.
 
-### <a name="management-of-trusted-issuers-for-client-authentication"></a><a name="BKMK_TrustedIssuers"></a>Gestione di autorità emittenti attendibili per l'autenticazione client
+### <a name="management-of-trusted-issuers-for-client-authentication"></a><a name="BKMK_TrustedIssuers"></a>Gestione degli autorità emittenti attendibili per l'autenticazione client
 Quando è necessario effettuare l'autenticazione del computer client con SSL o TLS, il server può essere configurato per l'invio di un elenco di autorità di certificazione attendibili. L'elenco contiene un set di autorità di certificazione che il server considererà attendibili e propone al computer client il certificato client da selezionare se sono presenti più certificati. Inoltre, la catena di certificati che il computer client invia al server deve essere convalidata rispetto all'elenco di autorità emittenti attendibili configurate.
 
 Prima di Windows Server 2012 e Windows 8, le applicazioni o i processi che usavano SSP Schannel (inclusi HTTP. sys e IIS) potevano fornire un elenco delle autorità emittenti attendibili supportate per l'autenticazione client tramite un elenco di certificati attendibili (CTL).
@@ -67,6 +67,10 @@ In Windows Server 2012 e Windows 8 sono state apportate modifiche al processo di
 -   Il comportamento di invio dell'elenco di autorità emittenti attendibili sia disattivato per impostazione predefinita. Il valore predefinito della chiave del Registro di sistema SendTrustedIssuerList è ora 0 (disattivato per impostazione predefinita) invece di 1.
 
 -   Venga mantenuta la compatibilità con le versioni precedenti dei sistemi operativi Windows.
+
+> [!NOTE]
+> Se il mapper di sistema è abilitato dall'applicazione client ed è stato configurato, l'utilità `SendTrustedIssuers` di mapping di sistema verrà aggiunta `CN=NT Authority` all'elenco di autorità emittenti.
+
 
 **Quale valore viene aggiunto?**
 
@@ -86,7 +90,7 @@ In Windows Server 2012, l'elenco di autorità emittenti attendibili viene config
 
 Se l'archivio delle **autorità certificazione radici radice attendibili** usato contiene una combinazione di certificati radice (autofirmati) e di autorità di certificazione (CA), solo i certificati dell'autorità emittente CA verranno inviati al server per impostazione predefinita.
 
-**Come configurare Schannel per l'uso dell'archivio certificati per autorità emittenti attendibili**
+**Come configurare Schannel per usare l'archivio certificati delle autorità emittenti attendibili**
 
 L'architettura SSP Schannel in Windows Server 2012 utilizzerà per impostazione predefinita gli archivi come descritto in precedenza per gestire l'elenco di autorità emittenti attendibili. È comunque sempre possibile usare i cmdlet esistenti per la gestione dei certificati del provider PowerShell, nonché gli strumenti da riga di comando come certutil.exe.
 
@@ -100,7 +104,7 @@ Per informazioni su quali dati, tra cui l'archivio definito dall'applicazione, v
 
 Esistono tre modalità di attendibilità dell'autenticazione client supportate dal provider Schannel. La modalità di attendibilità controlla la modalità di esecuzione della convalida della catena di certificati del client ed è un'impostazione a livello di sistema controllata dal REG_DWORD "ClientAuthTrustMode" in HKEY_LOCAL_MACHINE \SYSTEM\CurrentControlSet\Control\SecurityProviders\Schannel.
 
-|Valore|Modalità di attendibilità|Descrizione|
+|Value|Modalità di attendibilità|Descrizione|
 |-----|-------|--------|
 |0|Machine Trust (impostazione predefinita)|Richiede che il certificato client venga emesso da un'autorità di certificazione inclusa nell'elenco di autorità emittenti attendibili.|
 |1|Exclusive Root Trust|Richiede che un certificato client sia concatenato a un certificato radice contenuto nell'archivio di autorità emittenti attendibili specificato dal chiamante. Il certificato deve anche essere emesso da un'autorità emittente inclusa nell'elenco di autorità emittenti attendibili.|
@@ -123,20 +127,20 @@ Questa funzionalità aggiuntiva:
 
 -   Consente di fornire suggerimenti agli utenti finali tramite l'interfaccia del computer per la selezione del certificato corretto durante un processo di autenticazione client.
 
-**Funzionamento**
+**Come funziona**
 
 L'SSP Schannel mantiene una cache in memoria degli stati di connessione client consentiti per i client. In questo modo i computer client possono riconnettersi al server SSL senza dover eseguire un handshake SSL completo nelle visite successive.  Questo uso efficiente della gestione dei certificati consente di ospitare più siti in un unico server Windows 2012 rispetto alle versioni precedenti del sistema operativo.
 
 La selezione dei certificati da parte dell'utente finale è stata migliorata perché consente di creare un elenco di nomi di probabili autorità di certificazione che forniscono all'utente finale suggerimenti su quale autorità scegliere. L'elenco è configurabile con Criteri di gruppo.
 
-### <a name="datagram-transport-layer-security-dtls"></a><a name="BKMK_DTLS"></a>Transport Layer Security datagramma (DTLS)
+### <a name="datagram-transport-layer-security-dtls"></a><a name="BKMK_DTLS"></a>Datagram Transport Layer Security (DTLS)
 Il protocollo DTLS versione 1.0 è stato aggiunto al Security Support Provider Schannel. Il protocollo DTLS fornisce la riservatezza delle comunicazioni per i protocolli di datagramma. Il protocollo consente alle applicazioni client/server di comunicare in un modo progettato per impedire l'intercettazione, la manomissione o la contraffazione dei messaggi. Il protocollo DTLS è basato sul protocollo Transport Layer Security (TLS) e fornisce garanzie di protezione equivalente, riducendo la necessità di usare IPsec o di progettare un protocollo di protezione a livello dell'applicazione personalizzata.
 
 **Quale valore viene aggiunto?**
 
 I datagrammi sono comuni nei flussi multimediali, come il gioco o la videoconferenza protetta. L'aggiunta del protocollo DTLS al provider Schannel offre la possibilità di usare il noto modello Windows SSPI per proteggere la comunicazione tra computer client e server. DTLS è deliberatamente progettato per essere il più possibile simile a TLS, sia per ridurre al minimo la creazione di nuove forme di protezione sia per ottimizzare la quantità di riutilizzo del codice e dell'infrastruttura.
 
-**Funzionamento**
+**Come funziona**
 
 Le applicazioni che usano DTLS su UDP possono usare il modello SSPI in Windows Server 2012 e Windows 8. Analogamente a TLS, alcuni pacchetti di crittografia sono disponibili per la configurazione. Schannel continua a usare il provider di crittografia di CNG che sfrutta i vantaggi della certificazione FIPS 140, introdotta in Windows Vista.
 
@@ -145,6 +149,5 @@ In SSP Schannel per Windows Server 2012 e Windows 8 non sono presenti caratteris
 
 ## <a name="see-also"></a>Vedere anche
 -   [Modello di sicurezza del cloud privato: funzionalità wrapper](https://social.technet.microsoft.com/wiki/contents/articles/6756.private-cloud-security-model-wrapper-functionality.aspx)
-
 
 

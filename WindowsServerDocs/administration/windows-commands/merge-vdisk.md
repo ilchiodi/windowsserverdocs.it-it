@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1bfcdde34d2c7dd6146222d04e982aa1ec8009c2
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: cec8eeaa80436dbb34eb055950169b6895efa544
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723996"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83437146"
 ---
 # <a name="merge-vdisk"></a>Disco virtuale di tipo merge
 
@@ -28,12 +28,12 @@ Unisce un disco rigido virtuale differenze (VHD) con il VHD padre corrispondente
 > merge vdisk depth=<n>
 > ```
 > #### <a name="parameters"></a>Parametri
-> 
+>
 > | Parametro |                                                                                    Descrizione                                                                                    |
 > |-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | profondità =<n> | Indica il numero di file VHD padre da unire insieme. Ad esempio, **depth = 1** indica che il disco rigido virtuale differenze verrà unito a un livello della catena di differenziazione. |
-> 
-> ## <a name="remarks"></a>Osservazioni
+>
+>#### <a name="remarks"></a>Osservazioni
 > - Un disco rigido Virtuale deve essere selezionato e scollegato per eseguire questa operazione. Utilizzare il **Selezionare vdisk** comando per selezionare un disco rigido Virtuale e spostare lo stato attivo a esso.
 > - Questo parametro modifica il VHD padre. Di conseguenza, altri dischi rigidi virtuali differenze che dipendono dall'elemento padre non saranno più validi.
 >   ## <a name="examples"></a>Esempi

@@ -1,6 +1,6 @@
 ---
 title: trovare
-description: Argomento di riferimento per * * * *-
+description: Argomento di riferimento per il comando trova, che consente di cercare una stringa di testo nei file, visualizzando la stringa di testo specificata nel file.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,83 +9,82 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3cd731ef64912644965ef6bb96d060a46f0a6067
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 0273405ce5e5b4958a347cd1eaddee0a38897f0c
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725620"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83437006"
 ---
 # <a name="find"></a>trovare
 
-
-
 Cerca una stringa di testo in una o più file e visualizza le righe di testo che contengono la stringa specificata.
-
-
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-find [/v] [/c] [/n] [/i] [/off[line]] <String> [[<Drive>:][<Path>]<FileName>[...]]
+find [/v] [/c] [/n] [/i] [/off[line]] <string> [[<drive>:][<path>]<filename>[...]]
 ```
 
 ### <a name="parameters"></a>Parametri
 
-|           Parametro           |                                              Descrizione                                               |
-|-------------------------------|--------------------------------------------------------------------------------------------------------|
-|              /v               |                    Visualizza tutte le righe che non contengono la stringa \<specificata>.                     |
-|              /C               |              Conta le righe che contengono la stringa \<specificata>e visualizza il totale.              |
-|              /n               |                            Precede ogni riga con numero di riga del file.                             |
-|              /i               |                            Specifica che la ricerca non fa distinzione maiuscole/minuscole.                            |
-|         [/ [offline]]          |                        Non ignorare i file che sono impostato l'attributo non in linea.                        |
-|          \<> stringa          | Obbligatorio. Specifica il gruppo di caratteri (racchiusa tra virgolette singole) che si desidera cercare. |
-| [\<Unità>:] [<Path>]<FileName> |        Specifica il percorso e nome del file in cui cercare la stringa specificata.        |
-|              /?               |                                  Visualizza la guida al prompt dei comandi.                                  |
+| Parametro | Descrizione |
+| --------- | ----------- |
+| /v | Visualizza tutte le righe che non contengono l'oggetto specificato `<string>` . |
+| /C | Conta le righe che contengono l'oggetto specificato `<string>` e visualizza il totale. |
+| /n | Precede ogni riga con numero di riga del file. |
+| /i | Specifica che la ricerca non fa distinzione maiuscole/minuscole. |
+| [/ [offline]] | Non ignora i file in cui è impostato l'attributo offline. |
+| `<string>` | Obbligatorio. Specifica il gruppo di caratteri (racchiusa tra virgolette singole) che si desidera cercare. |
+| `[<drive>:][<path>]<filename>` | Specifica il percorso e nome del file in cui cercare la stringa specificata. |
+| /? | Visualizza la guida al prompt dei comandi. |
 
-## <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Osservazioni
 
--   Specifica di una stringa
+- Se non si usa **/i**, questo comando cerca esattamente quanto specificato per la *stringa*. Ad esempio, questo comando considera i caratteri `a` e in `A` modo diverso. Se si usa **/i**, tuttavia, la ricerca non fa distinzione tra maiuscole e minuscole e considera `a` e `A` come lo stesso carattere.
 
-    Se non si usa **/i**, **trovare** cerca esattamente ciò che si specifica per la *stringa*. Ad esempio, il comando **Find** considera i caratteri A e un oggetto in modo diverso. Se si usa **/i**, tuttavia, la **ricerca** non fa distinzione tra maiuscole e minuscole e considera un e un come lo stesso carattere.
+- Se la stringa che si desidera cercare contiene virgolette, è necessario utilizzare le virgolette doppie per ogni virgoletta contenuta all'interno della stringa (ad esempio, "" questa stringa contiene le virgolette "").
 
-    Se la stringa che si desidera cercare contiene virgolette, è necessario utilizzare le virgolette doppie per ogni virgoletta contenuta all'interno della stringa (ad esempio, la stringa contiene le virgolette).
--   Utilizzo di **trova** come filtro
+- Se si omette un nome di file, questo comando funge da filtro, accettando input dall'origine di input standard (in genere la tastiera, una pipe (|) o un file reindirizzato) e quindi Visualizza tutte le righe che contengono la *stringa*.
 
-    Se si omette un nome di file, **Find** funge da filtro, accettando input dall'origine di input standard (in genere la tastiera, una pipe (|) o un file reindirizzato) e quindi visualizzando le righe che contengono la *stringa*.
--   Ordinamento della sintassi del comando
+- È possibile digitare parametri e opzioni della riga di comando per il comando **trova** in qualsiasi ordine.
 
-    È possibile digitare parametri e opzioni della riga di comando per il comando **trova** in qualsiasi ordine.
--   Utilizzo di caratteri jolly
+- Non è possibile usare caratteri jolly (**&#42;** e **?**) nei nomi file o nelle estensioni specificate durante l'uso di questo comando. Per cercare una stringa in un set di file specificato con caratteri jolly, è possibile usare questo comando all'interno di un comando **for** .
 
-    Non è possibile usare caratteri jolly (**&#42;** e **?**) in nomi file o estensioni specificati con il comando **trova** . Per cercare una stringa in un set di file specificato con i caratteri jolly, è possibile utilizzare il **trovare** comando all'interno di un **per** comando.
--   Uso di **/v** o **/n** con **/c**
+- Se si usa **/c** e **/v** nella stessa riga di comando, questo comando Visualizza un conteggio delle righe che non contengono la stringa specificata. Se si specifica **/c** e **/n** nella stessa riga di comando, **trovare** Ignora **/n**.
 
-    Se si usano **/c** e **/v** nella stessa riga di comando, **Find** Visualizza un conteggio delle righe che non contengono la stringa specificata. Se si specifica **/c** e **/n** nella stessa riga di comando, **trovare** Ignora **/n**.
--   Utilizzo di **Find** con ritorno a capo
+- Questo comando non riconosce i ritorni a capo. Quando si utilizza questo comando per cercare testo in un file che include i ritorni a capo, è necessario limitare la stringa di ricerca al testo che è possibile trovare tra i ritorni a capo, ovvero una stringa che non è probabile che venga interrotta da un ritorno a capo. Questo comando, ad esempio, non segnala una corrispondenza per il file di imposta di stringa se si verifica un ritorno a capo tra le parole Tax e file.
 
-    Il comando **Find** non riconosce i ritorni a capo. Quando si utilizza **trovare** per cercare testo in un file che include i ritorni a capo, è necessario limitare la stringa di ricerca di testo che può trovarsi tra ritorni a capo (vale a dire una stringa che non sembra essere interrotta da un ritorno a capo). Se, ad esempio, si verifica un ritorno a capo tra le parole Tax e file, la **ricerca** non segnala una corrispondenza per il file di imposta della stringa.
+### <a name="examples"></a>Esempi
 
-## <a name="examples"></a>Esempi
+Per visualizzare tutte le righe da *Pencil.ad* che contengono la stringa di *affilatura della matita*, digitare:
 
-Per visualizzare tutte le righe da Pencil.ad che contengono la stringa di affilatura della matita, digitare:
 ```
-find Pencil Sharpener pencil.ad
+find pencil sharpener pencil.ad
 ```
-Per trovare una stringa che contiene il testo racchiuso tra virgolette, è necessario racchiudere l'intera stringa tra virgolette. È quindi necessario utilizzare due virgolette per ogni virgoletta contenuta all'interno della stringa. Per trovare gli scienziati che hanno etichettato il loro documento solo per una discussione. Non si tratta di un report finale. doc, digitare:
+
+Per trovare il testo "gli scienziati hanno etichettato il loro documento solo per una discussione. Non è un report finale." nel file *report. doc* , digitare:
+
 ```
-find The scientists labeled their paper for discussion only. It is not a final report. report.doc
+find ""The scientists labeled their paper for discussion only. It is not a final report."" report.doc
 ```
-Se si desidera eseguire la ricerca di un set di file, è possibile utilizzare il **trovare** comando all'interno di **per** comando. Per eseguire una ricerca nella directory corrente per i file con estensione bat e che contengono la richiesta di stringa, digitare:
+
+Per cercare un set di file, è possibile usare il comando **trova** all'interno del comando **for** . Per eseguire una ricerca nella directory corrente per i file con estensione bat e che contengono la richiesta di stringa, digitare:
+
 ```
-for %f in (*.bat) do find PROMPT %f 
+for %f in (*.bat) do find PROMPT %f
 ```
+
 Per cercare il disco rigido per trovare e visualizzare i nomi dei file nell'unità C che contiene la CPU della stringa, usare la pipe (|) per indirizzare l'output del comando **dir** al comando **trova** , come indicato di seguito:
+
 ```
-dir c:\ /s /b | find CPU 
+dir c:\ /s /b | find CPU
 ```
+
 Poiché le ricerche di **ricerca** fanno distinzione tra maiuscole e minuscole e **dir** produce un output in maiuscolo, è necessario digitare la CPU della stringa in lettere maiuscole oppure usare l'opzione della riga di comando **/i** con **Find**.
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [per il comando](for.md)

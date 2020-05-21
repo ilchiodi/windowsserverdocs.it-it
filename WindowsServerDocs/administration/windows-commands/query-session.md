@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a7a119cda5fad594638211bfcdbdc269fff13d20
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 6b0d122beac43abfd826cb406adac4aa277fc72e
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722709"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83436276"
 ---
 # <a name="query-session"></a>sessione di query
 
@@ -30,7 +30,7 @@ L'elenco include informazioni non solo sulle sessioni attive, ma anche su altre 
 > query session [<SessionName> | <UserName> | <SessionID>] [/server:<ServerName>] [/mode] [/flow] [/connect] [/counter]
 > ```
 > ### <a name="parameters"></a>Parametri
-> 
+>
 > |      Parametro       |                                                      Descrizione                                                      |
 > |----------------------|-----------------------------------------------------------------------------------------------------------------------|
 > |    <SessionName>     |                               Specifica il nome della sessione su cui si desidera eseguire una query.                               |
@@ -42,8 +42,8 @@ L'elenco include informazioni non solo sulle sessioni attive, ma anche su altre 
 > |       /Connect       |                                          Visualizza le impostazioni di connessione correnti.                                           |
 > |       /Counter       | Visualizza le informazioni sui contatori correnti, incluso il numero totale di sessioni create, disconnesse e riconnesse. |
 > |          /?          |                                         Visualizza la guida al prompt dei comandi.                                          |
-> 
-> ## <a name="remarks"></a>Osservazioni
+>
+>#### <a name="remarks"></a>Osservazioni
 > - Un utente può sempre eseguire una query sulla sessione a cui l'utente è attualmente connesso. Per eseguire una query su altre sessioni, l'utente deve disporre dell'autorizzazione di accesso speciale per informazioni sulle query.
 > - Se non si specifica una sessione usando <*sessionname*>, <*UserName*> o <*SessionID*>, **Session query** Visualizza le informazioni su tutte le sessioni attive nel sistema.
 > - Quando la **sessione di query** restituisce informazioni, viene visualizzato un simbolo di maggiore (>) prima della sessione corrente. Di seguito è riportato l'output di esempio per la **sessione di query**:
@@ -67,6 +67,6 @@ L'elenco include informazioni non solo sulle sessioni attive, ma anche su altre 
 >   query session modeM02
 >   ```
 >   ## <a name="additional-references"></a>Riferimenti aggiuntivi
->   - [Guida di](command-line-syntax-key.md)
->   [query](query.md)
->   riferimento ai comandi della sintassi della riga di comando[Servizi Desktop remoto (Servizi terminal)](remote-desktop-services-terminal-services-command-reference.md)
+>   - Chiave sintassi della [riga di comando](command-line-syntax-key.md) 
+>    [query](query.md) 
+>    di Guida di [riferimento ai comandi servizi desktop remoto (Servizi terminal)](remote-desktop-services-terminal-services-command-reference.md)

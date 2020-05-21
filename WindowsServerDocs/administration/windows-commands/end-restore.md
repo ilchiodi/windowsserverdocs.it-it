@@ -1,6 +1,6 @@
 ---
-title: Ripristino di fine
-description: Argomento di riferimento per * * * *-
+title: fine ripristino
+description: Argomento di riferimento per il comando end Restore, che termina una sessione di ripristino e genera un evento **PostRestore** per gli autori di.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0136d10a1332c9f6700cab0ad8bc7e0bfb8eba4c
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 1fc76727a4c668c7440fefe9dfc3ceaa08ee7cd4
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720837"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83436896"
 ---
-# <a name="end-restore"></a>Ripristino di fine
-
-
+# <a name="end-restore"></a>fine ripristino
 
 Termina una sessione di ripristino e i problemi di un **PostRestore** eventi per gli scrittori coinvolti.
 

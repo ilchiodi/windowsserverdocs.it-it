@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dougkim
 ms.date: 07/25/2018
-ms.openlocfilehash: 7238d71ed35b5c9645e6b4061717011cc2a02820
-ms.sourcegitcommit: 32f810c5429804c384d788c680afac427976e351
+ms.openlocfilehash: facd846dd0c20ee2e5001b0592651ce310e19097
+ms.sourcegitcommit: 29f7a4811b4d36d60b8b7c55ce57d4ee7d52e263
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83203569"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83716886"
 ---
 # <a name="migrating-the-wsus-database-from-wid-to-sql"></a>Migrazione del database WSUS da WID a SQL
 
@@ -67,7 +67,7 @@ Da PowerShell (con privilegi elevati) eseguire:
 
 ### <a name="copy-the-susdb-files-to-the-sql-server"></a>Copiare i file SUSDB nel SQL Server
 
-1. Copiare **SUSDB. MDF** e **SUSDB \_ log. ldf** dalla cartella wid data (**% SystemDrive%** \* * Windows\WID\Data * *) alla cartella dati dell'istanza di SQL.
+1. Copiare **SUSDB. MDF** e **SUSDB \_ log. ldf** dalla cartella wid data (**% SystemDrive%** \\ **Windows \\ wid \\ Data**) alla cartella dati dell'istanza di SQL.
 
 > [!TIP]
 > Se ad esempio la cartella dell'istanza di SQL è **C:\Programmi\Microsoft SQL Server\MSSQL12. MSSQLSERVER\MSSQL**e la cartella wid data sono **C:\Windows\WID\Data,** copiare i file SUSDB da **C:\Windows\WID\Data** in **c:\Programmi\Microsoft SQL Server\MSSQL12. MSSQLSERVER\MSSQL\Data**

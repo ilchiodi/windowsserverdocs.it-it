@@ -1,6 +1,6 @@
 ---
 title: expand
-description: Argomento di riferimento per * * * *-
+description: Argomento di riferimento per il comando Espandi, che consente di espandere uno o più file compressi.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,40 +9,44 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: b757f630e08249b1c716803a07cd9a163d7398d2
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: a25507b83c17100c579f00d10c94e20c6be2aa4e
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725686"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83437216"
 ---
 # <a name="expand"></a>expand
 
 > Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-espande uno o più file compressi. È possibile utilizzare questo comando per recuperare file compressi dai dischi originali.  
-## <a name="syntax"></a>Sintassi  
-```  
-expand [/r] <source> <destination>  
-expand /r <source> [<destination>]  
-expand /i <source> [<destination>]  
-expand /d <source>.cab [/f:<files>]  
-expand <source>.cab /f:<files> <destination>  
-```  
-#### <a name="parameters"></a>Parametri  
+Si espande uno o più file compressi. È anche possibile usare questo comando per recuperare i file compressi dai dischi di distribuzione.
 
-|  Parametro  |                                                                                                                                                                   Descrizione                                                                                                                                                                    |
-|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     /r      |                                                                                                                                                             Rinomina i file espansi.                                                                                                                                                              |
-|   source    |                                                                              Specifica i file da espandere. *Origine* può essere costituito da una lettera di unità e i due punti, un nome di directory, un nome di file o una combinazione di questi. È possibile utilizzare caratteri jolly (**\\** \* o **?**).                                                                               |
-| destination | Specifica in cui i file da espandere.<p>Se l' *origine* è costituita da più file e non si specifica **/r**, la *destinazione* deve essere una directory.<p>*Destinazione* può essere costituito da una lettera di unità e i due punti, un nome di directory, un nome di file o una combinazione di questi.<p>File di destinazione & #124; Specifica del percorso. |
-|     /i      |                                                                                                   Rinomina i file espansi ma ignora la struttura di directory.<p>Questo parametro si applica a: Windows Server 2008 R2 e Windows 7.                                                                                                    |
-|     /d      |                                                                                                                              Visualizza un elenco dei file nel percorso di origine. Non espandere o estrarre i file.                                                                                                                              |
-|     /f:     |                                                                                                                 Specifica i file in un file cabinet (CAB) che si desidera espandere. È possibile utilizzare caratteri jolly (**\\** \* o **?**).                                                                                                                 |
-|     /?      |                                                                                                                                                       Visualizza la guida al prompt dei comandi.                                                                                                                                                       |
+Il comando **Espandi** può essere eseguito anche dalla Console ripristino Windows utilizzando parametri diversi. Per ulteriori informazioni, vedere [ambiente ripristino Windows (WinRE)](https://docs.microsoft.com/windows-hardware/manufacture/desktop/windows-recovery-environment--windows-re--technical-reference).
 
-## <a name="remarks"></a>Osservazioni  
-- Uso di **expand** nella console di ripristino  
-  Il comando **Espandi** , con parametri diversi, è disponibile dalla console di ripristino. Per ulteriori informazioni sulla console di ripristino, vedere l' [articolo 314058](https://support.microsoft.com/kb/314058) della Microsoft Knowledge base.  
-  ## <a name="additional-references"></a>Riferimenti aggiuntivi  
-  - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
+## <a name="syntax"></a>Sintassi
+
+```
+expand [/r] <source> <destination>
+expand /r <source> [<destination>]
+expand /i <source> [<destination>]
+expand /d <source>.cab [/f:<files>]
+expand <source>.cab /f:<files> <destination>
+```
+
+### <a name="parameters"></a>Parametri
+
+| Parametro | Descrizione |
+| --------- | ----------- |
+| /r | File ridenominazioni espansi. |
+| origine | Specifica i file da espandere. *Origine* può essere costituito da una lettera di unità e i due punti, un nome di directory, un nome di file o una combinazione di questi. È possibile utilizzare caratteri jolly (**&#42;** o **?**). |
+| destination | Specifica in cui i file da espandere.<p>Se l' *origine* è costituita da più file e non si specifica **/r**, la *destinazione* deve essere una directory. *Destinazione* può essere costituito da una lettera di unità e i due punti, un nome di directory, un nome di file o una combinazione di questi. Specifica di destinazione `file | path` . |
+| /i | Rinomina file espansi, ma ignora la struttura di directory. |
+| /d | Visualizza un elenco dei file nel percorso di origine. Non espande o estrae i file. |
+| /f`<files>` | Specifica i file in un file cabinet (CAB) che si desidera espandere. È possibile utilizzare caratteri jolly (**&#42;** o **?**). |
+| /? | Visualizza la guida al prompt dei comandi. |
+
+## <a name="additional-references"></a>Riferimenti aggiuntivi
+
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+

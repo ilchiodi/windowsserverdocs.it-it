@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 094416a0d7b3adf5c99579ea51b7f343a6dec4f7
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 4e0ebf422019d6e8023a2a3cc5da2085635c8422
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722733"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83436346"
 ---
 # <a name="qprocess"></a>qprocess
 
@@ -28,7 +28,7 @@ Visualizza informazioni sui processi in esecuzione in un server Host sessione De
 ## <a name="remarks"></a>Osservazioni
 Questo comando è identico a quello del comando **query process** .
 
-## <a name="additional-references"></a>Altri riferimenti
-[processo query](query-process.md)  
-- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
-[Informazioni di riferimento sui comandi di Servizi Desktop remoto (Servizi terminal)](remote-desktop-services-terminal-services-command-reference.md)  
+## <a name="additional-references"></a>Riferimenti aggiuntivi
+[processo query](query-process.md)
+- Chiave sintassi della [riga di comando](command-line-syntax-key.md) 
+ Guida di [riferimento ai comandi servizi desktop remoto (Servizi terminal)](remote-desktop-services-terminal-services-command-reference.md)

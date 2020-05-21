@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 05/18/2018
 ms.localizationpriority: medium
-ms.openlocfilehash: e18823c5c030aa1a7b8f032f820e415f36fd7827
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: b52701f831502c16487dbbaf0cd61d839c046c68
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720273"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83436706"
 ---
 # <a name="vssadmin-delete-shadows"></a>Vssadmin Elimina ombre
 
@@ -31,10 +31,10 @@ vssadmin delete shadows /for=<ForVolumeSpec> [/oldest | /all | /shadow=<ShadowID
 
 |Parametro|Descrizione|
 |---|---|
-|/for =\<PerVolumeSpecificato>|Specifica la copia shadow del volume che verrà eliminata.|
+|/for = \< pervolumespecificato>|Specifica la copia shadow del volume che verrà eliminata.|
 |/oldest|Elimina solo la copia shadow meno recente.|
 |/all|Elimina tutte le copie shadow del volume specificato.|
-|/Shadow =\<IDShadow>|Elimina la copia shadow specificata da IDShadow. Per ottenere l'ID della copia shadow, usare il comando **vssadmin list shadows** . Quando si immette un ID copia shadow, usare il formato seguente, dove ogni *X* rappresenta un carattere esadecimale:<br><br>XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX|
+|/Shadow = \< idshadow>|Elimina la copia shadow specificata da IDShadow. Per ottenere l'ID della copia shadow, usare il comando **vssadmin list shadows** . Quando si immette un ID copia shadow, usare il formato seguente, dove ogni *X* rappresenta un carattere esadecimale:<br><br>XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX|
 |/quiet|Specifica che il comando non visualizzerà i messaggi durante l'esecuzione.|
 
 ## <a name="remarks"></a>Osservazioni
@@ -49,7 +49,7 @@ Per eliminare la copia shadow meno recente del volume C, immettere questo comand
 vssadmin delete shadows /for=c: /oldest
 ```
 
-## <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 * [Chiave sintassi della riga di comando](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc771080(v%3dws.11))
 * [Vssadmin](vssadmin.md)

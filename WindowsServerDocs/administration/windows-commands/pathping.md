@@ -9,20 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 05675e4764c4c3e135647a1185da05634ee7264f
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 8be1897b241871bcb65126b39f201769f82f50bf
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723365"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83436816"
 ---
 # <a name="pathping"></a>pathping
 
 > Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Fornisce informazioni sulla latenza di rete e la perdita di rete a hop intermedi tra un'origine e una destinazione. **PathPing** invia più messaggi di richiesta echo a ogni router tra un'origine e una destinazione in un determinato periodo di tempo e calcola quindi i risultati in base ai pacchetti restituiti da ogni router. Poiché **PathPing** Visualizza il grado di perdita di pacchetti in un determinato router o collegamento, è possibile determinare quali router o subnet potrebbero riscontrare problemi di rete. 
+Fornisce informazioni sulla latenza di rete e la perdita di rete a hop intermedi tra un'origine e una destinazione. **PathPing** invia più messaggi di richiesta echo a ogni router tra un'origine e una destinazione in un determinato periodo di tempo e calcola quindi i risultati in base ai pacchetti restituiti da ogni router. Poiché **PathPing** Visualizza il grado di perdita di pacchetti in un determinato router o collegamento, è possibile determinare quali router o subnet potrebbero riscontrare problemi di rete.
 
-**PathPing** esegue l'equivalente del comando **tracert** identificando i router che si trovano sul percorso. Invia quindi i ping periodicamente a tutti i router in un periodo di tempo specificato e calcola le statistiche in base al numero restituito da ciascuno. Usato senza parametri, **PathPing** Visualizza la guida. 
+**PathPing** esegue l'equivalente del comando **tracert** identificando i router che si trovano sul percorso. Invia quindi i ping periodicamente a tutti i router in un periodo di tempo specificato e calcola le statistiche in base al numero restituito da ciascuno. Usato senza parametri, **PathPing** Visualizza la guida.
 
 ## <a name="syntax"></a>Sintassi
 ```
@@ -32,14 +32,14 @@ pathping [/n] [/h] [/g <Hostlist>] [/p <Period>] [/q <NumQueries> [/w <timeout>]
 |Parametro|Descrizione|
 |-------|--------|
 |/n|Impedisce a **PathPing** di tentare di risolvere gli indirizzi IP dei router intermedi con i rispettivi nomi. Questo può accelerare la visualizzazione dei risultati di **PathPing** .|
-|/h \<MaximumHops>|Specifica il numero massimo di hop nel percorso in cui cercare la destinazione (destinazione). Il valore predefinito è 30 hop.|
-|> \<di host/g|Specifica che i messaggi di richiesta echo usano l'opzione Loose Source Route nell'intestazione IP con il set di destinazioni intermedie specificato in *host*. Con il routing del codice sorgente sciolto, le destinazioni intermedie successive possono essere separate da uno o più router. Il numero massimo di indirizzi o nomi nell'elenco host è 9. L' *host* è una serie di indirizzi IP (in notazione decimale tratteggiata) separati da spazi.|
+|/h \< MaximumHops>|Specifica il numero massimo di hop nel percorso in cui cercare la destinazione (destinazione). Il valore predefinito è 30 hop.|
+|\<> di host/g|Specifica che i messaggi di richiesta echo usano l'opzione Loose Source Route nell'intestazione IP con il set di destinazioni intermedie specificato in *host*. Con il routing del codice sorgente sciolto, le destinazioni intermedie successive possono essere separate da uno o più router. Il numero massimo di indirizzi o nomi nell'elenco host è 9. L' *host* è una serie di indirizzi IP (in notazione decimale tratteggiata) separati da spazi.|
 |/p \<> periodo|Specifica il numero di millisecondi di attesa tra i ping consecutivi. Il valore predefinito è 250 millisecondi (1/4 secondi).|
-|/q \<NumQueries>|Specifica il numero di messaggi di richiesta echo inviati a ogni router nel percorso. Il valore predefinito è 100 query.|
-|> \<timeout/w|Specifica il numero di millisecondi di attesa per ogni risposta. Il valore predefinito è 3000 millisecondi (3 secondi).|
-|> \<IPAddress/i|Specifica l'indirizzo di origine.|
-|/4 \<IPv4>|Specifica che pathping utilizza solo IPv4.|
-|> IPv6 \</6|Specifica che pathping utilizza solo IPv6.|
+|/q \< NumQueries>|Specifica il numero di messaggi di richiesta echo inviati a ogni router nel percorso. Il valore predefinito è 100 query.|
+|\<> timeout/w|Specifica il numero di millisecondi di attesa per ogni risposta. Il valore predefinito è 3000 millisecondi (3 secondi).|
+|\<> IPAddress/i|Specifica l'indirizzo di origine.|
+|/4 \< IPv4>|Specifica che pathping utilizza solo IPv4.|
+|\<> IPv6/6|Specifica che pathping utilizza solo IPv6.|
 |\<TargetName>|Specifica la destinazione, che viene identificata in base all'indirizzo IP o al nome host.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
@@ -85,7 +85,7 @@ Quando **PathPing** viene eseguito, i primi risultati elencano il percorso. Si t
 
 Nel report di esempio precedente, le colonne **nodo/collegamento**, **perse/inviate = PCT** e **Indirizzo** indicano che il collegamento tra 172.16.87.218 e 192.168.52.1 sta eliminando il 13% dei pacchetti. Anche i router a hop 2 e 4 rilasciano i pacchetti a loro destinati, ma questa perdita non influisce sulla capacità di inoltrare il traffico non indirizzato a loro.
 
-Il tasso di perdita visualizzato per i collegamenti, identificato come barra verticale (**|**) nella colonna **Address** , indica la congestione dei collegamenti che causa la perdita di pacchetti inoltrati nel percorso. I tassi di perdita visualizzati per i router (identificati dai rispettivi indirizzi IP) indicano che questi router potrebbero essere sottoposte a overload.
+Il tasso di perdita visualizzato per i collegamenti, identificato come barra verticale ( **|** ) nella colonna **Address** , indica la congestione dei collegamenti che causa la perdita di pacchetti inoltrati nel percorso. I tassi di perdita visualizzati per i router (identificati dai rispettivi indirizzi IP) indicano che questi router potrebbero essere sottoposte a overload.
 
-## <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 -   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

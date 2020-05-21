@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 03/05/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 05e58498a59a9e87fc773428d7e5956ce3285b67
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: e32fe419899c0f553f36976ecee95fb3a922f1a6
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720236"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83436626"
 ---
 # <a name="vssadmin-resize-shadowstorage"></a>Ridimensionamento vssadmin shadowstorage
 
@@ -48,7 +48,7 @@ vssadmin Resize ShadowStorage /For=C: /On=D: /MaxSize=UNBOUNDED
 vssadmin Resize ShadowStorage /For=C: /On=C: /MaxSize=20%
 ```
 
-## <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 * [Chiave sintassi della riga di comando](https://docs.microsoft.com/windows-server/administration/windows-commands/command-line-syntax-key)
 * [Vssadmin](vssadmin.md)

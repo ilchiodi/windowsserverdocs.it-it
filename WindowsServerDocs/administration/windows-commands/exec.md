@@ -1,6 +1,6 @@
 ---
 title: exec
-description: Argomento di riferimento per * * * *-
+description: Argomento di riferimento per il comando exec, che esegue un file di script nel computer locale.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,36 +9,33 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f10e28a8da96bc7228af4561fb36824899f2d7a4
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 956f3d4a7c5992980aea0fc0f5933ee7def48381
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725732"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83436107"
 ---
 # <a name="exec"></a>exec
 
+Esegue un file di script nel computer locale. Questo comando Duplica o Ripristina i dati come parte di una sequenza di backup o ripristino. Se lo script non riesce, viene restituito un errore e viene chiuso DiskShadow.
 
-
-Esegue un file nel computer locale. Il file può essere un **cmd** script.
+Il file può essere un **cmd** script.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-exec <ScriptFile.cmd>
+exec <scriptfile.cmd>
 ```
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|\<> ScriptFile. cmd|Specifica il file di script da eseguire.|
-
-## <a name="remarks"></a>Osservazioni
-
--   Questo comando viene utilizzato per duplicare o ripristinare i dati come parte di un backup o sequenza di ripristino.
--   Se lo script non riesce, viene restituito un errore e viene chiuso DiskShadow.
+| Parametro | Descrizione |
+| --------- | ----------- |
+| `<scriptfile.cmd>` | Specifica il file di script da eseguire. |
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando DiskShadow](diskshadow.md)

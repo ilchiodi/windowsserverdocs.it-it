@@ -1,6 +1,6 @@
 ---
 title: filesystem
-description: Argomento di riferimento per * * * *-
+description: Argomento di riferimento per il comando filesystems, che visualizza informazioni sulla file system corrente del volume con lo stato attivo ed elenca i file system supportati per la formattazione del volume.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7e94144b4f0aa747cef560045cdf03efd130c5d0
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 8c31a8978beecda223bc75b1374ef4ac473bf1c6
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725629"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83437166"
 ---
 # <a name="filesystems"></a>filesystem
 
-
-
 Visualizza informazioni sul file system corrente del volume con lo stato attivo e vengono elencati i sistemi di file supportati per la formattazione del volume.
+
+Per eseguire questa operazione, è necessario selezionare un volume. Usare il [comando select volume](select-volume.md) per selezionare un volume e spostare lo stato attivo a esso.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -28,9 +28,6 @@ Visualizza informazioni sul file system corrente del volume con lo stato attivo 
 filesystems
 ```
 
-## <a name="remarks"></a>Osservazioni
-
--   Per eseguire questa operazione, è necessario selezionare un volume. Utilizzare il **Selezionare volume** comando per selezionare un volume e spostare lo stato attivo a esso.
-
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

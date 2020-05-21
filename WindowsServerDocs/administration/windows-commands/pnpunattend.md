@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 569b879caf29aac6d1592d822072f35021cec9d3
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: d62edde425a00db23f150246df65166234604cef
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723299"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83436466"
 ---
 # <a name="pnpunattend"></a>pnpunattend
 
@@ -43,17 +43,17 @@ La preparazione preliminare è obbligatoria. Prima di utilizzare questo comando,
 2. Scaricare ed estrarre il pacchetto driver per il dispositivo. Copiare il contenuto della sottocartella che contiene il file INF per la versione del sistema operativo ed eventuali sottocartelle nella cartella video creata. Ad esempio, copiare i file del driver video in C:\Drivers\Video.
 3. Aggiungere una variabile di percorso dell'ambiente di sistema alla cartella creata nel passaggio 1, ad esempio **C:\Drivers\Video**.
 4. Creare la chiave del registro di sistema seguente e quindi, per la chiave **DriverPaths** creata, impostare i **dati del valore** su **1**.
-5. Per Windows® 7 esplorare il percorso del registro di sistema: **HKEY_LOCAL_Machine \Software\Microsoft\Windows NT\CurrentVersion\\**, quindi creare le chiavi: **UnattendSettings\PnPUnattend\DriverPaths\\ **
-6. Per Windows Vista, passare al percorso del registro di sistema: **HK_LM\\\Software\Microsoft\Windows NT\CurrentVersion**, quindi creare le chiavi = **\UnattendSettings\PnPUnattend\DriverPaths**.
+5. Per Windows® 7 esplorare il percorso del registro di sistema: **HKEY_LOCAL_Machine \Software\microsoft\windows NT\CurrentVersion \\ **, quindi creare le chiavi: **UnattendSettings\PnPUnattend\DriverPaths \\ **
+6. Per Windows Vista, passare al percorso del registro di sistema: **HK_LM \\ \Software\Microsoft\Windows NT\CurrentVersion**, quindi creare le chiavi = **\UnattendSettings\PnPUnattend\DriverPaths**.
 
 ## <a name="examples"></a>Esempi
 
 Per eseguire il comando, viene illustrato come utilizzare **PNPUnattend. exe** per controllare un computer per individuare possibili aggiornamenti dei driver, quindi segnalare i risultati al prompt dei comandi.
 
 ```
-pnpunattend auditsystem /s /l 
+pnpunattend auditsystem /s /l
 ```
 
-## <a name="additional-references"></a>Altri riferimenti
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

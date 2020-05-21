@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 81132ebf6b75115086ed7cc2ab9f73d9d06e65e4
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 9ac3e5a458d88d945e857cd1922783e5b0ff5cf0
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722714"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83436286"
 ---
 # <a name="query-process"></a>processo query
 
@@ -30,7 +30,7 @@ Visualizza informazioni sui processi in esecuzione in un server Host sessione De
 > query process [* | <ProcessID> | <UserName> | <SessionName> | /id:<nn> | <ProgramName>] [/server:<ServerName>]
 > ```
 > ### <a name="parameters"></a>Parametri
-> 
+>
 > |      Parametro       |                                                                 Descrizione                                                                  |
 > |----------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
 > |          \*          |                                                    elenca i processi per tutte le sessioni.                                                     |
@@ -41,10 +41,10 @@ Visualizza informazioni sui processi in esecuzione in un server Host sessione De
 > |    <ProgramName>     |                     Specifica il nome del programma di cui si desidera eseguire una query sui processi. L'estensione exe è obbligatoria.                     |
 > | /server:<ServerName> | Specifica il server Host sessione Desktop remoto di cui si desidera visualizzare i processi. Se non è specificato, viene utilizzato il server in cui si è attualmente connessi. |
 > |          /?          |                                                     Visualizza la guida al prompt dei comandi.                                                     |
-> 
-> ## <a name="remarks"></a>Osservazioni
+>
+>#### <a name="remarks"></a>Osservazioni
 > - Gli amministratori hanno accesso completo a tutte le funzioni di **processo di query** .
-> - Se non si specifica il *nome utente* <>, <*sessionname*>, **/ID:**<*nn*>, <*ProgramName*> o **\\*** Parameters, il **processo di query** Visualizza solo i processi che appartengono all'utente corrente.
+> - Se non si specifica il *nome utente* <>, <*sessionname*>, **/ID:** < *nn*>, <*ProgramName*> o **\\** * Parameters, il **processo di query** Visualizza solo i processi che appartengono all'utente corrente.
 > - Se viene specificata una sessione, è necessario che identifichi una sessione attiva.
 > - il **processo di query** restituisce le informazioni seguenti:
 >   -   Utente proprietario del processo
@@ -63,6 +63,6 @@ Visualizza informazioni sui processi in esecuzione in un server Host sessione De
 >   query process /ID:2
 >   ```
 >   ## <a name="additional-references"></a>Riferimenti aggiuntivi
->   - [Guida di](command-line-syntax-key.md)
->   [query](query.md)
->   riferimento ai comandi della sintassi della riga di comando[Servizi Desktop remoto (Servizi terminal)](remote-desktop-services-terminal-services-command-reference.md)
+>   - Chiave sintassi della [riga di comando](command-line-syntax-key.md) 
+>    [query](query.md) 
+>    di Guida di [riferimento ai comandi servizi desktop remoto (Servizi terminal)](remote-desktop-services-terminal-services-command-reference.md)

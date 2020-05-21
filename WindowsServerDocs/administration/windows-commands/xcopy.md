@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 01/05/2019
-ms.openlocfilehash: d0ee0a9f87eacefad619e82aa28f5fcf8419ed09
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 0145de2828c1d33cf1b82f595dd6c00812ace54e
+ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720617"
+ms.lasthandoff: 05/16/2020
+ms.locfileid: "83436786"
 ---
 # <a name="xcopy"></a>xcopy
 
@@ -33,7 +33,7 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 |Parametro|Descrizione|
 |---------|-----------|
 |\<> di origine|Obbligatorio. Specifica il percorso e i nomi dei file che si desidera copiare. Questo parametro deve includere un'unità o un percorso.|
-|[\<> di destinazione]|Specifica la destinazione dei file che si desidera copiare. Questo parametro può includere una lettera di unità e due punti, un nome di directory, un nome di file o una combinazione di questi.|
+|[ \<> di destinazione]|Specifica la destinazione dei file che si desidera copiare. Questo parametro può includere una lettera di unità e due punti, un nome di directory, un nome di file o una combinazione di questi.|
 |/W|Visualizza il messaggio seguente e attende la risposta prima di iniziare a copiare i file:</br>**Premere un tasto qualsiasi per iniziare a copiare i file**|
 |/ p|Viene richiesto di confermare se si desidera creare ogni file di destinazione.|
 |/C|Ignora gli errori.|
@@ -56,7 +56,7 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 |/n|Crea copie usando i nomi di file o di directory brevi NTFS. **/n** è obbligatorio quando si copiano file o directory da un volume NTFS a un volume FAT o quando è richiesta la convenzione di denominazione FAT file System (ovvero 8,3 caratteri) nel file System di *destinazione* . Il file system di *destinazione* può essere FAT o NTFS.|
 |/o|Copia la proprietà del file e le informazioni relative all'elenco di controllo di accesso discrezionale (DACL).|
 |/x|Copia le impostazioni di controllo del file e le informazioni dell'elenco di controllo di accesso di sistema (SACL) (implica **/o**).|
-|/exclude: FileName1 [+ [FileName2] [+ [FileName3] ( \)]|Specifica un elenco di file. È necessario specificare almeno un file. Ogni file conterrà stringhe di ricerca con ogni stringa in una riga separata del file.</br>Quando una qualsiasi delle stringhe corrisponde a qualsiasi parte del percorso assoluto del file da copiare, il file verrà escluso dalla copia. Se ad esempio si specifica la stringa **obj** , tutti i file sotto la directory **obj** o tutti i file con estensione **obj** vengono esclusi.|
+|/exclude: FileName1 [+ [FileName2] [+ [FileName3] ( \) ]|Specifica un elenco di file. È necessario specificare almeno un file. Ogni file conterrà stringhe di ricerca con ogni stringa in una riga separata del file.</br>Quando una qualsiasi delle stringhe corrisponde a qualsiasi parte del percorso assoluto del file da copiare, il file verrà escluso dalla copia. Se ad esempio si specifica la stringa **obj** , tutti i file sotto la directory **obj** o tutti i file con estensione **obj** vengono esclusi.|
 |/y|Evita la richiesta di conferma della sovrascrittura di un file di destinazione esistente.|
 |/-y|Richiede di confermare che si desidera sovrascrivere un file di destinazione esistente.|
 |/z|Copia in una rete in modalità riavviabile.|
@@ -88,12 +88,12 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 
 - Specifica se la *destinazione* è un file o una directory
 
-  Se la *destinazione* non contiene una directory esistente e non termina con una barra rovesciata\)(, viene visualizzato il messaggio seguente:
-  
+  Se la *destinazione* non contiene una directory esistente e non termina con una barra rovesciata ( \) , viene visualizzato il messaggio seguente:
+
   ```
   Does <Destination> specify a file name or directory name on the target(F = file, D = directory)?
-  ```  
-  
+  ```
+
 Premere F se si desidera che il file o i file vengano copiati in un file. Premere D se si desidera che il file o i file vengano copiati in una directory.
 
   È possibile disattivare questo messaggio utilizzando l'opzione della riga di comando **/i** , che fa in modo che **xcopy** presupponga che la destinazione sia una directory se l'origine è più di un file o una directory.
@@ -107,7 +107,7 @@ Premere F se si desidera che il file o i file vengano copiati in un file. Premer
 
 - Codici di uscita per **xcopy**
 
-  Per elaborare i codici di uscita restituiti da **xcopy**, usare il parametro **errorlevel** nella riga di comando **if** in un programma batch. Per un esempio di un programma batch che elabora i codici di uscita usando **if**, vedere [riferimenti aggiuntivi](#additional-references). Nella tabella seguente sono elencati i codici di uscita e una descrizione.  
+  Per elaborare i codici di uscita restituiti da **xcopy**, usare il parametro **errorlevel** nella riga di comando **if** in un programma batch. Per un esempio di un programma batch che elabora i codici di uscita usando **if**, vedere [riferimenti aggiuntivi](#additional-references). Nella tabella seguente sono elencati i codici di uscita e una descrizione.
 
   |Codice di uscita|Descrizione|
   |---------|-----------|
@@ -122,7 +122,7 @@ Premere F se si desidera che il file o i file vengano copiati in un file. Premer
 **1.** per copiare tutti i file e le sottodirectory (incluse eventuali sottodirectory vuote) dall'unità a all'unità B, digitare:
 
 ```
-xcopy a: b: /s /e 
+xcopy a: b: /s /e
 ```
 
 **2.** per includere tutti i file di sistema o nascosti nell'esempio precedente, aggiungere l'opzione della riga di comando<strong>/h</strong> come indicato di seguito:
@@ -151,7 +151,7 @@ xcopy \rawdata \reports /d:12-29-1993 /l > xcopy.out
 
 Il file xcopy. out elenca tutti i file che devono essere copiati.
 
-**6.** per copiare la directory \Customer e tutte le sottodirectory nella directory \\ \\Public\Address sull'unità di rete H:, mantenere l'attributo di sola lettura e quando viene creato un nuovo file in h:, digitare:
+**6.** per copiare la directory \Customer e tutte le sottodirectory nella directory \\ \\ Public\Address sull'unità di rete H:, mantenere l'attributo di sola lettura e quando viene creato un nuovo file in h:, digitare:
 
 ```
 xcopy \customer h:\public\address /s /e /k /p
@@ -181,7 +181,7 @@ goto exit
 :abort
 echo You pressed CTRL+C to end the copy operation.
 goto exit
-:exit 
+:exit
 ```
 
 Per usare il programma batch precedente per copiare tutti i file nella directory C:\Prgmcode e nelle relative sottodirectory nell'unità B, digitare:
@@ -204,12 +204,12 @@ rem  .\d2\toc.yml
 rem  3 File(s) copied
 ```
 
-Nell'esempio precedente, questo particolare valore del parametro di **origine\\ . TOC\*. yml** copia gli stessi 3 file anche se i due caratteri del **percorso\\ .** sono stati rimossi. Tuttavia, non viene copiato alcun file se il carattere jolly asterisco è stato rimosso dal parametro source, rendendolo **semplicemente\\ . TOC. yml**.
+Nell'esempio precedente, questo particolare valore del parametro di origine **. \\ TOC \* . yml** copia gli stessi 3 file anche se i due caratteri del **percorso \\ .** sono stati rimossi. Tuttavia, non viene copiato alcun file se il carattere jolly asterisco è stato rimosso dal parametro source, rendendolo semplicemente **. \\ TOC. yml**.
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 -   [Copia](copy.md)
--   [Sposta](move.md)
+-   [Spostamento](move.md)
 -   [Dir](dir.md)
 -   [Attrib](attrib.md)
 -   [DISKCOPY](diskcopy.md)
