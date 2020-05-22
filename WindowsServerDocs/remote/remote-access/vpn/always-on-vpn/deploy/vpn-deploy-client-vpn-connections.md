@@ -10,12 +10,12 @@ ms.localizationpriority: medium
 ms.author: v-tea
 author: Teresa-MOTIV
 ms.reviewer: deverette
-ms.openlocfilehash: ecaf35f9cfe825d2bb617acbd9554bf1eb0eff1e
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 9f942d7af5215680cf2707901293161a6208708b
+ms.sourcegitcommit: 599162b515c50106fd910f5c180e1a30bbc389b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80860504"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83775355"
 ---
 # <a name="step-6-configure-windows-10-client-always-on-vpn-connections"></a>Passaggio 6. Configurare le connessioni VPN Always On client Windows 10
 
@@ -122,7 +122,7 @@ Prima di creare il modello, prendere nota del nome host o del nome di dominio co
 
 4. Fare clic sulla scheda **vincoli** e quindi su **metodi di autenticazione**.
 
-5. In tipi EAP, fare clic su **Microsoft: Protected EAP (PEAP)** , quindi fare clic su **modifica**.
+5. In tipi EAP, fare clic su **Microsoft: Protected EAP (PEAP)**, quindi fare clic su **modifica**.
 
 6. Registrare i valori per il **certificato emesso in** e l' **emittente**.
 
@@ -154,13 +154,13 @@ Tuttavia, se il computer non è stato riavviato dopo la configurazione della reg
 
 3.  Nel riquadro dei dettagli fare clic su **Aggiungi una connessione VPN**.
 
-4.  Nell'elenco provider VPN fare clic su **Windows (predefinito)** .
+4.  Nell'elenco provider VPN fare clic su **Windows (predefinito)**.
 
 5.  In nome connessione digitare **modello**.
 
 6.  In nome server o indirizzo digitare l'FQDN **esterno** del server VPN (ad esempio, **VPN.contoso.com**).
 
-7.  Fare clic su **Save**.
+7.  Fare clic su **Salva**.
 
 8.  In impostazioni correlate fare clic su **modifica opzioni scheda**.
 
@@ -170,7 +170,7 @@ Tuttavia, se il computer non è stato riavviato dopo la configurazione della reg
 
 11. In crittografia dei dati fare clic su **crittografia massima forza**.
 
-12. Fare clic su **USA Extensible Authentication Protocol (EAP)** ; quindi, in **use Extensible Authentication Protocol (EAP)** fare clic su **Microsoft: Protected EAP (PEAP) (Encryption Enabled)** .
+12. Fare clic su **USA Extensible Authentication Protocol (EAP)**; quindi, in **use Extensible Authentication Protocol (EAP)** fare clic su **Microsoft: Protected EAP (PEAP) (Encryption Enabled)**.
 
 13. Fare clic su **Proprietà** per aprire la finestra di dialogo Proprietà EAP protette e completare i passaggi seguenti:
 
@@ -195,7 +195,7 @@ Tuttavia, se il computer non è stato riavviato dopo la configurazione della reg
 
     i.  Fare clic su **OK** per chiudere la finestra di dialogo Proprietà smart card o altro certificato.
 
-    j.  Fare clic su **OK** per chiudere la finestra di dialogo Proprietà EAP protette.
+    j.  Fare clic su **OK** per chiudere la Proprietà PEAP la finestra di dialogo.
 
 14. Fare clic su **OK** per chiudere la finestra di dialogo Proprietà modello.
 
@@ -263,7 +263,7 @@ Di seguito sono riportati i valori di esempio per i parametri utilizzati nei com
 
 ```xml
 $TemplateName = 'Template'
-$ProfileName = 'Contoso AlwaysOn VPN'
+$ProfileName = 'Contoso%20AlwaysOn%20VPN'
 $Servers = 'vpn.contoso.com'
 $DnsSuffix = 'corp.contoso.com'
 $DomainName = '.corp.contoso.com'
@@ -700,7 +700,7 @@ Per usare Configuration Manager per distribuire un profilo VPN Always On accesso
 
 ### <a name="create-a-user-group"></a>Creare un gruppo di utenti
 
-1.  Nella console di Configuration Manager aprire asset e conformità\\raccolte utenti.
+1.  Nella console di Configuration Manager aprire asset e \\ raccolte utenti di conformità.
 
 2.  Nella scheda **Home** della barra multifunzione, nel gruppo **Crea** , fare clic su **Crea raccolta utenti**.
 
@@ -716,21 +716,21 @@ Per usare Configuration Manager per distribuire un profilo VPN Always On accesso
 
     a.  In **regole di appartenenza**fare clic su **Aggiungi regola**e quindi su **regola diretta**. In questo esempio vengono aggiunti singoli utenti alla raccolta di utenti. Tuttavia, è possibile usare una regola di query per aggiungere utenti a questa raccolta in modo dinamico per una distribuzione su larga scala.
 
-    b.  Nella pagina inizialefare clic su **Avanti**.
+    b.  Nella pagina introduttiva**** fare clic su **Avanti**.
 
-    c.  Nella pagina Cerca risorse, in **valore**, digitare il nome dell'utente che si desidera aggiungere. Il nome della risorsa include il dominio dell'utente. Per includere i risultati in base a una corrispondenza parziale, inserire il carattere **%** a una delle estremità del criterio di ricerca. Ad esempio, per trovare tutti gli utenti che contengono la stringa "lori", digitare **% Lori%** . Fare clic su **Avanti**.
+    c.  Nella pagina Cerca risorse, in **valore**, digitare il nome dell'utente che si desidera aggiungere. Il nome della risorsa include il dominio dell'utente. Per includere i risultati in base a una corrispondenza parziale, inserire il **%** carattere in una delle estremità del criterio di ricerca. Ad esempio, per trovare tutti gli utenti che contengono la stringa "lori", digitare **% Lori%**. Fare clic su **Avanti**.
 
     d.  Nella pagina Seleziona risorse selezionare gli utenti che si desidera aggiungere al gruppo e fare clic su **Avanti**.
 
     e.  Nella pagina Riepilogo fare clic su **Avanti**.
 
-    f.  Nella pagina Completamento fare clic su **Chiudi**.
+    f.  Nella pagina Completamento , scegliere **Chiudi**.
 
 6.  Tornare alla pagina regole di appartenenza della creazione guidata raccolta utenti, fare clic su **Avanti**.
 
 7.  Nella pagina Riepilogo fare clic su **Avanti**.
 
-8.  Nella pagina Completamento fare clic su **Chiudi**.
+8.  Nella pagina Completamento , scegliere **Chiudi**.
 
 Dopo aver creato il gruppo di utenti per la ricezione del profilo VPN, è possibile creare un pacchetto e un programma per distribuire lo script di configurazione di Windows PowerShell creato nella sezione [creare i file di configurazione ProfileXML](#create-the-profilexml-configuration-files).
 
@@ -738,7 +738,7 @@ Dopo aver creato il gruppo di utenti per la ricezione del profilo VPN, è possib
 
 1.  Ospitare lo script VPN_Profile. ps1 in una condivisione di rete a cui può accedere l'account computer del server del sito.
 
-2.  Nella console di Configuration Manager aprire **raccolta Software\\gestione applicazioni\\pacchetti**.
+2.  Nella console di Configuration Manager aprire **raccolta software \\ Gestione applicazioni \\ pacchetti**.
 
 3.  Nella scheda **Home** della barra multifunzione, nel gruppo **Crea** , fare clic su **Crea pacchetto** per avviare la creazione guidata pacchetto e programma.
 
@@ -749,7 +749,7 @@ Dopo aver creato il gruppo di utenti per la ricezione del profilo VPN, è possib
     b. Selezionare la casella di controllo **questo pacchetto contiene i file di origine** e fare clic su **Sfoglia**.
 
     c. Nella finestra di dialogo Imposta cartella di origine fare clic su **Sfoglia**, selezionare la condivisione file contenente VPN_Profile. ps1, quindi fare clic su **OK**.
-        Assicurarsi di selezionare un percorso di rete, non un percorso locale. In altre parole, il percorso dovrebbe essere simile *\\fileserver\\vpnscript*, non *c:\\vpnscript*.
+        Assicurarsi di selezionare un percorso di rete, non un percorso locale. In altre parole, il percorso deve essere simile a * \\ Fileserver \\ vpnscript*, non a *c: \\ vpnscript*.
 
 1.  Fare clic su **Avanti**.
 
@@ -759,7 +759,7 @@ Dopo aver creato il gruppo di utenti per la ricezione del profilo VPN, è possib
 
     a.  In **nome**digitare **script del profilo VPN**.
 
-    b.  Nella **riga di comando**digitare **PowerShell. exe-ExecutionPolicy bypass-file "VPN_Profile. ps1"** .
+    b.  Nella **riga di comando**digitare **PowerShell. exe-ExecutionPolicy bypass-file "VPN_Profile. ps1"**.
 
     c.  In **modalità di esecuzione**fare clic su **Esegui con diritti amministrativi**.
 
@@ -779,13 +779,13 @@ Dopo aver creato il gruppo di utenti per la ricezione del profilo VPN, è possib
 
 5.  Nella pagina Riepilogo fare clic su **Avanti**.
 
-6.  Nella pagina Completamento fare clic su **Chiudi**.
+6.  Nella pagina Completamento , scegliere **Chiudi**.
 
 Dopo aver creato il pacchetto e il programma, è necessario distribuirlo al gruppo **utenti VPN** .
 
 ### <a name="deploy-the-profilexml-configuration-script"></a>Distribuire lo script di configurazione ProfileXML
 
-1.  Nella console di Configuration Manager aprire raccolta software\\gestione applicazioni\\pacchetti.
+1.  Nella console di Configuration Manager aprire raccolta software \\ Gestione applicazioni \\ pacchetti.
 
 2.  In **pacchetti**fare clic su **Windows 10 always on profilo VPN**.
 
@@ -833,7 +833,7 @@ Dopo aver creato il pacchetto e il programma, è necessario distribuirlo al grup
 
 10. Nella pagina Riepilogo fare clic su **Avanti**.
 
-11. Nella pagina Completamento fare clic su **Chiudi**.
+11. Nella pagina Completamento , scegliere **Chiudi**.
 
 Con lo script di configurazione ProfileXML distribuito, accedere a un computer client Windows 10 con l'account utente selezionato quando è stata creata la raccolta utenti. Verificare la configurazione del client VPN.
 
@@ -842,7 +842,7 @@ Con lo script di configurazione ProfileXML distribuito, accedere a un computer c
 
 ### <a name="verify-the-configuration-of-the-vpn-client"></a>Verificare la configurazione del client VPN
 
-1.  Nel pannello di controllo, in **sistema\\sicurezza**, fare clic su **Configuration Manager**. 
+1.  Nel pannello di controllo, **in \\ sicurezza sistema**, fare clic su **Configuration Manager**. 
 
 2.  Nella finestra di dialogo Proprietà Configuration Manager, nella scheda **azioni** , completare i passaggi seguenti:
 
@@ -863,13 +863,13 @@ Per usare Intune per la distribuzione di accesso remoto Windows 10 Always On pro
 >[!NOTE]
 >Intune USA ora i gruppi di Azure AD. Se Azure AD Connect sincronizzato il gruppo utenti VPN da locale a Azure AD e gli utenti sono assegnati al gruppo utenti VPN, è possibile procedere.
 
-Creare i criteri di configurazione del dispositivo VPN per configurare i computer client Windows 10 per tutti gli utenti aggiunti al gruppo. Poiché il modello di Intune fornisce parametri VPN, copiare solo la parte \<EapHostConfig > \</EapHostConfig > del file VPN_ProfileXML.
+Creare i criteri di configurazione del dispositivo VPN per configurare i computer client Windows 10 per tutti gli utenti aggiunti al gruppo. Poiché il modello di Intune fornisce parametri VPN, copiare solo il \< EapHostConfig> \< /EapHostConfig> parte del file VPN_ProfileXML.
 
 ### <a name="create-the-always-on-vpn-configuration-policy"></a>Creare i criteri di configurazione della VPN Always On
 
-1.    Accedi al [portale di Azure](https://portal.azure.com/).
+1.    Accedere al [portale di Azure](https://portal.azure.com/).
 
-2.    Passare a **Intune** > **configurazione del dispositivo** > **profili**.
+2.    Passare a **Intune**  >  profili di**configurazione dei dispositivi**di Intune  >  **Profiles**.
 
 3.    Fare clic su **Crea profilo** per avviare la creazione guidata profilo.
 
@@ -905,12 +905,12 @@ Creare i criteri di configurazione del dispositivo VPN per configurare i compute
     <EapHostConfig xmlns="https://www.microsoft.com/provisioning/EapHostConfig"><EapMethod><Type xmlns="https://www.microsoft.com/provisioning/EapCommon">25</Type><VendorId xmlns="https://www.microsoft.com/provisioning/EapCommon">0</VendorId><VendorType xmlns="https://www.microsoft.com/provisioning/EapCommon">0</VendorType><AuthorId xmlns="https://www.microsoft.com/provisioning/EapCommon">0</AuthorId></EapMethod><Config xmlns="https://www.microsoft.com/provisioning/EapHostConfig"><Eap xmlns="https://www.microsoft.com/provisioning/BaseEapConnectionPropertiesV1"><Type>25</Type><EapType xmlns="https://www.microsoft.com/provisioning/MsPeapConnectionPropertiesV1"><ServerValidation><DisableUserPromptForServerValidation>true</DisableUserPromptForServerValidation><ServerNames>NPS.contoso.com</ServerNames><TrustedRootCA>5a 89 fe cb 5b 49 a7 0b 1a 52 63 b7 35 ee d7 1c c2 68 be 4b </TrustedRootCA></ServerValidation><FastReconnect>true</FastReconnect><InnerEapOptional>false</InnerEapOptional><Eap xmlns="https://www.microsoft.com/provisioning/BaseEapConnectionPropertiesV1"><Type>13</Type><EapType xmlns="https://www.microsoft.com/provisioning/EapTlsConnectionPropertiesV1"><CredentialsSource><CertificateStore><SimpleCertSelection>true</SimpleCertSelection></CertificateStore></CredentialsSource><ServerValidation><DisableUserPromptForServerValidation>true</DisableUserPromptForServerValidation><ServerNames>NPS.contoso.com</ServerNames><TrustedRootCA>5a 89 fe cb 5b 49 a7 0b 1a 52 63 b7 35 ee d7 1c c2 68 be 4b </TrustedRootCA></ServerValidation><DifferentUsername>false</DifferentUsername><PerformServerValidation xmlns="https://www.microsoft.com/provisioning/EapTlsConnectionPropertiesV2">true</PerformServerValidation><AcceptServerName xmlns="https://www.microsoft.com/provisioning/EapTlsConnectionPropertiesV2">true</AcceptServerName></EapType></Eap><EnableQuarantineChecks>false</EnableQuarantineChecks><RequireCryptoBinding>false</RequireCryptoBinding><PeapExtensions><PerformServerValidation xmlns="https://www.microsoft.com/provisioning/MsPeapConnectionPropertiesV2">true</PerformServerValidation><AcceptServerName xmlns="https://www.microsoft.com/provisioning/MsPeapConnectionPropertiesV2">true</AcceptServerName></PeapExtensions></EapType></Eap></Config></EapHostConfig>
     ```
 
-4.  Sostituire il **\<TrustedRootCA > 5a 89 FE CB 5b 49 a7 0b 1a 52 63 b7 35 ee D7 1C c2 68 be 4b <\/TrustedRootCA >** nell'esempio con l'identificazione personale del certificato dell'autorità di certificazione radice locale in entrambe le posizioni.
+4.  Sostituire ** \< TrustedRootCA>5a 89 FE cb 5b 49 a7 0b 1a 52 63 B7 35 ee D7 1c C2 68 be 4B<\/ TrustedRootCA>** nell'esempio con l'identificazione personale del certificato dell'autorità di certificazione radice locale in entrambe le posizioni.
   
     >[!Important]
-    >Non usare l'identificazione personale di esempio nella sezione \<TrustedRootCA >\</TrustedRootCA > riportata di seguito.  TrustedRootCA deve essere l'identificazione personale del certificato dell'autorità di certificazione radice locale che ha emesso il certificato di autenticazione server per i server RRAS e NPS. **Non deve essere il certificato radice cloud, né l'identificazione personale del certificato della CA emittente intermedia**.
+    >Non usare l'identificazione personale di esempio nella \< sezione TrustedRootCA>\< /TrustedRootCA> riportata di seguito.  TrustedRootCA deve essere l'identificazione personale del certificato dell'autorità di certificazione radice locale che ha emesso il certificato di autenticazione server per i server RRAS e NPS. **Non deve essere il certificato radice cloud, né l'identificazione personale del certificato della CA emittente intermedia**.
 
-5.  Sostituire il **\<nomeservers > NPS. contoso. com\</ServerNames >** nel codice XML di esempio con il nome di dominio completo del server dei criteri di dominio aggiunto al dominio in cui si verifica l'autenticazione. 
+5.  Sostituire ** \< servernames>NPS.contoso.com \< /serverNames>** nel codice XML di esempio con il nome di dominio completo del server dei criteri di dominio aggiunto al dominio in cui si verifica l'autenticazione. 
 
 6.  Copiare la stringa XML modificata e incollarla nella casella **EAP XML** nella scheda VPN di base e fare clic su **OK**.
     In Intune viene creato un criterio di configurazione del dispositivo VPN Always On usando EAP.
@@ -920,7 +920,7 @@ Creare i criteri di configurazione del dispositivo VPN per configurare i compute
 
 Per testare i criteri di configurazione, accedere a un computer client Windows 10 con l'utente aggiunto al gruppo **Always on utenti VPN** e quindi sincronizzarlo con Intune.
 
-1.  Dal menu Start fare clic su **Impostazioni**.
+1.  Nel menu Start fare clic su **Impostazioni**.
 
 2.  In impostazioni fare clic su **account**e quindi su **Accedi all'ufficio o all'Istituto di istruzione**.
 
@@ -934,7 +934,7 @@ Per testare i criteri di configurazione, accedere a un computer client Windows 1
 
 La distribuzione di Always On VPN è stata eseguita.  Per altre funzionalità che è possibile configurare, vedere la tabella seguente:
 
-|Se vuoi...  |Vedere...  |
+|Per...  |Vedere...  |
 |---------|---------|
 |Configurare l'accesso condizionale per VPN    |[Passaggio 7. Opzionale Configurare l'accesso condizionale per la connettività VPN con Azure AD](../../ad-ca-vpn-connectivity-windows10.md): in questo passaggio è possibile ottimizzare il modo in cui gli utenti VPN autorizzati accedono alle risorse usando [l'accesso condizionale Azure Active Directory (Azure ad)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). Con Azure AD l'accesso condizionale per la connettività di rete privata virtuale (VPN), è possibile proteggere le connessioni VPN. L'accesso condizionale è un motore di valutazione basato su criteri che ti consente di creare regole di accesso per qualsiasi applicazione connessa ad Azure Active Directory (Azure AD).         |
 |Altre informazioni sulle funzionalità VPN avanzate  |[Funzionalità VPN avanzate](always-on-vpn-adv-options.md#advanced-vpn-features): Questa pagina fornisce indicazioni su come abilitare i filtri del traffico VPN, come configurare le connessioni VPN automatiche usando i trigger di app e come configurare NPS per consentire solo le connessioni VPN dai client che usano i certificati rilasciati da Azure ad.        |
