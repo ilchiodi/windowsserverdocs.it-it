@@ -1,6 +1,6 @@
 ---
-title: 'che Ksetup: delhosttorealmmap'
-description: Argomento di riferimento per * * * *-
+title: delhosttorealmmap che Ksetup
+description: Argomento di riferimento per il comando che Ksetup delhosttorealmmap, che rimuove un mapping del nome dell'entità servizio (SPN) tra l'host dichiarato e l'area di autenticazione.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,48 +9,44 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2b6b14785f254a63f0e16fcd16f1cd464a2d69c8
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 17fc30e76247c570c653d5ec38501a2199435c7f
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724698"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83817861"
 ---
-# <a name="ksetupdelhosttorealmmap"></a>che Ksetup: delhosttorealmmap
+# <a name="ksetup-delhosttorealmmap"></a>delhosttorealmmap che Ksetup
 
+Rimuove un mapping del nome dell'entità servizio (SPN) tra l'host dichiarato e l'area di autenticazione. Questo comando rimuove anche tutti i mapping tra un host e l'area di autenticazione (o più host nell'area di autenticazione).
 
-
-Rimuove un mapping del nome dell'entità servizio (SPN) tra l'host dichiarato e l'area di autenticazione.
+Il mapping viene archiviato nel registro di sistema, in `HKEY_LOCAL_MACHINE\SYSTEM\CurrentContolSet\Lsa\Kerberos\HostToRealm` . Dopo aver eseguito questo comando, è consigliabile verificare che il mapping venga visualizzato nel registro di sistema.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-ksetup /delhosttorealmmap <HostName> <RealmName>
+ksetup /delhosttorealmmap <hostname> <realmname>
 ```
 
-#### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|\<Nome host>|Il nome host è il nome del computer e può essere dichiarato come nome di dominio completo del computer.|
-|\<RealmName>|Il nome dell'area di autenticazione è specificato come un nome DNS lettere maiuscole, ad esempio CORP. CONTOSO.COM.|
+| Parametro | Descrizione |
+| --------- | ----------- |
+| `<hostname>` | Specifica il nome di dominio completo del computer. |
+| `<realmname>` | Specifica il nome DNS in maiuscolo, ad esempio CORP. CONTOSO.COM. |
 
-## <a name="remarks"></a>Osservazioni
+### <a name="examples"></a>Esempi
 
-Quando esiste un mapping tra host per l'area di autenticazione (o più host), questo comando rimuove il mapping.
+Per modificare la configurazione dell'area di autenticazione CONTOSO e per eliminare il mapping del computer host IPops897 all'area di autenticazione, digitare:
 
-Il mapping viene registrato nel registro di sistema in **HKEY_LOCAL_MACHINE \system\currentcontolset\lsa\kerberos\hosttorealm**. È necessario verificare il mapping nel registro di sistema dopo aver usato questo comando.
-
-## <a name="examples"></a>Esempi
-
-Modificando la configurazione dell'area di autenticazione CONTOSO, eliminare il mapping del computer host IPops897 all'area di autenticazione:
 ```
 ksetup /delhosttorealmmap IPops897 CONTOSO
 ```
-Dopo aver eseguito questo comando, è possibile verificare nel registro di sistema che il mapping sia quello desiderato.
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
--   [Ksetup:addhosttorealmmap](ksetup-addhosttorealmmap.md)
--   [Che Ksetup](ksetup.md)
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando che Ksetup](ksetup.md)
+
+- [comando che Ksetup addhosttorealmmap](ksetup-addhosttorealmmap.md)

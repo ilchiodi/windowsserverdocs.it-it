@@ -1,6 +1,6 @@
 ---
-title: 'che Ksetup: setcomputerpassword'
-description: Argomento di riferimento per * * * *-
+title: setcomputerpassword che Ksetup
+description: Argomento di riferimento per il comando che Ksetup setcomputerpassword, che consente di impostare la password per il computer locale.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,47 +9,42 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9cb0c2ee36ed85ddfb015a80e86198fe788f8474
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 1ec410cd85c13cb3a925c3fc65b8c9f86fba606a
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724587"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83817431"
 ---
-# <a name="ksetupsetcomputerpassword"></a>che Ksetup: setcomputerpassword
+# <a name="ksetup-setcomputerpassword"></a>setcomputerpassword che Ksetup
 
+Imposta la password per il computer locale. Questo comando influisce solo sull'account computer e richiede un riavvio per rendere effettiva la modifica della password.
 
-
-Imposta la password per il computer locale.
+> [!IMPORTANT]
+> La password dell'account computer non viene visualizzata nel registro di sistema o come output del comando **che Ksetup** .
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-ksetup /setcomputerpassword <Password>
+ksetup /setcomputerpassword <password>
 ```
 
-#### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|\<> password|Utilizza la password per impostare l'account computer del computer locale.</br>La password può essere impostata solo utilizzando un account con privilegi amministrativi. La password può contenere da 1 a 156 alfanumerico o di caratteri speciali.|
+| Parametro | Descrizione |
+| --------- | ----------- |
+| `<password>` | Specifica la password specificata per impostare l'account computer nel computer locale. La password può essere impostata solo usando un account con privilegi amministrativi e la password deve essere da 1 a 156 caratteri alfanumerici o caratteri speciali. |
 
-## <a name="remarks"></a>Osservazioni
+### <a name="examples"></a>Esempi
 
-Questo comando viene applicato solo l'account del computer.
+Per modificare la password dell'account computer nel computer locale da *IPops897* a *IPop $897!*, digitare:
 
-È necessario riavviare il computer rendere effettiva la modifica di password.
-
-La password dell'account computer non viene visualizzata nel Registro di sistema o come output il **che ksetup** comando.
-
-## <a name="examples"></a>Esempi
-
-Modificare la password dell'account computer del computer locale da IPops897 a IPop$ 897!.
 ```
 ksetup /setcomputerpassword IPop$897!
 ```
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
--   [Che Ksetup](ksetup.md)
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando che Ksetup](ksetup.md)

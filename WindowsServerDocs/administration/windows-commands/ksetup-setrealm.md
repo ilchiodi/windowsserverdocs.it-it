@@ -1,6 +1,6 @@
 ---
-title: 'che Ksetup: Unreal'
-description: Argomento di riferimento per * * * *-
+title: che Ksetup
+description: Argomento di riferimento per il comando che Ksetup Severity, che imposta il nome di un'area di autenticazione Kerberos.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,46 +9,44 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 453977ac39dd3a52b4f5a3104995f944e4a48392
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 03b33977f57e187a8bea69be78c1e9c094b9a73e
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724551"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83817281"
 ---
-# <a name="ksetupsetrealm"></a>che Ksetup: Unreal
-
-
+# <a name="ksetup-setrealm"></a>che Ksetup
 
 Imposta il nome di un'area di autenticazione Kerberos.
+
+> [!IMPORTANT]
+> L'impostazione dell'area di autenticazione Kerberos in un controller di dominio non è supportata. Il tentativo di eseguire questa operazione causa un errore di avviso e di comando.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-ksetup /setrealm <DNSDomainName>
+ksetup /setrealm <DNSdomainname>
 ```
 
-#### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|\<> nomedominiodns|Il nome di dominio DNS può essere nel formato di un nome di dominio completo o di un nome di dominio semplice.|
+| Parametro | Descrizione |
+| --------- | ----------- |
+| `<DNSdomainname>` | Specifica il nome DNS in maiuscolo, ad esempio CORP. CONTOSO.COM. È possibile utilizzare il nome di dominio completo o un modulo semplice del nome. Se non si usa il carattere maiuscolo per il nome DNS, verrà richiesta la verifica per continuare. |
 
-## <a name="remarks"></a>Osservazioni
+### <a name="examples"></a>Esempi
 
-Il parametro del nome di dominio DNS deve essere immesso in lettere maiuscole. In caso contrario, il comando **che Ksetup** richiederà la verifica per continuare.
+Per impostare l'area di autenticazione del computer su un nome di dominio specifico e per limitare l'accesso da parte di un controller non di dominio solo all'area di autenticazione Kerberos di CONTOSO, digitare:
 
-L'impostazione dell'area di autenticazione Kerberos in un controller di dominio non è supportata. Se si tenta di eseguire questa operazione, verrà generato un avviso e un errore di comando.
-
-## <a name="examples"></a>Esempi
-
-Impostare l'area di autenticazione per questo computer su un nome di dominio specifico per limitare l'accesso da parte di un controller non di dominio solo all'area di autenticazione Kerberos di CONTOSO:
 ```
 ksetup /setrealm CONTOSO
 ```
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
--   [Che Ksetup](ksetup.md)
--   [Ksetup:removerealm](ksetup-removerealm.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando che Ksetup](ksetup.md)
+
+- [removerealm che Ksetup](ksetup-removerealm.md)

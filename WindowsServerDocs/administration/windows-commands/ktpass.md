@@ -1,6 +1,6 @@
 ---
 title: ktpass
-description: Argomento di riferimento per * * * *-
+description: Argomento di riferimento per il comando lo Ktpass, che configura il nome dell'entità server per l'host o il servizio in servizi di dominio Active Directory e genera un file con estensione keytab che contiene la chiave privata condivisa del servizio.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,81 +9,91 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 09f0a715c8addf8694eb75d17f9b8089cad72e56
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 432918343ccee70f0c30d294a349fb721f18f705
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724537"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83817231"
 ---
 # <a name="ktpass"></a>ktpass
 
 > Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Configura il nome dell'entità server per l'host o il servizio in servizi di dominio Active Directory (AD DS) e genera un file con estensione keytab che contiene la chiave privata condivisa del servizio. Il file KEYTAB è basato sull'implementazione del protocollo di autenticazione Kerberos del Massachusetts Institute of Technology (MIT). Lo strumento da riga di comando lo Ktpass consente ai servizi non Windows che supportano l'autenticazione Kerberos di utilizzare le funzionalità di interoperabilità fornite dal servizio Centro distribuzione chiavi Kerberos (KDC). In questo argomento si applica alle versioni del sistema operativo designate nel **si applica a** elenco all'inizio dell'argomento.  
+Configura il nome dell'entità server per l'host o il servizio in servizi di dominio Active Directory (AD DS) e genera un file .keytab che contiene la chiave segreta condivisa del servizio. Il file KEYTAB è basato sull'implementazione del protocollo di autenticazione Kerberos del Massachusetts Institute of Technology (MIT). Lo strumento da riga di comando lo Ktpass consente ai servizi non Windows che supportano l'autenticazione Kerberos di utilizzare le funzionalità di interoperabilità fornite dal servizio Centro distribuzione chiavi Kerberos (KDC).
 
-## <a name="syntax"></a>Sintassi  
-```  
-ktpass  
-[/out <FileName>]   
-[/princ <PrincipalName>]   
-[/mapuser <UserAccount>]   
-[/mapop {add|set}] [{-|+}desonly] [/in <FileName>]  
-[/pass {Password|*|{-|+}rndpass}]  
-[/minpass]  
-[/maxpass]  
-[/crypto {DES-CBC-CRC|DES-CBC-MD5|RC4-HMAC-NT|AES256-SHA1|AES128-SHA1|All}]  
-[/itercount]  
-[/ptype {KRB5_NT_PRINCIPAL|KRB5_NT_SRV_INST|KRB5_NT_SRV_HST}]  
-[/kvno <KeyversionNum>]  
-[/answer {-|+}]  
-[/target]  
-[/rawsalt] [{-|+}dumpsalt] [{-|+}setupn] [{-|+}setpass <Password>]  [/?|/h|/help]  
-```  
-### <a name="parameters"></a>Parametri  
+## <a name="syntax"></a>Sintassi
 
-|                                             Parametro                                              |                                                                                                                                                                                                                                                                                                      Descrizione                                                                                                                                                                                                                                                                                                       |
-|----------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|                                          /out<FileName>                                           |                                                                                                                                                                        Specifica il nome del file Kerberos versione 5 .keytab da generare. **Nota:** si tratta del file .keytab che trasferire a un computer che non è in esecuzione il sistema operativo Windows, quindi sostituire o unire con il file .keytab esistente, /Etc/Krb5.keytab.                                                                                                                                                                        |
-|                                       /princ<PrincipalName>                                       |                                                                                                                                                                                                                   Specifica il nome dell'entità nel formato host/computer.contoso.com@CONTOSO.COM. **Avviso:** questo parametro viene fatta distinzione tra maiuscole e minuscole. Per ulteriori informazioni, vedere la [sezione Osservazioni](#BKMK_remarks) .                                                                                                                                                                                                                    |
-|                                       /mapuser<UserAccount>                                       |                                                                                                                                                                                                                                                Mappa il nome dell'entità di Kerberos, è possibile il **princ** parametro per l'account di dominio specificato.                                                                                                                                                                                                                                                |
-|                                       /mapop {aggiungere & #124; set}                                        |                                                                                                                                                                             Specifica come viene impostato l'attributo di mapping.<p>-   **Aggiungi** aggiunge il valore del nome utente locale specificato. Questa è la modalità predefinita.<br />-   **Set** imposta il valore per la crittografia DES (Data Encryption Standard) per il nome utente locale specificato.                                                                                                                                                                             |
-|                                         {-& #124; +} desonly                                          |                                                                                                                                                            La crittografia DES-only viene impostata per impostazione predefinita.<p>-   **+** Imposta un account per la crittografia DES-only.<br />-   **-** Rilascia la restrizione su un account per la crittografia DES-only. **Importante:** A partire da Windows 7 e Windows Server 2008 R2, Windows non supporta DES per impostazione predefinita.                                                                                                                                                            |
-|                                           /in<FileName>                                           |                                                                                                                                                                                                                                                       Specifica il file .keytab per leggere da un computer host che non è in esecuzione il sistema operativo Windows.                                                                                                                                                                                                                                                        |
-|                          /pass {password&#124;\*&#124; {-&#124;+} rndpass}                           |                                                                                                                                                                                                                                           Specifica una password per il nome dell'entità utente specificato per il **princ** parametro. Usare \* per richiedere una password.                                                                                                                                                                                                                                            |
-|                                              /minpass                                              |                                                                                                                                                                                                                                                                            Imposta la lunghezza minima della password casuali a 15 caratteri.                                                                                                                                                                                                                                                                            |
-|                                              /maxpass                                              |                                                                                                                                                                                                                                                                           Imposta la lunghezza massima della password casuali a 256 caratteri.                                                                                                                                                                                                                                                                            |
-| / crittografia {DES-CBC-CRC & #124; DES-CBC-MD5 & #124; RC4-HMAC-NT & #124; SHA1 AES256 & #124; SHA1 aes128 & #124; All} | Specifica le chiavi che vengono generate nel file keytab:<p>-   Per la compatibilità viene usato **des-CBC-CRC** .<br />-   **Des-CBC-MD5** si attiene più strettamente all'implementazione mit e viene usato per la compatibilità.<br />-   **RC4-HMAC-NT** impiega la crittografia a 128 bit.<br />-   **AES256-SHA1** usa la crittografia AES256-CTS-HMAC-SHA1-96.<br />-   **AES128-SHA1** usa la crittografia Aes128-CTS-HMAC-SHA1-96.<br />-   **Tutti** gli Stati che possono essere utilizzati tutti i tipi crittografici supportati. **Nota:** le impostazioni predefinite sono basate su versioni precedenti di MIT. Di conseguenza, `/crypto` deve sempre essere specificato. |
-|                                             /itercount                                             |                                                                                                                                                                                                                        Specifica il conteggio delle iterazioni che viene utilizzato per la crittografia AES. Il valore predefinito è che **itercount** viene ignorata per la crittografia AES non e impostare a 4.096 per la crittografia AES.                                                                                                                                                                                                                         |
-|               /ptype {KRB5_NT_PRINCIPAL & #124; KRB5_NT_SRV_INST & #124; KRB5_NT_SRV_HST}                |                                                                                                                                                                                         Specifica il tipo di entità.<p>-   **KRB5_NT_PRINCIPAL** è il tipo di entità generale (scelta consigliata).<br />-   **KRB5_NT_SRV_INST** è l'istanza del servizio utente.<br />-   **KRB5_NT_SRV_HST** è l'istanza del servizio host.                                                                                                                                                                                         |
-|                                       /kvno<KeyversionNum>                                        |                                                                                                                                                                                                                                                                               Specifica il numero di versione della chiave. Il valore predefinito è 1.                                                                                                                                                                                                                                                                                |
-|                                         /Answer {-& #124; +}                                         |                                                                                                                                                                                                                    Imposta la modalità di risposta in background:<p>**-** Answers Reimposta automaticamente i prompt della password con NO.<p>**+** Answers Reimposta automaticamente i prompt della password con Sì.                                                                                                                                                                                                                     |
-|                                              /target                                               |                                                                                                                                                                                           Imposta il controller di dominio da utilizzare. Il valore predefinito è per il controller di dominio essere rilevato, in base al nome dell'entità. Se il nome del controller di dominio non viene risolto, una finestra di dialogo richiederà un controller di dominio valido.                                                                                                                                                                                           |
-|                                              /rawsalt                                              |                                                                                                                                                                                                                                                           impone a lo Ktpass di usare l'algoritmo rawsalt durante la generazione della chiave. Questo parametro non è necessaria.                                                                                                                                                                                                                                                            |
-|                                         {-& #124; +} dumpsalt                                         |                                                                                                                                                                                                                                                           L'output di questo parametro indica l'algoritmo salt MIT utilizzato per generare la chiave.                                                                                                                                                                                                                                                            |
-|                                          {-& #124; +} setupn                                          |                                                                                                                                                                                                                                          Imposta il nome dell'entità utente (UPN) oltre al nome dell'entità servizio (SPN). Per impostazione predefinita viene impostato nel file .keytab.                                                                                                                                                                                                                                           |
-|                                    {-&#124;+} sessione<Password>                                    |                                                                                                                                                                                                                                                          Imposta la password dell'utente quando fornito. Se si utilizza rndpass, viene generata invece una password casuale.                                                                                                                                                                                                                                                           |
-|                                       /? & #124; /h & #124; /Help                                        |                                                                                                                                                                                                                                                                                         Visualizza la guida della riga di comando per lo Ktpass.                                                                                                                                                                                                                                                                                         |
+```
+ktpass
+[/out <filename>]
+[/princ <principalname>]
+[/mapuser <useraccount>]
+[/mapop {add|set}] [{-|+}desonly] [/in <filename>]
+[/pass {password|*|{-|+}rndpass}]
+[/minpass]
+[/maxpass]
+[/crypto {DES-CBC-CRC|DES-CBC-MD5|RC4-HMAC-NT|AES256-SHA1|AES128-SHA1|All}]
+[/itercount]
+[/ptype {KRB5_NT_PRINCIPAL|KRB5_NT_SRV_INST|KRB5_NT_SRV_HST}]
+[/kvno <keyversionnum>]
+[/answer {-|+}]
+[/target]
+[/rawsalt] [{-|+}dumpsalt] [{-|+}setupn] [{-|+}setpass <password>]  [/?|/h|/help]
+```
 
-## <a name="remarks"></a><a name=BKMK_remarks></a>osservazioni  
-I servizi in esecuzione su sistemi che non eseguono il sistema operativo Windows possono essere configurati con gli account dell'istanza del servizio in servizi di dominio Active Directory. In questo modo qualsiasi client Kerberos per l'autenticazione ai servizi che non eseguono il sistema operativo Windows mediante Windows KDC.  
-Il parametro/princ non viene valutato da lo Ktpass e viene usato come fornito. Non sono presenti controlli per verificare se il parametro corrisponda esattamente del caso del **userPrincipalName** valore dell'attributo durante la generazione del file Keytab. Maiuscole/minuscole Kerberos distribuzioni che utilizzano questo file Keytab potrebbero avere problemi quando non esiste alcuna corrispondenza esatta case può avere esito negativo durante la pre-autenticazione. Controllare e recuperare il valore dell'attributo **userPrincipalName** corretto da un file di esportazione LDifDE. Ad esempio:  
-```  
-ldifde /f keytab_user.ldf /d CN=Keytab User,OU=UserAccounts,DC=contoso,DC=corp,DC=microsoft,DC=com /p base /l samaccountname,userprincipalname  
-```  
-## <a name="examples"></a>Esempi  
-Per illustrare come creare un file con estensione keytab di Kerberos, Machine. keytab, nella directory corrente per l'utente Sample1. Si eseguirà il merge del file con il file krb5. keytab in un computer host che non esegue il sistema operativo Windows. Il file Kerberos. keytab verrà creato per tutti i tipi di crittografia supportati per il tipo di entità generale.  
-Per generare un file .keytab per un computer host che non è in esecuzione il sistema operativo Windows, utilizzare la procedura seguente per eseguire il mapping di entità per l'account e impostare la password dell'entità dell'host:  
-1.  Utilizzare lo snap-in utenti e computer di Active Directory per creare un account utente per un servizio in un computer in cui non è in esecuzione il sistema operativo Windows. Ad esempio, creare un account con il nome Sample1.  
-2.  Usare lo Ktpass per configurare un mapping di identità per l'account utente digitando quanto segue al prompt dei comandi:  
-    ```  
-    ktpass /princ host/Sample1.contoso.com@CONTOSO.COM /mapuser Sample1 /pass MyPas$w0rd /out Sample1.keytab /crypto all /ptype KRB5_NT_PRINCIPAL /mapop set   
-    ```  
+### <a name="parameters"></a>Parametri
 
-    > [!NOTE]  
-    > È Impossibile eseguire il mapping di più istanze del servizio per lo stesso account utente.  
+| Parametro | Descrizione |
+| --------- | ------------|
+| /out`<filename>` | Specifica il nome del file Kerberos versione 5 .keytab da generare. **Nota:** Si tratta del file. keytab trasferito a un computer che non esegue il sistema operativo Windows, quindi sostituire o unire con il file con estensione keytab esistente, */etc/krb5.keytab*. |
+| /princ`<principalname>` | Specifica il nome dell'entità nel formato host/computer.contoso.com@CONTOSO.COM . **Avviso:** Questo parametro fa distinzione tra maiuscole e minuscole. |
+| /mapuser`<useraccount>` | Mappa il nome dell'entità di Kerberos, è possibile il **princ** parametro per l'account di dominio specificato. |
+| /mapop`{add|set}` | Specifica come viene impostato l'attributo di mapping.<ul><li>**Aggiungi** : aggiunge il valore del nome utente locale specificato. Questo è il valore predefinito.</li><li>**Set** : imposta il valore per la crittografia DES (Data Encryption Standard) per il nome utente locale specificato.</li></ul> |
+| `{-|+}`desonly | La crittografia DES-only viene impostata per impostazione predefinita.<ul><li>**+** Imposta un account per la crittografia DES-only.</li><li>**-** Rilascia la restrizione su un account per la crittografia DES-only. **Importante:** Per impostazione predefinita, Windows non supporta DES.</li></ul> |
+| /in`<filename>` | Specifica il file .keytab per leggere da un computer host che non è in esecuzione il sistema operativo Windows. |
+| /pass`{password|*|{-|+}rndpass}` | Specifica una password per il nome dell'entità utente specificato per il **princ** parametro. Usare `*` per richiedere una password. |
+| /minpass | Imposta la lunghezza minima della password casuali a 15 caratteri. |
+| /maxpass | Imposta la lunghezza massima della password casuali a 256 caratteri. |
+| /crypto`{DES-CBC-CRC|DES-CBC-MD5|RC4-HMAC-NT|AES256-SHA1|AES128-SHA1|All}` | Specifica le chiavi che vengono generate nel file keytab:<ul><li>**Des-CBC-CRC** : usato per la compatibilità.</li><li>**Des-CBC-MD5** -aderisce più strettamente all'implementazione mit e viene usato per la compatibilità.</li><li>**RC4-HMAC-NT** -impiega la crittografia a 128 bit.</li><li>**AES256-SHA1** -usa la crittografia AES256-CTS-HMAC-SHA1-96.</li><li>   **AES128-SHA1** -usa la crittografia Aes128-CTS-HMAC-SHA1-96.</li><li>**All** : indica che tutti i tipi crittografici supportati possono essere utilizzati.</li></ul><p>**Nota:** Poiché le impostazioni predefinite sono basate su versioni precedenti di MIT, è sempre necessario usare il `/crypto` parametro. |
+| /itercount | Specifica il conteggio delle iterazioni che viene utilizzato per la crittografia AES. Il valore predefinito ignora **itercount** per la crittografia non AES e imposta la crittografia AES su 4.096. |
+| /ptype`{KRB5_NT_PRINCIPAL|KRB5_NT_SRV_INST|KRB5_NT_SRV_HST}` | Specifica il tipo di entità.<ul><li>**KRB5_NT_PRINCIPAL** : il tipo di entità generale (scelta consigliata).</li><li>**KRB5_NT_SRV_INST** -l'istanza del servizio utente</li><li>  **KRB5_NT_SRV_HST** -l'istanza del servizio host</li></ul> |
+| /kvno`<keyversionnum>` | Specifica il numero di versione della chiave. Il valore predefinito è 1. |
+| /Answer`{-|+}` | Imposta la modalità di risposta in background:<ul><li>**-** Answers Reimposta automaticamente i prompt della password con **No**.</li><li>**+** Answers Reimposta automaticamente i prompt della password con **Sì**.</li></ul> |
+| /target | Imposta il controller di dominio da utilizzare. Il valore predefinito è per il controller di dominio essere rilevato, in base al nome dell'entità. Se il nome del controller di dominio non viene risolto, verrà visualizzata una finestra di dialogo che richiede un controller di dominio valido. |
+| /rawsalt | impone a lo Ktpass di usare l'algoritmo rawsalt durante la generazione della chiave. Questo parametro è facoltativo. |
+| `{-|+}dumpsalt` | L'output di questo parametro indica l'algoritmo salt MIT utilizzato per generare la chiave. |
+| `{-|+}setupn` | Imposta il nome dell'entità utente (UPN) oltre al nome dell'entità servizio (SPN). Per impostazione predefinita viene impostato nel file .keytab. |
+| `{-|+}setpass <password>` | Imposta la password dell'utente quando fornito. Se si utilizza rndpass, viene generata invece una password casuale. |
+| /? | Visualizza la Guida per questo comando. |
 
-3.  Unisce il file .keytab con il file /Etc/Krb5.keytab in un computer host che non è in esecuzione il sistema operativo Windows. 
+#### <a name="remarks"></a>Osservazioni
 
-## <a name="additional-references"></a>Riferimenti aggiuntivi  
-- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
+- I servizi in esecuzione su sistemi che non eseguono il sistema operativo Windows possono essere configurati con gli account dell'istanza del servizio in servizi di dominio Active Directory. In questo modo qualsiasi client Kerberos per l'autenticazione ai servizi che non eseguono il sistema operativo Windows mediante Windows KDC.
+
+- Il parametro **/princ** non viene valutato da lo Ktpass e viene usato come fornito. Non è disponibile alcun controllo per verificare se il parametro corrisponde al caso esatto del valore dell'attributo **userPrincipalName** durante la generazione del file keytab. Le distribuzioni Kerberos con distinzione tra maiuscole e minuscole che usano questo file keytab potrebbero avere problemi in caso di mancata corrispondenza esatta e potrebbero anche non riuscire durante la pre-autenticazione. Per controllare e recuperare il valore dell'attributo **userPrincipalName** corretto da un file di esportazione LDifDE. Ad esempio:
+
+    ```
+    ldifde /f keytab_user.ldf /d CN=Keytab User,OU=UserAccounts,DC=contoso,DC=corp,DC=microsoft,DC=com /p base /l samaccountname,userprincipalname
+    ````
+
+### <a name="examples"></a>Esempi
+
+Per creare un file con estensione keytab Kerberos per un computer host in cui non è in esecuzione il sistema operativo Windows, è necessario eseguire il mapping dell'entità all'account e impostare la password dell'entità host.
+
+1. Utilizzare lo snap-in **utenti e computer** di Active Directory per creare un account utente per un servizio in un computer in cui non è in esecuzione il sistema operativo Windows. Ad esempio, creare un account con il nome *User1*.
+
+2. Usare il comando **lo Ktpass** per configurare un mapping di identità per l'account utente digitando:
+
+    ```
+    ktpass /princ host/User1.contoso.com@CONTOSO.COM /mapuser User1 /pass MyPas$w0rd /out machine.keytab /crypto all /ptype KRB5_NT_PRINCIPAL /mapop set
+    ```
+
+    > [!NOTE]
+    > È Impossibile eseguire il mapping di più istanze del servizio per lo stesso account utente.
+
+3. Unire il file con estensione keytab con il file */etc/krb5.keytab* in un computer host che non esegue il sistema operativo Windows.
+
+## <a name="additional-references"></a>Riferimenti aggiuntivi
+
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

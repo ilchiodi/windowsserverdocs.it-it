@@ -5,16 +5,16 @@ description: Domande frequenti per AD FS
 author: billmath
 ms.author: billmath
 manager: mtillman
-ms.date: 04/17/2019
+ms.date: 04/29/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: a1041bdc189238c7da32896e6f867f730e392d24
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 947c34e6c3a3b9a26a225221bbf29e46343b25df
+ms.sourcegitcommit: f22e4d67dd2a153816acf8355e50319dbffc5acf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80814431"
+ms.lasthandoff: 05/18/2020
+ms.locfileid: "83546562"
 ---
 # <a name="ad-fs-frequently-asked-questions-faq"></a>Domande frequenti su AD FS
 
@@ -73,6 +73,9 @@ AD FS supporta più configurazioni multi-foresta e si basa sulla rete di trust d
 >[!NOTE]  
 >Se viene usata l'autenticazione elettiva con una configurazione di trust bidirezionale, assicurati che all'utente chiamante venga concessa l'autorizzazione per "consentire l'autenticazione" per l'account del servizio di destinazione. 
 
+### <a name="does-ad-fs-extranet-smart-lockout-support-ipv6"></a>Extranet Smart Lockout di AD FS supporta IPv6?
+Sì, gli indirizzi IPv6 vengono considerati per posizioni note/sconosciute.
+
 
 ## <a name="design"></a>Progettazione
 
@@ -82,7 +85,7 @@ AD FS fornisce un meccanismo estensibile per l'integrazione dei provider di aute
 L'elenco dei fornitori che hanno informato Microsoft è pubblicato presso i [provider di autenticazione a più fattori (MFA) per AD FS](../operations/Configure-Additional-Authentication-Methods-for-AD-FS.md).  Potrebbero essere sempre disponibili provider non ancora noti e Microsoft aggiornerà l'elenco non appena ne verrà a conoscenza.
 
 ### <a name="are-third-party-proxies-supported-with-ad-fs"></a>I proxy di terze parti sono supportati con AD FS?
-Sì, i proxy di terze parti possono essere posizionati prima del Proxy applicazione Web, ma qualsiasi proxy di terze parti deve supportare l'uso del [protocollo MS-ADFSPIP](https://msdn.microsoft.com/library/dn392811.aspx) al posto del Proxy applicazione Web.
+Sì, i proxy di terze parti possono essere posizionati di fronta a AD FS, ma qualsiasi proxy di terze parti deve supportare l'uso del [protocollo MS-ADFSPIP](https://msdn.microsoft.com/library/dn392811.aspx) al posto del Proxy applicazione Web.
 
 Di seguito è riportato un elenco di provider di terze parti di cui Microsoft è a conoscenza.  Potrebbero essere sempre disponibili provider non ancora noti e Microsoft aggiornerà l'elenco non appena ne verrà a conoscenza.
 
@@ -102,7 +105,7 @@ Puoi abilitare e disabilitare SSL 2.0 e 3.0, nonché TLS versioni 1.0, 1.1 e 1.2
 
 Per assicurarti che i server AD FS e WAP negozino solo pacchetti di crittografia TLS che supportano ATP, puoi disabilitare tutti i pacchetti di crittografia non inclusi nell'[elenco dei pacchetti di crittografia conformi ad ATP](https://developer.apple.com/library/prerelease/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW57).  A tale scopo, usa i [cmdlet di Windows TLS PowerShell](https://technet.microsoft.com/itpro/powershell/windows/tls/index).
 
-## <a name="developer"></a>Sviluppatore
+## <a name="developer"></a>Sviluppo
 
 ### <a name="when-generating-an-id_token-with-adfs-for-a-user-authenticated-against-ad-how-is-the-sub-claim-generated-in-the-id_token"></a>Quando viene generato un id_token con AD FS per un utente autenticato in Active Directory, come viene generata l'attestazione sub nell'id_token?
 Il valore dell'attestazione sub è l'hash dell'ID client + il valore attestazione di ancoraggio.
@@ -310,3 +313,11 @@ Dopo un aggiornamento a Windows Server 2019, la versione della configurazione de
 
 ### <a name="can-i-estimate-the-size-of-the-adfsartifactstore-before-enabling-esl"></a>Posso stimare le dimensioni di ADFSArtifactStore prima di abilitare ESL?
 Con l'abilitazione di ESL, AD FS tiene traccia dell'attività dell'account e dei percorsi noti per gli utenti nel database ADFSArtifactStore. Le dimensioni di questo database variano in base al numero di utenti e di percorsi noti di cui viene tenuta traccia. Quando pianifichi l'abilitazione di ESL, puoi stimare le dimensioni del database ADFSArtifactStore considerando un aumento fino a un massimo di 1 GB ogni 100.000 utenti. Se la farm AD FS usa Database interno di Windows, il percorso predefinito per i file di database è C:\Windows\WID\Data. Per evitare che questa unità si riempia, verifica di avere almeno 5 GB di spazio di archiviazione disponibile prima di abilitare ESL. Oltre che dello spazio di archiviazione su disco, esegui la pianificazione tenendo conto che la memoria di elaborazione totale dopo l'abilitazione di ESL si espanderà fino a un massimo di 1 ulteriore GB di RAM per popolazioni di un massimo di 500.000 utenti.
+
+### <a name="i-am-seeing-event-570-active-directory-trust-enumeration-was-unable-to-enumerate-one-of-more-domains-due-to-the-following-error-enumeration-will-continue-but-the-active-directory-identifier-list-may-not-be-correct-validate-that-all-expected-active-directory-identifiers-are-present-by-running-get-adfsdirectoryproperties-on-ad-fs-2019-what-is-the-mitigation-for-this-event"></a>Viene visualizzato l'evento 570 in AD FS 2019. L'enumerazione attendibile di Active Directory non è stata in grado di enumerare uno o più domini a causa dell'errore seguente. L'enumerazione continuerà, ma l'elenco di identificatori di Active Directory potrebbe non essere corretto. Verifica che tutti gli identificatori di Active Directory previsti siano presenti eseguendo Get-ADFSDirectoryProperties. Qual è la misura di prevenzione per questo evento?
+Questo evento si verifica se le foreste non sono attendibili quando AD FS prova a enumerare e a connettersi a tutte le foreste di una catena di foreste attendibili. Se ad esempio la foresta A e la foresta B di AD FS sono attendibili e la foresta B e la foresta C sono attendibili, AD FS enumera tutte e tre le foreste e prova a trovare una relazione di trust tra le foreste A e C. Se gli utenti della foresta in errore devono essere autenticati da AD FS, configura una relazione di trust tra la foresta di AD FS e la foresta in errore. Se gli utenti della foresta in errore non devono essere autenticati da AD FS, questo errore dovrà essere ignorato.
+
+### <a name="i-am-seeing-an-event-id-364-microsoftidentityserverauthenticationfailedexception-msis5015-authentication-of-the-presented-token-failed-token-binding-claim-in-token-must-match-the-binding-provided-by-the-channel-what-should-i-do-to-resolve-this"></a>Viene visualizzato il messaggio "Evento 364: Microsoft.IdentityServer.AuthenticationFailedException: MSIS5015: autenticazione del token presentato non riuscita. L'attestazione del binding nel token deve corrispondere al binding fornito dal canale". Come posso risolvere questo problema?
+In AD FS 2016 il binding del token è abilitato automaticamente e causa diversi problemi noti con scenari di proxy e di federazione che generano questo errore. Per correggerlo, esegui il comando PowerShell seguente e rimuovi il supporto per il binding del token.
+
+`Set-AdfsProperties -IgnoreTokenBinding $true`

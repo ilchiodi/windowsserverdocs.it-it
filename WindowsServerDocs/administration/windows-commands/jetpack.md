@@ -1,6 +1,6 @@
 ---
 title: jetpack
-description: Argomento di riferimento per * * * *-
+description: Argomento di riferimento per il comando Jetpack, che consente di compattare un database WINS (Windows Internet Name Service) o Dynamic Host Configuration Protocol (DHCP).
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,54 +9,61 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ec29a1fd48fdba72f07fe5d00de7730d93434105
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 6d77f9c964f5820fc7a44b803bb765e94cb35637
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724794"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83818251"
 ---
 # <a name="jetpack"></a>jetpack
 
 > Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-compatta un database WINS (Windows Internet Name Service) o Dynamic Host Configuration Protocol (DHCP). Si consiglia di compattare il database ogni volta che si avvicina 30 MB. 
+Compatta un database di Windows Internet Name Service (WINS) o Dynamic Host Configuration Protocol (DHCP). Si consiglia di compattare il database WINS ogni volta che si avvicina a 30 MB.
+
+Jetpack. exe compatta il database per:
+
+1. Copia delle informazioni del database in un file di database temporaneo.
+
+2. Eliminazione del file di database originale, ovvero WINS o DHCP.
+
+3. Rinomina i file di database temporaneo per il nome del file originale.
 
 ## <a name="syntax"></a>Sintassi
+
 ```
-jetpack.EXE <database name> <temp database name>
+jetpack.exe <database_name> <temp_database_name>
 ```
 
-#### <a name="parameters"></a>Parametri
-|Parametro|Descrizione|
-|-------|--------|
-|<database name>|Specifica il file di database originale.|
-|<temp database name>|Specifica il file di database temporaneo.|
-|/?|Visualizza la guida al prompt dei comandi.|
+### <a name="parameters"></a>Parametri
 
-## <a name="examples"></a>Esempi
-Per compattare il database WINS:
+| Parametro | Descrizione |
+| ------- | -------- |
+| `<database_name>` | Specifica il nome del file di database originale. |
+| `<temp_database_name>` | Specifica il nome del file di database temporaneo che verrà creato da Jetpack. exe.<p>Nota: questo file temporaneo viene rimosso al termine del processo di compattazione. Per il corretto funzionamento di questo comando, è necessario assicurarsi che il nome del file temporaneo sia univoco e che non esista già un file con lo stesso nome. |
+| /? | Visualizza la guida al prompt dei comandi. |
+
+### <a name="examples"></a>Esempi
+
+Per compattare il database WINS, in cui **tmp. mdb** è un database temporaneo e **WINS. mdb** è il database WINS, digitare:
+
 ```
 cd %SYSTEMROOT%\SYSTEM32\WINS
 NET STOP WINS
-jetpack WINS.MDB TMP.MDB
+jetpack Wins.mdb Tmp.mdb
 NET start WINS
 ```
-Per compattare il database DHCP:
+
+Per compattare il database DHCP, dove **tmp. mdb** è un database temporaneo e **DHCP. mdb** è il database DHCP, digitare:
+
 ```
 cd %SYSTEMROOT%\SYSTEM32\DHCP
-NET STOP DHCPSERver
-jetpack DHCP.MDB TMP.MDB
-NET start DHCPSERver
+NET STOP DHCPSERVER
+jetpack Dhcp.mdb Tmp.mdb
+NET start DHCPSERVER
 ```
-Negli esempi precedenti **tmp. mdb** è un database temporaneo usato da Jetpack. exe. **WINS** è il database WINS. **MDB** è il database DHCP.
-Jetpack. exe compatta il database WINS o DHCP eseguendo le operazioni seguenti:
-1.  Le copie del database le informazioni in un file di database temporaneo denominato **TMP**.
-2.  Elimina il file di database originale, **WINS. mdb** o **DHCP. mdb**.
-3.  Rinomina i file di database temporanei nel nome file originale.
-
-> [!NOTE]
-> Durante il processo di compattazione, jetpack. exe crea un file temporaneo con il nome specificato dal parametro del *nome del database temporaneo* . Una volta completato il processo di compattazione, viene rimosso il file temporaneo. Assicurarsi che non è un file già esistente in WINS o DHCP con lo stesso nome di quello specificato nella cartella di *nome database temporaneo* parametro.
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

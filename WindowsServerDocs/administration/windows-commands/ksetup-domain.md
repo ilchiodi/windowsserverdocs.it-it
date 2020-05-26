@@ -1,6 +1,6 @@
 ---
-title: 'che Ksetup: dominio'
-description: Argomento di riferimento per * * * *-
+title: dominio che Ksetup
+description: Argomento di riferimento per il comando del dominio che Ksetup, che imposta il nome di dominio per tutte le operazioni Kerberos.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,44 +9,43 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f127eaf33e9ef6d597851c31a4167ceaa3516abb
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 1d497f2bc76bae8a95b077658c661e0fdc1e93f3
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724680"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83817801"
 ---
-# <a name="ksetupdomain"></a>che Ksetup: dominio
-
-
+# <a name="ksetup-domain"></a>dominio che Ksetup
 
 Imposta il nome di dominio per tutte le operazioni di Kerberos.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-ksetup /domain <DomainName>
+ksetup /domain <domainname>
 ```
 
-#### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|\<NomeDominio>|Nome del dominio a cui si desidera stabilire una connessione. Utilizzare il nome di dominio completo o un modulo semplice del nome, ad esempio contoso.com o contoso.|
+| Parametro | Descrizione |
+| --------- | ----------- |
+| `<domainname>` | Nome del dominio a cui si desidera stabilire una connessione. Usare il nome di dominio completo o un modulo semplice del nome, ad esempio contoso.com o contoso.|
 
-## <a name="remarks"></a>Osservazioni
+### <a name="examples"></a>Esempi
 
-No.
+Per stabilire una connessione a un dominio valido, ad esempio Microsoft, usando il `ksetup /mapuser` sottocomando, digitare:
 
-## <a name="examples"></a>Esempi
-
-Stabilire una connessione a un dominio valido, ad esempio Microsoft utilizzando il sottocomando /mapuser:
 ```
 ksetup /mapuser principal@realm domain-user /domain domain-name
 ```
-Quando la connessione ha esito positivo, verrà visualizzato un nuovo TGT o un TGT esistenti verranno aggiornati.
+
+Al termine della connessione, si riceverà un nuovo TGT o verrà aggiornato un TGT esistente.
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
--   [Che Ksetup](ksetup.md)
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando che Ksetup](ksetup.md)
+
+- [comando che Ksetup mapuser](ksetup-mapuser.md)

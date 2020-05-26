@@ -8,12 +8,12 @@ ms.author: niwashbu
 ms.date: 06/07/2019
 ms.localizationpriority: medium
 ms.prod: windows-server
-ms.openlocfilehash: 7a4dacd611741942e874e831fd9598aeda5e97b3
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 7b42db8c0be5e1a447ad0a3b794b07672c164514
+ms.sourcegitcommit: 7116460855701eed4e09d615693efa4fffc40006
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "81269278"
+ms.lasthandoff: 05/15/2020
+ms.locfileid: "83433145"
 ---
 # <a name="prepare-your-environment-for-windows-admin-center"></a>Preparare l'ambiente per Windows Admin Center
 
@@ -35,7 +35,7 @@ Windows Admin Center richiede funzionalità PowerShell non incluse per impostazi
 
 Per verificare che WMF 5.1 o versione successiva sia installato, digita `$PSVersiontable` in PowerShell.
 
-In caso contrario, puoi [scaricare e installare WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure).
+In caso contrario, puoi [scaricare e installare WMF 5.1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure).
 
 ## <a name="prepare-microsoft-hyper-v-server-2016"></a>Preparare Microsoft Hyper-V Server 2016
 
@@ -91,9 +91,9 @@ Prima di procedere alla gestione di Microsoft Hyper-V Server 2012 R2 con Windows
 
 Windows Admin Center richiede funzionalità PowerShell non incluse per impostazione predefinita in Microsoft Hyper-V Server 2012 R2. Per gestire Microsoft Hyper-V Server 2012 R2 con Windows Admin Center, devi installare WMF 5.1 o versione successiva.
 
-Per verificare che WMF 5.1 o versione successiva sia installato, digita `$PSVersiontable` in PowerShell. 
+Per verificare che WMF 5.1 o versione successiva sia installato, digita `$PSVersiontable` in PowerShell.
 
-In caso contrario, puoi [scaricare WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure).
+In caso contrario, puoi [scaricare WMF 5.1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure).
 
 ### <a name="step-2-enable-remote-management"></a>Passaggio 2: Abilitare la gestione remota
 

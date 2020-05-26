@@ -1,6 +1,6 @@
 ---
-title: 'che Ksetup: getenctypeattr'
-description: Argomento di riferimento per * * * *-
+title: getenctypeattr che Ksetup
+description: Argomento di riferimento per il comando che Ksetup getenctypeattr, che consente di recuperare l'attributo del tipo di crittografia per il dominio.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,51 +9,51 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f8363113d4fbb310d98b40d852b36a00f20320e6
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 2acead4ff1179002303c18d4feff262080203a28
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724630"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83817701"
 ---
-# <a name="ksetupgetenctypeattr"></a>che Ksetup: getenctypeattr
+# <a name="ksetup-getenctypeattr"></a>getenctypeattr che Ksetup
 
+Recupera l'attributo di tipo di crittografia per il dominio. Viene visualizzato un messaggio di stato al completamento riuscito o non riuscito.
 
-
-Recupera l'attributo di tipo di crittografia per il dominio.
+È possibile visualizzare il tipo di crittografia per il ticket di concessione ticket (TGT) Kerberos e la chiave della sessione, eseguendo il comando **klist** e visualizzando l'output. È possibile impostare il dominio per connettersi e usare, eseguendo il `ksetup /domain <domainname>` comando.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-ksetup /getenctypeattr <DomainName> 
+ksetup /getenctypeattr <domainname>
 ```
 
-#### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|\<NomeDominio>|Nome del dominio a cui si desidera stabilire una connessione. Utilizzare il nome di dominio completo o un modulo semplice del nome, ad esempio corp.contoso.com o contoso.|
+| Parametro | Descrizione |
+| --------- | ----------- |
+| `<domainname>` | Nome del dominio a cui si desidera stabilire una connessione. Usare il nome di dominio completo o un modulo semplice del nome, ad esempio corp.contoso.com o contoso. |
 
-## <a name="remarks"></a>Osservazioni
+### <a name="examples"></a>Esempi
 
-Per visualizzare il tipo di crittografia per Kerberos ticket di concessione ticket (TGT) e la chiave di sessione, eseguire il **klist** comando e visualizzare l'output.
+Per verificare l'attributo di tipo di crittografia per il dominio, digitare:
 
-Se il comando ha esito positivo o negativo, viene visualizzato un messaggio di stato al completamento riuscito o non riuscito.
-
-Per impostare il dominio a cui si desidera connettersi e usare, eseguire il comando **che Ksetup/domain \<DomainName>** .
-
-## <a name="examples"></a>Esempi
-
-Verificare che l'attributo di tipo di crittografia per il dominio:
 ```
 ksetup /getenctypeattr mit.contoso.com
 ```
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
--   [Klist](klist.md)
--   [Ksetup:domain](ksetup-domain.md)
--   [Ksetup:addenctypeattr](ksetup-addenctypeattr.md)
--   [Ksetup:setenctypeattr](ksetup-setenctypeattr.md)
--   [Ksetup:delenctypeattr](ksetup-delenctypeattr.md)
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando klist](klist.md)
+
+- [comando che Ksetup](ksetup.md)
+
+- [comando di dominio che Ksetup](ksetup-domain.md)
+
+- [comando che Ksetup addenctypeattr](ksetup-addenctypeattr.md)
+
+- [comando che Ksetup setenctypeattr](ksetup-setenctypeattr.md)
+
+- [comando che Ksetup delenctypeattr](ksetup-delenctypeattr.md)
