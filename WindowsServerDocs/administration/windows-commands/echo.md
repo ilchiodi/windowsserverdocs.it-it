@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c87a6cb5e3fb52af9a13a7be35218e35b24d7ddc
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: ca2a10a5d52c9d175d453a164f3ab4f47ca0841d
+ms.sourcegitcommit: 430c6564c18f89eecb5bbc39cfee1a6f1d8ff85b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83436926"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83855665"
 ---
 # <a name="echo"></a>echo (eco)
 
@@ -31,7 +31,7 @@ echo [on | off]
 
 | Parametro | Descrizione |
 | --------- | ----------- |
-| in | off | Attiva o disattiva la ripetizione dei comandi. Eco dei comandi è abilitata per impostazione predefinita. |
+| [on \| off] | Attiva o disattiva la ripetizione dei comandi. Eco dei comandi è abilitata per impostazione predefinita. |
 | `<message>` | Specifica il testo da visualizzare sullo schermo. |
 | /? | Visualizza la guida al prompt dei comandi. |
 
