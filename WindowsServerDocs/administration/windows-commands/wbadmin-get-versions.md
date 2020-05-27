@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 542f65b7d87eacb102f64fb4103e6c684df4faa5
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 1eabc053e5cb1bdd517cfb02a13e955707ffacf6
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720147"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820511"
 ---
 # <a name="wbadmin-get-versions"></a>Wbadmin get versions
 
@@ -49,13 +49,13 @@ Per visualizzare un elenco di backup disponibili che vengono archiviati nel volu
 ```
 wbadmin get versions -backupTarget:h:
 ```
-Per visualizzare un elenco dei backup disponibili archiviati nella cartella \\ \\condivisa remota servername\share per il computer Server01, digitare:
+Per visualizzare un elenco dei backup disponibili archiviati nella cartella condivisa remota \\ \\ servername\share per il computer Server01, digitare:
 ```
 wbadmin get versions -backupTarget:\\servername\share -machine:server01
 ```
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
 -   [Get-WBBackupTarget](https://technet.microsoft.com/library/jj902447.aspx) cmdlet

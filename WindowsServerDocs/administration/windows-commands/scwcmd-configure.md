@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6ffaff594a8927b3fcdfc871ec380fd5f134ce90
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 54f488eea2478c0b38f7ed9bea5ec15c0db3538f
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722153"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820981"
 ---
 # <a name="scwcmd-configure"></a>Scwcmd: configurare
 
@@ -32,13 +32,13 @@ scwcmd configure [[[/m:<ComputerName> | /ou:<OuName>] /p:<Policy>] | /i:<Compute
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/m:\<nomecomputer>|Specifica il nome NetBIOS, un nome DNS o un indirizzo IP del computer da configurare. Se il **/m** viene specificato, il **/p** parametro deve inoltre essere specificato.|
-|/ou:\<OuName>|Specifica il nome di dominio completo (FQDN) di un'unità organizzativa (OU) in servizi di dominio Active Directory. Se il **/ou** viene specificato, il **/p** parametro deve inoltre essere specificato. Tutti i computer nell'unità Organizzativa verranno analizzati in base al criterio specificato.|
-|/p:\<> criteri|Specifica il percorso e il nome del file di criteri con estensione XML da utilizzare per eseguire la configurazione.|
-|/i:\<> di computer|Specifica il percorso e il nome di un file XML che contiene un elenco di computer insieme ai relativi file di criteri previsto. Tutti i computer nel file XML verranno configurati in base ai relativi file di criteri corrispondenti. Un file XML di esempio è % windir%\security\SampleMachineList.xml.|
-|/u:\<nome utente>|Specifica una credenziale utente alternativo da utilizzare quando si configura un computer remoto. Il valore predefinito è connesso per utente.|
-|/PW:\<password>|Specifica una credenziale utente alternativo da utilizzare quando si configura un computer remoto. Il valore predefinito è la password dell'utente connesso.|
-|/t:\<thread>|Specifica il numero di operazioni di configurazione in sospeso simultanee che deve essere garantita durante il processo di configurazione (valore predefinito = 40, MinValue = 1, MaxValue = 1000).|
+|/m: \< nomecomputer>|Specifica il nome NetBIOS, un nome DNS o un indirizzo IP del computer da configurare. Se il **/m** viene specificato, il **/p** parametro deve inoltre essere specificato.|
+|/ou: \< OuName>|Specifica il nome di dominio completo (FQDN) di un'unità organizzativa (OU) in servizi di dominio Active Directory. Se il **/ou** viene specificato, il **/p** parametro deve inoltre essere specificato. Tutti i computer nell'unità Organizzativa verranno analizzati in base al criterio specificato.|
+|/p: \<> criteri|Specifica il percorso e il nome del file di criteri con estensione XML da utilizzare per eseguire la configurazione.|
+|/i: \<> di computer|Specifica il percorso e il nome di un file XML che contiene un elenco di computer insieme ai relativi file di criteri previsto. Tutti i computer nel file XML verranno configurati in base ai relativi file di criteri corrispondenti. Un file XML di esempio è % windir%\security\SampleMachineList.xml.|
+|/u: \< nome utente>|Specifica una credenziale utente alternativo da utilizzare quando si configura un computer remoto. Il valore predefinito è connesso per utente.|
+|/PW: \< Password>|Specifica una credenziale utente alternativo da utilizzare quando si configura un computer remoto. Il valore predefinito è la password dell'utente connesso.|
+|/t: \< thread>|Specifica il numero di operazioni di configurazione in sospeso simultanee che deve essere garantita durante il processo di configurazione (valore predefinito = 40, MinValue = 1, MaxValue = 1000).|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Osservazioni
@@ -66,4 +66,4 @@ scwcmd configure /ou:OU=WebServers,DC=Marketing,DC=ABCCompany,DC=com /p:webpolic
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

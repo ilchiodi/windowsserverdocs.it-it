@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 017363ff2a60f9348290813c357560fe9fe3ba2a
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 13e33329c399a77c1dd9b2e6ff63de6196c30420
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722165"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820991"
 ---
 # <a name="scwcmd-analyze"></a>Scwcmd: analizzare
 
@@ -33,14 +33,14 @@ scwcmd analyze [[[/m:<ComputerName> | /ou:<Ou>] /p:<Policy>] | /i:<ComputerList>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/m:\<nomecomputer>|Specifica il nome NetBIOS, un nome DNS o un indirizzo IP del computer da analizzare. Se il **/m** viene specificato, il **/p** parametro deve inoltre essere specificato.|
-|/ou:\<OuName>|Specifica il nome di dominio completo (FQDN) di un'unità organizzativa (OU) in servizi di dominio Active Directory. Se il **/ou** viene specificato, il **/p** parametro deve inoltre essere specificato. Tutti i computer nell'unità Organizzativa verranno analizzati in base al criterio specificato.|
-|/p:\<> criteri|Specifica il percorso e il nome del file di criteri con estensione XML da utilizzare per eseguire l'analisi.|
-|/i:\<> di computer|Specifica il percorso e il nome di un file XML che contiene un elenco di computer insieme ai relativi file di criteri previsto. Verranno analizzati tutti i computer nel file XML con i relativi file di criteri corrispondente. Un file XML di esempio è % windir%\security\SampleMachineList.xml.|
-|/o:\<ResultDir>|Specifica il percorso e la directory in cui salvare il file dei risultati di analisi. Il valore predefinito è la directory corrente.|
-|/u:\<nome utente>|Specifica una credenziale utente alternativo da utilizzare durante l'analisi in un computer remoto. Il valore predefinito è connesso per utente.|
-|/PW:\<password>|Specifica una credenziale utente alternativo da utilizzare durante l'analisi in un computer remoto. Il valore predefinito è la password dell'utente connesso.|
-|/t:\<thread>|Specifica il numero di operazioni di analisi in sospeso simultanee che deve essere mantenuta durante l'analisi (valore predefinito = 40, MinValue = 1, MaxValue = 1000).|
+|/m: \< nomecomputer>|Specifica il nome NetBIOS, un nome DNS o un indirizzo IP del computer da analizzare. Se il **/m** viene specificato, il **/p** parametro deve inoltre essere specificato.|
+|/ou: \< OuName>|Specifica il nome di dominio completo (FQDN) di un'unità organizzativa (OU) in servizi di dominio Active Directory. Se il **/ou** viene specificato, il **/p** parametro deve inoltre essere specificato. Tutti i computer nell'unità Organizzativa verranno analizzati in base al criterio specificato.|
+|/p: \<> criteri|Specifica il percorso e il nome del file di criteri con estensione XML da utilizzare per eseguire l'analisi.|
+|/i: \<> di computer|Specifica il percorso e il nome di un file XML che contiene un elenco di computer insieme ai relativi file di criteri previsto. Verranno analizzati tutti i computer nel file XML con i relativi file di criteri corrispondente. Un file XML di esempio è % windir%\security\SampleMachineList.xml.|
+|/o: \< ResultDir>|Specifica il percorso e la directory in cui salvare il file dei risultati di analisi. Il valore predefinito è la directory corrente.|
+|/u: \< nome utente>|Specifica una credenziale utente alternativo da utilizzare durante l'analisi in un computer remoto. Il valore predefinito è connesso per utente.|
+|/PW: \< Password>|Specifica una credenziale utente alternativo da utilizzare durante l'analisi in un computer remoto. Il valore predefinito è la password dell'utente connesso.|
+|/t: \< thread>|Specifica il numero di operazioni di analisi in sospeso simultanee che deve essere mantenuta durante l'analisi (valore predefinito = 40, MinValue = 1, MaxValue = 1000).|
 |/l|Fa sì che il processo di analisi da registrare. Verrà generato un file di log per ogni computer che si sta analizzando. Nella stessa directory di file dei risultati verranno archiviati i file di log. Utilizzare il **/o** opzione per specificare la directory per il file dei risultati.|
 |/e|Registrare un evento nel registro eventi dell'applicazione se viene trovata una mancata corrispondenza.|
 |/?|Visualizza la guida al prompt dei comandi.|
@@ -73,4 +73,4 @@ scwcmd analyze /ou:OU=WebServers,DC=Marketing,DC=ABCCompany,DC=com /p:webpolicy.
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

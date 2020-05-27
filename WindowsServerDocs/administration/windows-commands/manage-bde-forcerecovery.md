@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c9b2e37cc57a3aead21f149d157a49587fdcb5f5
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 1213eb583099a575fd118b1ade5d2c9b82c6dea7
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724176"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820681"
 ---
 # <a name="manage-bde-forcerecovery"></a>Manage-bde: forcerecovery
 
@@ -47,5 +47,5 @@ manage-bde –forcerecovery C:
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Manage-bde](manage-bde.md)

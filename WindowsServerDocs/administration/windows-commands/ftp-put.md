@@ -1,50 +1,63 @@
 ---
 title: FTP PUT
-description: Argomento dei comandi di Windows per FTP-PUT
+description: Argomento di riferimento per il comando FTP PUT, che consente di copiare un file locale nel computer remoto usando il tipo di trasferimento di file corrente.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
-ms.assetid: 95cc1e3f-523d-4374-98b8-16e6c276b2ca vhorne
+ms.assetid: 95cc1e3f-523d-4374-98b8-16e6c276b2ca
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 03/30/2020
-ms.openlocfilehash: d86ba8418f4c43c26f3745a9f70e676ca790c640
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: aee76b95ac538868122d5137958723326575eb18
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725172"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820371"
 ---
-# <a name="ftp-put"></a>FTP: Put
+# <a name="ftp-put"></a>FTP PUT
 
 > Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Copia un file locale nel computer remoto utilizzando il tipo di trasferimento di file corrente.
+
+> [!NOTE]
+> Questo comando è lo stesso del [comando di invio FTP](ftp-send_1.md).
+
 ## <a name="syntax"></a>Sintassi
-```
-put <LocalFile> [<remoteFile>]
-```
-#### <a name="parameters"></a>Parametri
 
-|    Parametro     |                    Descrizione                    |
-|------------------|---------------------------------------------------|
-|   `<LocalFile>`  |         Specifica il file locale da copiare.         |
-| `[<remoteFile>]` | Specifica il nome da utilizzare nel computer remoto. |
+```
+put <localfile> [<remotefile>]
+```
 
-## <a name="remarks"></a>Osservazioni
-- Il comando **put** è identico al comando **Send** .
-- Se *FileRemoto* non è specificato, al file viene assegnato il nome *LocalFile* .
-  ## <a name="examples"></a>Esempi
-  Copiare il file **test. txt** locale e denominarlo **test1. txt** nel computer remoto.
-  ```
-  put test.txt test1.txt
-  ```
-  Copiare il file locale **Program. exe** nel computer remoto.
-  ```
-  put program.exe
-  ```
-  ## <a name="additional-references"></a>Riferimenti aggiuntivi
-- [FTP: ASCII](ftp-ascii.md)
-- [FTP: binario](ftp-binary.md)
-- - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+### <a name="parameters"></a>Parametri
+
+| Parametro | Descrizione |
+| --------- | ----------- |
+| `<localfile>` | Specifica il file locale da copiare. |
+| `[<remotefile>]` | Specifica il nome da utilizzare nel computer remoto. Se non si specifica un *FileRemoto*, il file fornisce il nome *LocalFile* .|
+
+### <a name="examples"></a>Esempi
+
+Per copiare il file *test. txt* locale e denominarlo *test1. txt* nel computer remoto, digitare:
+
+```
+put test.txt test1.txt
+```
+
+Per copiare il file *Program. exe* locale nel computer remoto, digitare:
+
+```
+put program.exe
+```
+
+## <a name="additional-references"></a>Riferimenti aggiuntivi
+
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando FTP ASCII](ftp-ascii.md)
+
+- [comando binario FTP](ftp-binary.md)
+
+- [Altre informazioni aggiuntive sull'FTP](https://docs.microsoft.com/previous-versions/orphan-topics/ws.10/cc756013(v=ws.10))

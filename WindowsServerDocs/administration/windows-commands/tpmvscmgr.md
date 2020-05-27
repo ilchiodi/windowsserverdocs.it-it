@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ab0419060121033571eeba643cc0e2d42b45c743
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 60c824de891917a2652776ee86b389f04d8eada8
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82721300"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821371"
 ---
 # <a name="tpmvscmgr"></a>tpmvscmgr
 
@@ -77,10 +77,10 @@ tpmvscmgr.exe create /name VirtualSmartCardForCorpAccess /AdminKey RANDOM /PIN P
 ```
 Il comando seguente crea una smart card virtuale con una chiave amministratore casuale. La chiave viene automaticamente eliminata dopo il cardis creato. Ciò significa che se l'utente dimentica il PIN o richiede la modifica del PIN, l'utente deve eliminare la scheda e crearne uno nuovo. Per eliminare la scheda, l'utente può eseguire il comando seguente.
 ```
-tpmvscmgr.exe destroy /instance <instance ID> 
+tpmvscmgr.exe destroy /instance <instance ID>
 ```
-dove \<ID istanza> è il valore stampato sullo schermo quando l'utente ha creato la scheda. In particolare, per la prima scheda creata, l'ID istanza è ROOT\SMARTCARDREADER\0000.
+dove \< ID istanza> è il valore stampato sullo schermo quando l'utente ha creato la scheda. In particolare, per la prima scheda creata, l'ID istanza è ROOT\SMARTCARDREADER\0000.
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

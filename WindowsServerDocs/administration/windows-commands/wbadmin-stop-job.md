@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 3133688ac0d60d97d80192611c9b561c53a74c35
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 6e6d2be62468102060aad502d47efbb6eae4fca8
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725843"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821361"
 ---
 # <a name="wbadmin-stop-job"></a>wbadmin Arresta processo
 
@@ -39,5 +39,5 @@ wbadmin stop job
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)

@@ -1,6 +1,6 @@
 ---
 title: eventtriggers
-description: Argomento di riferimento per il comando eventtriggers, che è stato deprecato e non è garantito per essere supportato nelle versioni future di Windows.
+description: Argomento di riferimento per il comando eventtriggers. Questo comando è stato deprecato e non è garantito che sia supportato nelle versioni future di Windows.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 64120df16d92484bfee8cfc1645c102fc325e400
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 83dc25f31294eb4655b6a1977a22250da4f97857
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83436856"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83819511"
 ---
 # <a name="eventtriggers"></a>eventtriggers
 

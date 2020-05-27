@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4011f04b762522c8c0d157993bad71d88758d32f
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 5d4a94fa9f776af1ae21ad9057b6f9225691b516
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82721197"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821301"
 ---
 # <a name="tzutil"></a>tzutil
 
 > Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Visualizza l'utilità fuso orario di Windows. 
+Visualizza l'utilità fuso orario di Windows.
 
 ## <a name="syntax"></a>Sintassi
 ```
@@ -31,7 +31,7 @@ tzutil [/?] [/g] [/s <timeZoneID>[_dstoff]] [/l]
 |-------|--------|
 |/?|Visualizza la guida al prompt dei comandi.|
 |/g|Visualizza l'ID del fuso orario corrente.|
-|/s \<timeZoneID> [_dstoff]|Imposta il fuso orario corrente usando l'ID del fuso orario specificato. Il suffisso **_dstoff** Disabilita le regolazioni dell'ora legale per il fuso orario (se applicabile).|
+|/s \< timeZoneID> [_dstoff]|Imposta il fuso orario corrente usando l'ID del fuso orario specificato. Il suffisso **_dstoff** Disabilita le regolazioni dell'ora legale per il fuso orario (se applicabile).|
 |/l|Elenca tutti gli ID di fuso orario e i nomi visualizzati validi. L'output sarà:<p>-   \<nome visualizzato><br />-   \<ID fuso orario>|
 
 ## <a name="remarks"></a>Osservazioni
@@ -51,5 +51,5 @@ Per impostare il fuso orario corrente sull'ora solare Pacifico e disabilitare le
 tzutil /s Pacific Standard time_dstoff
 ```
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 

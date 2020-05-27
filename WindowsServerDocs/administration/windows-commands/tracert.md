@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6b62558b1a2959fd441c246159c14daf0a1e9ca5
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 25dafb691513eae38dd99aef6288ee1bfb2d80be
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83437246"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821401"
 ---
 # <a name="tracert"></a>tracert
 
@@ -59,4 +59,4 @@ Per tracciare il percorso dell'host denominato corp7.microsoft.com e usare il pe
 tracert /j 10.12.0.1 10.29.3.1 10.1.44.1 corp7.microsoft.com
 ```
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

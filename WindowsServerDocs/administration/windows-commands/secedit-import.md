@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c9229bf0cf7483a9476d68984af3ac6c91e3c061
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: d21a6d6f58189346409375df4a0d11ccd69096d4
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722046"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821251"
 ---
 # <a name="seceditimport"></a>secedit: importazione
 
@@ -65,4 +65,4 @@ Secedit /import /db C:\Security\FY12\SecDbContoso.sdb /cfg NetworkShare\Policies
 -   [Secedit:generaterollback](secedit-generaterollback.md)
 -   [Secedit:validate](secedit-validate.md)
 -   [Secedit](secedit.md)
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

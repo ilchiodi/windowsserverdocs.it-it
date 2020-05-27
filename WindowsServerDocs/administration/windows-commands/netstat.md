@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7b1dbe232ce297e987118616681b82332e81e930
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 4daea8d096e6063b984a4657536c8a2b043b5025
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723787"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820861"
 ---
 # <a name="netstat"></a>netstat
 
 > Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Visualizza le connessioni TCP attive, le porte su cui il computer è in ascolto, le statistiche Ethernet, la tabella di routing IP, le statistiche IPv4 (per i protocolli IP, ICMP, TCP e UDP) e le statistiche IPv6 (per i protocolli IPv6, ICMPv6, TCP su IPv6 e UDP su IPv6). Usato senza parametri, **netstat** Visualizza le connessioni TCP attive. 
+Visualizza le connessioni TCP attive, le porte su cui il computer è in ascolto, le statistiche Ethernet, la tabella di routing IP, le statistiche IPv4 (per i protocolli IP, ICMP, TCP e UDP) e le statistiche IPv6 (per i protocolli IPv6, ICMPv6, TCP su IPv6 e UDP su IPv6). Usato senza parametri, **netstat** Visualizza le connessioni TCP attive.
 
 ## <a name="syntax"></a>Sintassi
 ```
@@ -42,7 +42,7 @@ netstat [-a] [-e] [-n] [-o] [-p <Protocol>] [-r] [-s] [<Interval>]
 |      /?       |                                                                                                                                 Visualizza la guida al prompt dei comandi.                                                                                                                                  |
 
 ## <a name="remarks"></a>Osservazioni
--   I parametri usati con questo comando devono essere preceduti da un trattino (**-**) anziché da una**/** barra ().
+-   I parametri usati con questo comando devono essere preceduti da un trattino ( **-** ) anziché da una barra ( **/** ).
 -   **netstat** fornisce le statistiche per gli elementi seguenti:
     -   Proto nome del protocollo (TCP o UDP).
     -   Indirizzo locale l'indirizzo IP del computer locale e il numero di porta utilizzato. Il nome del computer locale che corrisponde all'indirizzo IP e il nome della porta viene visualizzato a meno che non sia specificato il parametro **-n** . Se la porta non è ancora stata stabilita, il numero di porta viene visualizzato come asterisco (*).
@@ -69,4 +69,4 @@ netstat -n -o
 ```
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

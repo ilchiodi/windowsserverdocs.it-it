@@ -9,19 +9,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1dd65c0b4cc9709b54f95a6850c7d118f1d6963f
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: c1718d1d74849949769d4d8fffbf3d93cc088742
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82721453"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821031"
 ---
 # <a name="telnet"></a>telnet
 
 > Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
 Comunica con un computer che esegue il servizio Server Telnet.
- 
+
 ## <a name="syntax"></a>Sintassi
 ```
 telnet [/a] [/e <EscapeChar>] [/f <FileName>] [/l <UserName>] [/t {vt100 | vt52 | ansi | vtnt}] [<Host> [<Port>]] [/?]
@@ -30,11 +30,11 @@ telnet [/a] [/e <EscapeChar>] [/f <FileName>] [/l <UserName>] [/t {vt100 | vt52 
 |Parametro|Descrizione|
 |-------|--------|
 |/a|tentativo di accesso automatico. Equivale all'opzione/l eccetto che usa il nome dell'utente attualmente connesso.|
-|/e \<EscapeChar>|Carattere di escape utilizzato per immettere il prompt del client Telnet.|
+|/e \< EscapeChar>|Carattere di escape utilizzato per immettere il prompt del client Telnet.|
 |/f \<> nomefile|Nome file utilizzato per la registrazione lato client.|
-|/l \<nome utente>|Specifica il nome utente con cui eseguire l'accesso nel computer remoto.|
+|/l \< nome utente>|Specifica il nome utente con cui eseguire l'accesso nel computer remoto.|
 |/t {VT100 &#124; VT52 &#124; ANSI &#124; VTNT}|Specifica il tipo di terminale. I tipi di terminali supportati sono VT100, VT52, ANSI e VTNT.|
-|\<> host [\<porta>]|Specifica il nome host o l'indirizzo IP del computer remoto a cui connettersi e, facoltativamente, la porta TCP da usare (il valore predefinito è la porta TCP 23).|
+|\<> host [ \< porta>]|Specifica il nome host o l'indirizzo IP del computer remoto a cui connettersi e, facoltativamente, la porta TCP da usare (il valore predefinito è la porta TCP 23).|
 |/?|Visualizza la guida al prompt dei comandi. In alternativa, è possibile digitare/h.|
 
 ## <a name="remarks"></a>Osservazioni
@@ -54,4 +54,4 @@ telnet /f telnetlog.txt telnet.microsoft.com 44
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 -   [Installazione di Telnet](https://technet.microsoft.com/library/cc754293(v=ws.10).aspx)
 -   [Riferimento tecnico per Telnet](https://technet.microsoft.com/library/cc754987(v=ws.10).aspx)
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

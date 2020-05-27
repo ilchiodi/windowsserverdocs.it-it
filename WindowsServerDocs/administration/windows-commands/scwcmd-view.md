@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: fa35cc46af36bca17cc042c658f7613572823bc9
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: bb38d5100eab74573d5f5ffb4ec684b2b19c3bbb
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722107"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820941"
 ---
 # <a name="scwcmd-view"></a>Scwcmd: visualizzazione
 
@@ -32,8 +32,8 @@ scwcmd view /x:<Xmlfile.xml> [/s:<Xslfile.xsl>]
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/x:\<XMLFile. XML>|Specifica il file XML da visualizzare. Questo parametro deve essere specificato.|
-|/s:\<filexsl. xsl>|Specifica la trasformazione XSL da applicare al file con estensione XML come parte del processo di rendering. Questo parametro è facoltativo per i file XML di Sicurezza. Quando il **visualizzazione** comando viene utilizzato per eseguire il rendering di un file XML di Sicurezza, si tenterà automaticamente di caricare la trasformazione predefinito corretto per il file con estensione XML specificato. Se si specifica una trasformazione XSL, la trasformazione deve essere scritto in base al presupposto che il file XML nella stessa directory come la trasformazione XSL.|
+|/x: \< XMLFile. xml>|Specifica il file XML da visualizzare. Questo parametro deve essere specificato.|
+|/s: \< filexsl. xsl>|Specifica la trasformazione XSL da applicare al file con estensione XML come parte del processo di rendering. Questo parametro è facoltativo per i file XML di Sicurezza. Quando il **visualizzazione** comando viene utilizzato per eseguire il rendering di un file XML di Sicurezza, si tenterà automaticamente di caricare la trasformazione predefinito corretto per il file con estensione XML specificato. Se si specifica una trasformazione XSL, la trasformazione deve essere scritto in base al presupposto che il file XML nella stessa directory come la trasformazione XSL.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Osservazioni
@@ -49,4 +49,4 @@ scwcmd view /x:C:\policies\Policyfile.xml /s:C:\viewers\Policyview.xsl
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

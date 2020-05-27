@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7c4ca390d910a5a38919d60421091264aa56de33
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 5de3531f19312b9d0d7969a63639db6388487bc2
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725905"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821181"
 ---
 # <a name="wbadmin-start-systemstatebackup"></a>comando Wbadmin start systemstatebackup
 
@@ -39,12 +39,12 @@ wbadmin start systemstatebackup
 
 |   Parametro   |                                                                                                                                                                                                                      Descrizione                                                                                                                                                                                                                      |
 |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| -backupTarget | Specifica il percorso in cui si desidera archiviare il backup. Il percorso di archiviazione richiede una lettera di unità o un volume basato su GUID nel formato \\ \\:? \Volume{*GUID*}.</br>Un backup dello stato del sistema in una cartella di rete condivisa non è supportato in un computer che esegue Windows Server 2008. Se nel server è in esecuzione Windows Server 2008 R2 o versione successiva, è possibile usare il comando **-backupTarget:\\\\\\ servername\sharedFolder** per archiviare i backup dello stato del sistema. |
+| -backupTarget | Specifica il percorso in cui si desidera archiviare il backup. Il percorso di archiviazione richiede una lettera di unità o un volume basato su GUID nel formato: \\ \\ ? \Volume{*GUID*}.</br>Un backup dello stato del sistema in una cartella di rete condivisa non è supportato in un computer che esegue Windows Server 2008. Se nel server è in esecuzione Windows Server 2008 R2 o versione successiva, è possibile usare il comando **-backupTarget: \\ \\ servername\sharedFolder \\ ** per archiviare i backup dello stato del sistema. |
 |    -quiet     |                                                                                                                                                                                                   Esegue il sottocomando senza alcuna richiesta visualizzata all'utente.                                                                                                                                                                                                    |
 
 ## <a name="remarks"></a>Osservazioni
 
-Per informazioni sul salvataggio di un backup dello stato del sistema in un volume che, a sua volta, contiene i file di stato del sistema, vedere l'[https://go.microsoft.com/fwlink/?LinkId=110439](https://go.microsoft.com/fwlink/?LinkId=110439)articolo 944530 della Microsoft Knowledge base ().
+Per informazioni sul salvataggio di un backup dello stato del sistema in un volume che, a sua volta, contiene i file di stato del sistema, vedere l'articolo 944530 della Microsoft Knowledge base ( [https://go.microsoft.com/fwlink/?LinkId=110439](https://go.microsoft.com/fwlink/?LinkId=110439) ).
 
 ## <a name="examples"></a>Esempi
 
@@ -55,6 +55,6 @@ wbadmin start systemstatebackup -backupTarget:f:
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Wbadmin](wbadmin.md)
 -   [Start-WBBackup](https://technet.microsoft.com/library/jj902459.aspx) cmdlet

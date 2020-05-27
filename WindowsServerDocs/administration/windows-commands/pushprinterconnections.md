@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 94ba2d09a3e67248a393350e46e971aa8b24b00d
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 55294b27ec51edb7083debf15e332117b9b4e1df
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722761"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821231"
 ---
 # <a name="pushprinterconnections"></a>pushprinterconnections
 
@@ -41,5 +41,5 @@ Questa utilità viene utilizzata per l'avvio del computer o gli script di access
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Distribuire stampanti usando Criteri di gruppo](https://go.microsoft.com/fwlink/?LinkId=230627)

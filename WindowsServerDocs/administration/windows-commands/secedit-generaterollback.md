@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8d561db9c4a893c0e6848e87b5c4a03b70882023
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 90d139f14db0052c52967e739131a16f92992353
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722061"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821111"
 ---
 # <a name="seceditgeneraterollback"></a>secedit: generaterollback
 
@@ -58,4 +58,4 @@ Secedit /generaterollback /db C:\Security\FY11\SecDbContoso.sdb /cfg sectmplcont
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 -   [Secedit](secedit.md)
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

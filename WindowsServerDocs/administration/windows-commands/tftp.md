@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 30655cae3ef737b10d266a894b0bfb6d76ffe87e
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: fb9977d0bc4f45b610d8bf3409c6beeadfaf7ee5
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83436674"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821021"
 ---
 # <a name="tftp"></a>TFTP
 
@@ -49,4 +49,4 @@ tftp  -i Host1 get boot.img
 ```
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
 title: inuse
-description: Argomento di riferimento per * * * *-
+description: Argomento di riferimento per il comando Inuse. Questo comando è stato deprecato e non è garantito che sia supportato nelle versioni future di Windows.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,17 +9,19 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6413fe21f4b7da464347e49910fbf6cd649b319d
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: b25750c8ad57c3b1a795830b743f679e7fce88b5
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993305"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83818431"
 ---
 # <a name="inuse"></a>inuse
 
+Il comando InUse è stato deprecato e non è garantito che sia supportato nelle versioni future di Windows.
 
+Questo strumento è incluso in Windows Server 2003. Per ulteriori informazioni, vedere [InUse](https://docs.microsoft.com/previous-versions/orphan-topics/ws.10/dd996699(v=ws.10)).
 
-InUse è deprecata e non è garantito a essere supportato nelle versioni future di Windows.
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
-Questo strumento è incluso in Windows Server 2003. Per ulteriori informazioni, vedere [InUse](https://technet.microsoft.com/library/dd996699(v=ws.10).aspx).
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

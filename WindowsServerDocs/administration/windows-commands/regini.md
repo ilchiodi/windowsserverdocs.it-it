@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 632573f317eafa254f6c434f959a06f2c24f7353
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: 33e0dcaa59be3c1748763cce5c9979fe318b271a
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80836244"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820151"
 ---
 # <a name="regini"></a>regini
 
@@ -32,21 +32,21 @@ regini [-m \\machinename | -h hivefile hiveroot][-i n] [-o outputWidth][-b] text
 
 | Parametro | Descrizione |
 
-|-m \<\\\\nomecomputer >|Specifica il nome del computer remoto con un registro di sistema che devono essere modificati. Usare il formato **\\\\nomecomputer**.|
+|-m \< \\ \\ nomecomputer>|Specifica il nome del computer remoto con un registro di sistema che devono essere modificati. Usare il formato ** \\ \\ ComputerName**.|
 |---------------------|-|
-|-h \<hivefile hiveroot >|Specifica l'hive del Registro di sistema locale da modificare. È necessario specificare il nome del file di hive e la radice dell'hive nel formato **hivefile hiveroot**.|
-|-i \<n >|Specifica il livello di rientro da utilizzare per indicare la struttura ad albero delle chiavi del Registro di sistema nell'output del comando. Lo strumento **Regdmp. exe** , che ottiene le autorizzazioni correnti della chiave del registro di sistema in formato binario, utilizza il rientro in multipli di quattro, quindi il valore predefinito è **4**.|
-|-o \<OutputWidth >|Specifica la larghezza dell'output del comando, in caratteri. Se l'output verrà visualizzato nella finestra di comando, il valore predefinito è la larghezza della finestra. Se l'output viene indirizzato a un file, il valore predefinito è **240** caratteri.|
-|-b|Specifica che **Regini.exe** output è compatibile con le versioni precedenti di **Regini.exe**. Per informazioni dettagliate, vedere la sezione Osservazioni.|
+|-h \< hivefile hiveroot>|Specifica l'hive del Registro di sistema locale da modificare. È necessario specificare il nome del file di hive e la radice dell'hive nel formato **hivefile hiveroot**.|
+|-i \< n>|Specifica il livello di rientro da utilizzare per indicare la struttura ad albero delle chiavi del Registro di sistema nell'output del comando. Lo strumento **Regdmp. exe** , che ottiene le autorizzazioni correnti della chiave del registro di sistema in formato binario, utilizza il rientro in multipli di quattro, quindi il valore predefinito è **4**.|
+|-o \< outputwidth>|Specifica la larghezza dell'output del comando, in caratteri. Se l'output verrà visualizzato nella finestra di comando, il valore predefinito è la larghezza della finestra. Se l'output viene indirizzato a un file, il valore predefinito è **240** caratteri.|
+|-b|Specifica che **Regini.exe** output è compatibile con le versioni precedenti di **Regini.exe**. Vedere la sezione Osservazioni per informazioni dettagliate.|
 |textfiles|Specifica il nome di uno o più file di testo che contengono dati del Registro di sistema. È possibile elencare qualsiasi numero di file di testo ANSI o Unicode.|
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 Le linee guida seguenti si applicano principalmente per il contenuto dei file di testo che contengono dati del Registro di sistema che è possibile applicare utilizzando **Regini.exe**.
 -   Utilizzare il punto e virgola come carattere di fine della riga commento. Deve essere il primo carattere non vuote in una riga.
 -   Utilizzare la barra rovesciata per indicare di continuazione di una riga. Il comando verrà ignorati tutti i caratteri compresi la barra rovesciata fino a (ma non inclusa) il primo carattere non vuoto della riga successiva. Se si include più di uno spazio prima la barra rovesciata, viene sostituita da uno spazio singolo.
 -   Utilizzare caratteri di tabulazione disco rigido per controllare il rientro. Questo rientro indica la struttura ad albero delle chiavi del Registro di sistema; Tuttavia, questi caratteri vengono convertiti in un singolo spazio indipendentemente dalla loro posizione.
 
-## <a name="additional-references"></a>Altre informazioni di riferimento
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

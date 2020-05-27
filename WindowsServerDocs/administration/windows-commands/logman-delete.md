@@ -1,6 +1,6 @@
 ---
 title: Logman delete
-description: Argomento di riferimento per * * * *-
+description: Argomento di riferimento per il comando logman Delete, che consente di eliminare un agente di raccolta dati esistente.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,38 +9,46 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8b30fd6eb7915d3d0296988a98968dcde58bdbc2
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: af13e802a1b11636a3cbfe7c908f6d26497cf506
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724369"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820581"
 ---
 # <a name="logman-delete"></a>Logman delete
 
 > Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Elimina un agente di raccolta dati esistente.  
+Elimina un agente di raccolta dati esistente.
 
-## <a name="syntax"></a>Sintassi  
-```  
-logman delete <[-n] <name>> [options]  
-```  
-### <a name="parameters"></a>Parametri  
+## <a name="syntax"></a>Sintassi
 
-|        Parametro        |                                                                               Descrizione                                                                               |
-|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|           /?            |                                                                    Vengono visualizzate sensibile al contesto della Guida.                                                                     |
-|   -s<computer name>    |                                                          Eseguire il comando nel computer remoto specificato.                                                          |
-|     -config <value>     |                                                         Specifica il file di impostazioni che contiene le opzioni di comando.                                                         |
-|       [-n]<name>       |                                                                   Nome dell'agente di raccolta di dati di destinazione.                                                                    |
-|          -ets           |                                              Inviare comandi alle sessioni di traccia eventi direttamente senza salvare o pianificare.                                               |
-| -u [-] < utente [password] > | Specifica l'utente di Esegui come. L'immissione \* di un oggetto per la password genera una richiesta per la password. La password non viene visualizzata quando si digita. |
+```
+logman delete <[-n] <name>> [options]
+```
 
-## <a name="examples"></a>Esempi  
-Il comando seguente elimina perf_log l'agente di raccolta dati.  
-```  
-logman delete perf_log  
-```  
-## <a name="additional-references"></a>Riferimenti aggiuntivi  
-[logman](logman.md)  
+### <a name="parameters"></a>Parametri
+
+| Parametro | Descrizione |
+| --------- | ----------- |
+| -s`<computer name>` | Esegue il comando nel computer remoto specificato. |
+| -config`<value>` | Specifica il file di impostazioni che contiene le opzioni di comando. |
+| [-n]`<name>` | Nome dell'oggetto di destinazione. |
+| -ets | Invia comandi direttamente alle sessioni di traccia eventi senza salvare o pianificare. |
+| -[-] u`<user [password]>` | Specifica l'utente di Esegui come. L'immissione di un oggetto \* per la password genera una richiesta per la password. La password non viene visualizzata quando la si digita al prompt della password. |
+| /? | Vengono visualizzate sensibile al contesto della Guida. |
+
+### <a name="examples"></a>Esempi
+
+Per eliminare l'agente di raccolta dati *perf_log*, digitare:
+
+```
+logman delete perf_log
+```
+
+## <a name="additional-references"></a>Riferimenti aggiuntivi
+
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [logman](logman.md)

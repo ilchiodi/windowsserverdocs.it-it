@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 0c3405818d3ed11d14dee6c2fc8796c024ef253e
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: f0589fcd094d60fd5c3d9bc8798d273c49fb042b
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723820"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820901"
 ---
 # <a name="nbtstat"></a>nbtstat
 
 > Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Visualizza le statistiche del protocollo NetBIOS su TCP/IP (NetBT), le tabelle dei nomi NetBIOS per il computer locale e i computer remoti e la cache dei nomi NetBIOS. **nbtstat** consente l'aggiornamento della cache dei nomi NetBIOS e dei nomi registrati con WINS (Windows Internet Name Service). Usato senza parametri, **nbtstat** Visualizza la guida. 
+Visualizza le statistiche del protocollo NetBIOS su TCP/IP (NetBT), le tabelle dei nomi NetBIOS per il computer locale e i computer remoti e la cache dei nomi NetBIOS. **nbtstat** consente l'aggiornamento della cache dei nomi NetBIOS e dei nomi registrati con WINS (Windows Internet Name Service). Usato senza parametri, **nbtstat** Visualizza la guida.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -30,7 +30,7 @@ nbtstat [/a <remoteName>] [/A <IPaddress>] [/c] [/n] [/r] [/R] [/RR] [/s] [/S] [
 
 #### <a name="parameters"></a>Parametri
 
-|    Parametro    |                                                                                                                         Descrizione                                                                                                                         |
+|    Parametro    |                                                                                                                         Description                                                                                                                         |
 |-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | /a<remoteName> |    Visualizza la tabella dei nomi NetBIOS di un computer remoto, dove *RemoteName* è il nome del computer NetBIOS del computer remoto. La tabella dei nomi NetBIOS è l'elenco di nomi NetBIOS che corrisponde alle applicazioni NetBIOS in esecuzione nel computer.     |
 | /A<IPaddress>  |                                                           Visualizza la tabella dei nomi NetBIOS di un computer remoto, specificato dall'indirizzo IP (in notazione decimale punteggiata) del computer remoto.                                                            |
@@ -59,7 +59,7 @@ nbtstat [/a <remoteName>] [/A <IPaddress>] [/c] [/n] [/r] [/R] [/RR] [/s] [/S] [
     |Nome locale|Nome NetBIOS locale associato alla connessione.|
     |Host remoto|Nome o indirizzo IP associato al computer remoto.|
     |<03>|Ultimo byte di un nome NetBIOS convertito in esadecimale. Ogni nome NetBIOS è lungo 16 caratteri. Questo ultimo byte ha spesso un significato speciale perché lo stesso nome può essere presente più volte in un computer, che differisce solo per l'ultimo byte. Ad esempio, <20> è uno spazio nel testo ASCII.|
-    |type|Tipo di nome. Un nome può essere un nome univoco o un nome di gruppo.|
+    |tipo|Tipo di nome. Un nome può essere un nome univoco o un nome di gruppo.|
     |Stato|Se il servizio NetBIOS nel computer remoto è in esecuzione (registrato) o se un nome di computer duplicato ha registrato lo stesso servizio (conflitto).|
     |State|Stato delle connessioni NetBIOS.|
 
@@ -126,6 +126,6 @@ nbtstat /S 5
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 
 

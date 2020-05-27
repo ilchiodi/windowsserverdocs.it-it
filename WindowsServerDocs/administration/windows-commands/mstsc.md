@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e3355aa310bb9919b5218052878d94416f577381
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: bee9dabe0e9344c7870e53ed34e4c9dd057cfc42
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723836"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820841"
 ---
 # <a name="mstsc"></a>mstsc
 
@@ -37,7 +37,7 @@ mstsc.exe /migrate
 |        Parametro        |                                                         Descrizione                                                         |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------|
 |    <Connection File>    |                                   Specifica il nome di un file con estensione RDP per la connessione.                                    |
-|  /v: server\><[: porta\><] |                Specifica il computer remoto e, facoltativamente, il numero di porta a cui si desidera connettersi.                 |
+|  /v: server <\> [: porta <\> ] |                Specifica il computer remoto e, facoltativamente, il numero di porta a cui si desidera connettersi.                 |
 |         /admin          |                                   Consente di connettersi a una sessione per l'amministrazione del server.                                   |
 |           /f            |                                    Avvia Connessione Desktop remoto in modalità schermo intero.                                    |
 |       /w<Width>        |                                      Specifica la larghezza della finestra di Desktop remoto.                                      |
@@ -63,5 +63,5 @@ mstsc.exe /migrate
     ```
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Informazioni di riferimento sui comandi di Servizi Desktop remoto (Servizi terminal)](remote-desktop-services-terminal-services-command-reference.md)

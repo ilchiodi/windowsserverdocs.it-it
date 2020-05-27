@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d1bf42da356d8326f459066fc168bbd38b7765b0
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 494fb294e7eb0da1b8a0165182d33e799fe56371
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724083"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820601"
 ---
 # <a name="manage-bde-status"></a>Manage-bde: stato
 
@@ -59,5 +59,5 @@ manage-bde –status C:
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Manage-bde](manage-bde.md)

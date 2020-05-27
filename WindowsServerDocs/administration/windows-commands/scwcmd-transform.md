@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1f1116b42d356cc36f478089cdf487a38e792e87
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 86c88f0207a53da813f5d4eaed399375bfc5bc02
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722116"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820951"
 ---
 # <a name="scwcmd-transform"></a>Scwcmd: trasformare
 
@@ -39,8 +39,8 @@ scwcmd transform /p:<Policyfile.xml> /g:<GPODisplayName>
 
 |Parametro|Descrizione|
 |---------|-----------|
-|/p:\<policyFile. XML>|Specifica il percorso e il nome del file di criteri XML che deve essere applicato. Questo parametro deve essere specificato.|
-|/g:\<GPODisplayName>|Specifica il nome visualizzato dell'oggetto Criteri di gruppo. Questo parametro deve essere specificato.|
+|/p: \< policyFile. xml>|Specifica il percorso e il nome del file di criteri XML che deve essere applicato. Questo parametro deve essere specificato.|
+|/g: \< GPODisplayName>|Specifica il nome visualizzato dell'oggetto Criteri di gruppo. Questo parametro deve essere specificato.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
 ## <a name="remarks"></a>Osservazioni
@@ -56,4 +56,4 @@ scwcmd transform /p:FileServerPolicy.xml /g:FileServerSecurity
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

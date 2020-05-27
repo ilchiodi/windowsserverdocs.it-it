@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f08a8396219924ac6660828464e035c7744729b1
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 9a8c002aa735b188fdd9ad75b0db7dbe06053516
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722100"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821161"
 ---
 # <a name="scwcmd"></a>Scwcmd
 
@@ -50,4 +50,4 @@ scwcmd <command> [<subcommand>]
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -1,38 +1,43 @@
 ---
-title: verbose_1 FTP
-description: Argomento di riferimento per * * * *-
+title: FTP dettagliato
+description: Argomento di riferimento per il comando FTP Verbose, che consente di abilitare o disabilitare la modalità dettagliata.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
-ms.assetid: 59febc81-0b14-487e-8aa3-642f59d0b34f vhorne
+ms.assetid: 59febc81-0b14-487e-8aa3-642f59d0b34f
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a6f66e14a03aab1d208dc0dfad84b9274c18480f
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 1b2fa15d17c872076ac154aaa6051e3243fdc30e
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725039"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820251"
 ---
-# <a name="ftp-verbose_1"></a>FTP: verbose_1
+# <a name="ftp-verbose"></a>FTP dettagliato
 
 > Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Attiva o disattiva **dettagliato** modalità.   
-## <a name="syntax"></a>Sintassi  
-```  
-verbose  
-```  
-#### <a name="parameters"></a>Parametri  
-none  
-## <a name="remarks"></a>Osservazioni  
-Per impostazione predefinita, **dettagliato** si trova in.  Quando **dettagliato** è abilitata, tutti **ftp** vengono visualizzate le risposte.  Al termine del trasferimento di file, vengono visualizzate anche le statistiche relative l'efficienza del trasferimento.  
-## <a name="examples"></a>Esempi  
-Attiva/disattiva **dettagliato** o disattiva la modalità.  
-```  
-verbose  
-```  
-## <a name="additional-references"></a>Riferimenti aggiuntivi  
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
+Consente di abilitare o disabilitare la modalità dettagliata. Per impostazione predefinita, la modalità dettagliata è attivata. Quando la modalità dettagliata è attiva, vengono visualizzate tutte le risposte ai comandi **FTP** . Al termine del trasferimento di file, vengono visualizzate anche le statistiche relative l'efficienza del trasferimento.
+
+## <a name="syntax"></a>Sintassi
+
+```
+verbose
+```
+
+### <a name="examples"></a>Esempi
+
+Per attivare e disattivare la modalità dettagliata, digitare:
+
+```
+verbose
+```
+
+## <a name="additional-references"></a>Riferimenti aggiuntivi
+
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [Altre informazioni aggiuntive sull'FTP](https://docs.microsoft.com/previous-versions/orphan-topics/ws.10/cc756013(v=ws.10))

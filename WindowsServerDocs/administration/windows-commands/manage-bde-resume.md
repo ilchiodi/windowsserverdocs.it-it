@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1ecd5900dba2cb4ed7f7a3d4e2a2924a3393e94b
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 4559cfb429a4ad36feda94fcfcc1adc965562512
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724100"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820621"
 ---
 # <a name="manage-bde-resume"></a>Manage-bde: ripresa
 
@@ -47,5 +47,5 @@ manage-bde –resume C:
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Manage-bde](manage-bde.md)

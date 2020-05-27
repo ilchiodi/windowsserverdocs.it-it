@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 55f9dc446b17b8e61655686b9f4b6259b12dafc9
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 471bea3946aff39689ad219585d10c2d43f99a93
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724130"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820651"
 ---
 # <a name="manage-bde-on"></a>Manage-bde: on
 
@@ -27,7 +27,7 @@ Crittografa l'unità e consente di attivare BitLocker.
 ```
 manage-bde –on <Drive> {[-recoveryPassword <NumericalPassword>]|[-recoverykey <PathToExternalDirectory>]|[-startupkey <PathToExternalKeyDirectory>]|[-certificate]|
 [-tpmandpin]|[-tpmandpinandstartupkey <PathToExternalKeyDirectory>]|[-tpmandstartupkey <PathToExternalKeyDirectory>]|[-password]|[-ADAccountOrGroup <Domain\Account>]}
-[-UsedSpaceOnly][-encryptionmethod {aes128_diffuser|aes256_diffuser|aes128|aes256}] [-skiphardwaretest] [-discoveryvolumetype <FileSystemType>] [-ForceEncryptionType <type>] [-RemoveVolumeShadowCopies][-computername <Name>] 
+[-UsedSpaceOnly][-encryptionmethod {aes128_diffuser|aes256_diffuser|aes128|aes256}] [-skiphardwaretest] [-discoveryvolumetype <FileSystemType>] [-ForceEncryptionType <type>] [-RemoveVolumeShadowCopies][-computername <Name>]
 [{-?|/?}] [{-help|-h}]
 ```
 
@@ -47,7 +47,7 @@ manage-bde –on <Drive> {[-recoveryPassword <NumericalPassword>]|[-recoverykey 
 |-tpmandstartupkey|Aggiunge una protezione con chiave TPM e avvio per l'unità del sistema operativo. È inoltre possibile utilizzare **-tsk** come una versione abbreviata di questo comando.|
 |-tpmandpinandstartupkey|Aggiunge un TPM, PIN e protezione con chiave di avvio per l'unità del sistema operativo. È inoltre possibile utilizzare **- tpsk** come una versione abbreviata di questo comando.|
 |-password|Aggiunge una protezione con chiave password per l'unità dati. È inoltre possibile utilizzare **- pw** come una versione abbreviata di questo comando.|
-|-ADAccountOrGroup|Aggiunge una protezione con l'identità basata su SID per il volume. Il volume verrà sbloccato automaticamente se l'utente o il computer dispone delle credenziali corrette. Quando si specifica un account computer, aggiungere **$** un oggetto al nome del computer e specificare **– Service** per indicare che lo sblocco deve verificarsi nel contenuto del server BitLocker anziché dell'utente. È inoltre possibile utilizzare **-sid** come una versione abbreviata di questo comando.|
+|-ADAccountOrGroup|Aggiunge una protezione con l'identità basata su SID per il volume. Il volume verrà sbloccato automaticamente se l'utente o il computer dispone delle credenziali corrette. Quando si specifica un account computer, aggiungere un oggetto **$** al nome del computer e specificare **– Service** per indicare che lo sblocco deve verificarsi nel contenuto del server BitLocker anziché dell'utente. È inoltre possibile utilizzare **-sid** come una versione abbreviata di questo comando.|
 |-UsedSpaceOnly|Imposta la modalità di crittografia per la crittografia solo dello spazio utilizzato. Le sezioni del volume che contiene lo spazio utilizzato verranno crittografate, ma non lo spazio disponibile. Se questa opzione non è specificata, tutti spazio utilizzato e spazio libero nel volume verrà crittografato. È inoltre possibile utilizzare **-utilizzato** come una versione abbreviata di questo comando.|
 |-encryptionMethod|Consente di configurare le dimensioni di chiave e l'algoritmo di crittografia. È inoltre possibile utilizzare **-em** come una versione abbreviata di questo comando.|
 |-skiphardwaretest|Inizia la crittografia senza un test dell'hardware. È inoltre possibile utilizzare **-s** come una versione abbreviata di questo comando.|
@@ -85,5 +85,5 @@ manage-bde –on C: -fet Hardware
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 -   [Manage-bde](manage-bde.md)

@@ -1,45 +1,59 @@
 ---
-title: remotehelp_1 FTP
-description: Argomento di riferimento per * * * *-
+title: remotehelp FTP
+description: Argomento di riferimento per il comando ftp remotehelp, che visualizza la guida per i comandi remoti.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
-ms.assetid: ef23adf3-ead4-44c8-ac1d-c8a6f4b2bf73 vhorne
+ms.assetid: ef23adf3-ead4-44c8-ac1d-c8a6f4b2bf73
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dc4affb3f04eadaa4e0005e5edce0f564156f64a
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 659de5487890b50aab9004f650e4584085e7306c
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82725138"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820321"
 ---
-# <a name="ftp-remotehelp_1"></a>FTP: remotehelp_1
+# <a name="ftp-remotehelp"></a>remotehelp FTP
 
 > Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Visualizza la guida per i comandi remoti.   
-## <a name="syntax"></a>Sintassi  
-```  
-remotehelp [<Command>]  
-```  
-#### <a name="parameters"></a>Parametri  
-|Parametro|Descrizione|  
-|-------|--------|  
-|[<Command>]|Specifica il nome del comando su cui si desidera visualizzare la guida. Se *Command* non è specificato, **FTP** Visualizza un elenco di tutti i comandi remoti.|  
-## <a name="remarks"></a>Osservazioni  
-È possibile eseguire comandi remoti usando **virgolette** o **valori letterali**.  
-## <a name="examples"></a>Esempi  
-Visualizza un elenco di comandi remoti.  
-```  
-remotehelp  
-```  
-Visualizza la sintassi del comando **feat** remote.  
-```  
-remotehelp feat  
-```  
-## <a name="additional-references"></a>Riferimenti aggiuntivi  
--   [FTP: virgolette](ftp-quote.md)  
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
+Visualizza la guida per i comandi remoti.
+
+## <a name="syntax"></a>Sintassi
+
+```
+remotehelp [<command>]
+```
+
+### <a name="parameters"></a>Parametri
+
+| Parametro | Descrizione |
+| ------- | -------- |
+| `[<command>]` | Specifica il nome del comando su cui si desidera visualizzare la guida. Se `<command>` non è specificato, questo comando Visualizza un elenco di tutti i comandi remoti. È anche possibile eseguire comandi remoti usando una [virgoletta FTP](ftp-quote.md) o un [valore letterale FTP](ftp-literal_1.md). |
+
+### <a name="examples"></a>Esempi
+
+Per visualizzare un elenco di comandi remoti, digitare:
+
+```
+remotehelp
+```
+
+Per visualizzare la sintassi del comando *feat* remote, digitare:
+
+```
+remotehelp feat
+```
+
+## <a name="additional-references"></a>Riferimenti aggiuntivi
+
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [virgolette FTP](ftp-quote.md)
+
+- [valore letterale FTP](ftp-literal_1.md)
+
+- [Altre informazioni aggiuntive sull'FTP](https://docs.microsoft.com/previous-versions/orphan-topics/ws.10/cc756013(v=ws.10))

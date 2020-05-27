@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 08/21/2018
-ms.openlocfilehash: cf2d23c7d5773662f679a9a20b0aaba118f35548
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 9b4727e985070e2e76fd53038d33148003d87ebb
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720632"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820891"
 ---
 # <a name="wscript"></a>wscript
 
@@ -39,11 +39,11 @@ wscript [<scriptname>] [/b] [/d] [/e:<engine>] [{/h:cscript|/h:wscript}] [/i] [/
 |/h: cscript|Registra **cscript. exe** come host di script predefinito per l'esecuzione di script.|
 |/h: WScript|Registra **WScript. exe** come host di script predefinito per l'esecuzione di script. Si tratta dell'impostazione predefinita quando si omette l'opzione **/h** .|
 |/i|Specifica la modalità interattiva, che visualizza gli avvisi, errori di script e richieste di input.</br>Si tratta dell'impostazione predefinita e l'opposto di **/b**.|
-|/minuto:\<identificatore>|Esegue il processo identificato dall' *identificatore* in un file di script **. wsf** .|
+|/minuto: \< identificatore>|Esegue il processo identificato dall' *identificatore* in un file di script **. wsf** .|
 |/logo|Specifica che l'intestazione di Windows Script Host verrà visualizzata nella console prima dell'esecuzione dello script.</br>Si tratta dell'impostazione predefinita e del contrario di **/nologo**.|
 |/nologo|Specifica che l'intestazione di Windows Script Host non viene visualizzata prima dell'esecuzione dello script. Si tratta del contrario di **/logo**.|
 |/s|Salva le opzioni del prompt dei comandi correnti per l'utente corrente.|
-|/t:\<numero>|Specifica il tempo massimo che esecuzione dello script (in secondi). È possibile specificare fino a 32.767 secondi.</br>Il valore predefinito non è alcun limite di tempo.|
+|/t: \< numero>|Specifica il tempo massimo che esecuzione dello script (in secondi). È possibile specificare fino a 32.767 secondi.</br>Il valore predefinito non è alcun limite di tempo.|
 |/x|Avvia lo script nel debugger.|
 |ScriptArguments|Specifica gli argomenti passati allo script. Ogni argomento dello script deve essere preceduto da una barra (/).|
 |/?|Visualizza la Guida al prompt dei comandi.|
@@ -61,4 +61,4 @@ wscript [<scriptname>] [/b] [/d] [/e:<engine>] [{/h:cscript|/h:wscript}] [/i] [/
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

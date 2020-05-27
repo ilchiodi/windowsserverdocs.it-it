@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 4d659429f4aa60d7c12ae0ba93e068cc0c99c093
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: dda26f5f610c86b04d042d4428a3a2e88d8161bd
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722082"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821131"
 ---
 # <a name="seceditconfigure"></a>secedit: configura
 
@@ -60,4 +60,4 @@ Secedit /configure /db C:\Security\FY11\SecDbContoso.sdb /cfg SecContoso.inf /ov
 
 -   [Secedit](secedit.md)
 -   [Secedit:analyze](secedit-analyze.md)
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
