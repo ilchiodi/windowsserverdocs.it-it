@@ -1,6 +1,6 @@
 ---
-title: 'che Ksetup: delkdc'
-description: Argomento di riferimento per * * * *-
+title: delkdc che Ksetup
+description: Argomento di riferimento per il comando che Ksetup delkdc, che elimina le istanze dei nomi Centro distribuzione chiavi (KDC) per l'area di autenticazione Kerberos.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,52 +9,53 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 19ebe322d414d1ae9007275772ccd747f6f0ff8d
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: bd3901558f1cda0d2e1d4e7c12b0d2b151870fa8
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724670"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83817851"
 ---
-# <a name="ksetupdelkdc"></a>che Ksetup: delkdc
-
-
+# <a name="ksetup-delkdc"></a>delkdc che Ksetup
 
 Elimina le istanze di nomi di Centro distribuzione chiavi (KDC) per l'area di autenticazione Kerberos.
+
+Il mapping viene archiviato nel registro di sistema, in `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\LSA\Kerberos\Domains` . Dopo l'esecuzione di questo comando, è consigliabile verificare che il KDC sia stato rimosso e non sia più presente nell'elenco.
+
+> [!NOTE]
+> Per rimuovere i dati di configurazione dell'area di autenticazione da più computer, utilizzare lo snap-in **modello di configurazione di sicurezza** con la distribuzione dei criteri, anziché utilizzare il comando **che Ksetup** in modo esplicito nei singoli computer.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-ksetup /delkdc <RealmName> <KDCName>
+ksetup /delkdc <realmname> <KDCname>
 ```
 
-#### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|\<RealmName>|Il nome dell'area di autenticazione è specificato come un nome DNS lettere maiuscole, ad esempio CORP. CONTOSO.COM e è elencato come area di autenticazione predefinito quando **che ksetup** viene eseguito. È l'area di autenticazione da cui si sta tentando di eliminare il KDC altri.|
-|\<> KDCName|Il nome KDC è indicato come nome di dominio completo, tra maiuscole e minuscole, ad esempio mitkdc.contoso.com.|
+| Parametro | Descrizione |
+| --------- | ----------- |
+| `<realmname>` | Specifica il nome DNS in maiuscolo, ad esempio CORP. CONTOSO.COM. Si tratta dell'area di autenticazione predefinita visualizzata quando si esegue il comando **che Ksetup** ed è l'area di autenticazione da cui si desidera eliminare il KDC. |
+| `<KDCname>` | Specifica il nome di dominio completo con distinzione tra maiuscole e minuscole, ad esempio mitkdc.contoso.com. |
 
-## <a name="remarks"></a>Osservazioni
+### <a name="examples"></a>Esempi
 
-Questi mapping sono memorizzati nel Registro di sistema **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\LSA\Kerberos\Domains**. Per rimuovere i dati di configurazione dell'area di autenticazione da più computer, utilizzare il modello di configurazione di sicurezza lo snap-in e distribuzione dei criteri anziché **che ksetup** in modo esplicito nei singoli computer.
+Per visualizzare tutte le associazioni tra l'area di autenticazione di Windows e l'area di autenticazione non Windows e per individuare quelle da rimuovere, digitare:
 
-Nei computer che eseguono Windows 2000 Server con Service Pack 1 (SP1) e versioni precedenti, è necessario riavviare il computer prima che la configurazione di impostazione dell'area di autenticazione modificato verrà utilizzata.
-
-Per verificare il nome dell'area di autenticazione predefinito per il computer, o per verificare che questo comando funzioni come previsto, eseguire **che ksetup** al prompt dei comandi e verificare che il KDC è stato rimosso non esiste nell'elenco.
-
-## <a name="examples"></a>Esempi
-
-I requisiti di sicurezza per questo computer sono stati modificati in modo che il collegamento tra l'area di autenticazione di Windows e l'area di autenticazione di Windows non deve essere rimosso. Innanzitutto, determinare quale associazione da rimuovere e produrre l'output delle associazioni esistenti:
 ```
 ksetup
 ```
-Rimuovere l'associazione utilizzando il comando seguente:
+
+Per rimuovere l'associazione, digitare:
+
 ```
-Ksetup /delkdc CORP.CONTOSO.COM mitkdc.contoso.com
+ksetup /delkdc CORP.CONTOSO.COM mitkdc.contoso.com
 ```
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
--   [Che Ksetup](ksetup.md)
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando che Ksetup](ksetup.md)
+
+- [comando che Ksetup addkdc](ksetup-addkdc.md)

@@ -9,24 +9,24 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f523c55f5974599c152f4fbae7d8143d5362af62
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 0a63c74e3d25e11ccc8129a6ce28fd505e9227eb
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724247"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820531"
 ---
 # <a name="lpr"></a>lpr
 
 > Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Invia un file a un computer o a un dispositivo di condivisione stampanti che esegue il servizio LPD (Line Printer Daemon) in preparazione alla stampa.  
+Invia un file a un computer o a un dispositivo di condivisione stampanti che esegue il servizio LPD (Line Printer Daemon) in preparazione alla stampa.
 
-## <a name="syntax"></a>Sintassi  
-```  
-lpr [-S <ServerName>] -P <printerName> [-C <BannerContent>] [-J <JobName>] [-o | -o l] [-x] [-d] <filename>  
-```  
-### <a name="parameters"></a>Parametri  
+## <a name="syntax"></a>Sintassi
+```
+lpr [-S <ServerName>] -P <printerName> [-C <BannerContent>] [-J <JobName>] [-o | -o l] [-x] [-d] <filename>
+```
+### <a name="parameters"></a>Parametri
 
 |     Parametro      |                                                                                                           Descrizione                                                                                                           |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -40,19 +40,19 @@ lpr [-S <ServerName>] -P <printerName> [-C <BannerContent>] [-J <JobName>] [-o |
 |     <FileName>     |                                                                                      Specifica (nome) il file da stampare. Obbligatorio.                                                                                      |
 |         /?         |                                                                                              Visualizza la guida al prompt dei comandi.                                                                                               |
 
-## <a name="remarks"></a>Osservazioni  
-- Per trovare il nome della stampante, aprire la cartella stampanti.  
-- Il **-S**, **-P**, **- C**, e **-J** parametri devono essere digitati in lettere maiuscole e minuscole.  
-  ## <a name="examples"></a>Esempi  
-  Questo esempio illustra come stampare il file di testo Document. txt nella coda della stampante stampa laserprinter1 in un host LPD in 10.0.0.45:  
-  ```  
-  lpr -S 10.0.0.45 -P Laserprinter1 -o Document.txt  
-  ```  
-  Questo esempio illustra come stampare il file Adobe PostScript PostScript_file. PS nella coda della stampante stampa laserprinter1 in un host LPD in 10.0.0.45:  
-  ```  
-  lpr -S 10.0.0.45 -P Laserprinter1 -o l PostScript_file.ps  
-  ```  
+## <a name="remarks"></a>Osservazioni
+- Per trovare il nome della stampante, aprire la cartella stampanti.
+- Il **-S**, **-P**, **- C**, e **-J** parametri devono essere digitati in lettere maiuscole e minuscole.
+  ## <a name="examples"></a>Esempi
+  Questo esempio illustra come stampare il file di testo Document. txt nella coda della stampante stampa laserprinter1 in un host LPD in 10.0.0.45:
+  ```
+  lpr -S 10.0.0.45 -P Laserprinter1 -o Document.txt
+  ```
+  Questo esempio illustra come stampare il file Adobe PostScript PostScript_file. PS nella coda della stampante stampa laserprinter1 in un host LPD in 10.0.0.45:
+  ```
+  lpr -S 10.0.0.45 -P Laserprinter1 -o l PostScript_file.ps
+  ```
 
-## <a name="additional-references"></a>Riferimenti aggiuntivi  
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)  
--   [Riferimento al comando stampa](print-command-reference.md)  
+## <a name="additional-references"></a>Riferimenti aggiuntivi
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+-   [Riferimento al comando stampa](print-command-reference.md)

@@ -1,6 +1,6 @@
 ---
-title: 'che Ksetup: addkpasswd'
-description: Argomento di riferimento per * * * *-
+title: addkpasswd che Ksetup
+description: Argomento di riferimento per il comando che Ksetup addkpasswd, che aggiunge un indirizzo del server di password Kerberos (kpasswd) per un'area di autenticazione.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,52 +9,50 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c260c711ae87f88be8b9466e73afaf3fe1c83a1e
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: e0cff2f3d74e6d862bbdd000602a1d03312373d2
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724731"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83818071"
 ---
-# <a name="ksetupaddkpasswd"></a>che Ksetup: addkpasswd
+# <a name="ksetup-addkpasswd"></a>addkpasswd che Ksetup
 
-
-
-Aggiunge un indirizzo del server Kerberos password (Kpasswd) per un'area di autenticazione.
+Aggiunge un indirizzo del server di password Kerberos (kpasswd) per un'area di autenticazione.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-ksetup /addkpasswd <RealmName> [<KpasswdName>]
+ksetup /addkpasswd <realmname> [<kpasswdname>]
 ```
 
-#### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
-Se l'area di autenticazione Kerberos che la workstation verrà autenticati su supporto di Kerberos modifica protocollo password, è possibile configurare un computer client che eseguono il sistema operativo Windows per utilizzare un server di password Kerberos. Questa impostazione è configurata sul lato dell'area di autenticazione.
+| Parametro | Descrizione |
+| --------- | ----------- |
+| `<realmname>` | Specifica il nome DNS in maiuscolo, ad esempio CORP. CONTOSO.COM ed è elencato come area di autenticazione predefinita o **Realm =** quando viene eseguito **che Ksetup** . |
+| `<kpasswdname>` | Specifica il server di password Kerberos. Viene indicato come nome di dominio completo senza distinzione tra maiuscole e minuscole, ad esempio mitkdc.contoso.com. Se viene omesso il nome KDC, DNS potrebbe essere utilizzata per individuare KDC. |
 
-|Parametro|Descrizione|
-|---------|-----------|
-|\<RealmName>|Il nome dell'area di autenticazione è specificato come un nome DNS lettere maiuscole, ad esempio CORP. CONTOSO.COM e viene indicato il valore predefinito dell'area di autenticazione o dell'area di autenticazione = quando **che ksetup** viene eseguito.|
-|\<> KpasswdName|Il nome KDC che deve essere utilizzato come server delle password Kerberos viene dichiarato come un nome di dominio completo distinzione tra maiuscole e minuscole, ad esempio mitkdc.microsoft.com. Se viene omesso il nome KDC, DNS potrebbe essere utilizzata per individuare KDC.|
+#### <a name="remarks"></a>Osservazioni
 
-## <a name="remarks"></a>Osservazioni
+- Se l'area di autenticazione Kerberos che la workstation verrà autenticati su supporto di Kerberos modifica protocollo password, è possibile configurare un computer client che eseguono il sistema operativo Windows per utilizzare un server di password Kerberos.
 
-Se l'area di autenticazione Kerberos che la workstation verrà autenticati su supporto di Kerberos modifica protocollo password, è possibile configurare un computer client che eseguono il sistema operativo Windows per utilizzare un server di password Kerberos.
+- È possibile aggiungere ulteriori nomi KDC uno alla volta.
 
-Eseguire il comando **che ksetup** per verificare il nome KDC. Se **kpasswd =** non viene visualizzato nell'output, non è stato configurato il mapping.
+### <a name="examples"></a>Esempi
 
-È possibile aggiungere ulteriori nomi KDC uno alla volta.
+Per configurare la CORP. CONTOSO.COM area di autenticazione per utilizzare il server KDC non Windows, mitkdc.contoso.com, come server delle password, digitare:
 
-## <a name="examples"></a>Esempi
-
-Configurare l'area di autenticazione, CORP. CONTOSO.COM, in modo che utilizzi il server KDC non Windows, mitkdc.contoso.com, come server di password:
 ```
 ksetup /addkpasswd CORP.CONTOSO.COM mitkdc.contoso.com
 ```
-In questo modo un server di password Kerberos non Windows che controlla tutte le password per l'autenticazione tra i file e l'area di autenticazione.
+
+Per verificare che sia impostato il nome KDC, digitare `ksetup` e quindi visualizzare l'output, cercando il testo **kpasswd =**. Se il testo non viene visualizzato, significa che il mapping non è stato configurato.
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
--   [Che Ksetup](ksetup.md)
--   [Ksetup:delkpasswd](ksetup-delkpasswd.md)
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando che Ksetup](ksetup.md)
+
+- [comando che Ksetup delkpasswd](ksetup-delkpasswd.md)

@@ -9,18 +9,18 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a4384ce8d4f23966aea278e90b9ddddc42da6e77
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: bf914e4e7da4f00c547353da4fc8d04ad6828646
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724231"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83820521"
 ---
 # <a name="macfile"></a>macfile
 
 > Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Gestisce i File Server per server, volumi, directory e file Macintosh. È possibile automatizzare le attività amministrative includendo una serie di comandi nel file batch e li avviando manualmente o a orari prestabiliti. 
+Gestisce i File Server per server, volumi, directory e file Macintosh. È possibile automatizzare le attività amministrative includendo una serie di comandi nel file batch e li avviando manualmente o a orari prestabiliti.
 -   [Per modificare le directory nei volumi accessibile da Macintosh](#BKMK_Moddirs)
 -   [Consente di unire dati di un file Macintosh e fork delle risorse](#BKMK_Joinforks)
 -   [Per modificare il messaggio di accesso e limitare le sessioni](#BKMK_LogonLimit)
@@ -34,9 +34,9 @@ macfile directory[/server:\\<computerName>] /path:<directory> [/owner:<OwnerName
 ```
 
 #### <a name="parameters"></a>Parametri
--   /Server:\\ \\ <computerName> specifica il server in cui modificare una directory. Se omesso, l'operazione viene eseguita nel computer locale.
+-   /Server: \\ \\ <computerName> specifica il server in cui modificare una directory. Se omesso, l'operazione viene eseguita nel computer locale.
 -   /Path:<directory> richiesto. Specifica il percorso della directory che si desidera modificare. La directory deve esistere. la **directory MacFile** non crea directory.
--   /Owner.:<OwnerName> modifica il proprietario della directory. Se omesso, il proprietario rimane invariato.
+-   /Owner.: <OwnerName> modifica il proprietario della directory. Se omesso, il proprietario rimane invariato.
 -   al gruppo:<GroupName> specifica o Macintosh principale gruppo di modifiche associati alla directory. Se omesso, il gruppo primario rimane invariato.
 -   /Permissions:<Permissions> Imposta le autorizzazioni per la directory per il proprietario, gruppo primario e qualunque altro utente. Un numero a 11 cifre viene utilizzato per impostare le autorizzazioni. Il numero 1 concede l'autorizzazione e 0 la revoca dell'autorizzazione (ad esempio 11111011000). Se omesso, le autorizzazioni rimangono invariate.
     La posizione della cifra determina l'autorizzazione è impostata, come descritto nella tabella seguente.
@@ -94,7 +94,7 @@ Per creare il file albero nel nel volume accessibile da Macintosh D:\Release, us
 ```
 macfile forkize /resourcefork:c:\cross\mac\appcode /type:APPL /creator:MAGNOLIA /targetfile:D:\Release\treeapp
 ```
-Per modificare l'autore del file in Microsoft Word 5,1, per il file WOrd. txt nella directory D:\Word documents\Group files, nel server \\\SERverA, digitare:
+Per modificare l'autore del file in Microsoft Word 5,1, per il file WOrd. txt nella directory D:\Word documents\Group files, nel server \\ \SERverA, digitare:
 ```
 macfile forkize /server:\\servera /creator:MSWD /type:TEXT /targetfile:d:\Word documents\Group files\Word.txt
 ```
@@ -157,7 +157,7 @@ Per modificare il volume creato in precedenza sia di sola lettura e in modo da r
 ```
 macfile volume /set /name:US Marketing Statistics /readonly:true /password:saturn /maxusers:5
 ```
-Per aggiungere un volume denominato Landscape Design, nel server \\\Magnolia, usando la directory Trees nell'unità e e per specificare che il volume può essere accessibile dai Guest, digitare:
+Per aggiungere un volume denominato Landscape Design, nel server \\ \Magnolia, usando la directory Trees nell'unità e e per specificare che il volume può essere accessibile dai Guest, digitare:
 ```
 macfile volume /add /server:\\Magnolia /name:Landscape Design /path:e:\trees
 ```
@@ -167,4 +167,4 @@ macfile volume /remove /name:Sales Reports
 ```
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

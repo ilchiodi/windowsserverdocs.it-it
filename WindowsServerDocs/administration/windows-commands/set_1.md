@@ -1,6 +1,6 @@
 ---
 title: set
-description: Argomento di riferimento per set, che Visualizza, imposta o rimuove CMD. Variabili di ambiente EXE.
+description: Argomento di riferimento per set, che consente di visualizzare, impostare o rimuovere le variabili di ambiente cmd. exe.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 9d537188e1f0fafdd5ecd4075a77397e12328ddf
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 5de835dd591e1f70acc896772df501d5ddbdf237
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82721880"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83819391"
 ---
 # <a name="set"></a>set
 
-Visualizza, imposta o rimuove CMD. Variabili di ambiente EXE. Se utilizzata senza parametri, **impostare** consente di visualizzare le impostazioni delle variabili di ambiente corrente.
+Visualizza, imposta o rimuove le variabili di ambiente cmd. exe. Se utilizzata senza parametri, **impostare** consente di visualizzare le impostazioni delle variabili di ambiente corrente.
 
 
 
@@ -49,7 +49,7 @@ set /a <Variable>=<Expression>
   Quando sono abilitate le estensioni dei comandi (predefinito) e si esegue **impostare** con un valore, vengono visualizzate tutte le variabili che iniziano con tale valore.
 - Utilizzo di caratteri speciali
 
-  I caratteri **<**, **>** **|**,, **&**, **^** sono caratteri speciali della shell dei comandi e devono essere preceduti dal carattere di escape (**^**) o racchiusi tra virgolette quando vengono usati nella *stringa* , ad esempio **StringaContenenteSimbolo&symbol**). Se si utilizzano le virgolette per racchiudere una stringa che contiene uno dei caratteri speciali, le virgolette sono impostate come parte del valore della variabile di ambiente.
+  I caratteri **<** ,,, **>** **|** **&** , **^** sono caratteri speciali della shell dei comandi e devono essere preceduti dal carattere di escape ( **^** ) o racchiusi tra virgolette quando vengono usati nella *stringa* , ad esempio **StringaContenenteSimbolo&symbol**). Se si usano le virgolette per racchiudere una stringa contenente uno dei caratteri speciali, le virgolette vengono impostate come parte del valore della variabile di ambiente.
 - Uso delle variabili di ambiente
 
   Utilizzare le variabili di ambiente per controllare il comportamento di alcuni programmi e file batch e per controllare il modo Windows e del sottosistema MS-DOS viene visualizzata e funziona. Il **impostare** comando viene spesso utilizzato nel file Autoexec per impostare le variabili di ambiente.
@@ -63,7 +63,7 @@ set /a <Variable>=<Expression>
   Se si specifica solo una variabile e un segno di uguale (senza *stringa*) per il **impostare** comando, il *stringa* valore associato alla variabile viene cancellata (come se la variabile non è presente).
 - Uso di **/a**
 
-  Nella tabella seguente sono elencati gli operatori supportati per **/a** in ordine decrescente di precedenza.  
+  Nella tabella seguente sono elencati gli operatori supportati per **/a** in ordine decrescente di precedenza.
 
   |        Operatore         | Operazione eseguita  |
   |-------------------------|----------------------|
@@ -78,7 +78,7 @@ set /a <Variable>=<Expression>
   | = \*=/=% = + =-= &= ^ = |      = <<= >>=       |
   |            ,            | Separatore di espressione |
 
-  Se si usano gli operatori**&&** logici (o **||**)**%** o modulo (), racchiudere la stringa dell'espressione tra virgolette. Qualsiasi stringa non numerica nell'espressione è considerati i nomi delle variabili di ambiente e i relativi valori vengono convertiti in numeri prima di essere elaborati. Se si specifica un nome di variabile di ambiente che non è definito nell'ambiente corrente, viene assegnato un valore pari a zero, che consente di eseguire operazioni aritmetiche con valori di variabili di ambiente senza utilizzare % per recuperare un valore.
+  Se si usano gli operatori logici ( **&&** o **||** ) o modulo ( **%** ), racchiudere la stringa dell'espressione tra virgolette. Qualsiasi stringa non numerica nell'espressione è considerati i nomi delle variabili di ambiente e i relativi valori vengono convertiti in numeri prima di essere elaborati. Se si specifica un nome di variabile di ambiente che non è definito nell'ambiente corrente, viene assegnato un valore pari a zero, che consente di eseguire operazioni aritmetiche con valori di variabili di ambiente senza utilizzare % per recuperare un valore.
 
   Se si esegue **set /a** dalla riga di comando all'esterno di uno script di comandi, viene visualizzato il valore finale dell'espressione.
 
@@ -94,7 +94,7 @@ set /a <Variable>=<Expression>
   Quando si creano file batch, è possibile utilizzare **impostare** per creare variabili e quindi utilizzarli nello stesso modo all'utilizzo di variabili numerate **0** tramite **%9**. È inoltre possibile utilizzare le variabili **0** tramite **%9** come input per **impostare**.
 - La chiamata a un **impostare** variabile da un file batch
 
-  Quando si chiama un valore di variabile da un file batch, racchiudere il valore con i segni**%** di percentuale (). Ad esempio, se il programma batch Crea una variabile di ambiente denominata BAUD, è possibile utilizzare la stringa associata a BAUD come parametro sostituibile digitando **% baud %** al prompt dei comandi.
+  Quando si chiama un valore di variabile da un file batch, racchiudere il valore con i segni di percentuale ( **%** ). Ad esempio, se il programma batch Crea una variabile di ambiente denominata BAUD, è possibile utilizzare la stringa associata a BAUD come parametro sostituibile digitando **% baud %** al prompt dei comandi.
 - Utilizzando **impostare** dalla Console di ripristino
 
   Il **impostare** comando con parametri diversi, è disponibile dalla Console di ripristino.
@@ -123,7 +123,7 @@ set testVar=test^^1
 > ```
 > set include=c:\inc
 > ```
-> È quindi possibile usare la stringa C:\Inc nei file batch racchiudendo il nome tra i segni di percentuale (**%**). Ad esempio, si potrebbe includere il comando seguente in un file batch in modo che sia possibile visualizzare il contenuto della directory che è associata a una variabile di ambiente INCLUDE:
+> È quindi possibile usare la stringa C:\Inc nei file batch racchiudendo il nome tra i segni di percentuale ( **%** ). Ad esempio, si potrebbe includere il comando seguente in un file batch in modo che sia possibile visualizzare il contenuto della directory che è associata a una variabile di ambiente INCLUDE:
 > ```
 > dir %include%
 > ```
@@ -139,7 +139,7 @@ set
 ```
 Per visualizzare un elenco di tutte le variabili di ambiente che iniziano con la lettera P, digitare:
 ```
-set p 
+set p
 ```
 
 > [!NOTE]

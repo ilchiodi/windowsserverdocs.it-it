@@ -1,6 +1,6 @@
 ---
 title: fveupdate
-description: Argomento di riferimento per * * * *-
+description: Argomento di riferimento per lo strumento FveUpdate, che è uno strumento interno usato dal programma di installazione quando viene aggiornato un computer.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,15 +9,17 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: e2105b7549b58a2a29ea761834c00cea32f54f71
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 2f9b2ef409ade13e9b78c068f128fe0cccb0a189
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724996"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83819085"
 ---
 # <a name="fveupdate"></a>fveupdate
 
+FveUpdate è uno strumento interno usato dal programma di installazione quando viene aggiornato un computer. Aggiorna i metadati associati BitLocker per la versione più recente. Questo strumento non può essere eseguito in modo indipendente.
 
+## <a name="additional-references"></a>Riferimenti aggiuntivi
 
-FveUpdate è uno strumento usato internamente che viene eseguito dal programma di installazione di quando viene eseguito l'aggiornamento di un computer da Windows Vista o Windows Server 2008 a Windows 7 o Windows Server 2008 R2. Aggiorna i metadati associati BitLocker per la versione più recente. Questo strumento non può essere eseguito in modo indipendente.
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

@@ -1,6 +1,6 @@
 ---
-title: 'che Ksetup: delenctypeattr'
-description: Argomento di riferimento per * * * *-
+title: delenctypeattr che Ksetup
+description: Argomento di riferimento per il delenctypeattr che Ksetup, che rimuove l'attributo del tipo di crittografia per il dominio.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,63 +9,67 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2908cc0a095a6985c11f7885766926b7f0354ab0
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: b3076a25b619615402a599bd8aaa6ce9d10d4fe0
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724708"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83817941"
 ---
-# <a name="ksetupdelenctypeattr"></a>che Ksetup: delenctypeattr
+# <a name="ksetup-delenctypeattr"></a>delenctypeattr che Ksetup
 
+Rimuove l'attributo di tipo di crittografia per il dominio. Viene visualizzato un messaggio di stato al completamento riuscito o non riuscito.
 
-
-Rimuove l'attributo di tipo di crittografia per il dominio.
+È possibile visualizzare il tipo di crittografia per il ticket di concessione ticket (TGT) Kerberos e la chiave della sessione, eseguendo il comando **klist** e visualizzando l'output. È possibile impostare il dominio per connettersi e usare, eseguendo il `ksetup /domain <domainname>` comando.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-ksetup /delenctypeattr <DomainName> 
+ksetup /delenctypeattr <domainname>
 ```
 
-#### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|\<NomeDominio>|Nome del dominio a cui si desidera stabilire una connessione. Utilizzare il nome di dominio completo o un modulo semplice del nome, ad esempio corp.contoso.com o contoso.|
+| Parametro | Descrizione |
+| ----------| ----------- |
+| `<domainname>` | Nome del dominio a cui si desidera stabilire una connessione. È possibile utilizzare il nome di dominio completo o un modulo semplice del nome, ad esempio corp.contoso.com o contoso. |
 
-## <a name="remarks"></a>Osservazioni
+### <a name="examples"></a>Esempi
 
-Per visualizzare il tipo di crittografia per Kerberos ticket di concessione ticket (TGT) e la chiave di sessione, eseguire il **klist** comando e visualizzare l'output.
+Per determinare i tipi di crittografia correnti impostati nel computer, digitare:
 
-Viene visualizzato un messaggio di stato al completamento riuscito o non riuscito.
-
-Per impostare il dominio a cui si desidera connettersi e usare, eseguire il comando **che Ksetup/domain \<DomainName>** .
-
-## <a name="examples"></a>Esempi
-
-Determinare i tipi di crittografia corrente che sono impostati su questo computer:
 ```
 klist
 ```
-Impostare il dominio mit.contoso.com:
+
+Per impostare il dominio su mit.contoso.com, digitare:
+
 ```
 ksetup /domain mit.contoso.com
 ```
-Verificare che cos'è l'attributo di tipo di crittografia per il dominio:
+
+Per verificare l'attributo di tipo di crittografia per il dominio, digitare:
+
 ```
 ksetup /getenctypeattr mit.contoso.com
 ```
-Rimuovere l'attributo di tipo set di crittografia per il dominio mit.contoso.com:
+
+Per rimuovere l'attributo set Encryption Type per il dominio mit.contoso.com, digitare:
+
 ```
 ksetup /delenctypeattr mit.contoso.com
 ```
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
--   [Klist](klist.md)
--   [Ksetup:domain](ksetup-domain.md)
--   [Ksetup:addenctypeattr](ksetup-addenctypeattr.md)
--   [Ksetup:setenctypeattr](ksetup-setenctypeattr.md)
--   [Ksetup:delenctypeattr](ksetup-delenctypeattr.md)
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando klist](klist.md)
+
+- [comando che Ksetup](ksetup.md)
+
+- [comando di dominio che Ksetup](ksetup-domain.md)
+
+- [comando che Ksetup addenctypeattr](ksetup-addenctypeattr.md)
+
+- [comando che Ksetup setenctypeattr](ksetup-setenctypeattr.md)

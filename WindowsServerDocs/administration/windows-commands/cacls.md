@@ -1,6 +1,6 @@
 ---
 title: cacls
-description: Argomento di riferimento per il comando cacls, che Visualizza o modifica gli elenchi di controllo di accesso discrezionale (DACL) sui file specificati.
+description: Argomento di riferimento per il comando cacls. Questo comando è stato deprecato e non è garantito che sia supportato nelle versioni future di Windows.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,24 +9,24 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: d827199ea319bd41511f9abadfde8c6e8949976e
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 8602157bf87e523d6d842d5636031c61b52e8ef4
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82726023"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83819251"
 ---
 # <a name="cacls"></a>cacls
 
 >[!IMPORTANT]
-> Questo comando è stato deprecato. Usare invece [icacls](icacls.md) .  
+> Questo comando è stato deprecato. Usare invece [icacls](icacls.md) .
 
-Visualizza o modifica gli elenchi di controllo di accesso discrezionale (DACL) sui file specificati.  
+Visualizza o modifica gli elenchi di controllo di accesso discrezionale (DACL) sui file specificati.
 
 ## <a name="syntax"></a>Sintassi
 
-```  
-cacls <filename> [/t] [/m] [/l] [/s[:sddl]] [/e] [/c] [/g user:<perm>] [/r user [...]] [/p user:<perm> [...]] [/d user [...]]  
+```
+cacls <filename> [/t] [/m] [/l] [/s[:sddl]] [/e] [/c] [/g user:<perm>] [/r user [...]] [/p user:<perm> [...]] [/d user [...]]
 ```
 
 ### <a name="parameters"></a>Parametri
@@ -63,7 +63,7 @@ cacls <filename> [/t] [/m] [/l] [/s[:sddl]] [/e] [/c] [/g user:<perm>] [/r user 
 
 - È possibile utilizzare caratteri jolly (**?** e **&#42;**) per specificare più file.
 
-- È possibile specificare più di un utente.  
+- È possibile specificare più di un utente.
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 

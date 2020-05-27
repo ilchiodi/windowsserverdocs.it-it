@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 07/11/2018
-ms.openlocfilehash: 8be1897b241871bcb65126b39f201769f82f50bf
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 6943a9762aed0a6c2ac71c73565ab49811a8e307
+ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83436816"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821171"
 ---
 # <a name="pathping"></a>pathping
 
@@ -88,4 +88,4 @@ Nel report di esempio precedente, le colonne **nodo/collegamento**, **perse/invi
 Il tasso di perdita visualizzato per i collegamenti, identificato come barra verticale ( **|** ) nella colonna **Address** , indica la congestione dei collegamenti che causa la perdita di pacchetti inoltrati nel percorso. I tassi di perdita visualizzati per i router (identificati dai rispettivi indirizzi IP) indicano che questi router potrebbero essere sottoposte a overload.
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
--   - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
