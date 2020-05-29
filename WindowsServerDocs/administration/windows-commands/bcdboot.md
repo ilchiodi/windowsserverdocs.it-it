@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: cde91738f524350f72f0278495e4bd46a3960e6f
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 67aacb3a575e0cdd08af5372b403916961d223c6
+ms.sourcegitcommit: ef089864980a1d4793a35cbf4cbdd02ce1962054
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82718705"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84149774"
 ---
 # <a name="bcdboot"></a>bcdboot
 
@@ -30,13 +30,13 @@ bcdboot <source> [/l] [/s]
 
 | Parametro | Descrizione |
 | --------- | ----------- |
-| source | Specifica il percorso della directory di Windows da utilizzare come origine per la copia dei file dell'ambiente di avvio. |
+| origine | Specifica il percorso della directory di Windows da utilizzare come origine per la copia dei file dell'ambiente di avvio. |
 | /l | Specifica le impostazioni locali. Le impostazioni locali predefinite sono inglesi (Stati Uniti). |
 | /s | Specifica la lettera del volume della partizione di sistema. Il valore predefinito è la partizione di sistema identificata dal firmware. |
 
 ## <a name="examples"></a>Esempi
 
-Per informazioni su dove trovare BCDboot ed esempi sull'uso di questo comando, vedere l'argomento [Opzioni della riga di comando di BCDboot](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh824874(v=win.10)x) .
+Per informazioni su dove trovare BCDboot ed esempi sull'uso di questo comando, vedere l'argomento [Opzioni della riga di comando di BCDboot](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh824874(v=win.10)) .
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
