@@ -8,16 +8,16 @@ ms.author: jgerend
 ms.technology: storage
 ms.date: 06/06/2019
 ms.localizationpriority: medium
-ms.openlocfilehash: 4a53f28867904c163346fb7943790ff0659ab006
-ms.sourcegitcommit: 29f7a4811b4d36d60b8b7c55ce57d4ee7d52e263
+ms.openlocfilehash: fbdef69f62a76fcc8d01aa0319b2b0859fc4f7cd
+ms.sourcegitcommit: 6973690a8705b24d09eb98f1713743d5e6079161
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83716876"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84211910"
 ---
 # <a name="deploy-folder-redirection-with-offline-files"></a>Distribuire Reindirizzamento cartelle con File offline
 
->Si applica a: Windows 10, Windows 7, Windows 8, Windows 8.1, Windows Vista, Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2012 R2, Windows Server 2008 R2, Windows Server (Canale semestrale)
+> Si applica a: Windows 10, Windows 7, Windows 8, Windows 8.1, Windows Vista, Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2012 R2, Windows Server 2008 R2, Windows Server (Canale semestrale)
 
 Questo argomento descrive come usare Windows Server per distribuire Reindirizzamento cartelle con File offline ai computer client.
 
@@ -83,9 +83,9 @@ Ecco come creare una condivisione file in Windows Server 2019, Windows Server 20
 7. Nella pagina **Autorizzazioni** seleziona **Personalizza autorizzazioni**. Viene visualizzata la finestra di dialogo Impostazioni di protezione avanzate.
 8. Seleziona **Disabilita ereditarietà** e quindi **Converti autorizzazioni ereditate in autorizzazioni esplicite per questo oggetto**.
 9. Imposta le autorizzazioni come descritto nella tabella 1 e mostrato nella figura 1, rimuovendo le autorizzazioni per i gruppi e gli account non elencati e aggiungendo autorizzazioni di accesso speciali al gruppo Utenti di Reindirizzamento cartelle creato nel passaggio 1.
-    
+
     ![Impostazione delle autorizzazioni per la condivisione delle cartelle reindirizzate](media/deploy-folder-redirection/setting-the-permissions-for-the-redirected-folders-share.png)
-    
+
     **Figura 1**Impostazione delle autorizzazioni per la condivisione delle cartelle reindirizzate
 10. Se si sceglie il profilo **Condivisione SMB - avanzata** selezionare il valore Utilizzo cartelle **File utente** nella pagina **Proprietà gestione** .
 11. Se si sceglie il profilo **Condivisione SMB - avanzata** nella pagina **Quota** , selezionare facoltativamente una quota da applicare agli utenti della condivisione.
@@ -95,7 +95,6 @@ Ecco come creare una condivisione file in Windows Server 2019, Windows Server 20
 
 | Account utente  | Accesso  | Si applica a  |
 | --------- | --------- | --------- |
-| Account utente | Accesso | Si applica a |
 | System     | Controllo completo        |    Questa cartella, le sottocartelle e i file     |
 | Administrators     | Controllo completo       | Solo questa cartella        |
 | Autore/proprietario     |   Controllo completo      |   Solo sottocartelle e file      |
@@ -117,11 +116,11 @@ Ecco come creare un oggetto Criteri di gruppo per Reindirizzamento cartelle:
 7. Nella sezione **Filtri di protezione** scegli **Aggiungi**.
 8. Nella finestra di dialogo **Seleziona utente, computer o gruppo** digita il nome del gruppo di sicurezza creato nel passaggio 1 (ad esempio, **Utenti di Reindirizzamento cartelle**) e quindi scegli **OK**.
 9. Fai clic sulla scheda **Delega**, scegli **Aggiungi**, digita **Authenticated Users**, scegli **OK** e quindi di nuovo **OK** per accettare le autorizzazioni di lettura predefinite.
-    
+
     Questo passaggio è necessario a causa delle modifiche di sicurezza apportate nell'aggiornamento [MS16-072](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14-2016).
 
 > [!IMPORTANT]
-> A causa delle modifiche di sicurezza apportate nell'aggiornamento [MS16-072](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14-2016), è ora necessario concedere al gruppo Authenticated Users le autorizzazioni di lettura delegate per l'oggetto Criteri di gruppo Reindirizzamento cartelle. In caso contrario, l'oggetto Criteri di gruppo non verrà applicato agli utenti o, se è già applicato, verrà rimosso e le cartelle verranno reindirizzate al PC locale. Per altre informazioni, vedi [Deploying Group Policy Security Update MS16-072](https://blogs.technet.microsoft.com/askds/2016/06/22/deploying-group-policy-security-update-ms16-072-kb3163622/) (Distribuzione dell'aggiornamento di sicurezza MS16-072 di Criteri di gruppo).
+> A causa delle modifiche di sicurezza apportate nell'aggiornamento [MS16-072](https://support.microsoft.com/help/3163622/ms16-072-security-update-for-group-policy-june-14-2016), è ora necessario concedere al gruppo Authenticated Users le autorizzazioni di lettura delegate per l'oggetto Criteri di gruppo Reindirizzamento cartelle. In caso contrario, l'oggetto Criteri di gruppo non verrà applicato agli utenti o, se è già applicato, verrà rimosso e le cartelle verranno reindirizzate al PC locale. Per altre informazioni, vedi [Deploying Group Policy Security Update MS16-072](https://techcommunity.microsoft.com/t5/ask-the-directory-services-team/deploying-group-policy-security-update-ms16-072-kb3163622/ba-p/400434) (Distribuzione dell'aggiornamento di sicurezza MS16-072 di Criteri di gruppo).
 
 ## <a name="step-4-configure-folder-redirection-with-offline-files"></a>Passaggio 4: Configurare Reindirizzamento cartelle con File offline
 
@@ -165,7 +164,7 @@ Ecco come testare Reindirizzamento cartelle:
 
 1. Accedi a un computer primario (se è stato abilitato il supporto per i computer primari) con un account utente per il quale è stata abilitata la funzionalità Reindirizzamento cartelle.
 2. Se l'utente ha precedentemente eseguito l'accesso al computer, aprire un prompt dei comandi con privilegi elevati e quindi digitare il comando seguente per assicurarsi che vengano applicate le impostazioni Criteri di gruppo più recenti al computer client:
-    
+
     ```PowerShell
     gpupdate /force
     ```
@@ -190,15 +189,15 @@ Ecco come testare Reindirizzamento cartelle:
 
 La tabella seguente include un riepilogo di alcune delle più importanti modifiche apportate a questo argomento.
 
-| Data | Descrizione | Motivo|
+| Data | Description | Motivo|
 | --- | --- | --- |
 | 18 gennaio 2017 | Aggiunta di un passaggio alla sezione [Passaggio 3: Creare un oggetto Criteri di gruppo per Reindirizzamento cartelle](#step-3-create-a-gpo-for-folder-redirection) per delegare le autorizzazioni di lettura agli utenti autenticati, operazione ora necessaria a seguito di un aggiornamento di sicurezza di Criteri di gruppo. | Feedback dei clienti |
 
-## <a name="more-information"></a>Altre informazioni
+## <a name="more-information"></a>Ulteriori informazioni
 
 * [Reindirizzamento cartelle, File offline e Profili utente mobili](folder-redirection-rup-overview.md)
 * [Distribuire computer primari per Reindirizzamento cartelle e Profili utente mobili](deploy-primary-computers.md)
 * [Abilitare la funzionalità File offline avanzata](enable-always-offline.md)
 * [Dichiarazione Microsoft a supporto della replica dei dati del profilo utente](https://docs.microsoft.com/archive/blogs/askds/microsofts-support-statement-around-replicated-user-profile-data)
 * [Trasferire localmente le app con Gestione e manutenzione immagini distribuzione](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh852635(v=win.10)>)
-* [Risoluzione dei problemi di creazione di pacchetti, distribuzione e query delle app basate su Windows Runtime](https://msdn.microsoft.com/library/windows/desktop/hh973484.aspx)
+* [Risoluzione dei problemi di creazione di pacchetti, distribuzione e query delle app basate su Windows Runtime](https://docs.microsoft.com/windows/win32/appxpkg/troubleshooting)
