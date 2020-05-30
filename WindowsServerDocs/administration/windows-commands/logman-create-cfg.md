@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 38d6b02351e515230a0041369217ba248ada4793
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 518b0c7bddf1d74522a376aafb7da85abb849ac4
+ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820461"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84222973"
 ---
 # <a name="logman-create-cfg"></a>Logman creare cfg
 
@@ -56,7 +56,7 @@ logman create cfg <[-n] <name>> [options]
 | -FTC`<path [path [...]]>` | Specifica il percorso completo per i file da raccogliere. |
 | /? | Vengono visualizzate sensibile al contesto della Guida. |
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Commenti
 
 - Dove [-] è elencato, l'aggiunta di un trattino aggiuntivo (-) nega l'opzione.
 
@@ -78,4 +78,6 @@ logman create cfg cfg_log -mgt root\wmi:select * FROM MSNdis_Vendordriverversion
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 
-- [logman](logman.md)
+- [comando logman update cfg](logman-update-cfg.md)
+
+- [logman (comando)](logman.md)

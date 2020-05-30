@@ -1,6 +1,6 @@
 ---
 title: Comandi di Windows
-description: Riferimento
+description: Informazioni di riferimento
 ms.technology: manage-windows-commands
 ms.topic: article
 ms.assetid: c703d07c-8227-4e86-94a6-8ef390f94cdc
@@ -9,12 +9,12 @@ ms.author: jgerend
 manager: dongill
 ms.date: 06/26/2019
 ms.prod: windows-server
-ms.openlocfilehash: 7baec3bbe532bbcedb8c17628fd88d2c8eac34c6
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: cfb391c68cfb551ef2179e7210dff3a26d540fde
+ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720727"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84222638"
 ---
 # <a name="windows-commands"></a>Comandi di Windows
 
@@ -24,30 +24,30 @@ In questo set di documentazione vengono descritti i comandi di Windows che è po
 
 Per trovare informazioni su un comando specifico, nel menu A-Z seguente, fare clic sulla lettera che il comando inizia con e quindi fare clic sul nome di comando.
 
-[A](#a) |
-[B](#b) | 
-[M](#m)[D](#d) | 
-[V](#v)[C](#c) |
-[J](#j) | 
-[W](#w)[F](#f) | 
-[S](#s)[E](#e) | 
-[R](#r)[G](#g) | 
-[U](#u)[H](#h) | 
-[X](#x) [I](#i) | 
-[T](#t)[L](#l)[N](#n)[Q](#q)[O](#o)[P](#p)[K](#k)C d E F G H i J | 
-K L M | 
-N | 
-O | 
-P | 
-Q R S T U V W X | | 
- | 
- | 
- | 
- | 
- | 
- | 
- | 
- Y | Z
+[Oggetto](#a)  |
+ [B](#b)  |
+ [C](#c)  |
+ [D](#d)  |
+ [E](#e)  |
+ [F](#f)  |
+ [G](#g)  |
+ [H](#h)  |
+ [I](#i)  |
+ [J](#j)  |
+ [K](#k)  |
+ [L](#l)  |
+ [M](#m)  |
+ [N](#n)  |
+ [O](#o)  |
+ [P](#p)  |
+ [D](#q)  |
+ [R](#r)  |
+ [S](#s)  |
+ [T](#t)  |
+ [U](#u)  |
+ [V](#v)  |
+ [W](#w)  |
+ [X](#x) | Y | Z
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -57,7 +57,7 @@ Le informazioni contenute in questo argomento si applicano a:
 -   Windows Server (Canale semestrale)
 -   Windows Server 2016
 -   Windows Server 2012 R2
--   Windows Server 2012 
+-   Windows Server 2012
 -   Windows Server 2008 R2
 -   Windows Server 2008
 -   Windows 10
@@ -71,48 +71,48 @@ Windows include due shell dei comandi: la shell dei comandi e [PowerShell](https
 
 PowerShell è stato progettato per estendere le funzionalità della shell dei comandi per eseguire comandi di PowerShell denominati cmdlet. I cmdlet sono simili ai comandi di Windows, ma forniscono un linguaggio di scripting più estendibile. È possibile eseguire i comandi di Windows e i cmdlet di PowerShell in PowerShell, ma la shell dei comandi può eseguire solo i comandi di Windows e non i cmdlet di PowerShell.
 
-Per l'automazione di Windows più affidabile e aggiornata, è consigliabile usare PowerShell anziché i comandi di Windows o Windows script host per l'automazione di Windows. 
+Per l'automazione di Windows più affidabile e aggiornata, è consigliabile usare PowerShell anziché i comandi di Windows o Windows script host per l'automazione di Windows.
 > [!NOTE]
->È anche possibile scaricare e installare [PowerShell Core](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6), la versione open source di PowerShell. 
+>È anche possibile scaricare e installare [PowerShell Core](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6), la versione open source di PowerShell.
 
 > [!CAUTION]
 > La modifica non corretta del Registro di sistema potrebbe danneggiare gravemente il sistema. Prima di apportare le modifiche seguenti al registro di sistema, è necessario eseguire il backup di tutti i dati importanti presenti nel computer.
 
 > [!NOTE]
 > Per abilitare o disabilitare il completamento del nome file e directory nella shell dei comandi in una sessione di accesso utente o computer, eseguire **Regedit. exe** e impostare il **valore di reg_DWOrd**seguente:
-> 
+>
 > HKEY_LOCAL_MACHINE \Software\Microsoft\Command Processor\completionChar\ reg_DWOrd
-> 
+>
 > Per impostare il valore **reg_DWOrd** , utilizzare il valore esadecimale di un carattere di controllo per una funzione specifica (ad esempio, **0 9** è Tab e **0 08** è Backspace). Specificato dall'utente e impostazioni avranno precedenza sulle impostazioni del computer e le opzioni della riga di comando hanno la precedenza sulle impostazioni del Registro di sistema.
 
 ## <a name="command-line-reference-a-z"></a>Riferimento della riga di comando A-Z
 
 Per trovare informazioni su un comando di Windows specifico, nel menu A-Z seguente fare clic sulla lettera che il comando inizia con e quindi fare clic sul nome del comando.
 
-[A](#a) |
-[B](#b) | 
-[M](#m)[D](#d) | 
-[V](#v)[C](#c) |
-[J](#j) | 
-[W](#w)[F](#f) | 
-[S](#s)[E](#e) | 
-[R](#r)[G](#g) | 
-[U](#u)[H](#h) | 
-[X](#x) [I](#i) | 
-[T](#t)[L](#l)[N](#n)[Q](#q)[O](#o)[P](#p)[K](#k)C d E F G H i J | 
-K L M | 
-N | 
-O | 
-P | 
-Q R S T U V W X | | 
- | 
- | 
- | 
- | 
- | 
- | 
- | 
- Y | Z
+[Oggetto](#a)  |
+ [B](#b)  |
+ [C](#c)  |
+ [D](#d)  |
+ [E](#e)  |
+ [F](#f)  |
+ [G](#g)  |
+ [H](#h)  |
+ [I](#i)  |
+ [J](#j)  |
+ [K](#k)  |
+ [L](#l)  |
+ [M](#m)  |
+ [N](#n)  |
+ [O](#o)  |
+ [P](#p)  |
+ [D](#q)  |
+ [R](#r)  |
+ [S](#s)  |
+ [T](#t)  |
+ [U](#u)  |
+ [V](#v)  |
+ [W](#w)  |
+ [X](#x) | Y | Z
 
 ### <a name="a"></a>Una
 -   [append](append.md)
@@ -298,7 +298,7 @@ Q R S T U V W X | |
   -   [fsutil usn](fsutil-usn.md)
   -   [fsutil volume](fsutil-volume.md)
   -   [fsutil wim](fsutil-wim.md)
-- [FTP](ftp.md)
+- [ftp](ftp.md)
 - [ftype](ftype.md)
 - [fveupdate](fveupdate.md)
 
@@ -351,14 +351,14 @@ Q R S T U V W X | |
   -   [che Ksetup: setenctypeattr](ksetup-setenctypeattr.md)
   -   [che Ksetup: getenctypeattr](ksetup-getenctypeattr.md)
   -   [che Ksetup: addenctypeattr](ksetup-addenctypeattr.md)
-  -   [che Ksetup: delenctypeattr](ksetup-delenctypeattr.md) 
+  -   [che Ksetup: delenctypeattr](ksetup-delenctypeattr.md)
 - [ktmutil](ktmutil.md)
 - [ktpass](ktpass.md)
 
 ### <a name="l"></a>L
 - [label](label.md)
 - [lodctr](lodctr.md)
-- [logman](logman.md)
+- [logman (comando)](logman.md)
   -   [logman create](logman-create.md)
   -   [logman query](logman-query.md)
   -   [logman start &124; arrestare](logman-start-stop.md)
@@ -527,7 +527,7 @@ Q R S T U V W X | |
 - [scwcmd](Scwcmd.md)
   -   [scwcmd: analizza](scwcmd-analyze.md)
   -   [scwcmd: configurare](scwcmd-configure.md)
-  -   [scwcmd: Register](scwcmd-register.md) 
+  -   [scwcmd: Register](scwcmd-register.md)
   -   [scwcmd: rollback](scwcmd-rollback.md) 
   -   [scwcmd: Transform](scwcmd-transform.md) 
   -   [scwcmd: View](scwcmd-view.md) 
@@ -589,7 +589,7 @@ Q R S T U V W X | |
 -   [verifier](verifier.md)
 -   [verify](verify_1.md)
 -   [vol](vol.md)
--   [vssadmin](vssadmin.md)- 
+-   [vssadmin](vssadmin.md)-
 
 ### <a name="w"></a>W
 - [waitfor](waitfor.md)

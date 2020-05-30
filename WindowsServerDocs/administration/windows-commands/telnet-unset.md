@@ -4,17 +4,17 @@ description: Argomento di riferimento per Telnet non impostato, che disattiva le
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
-ms.assetid: da9a0d99-1930-4858-93c7-0e9c3797ee09 vhorne
+ms.assetid: da9a0d99-1930-4858-93c7-0e9c3797ee09
 author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c121d6501f87ae1218381871bcbf536d9407ba31
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 1d2ae8c3e96e0416a8b9f5f477778e5e89339842
+ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83821041"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84222659"
 ---
 # <a name="telnet-unset"></a>Telnet: Annulla impostazione
 

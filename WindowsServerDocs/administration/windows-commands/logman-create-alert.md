@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 7d84dd52dd9d2d8ca45dc42df88a59cd4c16b54c
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 10d19f6c86d09c698a6871ae0f0e530c5189c0ca
+ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820481"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84222821"
 ---
 # <a name="logman-create-alert"></a>Logman crea avviso
 
@@ -58,7 +58,7 @@ logman create alert <[-n] <name>> [options]
 | -[-] es`<argument>` | Specifica gli argomenti di attività da utilizzare con l'attività specificata tramite -tn. |
 | /? | Vengono visualizzate sensibile al contesto della Guida. |
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Commenti
 
 - Dove [-] è elencato, l'aggiunta di un trattino aggiuntivo (-) nega l'opzione.
 
@@ -77,4 +77,6 @@ logman create alert new_alert -th \Processor(_Total)\% Processor time>50
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 
-- [logman](logman.md)
+- [comando Logman Update Alert](logman-update-alert.md)
+
+- [logman (comando)](logman.md)

@@ -1,6 +1,6 @@
 ---
 title: Manage-bde ChangeKey
-description: Argomento di riferimento per * * * *-
+description: Argomento di riferimento per il comando Manage-bde ChangeKey, che modifica la chiave di avvio per un'unità del sistema operativo.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,39 +9,37 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6d50abbe40232987045713c5eadf43607aeb6a81
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 2b6cc92aa20d8c3c0469a5a78bca4bb9b6260132
+ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820711"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84222999"
 ---
-# <a name="manage-bde-changekey"></a>Manage-bde: ChangeKey
-
-
+# <a name="manage-bde-changekey"></a>Manage-bde ChangeKey
 
 Modifica la chiave di avvio per un'unità del sistema operativo.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-manage-bde -changekey [<Drive>] [<PathToExternalKeyDirectory>] [-computername <Name>] [{-?|/?}] [{-help|-h}]
+manage-bde -changekey [<drive>] [<pathtoexternalkeydirectory>] [-computername <name>] [{-?|/?}] [{-help|-h}]
 ```
 
-#### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|\<> unità|Rappresenta una lettera di unità seguita da due punti.|
-|\<> PathToExternalKeyDirectory|Rappresenta il percorso della directory per salvare il file di chiave esterna di avvio che può essere utilizzato per sbloccare l'unità.|
-|-computername|Specifica che verrà utilizzato Gestione bde.exe per modificare la protezione BitLocker su un computer diverso. È inoltre possibile utilizzare **- cn** come una versione abbreviata di questo comando.|
-|\<Name>|Rappresenta il nome del computer in cui si desidera modificare la protezione BitLocker. I valori accettati includono nome NetBIOS del computer e l'indirizzo IP del computer.|
-|-? o /?|Visualizza una breve guida al prompt dei comandi.|
-|-Help o-h|Visualizza la Guida completa al prompt dei comandi.|
+| Parametro | Descrizione |
+| --------- | ----------- |
+| `<drive>` | Rappresenta una lettera di unità seguita da due punti. |
+| -computername | Specifica che manage-bde. exe verrà utilizzato per modificare la protezione BitLocker in un computer diverso. È inoltre possibile utilizzare **- cn** come una versione abbreviata di questo comando. |
+| `<name>` | Rappresenta il nome del computer in cui si desidera modificare la protezione BitLocker. I valori accettati includono nome NetBIOS del computer e l'indirizzo IP del computer. |
+| -? o /? | Visualizza una breve guida al prompt dei comandi. |
+| -Help o-h | Visualizza la Guida completa al prompt dei comandi. |
 
-## <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempi
 
-Per illustrare l'uso del comando **-ChangeKey** per creare una nuova chiave di avvio sull'unità E da usare con la crittografia BitLocker nell'unità C.
+Per creare una nuova chiave di avvio sull'unità E, per utilizzarla con la crittografia BitLocker nell'unità C, digitare:
+
 ```
 manage-bde -changekey C: E:\
 ```
@@ -49,4 +47,5 @@ manage-bde -changekey C: E:\
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
--   [Manage-bde](manage-bde.md)
+
+- [comando Manage-bde](manage-bde.md)

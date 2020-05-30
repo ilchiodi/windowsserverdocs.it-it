@@ -1,6 +1,6 @@
 ---
 title: stato gestione-BDE
-description: Argomento di riferimento per * * * *-
+description: Argomento di riferimento per il comando Manage-bde status, che fornisce informazioni su tutte le unità del computer, indipendentemente dal fatto che siano protette con BitLocker.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,50 +9,56 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 494fb294e7eb0da1b8a0165182d33e799fe56371
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 32af92ad8f1f12ce006e41f70c6ca4afcff3eb00
+ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820601"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84222599"
 ---
-# <a name="manage-bde-status"></a>Manage-bde: stato
+# <a name="manage-bde-status"></a>stato gestione-BDE
 
+Fornisce informazioni su tutte le unità del computer; indipendentemente dal fatto che siano protetti con BitLocker, tra cui:
 
+- Dimensione
 
-Fornisce le seguenti informazioni su tutte le unità del computer. Se sono protette con BitLocker:
--   Dimensione
--   Versione di BitLocker
--   Stato di conversione
--   Percentuale crittografata
--   Metodo di crittografia
--   Stato protezione
--   Stato di blocco
--   Campo di identificazione
--   Protezioni con chiave
+- Versione di BitLocker
 
+- Stato di conversione
 
+- Percentuale crittografata
+
+- Metodo di crittografia
+
+- Stato protezione
+
+- Stato di blocco
+
+- Campo di identificazione
+
+- Protezioni con chiave
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-manage-bde -status [<Drive>] [-protectionaserrorlevel] [-computername <Name>] [{-?|/?}] [{-help|-h}]
+manage-bde -status [<drive>] [-protectionaserrorlevel] [-computername <name>] [{-?|/?}] [{-help|-h}]
 ```
 
-#### <a name="parameters"></a>Parametri
+### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|\<> unità|Rappresenta una lettera di unità seguita da due punti.|
-|-protectionaserrorlevel|Fa sì che lo strumento da riga di comando Manage-bde inviare il codice restituito pari a 0 quando il volume è protetto e 1 quando il volume è protetto; più comunemente utilizzata per gli script batch per determinare se un'unità protetta da BitLocker. È inoltre possibile utilizzare **-p** come una versione abbreviata di questo comando.|
-|-computername|Specifica che verrà utilizzato Gestione bde.exe per modificare la protezione BitLocker su un computer diverso. È inoltre possibile utilizzare **- cn** come una versione abbreviata di questo comando.|
-|\<Name>|Rappresenta il nome del computer in cui si desidera modificare la protezione BitLocker. I valori accettati includono nome NetBIOS del computer e l'indirizzo IP del computer.|
-|-? o /?|Visualizza una breve guida al prompt dei comandi.|
-|-Help o-h|Visualizza la Guida completa al prompt dei comandi.|
+| Parametro | Descrizione |
+| --------- | ----------- |
+| `<drive>` | Rappresenta una lettera di unità seguita da due punti. |
+| -protectionaserrorlevel | Fa in modo che lo strumento da riga di comando Manage-bde invii il codice restituito **0** se il volume è protetto e **1** se il volume non è protetto. utilizzato più di frequente per gli script batch per determinare se un'unità è protetta da BitLocker. È inoltre possibile utilizzare **-p** come una versione abbreviata di questo comando. |
+| -computername | Specifica che manage-bde. exe verrà utilizzato per modificare la protezione BitLocker in un computer diverso. È inoltre possibile utilizzare **- cn** come una versione abbreviata di questo comando. |
+| `<name>` | Rappresenta il nome del computer in cui si desidera modificare la protezione BitLocker. I valori accettati includono nome NetBIOS del computer e l'indirizzo IP del computer. |
+| -? o /? | Visualizza una breve guida al prompt dei comandi. |
+| -Help o-h | Visualizza la Guida completa al prompt dei comandi. |
 
-## <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempi
 
-Per illustrare l'uso del comando **-status** per visualizzare lo stato dell'unità C.
+Per visualizzare lo stato dell'unità C, digitare:
+
 ```
 manage-bde –status C:
 ```
@@ -60,4 +66,5 @@ manage-bde –status C:
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
--   [Manage-bde](manage-bde.md)
+
+- [comando Manage-bde](manage-bde.md)

@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2179604bdc581fe24fa4d702ca5e223dc11579be
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: f37b78023fd12c1d58234cdecdb69af8a1c6002d
+ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820561"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84222812"
 ---
 # <a name="logman-query"></a>Logman query
 
@@ -62,4 +62,4 @@ logman query providers
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 
-- [logman](logman.md)
+- [logman (comando)](logman.md)

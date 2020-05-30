@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 44a659abc9e364bf10487e93a7937c1cf8d51bbc
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: ce18c615d45d4922c8819d30ff47d54328111170
+ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820571"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84222932"
 ---
 # <a name="logman-import-and-logman-export"></a>importazione Logman e Logman Export
 
@@ -54,4 +54,4 @@ logman import perf_log -s server_1 -xml c:\windows\perf_log.xml
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 
-- [logman](logman.md)
+- [logman (comando)](logman.md)
