@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 01/05/2019
-ms.openlocfilehash: eba7092a9a26b25b1fe77b39b8098d117b38981a
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: c55d6ae5ff701555eb9bfb7135ffa28692bd4391
+ms.sourcegitcommit: 4894649cc47dfa535306cc334871f81155198f76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83821001"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84254724"
 ---
 # <a name="xcopy"></a>xcopy
 
@@ -32,8 +32,8 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 
 |Parametro|Descrizione|
 |---------|-----------|
-|\<> di origine|Obbligatorio. Specifica il percorso e i nomi dei file che si desidera copiare. Questo parametro deve includere un'unità o un percorso.|
-|[ \<> di destinazione]|Specifica la destinazione dei file che si desidera copiare. Questo parametro può includere una lettera di unità e due punti, un nome di directory, un nome di file o una combinazione di questi.|
+|\<Source>|Obbligatorio. Specifica il percorso e i nomi dei file che si desidera copiare. Questo parametro deve includere un'unità o un percorso.|
+|[\<Destination>]|Specifica la destinazione dei file che si desidera copiare. Questo parametro può includere una lettera di unità e due punti, un nome di directory, un nome di file o una combinazione di questi.|
 |/W|Visualizza il messaggio seguente e attende la risposta prima di iniziare a copiare i file:</br>**Premere un tasto qualsiasi per iniziare a copiare i file**|
 |/ p|Viene richiesto di confermare se si desidera creare ogni file di destinazione.|
 |/C|Ignora gli errori.|
@@ -64,7 +64,7 @@ Xcopy <Source> [<Destination>] [/w] [/p] [/c] [/v] [/q] [/f] [/l] [/g] [/d [:MM-
 |/j|Copia i file senza memorizzare nel buffer. Consigliato per file di grandi dimensioni. Questo parametro è stato aggiunto in Windows Server 2008 R2.|
 |/?|Visualizza la guida al prompt dei comandi.|
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Commenti
 
 - Utilizzando **/z**
 
@@ -117,7 +117,7 @@ Premere F se si desidera che il file o i file vengano copiati in un file. Premer
   |4|Si è verificato un errore di inizializzazione. Memoria o spazio su disco insufficiente oppure è stato immesso un nome di unità non valido o una sintassi non valida nella riga di comando.|
   |5|Si è verificato un errore di scrittura del disco.|
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 **1.** per copiare tutti i file e le sottodirectory (incluse eventuali sottodirectory vuote) dall'unità a all'unità B, digitare:
 
@@ -192,7 +192,7 @@ copyit c:\prgmcode b:
 
 L'interprete dei comandi sostituisce **C:\Prgmcode** per *%1* e **B:** per *%2*, quindi utilizza **xcopy** con le opzioni della riga di comando **/e** e **/s** . Se **xcopy** rileva un errore, il programma batch legge il codice di uscita e passa all'etichetta indicata nell'istruzione **if ERRORLEVEL** appropriata, quindi Visualizza il messaggio appropriato e termina dal programma batch.
 
-**9.** in questo esempio tutte le directory non vuote, oltre ai file il cui nome corrisponde al modello specificato con il simbolo asterisco.
+**9.** in questo esempio vengono copiate tutte le directory non vuote, oltre ai file il cui nome corrisponde al modello specificato con il simbolo asterisco.
 
 ```
 xcopy .\toc*.yml ..\..\Copy-To\ /S /Y
@@ -208,10 +208,10 @@ Nell'esempio precedente, questo particolare valore del parametro di origine **. 
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
--   [Copia](copy.md)
--   [Spostamento](move.md)
--   [Dir](dir.md)
--   [Attrib](attrib.md)
--   [DISKCOPY](diskcopy.md)
--   [Se](if.md)
+- [Copia](copy.md)
+- [Spostamento](move.md)
+- [Dir](dir.md)
+- [Attrib](attrib.md)
+- [DISKCOPY](diskcopy.md)
+- [Se](if.md)
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)

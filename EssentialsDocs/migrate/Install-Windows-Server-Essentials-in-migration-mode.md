@@ -1,23 +1,26 @@
 ---
-title: Installare Windows Server Essentials nella migrazione Mode1
+title: Installare Windows Server Essentials in modalità di migrazione
 description: Viene descritto come usare Windows Server Essentials
-ms.date: 10/03/2016
+ms.date: 04/29/2020
 ms.prod: windows-server
 ms.topic: article
 ms.assetid: fd7196ac-cfa6-46a5-ba77-6962b47a825e
 author: nnamuhcs
 ms.author: coreyp
 manager: dongill
-ms.openlocfilehash: 977922d8f2af23afc058162e7455ac5099e4325b
-ms.sourcegitcommit: 2f072c0c02e3e0deae331ca64b375d63b89d0522
+ms.custom:
+- CI ID 117135
+- CSSTroubleshoot
+ms.openlocfilehash: e1a5efc373b884051b538f3f6cd09fecd34c7e09
+ms.sourcegitcommit: 4894649cc47dfa535306cc334871f81155198f76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83404563"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84254704"
 ---
-# <a name="install-windows-server-essentials-in-migration-mode1"></a>Installare Windows Server Essentials nella migrazione Mode1
+# <a name="install-windows-server-essentials-in-migration-mode"></a>Installare Windows Server Essentials in modalità di migrazione
 
->Si applica a: Windows Server 2012 Essentials
+> Si applica a: Windows Server 2012 Essentials
 
 È possibile disporre di un solo server della rete che esegue Windows Server Essentials e che il server deve essere un controller di dominio per la rete.  
   

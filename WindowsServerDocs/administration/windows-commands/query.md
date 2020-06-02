@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 90ef2cc14ef0131978956de8df029eaf04baabd3
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 1dcea0fa4ea91de56e81c51bf9fe87ec7e3a49fa
+ms.sourcegitcommit: 4894649cc47dfa535306cc334871f81155198f76
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722679"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84254714"
 ---
 # <a name="query"></a>query
 
@@ -23,9 +23,10 @@ ms.locfileid: "82722679"
 Visualizza informazioni su processi, sessioni e server di host sessione Desktop remoto (host sessione Desktop remoto).
 
 > [!NOTE]
-> In Windows Server 2008 R2, Servizi terminal si chiama ora Servizi Desktop remoto. Per informazioni sulle novità della versione più recente, vedere Novità di [Servizi Desktop remoto in Windows server 2012](https://technet.microsoft.com/library/hh831527) nella libreria TechNet di Windows Server.
+> In Windows Server 2008 R2, Servizi terminal si chiama ora Servizi Desktop remoto. Per informazioni sulle novità della versione più recente, vedere Novità di [Servizi Desktop remoto in Windows Server](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn283323(v=ws.11)) nella libreria Microsoft docs Windows Server.
 
 ## <a name="syntax"></a>Sintassi
+
 ```
 query process
 query session
@@ -34,6 +35,7 @@ query user
 ```
 
 ### <a name="parameters"></a>Parametri
+
 |Parametro|Descrizione|
 |-------|--------|
 |[processo query](query-process.md)|Visualizza informazioni sui processi in esecuzione in un server Host sessione Desktop remoto.|
@@ -42,5 +44,6 @@ query user
 |[utente query](query-user.md)|Visualizza informazioni sulle sessioni utente in un server Host sessione Desktop remoto.|
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
-- [Guida di](command-line-syntax-key.md)
-riferimento ai comandi servizi desktop remoto della chiave della sintassi della riga di comando[(Servizi terminal)](remote-desktop-services-terminal-services-command-reference.md)
+
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+- [Informazioni di riferimento sui comandi di Servizi Desktop remoto (Servizi terminal)](remote-desktop-services-terminal-services-command-reference.md)
