@@ -7,14 +7,14 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 04/14/2020
+ms.date: 05/27/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 016a88999b93d686faff73134a660014fd602765
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 0d49c49def8b110f42a6d56354c73e5a75b04b7e
+ms.sourcegitcommit: 4fec7d82f0772d03a9e8cac20092a4309b0f796e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "81279697"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84025512"
 ---
 # <a name="whats-new-in-the-windows-desktop-client"></a>Novità del client desktop di Windows
 
@@ -26,14 +26,35 @@ Il client può essere configurato per [gruppi di utenti](windowsdesktop-admin.md
 
 |Gruppo utenti |Version  |
 |-----------|---------|
-|Pubblico     |1.2.790  |
-|Insider    |1.2.940  |
+|Pubblico     |1.2.1026 |
+|Insider    |1.2.1026 |
 
-## <a name="updates-for-version-12940"></a>Aggiornamenti per la versione 1.2.940
+## <a name="updates-for-version-121026"></a>Aggiornamenti per la versione 1.2.1026
 
-*Data di pubblicazione: 14/04/2020*
+*Data di pubblicazione: 27/05/2020*
 
-Scarica: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4txZU), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4txZV), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4tM6I)
+Scarica: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xsGB), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xd8P), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xq7m)
+
+- Quando ti iscrivi, ora puoi scegliere l'account invece di digitare l'indirizzo e-mail.
+- È stata aggiunta una nuova opzione **Subscribe with URL** (Sottoscrivi con URL) che consente di specificare l'URL dell'area di lavoro che vuoi sottoscrivere o di utilizzare, se disponibile, l'[individuazione tramite e-mail](../rds-email-discovery.md) quando non è possibile trovare automaticamente le risorse. Questo processo è simile a quello di sottoscrizione negli altri client Desktop remoto. Può essere usato per sottoscrivere direttamente le aree di lavoro dell'aggiornamento di primavera 2020 di WVD.
+- È stato aggiunto il supporto per sottoscrivere un'area di lavoro usando un nuovo [schema URI](remote-desktop-uri.md) che può essere inviato agli utenti tramite e-mail o aggiunto a un sito Web di supporto.
+- Aggiunta di una nuova finestra di dialogo **Informazioni di connessione** che fornisce i dettagli relativi a client, rete e server per le sessioni desktop e app. Puoi accedere alla finestra di dialogo dalla barra delle connessioni in modalità schermo intero o dal menu di sistema in modalità finestra.
+- Le sessioni desktop avviate in modalità finestra vengono ora ingrandite sempre al massimo invece di passare a schermo intero quando si ingrandisce la finestra. Usa l'opzione **Schermo intero** del menu di sistema per passare a schermo intero.
+- La richiesta di annullamento della sottoscrizione ora visualizza un'icona di avviso e mostra i nomi delle aree di lavoro in un elenco puntato.
+- Aggiunta della sezione di dettagli alle finestre di dialogo di errore aggiuntive per facilitare la diagnosi dei sistemi.
+- Aggiunta di un timestamp alla sessione di dettagli delle finestre di dialogo di errore.
+- Correzione di un problema per cui l'impostazione del file RDP **desktop size ID** non funziona correttamente.
+- Correzione di un problema per cui l'impostazione del monitor **Update the resolution on resize** (Aggiorna la risoluzione in caso di ridimensionamento) non viene applicata dopo l'avvio della sessione.
+- Correzione dei problemi di localizzazione nel pannello di impostazioni del desktop.
+- Correzione delle dimensioni della casella con lo stato attivo durante lo spostamento tra controlli tramite TAB nel riquadro di impostazioni del desktop.
+- Correzione di un problema per cui i nomi delle risorse sono difficili da leggere in modalità a contrasto elevato.
+- Correzione di un problema per cui la notifica degli aggiornamenti nel centro operativo può essere visualizzata più volte al giorno.
+
+## <a name="updates-for-version-12945"></a>Aggiornamenti per la versione 1.2.945
+
+*Data di pubblicazione: 28/04/2020*
+
+Scarica: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vhNM), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vhNO), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vuSV)
 
 - Sono state aggiunte nuove impostazioni di visualizzazione per le connessioni desktop disponibili quando si fa clic con il pulsante destro del mouse sull'icona di un desktop in Connection Center (Centro connessioni).
   - Sono ora disponibili tre opzioni di configurazione per la visualizzazione: **All displays** (Tutte le visualizzazioni), **Single display** (Visualizzazione singola) e **Select displays** (Alcune visualizzazioni).
@@ -42,8 +63,11 @@ Scarica: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/bin
   - È stata aggiunta la nuova opzione **Single display when windowed** (Visualizzazione singola in modalità finestra) per le modalità All displays (Tutte le visualizzazioni) e Select displays (Alcune visualizzazioni). Questa opzione converte automaticamente la sessione in una visualizzazione singola quando si esce dalla modalità schermo intero e ripristina automaticamente più visualizzazioni quando si ingrandisce la finestra.
 - È stato aggiunto il nuovo gruppo **Impostazioni di visualizzazione** al menu di sistema che viene visualizzato quando si fa clic con il pulsante destro del mouse sulla barra del titolo di una sessione desktop in modalità finestra. In questo modo potrai modificare alcune impostazioni in modo dinamico durante una sessione. Potrai ad esempio modificare le nuove impostazioni **Single display mode when windowed** (Visualizzazione singola in modalità finestra) e **Maximize to current displays** (Ingrandisci a visualizzazioni correnti).
 - Quando si esce dalla visualizzazione a schermo intero, la finestra della sessione tornerà nella posizione in cui si trovava la prima volta che è stata attivata la visualizzazione a schermo intero.
+- L'aggiornamento in background per le aree di lavoro viene ora eseguito ogni quattro ore invece che ogni ora. Si verifica automaticamente un aggiornamento all'avvio del client.
 - Al termine della reimpostazione dei dati utente nella pagina Informazioni su, il client non viene chiuso ma viene eseguito il reindirizzamento a Connection Center (Centro connessioni).
+- Le voci del menu di sistema per le connessioni desktop sono state riordinate e l'argomento Guida ora punta alla documentazione del client.
 - Sono stati risolti alcuni problemi di accessibilità con lo spostamento tramite tabulazione e le utilità per la lettura dello schermo.
+- Correzione di un problema per cui la finestra di dialogo di autenticazione di Active Directory viene visualizzata dietro la finestra della sessione.
 - È stato corretto un problema di sfarfallio e compattazione che si verificava durante il trascinamento di una finestra di sessione desktop tra visualizzazioni con fattori di scala diversi.
 - È stato corretto un errore che si verificava durante il reindirizzamento delle fotocamere.
 - Sono stati corretti diversi arresti anomali per migliorare l'affidabilità.

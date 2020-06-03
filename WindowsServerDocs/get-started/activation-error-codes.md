@@ -7,12 +7,12 @@ ms.technology: server-general
 author: kaushika-msft
 ms.author: kaushika-msft; v-tea
 ms.localizationpriority: medium
-ms.openlocfilehash: 50c50353316db4288f01893125ecd651db63cbb7
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 8a550ddd72dcdf8c1967fe4740dc0fe5f2ad93e7
+ms.sourcegitcommit: df94dac422d13566c32e1cdb8c6e7a4e82747947
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80826354"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84205632"
 ---
 # <a name="resolve-windows-activation-error-codes"></a>Risolvere i codici di errore di attivazione di Windows
 
@@ -33,11 +33,11 @@ L'Assistente di supporto e ripristino di Microsoft semplifica la risoluzione dei
 
 Questo strumento proverà ad attivare Windows. Se viene restituito un codice di errore di attivazione, verranno visualizzate soluzioni mirate per i codici di errore conosciuti.
 
-Sono supportati i codici di errore seguenti: 0xC004F038, 0xC004F039, 0xC004F041, 0xC004F074, 0xC004C008.
+Sono supportati i codici di errore seguenti: 0xC004F038, 0xC004F039, 0xC004F041, 0xC004F074, 0xC004C008, 0x8007007b, 0xC004C003, 0x8007232B.
 
 ## <a name="summary-of-error-codes"></a>Riepilogo dei codici di errore
 
-|Codice errore |Messaggio di errore |Tipo di&nbsp;attivazione|
+|Codice di errore |Messaggio di errore |Tipo di&nbsp;attivazione|
 |-----------|--------------|----------------|
 |[0x8004FE21](#0x8004fe21-this-computer-is-not-running-genuine-windows) |In questo computer non è in esecuzione una copia autentica di Windows.  |MAK<br />Client del Servizio di gestione delle chiavi |
 |[0x80070005](#0x80070005-access-denied) |Accesso negato: l'azione richiesta prevede privilegi elevati. |MAK<br />Client del Servizio di gestione delle chiavi<br />Host del Servizio di gestione delle chiavi |
