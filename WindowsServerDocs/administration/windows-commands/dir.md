@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 067b4961aecc6149d6ff68872123acb2cfe99305
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: b6d5b99e905d70d81962f96a303e0bcaae0bd9e9
+ms.sourcegitcommit: 5e10afbd128befb7400a6bcf576f0239cf2ed47f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82992536"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84302826"
 ---
 # <a name="dir"></a>dir
 
@@ -25,7 +25,7 @@ Il comando **dir** può essere eseguito anche dalla Console ripristino Windows u
 ## <a name="syntax"></a>Sintassi
 
 ```
-dir [<drive>:][<path>][<filename>] [...] [/p] [/q] [/w] [/d] [/a[[:]<attributes>]][/o[[:]<sortorder>]] [/t[[:]<timefield>]] [/s] [/b] [/l] [/n] [/x] [/c] [/4]
+dir [<drive>:][<path>][<filename>] [...] [/p] [/q] [/w] [/d] [/a[[:]<attributes>]][/o[[:]<sortorder>]] [/t[[:]<timefield>]] [/s] [/b] [/l] [/n] [/x] [/c] [/4] [/r]
 ```
 
 ### <a name="parameters"></a>Parametri
@@ -48,6 +48,7 @@ dir [<drive>:][<path>][<filename>] [...] [/p] [/q] [/w] [/d] [/a[[:]<attributes>
 | /x | Visualizza i nomi brevi generati per i nomi di file non 8dot3. Il display è uguale a quella del **/n**, ma il nome breve viene inserito prima il nome lungo. |
 | /C | Visualizza il separatore delle migliaia nelle dimensioni dei file. Questo è il comportamento predefinito. Utilizzare **/c** per nascondere i separatori. |
 | /4 | Visualizzazione degli anni nel formato a quattro cifre. |
+| /r | Visualizza i flussi di dati alternativi del file. |
 | /? | Visualizza la guida al prompt dei comandi. |
 
 #### <a name="remarks"></a>Osservazioni
@@ -79,15 +80,15 @@ dir [<drive>:][<path>][<filename>] [...] [/p] [/q] [/w] [/d] [/a[[:]<attributes>
   11/30/2004  01:16 PM 0 t97.txt
   ```
 
-  Ci si potrebbe aspettare che `dir t97\*` la digitazione restituisca il file t97. txt. Tuttavia, digitando `dir t97\*` restituisce entrambi i file, perché il carattere jolly asterisco corrisponde al file t. txt2 a T97. txt usando la mappa nome breve *T97B4 ~ 1. txt*. Analogamente, `del t97\*` la digitazione eliminerà entrambi i file.
+  Ci si potrebbe aspettare che la digitazione `dir t97\*` restituisca il file t97. txt. Tuttavia, digitando `dir t97\*` restituisce entrambi i file, perché il carattere jolly asterisco corrisponde al file t. txt2 a T97. txt usando la mappa nome breve *T97B4 ~ 1. txt*. Analogamente, la digitazione `del t97\*` eliminerà entrambi i file.
 
 - È possibile usare il punto interrogativo (?) come sostituto di un singolo carattere in un nome. Ad esempio, digitando `dir read???.txt` vengono elencati tutti i file nella directory corrente con l'estensione txt che iniziano con Read e sono seguiti da un massimo di tre caratteri. Sono inclusi Read.txt, Read1.txt, Read12.txt, Read123.txt e Readme1.txt, ma non Readme12.txt.
 
-- Se si usa **/a** con più di un valore negli *attributi*, questo comando Visualizza i nomi dei soli file con tutti gli attributi specificati. Se ad esempio si usa **/a** con **r** e **-h** come attributi (usando `/a:r-h` o `/ar-h`), questo comando visualizzerà solo i nomi dei file di sola lettura non nascosti.
+- Se si usa **/a** con più di un valore negli *attributi*, questo comando Visualizza i nomi dei soli file con tutti gli attributi specificati. Se ad esempio si usa **/a** con **r** e **-h** come attributi (usando `/a:r-h` o `/ar-h` ), questo comando visualizzerà solo i nomi dei file di sola lettura non nascosti.
 
-- Se si specifica più di un valore *SortOrder* , questo comando Ordina i nomi di file in base al primo criterio, quindi in base al secondo criterio e così via. Se, ad esempio, si usa **/o** con **i parametri e e** **-s** per *SortOrder* (usando `/o:e-s` o `/oe-s`), questo comando Ordina i nomi delle directory e dei file per estensione, con il primo più grande, quindi Visualizza il risultato finale. In ordine alfabetico per estensione determina i nomi di file con estensioni non vengono visualizzati per primi, quindi i nomi di directory e i nomi di file con estensioni.
+- Se si specifica più di un valore *SortOrder* , questo comando Ordina i nomi di file in base al primo criterio, quindi in base al secondo criterio e così via. Se, ad esempio, si usa **/o** con **i parametri e e** **-s** per *SortOrder* (usando `/o:e-s` o `/oe-s` ), questo comando Ordina i nomi delle directory e dei file per estensione, con il primo più grande, quindi Visualizza il risultato finale. In ordine alfabetico per estensione determina i nomi di file con estensioni non vengono visualizzati per primi, quindi i nomi di directory e i nomi di file con estensioni.
 
-- Se si`>`usa il simbolo di reindirizzamento () per inviare l'output di questo comando a un file o se si usa una pipe (`|`) per inviare l'output di questo comando a un altro comando, è necessario `/a:-d` usare e **/b** per elencare solo i nomi di file. È possibile utilizzare *filename* con **/b** e **/s** per specificare che questo comando deve eseguire la ricerca nella directory corrente e nelle relative sottodirectory per tutti i nomi file che corrispondono al *nome*file. Questo comando elenca solo la lettera di unità, il nome della directory, il nome del file e l'estensione del nome di file (un percorso per riga), per ogni nome di file trovato. Prima di usare una pipe per inviare l'output di questo comando a un altro comando, è necessario impostare la variabile di ambiente *Temp* nel file Autoexec. NT.
+- Se si usa il simbolo di reindirizzamento ( `>` ) per inviare l'output di questo comando a un file o se si usa una pipe ( `|` ) per inviare l'output di questo comando a un altro comando, è necessario usare `/a:-d` e **/b** per elencare solo i nomi di file. È possibile utilizzare *filename* con **/b** e **/s** per specificare che questo comando deve eseguire la ricerca nella directory corrente e nelle relative sottodirectory per tutti i nomi file che corrispondono al *nome*file. Questo comando elenca solo la lettera di unità, il nome della directory, il nome del file e l'estensione del nome di file (un percorso per riga), per ogni nome di file trovato. Prima di usare una pipe per inviare l'output di questo comando a un altro comando, è necessario impostare la variabile di ambiente *Temp* nel file Autoexec. NT.
 
 ## <a name="examples"></a>Esempi
 

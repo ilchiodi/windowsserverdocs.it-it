@@ -4,16 +4,16 @@ description: Problemi noti e supporto per la risoluzione dei problemi per il ser
 author: nedpyle
 ms.author: nedpyle
 manager: tiaascs
-ms.date: 02/10/2020
+ms.date: 06/02/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: f8a1e70bba740875e19660d5a729a952c9fae8f2
-ms.sourcegitcommit: d56c042c58833bdaa9a6fe54dd68f540af12fc6e
+ms.openlocfilehash: 5a4a99434d67c08551d97589f8f2638e1024754d
+ms.sourcegitcommit: 5fac756c2c9920757e33ef0a68528cda0c85dd04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2020
-ms.locfileid: "80661072"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84306500"
 ---
 # <a name="storage-migration-service-known-issues"></a>Problemi noti del servizio migrazione archiviazione
 
@@ -30,7 +30,7 @@ Il servizio migrazione archiviazione contiene i registri eventi per il servizio 
 - Registri applicazioni e servizi \ Microsoft \ Windows \ StorageMigrationService
 - Registri applicazioni e servizi \ Microsoft \ Windows \ StorageMigrationService-proxy
 
-Se è necessario raccogliere questi log per la visualizzazione offline o per inviarli a supporto tecnico Microsoft, è disponibile uno script di PowerShell open source su GitHub:
+Se è necessario raccogliere questi log per la visualizzazione offline o per inviarli a supporto tecnico Microsoft, è disponibile uno script di PowerShell open source in GitHub:
 
  [Helper servizio migrazione archiviazione](https://aka.ms/smslogs) 
 
@@ -40,7 +40,7 @@ Esaminare il file Leggimi per l'utilizzo.
 
 Quando si usa la versione 1809 dell'interfaccia di amministrazione di Windows per gestire un agente di orchestrazione di Windows Server 2019, non viene visualizzata l'opzione dello strumento per il servizio migrazione archiviazione. 
 
-L'estensione del servizio migrazione archiviazione dell'interfaccia di amministrazione di Windows è associata alla versione per gestire solo i sistemi operativi Windows Server 2019 versione 1809 o successiva. Se viene usato per gestire i sistemi operativi Windows Server meno recenti o le anteprime Insider, lo strumento non verrà visualizzato. Questo comportamento è da progettazione. 
+L'estensione del servizio migrazione archiviazione dell'interfaccia di amministrazione di Windows è associata alla versione per gestire solo i sistemi operativi Windows Server 2019 versione 1809 o successiva. Se viene usato per gestire i sistemi operativi Windows Server meno recenti o le anteprime Insider, lo strumento non verrà visualizzato. Questo comportamento dipende dalla progettazione. 
 
 Per risolvere, usare o eseguire l'aggiornamento a Windows Server 2019 Build 1809 o versione successiva.
 
@@ -68,7 +68,7 @@ Quando si usa l'interfaccia di amministrazione di Windows o PowerShell per scari
 
 Questo problema è causato da un numero molto elevato di file trasferiti che non possono essere filtrati nel timeout predefinito di un minuto consentito dal servizio migrazione archiviazione. 
 
-Per risolvere questo problema:
+Come soluzione alternativa a questo problema:
 
 1. Sul computer dell'agente di orchestrazione, modificare il file *%systemroot%\SMS\Microsoft.StorageMigration.Service.exe.config* utilizzando Notepad. exe per modificare "SendTimeout nell'elemento" dal valore predefinito di 1 minuto a 10 minuti.
 
@@ -81,7 +81,7 @@ Per risolvere questo problema:
 
 2. Riavviare il servizio "servizio migrazione archiviazione" sul computer dell'agente di orchestrazione. 
 3. Sul computer dell'agente di orchestrazione, avviare Regedit. exe
-4. Individuare e selezionare la sottochiave del Registro di sistema seguente: 
+4. Individuare e fare clic sulla seguente sottochiave del Registro di sistema: 
 
    `HKEY_LOCAL_MACHINE\Software\Microsoft\SMSPowershell`
 
@@ -90,7 +90,7 @@ Per risolvere questo problema:
 7. Fare clic con il pulsante destro del mouse su "WcfOperationTimeoutInMinutes", quindi scegliere modifica. 
 8. Nella casella dati di base fare clic su "decimale"
 9. Nella casella dati valore digitare "10", quindi fare clic su OK.
-10. Uscire dall'editor del Registro di sistema.
+10. Uscire da Editor del Registro di sistema.
 11. Provare a scaricare di nuovo il file CSV solo degli errori. 
 
 Si prevede di modificare questo comportamento in una versione successiva di Windows Server 2019.  
@@ -136,9 +136,9 @@ Per risolvere questo problema, installare [Windows Update 2 aprile 2019, ovvero 
 
 ## <a name="dfsr-hashes-mismatch-when-using-storage-migration-service-to-preseed-data"></a>Mancata corrispondenza degli hash DFSR quando si usa il servizio migrazione archiviazione per eseguire il Preseeding dei dati
 
-Quando si usa il servizio migrazione archiviazione per trasferire i file in una nuova destinazione, quindi si configura il Replica DFS (DFSR) per replicare i dati con un server DFSR esistente tramite la replica con seeding o la clonazione del database DFSR, tutti i file presentano un hash mancata corrispondenza e replica eseguita di nuovo. I flussi di dati, i flussi di sicurezza, le dimensioni e gli attributi sembrano essere perfettamente corrispondenti dopo l'uso di SMS per trasferirli. L'analisi dei file con ICACLS o il log di debug per la clonazione del database DFSR rivela:
+Quando si usa il servizio migrazione archiviazione per trasferire i file in una nuova destinazione, quindi si configurano Replica DFS per replicare tali dati con un server esistente tramite la replica preesistente o Replica DFS clonazione del database, tutti i file riscontrano una mancata corrispondenza dell'hash e vengono nuovamente replicati. I flussi di dati, i flussi di sicurezza, le dimensioni e gli attributi sembrano essere perfettamente corrispondenti dopo aver usato il servizio migrazione archiviazione per trasferirli. L'analisi dei file con ICACLS o il log di debug della clonazione del database Replica DFS:
 
-File di origine:
+Source file (File di origine):
 
   d:\test\Source icacls:
 
@@ -260,9 +260,9 @@ Dopo l'installazione di [KB4512534](https://support.microsoft.com/help/4512534/w
     Description:
     02/14/2020-13:18:21.097 [Erro] Failed device discovery stage SystemInfo with error: (0x80005000) Unknown error (0x80005000)   
   
-Questo errore è causato da un difetto del codice nel servizio migrazione archiviazione quando si forniscono le credenziali di migrazione sotto forma di nome dell'entità utente (UPN), ad esempio "meghan@contoso.com". Il servizio dell'agente di orchestrazione del servizio migrazione archiviazione non è in grado di analizzare correttamente questo formato, causando un errore in una ricerca del dominio aggiunta per il supporto della migrazione del cluster in KB4512534 e 19H1.
+Questo errore è causato da un difetto del codice nel servizio migrazione archiviazione quando si forniscono le credenziali di migrazione sotto forma di nome dell'entità utente (UPN), ad esempio ' meghan@contoso.com '. Il servizio dell'agente di orchestrazione del servizio migrazione archiviazione non è in grado di analizzare correttamente questo formato, causando un errore in una ricerca del dominio aggiunta per il supporto della migrazione del cluster in KB4512534 e 19H1.
 
-Per aggirare questo problema, fornire le credenziali nel formato dominio\utente, ad esempio ' Contoso\Meghan '.
+Per risolvere questo problema, fornire le credenziali nel formato dominio\utente, ad esempio ' Contoso\Meghan '.
 
 ## <a name="error-serviceerror0x9006-or-the-proxy-isnt-currently-available-when-migrating-to-a-windows-server-failover-cluster"></a>Errore "ServiceError0x9006" o "il proxy non è attualmente disponibile". Quando si esegue la migrazione a un cluster di failover di Windows Server
 
@@ -291,7 +291,7 @@ Quando si tenta di eseguire l'inventario con il servizio migrazione archiviazion
     DLL not found
     [Error] Failed device discovery stage VolumeInfo with error: (0x80131524) Unable to load DLL 'Microsoft.FailoverClusters.FrameworkSupport.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)   
 
-Per aggirare questo problema, installare "strumenti di gestione cluster di failover" (strumenti di gestione del cluster di failover) nel server che esegue l'agente di orchestrazione del servizio di migrazione archiviazione. 
+Per risolvere questo problema, installare gli strumenti di gestione del cluster di failover (strumenti di gestione del cluster di failover) nel server che esegue l'agente di orchestrazione del servizio di migrazione archiviazione. 
 
 ## <a name="error-there-are-no-more-endpoints-available-from-the-endpoint-mapper-when-running-inventory-against-a-windows-server-2003-source-computer"></a>Errore "non sono disponibili altri endpoint dal mapper degli endpoint" durante l'esecuzione dell'inventario in un computer di origine Windows Server 2003
 
@@ -301,7 +301,7 @@ Quando si tenta di eseguire l'inventario con l'agente di orchestrazione del serv
 
 Questo problema viene risolto dall'aggiornamento di [KB4537818](https://support.microsoft.com/help/4537818/windows-10-update-kb4537818) .
 
-## <a name="uninstalling-a-cumulutative-update-prevents-storage-migration-service-from-starting"></a>La disinstallazione di un aggiornamento di cumulutative impedisce l'avvio del servizio migrazione archiviazione
+## <a name="uninstalling-a-cumulative-update-prevents-storage-migration-service-from-starting"></a>La disinstallazione di un aggiornamento cumulativo impedisce l'avvio del servizio migrazione archiviazione
 
 La disinstallazione degli aggiornamenti cumulativi di Windows Server può impedire l'avvio del servizio migrazione archiviazione. Per risolvere questo problema, è possibile eseguire il backup ed eliminare il database del servizio migrazione archiviazione:
 
@@ -345,9 +345,9 @@ Quando si tenta di eseguire il trasferimento di un'origine cluster Windows Serve
 
 Questo problema è causato da un'API mancante nelle versioni precedenti di Windows Server. Attualmente non è possibile eseguire la migrazione di cluster Windows Server 2008 e Windows Server 2003. È possibile eseguire l'inventario e il trasferimento senza problemi nei cluster Windows Server 2008 R2, quindi eseguire manualmente cutover modificando manualmente l'origine del cluster file server risorsa NetName e l'indirizzo IP, quindi cambiando il NetName del cluster di destinazione e l'indirizzo IP in modo che corrisponda all'origine originale. 
 
-## <a name="cutover-hangs-on-38-mapping-network-interfaces-on-the-source-computer-when-using-dhcp"></a>Cutover si blocca su "38% mapping delle interfacce di rete nel computer di origine..." Quando si usa DHCP 
+## <a name="cutover-hangs-on-38-mapping-network-interfaces-on-the-source-computer-when-using-static-ips"></a>Cutover si blocca su "38% mapping delle interfacce di rete nel computer di origine..." Quando si usano indirizzi IP statici 
 
-Quando si tenta di eseguire il trasferimento di un computer di origine, dopo aver impostato il computer di origine per l'utilizzo di un nuovo indirizzo IP statico (non DHCP) in una o più interfacce di rete, il trasferimento viene bloccato alla fase "38% del mapping delle interfacce di rete nel comnputer di origine..." viene visualizzato il seguente messaggio di errore nel registro eventi SMS:
+Quando si tenta di eseguire il ritaglio di un computer di origine, dopo aver impostato il computer di origine per l'utilizzo di un nuovo indirizzo IP statico (non DHCP) in una o più interfacce di rete, il trasferimento viene bloccato alla fase "38% mapping delle interfacce di rete nel computer di origine..." nel registro eventi del servizio migrazione archiviazione viene visualizzato l'errore seguente:
 
     Log Name:      Microsoft-Windows-StorageMigrationService-Proxy/Admin
     Source:        Microsoft-Windows-StorageMigrationService-Proxy
@@ -372,9 +372,13 @@ Quando si tenta di eseguire il trasferimento di un computer di origine, dopo ave
 
 L'analisi del computer di origine indica che non è possibile modificare l'indirizzo IP originale. 
 
-Questo problema non si verifica se è stata selezionata l'opzione "Usa DHCP" nella schermata "Configura cutover" dell'interfaccia di amministrazione di Windows, solo se si specifica un nuovo indirizzo IP statico, una subnet e un gateway. 
+Questo problema non si verifica se è stata selezionata l'opzione "Usa DHCP" nella schermata "Configura cutover" del centro di amministrazione di Windows, solo se si specifica un nuovo indirizzo IP statico. 
 
-Questo problema viene risolto dall'aggiornamento di [KB4537818](https://support.microsoft.com/help/4537818/windows-10-update-kb4537818) .
+Per questo problema sono disponibili due soluzioni: 
+
+1. Questo problema è stato risolto per la prima volta dall'aggiornamento di [KB4537818](https://support.microsoft.com/help/4537818/windows-10-update-kb4537818) . Il difetto del codice precedente ha impedito l'uso di indirizzi IP statici.
+
+2. Se non è stato specificato un indirizzo IP del gateway predefinito nelle interfacce di rete del computer di origine, il problema si verificherà anche con l'aggiornamento di KB4537818. Per ovviare a questo problema, impostare un indirizzo IP predefinito valido nelle interfacce di rete usando l'applet connessioni di rete (NCPA. CPL) o cmdlet di PowerShell set-NetRoute.   
 
 ## <a name="slower-than-expected-re-transfer-performance"></a>Prestazioni di ritrasferimento previste più lente
 
@@ -389,7 +393,7 @@ Dopo l'avvio del trasferimento da o a un controller di dominio:
  1. Non viene eseguita la migrazione dei dati e non viene creata alcuna condivisione nella destinazione.
  2. Nell'interfaccia di amministrazione di Windows è visualizzato un simbolo di errore rosso senza messaggio di errore
  3. Uno o più utenti di Active Directory e gruppi locali di dominio hanno il nome e/o l'attributo di accesso precedente a Windows 2000 modificato
- 4. Nell'agente di orchestrazione SMS viene visualizzato l'evento 3509:
+ 4. Viene visualizzato l'evento 3509 nell'agente di orchestrazione del servizio migrazione archiviazione:
  
         Log Name:      Microsoft-Windows-StorageMigrationService/Admin
         Source:        Microsoft-Windows-StorageMigrationService
@@ -415,7 +419,7 @@ Si tratta di un comportamento previsto se si tenta di eseguire la migrazione da 
 
 Se è già stato eseguito il trasferimento di una o più volte:
 
- 1. Usare il comando AD PowerShell seguente in un controller di dominio per individuare gli utenti o i gruppi modificati (modificando SearchBase in modo che corrisponda al nome dinstringuished del dominio): 
+ 1. Usare il comando AD PowerShell seguente su un controller di dominio per individuare eventuali utenti o gruppi modificati (cambiando SearchBase in modo che corrisponda al nome distinto del dominio): 
 
     ```PowerShell
     Get-ADObject -Filter 'Description -like "*storage migration service renamed*"' -SearchBase 'DC=<domain>,DC=<TLD>' | ft name,distinguishedname
@@ -479,7 +483,7 @@ Quando si tenta di eseguire l'inventario, viene visualizzato quanto segue:
        at Microsoft.Win32.RegistryKey.Win32ErrorStatic(Int32 errorCode, String str)
        at Microsoft.Win32.RegistryKey.OpenRemoteBaseKey(RegistryHive hKey, String machineName, RegistryView view)
 
-In questa fase, l'agente di orchestrazione del servizio migrazione archiviazione sta tentando di leggere il registro di sistema remoto per determinare la configurazione del computer di origine, ma è stato rifiutato dal server di origine. Ciò può essere causato da una serie di fattori:
+In questa fase, l'agente di orchestrazione del servizio migrazione archiviazione sta tentando di leggere il registro di sistema remoto per determinare la configurazione del computer di origine, ma è stato rifiutato dal server di origine. Questo errore può essere causato da:
 
  - Il servizio Registro di sistema remoto non è in esecuzione nel computer di origine.
  - il firewall non consente le connessioni del registro di sistema remoto al server di origine dall'agente di orchestrazione.
@@ -488,7 +492,7 @@ In questa fase, l'agente di orchestrazione del servizio migrazione archiviazione
  
  ## <a name="cutover-hangs-on-38-mapping-network-interfaces-on-the-source-computer"></a>Cutover si blocca su "38% mapping delle interfacce di rete nel computer di origine..." 
 
-Quando si tenta di eseguire il ritaglio di un computer di origine, il cut over viene bloccato alla fase "38% mapping delle interfacce di rete nel comnputer di origine..." viene visualizzato il seguente messaggio di errore nel registro eventi SMS:
+Quando si tenta di eseguire il ritaglio di un computer di origine, il cut over viene bloccato alla fase "38% mapping delle interfacce di rete nel computer di origine..." nel registro eventi del servizio migrazione archiviazione viene visualizzato l'errore seguente:
 
     Log Name:      Microsoft-Windows-StorageMigrationService-Proxy/Admin
     Source:        Microsoft-Windows-StorageMigrationService-Proxy
@@ -522,7 +526,7 @@ Può anche essere impostato usando le preferenze di Criteri di gruppo con un'imp
 
 Il servizio migrazione archiviazione Abilita temporaneamente il [LocalAccountTokenFilterPolicy](https://support.microsoft.com/help/951016/description-of-user-account-control-and-remote-restrictions-in-windows) come parte del processo di riduzione, quindi lo rimuove al termine dell'operazione. Quando Criteri di gruppo applica un oggetto Criteri di gruppo in conflitto (GPO), esegue l'override del servizio migrazione archiviazione e impedisce il superamento del limite.
 
-Per aggirare questo problema, usare una delle opzioni seguenti:
+Per risolvere questo problema, usare una delle opzioni seguenti:
 
 1. Spostare temporaneamente il computer di origine dall'unità organizzativa Active Directory che applica questo oggetto Criteri di gruppo in conflitto. 
 2. Disabilitare temporaneamente l'oggetto Criteri di gruppo che applica i criteri in conflitto.

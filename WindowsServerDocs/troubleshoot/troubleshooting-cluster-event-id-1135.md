@@ -2,18 +2,16 @@
 title: Risoluzione dei problemi relativi al cluster con ID evento 1135
 description: Viene descritto come risolvere il problema di avvio del servizio cluster con ID evento 1135.
 ms.date: 05/28/2020
-ms.openlocfilehash: 73357cc5b696a969de82123d3ca2a6fbb36fdc40
-ms.sourcegitcommit: ef089864980a1d4793a35cbf4cbdd02ce1962054
+ms.openlocfilehash: d59f8b89e89ea7ff42aecd79670465aee8d63524
+ms.sourcegitcommit: 5fac756c2c9920757e33ef0a68528cda0c85dd04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84150459"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84306530"
 ---
 # <a name="troubleshooting-cluster-issue-with-event-id-1135"></a>Risoluzione dei problemi relativi al cluster con ID evento 1135
 
 Questo articolo consente di diagnosticare e risolvere l'ID evento 1135, che può essere registrato durante l'avvio del Servizio cluster nell'ambiente clustering di failover.
-
-Questo articolo fornisce informazioni sulla risoluzione dei problemi
 
 ## <a name="start-page"></a>Pagina iniziale
 

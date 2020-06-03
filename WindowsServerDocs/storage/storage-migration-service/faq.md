@@ -4,16 +4,16 @@ description: Domande frequenti sul servizio migrazione archiviazione, ad esempio
 author: nedpyle
 ms.author: nedpyle
 manager: siroy
-ms.date: 08/19/2019
+ms.date: 06/02/2020
 ms.topic: article
 ms.prod: windows-server
 ms.technology: storage
-ms.openlocfilehash: a28b25c55b9ad66cd16f3d9e370fec22ec0f2a5d
-ms.sourcegitcommit: f0fcfee992b76f1ad5dad460d4557f06ee425083
+ms.openlocfilehash: 19f114dc663351f1b5d071340acf9c8a3de41617
+ms.sourcegitcommit: 5fac756c2c9920757e33ef0a68528cda0c85dd04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77125142"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84306510"
 ---
 # <a name="storage-migration-service-frequently-asked-questions-faq"></a>Domande frequenti sul servizio migrazione archiviazione
 
@@ -38,7 +38,7 @@ Il servizio migrazione archiviazione non consente la migrazione tra domini Activ
 
 ## <a name="are-clusters-supported-as-sources-or-destinations"></a>I cluster sono supportati come origini o destinazioni?
 
-Il servizio migrazione archiviazione supporta la migrazione da e verso i cluster dopo l'installazione dell'aggiornamento cumulativo [KB4513534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) o degli aggiornamenti successivi. Ciò include la migrazione da un cluster di origine a un cluster di destinazione, nonché la migrazione da un server di origine autonomo a un cluster di destinazione per finalità di consolidamento dei dispositivi. 
+Il servizio migrazione archiviazione supporta la migrazione da e verso i cluster dopo l'installazione dell'aggiornamento cumulativo [KB4513534](https://support.microsoft.com/help/4512534/windows-10-update-kb4512534) o degli aggiornamenti successivi. Ciò include la migrazione da un cluster di origine a un cluster di destinazione, nonché la migrazione da un server di origine autonomo a un cluster di destinazione per finalità di consolidamento dei dispositivi. Tuttavia, non è possibile eseguire la migrazione di un cluster a un server autonomo. 
 
 ## <a name="do-local-groups-and-local-users-migrate"></a>Migrare i gruppi locali e gli utenti locali?
 
@@ -63,12 +63,12 @@ Il servizio migrazione archiviazione esegue la migrazione di tutti i flag, le im
     - Limite utenti simultanei
     - Disponibile in modo continuo
     - Descrizione           
-    - Crittografa dati
+    - Crittografa i dati
     - Comunicazione remota delle identità
-    - Infrastruttura.
-    - Name
+    - Infrastruttura
+    - Nome
     - Percorso
-    - Ambito
+    - Con ambito
     - Nome dell'ambito
     - Descrittore di sicurezza
     - Copia shadow
@@ -77,7 +77,7 @@ Il servizio migrazione archiviazione esegue la migrazione di tutti i flag, le im
 
 ## <a name="can-i-consolidate-multiple-servers-into-one-server"></a>È possibile consolidare più server in un unico server?
 
-La versione del servizio migrazione archiviazione fornita in Windows Server 2019 non supporta il consolidamento di più server in un unico server. Un esempio di consolidamento consiste nell'eseguire la migrazione di tre server di origine distinti, che possono avere gli stessi nomi di condivisione e percorsi di file locali, in un singolo server nuovo che ha virtualizzato i percorsi e le condivisioni per evitare sovrapposizioni o conflitti, quindi ha risposto a tutti e tre nomi di server e indirizzi IP precedenti. Tuttavia, è possibile eseguire la migrazione di server autonomi a più risorse file server in un singolo cluster. 
+La versione del servizio migrazione archiviazione fornita in Windows Server 2019 non supporta il consolidamento di più server in un unico server. Un esempio di consolidamento consiste nell'eseguire la migrazione di tre server di origine distinti, che possono avere gli stessi nomi di condivisione e percorsi di file locali, in un singolo server nuovo che ha virtualizzato i percorsi e le condivisioni per evitare sovrapposizioni o conflitti, quindi ha risposto a tutti e tre i nomi di server precedenti e l'indirizzo IP. Tuttavia, è possibile eseguire la migrazione di server autonomi a più risorse file server in un singolo cluster. 
 
 ## <a name="can-i-migrate-from-sources-other-than-windows-server"></a>È possibile eseguire la migrazione da origini diverse da Windows Server?
 
@@ -99,11 +99,21 @@ Il servizio di migrazione archiviazione contiene un motore di lettura e copia mu
     
     FileTransferThreadCount
 
-   L'intervallo valido è compreso tra 1 e 128 in Windows Server 2019. Dopo la modifica è necessario riavviare il servizio proxy del servizio migrazione archiviazione in tutti i computer che partecipano a una migrazione. Prestare attenzione con questa impostazione. l'impostazione di un valore superiore potrebbe richiedere Core aggiuntivi, prestazioni di archiviazione e larghezza di banda di rete. L'impostazione di un valore troppo alto può comportare una riduzione delle prestazioni rispetto alle impostazioni predefinite.
+   L'intervallo valido è compreso tra 1 e 512 in Windows Server 2019. Non è necessario riavviare il servizio per iniziare a usare questa impostazione purché venga creato un nuovo processo. Prestare attenzione con questa impostazione. l'impostazione di un valore superiore potrebbe richiedere Core aggiuntivi, prestazioni di archiviazione e larghezza di banda di rete. L'impostazione di un valore troppo alto può comportare una riduzione delle prestazioni rispetto alle impostazioni predefinite.
+
+- **Alter thread di condivisione parallela predefiniti.** Il servizio proxy del servizio migrazione archiviazione copia da 8 condivisioni contemporaneamente in un determinato processo. È possibile aumentare il numero di thread di condivisione simultanei modificando il seguente registro di sistema REG_DWORD nome del valore in decimale nel server dell'agente di orchestrazione del servizio migrazione archiviazione:
+
+    HKEY_Local_Machine \Software\Microsoft\SMS
+    
+    EndpointFileTransferTaskCount 
+
+   L'intervallo valido è compreso tra 1 e 512 in Windows Server 2019. Non è necessario riavviare il servizio per iniziare a usare questa impostazione purché venga creato un nuovo processo. Prestare attenzione con questa impostazione. l'impostazione di un valore superiore potrebbe richiedere Core aggiuntivi, prestazioni di archiviazione e larghezza di banda di rete. L'impostazione di un valore troppo alto può comportare una riduzione delle prestazioni rispetto alle impostazioni predefinite. 
+   
+    La somma di FileTransferThreadCount e EndpointFileTransferTaskCount è il numero di file che il servizio migrazione archiviazione può copiare simultaneamente da un nodo di origine in un processo. Per aggiungere altri nodi di origine paralleli, creare ed eseguire più processi simultanei.
 
 - **Aggiungere core e memoria.**  Si consiglia vivamente che l'origine, l'agente di orchestrazione e i computer di destinazione dispongano di almeno due core del processore o due vCPU e più possono aiutare significativamente le prestazioni di inventario e trasferimento, soprattutto se combinate con FileTransferThreadCount (sopra). Quando si trasferiscono file di dimensioni superiori ai normali formati di Office (gigabyte o superiori), le prestazioni di trasferimento trarranno vantaggio da una quantità di memoria superiore a quella del valore minimo predefinito di 2 GB.
 
-- **Creare più processi.** Quando si crea un processo con più origini server, ogni server viene contattato in modo seriale per l'inventario, il trasferimento e la cutover. Ciò significa che ogni server deve completare la propria fase prima dell'avvio di un altro server. Per eseguire più server in parallelo, è sufficiente creare più processi, ognuno dei quali contiene un solo server. SMS supporta fino a 100 processi in esecuzione simultanea, ovvero un singolo agente di orchestrazione può parallelizzare molti computer di destinazione Windows Server 2019. Non è consigliabile eseguire più processi paralleli se i computer di destinazione sono Windows Server 2016 o Windows Server 2012 R2 come senza il servizio proxy SMS in esecuzione nella destinazione, l'agente di orchestrazione deve eseguire tutti i trasferimenti e potrebbe diventare collo. La possibilità per i server di essere eseguiti in parallelo all'interno di un singolo processo è una funzionalità che si prevede di aggiungere in una versione successiva di SMS.
+- **Creare più processi.** Quando si crea un processo con più origini server, ogni server viene contattato in modo seriale per l'inventario, il trasferimento e la cutover. Ciò significa che ogni server deve completare la propria fase prima dell'avvio di un altro server. Per eseguire più server in parallelo, è sufficiente creare più processi, ognuno dei quali contiene un solo server. SMS supporta fino a 100 processi in esecuzione simultanea, ovvero un singolo agente di orchestrazione può parallelizzare molti computer di destinazione Windows Server 2019. Non è consigliabile eseguire più processi paralleli se i computer di destinazione sono Windows Server 2016 o Windows Server 2012 R2 come senza il servizio proxy SMS in esecuzione nella destinazione, l'agente di orchestrazione deve eseguire tutti i trasferimenti e potrebbe diventare un collo di bottiglia. La possibilità per i server di essere eseguiti in parallelo all'interno di un singolo processo è una funzionalità che si prevede di aggiungere in una versione successiva di SMS.
 
 - **Usare SMB 3 con reti RDMA.** Se si trasferisce da un computer di origine Windows Server 2012 o versione successiva, SMB 3. x supporta la modalità SMB diretto e la rete RDMA. RDMA sposta la maggior parte del costo della CPU del trasferimento dalle CPU della scheda madre al caricamento dei processori NIC, riducendo la latenza e l'utilizzo della CPU del server. Inoltre, le reti RDMA, ad esempio ROCE e iWARP, dispongono in genere di una larghezza di banda notevolmente superiore rispetto alla tipica TCP/Ethernet, incluse le velocità di 25, 50 e 100 GB per interfaccia. L'utilizzo di SMB diretto in genere sposta il limite di velocità di trasferimento dalla rete allo spazio di archiviazione.   
 
@@ -116,7 +126,7 @@ Il servizio di migrazione archiviazione contiene un motore di lettura e copia mu
 
 - **Aggiornare i driver.** Installare i driver più recenti per l'archiviazione e l'enclosure del fornitore, i driver HBA più recenti, i driver di rete del fornitore più recenti, i driver di rete più recenti e i driver del chipset della scheda madre più recenti sui server di origine, di destinazione e di agente di orchestrazione. Se necessario riavviare i nodi. Per la configurazione dell'archiviazione condivisa e dell'hardware di rete, consultare la documentazione del fornitore hardware.
 
-- **Abilitare l'elaborazione ad alte prestazioni.** Assicurarsi che le impostazioni BIOS/UEFI dei server abilitati consentano alte prestazioni, ad esempio la disabilitazione dei C-State, l'impostazione della velocità QPI, l'abilitazione di NUMA e l'impostazione della frequenza di memoria massima. Verificare che il risparmio energia in Windows Server sia impostato su prestazioni elevate. Riavviare se necessario. Non dimenticare di restituirli agli stati appropriati dopo il completamento della migrazione. 
+- **Abilitare l'elaborazione ad alte prestazioni.** Assicurarsi che le impostazioni BIOS/UEFI dei server abilitati consentano alte prestazioni, ad esempio la disabilitazione dei C-State, l'impostazione della velocità QPI, l'abilitazione di NUMA e l'impostazione della frequenza di memoria massima. Verificare che il risparmio energia in Windows Server sia impostato su prestazioni elevate. Riavvia il sistema come richiesto. Non dimenticare di restituirli agli stati appropriati dopo il completamento della migrazione. 
 
 - **Ottimizzazione dell'hardware** Esaminare le [linee guida per l'ottimizzazione delle prestazioni per Windows server 2016](https://docs.microsoft.com/windows-server/administration/performance-tuning/) per l'ottimizzazione dell'agente di orchestrazione e dei computer di destinazione che eseguono windows server 2019 e windows server 2016. La sezione [ottimizzazione delle prestazioni del sottosistema di rete](https://docs.microsoft.com/windows-server/networking/technologies/network-subsystem/net-sub-performance-tuning-nics) contiene informazioni particolarmente utili.
 
@@ -133,12 +143,13 @@ La versione del servizio di migrazione archiviazione fornita in Windows Server 2
 Il servizio migrazione archiviazione usa un database Extensible Storage Engine (ESE) che viene installato per impostazione predefinita nella cartella Hidden c:\programdata\microsoft\storagemigrationservice Questo database aumenterà man mano che i processi vengono aggiunti e i trasferimenti vengono completati e possono utilizzare spazio su disco significativo dopo la migrazione di milioni di file se non si eliminano i processi. Se è necessario spostare il database, seguire questa procedura:
 
 1. Arrestare il servizio "servizio migrazione archiviazione" sul computer dell'agente di orchestrazione.
-2. Assumere la proprietà della cartella `%programdata%/Microsoft/StorageMigrationService`
+2. Assumere la proprietà della `%programdata%/Microsoft/StorageMigrationService` cartella
 3. Aggiungere l'account utente per avere il controllo completo su tale condivisione e su tutti i relativi file e sottocartelle.
 4. Spostare la cartella in un'altra unità sul computer dell'agente di orchestrazione.
 5. Impostare il seguente valore REG_SZ del registro di sistema:
 
-    HKEY_Local_Machine \Software\Microsoft\SMS DatabasePath = *percorso alla nuova cartella del database in un volume diverso* . 
+    HKEY_Local_Machine \Software\Microsoft\SMS DatabasePath = *percorso della nuova cartella del database in un volume diverso*
+    
 6. Verificare che il sistema disponga del controllo completo su tutti i file e le sottocartelle della cartella
 7. Rimuovere le autorizzazioni per gli account personali.
 8. Avviare il servizio "servizio migrazione archiviazione".
@@ -155,13 +166,13 @@ Quando si esegue un trasferimento, il servizio migrazione archiviazione cerca di
 
 La maggior parte degli errori trovati nel file CSV di trasferimento sono codici di errore di sistema di Windows. Per informazioni sul significato di ogni errore, vedere la [documentazione relativa ai codici di errore Win32](https://docs.microsoft.com/windows/win32/debug/system-error-codes). 
 
-## <a name="give-feedback"></a>Quali sono le opzioni disponibili per inviare commenti e suggerimenti, archiviare bug o ottenere supporto?
+## <a name="what-are-my-options-to-give-feedback-file-bugs-or-get-support"></a><a name="give-feedback"></a>Quali sono le opzioni disponibili per inviare commenti e suggerimenti, archiviare bug o ottenere supporto?
 
 Per inviare commenti e suggerimenti sul servizio migrazione archiviazione:
 
 - Usare lo strumento Hub di feedback incluso in Windows 10, facendo clic su "Suggerisci una funzionalità" e specificando la categoria "Windows Server" e la sottocategoria "migrazione archiviazione".
 - Usare il sito [Windows Server UserVoice](https://windowsserver.uservoice.com)
-- smsfeed@microsoft.com di posta elettronica
+- Posta elettronica: smsfeed@microsoft.com
 
 Per archiviare i bug:
 
