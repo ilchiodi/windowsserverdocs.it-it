@@ -8,20 +8,20 @@ ms.date: 01/16/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: ea149e6b9a5fbf5c0671991a61f9bcda35656022
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: a4a70632ea4c1db39c020327bbe135f4798e6970
+ms.sourcegitcommit: 2cc251eb5bc3069bf09bc08e06c3478fcbe1f321
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80859984"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84333892"
 ---
 # <a name="advanced-customization-of-ad-fs-sign-in-pages"></a>Personalizzazione avanzata delle pagine di accesso AD FS
 
   
-## <a name="advanced-customization-of-ad-fs-sign-in-pages"></a>Personalizzazione avanzata di AD FS\-di firma nelle pagine  
-AD FS in Windows Server 2012 R2 fornisce\-compilate in supporto per la personalizzazione del segno\-in esperienza. Per la maggior parte di questi scenari, i\-compilati nei cmdlet di Windows PowerShell sono tutti necessari.  Si consiglia di usare i comandi compilati\-nei comandi di Windows PowerShell per personalizzare gli elementi standard per AD FS segno\-in esperienza quando possibile.  Per ulteriori informazioni, vedere [personalizzazione dell'accesso utente ad FS](AD-FS-user-sign-in-customization.md) .  
+## <a name="advanced-customization-of-ad-fs-sign-in-pages"></a>Personalizzazione avanzata delle pagine di accesso AD FS \-  
+AD FS in Windows Server 2012 R2 offre \- supporto incorporato per la personalizzazione dell'esperienza di accesso \- . Per la maggior parte di questi scenari, i \- cmdlet incorporati di Windows PowerShell sono tutti necessari.  È consigliabile usare i comandi incorporati di \- Windows PowerShell per personalizzare gli elementi standard per l'esperienza di accesso ad FS \- quando possibile.  Per ulteriori informazioni, vedere [personalizzazione dell'accesso utente ad FS](AD-FS-user-sign-in-customization.md) .  
   
-In alcuni casi, gli amministratori AD FS possono fornire\-di firma aggiuntiva in esperienze che non sono possibili tramite i comandi di PowerShell esistenti forniti in\-box con AD FS. In alcuni casi, è possibile \(all'interno delle linee guida fornite di seguito\) agli amministratori di personalizzare il segno\-in modo più approfondito aggiungendo logica aggiuntiva a **OnLoad. js** fornita da ad FS e verrà eseguita in tutte le pagine di ad FS.  
+In alcuni casi, gli amministratori AD FS possono fornire esperienze di accesso aggiuntive \- non possibili tramite i comandi di PowerShell esistenti inclusi in \- box con ad FS. In alcuni casi, è fattibile \( all'interno delle linee guida fornite di seguito per consentire agli \) amministratori di personalizzare \- ulteriormente l'esperienza di accesso aggiungendo logica aggiuntiva a **OnLoad. js** fornita da ad FS e verrà eseguita in tutte le pagine ad FS.  
   
 ## <a name="things-to-know-before-you-start"></a>Informazioni importanti prima di iniziare  
   
@@ -29,15 +29,15 @@ In alcuni casi, gli amministratori AD FS possono fornire\-di firma aggiuntiva in
   
 -   L'oggetto OnLoad. js originale, quello che include il tema Web predefinito, contiene il codice che gestisce il rendering della pagina per diversi fattori di forma. Si consiglia di non modificare il contenuto originale di OnLoad. js, ma solo di aggiungere il codice al metodo OnLoad. js esistente che gestisce la logica personalizzata.  
   
--   AD FS viene fornito con una\-compilata nel tema Web, denominata default. Non è possibile modificare OnLoad. js del tema Web predefinito. Per aggiornare OnLoad. js, è necessario creare e usare un tema Web personalizzato per AD FS firmare\-in pagine.  Per informazioni su come creare un tema Web personalizzato, vedere [personalizzazione dell'accesso utente ad FS](AD-FS-user-sign-in-customization.md) .  
+-   AD FS viene fornito con un \- tema Web incorporato, denominato predefinito. Non è possibile modificare OnLoad. js del tema Web predefinito. Per aggiornare OnLoad. js, è necessario creare e usare un tema Web personalizzato per AD FS le \- pagine di accesso.  Per informazioni su come creare un tema Web personalizzato, vedere [personalizzazione dell'accesso utente ad FS](AD-FS-user-sign-in-customization.md) .  
   
--   Lo stesso OnLoad. js verrà eseguito in tutte le pagine ADFS \(ad esempio. pagina di accesso basata su\-form, pagina di individuazione dell'area di autenticazione principale e così via\). È necessario assicurarsi che il codice nello script venga eseguito solo quando è stato progettato e non viene eseguito in modo imprevisto.  
+-   Lo stesso OnLoad. js verrà eseguito in tutte le pagine ad FS \( , ad esempio. \-pagina di accesso basata su form, pagina di individuazione dell'area di autenticazione principale e così via \) . È necessario assicurarsi che il codice nello script venga eseguito solo quando è stato progettato e non viene eseguito in modo imprevisto.  
   
--   Quando si fa riferimento a qualsiasi elemento HTML, verificare che venga sempre verificata l'esistenza dell'elemento prima di agire sull'elemento. In questo modo viene garantita l'affidabilità e si garantisce che la logica personalizzata non venga eseguita sulle pagine che non contengono questo elemento. Per visualizzare gli elementi esistenti, è sufficiente visualizzare l'origine HTML sul\-di AD FS di accesso in pagine.  
+-   Quando si fa riferimento a qualsiasi elemento HTML, verificare che venga sempre verificata l'esistenza dell'elemento prima di agire sull'elemento. In questo modo viene garantita l'affidabilità e si garantisce che la logica personalizzata non venga eseguita sulle pagine che non contengono questo elemento. \-Per visualizzare gli elementi esistenti, è possibile visualizzare semplicemente l'origine HTML nelle pagine di accesso ad FS.  
   
 -   Si consiglia vivamente di convalidare le personalizzazioni in un ambiente alternativo e di testarle prima di distribuirle in server AD FS di produzione. In questo modo si riducono le probabilità che gli utenti finali vengano esposti a queste personalizzazioni prima della convalida.  
   
-## <a name="customizing-the-ad-fs-sign-in-experience-by-using-onloadjs"></a>Personalizzazione del segno di AD FS\-nell'esperienza tramite OnLoad. js  
+## <a name="customizing-the-ad-fs-sign-in-experience-by-using-onloadjs"></a>Personalizzazione dell' \- esperienza di accesso ad FS usando OnLoad. js  
 Usare la procedura seguente per personalizzare OnLoad. js per il servizio AD FS.  
   
 #### <a name="customizing-onloadjs-for-the-ad-fs-service"></a>Personalizzazione di OnLoad. js per il servizio AD FS  
@@ -56,7 +56,7 @@ Usare la procedura seguente per personalizzare OnLoad. js per il servizio AD FS.
   
     ```  
   
-    È possibile trovare OnLoad. js sotto la cartella script nella directory specificata nel cmdlet Export precedente e aggiungere la logica personalizzata allo script \(vedere i casi d'uso nella sezione esempio seguente\).  
+    È possibile trovare OnLoad. js sotto la cartella script nella directory specificata nel cmdlet Export precedente e aggiungere la logica personalizzata allo script \( vedere i casi d'uso nella sezione di esempio riportata di seguito \) .  
   
 3.  Apportare le modifiche necessarie per personalizzare OnLoad. js in base alle esigenze.  
   
@@ -71,7 +71,7 @@ Usare la procedura seguente per personalizzare OnLoad. js per il servizio AD FS.
     Per AD FS in Windows Server 2016:
 
      ```  
-    Set-AdfsWebTheme -TargetName custom -OnLoadScriptPath "c:\ADFStheme\script\onload.js"   
+    Set-AdfsWebTheme -TargetName custom -OnLoadScriptPath "c:\theme\script\onload.js"   
   
     ```  
   
@@ -82,10 +82,10 @@ Usare la procedura seguente per personalizzare OnLoad. js per il servizio AD FS.
     ```  
   
 ## <a name="additional-customization-examples"></a>Esempi di personalizzazione aggiuntivi  
-Di seguito sono riportati gli esempi di codice personalizzato aggiunto a OnLoad. js per scopi di ottimizzazione\-diversi. Quando si aggiunge il codice personalizzato, aggiungere sempre il codice personalizzato alla fine di OnLoad. js.  
+Di seguito sono riportati gli esempi di codice personalizzato aggiunto a OnLoad. js per \- scopi di ottimizzazione diversi. Quando si aggiunge il codice personalizzato, aggiungere sempre il codice personalizzato alla fine di OnLoad. js.  
   
 ### <a name="example-1-change-sign-in-with-organizational-account-string"></a>Esempio 1: modificare la stringa "Accedi con account aziendale"  
-Il\-di accesso predefinito AD FS form\-in base alla pagina ha un titolo "Accedi con l'account aziendale" sopra le caselle di input dell'utente.  
+La pagina di accesso predefinita basata sul modulo AD FS form \- \- ha il titolo "Accedi con l'account aziendale" sopra le caselle di input dell'utente.  
   
 Se si vuole sostituire questa stringa con una stringa personalizzata, è possibile aggiungere il codice seguente a OnLoad. js.  
   
@@ -102,8 +102,8 @@ if (loginMessage)
   
 ```  
   
-### <a name="example-2-accept-sam-account-name-as-a-login-format-on-an-ad-fs-form-based-sign-in-page"></a>Esempio 2: accettare il nome dell'account SAM\-come formato di accesso in un modulo AD FS\-\-di segno basato sulla pagina  
-Il\-di accesso predefinito AD FS form\-in base alla pagina supporta il formato di accesso dei nomi dell'entità utente \(UPN\) \(ad <strong>esempio,johndoe@contoso.com\) o</strong> i nomi di account SAM\-qualificati per il dominio \(**Contoso\\johndoe** o **contoso.com\\johndoe**\). Se tutti gli utenti provengono dallo stesso dominio e conoscono solo i nomi di account di Sam\-, è possibile che si voglia supportare lo scenario in cui gli utenti possono accedere usando solo i nomi degli account SAM\-. È possibile aggiungere il codice seguente a OnLoad. js per supportare questo scenario, basta sostituire il dominio "contoso.com" nell'esempio seguente con il dominio che si vuole usare.  
+### <a name="example-2-accept-sam-account-name-as-a-login-format-on-an-ad-fs-form-based-sign-in-page"></a>Esempio 2: accettare il \- nome dell'account SAM come formato di accesso in una \- pagina di accesso basata su ad FS form \-  
+La \- pagina di accesso ad FS basata su form predefinita supporta il \- formato di accesso dei nomi dell'entità utente \( UPN \) \( , ad esempio, <strong>johndoe@contoso.com</strong> \) o i nomi di account sam con dominio completo \- \( **Contoso \\ johndoe** o **contoso.com \\ johndoe** \) . Se tutti gli utenti provengono dallo stesso dominio e conoscono solo i \- nomi degli account SAM, è possibile che si voglia supportare lo scenario in cui gli utenti possono accedere usando \- solo nomi di account SAM. È possibile aggiungere il codice seguente a OnLoad. js per supportare questo scenario, basta sostituire il dominio "contoso.com" nell'esempio seguente con il dominio che si vuole usare.  
   
 ```  
 if (typeof Login != 'undefined'){  

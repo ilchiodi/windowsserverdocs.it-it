@@ -8,12 +8,12 @@ ms.date: 05/20/2019
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 843ed0b3ebf25d662d0b90c17f8fe23548829a7e
-ms.sourcegitcommit: 371e59315db0cca5bdb713264a62b215ab43fd0f
+ms.openlocfilehash: 13f25252d60cb0bde67cca1e1aa5106435c3f361
+ms.sourcegitcommit: 2cc251eb5bc3069bf09bc08e06c3478fcbe1f321
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192603"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84333916"
 ---
 # <a name="ad-fs-extranet-lockout-and-extranet-smart-lockout"></a>AD FS Extranet Lockout and Extranet Smart Lockout (Blocco Extranet e blocco intelligente Extranet di AD FS)
 
@@ -144,14 +144,14 @@ La tabella AccountActivity viene popolata sia durante la modalità' log-only ' c
 Questa funzionalità consente di utilizzare i log di controllo della sicurezza, pertanto è necessario abilitare il controllo in AD FS e i criteri locali in tutti i server AD FS.
 
 ### <a name="configuration-instructions"></a>Istruzioni di configurazione
-Il blocco Smart Extranet usa la proprietà ADFS **ExtranetLockoutEnabled**. Questa proprietà è stata utilizzata in precedenza per controllare "blocco flessibile Extranet" nel server 2012R2. Se è stato abilitato il blocco flessibile Extranet, per visualizzare la configurazione della proprietà ` Get-AdfsProperties` corrente eseguire.
+Il blocco Smart Extranet usa la proprietà ADFS **ExtranetLockoutEnabled**. Questa proprietà è stata utilizzata in precedenza per controllare "blocco flessibile Extranet" nel server 2012R2. Se è stato abilitato il blocco flessibile Extranet, per visualizzare la configurazione della proprietà corrente eseguire ` Get-AdfsProperties` .
 
 ### <a name="configuration-recommendations"></a>Indicazioni relative alla configurazione
 Quando si configura il blocco intelligente Extranet, attenersi alle procedure consigliate per l'impostazione delle soglie:  
 
 `ExtranetObservationWindow (new-timespan -Minutes 30)`
 
-`ExtranetLockoutThreshold: – 2x AD Threshold Value`
+`ExtranetLockoutThreshold: Half of AD Threshold Value`
 
 Valore di Active Directory: 20, ExtranetLockoutThreshold: 10
 
