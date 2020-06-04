@@ -9,18 +9,22 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f3d5e778ee78d812a3ec8c3683b01e0b304a127e
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: 192471e6045a530e9deedec70cc957b9362b3ae7
+ms.sourcegitcommit: 5e313a004663adb54c90962cfdad9ae889246151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82992343"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84354661"
 ---
 # <a name="makecab"></a>makecab
 
 > Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Comprimere i file esistenti in un file cabinet (CAB). Questo comando esegue le stesse azioni del comando **diantz** .
+Comprimere i file esistenti in un file cabinet (CAB).
+
+
+> [!NOTE]
+> Questo comando corrisponde al [comando diantz](diantz.md).
 
 ## <a name="syntax"></a>Sintassi
 
@@ -44,5 +48,7 @@ makecab [/v[<n>]] [/d var=<value> ...] /f <directives_file> [...]
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [comando diantz](diantz.md)
 
 - [Formato Microsoft Cabinet](https://docs.microsoft.com/previous-versions/bb417343(v=msdn.10))

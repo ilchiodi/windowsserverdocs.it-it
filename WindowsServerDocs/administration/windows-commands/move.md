@@ -1,6 +1,6 @@
 ---
 title: spostamento
-description: Argomento di riferimento per * * * *-
+description: Argomento di riferimento per il comando Move, che consente di spostare uno o più file da una directory a un'altra directory.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,47 +9,42 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 1df37753239fea5d5ba9ba22256706a47d4c6a2f
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 283ee793769d991c1932eb2271c5117354bdf6a4
+ms.sourcegitcommit: 5e313a004663adb54c90962cfdad9ae889246151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723918"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84354502"
 ---
 # <a name="move"></a>spostamento
 
-
-
 Sposta uno o più file da una directory a un'altra directory.
 
-
+> [!IMPORTANT]
+> Se si trasferiscono file crittografati a un volume che non supporta i risultati di Encrypting File System (EFS), verrà generato un errore. È necessario innanzitutto decrittografare i file o spostarli in un volume che supporta EFS.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-move [{/y | /-y}] [<Source>] [<Target>]
+move [{/y|-y}] [<source>] [<target>]
 ```
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|/y|Evita la richiesta di conferma della sovrascrittura di un file di destinazione esistente.|
-|/-y|Fa in modo che la richiesta di conferma che si desidera sovrascrivere un file di destinazione esistente.|
-|\<> di origine|Specifica il percorso e il nome del file o dei file da spostare. Se si vuole spostare o rinominare una directory, l' *origine* deve essere il percorso e il nome della directory corrente.|
-|\<Target>|Specifica il percorso e il nome in cui spostare i file. Se si vuole spostare o rinominare una directory, la *destinazione* deve essere il percorso e il nome della directory desiderata.|
-|/?|Visualizza la guida al prompt dei comandi.|
+| Parametro | Descrizione |
+| --------- | ----------- |
+| /y | Interrompe la richiesta di conferma che si desidera sovrascrivere un file di destinazione esistente. Questo parametro può essere preimpostato nella variabile di ambiente COPYCMD. È possibile eseguire l'override di questo set di impostazioni utilizzando il parametro **-y** . Per impostazione predefinita, viene richiesto di richiedere prima di sovrascrivere i file, a meno che il comando non venga eseguito dall'interno di uno script batch. |
+| -y | Avvia la richiesta di conferma che si desidera sovrascrivere un file di destinazione esistente. |
+| `<source>` | Specifica il percorso e il nome dei file da spostare. Per spostare o rinominare una directory, l' *origine* deve essere il percorso e il nome della directory corrente. |
+| `<target>` | Specifica il percorso e il nome in cui spostare i file. Per spostare o rinominare una directory, la *destinazione* deve essere il percorso e il nome della directory desiderata. |
+| /? | Visualizza la guida al prompt dei comandi. |
 
-## <a name="remarks"></a>Osservazioni
+### <a name="examples"></a>Esempio
 
--   È possibile impostare l'opzione della riga di comando **/y** nella variabile di ambiente COPYCMD. È possibile eseguire l'override di questa operazione con **/-y** nella riga di comando. Per impostazione predefinita, viene richiesto di richiedere prima di sovrascrivere i file, a meno che il comando **Copy** non venga eseguito dall'interno di uno script batch.
--   Lo trasferimento di file crittografati in un volume che non supporta Encrypting File System (EFS) genera un errore. Decrittografare i file prima o spostare i file in un volume che supporta EFS.
+Per spostare tutti i file con estensione xls dalla directory *\Data* alla directory *\ Second_Q \Rapporti* , digitare:
 
-## <a name="examples"></a>Esempi
-
-Per spostare tutti i file con estensione xls dalla directory \Data alla directory \ Second_Q \Rapporti, digitare:
 ```
-move \data\*.xls \second_q\reports\ 
+move \data\*.xls \second_q\reports\
 ```
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi

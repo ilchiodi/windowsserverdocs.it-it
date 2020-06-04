@@ -9,19 +9,20 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 96e0f97e27de8933de44c437508ef59803765771
-ms.sourcegitcommit: bf887504703337f8ad685d778124f65fe8c3dc13
+ms.openlocfilehash: 1525f20549b6571975cb622534f8504eb4fa1f79
+ms.sourcegitcommit: 5e313a004663adb54c90962cfdad9ae889246151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2020
-ms.locfileid: "83437126"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84354681"
 ---
 # <a name="erase"></a>erase
 
-Elimina uno o più file. Questo comando esegue le stesse azioni del comando **del** .
+Elimina uno o più file. Se si usa **Erase** per eliminare un file dal disco, non è possibile recuperarlo.
 
-> [!WARNING]
-> Se si usa **Erase** per eliminare un file dal disco, non è possibile recuperarlo.
+> [!NOTE]
+> Questo comando corrisponde a quello del [comando del](del.md).
+
 
 ## <a name="syntax"></a>Sintassi
 
@@ -42,7 +43,7 @@ del [/p] [/f] [/s] [/q] [/a[:]<attributes>] <names>
 | /a [:]`<attributes>` | Elimina i file in base ai seguenti attributi di file:<ul><li>**r** i file di sola lettura</li><li>**h** file nascosti</li><li>**i** non contenuti i file indicizzati</li><li>**s** i file di sistema</li><li>**un** pronto per l'archiviazione dei file</li><li>**l** Reparse Point</li><li>**-** Usato come prefisso che significa ' not '</li></ul>. |
 | /? | Visualizza la guida al prompt dei comandi. |
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Commenti
 
 - Se si usa il `erase /p` comando, verrà visualizzato il messaggio seguente:
 
@@ -73,7 +74,7 @@ del [/p] [/f] [/s] [/q] [/a[:]<attributes>] <names>
   > [!NOTE]
   > Prima di usare i caratteri jolly con il comando **Erase** , usare gli stessi caratteri jolly con il comando **dir** per elencare tutti i file che verranno eliminati.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 Per eliminare tutti i file in una cartella denominata Test sull'unità C, digitare uno dei seguenti:
 
@@ -97,3 +98,5 @@ erase /a:r *.*
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [del comando](del.md)

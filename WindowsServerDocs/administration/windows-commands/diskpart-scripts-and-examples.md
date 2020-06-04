@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: f3e781e49aa978288de45da90224a3f1c2b247b1
-ms.sourcegitcommit: fad2ba64bbc13763772e21ed3eabd010f6a5da34
+ms.openlocfilehash: 546f867b2cde199f54975a127b0faf11130996d2
+ms.sourcegitcommit: 5e313a004663adb54c90962cfdad9ae889246151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82992494"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84354671"
 ---
 # <a name="diskpart-scripts-and-examples"></a>script ed esempi di DiskPart
 
@@ -33,7 +33,7 @@ Per creare uno script DiskPart, creare un file di testo contenente i comandi Dis
     assign letter=T
     ```
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 - Per eseguire uno script DiskPart, al prompt dei comandi digitare il comando seguente, dove *scriptname* è il nome del file di testo che contiene lo script:
 
@@ -47,7 +47,7 @@ Per creare uno script DiskPart, creare un file di testo contenente i comandi Dis
     diskpart /s scriptname.txt > logfile.txt
     ```
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Commenti
 
 - Quando si usa il comando **DiskPart** come parte di uno script, si consiglia di completare tutte le operazioni DiskPart insieme come parte di un singolo script DiskPart. È possibile eseguire script DiskPart consecutivi, ma è necessario consentire almeno 15 secondi tra ogni script per un arresto completo dell'esecuzione precedente prima di eseguire di nuovo il comando **DiskPart** negli script successivi. In caso contrario, gli script successivi potrebbero non riuscire. È possibile aggiungere una pausa tra script DiskPart consecutivi aggiungendo il `timeout /t 15` comando al file batch insieme agli script DiskPart.
 
@@ -57,8 +57,8 @@ Per creare uno script DiskPart, creare un file di testo contenente i comandi Dis
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
 
-- [Esempio: configurare partizioni\/del\-disco rigido basate su UEFI GPT usando Windows PE e Diskpart](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh825686(v=win.10))
+- [Esempio: configurare partizioni di unità disco rigido basate su UEFI/GPT usando Windows PE e DiskPart](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh825686(v=win.10))
 
-- [Esempio: configurare partizioni\/del\-disco rigido basate su MBR BIOS usando Windows PE e Diskpart](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh825677(v=win.10))
+- [Esempio: configurare partizioni del disco rigido basate su BIOS/MBR usando Windows PE e DiskPart](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh825677(v=win.10))
 
 - [Cmdlet di archiviazione in Windows PowerShell](https://docs.microsoft.com/powershell/module/storage/?view=win10-ps)

@@ -1,6 +1,6 @@
 ---
 title: mqtgsvc
-description: Argomento di riferimento per * * * *-
+description: Argomento di riferimento per il comando mqtgsvc, che consente di monitorare una coda per i messaggi in arrivo e di eseguire un'azione, sotto forma di un file eseguibile o di un componente COM, quando le regole di un trigger vengono valutate come true.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,29 +9,25 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ca75ea9fca34a5803db8f05b37e5aef226b2fb33
-ms.sourcegitcommit: 4f407b82435afe3111c215510b0ef797863f9cb4
+ms.openlocfilehash: 70937c4918b2b01425417368bfa347bd02e5bf22
+ms.sourcegitcommit: 5e313a004663adb54c90962cfdad9ae889246151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83820801"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84354412"
 ---
 # <a name="mqtgsvc"></a>mqtgsvc
 
-
-
-Monitora una coda per i messaggi in arrivo ed esegue un'azione, sotto forma di un file eseguibile o di un componente COM, quando le regole di un trigger vengono valutate come true. Per esempi di come è possibile utilizzare il servizio Trigger Accodamento messaggi, vedere [trigger di Accodamento messaggi](https://go.microsoft.com/fwlink/?LinkId=248725)su MSDN.
+Monitora una coda per i messaggi in arrivo ed esegue un'azione, sotto forma di un file eseguibile o di un componente COM, quando le regole di un trigger vengono valutate come true. Per esempi di come è possibile utilizzare il servizio Trigger Accodamento messaggi, vedere [trigger di Accodamento messaggi](https://docs.microsoft.com/previous-versions/windows/desktop/legacy/ms703197(v=vs.85)).
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-Mqtgsvc.exe
+mqtgsvc.exe
 ```
-
-#### <a name="parameters"></a>Parametri
-
-nessuno
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
 - [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [Guida di riferimento a MSMQ PowerShell](https://docs.microsoft.com/powershell/module/msmq/?view=win10-ps)

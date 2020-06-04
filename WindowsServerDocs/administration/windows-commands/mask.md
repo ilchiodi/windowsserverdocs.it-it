@@ -1,6 +1,6 @@
 ---
 title: mask
-description: Argomento di riferimento per * * * *-
+description: Argomento di riferimento per il comando mask, che consente di rimuovere le copie shadow dell'hardware importate tramite il comando Import.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,40 +9,37 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 816bcd932091b33ed897add5a13603e3a1eea925
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: ee01bb74b1fef1bb31a266c01a9e9bde7743691d
+ms.sourcegitcommit: 5e313a004663adb54c90962cfdad9ae889246151
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82724014"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84354641"
 ---
 # <a name="mask"></a>mask
 
-
-
 Rimuove le copie shadow dell'hardware importate tramite il comando **Import** .
-
-
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-mask <ShadowSetID>
+mask <shadowsetID>
 ```
 
 ### <a name="parameters"></a>Parametri
 
-|Parametro|Descrizione|
-|---------|-----------|
-|ShadowSetID|Rimuove le copie shadow che appartengono all'ID del set di copie shadow specificato.|
+| Parametro | Descrizione |
+| --------- | ----------- |
+| shadowsetID | Rimuove le copie shadow che appartengono all'ID del set di copie shadow specificato. |
 
-## <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Commenti
 
--   È possibile usare un alias esistente o una variabile di ambiente al posto di *ShadowSetID*. Utilizzare **aggiungere** senza parametri per visualizzare gli alias esistenti.
+- È possibile usare un alias esistente o una variabile di ambiente al posto di *ShadowSetID*. Utilizzare **aggiungere** senza parametri per visualizzare gli alias esistenti.
 
-## <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
-Per rimuovere la copia shadow importata% Import_1%, digitare:
+Per rimuovere la copia shadow importata *% Import_1%*, digitare:
+
 ```
 mask %Import_1%
 ```
