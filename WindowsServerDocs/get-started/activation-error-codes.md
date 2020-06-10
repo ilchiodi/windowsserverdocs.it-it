@@ -7,17 +7,21 @@ ms.technology: server-general
 author: kaushika-msft
 ms.author: kaushika-msft; v-tea
 ms.localizationpriority: medium
-ms.openlocfilehash: 8a550ddd72dcdf8c1967fe4740dc0fe5f2ad93e7
-ms.sourcegitcommit: df94dac422d13566c32e1cdb8c6e7a4e82747947
+ms.custom:
+- CI ID 116803
+- CSSTroubleshoot
+manager: dcscontentpm
+ms.openlocfilehash: fe07636908dffc6bb59c544d512b132e7640bf51
+ms.sourcegitcommit: 75b4cf49dd918ff98258dcae6e6e8d7825c9adec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84205632"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84269228"
 ---
 # <a name="resolve-windows-activation-error-codes"></a>Risolvere i codici di errore di attivazione di Windows
 
-> **Utenti domestici**  
-> Questo articolo è destinato a professionisti IT e agenti di supporto. Se hai bisogno di altre informazioni sui messaggi di errore di attivazione di Windows, vedi [Informazioni sugli errori di attivazione di Windows](https://support.microsoft.com/help/10738/windows-10-get-help-with-activation-errors).  
+> [!NOTE]  
+> Questo articolo è destinato a professionisti IT e addetti del supporto tecnico. Se hai bisogno di altre informazioni sui messaggi di errore di attivazione di Windows, vedi [Informazioni sugli errori di attivazione di Windows](https://support.microsoft.com/help/10738/windows-10-get-help-with-activation-errors).  
 
 Questo articolo fornisce informazioni per la risoluzione dei problemi per rispondere ai messaggi di errore che puoi ricevere quando tenti di usare un codice ad attivazione multipla (MAK) o il Servizio di gestione delle chiavi per eseguire l'attivazione di contratti multilicenza in uno o più computer basati su Windows. Cerca il codice di errore nella tabella seguente e quindi seleziona il collegamento per visualizzare altre informazioni sul codice di errore e su come risolverlo.
 
@@ -28,6 +32,10 @@ Per altre informazioni sull'attivazione dei contratti multilicenza per le versio
 Per altre informazioni sull'attivazione dei contratti multilicenza per le versioni precedenti di Windows, vedi l'articolo 929712 della Knowledge Base  [Informazioni sull'attivazione dei contratti multilicenza per Windows Vista, Windows Server 2008, Windows Server 2008 R2 e Windows 7](https://support.microsoft.com/help/929712/volume-activation-information-for-windows-vista-windows-server-2008-wi).
 
 ## <a name="diagnostic-tool"></a>Strumento di diagnostica
+
+> [!NOTE]  
+> Questo strumento aiuta a risolvere i problemi di attivazione di Windows nei computer in cui è in esecuzione l'edizione Enterprise, Professional o server di Windows.
+
 
 L'Assistente di supporto e ripristino di Microsoft semplifica la risoluzione dei problemi relativi all'attivazione mediante il Servizio di gestione delle chiavi di Windows. Scarica lo strumento di diagnostica da [qui](https://aka.ms/SaRA-WindowsActivation).
 

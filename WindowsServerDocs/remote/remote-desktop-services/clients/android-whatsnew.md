@@ -7,18 +7,63 @@ ms.topic: article
 author: heidilohr
 manager: lizross
 ms.author: helohr
-ms.date: 09/11/2019
+ms.date: 06/04/2020
 ms.localizationpriority: medium
-ms.openlocfilehash: 3c0c5be0c4cf274224d25b62f7553ae49f8219b2
-ms.sourcegitcommit: 3a3d62f938322849f81ee9ec01186b3e7ab90fe0
+ms.openlocfilehash: 176c601d98ebc743e455c5f83efe2c10267a38ba
+ms.sourcegitcommit: 5fac756c2c9920757e33ef0a68528cda0c85dd04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "80854674"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84306450"
 ---
 # <a name="whats-new-in-the-android-client"></a>Novità del client Android
 
 Aggiorniamo regolarmente il [client Desktop remoto per Android](remote-desktop-android.md) aggiungendo nuove funzionalità e risolvendo i problemi. Qui sono disponibili gli aggiornamenti più recenti.
+
+## <a name="updates-for-version-8180"></a>Aggiornamenti per la versione 8.1.80
+
+*Data di pubblicazione: 26/05/2020*
+
+- Modifica dell'icona del client per distinguerla dal nuovo client attualmente in anteprima.
+- Preparazione del client per supportare il trasferimento delle impostazioni e delle connessioni al nuovo client.
+
+## <a name="updates-for-version-8179"></a>Aggiornamenti per la versione 8.1.79
+
+*Data di pubblicazione: 24/03/2020*
+
+- Risoluzione di un problema per cui gli scanner di codice a barre non funzionavano.
+
+## <a name="updates-for-version-8177"></a>Aggiornamenti per la versione 8.1.77
+
+*Data di pubblicazione: 11/02/2020*
+
+- Accessibilità migliorata per gli utenti con navigazione solo da tastiera.
+
+## <a name="updates-for-version-8176"></a>Aggiornamenti per la versione 8.1.76
+
+*Data di pubblicazione: 09/01/2020*
+
+- Miglioramenti e correzioni di bug minori.
+
+## <a name="updates-for-version-8175"></a>Aggiornamenti per la versione 8.1.75
+
+*Data di pubblicazione: 31/10/2019*
+
+- Risoluzione di un problema per cui non veniva caricato l'URL di feed di risorse remote.
+- Accessibilità migliorata per gli utenti con navigazione solo da tastiera e TalkBack.
+
+## <a name="updates-for-version-8174"></a>Aggiornamenti per la versione 8.1.74
+
+*Data di pubblicazione: 17/08/2019*
+
+- Risoluzione di un problema di arresto anomalo durante la connessione ai server che inviano certificati proprietari.
+
+## <a name="updates-for-version-8173"></a>Aggiornamenti per la versione 8.1.73
+
+*Data di pubblicazione: 14/06/2019*
+
+- Aggiunta del supporto a 64 bit.
+- Risoluzione dei problemi di sicurezza descritti in CVE-2019-1108.
 
 ## <a name="updates-for-version-8171"></a>Aggiornamenti per la versione 8.1.71
 
