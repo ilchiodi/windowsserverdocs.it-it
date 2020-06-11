@@ -8,12 +8,12 @@ ms.date: 01/18/2018
 ms.topic: article
 ms.prod: windows-server
 ms.technology: identity-adfs
-ms.openlocfilehash: 4aa2f219852dc97833365645e7455f8141a0988e
-ms.sourcegitcommit: d23f880e144acf0912831557c70f777d48e3152b
+ms.openlocfilehash: c443d596e8e35f7ccf4aa23b622323122a2778e9
+ms.sourcegitcommit: 76a3b5f66e47e08e8235e2d152185b304d03b68b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84632785"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84663184"
 ---
 # <a name="configuring-ad-fs-for-user-certificate-authentication"></a>Configurazione AD FS per l'autenticazione dei certificati utente
 
@@ -29,7 +29,7 @@ L'autenticazione del certificato utente viene utilizzata principalmente in 2 cas
 4) Se si usa AD FS in modalità di autenticazione con certificati alternativi, assicurarsi che i server AD FS e WAP dispongano di certificati SSL che contengono il nome host di AD FS con prefisso "certauth", ad esempio "certauth.fs.contoso.com", e che il traffico verso questo nome host sia consentito tramite il firewall
 5) Se si usa l'autenticazione del certificato dalla rete Extranet, assicurarsi che almeno un'AIA e almeno una posizione CDP o OCSP dall'elenco specificato nei certificati siano accessibili da Internet.
 6) Per l'autenticazione Azure AD certificato, inoltre, per i client Exchange ActiveSync, il certificato client deve avere l'indirizzo di posta elettronica instradabile degli utenti in Exchange Online nel nome dell'entità o nel valore del nome RFC822 del campo nome alternativo oggetto. Azure Active Directory esegue il mapping del valore RFC822 all'attributo dell'indirizzo proxy nella directory.
-7) Quando si usa l'autenticazione basata su smart card o certificato, l'oggetto del certificato potrebbe non corrispondere a quello di UserPricipalName nell'account AD. In questo caso l'accesso ha esito negativo con "utente non trovato".
+7) AD FS non supporta i suggerimenti nome utente con l'autenticazione basata su smart card/certificato. 
 
 
 ## <a name="configure-ad-fs-for-user-certificate-authentication"></a>Configurare AD FS per l'autenticazione del certificato utente  
