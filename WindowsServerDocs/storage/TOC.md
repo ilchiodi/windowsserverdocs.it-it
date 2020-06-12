@@ -31,6 +31,8 @@
 ### [Eseguire la migrazione della replica SYSVOL nella replica DFS](dfs-replication/migrate-sysvol-to-dfsr.md)
 ### [Usare robocopy per eseguire il preseeding dei file per la replica DFS](dfs-replication/preseed-dfsr-with-robocopy.md)
 ### [Replica DFS: Domande frequenti](dfs-replication/dfsr-faq.md)
+### [Determinare i requisiti minimi per l'area di gestione temporanea DFSR di una cartella replicata](../troubleshoot/how-to-determine-the-minimum-staging-area-dfsr-needs-for-a-replicated-folder.md)
+### [Informazioni sul mancato blocco dei file distribuiti in DFSR](../troubleshoot/understanding-the-lack-of-distributed-file-locking-in-dfsr.md)
 ## [Gestione disco](disk-management/overview-of-disk-management.md)
 ## [File server e SMB](file-server/file-server-smb-overview.md)
 ### [SMB diretto](file-server/smb-direct.md)
@@ -128,14 +130,14 @@
 #### [Comprendere e monitorare risincronizzazione di archiviazione](storage-spaces/understand-storage-resync.md)
 #### [Quorum di cluster e pool](storage-spaces/understand-quorum.md)
 #### [Set di cluster](storage-spaces/cluster-sets.md)
-### Pianificazione
+### Pianificare
 #### [Requisiti hardware](storage-spaces/storage-spaces-direct-hardware-requirements.md)
 #### [Uso della cache di lettura in memoria Volume condiviso cluster](storage-spaces/csv-cache.md)
 #### [Scegliere le unità](storage-spaces/choosing-drives.md)
 #### [Pianificare i volumi](storage-spaces/plan-volumes.md)
 #### [Cluster di macchine virtuali guest](storage-spaces/storage-spaces-direct-in-vm.md)
 #### [Ripristino di emergenza](storage-spaces/storage-spaces-direct-disaster-recovery.md)
-### Distribuisci
+### Distribuire
 #### [Distribuire Spazi di archiviazione diretta](storage-spaces/deploy-storage-spaces-direct.md)
 #### [Creare volumi](storage-spaces/create-volumes.md)
 #### [Resilienza annidata](storage-spaces/nested-resiliency.md)
@@ -143,7 +145,7 @@
 #### [Aggiornare un cluster di Spazi di archiviazione diretta](storage-spaces/upgrade-storage-spaces-direct-to-windows-server-2019.md)
 #### [Concetti e distribuzione della memoria persistente](storage-spaces/deploy-pmem.md)
 
-### Gestisci
+### Gestire
 #### [Gestire con Windows Admin Center](../manage/windows-admin-center/use/manage-hyper-converged.md)
 #### [Aggiungere server o unità](storage-spaces/add-nodes.md)
 #### [Disconnessione del server a scopo di manutenzione](storage-spaces/maintain-servers.md)
@@ -163,7 +165,7 @@
 #### [Delimitare l'allocazione di volumi](storage-spaces/delimit-volume-allocation.md)
 #### [Eseguire il monitoraggio con Monitoraggio di Azure](storage-spaces/configure-azure-monitor.md)
 
-### Risoluzione dei problemi
+### Risolvere i problemi
 #### [Scenari di risoluzione dei problemi](storage-spaces/troubleshooting-storage-spaces.md)
 #### [Stati di integrità e operativi](storage-spaces/storage-spaces-states.md)
 #### [Raccolta di dati](storage-spaces/data-collection.md)
