@@ -1,6 +1,6 @@
 ---
-title: Comando nslookup finger
-description: Argomento di riferimento per * * * *-
+title: dito nslookup
+description: Argomento di riferimento per il comando nslookup Finger, che si connette al server Finger sul dispositivo corrente.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,32 +9,31 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 428c9e7e775c85992f861e30ae9628ea27f7ee70
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 6341e7297ea661fd9afd4f4b0bb5048d82099b94
+ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723728"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84721494"
 ---
-# <a name="nslookup-finger-command"></a>Comando nslookup finger
+# <a name="nslookup-finger"></a>Nslookup/Finger
 
-
-
-Si connette al server finger nel computer corrente.
+Si connette al server Finger sul dispositivo corrente.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-finger [<UserName>] [{[>] <FileName>|[>>] <FileName>}]
+finger [<username>] [{[>] <filename> | [>>] <filename>}]
 ```
 
 ### <a name="parameters"></a>Parametri
 
-|  Parametro  |                                                                               Descrizione                                                                               |
-|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \<Nome utente> |                                                               Specifica il nome dell'utente da ricercare.                                                                |
-| \<> FileName | Specifica un nome file in cui salvare l'output. Per reindirizzare l'output nel modo consueto, è possibile utilizzare i caratteri maggiore di (>) e doppio maggiore di (>>). |
-|    {Guida    |                                                                                   ?}                                                                                    |
+| Parametro | Descrizione |
+| --------- | ----------- |
+| `<username>` | Specifica il nome dell'utente da ricercare. |
+| `<filename>` | Specifica un nome file in cui salvare l'output. È possibile utilizzare i caratteri maggiore di ( `>` ) e Double maggiore di ( `>>` ) per reindirizzare l'output nel modo consueto. |
+| /? | Visualizza la guida al prompt dei comandi. |
+| /help | Visualizza la guida al prompt dei comandi. |
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 

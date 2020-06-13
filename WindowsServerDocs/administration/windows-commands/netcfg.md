@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 6910f7e3f3d2f100942897bd9712293f7eb0f4d9
-ms.sourcegitcommit: 5e313a004663adb54c90962cfdad9ae889246151
+ms.openlocfilehash: 5a308441df55873b205972d703ec52f53345beb5
+ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84354261"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84721554"
 ---
 # <a name="netcfg"></a>netcfg
 
@@ -39,8 +39,8 @@ netcfg [/v] [/e] [/winpe] [/l ] /c /i
 | /C | Fornisce la classe del componente da installare. **protocollo**, **servizio**o **client**. |
 | /i | Fornisce l'ID del componente. |
 | /s | Fornisce il tipo di componenti da visualizzare, incluso **\tA** per gli adapter o **n** per i componenti di rete. |
-| / b | Consente di visualizzare i percorsi di associazione, se seguiti da una stringa contenente il nome del percorso. |
-| /? | Visualizza la guida al prompt dei comandi. |                                                    |
+| /b | Consente di visualizzare i percorsi di associazione, se seguiti da una stringa contenente il nome del percorso. |
+| /? | Visualizza la guida al prompt dei comandi. |
 
 ### <a name="examples"></a>Esempio
 

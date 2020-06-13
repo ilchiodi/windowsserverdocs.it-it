@@ -9,12 +9,12 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: ce18c615d45d4922c8819d30ff47d54328111170
-ms.sourcegitcommit: 29bc8740e5a8b1ba8f73b10ba4d08afdf07438b0
+ms.openlocfilehash: 3ad664548dce51d7631a6d1a02d628af91e1921f
+ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84222932"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84721141"
 ---
 # <a name="logman-import-and-logman-export"></a>importazione Logman e Logman Export
 
@@ -25,8 +25,8 @@ Importa un insieme agenti di raccolta dati da un file XML o esporta un insieme a
 ## <a name="syntax"></a>Sintassi
 
 ```
-logman import <[-n] <name>> <-xml <name>> [options]
-logman export <[-n] <name>> <-xml <name>> [options]
+logman import <[-n] <name> <-xml <name> [options]
+logman export <[-n] <name> <-xml <name> [options]
 ```
 
 ### <a name="parameters"></a>Parametri
@@ -42,9 +42,9 @@ logman export <[-n] <name>> <-xml <name>> [options]
 | -y | Risposte sì a tutte le domande senza richiesta di conferma. |
 | /? | Vengono visualizzate sensibile al contesto della Guida. |
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
-Per importare il file XML *c:\windows\ perf_log. XML* dal computer *server_1* come insieme agenti di raccolta dati denominato *perf_log*, digitare:
+Per importare il file XML *c:\windows\perf_log.xml* dal computer *server_1* come insieme agenti di raccolta dati denominato *perf_log*, digitare:
 
 ```
 logman import perf_log -s server_1 -xml c:\windows\perf_log.xml

@@ -1,6 +1,6 @@
 ---
 title: nslookup set querytype
-description: Argomento di riferimento per * * * *-
+description: Argomento di riferimento per il comando nslookup set querytype, che consente di modificare il tipo di record di risorse per la query.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,49 +9,38 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: dc992d83de8537c285b6d2d97e5f44545e2f930f
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: c54671d23fb7fd9500ba7aac1d59cf50fef78ead
+ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723600"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84721607"
 ---
 # <a name="nslookup-set-querytype"></a>nslookup set querytype
 
 > Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Modifica il tipo di record di risorse per la query.
+Modifica il tipo di record di risorse per la query. Per informazioni sui tipi di record di risorse, vedere [Request for Comment (RFC) 1035](https://tools.ietf.org/html/rfc1035).
+
+> [!NOTE]
+> Questo comando è lo stesso del comando [nslookup set Type](nslookup-set-type.md) .
+
 ## <a name="syntax"></a>Sintassi
+
 ```
-set querytype=<ResourceRecordtype>
+set querytype=<resourcerecordtype>
 ```
+
 ### <a name="parameters"></a>Parametri
-<ResourceRecordtype>Specifica un tipo di record di risorse DNS. Il tipo di record di risorse predefinito è. Nella tabella seguente sono elencati i valori validi per questo comando.
 
-| valore |                                                   Descrizione                                                   |
-|-------|-----------------------------------------------------------------------------------------------------------------|
-|   Una   |                                      Specifica un indirizzo IP&#39;s del computer                                      |
-|  ANY  |                                     Specifica un indirizzo IP&#39;s del computer.                                      |
-| CNAME |                                    Specifica un nome canonico per un alias.                                     |
-|  GID  |                                  Specifica un identificatore di gruppo di un nome di gruppo.                                  |
-| HINFO |                          Specifica un computer&#39;s CPU e il tipo di sistema operativo.                           |
-|  MB   |                                        Specifica un nome di dominio della cassetta postale.                                         |
-|  MG   |                                         Specifica un membro del gruppo di posta elettronica.                                          |
-| MINFO |                                   Specifica le informazioni sull'elenco di cassette postali o di posta                                   |
-|  MR   |                                     Specifica il nome di dominio per la ridenominazione della posta.                                      |
-|  MX   |                                          Specifica lo scambiatore di posta elettronica.                                          |
-|  NS   |                                 Specifica un server dei nomi DNS per la zona denominata.                                 |
-|  PTR  | Specifica un nome di computer se la query è un indirizzo IP; in caso contrario, specifica il puntatore ad altre informazioni. |
-|  SOA  |                                Specifica l'inizio dell'autorità per una zona DNS.                                 |
-|  TXT  |                                         Specifica le informazioni di testo.                                         |
-|  UID  |                                         Specifica l'identificatore utente.                                          |
-| UINFO |                                         Specifica le informazioni utente.                                         |
-|  WKS  |                                         Descrive un servizio noto.                                         |
-| {Guida |                                                       ?}                                                        |
+| Parametro | Descrizione |
+| --------- | ----------- |
+| `<resourcerecordtype>` | Specifica un tipo di record di risorse DNS. Il tipo di record **di**risorse predefinito è, ma è possibile usare uno dei valori seguenti:<ul><li>**R:** Specifica l'indirizzo IP di un computer.</li><li>**Qualsiasi:** Specifica l'indirizzo IP di un computer.</li><li>**CNAME:** Specifica un nome canonico per un alias.</li><li>**GID** Specifica un identificatore di gruppo di un nome di gruppo.</li><li>**HINFO:** Specifica la CPU e il tipo di sistema operativo di un computer.</li><li>**MB:** Specifica un nome di dominio della cassetta postale.</li><li>**Mg:** Specifica un membro del gruppo di posta elettronica.</li><li>**MInfo:** Specifica le informazioni sull'elenco di cassette postali o di posta</li><li>**Mr:** Specifica il nome di dominio per la ridenominazione della posta.</li><li>**MX:** Specifica lo scambiatore di posta elettronica.</li><li>**NS:** Specifica un server dei nomi DNS per la zona denominata.</li><li>**Ptr:** Specifica un nome di computer se la query è un indirizzo IP; in caso contrario, specifica il puntatore ad altre informazioni.</li><li>**SOA:** Specifica l'inizio dell'autorità per una zona DNS.</li><li>**Txt:** Specifica le informazioni di testo.</li><li>**UID:** Specifica l'identificatore utente.</li><li>**UINFO:** Specifica le informazioni utente.</li><li>**WKS:** Descrive un servizio noto.</li></ul> |
+| /? | Visualizza la guida al prompt dei comandi. |
+| /help | Visualizza la guida al prompt dei comandi. |
 
-Visualizza un breve riepilogo dei sottocomandi <strong>nslookup</strong>
-## <a name="remarks"></a>Osservazioni
-- Il comando <strong>set Type</strong> esegue la stessa funzione del comando <strong>set querytype</strong> .
-- Per ulteriori informazioni sui tipi di record di risorse, vedere Request for Comment (RFC) 1035.
-  ## <a name="additional-references"></a>Riferimenti aggiuntivi
-  <a href = Command-line-syntax-key.md data-RAW-Source =- [chiave sintassi della riga](command-line-syntax-key.md) di comando>chiave</a> sintassi della riga di comando <a href = nslookup-set-Type.MD data-RAW-Source =[nslookup tipo](nslookup-set-type.md) Set>nslookup set Type</a>
+## <a name="additional-references"></a>Riferimenti aggiuntivi
+
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [nslookup set type](nslookup-set-type.md)

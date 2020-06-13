@@ -8,12 +8,12 @@ manager: lizross
 author: JasonGerend
 ms.author: jgerend
 ms.date: 10/18/2018
-ms.openlocfilehash: 926c9c862d77c9fe082274a44af57e3b8339a655
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: cdc9280c4c7129d2e76341bd97b0ae3b8209888f
+ms.sourcegitcommit: 7200143aa787c7ac05ae0e012263b1c9a95b87ed
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82720500"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84721739"
 ---
 # <a name="whats-new-in-failover-clustering"></a>What's new in Failover Clustering (Novità del clustering di failover)
 
@@ -76,12 +76,12 @@ L'aggiornamento in sequenza del sistema operativo del cluster consente a un ammi
 
 **Valore aggiunto da queste modifiche**  
 
-L'aggiornamento di un cluster Hyper-V o File server di scalabilità orizzontale da Windows Server 2012 R2 a Windows Server 2016 non richiede più tempo di inattività. Il cluster continuerà a funzionare a livello di Windows Server 2012 R2 fino a quando tutti i nodi del cluster non eseguono Windows Server 2016. Il livello di funzionalità del cluster viene aggiornato a Windows Server 2016 usando Windows PowerShell cmdlet `Update-ClusterFunctionalLevel`.
+L'aggiornamento di un cluster Hyper-V o File server di scalabilità orizzontale da Windows Server 2012 R2 a Windows Server 2016 non richiede più tempo di inattività. Il cluster continuerà a funzionare a livello di Windows Server 2012 R2 fino a quando tutti i nodi del cluster non eseguono Windows Server 2016. Il livello di funzionalità del cluster viene aggiornato a Windows Server 2016 usando Windows PowerShell cmdlet `Update-ClusterFunctionalLevel` .
 
 > [!WARNING]  
 > - Dopo aver aggiornato il livello di funzionalità del cluster, non è possibile tornare al livello di funzionalità del cluster di Windows Server 2012 R2.
 >
-> - Fino a `Update-ClusterFunctionalLevel` quando non viene eseguito il cmdlet, il processo è reversibile e i nodi di windows Server 2012 R2 possono essere aggiunti e i nodi di windows server 2016 possono essere rimossi.
+> - Fino a quando non `Update-ClusterFunctionalLevel` viene eseguito il cmdlet, il processo è reversibile e i nodi di Windows server 2012 R2 possono essere aggiunti e i nodi di Windows server 2016 possono essere rimossi.
 
 **Differenze di funzionamento**  
 
@@ -95,7 +95,7 @@ I sistemi operativi del cluster per l'aggiornamento in fasi sono i seguenti per 
 -   A questo punto, si dice che il cluster è in esecuzione in modalità mista, perché i nodi del cluster eseguono Windows Server 2012 R2 o Windows Server 2016. 
 -   Il livello di funzionalità del cluster rimane in Windows Server 2012 R2. A questo livello di funzionalità, le nuove funzionalità di Windows Server 2016 che influiscono sulla compatibilità con le versioni precedenti del sistema operativo non saranno disponibili. 
 -   Infine, tutti i nodi vengono aggiornati a Windows Server 2016. 
--   Il livello di funzionalità del cluster viene quindi modificato in Windows Server 2016 usando il `Update-ClusterFunctionalLevel`cmdlet di Windows PowerShell. A questo punto, è possibile sfruttare le funzionalità di Windows Server 2016. 
+-   Il livello di funzionalità del cluster viene quindi modificato in Windows Server 2016 usando il cmdlet di Windows PowerShell `Update-ClusterFunctionalLevel` . A questo punto, è possibile sfruttare le funzionalità di Windows Server 2016. 
 
 Per ulteriori informazioni, vedere [aggiornamento in sequenza del sistema operativo del cluster](cluster-operating-system-rolling-upgrade.md). 
 
@@ -176,13 +176,13 @@ In Windows Server 2016, la resilienza dell'archiviazione delle macchine virtuali
 
 Per semplificare la diagnosi dei problemi relativi ai cluster di failover, Windows Server 2016 include quanto segue:  
 
-- Diversi miglioramenti apportati ai file di log del cluster, ad esempio le informazioni sul fuso orario e il registro DiagnosticVerbose, semplificano la risoluzione dei problemi relativi al clustering di failover. Per ulteriori informazioni, vedere [miglioramenti della risoluzione dei problemi del cluster di failover di Windows Server 2016-log del cluster](https://blogs.msdn.com/b/clustering/archive/2015/05/15/10614930.aspx). 
+- Diversi miglioramenti apportati ai file di log del cluster, ad esempio informazioni sul fuso orario e log DiagnosticVerbose, che semplificano la risoluzione dei problemi relativi al clustering di failover. Per ulteriori informazioni, vedere [miglioramenti della risoluzione dei problemi del cluster di failover di Windows Server 2016-log del cluster](https://techcommunity.microsoft.com/t5/failover-clustering/windows-server-2016-failover-cluster-troubleshooting/ba-p/372005).
 
-- Un nuovo tipo di dump del **dump di memoria attivo**, che filtra la maggior parte delle pagine di memoria allocate alle macchine virtuali e quindi rende la memoria. dmp molto più piccola e più semplice da salvare o copiare. Per ulteriori informazioni, vedere [miglioramenti della risoluzione dei problemi del cluster di failover di Windows Server 2016-dump attivo](https://blogs.msdn.com/b/clustering/archive/2015/05/18/10615526.aspx). 
+- Un nuovo tipo di dump del **dump di memoria attivo**, che filtra la maggior parte delle pagine di memoria allocate alle macchine virtuali e quindi rende la memoria. dmp molto più piccola e più semplice da salvare o copiare. Per ulteriori informazioni, vedere [miglioramenti della risoluzione dei problemi del cluster di failover di Windows Server 2016-dump attivo](https://techcommunity.microsoft.com/t5/failover-clustering/windows-server-2016-failover-cluster-troubleshooting/ba-p/372008).
 
 ### <a name="site-aware-failover-clusters"></a><a name="BKMK_SiteAware"></a>Cluster di failover con informazioni sulla presenza nel sito
 
-Windows Server 2016 include cluster di failover compatibili con il sito che consentono di raggruppare i nodi nei cluster estesi in base alla posizione fisica (sito). Il riconoscimento del sito del cluster migliora le operazioni principali durante il ciclo di vita del cluster, ad esempio il comportamento di failover, i criteri di posizionamento, l'heartbeat tra i nodi e il comportamento del quorum. Per ulteriori informazioni, vedere [cluster di failover in grado di riconoscere il sito in Windows Server 2016](https://blogs.msdn.com/b/clustering/archive/2015/08/19/10636304.aspx). 
+Windows Server 2016 include cluster di failover compatibili con il sito che consentono di raggruppare i nodi nei cluster estesi, in base alla posizione fisica (sito). Il riconoscimento del sito del cluster migliora le operazioni principali durante il ciclo di vita del cluster, ad esempio il comportamento di failover, i criteri di posizionamento, l'heartbeat tra i nodi e il comportamento del quorum. Per ulteriori informazioni, vedere [cluster di failover in grado di riconoscere il sito in Windows Server 2016](https://techcommunity.microsoft.com/t5/failover-clustering/site-aware-failover-clusters-in-windows-server-2016/ba-p/372060).
 
 ### <a name="workgroup-and-multi-domain-clusters"></a><a name="BKMK_multidomainclusters"></a>Workgroup and Multi-domain clusters (Gruppo di lavoro e cluster a più domini)
 
@@ -194,7 +194,7 @@ In Windows Server 2012 R2 e versioni precedenti è possibile creare un cluster s
 
 -   **Cluster del gruppo di lavoro.** Cluster con nodi che sono server membro/gruppo di lavoro (non aggiunto a un dominio). 
 
-Per altre informazioni, vedere [gruppi di lavoro e cluster multidominio in Windows Server 2016](https://blogs.msdn.com/b/clustering/archive/2015/08/17/10635825.aspx)
+Per altre informazioni, vedere [gruppi di lavoro e cluster multidominio in Windows Server 2016](https://techcommunity.microsoft.com/t5/failover-clustering/workgroup-and-multi-domain-clusters-in-windows-server-2016/ba-p/372059)
 
 ### <a name="virtual-machine-load-balancing"></a><a name="BKMK_VMLoadBalancing"></a>Bilanciamento del carico della macchina virtuale  
 
@@ -210,7 +210,7 @@ Le reti cluster di failover non sono più limitate a una singola scheda di inter
 
 Per ulteriori informazioni, vedere [reti SMB multicanale e cluster multicanale semplificate](smb-multichannel.md).
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 * [Archiviazione](../storage/storage.md)  
 * [Novità di archiviazione in Windows Server 2016](../storage/whats-new-in-storage.md)  

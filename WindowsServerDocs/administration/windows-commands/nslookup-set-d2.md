@@ -1,6 +1,6 @@
 ---
 title: nslookup set d2
-description: Argomento di riferimento per * * * *-
+description: Argomento di riferimento per il comando nslookup set D2, che attiva o disattiva la modalità di debug dettagliata.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 462c96e2144f4139ee9267358b8d8c8d5370c070
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 8179d91dfbc50ecd60740ad13db66c80a45af6c1
+ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723641"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84721574"
 ---
 # <a name="nslookup-set-d2"></a>nslookup set d2
 
-
-
-Abilita o disabilita la modalità di debug approfondito. Vengono stampati tutti i campi di ogni pacchetto.
+Attiva o disattiva la modalità di debug dettagliata. Vengono stampati tutti i campi di ogni pacchetto.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -30,11 +28,12 @@ set [no]d2
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro |                             Descrizione                              |
-|-----------|----------------------------------------------------------------------|
-| **NOD2**  | Disattiva la modalità di debug completa. La sintassi predefinita è **NOD2**. |
-|  **d2**   |                 Attiva la modalità di debug completa.                  |
-|   {Guida   |                                  ?}                                  |
+| Parametro | Descrizione |
+| ---------- | ---------- |
+| NOD2 | Disattiva la modalità di debug dettagliata. Si tratta del valore predefinito. |
+| d2 | Attiva la modalità di debug dettagliata. |
+| /? | Visualizza la guida al prompt dei comandi. |
+| /help | Visualizza la guida al prompt dei comandi. |
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 

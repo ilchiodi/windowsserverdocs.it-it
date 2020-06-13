@@ -1,6 +1,6 @@
 ---
 title: nslookup set debug
-description: Argomento di riferimento per * * * *-
+description: Argomento di riferimento per il comando nslookup set debug, che attiva e disattiva la modalità di debug.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 92a6f53105c682500d68fa7bf07fdcbacea75f34
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 910dd197fe756e733b61318243130e85b4410eb1
+ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723635"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84721174"
 ---
 # <a name="nslookup-set-debug"></a>nslookup set debug
 
-
-
-Abilita o disabilita la modalità di debug.
+Attiva o disattiva la modalità di debug.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -30,15 +28,12 @@ set [no]debug
 
 ### <a name="parameters"></a>Parametri
 
-|  Parametro  |                         Descrizione                          |
-|-------------|--------------------------------------------------------------|
-| **nodebug** | Disattiva la modalità di debug. La sintassi predefinita è **nodebug**. |
-|  **debug**  |                   Attiva la modalità di debug.                   |
-|  \*\*{Guida  |                            ?}\*\*                            |
-
-## <a name="remarks"></a>Osservazioni
-
--   Con la modalità di debug attivata, vengono stampate ulteriori informazioni sul pacchetto inviato al server e la risposta risultante.
+| Parametro | Descrizione |
+| ---------- | ---------- |
+| nodebug | Disattiva la modalità di debug. Si tratta del valore predefinito. |
+| debug | Attiva la modalità di debug. Quando si attiva la modalità di debug, è possibile visualizzare ulteriori informazioni sul pacchetto inviato al server e la risposta risultante. |
+| /? | Visualizza la guida al prompt dei comandi. |
+| /help | Visualizza la guida al prompt dei comandi. |
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 

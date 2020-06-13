@@ -1,6 +1,6 @@
 ---
 title: nslookup ls
-description: Argomento di riferimento per * * * *-
+description: Argomento di riferimento per il comando nslookup ls, che elenca le informazioni sul dominio DNS.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,33 +9,43 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 8357208406c0fca5d68da419baa2092d94fa9ec9
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 87e30ed5d5b44b805c3b3b004feb5ed252b5a760
+ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723700"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84721124"
 ---
 # <a name="nslookup-ls"></a>nslookup ls
 
 > Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-Elenca le informazioni per un dominio Domain Name System (DNS).
+Elenca le informazioni sul dominio DNS.
+
 ## <a name="syntax"></a>Sintassi
+
 ```
-ls [<Option>] <DNSDomain> [{[>] <FileName>|[>>] <FileName>}]
+ls [<option>] <DNSdomain> [{[>] <filename>|[>>] <filename>}]
 ```
+
 ### <a name="parameters"></a>Parametri
 
-|    Parametro    |                                                                                                                                                                                                                                                                                                               Descrizione                                                                                                                                                                                                                                                                                                                |
-|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    <Option>     | Nella tabella seguente sono elencate le opzioni valide.<p>--t: elenca tutti i record del tipo specificato. Per una descrizione di <querytype>, vedere **setquerytype** in riferimenti aggiuntivi.<br />--a: elenca gli alias dei computer nel dominio DNS. Questo parametro è un sinonimo di **-t CNAME**<br />--d: elenca tutti i record per il dominio DNS. Questo parametro è un sinonimo di **-t any**<br />--h: elenca le informazioni sulla CPU e sul sistema operativo per il dominio DNS. Questo parametro è un sinonimo di **-t HINFO**<br />--s: elenca i servizi noti dei computer nel dominio DNS. Questo parametro è un sinonimo di **-t WKS**. |
-|   <DNSDomain>   |                                                                                                                                                                                                                                                                                         Specifica il dominio DNS per cui si desidera ottenere informazioni.                                                                                                                                                                                                                                                                                         |
-|   <FileName>    |                                                                                                                                                                                                                                 Specifica un nome file in cui salvare l'output. Per reindirizzare l'output nel modo consueto, è possibile utilizzare i caratteri maggiore di (>) e doppio maggiore di (>>).                                                                                                                                                                                                                                  |
-| {Help &#124;?} |                                                                                                                                                                                                                                                                                          Viene visualizzato un breve riepilogo di **nslookup** sottocomandi.                                                                                                                                                                                                                                                                                           |
+| Parametro | Descrizione |
+| --------- | ----------- |
+| `<option>` | Le opzioni valide includono:<ul><li>**-t:** Elenca tutti i record del tipo specificato. Per ulteriori informazioni, vedere [nslookup set querytype](nslookup-set-querytype.md).</li><li>**-a:** Elenca gli alias dei computer nel dominio DNS. Questo parametro è uguale a **-t CNAME**</li><li>**-d:** Elenca tutti i record per il dominio DNS. Questo parametro è uguale a **-t any**</li><li>**-h:** Elenca le informazioni sulla CPU e sul sistema operativo per il dominio DNS. Questo parametro è uguale a **-t HINFO**</li><li>**-s:** Elenca i servizi noti dei computer nel dominio DNS. Questo parametro è uguale a **-t WKS**. |
+| `<DNSdomain>` | Specifica il dominio DNS per cui si desidera ottenere informazioni. |
+| `<filename>` | Specifica un nome file da utilizzare per l'output salvato. È possibile utilizzare i caratteri maggiore di ( `>` ) e Double maggiore di ( `>>` ) per reindirizzare l'output nel modo consueto. |
+| /? | Visualizza la guida al prompt dei comandi. |
+| /help | Visualizza la guida al prompt dei comandi. |
 
-## <a name="remarks"></a>Osservazioni
-- L'output predefinito contiene i nomi dei computer e i relativi indirizzi IP. Quando l'output viene indirizzato a un file, vengono stampati i contrassegni hash per ogni 50 record ricevuti dal server
-  ## <a name="additional-references"></a>Riferimenti aggiuntivi
-  - [Chiave della sintassi della riga di comando](command-line-syntax-key.md)
-  [nslookup set querytype](nslookup-set-querytype.md)
+#### <a name="remarks"></a>Commenti
+
+- L'output predefinito di questo comando include i nomi dei computer e i relativi indirizzi IP associati.
+
+- Se l'output viene indirizzato a un file, vengono aggiunti i contrassegni hash per ogni 50 record ricevuti dal server.
+
+## <a name="additional-references"></a>Riferimenti aggiuntivi
+
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [nslookup set querytype](nslookup-set-querytype.md)

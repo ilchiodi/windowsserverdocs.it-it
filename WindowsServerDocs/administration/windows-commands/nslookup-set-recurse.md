@@ -1,6 +1,6 @@
 ---
 title: nslookup set recurse
-description: Argomento di riferimento per * * * *-
+description: Argomento di riferimento per il comando nslookup set recurse, che indica al server dei nomi DNS (Domain Name System) di eseguire query su altri server se non riesce a trovare le informazioni nel server specificato.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: c4386bd5738806016b9ec15802faebf3efdcedf0
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 082ba3bd926d1f47be5510c2340804b1b92991f1
+ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723596"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84721616"
 ---
 # <a name="nslookup-set-recurse"></a>nslookup set recurse
 
-
-
-Indica al server dei nomi DNS (Domain Name System) di eseguire una query su altri server se non dispone delle informazioni.
+Indica al server dei nomi DNS (Domain Name System) di eseguire una query su altri server se non riesce a trovare le informazioni nel server specificato.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -30,11 +28,12 @@ set [no]recurse
 
 ### <a name="parameters"></a>Parametri
 
-|   Parametro   |                                                                  Descrizione                                                                  |
-|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| **norecidive** |                Arresta il server dei nomi DNS (Domain Name System) per eseguire una query su altri server, se non dispone delle informazioni.                |
-|  **recurse**  | Indica al server dei nomi DNS (Domain Name System) di eseguire una query su altri server se non dispone delle informazioni. La sintassi predefinita è **recurse**. |
-|     {Guida     |                                                                      ?}                                                                       |
+| Parametro | Descrizione |
+| ---------- | ---------- |
+| norecidive | Arresta il server dei nomi DNS (Domain Name System) per eseguire una query su altri server se non riesce a trovare le informazioni nel server specificato. |
+| recurse | Indica al server dei nomi DNS (Domain Name System) di eseguire una query su altri server se non riesce a trovare le informazioni nel server specificato. Si tratta del valore predefinito. |
+| /? | Visualizza la guida al prompt dei comandi. |
+| /help | Visualizza la guida al prompt dei comandi. |
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 

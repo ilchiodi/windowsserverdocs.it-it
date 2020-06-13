@@ -1,6 +1,6 @@
 ---
 title: nslookup set timeout
-description: Argomento di riferimento per * * * *-
+description: Argomento di riferimento per il comando nslookup set timeout, che consente di modificare il numero iniziale di secondi di attesa di una risposta a una richiesta di ricerca.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,36 +9,43 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 68e9630b9690c9b6c9d4c316f8b328897289362c
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 0d8fd0d96226e193ba723cc0a726ddf5362a538c
+ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723546"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84721386"
 ---
 # <a name="nslookup-set-timeout"></a>nslookup set timeout
 
 > Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
 
-modifica il numero iniziale di secondi di attesa di una risposta a una richiesta di ricerca.
+Modifica il numero iniziale di secondi di attesa di una risposta a una richiesta di ricerca. Se una risposta non viene ricevuta entro la quantità di tempo specificata, il periodo di timeout viene raddoppiato e la richiesta viene inviata nuovamente. Usare il comando [nslookup set Retry](nslookup-set-retry.md) per determinare il numero di tentativi di invio della richiesta.
+
 ## <a name="syntax"></a>Sintassi
+
 ```
-set timeout=<Number>
+set timeout=<number>
 ```
+
 ### <a name="parameters"></a>Parametri
 
-|    Parametro    |                                           Descrizione                                            |
-|-----------------|--------------------------------------------------------------------------------------------------|
-|    <Number>     | Specifica il numero di secondi di attesa di una risposta. Il numero predefinito di secondi di attesa è 5. |
-| {Help &#124;?} |                      Viene visualizzato un breve riepilogo di **nslookup** sottocomandi.                       |
+| Parametro | Descrizione |
+| ---------- | ---------- |
+| `<number>` | Specifica il numero di secondi di attesa di una risposta. Il numero predefinito di secondi di attesa è **5**. |
+| /? | Visualizza la guida al prompt dei comandi. |
+| /help | Visualizza la guida al prompt dei comandi. |
 
-## <a name="remarks"></a>Osservazioni
-- Quando una risposta a una richiesta non viene ricevuta entro il periodo di tempo specificato, il timeout viene raddoppiato e la richiesta viene inviata di nuovo. È possibile utilizzare il comando **imposta tentativi** per controllare il numero di tentativi.
-  ## <a name="examples"></a>Esempi
-  Per impostare il timeout per ottenere una risposta a 2 secondi:
-  ```
-  set timeout=2
-  ```
-  ## <a name="additional-references"></a>Riferimenti aggiuntivi
-  - [Chiave della sintassi della riga di comando](command-line-syntax-key.md)
-  [nslookup set Retry](nslookup-set-retry.md)
+### <a name="examples"></a>Esempio
+
+Per impostare il timeout per ottenere una risposta a 2 secondi:
+
+```
+set timeout=2
+```
+
+## <a name="additional-references"></a>Riferimenti aggiuntivi
+
+- [Indicazioni generali sulla sintassi della riga di comando](command-line-syntax-key.md)
+
+- [nslookup set retry](nslookup-set-retry.md)

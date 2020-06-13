@@ -1,6 +1,6 @@
 ---
 title: nslookup set search
-description: Argomento di riferimento per * * * *-
+description: Argomento di riferimento per il comando nslookup set Search, che aggiunge i nomi di dominio di Domain Name System (DNS) nell'elenco di ricerca del dominio DNS alla richiesta fino a quando non viene ricevuta una risposta.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,16 +9,14 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 2e3f5bce42d3614b535b2dfb00c4c9ea9cac2346
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: c3219434f768a573c9e433c44b6b38bc9dc75f14
+ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723560"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84721426"
 ---
 # <a name="nslookup-set-search"></a>nslookup set search
-
-
 
 Accoda i nomi di dominio di Domain Name System (DNS) nell'elenco di ricerca del dominio DNS alla richiesta fino a quando non viene ricevuta una risposta. Si applica quando il set e la ricerca richiesta contiene almeno un punto, ma non termina con un punto finale.
 
@@ -30,11 +28,12 @@ set [no]search
 
 ### <a name="parameters"></a>Parametri
 
-|  Parametro   |                                                                          Descrizione                                                                          |
-|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **nosearch** |                            Interrompe l'aggiunta dei nomi di dominio di Domain Name System (DNS) nell'elenco di ricerca del dominio DNS alla richiesta.                            |
-|  **ricerca**  | Accoda i nomi di dominio di Domain Name System (DNS) nell'elenco di ricerca del dominio DNS alla richiesta fino a quando non viene ricevuta una risposta. La sintassi predefinita è **Search**. |
-|    {Guida     |                                                                              ?}                                                                               |
+| Parametro | Descrizione |
+| --------- | ----------- |
+| nosearch | Interrompe l'aggiunta dei nomi di dominio di Domain Name System (DNS) nell'elenco di ricerca del dominio DNS per la richiesta. |
+| cerca | Accoda i nomi di dominio di Domain Name System (DNS) nell'elenco di ricerca del dominio DNS per la richiesta fino a quando non viene ricevuta una risposta. Si tratta del valore predefinito. |
+| /? | Visualizza la guida al prompt dei comandi. |
+| /help | Visualizza la guida al prompt dei comandi. |
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 

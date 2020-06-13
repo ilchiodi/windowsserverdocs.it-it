@@ -1,6 +1,6 @@
 ---
 title: nslookup help
-description: Argomento di riferimento per * * * *-
+description: Argomento di riferimento per il comando della Guida nslookup, che consente di visualizzare il contenuto della guida del sottocomando.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,30 +9,33 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: 5a967d29486d01ddcd44a9316aa3dbecdd7c95d2
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 1d9cab0becb33993cd6c517e2aa0f1e26b3839e8
+ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723710"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84721474"
 ---
 # <a name="nslookup-help"></a>nslookup help
 
-
-
-Viene visualizzato un breve riepilogo di **nslookup** sottocomandi.
+Consente di visualizzare il testo della guida del sottocomando.
 
 ## <a name="syntax"></a>Sintassi
 
 ```
-{help | ?}
+help
+```
+
+```
+?
 ```
 
 ### <a name="parameters"></a>Parametri
 
 | Parametro | Descrizione |
-|-----------|-------------|
-|   {Guida   |     ?}      |
+| --------- | ----------- |
+| /? | Visualizza la guida al prompt dei comandi. |
+| /help | Visualizza la guida al prompt dei comandi. |
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 

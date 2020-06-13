@@ -1,6 +1,6 @@
 ---
 title: nslookup set vc
-description: Argomento di riferimento per * * * *-
+description: Argomento di riferimento per il comando nslookup set VC, che specifica se utilizzare un circuito virtuale quando si inviano richieste al server.
 ms.prod: windows-server
 ms.technology: manage-windows-commands
 ms.topic: article
@@ -9,18 +9,16 @@ author: coreyp-at-msft
 ms.author: coreyp
 manager: dongill
 ms.date: 10/16/2017
-ms.openlocfilehash: a4cd465ecfbf9da540b8e693a6f0f3938e5752a4
-ms.sourcegitcommit: ab64dc83fca28039416c26226815502d0193500c
+ms.openlocfilehash: 49220589de2d2440735e056a8aa3acdd2122a376
+ms.sourcegitcommit: 99d548141428c964facf666c10b6709d80fbb215
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723524"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84721204"
 ---
 # <a name="nslookup-set-vc"></a>nslookup set vc
 
-
-
-Specifica se utilizzare o non utilizzare un circuito virtuale durante l'invio di richieste al server.
+Specifica se utilizzare un circuito virtuale quando si inviano richieste al server.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -30,11 +28,13 @@ set [no]vc
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro |                                              Descrizione                                               |
-|-----------|--------------------------------------------------------------------------------------------------------|
-| **novc**  | Specifica di non utilizzare mai un circuito virtuale quando si inviano richieste al server. Il valore predefinito è **novc**. |
-|  **VC**   |             Specifica di utilizzare sempre un circuito virtuale quando si inviano richieste al server.             |
-|   {Guida   |                                                   ?}                                                   |
+
+| Parametro | Descrizione |
+| ---------- | ---------- |
+| novc | Specifica di non utilizzare mai un circuito virtuale quando si inviano richieste al server. Si tratta del valore predefinito. |
+| VC | Specifica di utilizzare sempre un circuito virtuale quando si inviano richieste al server. |
+| /? | Visualizza la guida al prompt dei comandi. |
+| /help | Visualizza la guida al prompt dei comandi. |
 
 ## <a name="additional-references"></a>Riferimenti aggiuntivi
 
