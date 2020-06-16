@@ -1,26 +1,26 @@
 ---
 ms.assetid: c91c7196-ee0d-4856-8cfb-4c38494ccf1f
-title: Panoramica di Cartelle di lavoro
+title: Panoramica di cartelle di lavoro
 ms.prod: windows-server
 ms.technology: storage-work-folders
 ms.topic: article
 author: JasonGerend
 manager: dougkim
 ms.author: jgerend
-ms.date: 06/07/2019
-description: 'Una panoramica di Cartelle di lavoro: un ruolo del server in Windows Server che consente agli utenti di accedere ai file di lavoro da PC e dispositivi in modo uniforme.'
-ms.openlocfilehash: 67c62d81c7d9b6d33a198f5282fa39a88e07f2e8
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.date: 06/15/2020
+description: 'Panoramica di cartelle di lavoro: un ruolo server in Windows Server che consente agli utenti di accedere in modo coerente ai file di lavoro da PC e dispositivi.'
+ms.openlocfilehash: 8bd60cc0ab57935a7ce2da0ca33bd0d4c840fa2b
+ms.sourcegitcommit: cb266c8ea42b9800babbbe96b17885e82b55787d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80820784"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84795728"
 ---
-# <a name="work-folders-overview"></a>Panoramica di Cartelle di lavoro
+# <a name="work-folders-overview"></a>Panoramica di cartelle di lavoro
 
 >Si applica a: Windows Server (canale semestrale), Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows 10, Windows 8.1, Windows 7
 
-In questo argomento viene illustrata la funzionalità Cartelle di lavoro, un servizio ruolo per file server che eseguono Windows Server, che offre agli utenti l'accesso ai loro file di lavoro dai propri PC e dispositivi in modo uniforme.  
+In questo argomento vengono illustrate le cartelle di lavoro, un servizio ruolo per i file server che eseguono Windows Server che offre agli utenti un modo coerente per accedere ai file di lavoro dai computer e dai dispositivi.  
   
 Se si vuole scaricare o usare cartelle di lavoro in Windows 10, Windows 7 o un dispositivo Android o iOS, vedere gli argomenti seguenti:
 
@@ -30,49 +30,52 @@ Se si vuole scaricare o usare cartelle di lavoro in Windows 10, Windows 7 o un d
 - [Cartelle di lavoro per iOS](https://itunes.apple.com/app/work-folders/id950878067)
 - [Cartelle di lavoro per Android](https://play.google.com/store/apps/details?id=com.microsoft.workfolders)
 
-## <a name="role-description"></a>Descrizione ruolo
+## <a name="role-description"></a>Descrizione del ruolo
 
  Cartelle di lavoro consente agli utenti di archiviare e accedere ai file di lavoro su computer e dispositivi personali, spesso chiamati dispositivi BYOD (Bring Your Own Device), oltre che sui PC aziendali. Gli utenti avranno a disposizione una posizione in cui archiviare i file di lavoro a cui possono accedere da qualsiasi luogo. Le organizzazioni mantengono il controllo sui dati aziendali archiviando i file in file server gestiti centralmente e, facoltativamente, specificando criteri per i dispositivi degli utenti, ad esempio le password di crittografia e schermata di blocco.  
   
- È possibile distribuire Cartelle di lavoro con le distribuzioni esistenti delle cartelle di Reindirizzamento cartelle, File offline e home directory. In Cartelle di lavoro vengono archiviati i file utente in una cartella sul server denominata *condivisione di sincronizzazione*. È possibile specificare una cartella che contiene già dati sugli utenti e che consenta di adottare Cartelle di lavoro senza eseguire la migrazione di server e dati o eliminare immediatamente e gradualmente la soluzione esistente.  
+ Le cartelle di lavoro possono essere distribuite con distribuzioni esistenti di Reindirizzamento cartelle, File offline e cartelle Home. Cartelle di lavoro archivia i file utente in una cartella nel server denominata *condivisione di sincronizzazione*. È possibile specificare una cartella che contiene già dati utente, che consente di adottare cartelle di lavoro senza eseguire la migrazione di server e dati o di eliminare immediatamente gradualmente la soluzione esistente.  
   
 ## <a name="practical-applications"></a>Applicazioni pratiche
 
- Gli amministratori possono utilizzare Cartelle di lavoro per offrire agli utenti l'accesso ai loro file di lavoro pur mantenendo l'archiviazione centralizzata e il controllo sui dati dell'organizzazione. Alcune applicazioni specifiche per Cartelle di lavoro includono:  
+ Gli amministratori possono usare cartelle di lavoro per fornire agli utenti l'accesso ai file di lavoro, mantenendo al tempo stesso l'archiviazione centralizzata e il controllo sui dati dell'organizzazione. Alcune applicazioni specifiche per cartelle di lavoro includono:  
   
--   Fornire un singolo punto di accesso ai file di lavoro da computer e dispositivi di lavoro e personali di un utente  
+-   Fornire un singolo punto di accesso ai file di lavoro dal lavoro di un utente e da computer e dispositivi personali  
   
--   Accedere ai file di lavoro in modalità offline, quindi effettuare la sincronizzazione con il file server centrale quando il PC o il dispositivo accanto dispongono della connettività Internet o intranet  
+-   Accedere ai file di lavoro offline e quindi sincronizzarli con la file server centrale quando il PC o il dispositivo ha una connettività Internet o Intranet  
   
--   Distribuire con le distribuzioni esistenti di cartelle di Reindirizzamento cartelle, File offline e home directory  
+-   Distribuire con distribuzioni esistenti di Reindirizzamento cartelle, File offline e Home Directory  
   
--   Usare tecnologie di gestione di file server esistenti, ad esempio classificazione di file e quote di cartelle, per gestire i dati sugli utenti  
+-   Usare tecnologie di gestione file server esistenti, ad esempio la classificazione dei file e le quote di cartelle, per gestire i dati utente  
   
--   Specificare i criteri di sicurezza per richiedere a PC e dispositivi dell'utente di crittografare Cartelle di lavoro e usare una password per la schermata di blocco  
+-   Specificare i criteri di sicurezza per indicare ai PC e ai dispositivi degli utenti di crittografare cartelle di lavoro e usare una password della schermata di blocco  
   
--   Utilizzare Clustering di failover con Cartelle di lavoro per offrire una soluzione a disponibilità elevata  
+-   Usare il clustering di failover con cartelle di lavoro per fornire una soluzione a disponibilità elevata  
   
 ## <a name="important-functionality"></a>Funzionalità importanti
 
- Cartelle di lavoro include la seguente funzionalità.  
+ Cartelle di lavoro include le funzionalità seguenti.  
   
 | Funzionalità | Disponibilità | Descrizione |  
 | ------------------- | ------------------ | ----------------- |  
-| Servizio ruolo di Cartelle di lavoro in Server Manager | Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2 | I servizi file e archiviazione offrono un modo per configurare condivisioni di sincronizzazione (cartelle in cui vengono archiviati i file di lavoro dell'utente), consentono di monitorare Cartelle di lavoro e di gestire condivisioni di sincronizzazione e accesso degli utenti |
-| Cmdlet di Cartelle di lavoro | Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2 | Un modulo Windows PowerShell che contiene i cmdlet completi per la gestione dei server di Cartelle di lavoro |  
-| Integrazione di Cartelle di lavoro con Windows | Windows 10<p> Windows 8.1<p> Windows RT 8.1<p> Windows 7 (download necessario) | Cartelle di lavoro offre la seguente funzionalità nei computer Windows:<p> -   Un elemento del Pannello di controllo che consente di configurare e monitorare Cartelle di lavoro<br />-   Integrazione di Esplora file che consente di accedere facilmente ai file in Cartelle di lavoro<br />-   Un motore di sincronizzazione che consente di trasferire file verso e da un file server centrale ottimizzando al contempo la durata della batteria e le prestazioni del sistema |
-| App Cartelle di lavoro per dispositivi | Android<p> iPhone e iPad® Apple | Un'app che consente ai dispositivi comuni di accedere ai file in Cartelle di lavoro |  
+| Servizio ruolo cartelle di lavoro in Server Manager | Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2 | Servizi file e archiviazione consente di configurare le condivisioni di sincronizzazione (cartelle in cui sono archiviati i file di lavoro dell'utente), monitorare le cartelle di lavoro e gestire le condivisioni di sincronizzazione e l'accesso utente |
+| Cmdlet di cartelle di lavoro | Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2 | Un modulo di Windows PowerShell che contiene cmdlet completi per la gestione dei server di cartelle di lavoro |  
+| Integrazione di cartelle di lavoro con Windows | Windows 10<p> Windows 8.1<p> Windows RT 8.1<p> Windows 7 (download obbligatorio) | Cartelle di lavoro fornisce le funzionalità seguenti nei computer Windows:<p> -Elemento del pannello di controllo che configura e monitora cartelle di lavoro<br />-Integrazione di Esplora file che consente un facile accesso ai file nelle cartelle di lavoro<br />-Un motore di sincronizzazione che trasferisce i file da e verso una file server centrale, massimizzando al tempo stesso la durata della batteria e le prestazioni del sistema |
+| App cartelle di lavoro per dispositivi | Android<p> Apple iPhone e iPad® | App che consente ai dispositivi più diffusi di accedere ai file in cartelle di lavoro |  
   
 ## <a name="new-and-changed-functionality"></a>Funzionalità nuove e modificate
   
-Nella tabella riportata di seguito vengono descritte alcune delle modifiche principali apportate alla funzionalità Cartelle di lavoro.  
+Nella tabella seguente vengono descritte alcune delle principali modifiche apportate alle cartelle di lavoro.  
   
 | Caratteristica/funzionalità | Novità o aggiornamento | Descrizione |
 | ---------------------------- | --------------------- | ----------------- |
-| Supporto del proxy applicazione di Azure AD | Aggiunto a Windows 10 versione 1703, Android, iOS | Gli utenti remoti possono accedere in modo sicuro ai file nel server di Cartelle di lavoro con il proxy applicazione di Azure AD. |
-| Modifica più veloce della replica | Aggiornata in Windows 10 e Windows Server 2016 | Con Windows Server 2012 R2, quando le modifiche ai file vengono sincronizzate con il server di Cartelle di lavoro, i client non ricevono una notifica delle modifiche e l'aggiornamento può arrivare anche 10 minuti dopo. Quando si usa Windows Server 2016, il server di cartelle di lavoro invia immediatamente una notifica ai client Windows 10 e le modifiche apportate ai file vengono sincronizzate immediatamente. Questa funzionalità è una novità in Windows Server 2016 e richiede un client di Windows 10. Se si usa un client precedente o il server Cartelle di lavoro è Windows Server 2012 R2, il client continuerà a eseguire il polling delle modifiche ogni 10 minuti. |  
-| Integrato con Windows Information Protection (WIP) | Aggiunto a Windows 10 versione 1607 | Se un amministratore distribuisce WIP, Cartelle di lavoro consente di applicare la protezione dei dati crittografando questi ultimi nel PC. La crittografia utilizza una chiave associata all'ID aziendale, che può essere cancellata in remoto utilizzando un pacchetto di gestione di dispositivi mobili supportato, ad esempio Microsoft Intune. |  
-| Integrazione di Microsoft Office | Aggiunto a Windows 10 versione 1511 | In Windows 8.1 è possibile spostarsi a Cartelle di lavoro all'interno delle app di Office facendo clic su o toccando Questo PC, quindi spostandosi al percorso di Cartelle di lavoro nel PC. In Windows 10 è possibile semplificare ulteriormente l'accesso a Cartelle di lavoro, aggiungendolo all'elenco di percorsi che Office mostra durante il salvataggio o l'apertura di file. Per altre info, consultare [Cartelle di lavoro in Windows 10](https://windows.microsoft.com/windows-10/work-folders-in-windows-10) e [Risoluzione dei problemi utilizzando Cartelle di lavoro come un luogo in Microsoft Office](https://social.technet.microsoft.com/wiki/contents/articles/32881.troubleshooting-using-work-folders-as-a-place-in-microsoft-office.aspx). |  
+| Registrazione migliorata | Novità di Windows Server 2019 | I registri eventi nel server cartelle di lavoro possono essere utilizzati per monitorare l'attività di sincronizzazione e identificare gli utenti che non hanno superato le sessioni di sincronizzazione. Usare l'ID evento 4020 nel registro eventi Microsoft-Windows-SyncShare/Operational per identificare gli utenti che non hanno superato le sessioni di sincronizzazione. Usare l'ID evento 7000 e l'ID evento 7001 nel registro eventi Microsoft-Windows-SyncShare/Reporting per monitorare gli utenti che completano correttamente le sessioni di sincronizzazione per il caricamento e il download. |
+| Contatori delle prestazioni | Novità di Windows Server 2019 | Sono stati aggiunti i contatori delle prestazioni seguenti: byte scaricati/sec, byte caricati/sec, utenti connessi, file scaricati/sec, file caricati/sec, utenti con rilevamento delle modifiche, richieste in ingresso/sec e richieste in attesa. |
+| Miglioramento delle prestazioni del server | Aggiornamento in Windows Server 2019 | Sono stati apportati miglioramenti alle prestazioni per gestire un numero maggiore di utenti per server. Il limite per ogni server varia ed è basato sul numero di file e sulla varianza del file. Per determinare il limite per server, è necessario aggiungere gli utenti al server in fasi. |
+| Accesso ai file su richiesta | Aggiunto a Windows 10 versione 1803 | Consente di visualizzare e accedere a tutti i file. Si controllano i file archiviati nel PC e disponibili offline. Gli altri file sono sempre visibili e non richiedono spazio nel PC, ma è necessaria la connettività alle cartelle di lavoro file server per accedervi. |
+| Supporto del proxy dell'applicazione Azure AD | Aggiunto a Windows 10 versione 1703, Android, iOS | Gli utenti remoti possono accedere in modo sicuro ai file nel server di cartelle di lavoro usando Azure AD proxy di applicazione. |
+| Replica delle modifiche più veloce | Aggiornamento in Windows 10 e Windows Server 2016 | Con Windows Server 2012 R2, quando le modifiche ai file vengono sincronizzate con il server di Cartelle di lavoro, i client non ricevono una notifica delle modifiche e l'aggiornamento può arrivare anche 10 minuti dopo. Quando si usa Windows Server 2016, il server di cartelle di lavoro invia immediatamente una notifica ai client Windows 10 e le modifiche apportate ai file vengono sincronizzate immediatamente. Questa funzionalità è una novità di Windows Server 2016 e richiede un client Windows 10. Se si usa un client precedente o il server di cartelle di lavoro è Windows Server 2012 R2, il client continuerà a eseguire il polling ogni 10 minuti per le modifiche. |  
+| Integrazione con Windows Information Protection (WIP) | Aggiunto a Windows 10 versione 1607 | Se un amministratore distribuisce WIP, le cartelle di lavoro possono applicare la protezione dei dati crittografando i dati nel computer. La crittografia usa una chiave associata all'ID organizzazione, che può essere cancellata in modalità remota usando un pacchetto di gestione di dispositivi mobili supportato, ad esempio Microsoft Intune. | 
   
 ## <a name="software-requirements"></a>Requisiti software
 
@@ -84,21 +87,21 @@ Per Cartelle di lavoro, è necessario che i file server e l'infrastruttura di re
   
 -   Per applicare i criteri per le password ai computer con Windows 7, è necessario usare i criteri relativi alle password di Criteri di gruppo. È anche necessario escludere i computer con Windows 7 dai criteri per le password di Cartelle di lavoro (se in uso).
 
--   Un certificato server per ogni file server che ospiterà Cartelle di lavoro. Questi certificati devono essere emessi da un'autorità di certificazione (CA) considerata attendibile dagli utenti, nel caso ideale una CA pubblica.
+-   Un certificato server per ogni file server che ospiterà le cartelle di lavoro. Questi certificati devono provenire da un'autorità di certificazione (CA) considerata attendibile dagli utenti, idealmente una CA pubblica.
 
 -   Opzionale Una foresta Active Directory Domain Services con le estensioni dello schema in Windows Server 2012 R2 per supportare il riferimento automatico di PC e dispositivi ai file server corretti quando si usano più file server.  
   
 Per consentire agli utenti di eseguire la sincronizzazione tramite Internet, sono necessari requisiti aggiuntivi:  
   
--   La possibilità di rendere un server accessibile da Internet creando regole di pubblicazione nel proxy inverso o nel gateway di rete dell'organizzazione  
+-   La possibilità di rendere un server accessibile da Internet mediante la creazione di regole di pubblicazione nel proxy inverso o nel gateway di rete dell'organizzazione  
   
--   (Facoltativo) Un nome di dominio registrato pubblicamente e la possibilità di creare altri record DNS pubblici per il dominio  
+-   Opzionale Un nome di dominio registrato pubblicamente e la possibilità di creare record DNS pubblici aggiuntivi per il dominio  
   
--   (Facoltativo) L'infrastruttura di Active Directory Federation Services (AD FS) quando si utilizza l'autenticazione di AD FS  
+-   (Facoltativo) L'infrastruttura di Active Directory Federation Services (ADFS) quando si utilizza l'autenticazione di ADFS  
   
 Per Cartelle di lavoro, è necessario che i computer client soddisfino i requisiti software seguenti:  
   
--   È necessario che in PC e dispositivi sia eseguito uno dei sistemi operativi seguenti:  
+-   I PC e i dispositivi devono eseguire uno dei sistemi operativi seguenti:  
   
     -   Windows 10  
   
@@ -108,58 +111,58 @@ Per Cartelle di lavoro, è necessario che i computer client soddisfino i requisi
   
     -   Windows 7  
   
-    -   KitKat Android 4.4 e versioni successive  
+    -   Android 4,4 KitKat e versioni successive  
   
     -   iOS 10.2 e versioni successive  
   
 -   I computer con Windows 7 devono eseguire una delle edizioni seguenti di Windows:  
   
-    -   Windows 7 Professional  
+    -   Windows 7 Professional  
   
-    -   Windows 7 Ultimate  
+    -   Windows 7 Ultimate  
   
-    -   Windows 7 Enterprise  
+    -   Windows 7 Enterprise  
   
--   I computer con Windows 7 devono appartenere al dominio dell'organizzazione. Non possono appartenere a un gruppo di lavoro.  
+-   I PC Windows 7 devono essere aggiunti al dominio dell'organizzazione (non possono essere aggiunti a un gruppo di lavoro).  
   
--   Spazio libero sufficiente in un'unità locale formattata con NTFS per l'archiviazione di tutti i file degli utenti in Cartelle di lavoro oltre a 6 GB di spazio libero aggiuntivo se Cartelle di lavoro si trova nell'unità di sistema, come succede per impostazione predefinita. Cartelle di lavoro utilizza il seguente percorso per impostazione predefinita: **%PROFILOUTENTE%\Cartelle di lavoro**  
+-   Spazio disponibile sufficiente in un'unità locale formattata con NTFS per archiviare tutti i file dell'utente in cartelle di lavoro, oltre a 6 GB di spazio libero aggiuntivo se le cartelle di lavoro si trovano nell'unità di sistema, come per impostazione predefinita. Per impostazione predefinita, cartelle di lavoro usa il percorso seguente: **%USERPROFILE%\Work**  
   
      È comunque possibile modificare la posizione durante la configurazione. Le schede microSD e le unità USB formattate con il file system NTFS sono posizioni supportate anche se la sincronizzazione viene interrotta nel caso le unità vengano rimosse.  
   
      Per impostazione predefinita, le dimensioni massime consentite per ogni file sono 10 GB. Non esiste una limitazione dello spazio di archiviazione disponibile per ogni utente, anche se gli amministratori possono utilizzare la funzionalità relativa alle quote di Gestione risorse file server per implementare le quote.  
   
--   Cartelle di lavoro non supporta il ripristino dello stato precedente delle macchine virtuali client. È comunque possibile eseguire operazioni di backup e ripristino dalle macchine virtuali client mediante il backup dell'immagine del sistema o un'altra app per il backup.  
+-   Cartelle di lavoro non supporta il rollback dello stato della macchina virtuale delle macchine virtuali client. È comunque possibile eseguire operazioni di backup e ripristino dalle macchine virtuali client mediante il backup dell'immagine del sistema o un'altra app per il backup.  
   
-## <a name="work-folders-compared-to-other-sync-technologies"></a>Cartelle di lavoro rispetto alle altre tecnologie di sincronizzazione  
+## <a name="work-folders-compared-to-other-sync-technologies"></a>Cartelle di lavoro rispetto ad altre tecnologie di sincronizzazione  
 
-Nella tabella seguente è illustrato come le varie tecnologie di sincronizzazione di Microsoft vengono posizionate e quando utilizzarle.  
+Nella tabella seguente viene illustrato come vengono posizionate le varie tecnologie di sincronizzazione Microsoft e quando utilizzarle.  
   
-| | Cartelle di lavoro | File non in linea | OneDrive for Business | OneDrive |
+| | Cartelle di lavoro | File offline | OneDrive for Business | OneDrive |
 | - | ------------------ | ------------------- | -------------------------- | -------------- |
-| **Riepilogo tecnologia** | Consente di sincronizzare i file archiviati su un file server con PC e dispositivi | Consente di sincronizzare i file archiviati su un file server con PC che hanno accesso alla rete aziendale (può essere sostituito da Cartelle di lavoro) | Consente di sincronizzare i file archiviati in Office 365 o in SharePoint con PC e dispositivi all'interno o all'esterno di una rete aziendale, e di offrire la funzionalità di condivisione dei documenti | Consente di sincronizzare i file personali archiviati in OneDrive con PC, computer e dispositivi Mac |
+| **Riepilogo tecnologia** | Sincronizza i file archiviati in un file server con PC e dispositivi | Sincronizza i file archiviati in un file server con i PC che hanno accesso alla rete aziendale (possono essere sostituiti da cartelle di lavoro) | Sincronizza i file archiviati in Office 365 o in SharePoint con PC e dispositivi all'interno o all'esterno di una rete aziendale e fornisce funzionalità di collaborazione dei documenti | Sincronizza i file personali archiviati in OneDrive con PC, computer Mac e dispositivi |
 | **Progettato per fornire l'accesso utente ai file di lavoro** | Sì | Sì | Sì | No |
-| **Servizio cloud** | None | None | Office 365 | Microsoft OneDrive |
-| **Server di rete interni** | File server che eseguono Windows Server 2012 R2 o Windows Server 2016 | File server | Server SharePoint (facoltativo) | None |
-| **Client supportati** | PC, iOS, Android | PC di una rete aziendale o connessi tramite DirectAccess, VPN o altre tecnologie di accesso remoto | PC, iOS, Android, Windows Phone | PC, computer Mac, Windows Phone, iOS, Android |
+| **servizio cloud** | nessuno | nessuno | Office 365 | Microsoft OneDrive |
+| **Server di rete interni** | File server che eseguono Windows Server 2012 R2 o Windows Server 2016 | File server | Server SharePoint (facoltativo) | nessuno |
+| **Client supportati** | PC, iOS e Android | PC in una rete aziendale o connessi tramite DirectAccess, VPN o altre tecnologie di accesso remoto | PC, iOS, Android, Windows Phone | PC, computer Mac, Windows Phone, iOS e Android |
   
 > [!NOTE]
->  Oltre alle tecnologie di sincronizzazione elencate nella tabella precedente, Microsoft offre altre tecnologie di replica, tra cui Replica DFS, progettato per la replica da server a server, e BranchCache, progettato come una tecnologia di accelerazione WAN per succursali. Per altre informazioni, consultare [Spazi dei nomi DFS e Replica DFS](https://technet.microsoft.com/library/jj127250(v=ws.11).aspx) e [Panoramica di BranchCache](https://technet.microsoft.com/library/hh831696(v=ws.11).aspx) 
+>  Oltre alle tecnologie di sincronizzazione elencate nella tabella precedente, Microsoft offre altre tecnologie di replica, tra cui Replica DFS, progettato per la replica da server a server, e BranchCache, progettato come tecnologia di accelerazione WAN per le succursali. Per ulteriori informazioni, vedere Panoramica di [spazi dei nomi DFS e replica DFS](https://technet.microsoft.com/library/jj127250(v=ws.11).aspx) e [BranchCache](https://technet.microsoft.com/library/hh831696(v=ws.11).aspx) 
   
 ## <a name="server-manager-information"></a>Informazioni su Server Manager  
 
-Cartelle di lavoro fa parte del ruolo Servizi file e archiviazione. È possibile installare Cartelle di lavoro tramite la procedura guidata Aggiungi ruoli e funzionalità o `Install-WindowsFeature` cmdlet. Entrambi i metodi consentono di ottenere quanto segue:  
+Cartelle di lavoro fa parte del ruolo Servizi file e archiviazione. È possibile installare cartelle di lavoro utilizzando l'aggiunta guidata ruoli e funzionalità o il `Install-WindowsFeature` cmdlet. Entrambi i metodi eseguono le operazioni seguenti:  
   
--   Consente di aggiungere la pagina **Cartelle di lavoro** a **Servizi file e archiviazione** in Server Manager  
+-   Aggiunge la pagina **cartelle di lavoro** ai **Servizi file e archiviazione** in Server Manager  
   
--   Consente di installare il servizio Condivisioni di sincronizzazione di Windows, che viene utilizzato da Windows Server per ospitare le condivisioni di sincronizzazione  
+-   Installa il servizio condivisioni di sincronizzazione di Windows, utilizzato da Windows Server per ospitare le condivisioni di sincronizzazione  
   
--   Consente di installare il modulo Windows PowerShell di SyncShare per gestire Cartelle di lavoro sul server  
+-   Installa il modulo SyncShare di Windows PowerShell per gestire cartelle di lavoro nel server  
   
-## <a name="interoperability-with-windows-azure-virtual-machines"></a>Interoperabilità con macchine virtuali Windows Azure
+## <a name="interoperability-with-windows-azure-virtual-machines"></a>Interoperabilità con macchine virtuali di Microsoft Azure
 
  È possibile eseguire questo servizio ruolo di Windows Server in una macchina virtuale in Windows Azure. Questo scenario è stato testato con Windows Server 2012 R2 e Windows Server 2016.  
   
-Per altre informazioni introduttive sulle macchine virtuali di Windows Azure, visitare il [sito Web di Windows Azure](http://www.windowsazure.com/documentation/services/virtual-machines).  
+Per informazioni su come iniziare a usare le macchine virtuali di Windows Azure, visitare il [sito Web di Microsoft Azure](http://www.windowsazure.com/documentation/services/virtual-machines).  
   
 ## <a name="see-also"></a>Vedere anche
 
@@ -167,9 +170,9 @@ Per altre informazioni introduttive sulle macchine virtuali di Windows Azure, vi
   
 | Tipo di contenuto | Riferimenti |
 | ------------------ | ---------------- |
-| **Valutazione del prodotto** | -   [cartelle di lavoro per Android-rilasciato](https://blogs.technet.microsoft.com/filecab/2016/03/16/work-folders-for-android-released) (post di Blog)<br />-   [cartelle di lavoro per iOS-versione app iPad](https://blogs.technet.com/b/filecab/archive/2015/01/16/work-folders-for-ios-ipad-app-release.aspx) (post di Blog)<br />-   [Introduzione a cartelle di lavoro in Windows Server 2012 R2](https://blogs.technet.com/b/filecab/archive/2013/07/09/introducing-work-folders-on-windows-server-2012-r2.aspx) (post di Blog)<br />-   [Introduzione alle cartelle di lavoro](https://channel9.msdn.com/posts/Introduction-to-Work-Folders) (video di Channel 9)<br />-   la [distribuzione del Lab di test di cartelle di lavoro](https://blogs.technet.com/b/filecab/archive/2013/07/10/work-folders-test-lab-deployment.aspx) (post di Blog)<br />-   [cartelle di lavoro per Windows 7](https://blogs.technet.com/b/filecab/archive/2014/04/24/work-folders-for-windows-7.aspx) (post di Blog) |
-| **Distribuzione** | -   [progettazione di un'implementazione di cartelle di lavoro](plan-work-folders.md)<br />-   la [distribuzione di cartelle di lavoro](deploy-work-folders.md)<br />-   [la distribuzione di cartelle di lavoro con ad FS e proxy applicazione Web (WAP)](deploy-work-folders-adfs-overview.md)<br />-   [la distribuzione di cartelle di lavoro con Azure ad proxy di applicazione](https://blogs.technet.microsoft.com/filecab/2017/05/31/enable-remote-access-to-work-folders-using-azure-active-directory-application-proxy/)<br />[Guida alla migrazione di - file offline (CSC) a cartelle di lavoro](https://blogs.technet.microsoft.com/filecab/2016/08/12/offline-files-csc-to-work-folders-migration-guide/)<br />[considerazioni sulle prestazioni -   per le distribuzioni di cartelle di lavoro](https://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx)<br />-   [cartelle di lavoro per Windows 7 (download di 64 bit)](https://www.microsoft.com/download/details.aspx?id=42558)<br />-   [cartelle di lavoro per Windows 7 (download di 32 bit)](https://www.microsoft.com/download/details.aspx?id=42559) |
-| **Operazioni** | -   [app iPad di cartelle di lavoro: domande frequenti](https://windows.microsoft.com/windows/work-folders-ipad-faq) (per gli utenti)<br />[Gestione certificati di cartelle di lavoro](https://blogs.technet.com/b/filecab/archive/2013/08/09/work-folders-certificate-management.aspx) -   (post di Blog)<br />-   [monitoraggio delle distribuzioni di cartelle di lavoro di Windows Server 2012 R2](https://blogs.technet.com/b/filecab/archive/2013/10/15/monitoring-windows-server-2012-r2-work-folders-deployments.aspx) (post di Blog)<br />[cmdlet -   SyncShare (cartelle di lavoro) in Windows PowerShell](https://docs.microsoft.com/powershell/module/syncshare/?view=win10-ps)<br />[cmdlet di PowerShell per servizi file e archiviazione -   scheda di riferimento rapido per Windows Server 2012 R2 Preview Edition](https://blogs.technet.com/b/filecab/archive/2013/07/30/storage-and-file-services-powershell-cmdlets-quick-reference-card-for-windows-server-2012-r2-preview-edition.aspx) |
-| **Risoluzione dei problemi** | -   [Windows Server 2012 R2-risoluzione dei conflitti di porte con siti Web e cartelle di lavoro IIS](https://blogs.technet.com/b/filecab/archive/2013/10/15/windows-server-2012-r2-resolving-port-conflict-with-iis-websites-and-work-folders.aspx) (post di Blog)<br />-   [errori comuni nelle cartelle di lavoro](https://social.technet.microsoft.com/wiki/contents/articles/30578.common-errors-in-work-folders.aspx) |
-| **Risorse della community** | [Forum su Servizi file e archiviazione](https://social.technet.microsoft.com/Forums/windowsserver/home?forum=winserverfiles) -   <br />[Blog di -   al team di archiviazione di Microsoft-file CAB](https://blogs.technet.com/b/filecab/)<br />[Blog del team dei servizi Directory](https://blogs.technet.com/b/askds/) -    |  
-| **Tecnologie correlate** | [archiviazione -   in Windows Server 2016](../storage.md)<br>[Servizi file e archiviazione](https://technet.microsoft.com/library/hh831487(v=ws.11).aspx) -   <br />[Gestione risorse file Server](https://technet.microsoft.com/library/hh831701(v=ws.11).aspx) -   <br />-   il [Reindirizzamento cartelle, file offline e i profili utente mobili](https://technet.microsoft.com/library/hh848267(v=ws.11).aspx)<br />-   [BranchCache](https://technet.microsoft.com/library/hh831696(v=ws.11).aspx)<br />-   [spazi dei nomi DFS e replica DFS](https://technet.microsoft.com/library/jj127250(v=ws.11).aspx) |
+| **Valutazione del prodotto** | -   [Cartelle di lavoro per Android: rilasciata](https://blogs.technet.microsoft.com/filecab/2016/03/16/work-folders-for-android-released) (post di Blog)<br />-   [Cartelle di lavoro per iOS-versione app iPad](https://blogs.technet.com/b/filecab/archive/2015/01/16/work-folders-for-ios-ipad-app-release.aspx) (post di Blog)<br />-   [Introduzione a cartelle di lavoro in Windows Server 2012 R2](https://blogs.technet.com/b/filecab/archive/2013/07/09/introducing-work-folders-on-windows-server-2012-r2.aspx) (post di Blog)<br />-   [Introduzione alle cartelle di lavoro](https://channel9.msdn.com/posts/Introduction-to-Work-Folders) (video di Channel 9)<br />-   [Distribuzione di Cartelle di lavoro in un ambiente di testing](https://blogs.technet.com/b/filecab/archive/2013/07/10/work-folders-test-lab-deployment.aspx) (post di blog)<br />-   [Cartelle di lavoro per Windows 7](https://blogs.technet.com/b/filecab/archive/2014/04/24/work-folders-for-windows-7.aspx) (post di Blog) |
+| **Distribuzione** | -   [Progettazione di un'implementazione di cartelle di lavoro](plan-work-folders.md)<br />-   [Distribuzione di cartelle di lavoro](deploy-work-folders.md)<br />-   [Distribuzione di cartelle di lavoro con AD FS e proxy applicazione Web (WAP)](deploy-work-folders-adfs-overview.md)<br />-   [Distribuzione di cartelle di lavoro con Azure AD proxy di applicazione](https://blogs.technet.microsoft.com/filecab/2017/05/31/enable-remote-access-to-work-folders-using-azure-active-directory-application-proxy/)<br />- [Guida alla migrazione di File offline (CSC) a cartelle di lavoro](https://blogs.technet.microsoft.com/filecab/2016/08/12/offline-files-csc-to-work-folders-migration-guide/)<br />-   [Considerazioni sulle prestazioni per le distribuzioni di cartelle di lavoro](https://blogs.technet.com/b/filecab/archive/2013/11/01/performance-considerations-for-large-scale-work-folders-deployments.aspx)<br />-   [Cartelle di lavoro per Windows 7 (download di 64 bit)](https://www.microsoft.com/download/details.aspx?id=42558)<br />-   [Cartelle di lavoro per Windows 7 (download di 32 bit)](https://www.microsoft.com/download/details.aspx?id=42559) |
+| **Operazioni** | -   [App iPad di cartelle di lavoro: domande frequenti](https://windows.microsoft.com/windows/work-folders-ipad-faq) (per gli utenti)<br />-   [Gestione certificati di cartelle di lavoro](https://blogs.technet.com/b/filecab/archive/2013/08/09/work-folders-certificate-management.aspx) (post di Blog)<br />-   [Monitoraggio delle distribuzioni di cartelle di lavoro di Windows Server 2012 R2](https://blogs.technet.com/b/filecab/archive/2013/10/15/monitoring-windows-server-2012-r2-work-folders-deployments.aspx) (post di Blog)<br />-   [Cmdlet SyncShare (cartelle di lavoro) in Windows PowerShell](https://docs.microsoft.com/powershell/module/syncshare/?view=win10-ps)<br />-   [Archiviazione e servizi file cmdlet di PowerShell scheda di riferimento rapido per Windows Server 2012 R2 Preview Edition](https://blogs.technet.com/b/filecab/archive/2013/07/30/storage-and-file-services-powershell-cmdlets-quick-reference-card-for-windows-server-2012-r2-preview-edition.aspx) |
+| **Risoluzione dei problemi** | -   [Windows Server 2012 R2-risoluzione dei conflitti di porte con i siti Web e le cartelle di lavoro IIS](https://blogs.technet.com/b/filecab/archive/2013/10/15/windows-server-2012-r2-resolving-port-conflict-with-iis-websites-and-work-folders.aspx) (post di Blog)<br />-   [Errori comuni nelle cartelle di lavoro](https://social.technet.microsoft.com/wiki/contents/articles/30578.common-errors-in-work-folders.aspx) |
+| **Risorse della community** | -   [Forum su Servizi file e archiviazione](https://social.technet.microsoft.com/Forums/windowsserver/home?forum=winserverfiles)<br />-   [Blog del team di archiviazione in Microsoft-file CAB](https://blogs.technet.com/b/filecab/)<br />-   [Blog del team di servizi directory](https://blogs.technet.com/b/askds/) |  
+| **Tecnologie correlate** | -   [Archiviazione in Windows Server 2016](../storage.md)<br>-   [Servizi file e archiviazione](https://technet.microsoft.com/library/hh831487(v=ws.11).aspx)<br />-   [Gestione risorse file server](https://technet.microsoft.com/library/hh831701(v=ws.11).aspx)<br />-   [Reindirizzamento cartelle, File offline e profili utente mobili](https://technet.microsoft.com/library/hh848267(v=ws.11).aspx)<br />-   [BranchCache](https://technet.microsoft.com/library/hh831696(v=ws.11).aspx)<br />-   [Spazi dei nomi DFS e Replica DFS](https://technet.microsoft.com/library/jj127250(v=ws.11).aspx) |
