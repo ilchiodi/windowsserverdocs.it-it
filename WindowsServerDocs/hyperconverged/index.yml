@@ -1,65 +1,60 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Hub
 title: Documentazione dell'infrastruttura iperconvergente
+summary: Consolidare le risorse di elaborazione, archiviazione e rete software-defined in un unico cluster per offrire una virtualizzazione a prestazioni elevate, economica e facilmente scalabile.
+brand: windows
 metadata:
-  document_id: null
   title: Documentazione dell'infrastruttura iperconvergente
-  description: Documentazione dell'infrastruttura iperconvergente
-  text: 'Consolidare le risorse di elaborazione, archiviazione e rete software-defined in un unico cluster per offrire una virtualizzazione a prestazioni elevate, economica e facilmente scalabile'
-  keywords: 'Windows Server, Windows Server 2016, Hyper-V, SDN, Spazi di archiviazione diretta, WSSD'
-  ms.localizationpriority: high
+  description: Consolidare le risorse di elaborazione, archiviazione e rete software-defined in un unico cluster per offrire una virtualizzazione a prestazioni elevate, economica e facilmente scalabile.
+  ms.service: help
+  ms.topic: hub-page
   author: coreyp-at-msft
   ms.author: coreyp
-  ms.topic: article
-  ms.devlang: na
-sections:
-  - title: null
-  - items:
-      - type: markdown
-        text: 'Consolidare le risorse di elaborazione, archiviazione e rete software-defined in un unico cluster per offrire una virtualizzazione a prestazioni elevate, economica e facilmente scalabile.'
-  - items:
-      - type: list
-        style: cards
-        className: cardsI
-        columns: 2
-        items:
-          - href: ../virtualization/hyper-v/index.md
-            html: '<p>Virtualizza l''hardware del server, consentendo di eseguire macchine virtuali tra server in un cluster iperconvergente.</p>'
-            image:
-              src: ../media/i-virtualize.svg
-            title: Hyper-V
-          - href: ../storage/storage-spaces/storage-spaces-direct-overview.md
-            html: '<p>Virtualizza l''hardware di archiviazione, consentendo di creare volumi su un pool virtualizzato di unità distribuite tra server in un cluster iperconvergente.</p>'
-            image:
-              src: ../media/i-store.svg
-            title: Spazi di archiviazione diretta
-          - href: ../failover-clustering/failover-clustering-overview.md
-            html: '<p>Raggruppa più server in modo che i carichi di lavoro quali le macchine virtuali possano essere eseguiti in qualsiasi server nel cluster, eseguendo il bilanciamento del carico e failover normalmente tra i server.</p>'
-            image:
-              src: ../media/i-cluster.svg
-            title: Clustering di failover
-          - href: 'https://docs.microsoft.com/windows-server/networking/sdn/'
-            html: '<p>Virtualizza l''hardware di rete, consentendo di creare e gestire in modo dinamico le reti e i criteri che estraggono i carichi di lavoro dalle reti fisiche sottostanti.</p>'
-            image:
-              src: ../media/i-network.svg
-            title: Software Defined Networking
-          - href: ../manage/windows-admin-center/overview.md
-            html: <p>Gestisce il cluster e altri server Windows.</p>
-            image:
-              src: ../media/i-admin-center.svg
-            title: Windows Admin Center
-          - href: ../azure-hybrid-services.md
-            html: '<p>Connette il cluster ai servizi ibridi di Azure per ripristino del sito, monitoraggio e altro ancora.</p>'
-            image:
-              src: ../media/i-microsoft-azure.svg
-            title: Connessione ai servizi ibridi di Azure
-          - href: ../azure-stack-hci
-            html: '<p>Combina le tecnologie di virtualizzazione e clustering di Windows Server 2019 con soluzioni hardware convalidate di un partner di propria scelta, semplificando l''ottimizzazione di data center software-defined.</p>'
-            image:
-              src: ../media/i-azure-stack.svg
-            title: Azure Stack HCI
-          - href: 'https://www.microsoft.com/cloud-platform/software-defined-datacenter'
-            html: '<p>Combina le tecnologie di virtualizzazione e clustering di Windows Server 2016 con soluzioni hardware convalidate di un partner di propria scelta, semplificando l''ottimizzazione di data center software-defined.</p>'
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_data-collection.svg'
-            title: Programma software-defined per Windows Server (WSSD)
+  ms.date: 06/10/2020
+  ms.openlocfilehash: 1d2ec270e90423f2405b664f22de7ca85c540498
+  ms.sourcegitcommit: 568b924d32421256f64abfee171304f1daf320d2
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 06/18/2020
+  ms.locfileid: "85070165"
+productDirectory:
+  items:
+  - title: Hyper-V
+    imageSrc: https://docs.microsoft.com/en-us/windows-server/media/i-virtualize.svg
+    links:
+    - url: https://docs.microsoft.com/en-us/windows-server/virtualization/hyper-v/
+      text: Virtualizza l'hardware del server, consentendo di eseguire macchine virtuali tra server in un cluster iperconvergente.
+  - title: Spazi di archiviazione diretta
+    imageSrc: https://docs.microsoft.com/en-us/windows-server/media/i-store.svg
+    links:
+    - url: https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/storage-spaces-direct-overview
+      text: Virtualizza l'hardware di archiviazione, consentendo di creare volumi su un pool virtualizzato di unità distribuite tra server in un cluster iperconvergente.
+  - title: Clustering di failover
+    imageSrc: https://docs.microsoft.com/en-us/windows-server/media/i-cluster.svg
+    links:
+    - url: https://docs.microsoft.com/en-us/windows-server/failover-clustering/failover-clustering-overview
+      text: Raggruppa più server in modo che i carichi di lavoro quali le macchine virtuali possano essere eseguiti in qualsiasi server nel cluster, eseguendo il bilanciamento del carico e failover normalmente tra i server.
+  - title: Software Defined Networking
+    imageSrc: https://docs.microsoft.com/en-us/windows-server/media/i-network.svg
+    links:
+    - url: https://docs.microsoft.com/windows-server/networking/sdn/
+      text: Virtualizza l'hardware di rete, consentendo di creare e gestire in modo dinamico le reti e i criteri che estraggono i carichi di lavoro dalle reti fisiche sottostanti.
+  - title: Windows Admin Center
+    imageSrc: https://docs.microsoft.com/en-us/windows-server/media/i-admin-center.svg
+    links:
+    - url: https://docs.microsoft.com/en-us/windows-server/manage/windows-admin-center/overview
+      text: Virtualizza l'hardware del server, consentendo di eseguire macchine virtuali tra server in un cluster iperconvergente.
+  - title: Connessione ai servizi ibridi di Azure
+    imageSrc: https://docs.microsoft.com/en-us/windows-server/media/i-microsoft-azure.svg
+    links:
+    - url: https://docs.microsoft.com/en-us/windows-server/azure-hybrid-services
+      text: Connette il cluster ai servizi ibridi di Azure per ripristino del sito, monitoraggio e altro ancora.
+  - title: Azure Stack HCI
+    imageSrc: https://docs.microsoft.com/en-us/windows-server/media/i-azure-stack.svg
+    links:
+    - url: https://docs.microsoft.com/en-us/windows-server/azure-stack-hci
+      text: Combina le tecnologie di virtualizzazione e clustering di Windows Server 2019 con soluzioni hardware convalidate di un partner di propria scelta, semplificando l'ottimizzazione di data center software-defined.
+  - title: Programma software-defined per Windows Server (WSSD)
+    imageSrc: https://docs.microsoft.com/media/common/i_data-collection.svg
+    links:
+    - url: https://www.microsoft.com/cloud-platform/software-defined-datacenter
+      text: Combina le tecnologie di virtualizzazione e clustering di Windows Server 2016 con soluzioni hardware convalidate di un partner di propria scelta, semplificando l'ottimizzazione di data center software-defined.

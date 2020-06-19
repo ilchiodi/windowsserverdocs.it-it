@@ -1,4 +1,4 @@
-# [Funzionalità di rete](Networking.md)
+# [Documentazione sulle funzionalità di rete](index.yml)
 ## [Scenari di rete supportati in Windows Server](windows-server-supported-networking-scenarios.md)
 
 ## [Novità relative alle funzionalità di rete](What-s-New-in-Networking.md)

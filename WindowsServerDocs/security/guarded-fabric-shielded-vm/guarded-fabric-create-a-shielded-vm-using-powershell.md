@@ -7,12 +7,12 @@ author: rpsqrd
 ms.author: ryanpu
 ms.technology: security-guarded-fabric
 ms.date: 09/25/2019
-ms.openlocfilehash: 09e09fa30a38ef5f6046f623e24be0bc7b6ce87e
-ms.sourcegitcommit: b00d7c8968c4adc8f699dbee694afe6ed36bc9de
+ms.openlocfilehash: abc1a2af7353bd85e0ae7ac55debc36d63d1782f
+ms.sourcegitcommit: fe89b8001ad664b3618708b013490de93501db05
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80856754"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84942290"
 ---
 # <a name="create-a-shielded-vm-using-powershell"></a>Creare una macchina virtuale schermata usando PowerShell
 
@@ -42,7 +42,7 @@ Save-VolumeSignatureCatalog -TemplateDiskPath "C:\temp\MyTemplateDisk.vhdx" -Vol
 Per ogni tessuto di virtualizzazione in cui si vuole eseguire la macchina virtuale schermata, è necessario ottenere i metadati del tutore per i cluster HGS di Fabric.
 Il provider di hosting dovrebbe essere in grado di fornire queste informazioni.
 
-Se ci si trova in un ambiente aziendale e si è in grado di comunicare con il server HGS, i metadati del Guardian sono disponibili all'indirizzo *http://\<HGSCLUSTERNAME\>/KeyProtection/Service/Metadata/2014-07/Metadata.XML*
+Se ci si trova in un ambiente aziendale e si è in grado di comunicare con il server HGS, i metadati di Guardian sono disponibili all'indirizzo *http:// \<HGSCLUSTERNAME\> /KeyProtection/Service/Metadata/2014-07/metadata.xml*
 
 ## <a name="create-shielding-data-pdk-file"></a>Crea file di dati di schermatura (PDK)
 
@@ -51,7 +51,7 @@ I dati di schermatura vengono crittografati in modo che solo i server HGS e il t
 Una volta creati dal proprietario del tenant o della macchina virtuale, il file PDK risultante deve essere copiato nell'infrastruttura sorvegliata.
 Per altre informazioni, vedere [che cos'è la schermatura dei dati e perché è necessaria?](guarded-fabric-and-shielded-vms.md#what-is-shielding-data-and-why-is-it-necessary).
 
-Inoltre, sarà necessario un file di risposte per l'installazione automatica (Unattend. XML per Windows, varia per Linux). Per informazioni sugli elementi da includere nel file di risposte, vedere [creare un file di risposte](guarded-fabric-tenant-creates-shielding-data.md#create-an-answer-file) .
+Inoltre, sarà necessario un file di risposte per l'installazione automatica (unattend.xml per Windows, varia per Linux). Per informazioni sugli elementi da includere nel file di risposte, vedere [creare un file di risposte](guarded-fabric-tenant-creates-shielding-data.md#create-an-answer-file) .
 
 Eseguire i cmdlet seguenti in un computer con il Strumenti di amministrazione remota del server per le macchine virtuali schermate installate.
 Se si sta creando una PDK per una macchina virtuale Linux, è necessario eseguire questa operazione in un server che esegue Windows Server, versione 1709 o successiva.
@@ -72,6 +72,10 @@ New-ShieldingDataFile -ShieldingDataFilePath 'C:\temp\Contoso.pdk' -Owner $Owner
 ```
     
 ## <a name="provision-shielded-vm-on-a-guarded-host"></a>Eseguire il provisioning di macchine virtuali schermate in un host sorvegliato
+In un host che esegue Windows Server 2016, è possibile monitorare la macchina virtuale in modo che venga arrestata per segnalare il completamento dell'attività di provisioning e consultare i registri eventi di Hyper-V per ottenere informazioni sull'errore se il provisioning ha avuto esito negativo.
+
+È anche possibile creare un nuovo disco modello ogni volta prima di creare una nuova macchina virtuale schermata.
+
 Copiare il file del disco del modello (Serveros. vhdx) e il file PDK (contoso. PDK) nell'host sorvegliato per prepararsi alla distribuzione.
 
 Nell'host sorvegliato installare il modulo di PowerShell per gli strumenti di infrastruttura sorvegliata, che contiene il cmdlet New-ShieldedVM per semplificare il processo di provisioning. Se l'host sorvegliato ha accesso a Internet, eseguire il comando seguente:
@@ -80,7 +84,7 @@ Nell'host sorvegliato installare il modulo di PowerShell per gli strumenti di in
 Install-Module GuardedFabricTools -Repository PSGallery -MinimumVersion 1.0.0
 ```
 
-È anche possibile scaricare il modulo in un altro computer che dispone di accesso a Internet e copiare il modulo risultante per `C:\Program Files\WindowsPowerShell\Modules` nell'host sorvegliato.
+È anche possibile scaricare il modulo in un altro computer che dispone di accesso a Internet e copiare il modulo risultante nell' `C:\Program Files\WindowsPowerShell\Modules` host sorvegliato.
 
 ```powershell
 Save-Module GuardedFabricTools -Repository PSGallery -MinimumVersion 1.0.0 -Path C:\temp\
@@ -105,13 +109,13 @@ New-ShieldedVM -Name 'MyStaticIPVM' -TemplateDiskPath 'C:\temp\MyTemplateDisk.vh
 
 ```
 
-Se il disco del modello contiene un sistema operativo basato su Linux, includere il flag di `-Linux` durante l'esecuzione del comando:
+Se il disco del modello contiene un sistema operativo basato su Linux, includere il `-Linux` flag durante l'esecuzione del comando:
 
 ```powershell
 New-ShieldedVM -Name 'MyLinuxVM' -TemplateDiskPath 'C:\temp\MyTemplateDisk.vhdx' -ShieldingDataFilePath 'C:\temp\Contoso.pdk' -Wait -Linux
 ```
 
-Per ulteriori informazioni sulle altre opzioni che è possibile passare al cmdlet, consultare il contenuto della Guida utilizzando `Get-Help New-ShieldedVM -Full`.
+Per ulteriori informazioni `Get-Help New-ShieldedVM -Full` sulle altre opzioni che è possibile passare al cmdlet, consultare il contenuto della guida.
 
 Al termine del provisioning della macchina virtuale, entrerà nella fase di specializzazione specifica del sistema operativo, dopo la quale sarà pronta per l'uso.
 Assicurarsi di connettere la macchina virtuale a una rete valida per potersi connettere al momento dell'esecuzione (usando RDP, PowerShell, SSH o lo strumento di gestione preferito).
