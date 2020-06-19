@@ -31,7 +31,7 @@ Per informazioni sull'uso di Markdown in Docs.microsoft.com, vedere la [document
 
 ## <a name="license"></a>Licenza
 
-Per tutte le informazioni relative alle licenze, vedere le sezioni [LICENSE](https://github.com/MicrosoftDocs/windowsserverdocs-pr/blob/master/LICENSE), [LICENSE-CODE](https://github.com/MicrosoftDocs/windowsserverdocs-pr/blob/master/LICENSE-CODE) e [ThirdPartyNotices](https://github.com/MicrosoftDocs/windowsserverdocs-pr/blob/master/ThirdPartyNotices).
+Per tutte le informazioni relative alle licenze, vedere le sezioni [LICENSE](https://github.com/MicrosoftDocs/windowsserverdocs.it-it/blob/live/LICENSE), [LICENSE-CODE](https://github.com/MicrosoftDocs/windowsserverdocs.it-it/blob/live/LICENSE-CODE) e [ThirdPartyNotices](https://github.com/MicrosoftDocs/windowsserverdocs.it-it/blob/live/ThirdPartyNotices).
 
 ## <a name="code-of-conduct"></a>Codice di comportamento
 
